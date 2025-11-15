@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Kritische Leistung &amp; W&#39; Modell - Erweiterte Radsport-Analyse</title>
+    <meta name="description" content="Verstehen Sie Kritische Leistung (CP) und W&#39; (W Prime) für den Radsport. Erweiterte Ermüdungsmodellierung, W&#39;bal-Tracking und Leistungsoptimierung.">
+    <meta name="author" content="Albert Arno">
+
+    
+    
+    <meta name="keywords" content="kritische Leistung Radsport, W Prime Radsport, CP-Modell, W Prime Balance, anaerobe Kapazität Radsport">
+    
+
+    
+    <link rel="canonical" href="https://bike.analyticszone.app/de/critical-power/">
+
+    
+    
+    <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+    <meta property="article:modified_time" content="2025-11-12T14:30:00Z">
+    <meta property="article:author" content="Albert Arno">
+    
+
+    
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bike.analyticszone.app/de/critical-power/">
+    <meta property="og:title" content="Kritische Leistung &amp; W&#39; Modell - Erweiterte Radsport-Analyse">
+    <meta property="og:description" content="Verstehen Sie Kritische Leistung (CP) und W&#39; (W Prime) für den Radsport. Erweiterte Ermüdungsmodellierung, W&#39;bal-Tracking und Leistungsoptimierung.">
+    
+    <meta property="og:image" content="https://bike.analyticszone.app/assets/images/bike-analytics-og.jpg">
+    
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://bike.analyticszone.app/de/critical-power/">
+    <meta name="twitter:title" content="Kritische Leistung &amp; W&#39; Modell - Erweiterte Radsport-Analyse">
+    <meta name="twitter:description" content="Verstehen Sie Kritische Leistung (CP) und W&#39; (W Prime) für den Radsport. Erweiterte Ermüdungsmodellierung, W&#39;bal-Tracking und Leistungsoptimierung.">
+    
+    <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/bike-analytics-og.jpg">
+    
+
+    
+    
+    <link rel="alternate" hreflang="ca" href="https://bike.analyticszone.app/ca/critical-power/">
+    
+    <link rel="alternate" hreflang="de" href="https://bike.analyticszone.app/de/critical-power/">
+    
+    <link rel="alternate" hreflang="en" href="https://bike.analyticszone.app/en/critical-power/">
+    
+    <link rel="alternate" hreflang="fr" href="https://bike.analyticszone.app/fr/critical-power/">
+    
+    <link rel="alternate" hreflang="x-default" href="https://bike.analyticszone.app/en/critical-power/">
+
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0066CC">
+
+    
+    <link rel="stylesheet" href="/assets/css/main.min.css">
+
+    
+    
+
+    
+    
+
+    
+    
+</head>
+<body>
+    
+    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+    
+    <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/de/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="40" height="40">
+                </picture>
+                <span class="logo-text">BikeAnalytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        
+                        <a href="/de/"
+                           
+                           aria-current="">
+                            Startseite
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                            Lernen
+                            <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="3 4.5 6 7.5 9 4.5"></polyline>
+                            </svg>
+                        </button>
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/de/getting-started/"
+                                   
+                                   aria-current="">
+                                    Erste Schritte
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/ftp/"
+                                   
+                                   aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/critical-power/"
+                                   class="active"
+                                   aria-current="page">
+                                    Kritische Leistung
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/training-zones/"
+                                   
+                                   aria-current="">
+                                    Trainingszonen
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/training-load/"
+                                   
+                                   aria-current="">
+                                    Trainingsbelastung
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/tss-calculator/"
+                                   
+                                   aria-current="">
+                                    TSS-Rechner
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                            Wissenschaft
+                            <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="3 4.5 6 7.5 9 4.5"></polyline>
+                            </svg>
+                        </button>
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/de/research/"
+                                   
+                                   aria-current="">
+                                    Forschung
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/formulas/"
+                                   
+                                   aria-current="">
+                                    Formeln
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/power-metrics/"
+                                   
+                                   aria-current="">
+                                    Leistungsmetriken
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/efficiency/"
+                                   
+                                   aria-current="">
+                                    Effizienz
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/pedaling-mechanics/"
+                                   
+                                   aria-current="">
+                                    Tretmechanik
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/aerodynamics/"
+                                   
+                                   aria-current="">
+                                    Aerodynamik
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/climbing-performance/"
+                                   
+                                   aria-current="">
+                                    Kletterleistung
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/bibliography/"
+                                   
+                                   aria-current="">
+                                    Bibliographie
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                            Disziplinen
+                            <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="3 4.5 6 7.5 9 4.5"></polyline>
+                            </svg>
+                        </button>
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/de/road-cycling/"
+                                   
+                                   aria-current="">
+                                    Straßenradsport
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/mountain-biking/"
+                                   
+                                   aria-current="">
+                                    Mountainbiken
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/road-vs-mtb/"
+                                   
+                                   aria-current="">
+                                    Straße vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/de/comparisons/"
+                                   
+                                   aria-current="">
+                                    Plattform-Vergleich
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        
+                        <a href="/de/contact/"
+                           
+                           aria-current="">
+                            Kontakt
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input
+                        type="search"
+                        id="site-search"
+                        class="search-input"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-autocomplete="list"
+                        autocomplete="off"
+                        spellcheck="false"
+                    />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Sprache auswählen">
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" selected>
+                        Deutsch
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                </select>
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menü umschalten" aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+    
+    <main id="main-content" class="main-content">
+        <section class="hero hero-small">
+    <div class="container">
+        <h1>Critical Power & W' - Fortgeschrittenes Radsport-Leistungsmodell</h1>
+        <p class="lead">Beherrschen Sie Critical Power (CP) und W Prime (W') für überlegene Renneinteilung, Ermüdungsvorhersage und Rennstrategie. Das wissenschaftlich robusteste Modell für die Radfahrleistung.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-success mb-xl">
+            <h2>🎯 Wichtigste Erkenntnisse</h2>
+            <ul class="mb-0">
+                <li><strong>Critical Power (CP)</strong> ist die maximale nachhaltige Leistung für längere Dauern—wissenschaftlich robuster als FTP</li>
+                <li><strong>W' (W Prime)</strong> ist Ihre anaerobe Arbeitskapazität oberhalb CP, gemessen in Kilojoule</li>
+                <li><strong>W' Balance</strong> verfolgt Echtzeit-Erschöpfung und Erholung der anaeroben Kapazität während der Fahrt</li>
+                <li><strong>CP ≈ FTP + 5-10W</strong> in der Praxis, aber CP wird mathematisch aus mehreren Anstrengungen abgeleitet</li>
+                <li><strong>Entscheidend für MTB und variable Anstrengungen</strong> wo Renneinteilung und Angriffsverwaltung wesentlich sind</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-info mb-xl">
+            <h2>Was ist Critical Power?</h2>
+            <p><strong>Critical Power (CP) ist die höchste Stoffwechselrate, die ohne Ermüdung aufrechterhalten werden kann</strong> für längere Zeiträume. Sie repräsentiert die Grenze zwischen nachhaltiger aerober Stoffwechselaktivität und nicht nachhaltiger Belastung, die anaerobe Beiträge erfordert. Anders als FTP (eine einzelne 1-Stunden-Schätzung) wird CP mathematisch aus mehreren maximalen Anstrengungen bei unterschiedlichen Dauern abgeleitet, was sie robuster und wissenschaftlich validierter macht.</p>
+        </div>
+
+        <h2 class="mt-2xl">Die Wissenschaft hinter Critical Power</h2>
+
+        <p class="mb-md">Die Critical Power-Theorie entstand aus der Belastungsphysiologie-Forschung der 1960er Jahre und wurde in den 1990er Jahren für das Radfahren verfeinert. Das Modell basiert auf der <strong>hyperbolischen Leistungs-Dauer-Beziehung</strong>:</p>
+
+        <div class="formula-box mb-xl">
+            <h3>Leistungs-Dauer-Beziehung</h3>
+            <p><strong>t = W' / (P - CP)</strong></p>
+            <p class="mt-sm">Wo:</p>
+            <ul>
+                <li><strong>t</strong> = Zeit bis zur Erschöpfung</li>
+                <li><strong>P</strong> = Leistungsabgabe</li>
+                <li><strong>CP</strong> = Critical Power (Watt)</li>
+                <li><strong>W'</strong> = anaerobe Arbeitskapazität (Kilojoule)</li>
+            </ul>
+        </div>
+
+        <p class="mb-xl"><strong>Was das bedeutet:</strong> Bei jeder Leistung oberhalb CP haben Sie eine begrenzte Menge an Arbeit (W') vor der Erschöpfung. Bei CP selbst können Sie theoretisch unbegrenzt fortfahren. Unterhalb CP zapfen Sie nie W' an und können die Anstrengung für sehr lange Dauern aufrechterhalten.</p>
+
+        <div class="callout callout-tip">
+            <h3>📚 Forschungsgrundlage</h3>
+            <p>Critical Power wird durch jahrzehntelange peer-reviewed Forschung unterstützt:</p>
+            <ul class="mb-0">
+                <li><strong>Jones et al. (2019):</strong> "Critical Power: Theory and Applications" - umfassende Übersicht im Journal of Applied Physiology</li>
+                <li><strong>Poole et al. (2016):</strong> "Critical Power: An Important Fatigue Threshold" - validiert CP als physiologische Schwelle</li>
+                <li><strong>Vanhatalo et al. (2011):</strong> Zeigt, dass CP mit maximalem Laktat-Steady-State übereinstimmt</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="mb-xl text-center">Critical Power vs FTP: Hauptunterschiede</h2>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">Funktionelle Schwellenleistung (FTP)</h3>
+                <div class="card-content">
+                    <p><strong>Definition:</strong> Maximale Leistung, die etwa 1 Stunde aufrechterhalten werden kann.</p>
+                    <p><strong>Testen:</strong> Einzelne 20-Minuten- oder 60-Minuten-Anstrengung.</p>
+                    <p><strong>Berechnung:</strong> FTP = 95% der 20-Min-Leistung (oder 100% der 60-Min-Leistung).</p>
+                    <p><strong>Vorteile:</strong></p>
+                    <ul>
+                        <li>Einfach zu testen und zu verstehen</li>
+                        <li>Nur eine Anstrengung erforderlich</li>
+                        <li>Weit verbreiteter Industriestandard</li>
+                        <li>Integriert in TrainingPeaks, Zwift, etc.</li>
+                    </ul>
+                    <p><strong>Nachteile:</strong></p>
+                    <ul>
+                        <li>Einzelpunkt-Schätzung (weniger robust)</li>
+                        <li>Mental anspruchende 20-60 Min-Anstrengung</li>
+                        <li>Renneinteilungsfehler beeinflussen Genauigkeit</li>
+                        <li>Keine Messung der anaeroben Kapazität</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Critical Power (CP)</h3>
+                <div class="card-content">
+                    <p><strong>Definition:</strong> Maximale nachhaltige Leistung für theoretisch unendliche Dauer.</p>
+                    <p><strong>Testen:</strong> Mehrere maximale Anstrengungen (typisch 3-7 Min, 12 Min, 20 Min).</p>
+                    <p><strong>Berechnung:</strong> Mathematische Kurvenanpassung aus mehreren Datenpunkten.</p>
+                    <p><strong>Vorteile:</strong></p>
+                    <ul>
+                        <li>Wissenschaftlich robust (mehrere Anstrengungen)</li>
+                        <li>Beinhaltet W' (anaerobe Kapazität)</li>
+                        <li>Bessere Genauigkeit als einzelner FTP-Test</li>
+                        <li>Ermöglicht W' Balance-Tracking</li>
+                    </ul>
+                    <p><strong>Nachteile:</strong></p>
+                    <ul>
+                        <li>Erfordert 3-5 separate maximale Anstrengungen</li>
+                        <li>Komplexer zu berechnen</li>
+                        <li>Weniger verbreitet verstanden</li>
+                        <li>Testprotokoll anspruchsvoller</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-xl">
+            <h3>🔍 In der Praxis: CP ≈ FTP + 5-10W</h3>
+            <p>Für gut trainierte Radfahrer ist Critical Power typischerweise <strong>5-10 Watt höher als FTP</strong>. Beispiel:</p>
+            <ul>
+                <li><strong>FTP:</strong> 250W (aus 20-Min-Test)</li>
+                <li><strong>CP:</strong> 257W (aus 3-Min-, 12-Min-, 20-Min-Tests)</li>
+            </ul>
+            <p class="mb-0 mt-md">CP repräsentiert die theoretische Schwelle für unendliche Dauer, während FTP eine praktische 1-Stunden-Leistungsschätzung ist. Beide sind nützlich—FTP für Einfachheit, CP für Präzision und W'-Tracking.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Was ist W' (W Prime)?</h2>
+
+        <p class="mb-md"><strong>W' (ausgesprochen "W Prime") ist die begrenzte Arbeitsmenge, die Sie oberhalb Critical Power leisten können.</strong> Betrachten Sie es als Ihre "anaerobe Batterie"—einen begrenzten Energiespeicher, der sich entleert, wenn Sie oberhalb CP fahren, und sich langsam erholt, wenn Sie unterhalb CP fahren.</p>
+
+        <div class="formula-box mb-xl">
+            <h3>W' Definition</h3>
+            <p><strong>W' = (P - CP) × t</strong></p>
+            <p class="mt-sm">Wo:</p>
+            <ul>
+                <li><strong>W'</strong> = anaerobe Arbeitskapazität (Kilojoule)</li>
+                <li><strong>P</strong> = Leistungsabgabe (Watt)</li>
+                <li><strong>CP</strong> = Critical Power (Watt)</li>
+                <li><strong>t</strong> = Zeit bis zur Erschöpfung (Sekunden)</li>
+            </ul>
+            <p class="mt-md"><strong>Beispiel:</strong> Wenn Sie 350W für 5 Minuten aufrechterhalten können und Ihr CP 250W ist:<br>
+            W' = (350 - 250) × 300 = 30.000 Joule = <strong>30 kJ</strong></p>
+        </div>
+
+        <h3>Typische W'-Werte</h3>
+
+        <div class="zones-table-container mb-xl">
+            <table class="zones-table">
+                <thead>
+                    <tr>
+                        <th>Radfahrerniveau</th>
+                        <th>W'-Bereich (kJ)</th>
+                        <th>Was das bedeutet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Freizeitfahrer</strong></td>
+                        <td>10-15 kJ</td>
+                        <td>Begrenzte Angriffskapazität, kürzere Attacken</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wettkampf-Amateur</strong></td>
+                        <td>15-20 kJ</td>
+                        <td>Moderate anaerobe Kapazität, typischer Bereich</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elite-Straße</strong></td>
+                        <td>20-25 kJ</td>
+                        <td>Hohe Angriffskapazität für Attacken und Sprints</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elite MTB/CX</strong></td>
+                        <td>18-23 kJ</td>
+                        <td>Optimiert für wiederholte Angriffe</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-success">
+            <h3>💡 W' im realen Fahren verstehen</h3>
+            <p><strong>W' = 20 kJ Beispiel:</strong></p>
+            <ul class="mb-0">
+                <li>1 Minute bei 350W (100W über CP = 250W) = 6 kJ verbraucht → 14 kJ verbleibend</li>
+                <li>2 Minuten bei 300W (50W über CP) = 6 kJ verbraucht → 8 kJ verbleibend</li>
+                <li>30 Sekunden bei 450W (200W über CP) = 6 kJ verbraucht → 2 kJ verbleibend</li>
+                <li>Wenn W' auf Null sinkt → Sie sind fertig, müssen unter CP fallen zur Erholung</li>
+            </ul>
+        </div>
+
+        <h2 class="mt-3xl">So berechnen Sie Ihr CP und W'</h2>
+
+        <p class="mb-md">Um Ihre Critical Power und W' zu bestimmen, benötigen Sie mehrere maximale Anstrengungen bei unterschiedlichen Dauern. Das Standardprotokoll verwendet <strong>3-5 Zeitfahren</strong>:</p>
+
+        <h3>Standard CP-Testprotokoll</h3>
+
+        <div class="protocol-timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">Test 1</div>
+                <div class="timeline-content">
+                    <h4>3-Minuten maximale Anstrengung</h4>
+                    <p>Nach gründlichem Aufwärmen führen Sie eine 3-minütige All-Out-Anstrengung durch. Notieren Sie die Durchschnittsleistung (z.B. <strong>330W</strong>). Ruhen Sie 30-60 Minuten vor dem nächsten Test (oder testen Sie an einem anderen Tag).</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">Test 2</div>
+                <div class="timeline-content">
+                    <h4>12-Minuten maximale Anstrengung</h4>
+                    <p>Führen Sie ein 12-minütiges Zeitfahren bei maximaler nachhaltiger Leistung durch. Notieren Sie die Durchschnittsleistung (z.B. <strong>275W</strong>). Erholen Sie sich vollständig vor dem letzten Test.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">Test 3</div>
+                <div class="timeline-content">
+                    <h4>20-Minuten maximale Anstrengung</h4>
+                    <p>Absolvieren Sie eine 20-minütige FTP-ähnliche Anstrengung. Notieren Sie die Durchschnittsleistung (z.B. <strong>260W</strong>). Dies ist Ihr längster Dauertest.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">Berechnen</div>
+                <div class="timeline-content">
+                    <h4>Mathematische Kurvenanpassung</h4>
+                    <p>Zeichnen Sie Leistungs-Zeit-Daten auf und passen Sie sie an eine hyperbolische Kurve an. BikeAnalytics macht dies automatisch:</p>
+                    <ul>
+                        <li><strong>CP:</strong> Asymptote der Leistungs-Dauer-Kurve (z.B. 250W)</li>
+                        <li><strong>W':</strong> Krümmungskonstante (z.B. 18 kJ)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout-warning mt-xl">
+            <h3>⚠️ Test-Best-Practices</h3>
+            <ul class="mb-0">
+                <li><strong>Konsistente Bedingungen:</strong> Alle Tests am gleichen Ort, Übersetzung, Ausrüstung</li>
+                <li><strong>Vollständig erholt:</strong> Kein hartes Training 24-48h vor jedem Test</li>
+                <li><strong>Richtige Renneinteilung:</strong> Jede Anstrengung muss für diese Dauer wirklich maximal sein</li>
+                <li><strong>Angemessene Abstände:</strong> 24-48 Stunden zwischen Tests, wenn nicht Eintages-Protokoll</li>
+                <li><strong>Kalibrierter Leistungsmesser:</strong> Null-Offset vor jedem Test</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-tip mt-xl">
+            <h3>💡 Alternative: Bestehende Fahrtdaten verwenden</h3>
+            <p>Wenn Sie Leistungsdaten von kürzlichen Rennen oder harten Fahrten haben, kann BikeAnalytics CP und W' aus Ihrer <strong>Leistungs-Dauer-Kurve</strong> schätzen:</p>
+            <ul class="mb-0">
+                <li>Beste 3-Minuten-Leistung der letzten 90 Tage</li>
+                <li>Beste 5-Minuten-Leistung</li>
+                <li>Beste 12-Minuten-Leistung</li>
+                <li>Beste 20-Minuten-Leistung</li>
+            </ul>
+            <p class="mt-md">Diese "historische Best"-Methode ist weniger präzise als dedizierte Tests, bietet aber eine vernünftige Anfangsschätzung.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="mb-xl text-center">W' Balance: Echtzeit-Ermüdungstracking</h2>
+
+        <div class="container-narrow">
+            <p class="mb-xl text-center"><strong>W' Balance (W'bal) verfolgt die Erschöpfung und Erholung Ihrer anaeroben Kapazität in Echtzeit während der Fahrt.</strong> Dies ist die leistungsstärkste Anwendung des CP-Modells für Renneinteilung und Rennstrategie.</p>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">Wie W'bal funktioniert</h3>
+                <div class="card-content">
+                    <p><strong>Erschöpfungsphase (Oberhalb CP):</strong></p>
+                    <ul>
+                        <li>Beim Fahren oberhalb CP entleert sich W' linear</li>
+                        <li>Rate = (Aktuelle Leistung - CP)</li>
+                        <li>Beispiel: 50W über CP = 50 Joule/Sekunde Entleerung</li>
+                    </ul>
+                    <p class="mt-md"><strong>Erholungsphase (Unterhalb CP):</strong></p>
+                    <ul>
+                        <li>Beim Fahren unterhalb CP erholt sich W' exponentiell</li>
+                        <li>Erholungsrate hängt davon ab, wie weit unter CP</li>
+                        <li>Niedrigere Leistung = schnellere Erholungsrate</li>
+                        <li>Zeitkonstante τ ≈ 377 Sekunden (Skiba-Modell)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">W'bal-Interpretation</h3>
+                <div class="card-content">
+                    <p><strong>W'bal = 100%:</strong> Vollständig erholt, bereit für Angriffe</p>
+                    <p><strong>W'bal = 75%:</strong> Noch stark, kann angreifen</p>
+                    <p><strong>W'bal = 50%:</strong> Mittlere Ermüdung, Vorsicht geboten</p>
+                    <p><strong>W'bal = 25%:</strong> Hohe Ermüdung, begrenzte Angriffskapazität</p>
+                    <p><strong>W'bal = 0%:</strong> Völlig erschöpft, muss unter CP fahren</p>
+                    <p class="mt-md"><strong>Wichtige Erkenntnis:</strong> Selbst kurze Erholungen unterhalb CP stellen W' wieder her. Eine 30-Sekunden-Erholung bei 150W (100W unter CP) kann 2-3 kJ W' wiederherstellen.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-xl">
+            <h3>🚴 Beispiel: MTB-Rennen W'bal-Management</h3>
+            <p><strong>Szenario:</strong> 90-minütiges Cross-Country-Rennen, CP = 250W, W' = 20 kJ</p>
+            <ul>
+                <li><strong>Runde 1 (0-15 Min):</strong> Konservatives Tempo, W'bal bleibt 80-100%</li>
+                <li><strong>Runde 2 (15-30 Min):</strong> Harter Anstieg (350W für 90s) → W'bal fällt auf 55%</li>
+                <li><strong>Erholung (30-35 Min):</strong> Leichte Abfahrt (150W) → W'bal erholt sich auf 70%</li>
+                <li><strong>Runde 3 (35-50 Min):</strong> Technischer Abschnitt mit Angriffen → W'bal schwankt 60-75%</li>
+                <li><strong>Runde 4 (50-65 Min):</strong> Angriff am Anstieg (380W für 60s) → W'bal fällt auf 40%</li>
+                <li><strong>Letzte Runde (65-90 Min):</strong> W'bal sorgfältig managen, für Sprint-Finish sparen</li>
+            </ul>
+            <p class="mb-0 mt-md"><strong>Ergebnis:</strong> Durch Überwachung von W'bal weiß der Fahrer genau, wann Angriffe möglich sind und wann Erholung benötigt wird. Kein Raten basierend auf "Gefühl".</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Praktische Anwendungen von CP und W'</h2>
+
+        <h3>1. Renneinteilung bei langen Anstiegen</h3>
+        <p class="mb-md">Verwenden Sie CP, um nachhaltige Kletter-Leistung zu bestimmen. Wenn die Anstiegsdauer 30+ Minuten beträgt, sollte die Zielleistung ≤ CP sein. Leicht über CP zu gehen ist okay, aber verfolgen Sie W'bal, um sicherzustellen, dass Sie nicht vor dem Gipfel "einbrechen".</p>
+        <div class="example-box mb-xl">
+            <p><strong>Beispiel: 40-Minuten-Anstieg</strong></p>
+            <ul class="mb-0">
+                <li><strong>CP = 250W:</strong> Nachhaltige Zielleistung</li>
+                <li><strong>260W (10W über CP):</strong> Leichter Einbruch in W', aber nachhaltig für 40 Min</li>
+                <li><strong>280W (30W über CP):</strong> Zu hoch, W' entleert sich vollständig in ~11 Minuten</li>
+            </ul>
+        </div>
+
+        <h3>2. MTB- und Cyclocross-Rennstrategie</h3>
+        <p class="mb-md">Geländerennen beinhalten konstante Leistungsspitzen oberhalb CP. Verwenden Sie W'bal, um "verbrannte Streichhölzer" zu managen—jeder Angriff entleert W', und Erholungsperioden müssen ausreichend sein, um die Kapazität wiederherzustellen.</p>
+        <div class="example-box mb-xl">
+            <p><strong>MTB-Angriffsverwaltung:</strong></p>
+            <ul class="mb-0">
+                <li><strong>Vor dem Angriff:</strong> Prüfen Sie W'bal ≥ 60% (genug Reserven)</li>
+                <li><strong>Während des Angriffs:</strong> Akzeptieren Sie W'-Entleerung, aber kennen Sie die Kosten</li>
+                <li><strong>Nach dem Angriff:</strong> Unter CP fallen, um W' vor der nächsten Anstrengung zu erholen</li>
+                <li><strong>Spätes Rennen:</strong> Wenn W'bal < 30%, große Angriffe vermeiden—Sie werden einbrechen</li>
+            </ul>
+        </div>
+
+        <h3>3. Kriterium- und Straßenrennen-Taktiken</h3>
+        <p class="mb-md">Kriterien erfordern wiederholte Beschleunigungen und Angriffe. W'bal hilft Ihnen zu wissen, wann Sie auf Angriffe reagieren können und wann Sie die Flucht ziehen lassen müssen.</p>
+        <div class="example-box mb-xl">
+            <p><strong>Krit-Angriffsentscheidung:</strong></p>
+            <ul class="mb-0">
+                <li><strong>W'bal = 85%:</strong> Mit der Flucht gehen—Sie haben Reserven</li>
+                <li><strong>W'bal = 40%:</strong> Riskant—könnten beim Verfolgen einbrechen</li>
+                <li><strong>W'bal = 15%:</strong> Im Feld bleiben, W' für finalen Sprint erholen</li>
+            </ul>
+        </div>
+
+        <h3>4. Intervalltraining-Design</h3>
+        <p class="mb-md">Verwenden Sie CP und W', um Intervalle präzise zu strukturieren. Für VO₂max-Intervalle sollte die Leistung CP + (W' / Intervalldauer) sein.</p>
+        <div class="example-box mb-xl">
+            <p><strong>Beispiel: 5-Minuten-VO₂max-Intervalle</strong></p>
+            <ul class="mb-0">
+                <li><strong>CP = 250W, W' = 20 kJ</strong></li>
+                <li><strong>Zielleistung:</strong> 250W + (20.000J / 300s) = 250W + 67W = <strong>317W</strong></li>
+                <li><strong>Dies entleert W' vollständig in 5 Minuten</strong></li>
+                <li><strong>Erholung:</strong> 5-10 Min unter CP, um W' wiederherzustellen</li>
+            </ul>
+        </div>
+
+        <h3>5. Zeitfahren-Renneinteilung</h3>
+        <p class="mb-md">Für Zeitfahren länger als 30 Minuten fahren Sie leicht unter CP, um W'-Entleerung zu vermeiden. Sparen Sie W' für den Endspurt.</p>
+        <div class="example-box mb-xl">
+            <p><strong>40K-TT-Renneinteilung:</strong></p>
+            <ul class="mb-0">
+                <li><strong>Erste 35K:</strong> 95-98% von CP (W' schonen)</li>
+                <li><strong>Letzte 5K:</strong> Allmählich auf CP + 10-20W erhöhen (W' nutzen)</li>
+                <li><strong>Letztes 1K:</strong> W' vollständig entleeren (Sprint-Finish)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Critical Power & W': Häufig gestellte Fragen</h2>
+
+        <div class="faq-item">
+            <h3>Ist CP besser als FTP?</h3>
+            <p><strong>CP ist wissenschaftlich robuster</strong>, weil es aus mehreren Anstrengungen abgeleitet wird, nicht aus einem einzelnen Test. Jedoch ist FTP einfacher und weit verbreitet verstanden. Für die meisten Radfahrer ist FTP ausreichend. Verwenden Sie CP, wenn Sie Präzision, W'-Tracking oder Renn-Renneinteilungsmodelle wünschen. In der Praxis CP ≈ FTP + 5-10W.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Wie lange dauert es, bis W' sich vollständig erholt?</h3>
+            <p><strong>Erholung ist exponentiell, nicht linear.</strong> Bei 100W unter CP erholt sich W' ~50% in 6 Minuten, 75% in 12 Minuten, 90% in 20 Minuten. Vollständige Erholung (99%+) dauert 30-40 Minuten bei sehr niedriger Leistung. Je weiter unter CP Sie fahren, desto schneller erholt sich W'. Vollständige Ruhe (0W) ist NICHT optimal—leichtes Treten (~100-150W) beschleunigt die Erholung.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kann ich trainieren, um W' zu erhöhen?</h3>
+            <p><strong>Ja—W' ist durch anaerobe Intervalle trainierbar.</strong> VO₂max-Intervalle (3-8 Min bei 110-120% CP) und wiederholte Angriffe (30-90s bei 150%+ CP) erweitern W'. Straßensprinter und MTB-Fahrer haben typischerweise höheres W' als Ausdauerfahrer. Trainingsfokus: 1-2 Einheiten/Woche hochintensiver Intervalle, die W' vollständig entleeren, gefolgt von angemessener Erholung.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Nimmt W' ab, während eine Fahrt fortschreitet?</h3>
+            <p><strong>Ja—W'-Kapazität nimmt mit akkumulierter Ermüdung ab.</strong> Früh in einer Fahrt könnten Sie 20 kJ verfügbar haben. Nach 2-3 Stunden hartem Fahren kann das effektive W' auf 12-15 kJ sinken. Deshalb fühlen sich späte Rennangriffe härter an—Ihre anaerobe Reserve ist kompromittiert. BikeAnalytics kann diese W'-Entleerung mit Ermüdungsfaktoren modellieren.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Wie oft sollte ich CP und W' neu testen?</h3>
+            <p><strong>Alle 8-12 Wochen</strong> während der Trainingsprogression. CP steigt langsamer als FTP (es ist stabiler). W' kann sich mit gezieltem anaerobem Training signifikant ändern. Testen Sie nach großen Trainingsblöcken, Krankheit oder Verletzung neu. CP/W' sind resistenter gegen kurzfristige Fitnessschwankungen als FTP.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kann ich CP für Indoor-Training verwenden?</h3>
+            <p><strong>Absolut—CP ist ideal für Indoor-Training.</strong> Smart Trainer bieten stabile Leistung, was CP-Tests hochgenau macht. Zwift, TrainerRoad und andere Plattformen unterstützen CP-basierte Trainingseinheiten. W'bal-Tracking funktioniert perfekt drinnen, wo die Leistung konsistent ist. Viele Trainer bevorzugen CP für strukturiertes Indoor-Training.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Was ist das Skiba W' Balance-Modell?</h3>
+            <p><strong>Dr. Philip Skibas 2012-Modell verfolgt mathematisch W'-Entleerung und -Erholung.</strong> Es verwendet Differentialgleichungen mit Zeitkonstante τ ≈ 377 Sekunden für Erholungskinetik. Dieses Modell ist in WKO5, Golden Cheetah und BikeAnalytics implementiert. Es ist der Goldstandard für Echtzeit-W'bal-Berechnung während der Fahrt. Forschung: Skiba et al. (2012, 2014, 2021) in Medicine & Science in Sports & Exercise.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Können CP und W' Rennleistung vorhersagen?</h3>
+            <p><strong>Ja—mit hoher Genauigkeit für Anstrengungen von 3-60 Minuten.</strong> Das CP-Modell kann Zeit-bis-zur-Erschöpfung bei jeder gegebenen Leistung vorhersagen. Beispiel: Wenn CP = 250W und W' = 20 kJ, können Sie 300W für genau 6,67 Minuten aufrechterhalten (20.000J / 50W = 400s). Für längere Anstrengungen (>60 Min) überschätzt CP leicht die nachhaltige Leistung aufgrund zusätzlicher Ermüdungsfaktoren.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Wie beeinflusst Höhe CP und W'?</h3>
+            <p><strong>CP sinkt ~1% pro 300m über 1500m Höhe.</strong> W' ist weniger betroffen, weil anaerobe Kapazität nicht von Sauerstoff abhängt. Bei 2500m erwarten Sie einen CP-Rückgang von 3-4%, aber W' bleibt ähnlich. Das bedeutet in der Höhe sinkt Ihre nachhaltige Leistung, aber Ihre Angriffskapazität (relativ zum neuen CP) bleibt erhalten. Testen Sie CP in der Höhe neu für genaue Trainingszonen.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Sollte ich CP für Zone-4-Schwellentraining verwenden?</h3>
+            <p><strong>Ja—CP definiert Zone 4 Schwelle präzise.</strong> Schwellenintervalle sollten bei 95-105% von CP sein. Anders als FTP (geschätzt aus einem einzelnen Test) bietet CP eine mathematisch abgeleitete Schwelle. Für anhaltende Tempo-Anstrengungen (2×20 Min) fahren Sie bei CP. Für kürzere Intervalle (5×5 Min) fahren Sie bei CP + 3-5%. BikeAnalytics berechnet <a href="/de/training-zones/">Trainingszonen aus CP automatisch</a>.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Forschungsreferenzen</h2>
+
+        <div class="reference-list">
+            <div class="reference-item">
+                <h4>Jones, A.M., Burnley, M., Black, M.I., Poole, D.C., & Vanhatalo, A. (2019)</h4>
+                <p><strong>Critical Power: Theory and Applications</strong></p>
+                <p class="text-secondary">Journal of Applied Physiology, 126(6), 1905-1915.</p>
+                <p>Umfassende Übersicht der Critical Power-Theorie, physiologischer Grundlagen und praktischer Anwendungen für Athleten und Trainer.</p>
+            </div>
+
+            <div class="reference-item">
+                <h4>Skiba, P.F., Chidnok, W., Vanhatalo, A., & Jones, A.M. (2012)</h4>
+                <p><strong>Modeling the Expenditure and Reconstitution of Work Capacity Above Critical Power</strong></p>
+                <p class="text-secondary">Medicine and Science in Sports and Exercise, 44(8), 1526-1532.</p>
+                <p>Führt das W' Balance-Modell mit exponentieller Erholungskinetik ein. Grundlage für Echtzeit-W'bal-Tracking.</p>
+            </div>
+
+            <div class="reference-item">
+                <h4>Skiba, P.F., & Clarke, D.C. (2021)</h4>
+                <p><strong>The W′ Balance: Mathematical and Methodological Considerations</strong></p>
+                <p class="text-secondary">International Journal of Sports Physiology and Performance, 16(11), 1561-1572.</p>
+                <p>Aktualisierte Übersicht der W' Balance-Berechnungsmethoden, Validierungsstudien und praktischer Implementierungsüberlegungen.</p>
+            </div>
+
+            <div class="reference-item">
+                <h4>Poole, D.C., Burnley, M., Vanhatalo, A., Rossiter, H.B., & Jones, A.M. (2016)</h4>
+                <p><strong>Critical Power: An Important Fatigue Threshold in Exercise Physiology</strong></p>
+                <p class="text-secondary">Medicine and Science in Sports and Exercise, 48(11), 2320-2334.</p>
+                <p>Validiert Critical Power als physiologische Schwelle, die schwere von sehr schweren Belastungsbereichen trennt.</p>
+            </div>
+
+            <div class="reference-item">
+                <h4>Clark, I.E., Vanhatalo, A., Thompson, C., et al. (2021)</h4>
+                <p><strong>A Comparative Analysis of Critical Power Models in Elite Road Cyclists</strong></p>
+                <p class="text-secondary">European Journal of Applied Physiology, 121, 3027-3037.</p>
+                <p>Vergleicht verschiedene CP-Berechnungsmethoden bei Elite-Radfahrern. Zeigt, dass CP mit dem respiratorischen Kompensationspunkt übereinstimmt.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-tip mt-xl">
+            <h3>📚 Weiterführende Literatur</h3>
+            <ul class="mb-0">
+                <li><strong>Training and Racing with a Power Meter (3rd Ed.)</strong> von Hunter Allen & Andrew Coggan - Kapitel über Critical Power und W'</li>
+                <li><strong>WKO5 Software-Dokumentation</strong> - Detaillierte CP- und W'bal-Implementierungsleitfäden</li>
+                <li><strong>Golden Cheetah CP-Analyse</strong> - Open-Source-Tools für CP-Kurvenanpassung</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Verwandte Ressourcen</h2>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">FTP-Testen</h3>
+                <div class="card-content">
+                    <p>Lernen Sie das Standard-20-Minuten-FTP-Testprotokoll und wie FTP mit Critical Power zusammenhängt.</p>
+                    <a href="/de/ftp/" class="btn btn-secondary btn-small mt-md">FTP-Leitfaden →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Trainingszonen</h3>
+                <div class="card-content">
+                    <p>Verstehen Sie das 7-Zonen-leistungsbasierte Trainingssystem, das aus CP oder FTP abgeleitet wird.</p>
+                    <a href="/de/training-zones/" class="btn btn-secondary btn-small mt-md">Trainingszonen →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Trainingsbelastung</h3>
+                <div class="card-content">
+                    <p>Erfahren Sie, wie CP die TSS-Berechnung und das gesamte Trainingsstress-Management beeinflusst.</p>
+                    <a href="/de/training-load/" class="btn btn-secondary btn-small mt-md">TSS & PMC →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-xl text-center">
+            <p class="mb-md"><strong>Bereit, CP und W'bal zu verfolgen?</strong></p>
+            <a href="" class="btn btn-primary btn-large" target="_blank" rel="noopener">BikeAnalytics kostenlos herunterladen</a>
+            <p class="mt-sm text-secondary">Fortgeschrittenes CP- und W' Balance-Tracking inbegriffen</p>
+        </div>
+    </div>
+</section>
+    </main>
+
+    
+    <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h3 class="mb-md">BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h3>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with BikeAnalytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h3 class="mb-md">Startseite</h3>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. Alle Rechte vorbehalten
+            </p>
+            <ul class="footer-links">
+                <li><a href="/de/privacy/">Datenschutz</a></li>
+                <li><a href="/de/terms/">Nutzungsbedingungen</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+    
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern.</p>
+            <a href="/de/privacy/" class="text-sm">Mehr erfahren</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Ablehnen</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Akzeptieren</button>
+        </div>
+    </div>
+</div>
+
+    
+    <script src="/assets/js/main.min.js"></script>
+    <script src="/assets/js/cookie-consent.min.js"></script>
+    <script src="/assets/js/lazy-load.min.js"></script>
+
+    
+    <script src="/assets/js/fuse.min.js"></script>
+    <script src="/assets/js/search.min.js"></script>
+
+    
+    
+</body>
+</html>
