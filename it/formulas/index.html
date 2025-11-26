@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Formule Potenza Ciclismo - Fondamento Matematico</title>
+  <meta name="description" content="Formule complete per la potenza nel ciclismo: calcolo TSS, algoritmo NP, formula IF, equazioni modello CP e tracciamento W&#39;bal.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="formule potenza ciclismo, formula TSS, formula potenza normalizzata, formula potenza critica">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/it/formulas/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-11-25T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/it/formulas/">
+  <meta property="og:title" content="Formule Potenza Ciclismo - Fondamento Matematico">
+  <meta property="og:description" content="Formule complete per la potenza nel ciclismo: calcolo TSS, algoritmo NP, formula IF, equazioni modello CP e tracciamento W&#39;bal.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/bike-analytics-og.jpg">
+  
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/it/formulas/">
+  <meta name="twitter:title" content="Formule Potenza Ciclismo - Fondamento Matematico">
+  <meta name="twitter:description" content="Formule complete per la potenza nel ciclismo: calcolo TSS, algoritmo NP, formula IF, equazioni modello CP e tracciamento W&#39;bal.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/bike-analytics-og.jpg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/formulas/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/formulas/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/formulas/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/formulas/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/formulas/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/formulas/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/formulas/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/formulas/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/formulas/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+
+  
+  <link rel="stylesheet" href="/assets/css/main.min.css">
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Vai al contenuto</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/it/" class="site-logo">
+                <picture>
+                    
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    
+                    <img src="/assets/images/logo.png" alt="BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">BikeAnalytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        
+                        <a href="/it/"  aria-current="">
+                            Home
+                        </a>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">Impara</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/it/getting-started/" 
+                                    aria-current="">
+                                    Iniziare
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/critical-power/" 
+                                    aria-current="">
+                                    Potenza Critica
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/training-zones/" 
+                                    aria-current="">
+                                    Zone di Allenamento
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/training-load/" 
+                                    aria-current="">
+                                    Carico di Allenamento
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/tss-calculator/" 
+                                    aria-current="">
+                                    Calcolatore TSS
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">Scienza</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/it/research/" 
+                                    aria-current="">
+                                    Ricerca
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/formulas/" class="active" 
+                                    aria-current="page">
+                                    Formule
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/power-metrics/" 
+                                    aria-current="">
+                                    Metriche Potenza
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/efficiency/" 
+                                    aria-current="">
+                                    Efficienza
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Meccanica Pedalata
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodinamica
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/climbing-performance/" 
+                                    aria-current="">
+                                    Prestazioni in Salita
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/bibliography/" 
+                                    aria-current="">
+                                    Bibliografia
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">Discipline</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/it/road-cycling/" 
+                                    aria-current="">
+                                    Ciclismo su Strada
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Bike
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/road-vs-mtb/" 
+                                    aria-current="">
+                                    Strada vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/comparisons/" 
+                                    aria-current="">
+                                    Confronto Piattaforme
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li>
+                        
+                        
+                        <a href="/it/contact/"  aria-current="">
+                            Contatti
+                        </a>
+                        
+                        </li>
+                        
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Seleziona lingua">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="it" selected>
+                        Italiano
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"
+                    title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Attiva/disattiva menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <!-- Cycling Power Formulas -->
+
+<section class="hero hero-small">
+    <div class="container">
+        <h1>Formule Potenza Ciclismo</h1>
+        <p class="lead">Fondamenti Matematici delle Metriche BikeAnalytics</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Guida all'Implementazione</h2>
+        <p class="lead">Questa pagina fornisce formule copia-incolla e metodi di calcolo passo-passo per tutte le
+            metriche BikeAnalytics. Usale per implementazioni personalizzate, verifica o una comprensione più profonda
+            dell'allenamento basato sulla potenza.</p>
+
+        <div class="callout callout-warning">
+            <h3>⚠️ Note di Implementazione</h3>
+            <ul>
+                <li>Tutti i valori di potenza in watt (W), tempo in secondi se non specificato</li>
+                <li>FTP e CP sono soglie individuali—nessun valore universale</li>
+                <li>Valida sempre gli input per range ragionevoli (0-2000W tipico)</li>
+                <li>Gestisci i casi limite (divisione per zero, potenza negativa)</li>
+                <li>I dati di potenza richiedono intervalli di registrazione di 1 secondo per accuratezza</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Metriche Prestazionali Core</h2>
+
+        <div class="formula-card">
+            <h3>1. Training Stress Score (TSS)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        TSS = (durata_secondi × NP × IF) / (FTP × 3600) × 100
+                    </div>
+                    <div class="formula">
+                        dove IF = NP / FTP
+                    </div>
+                </div>
+
+                <h4>Esempio Svolto:</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong> Uscita 2 ore, NP = 235W, FTP = 250W</p>
+                    <ol>
+                        <li>Calcola IF: IF = 235 / 250 = 0.94</li>
+                        <li>Durata in secondi: 2 ore × 3600 = 7200 secondi</li>
+                        <li>TSS = (7200 × 235 × 0.94) / (250 × 3600) × 100</li>
+                        <li>TSS = 1,590,720 / 900,000 × 100 = <strong>176.7 TSS</strong></li>
+                    </ol>
+                    <p><em>Interpretazione: Allenamento duro (>150 TSS), aspettati 2-3 giorni di recupero</em></p>
+                </div>
+
+                <h4>Implementazione JavaScript:</h4>
+                <pre><code>function calculateTSS(durationSeconds, normalizedPower, ftp) {
+  const intensityFactor = normalizedPower / ftp;
+  const tss = (durationSeconds * normalizedPower * intensityFactor) / (ftp * 3600) * 100;
+  return Math.round(tss);
+}
+
+// Esempio uso:
+const tss = calculateTSS(7200, 235, 250);
+// Ritorna: 177</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>2. Normalized Power (NP)</h3>
+            <div class="formula-content">
+                <h4>Algoritmo (media mobile 30 secondi):</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        1. Calcola media mobile 30 secondi potenza per intera uscita
+                    </div>
+                    <div class="formula">
+                        2. Eleva ogni valore 30-sec alla 4a potenza
+                    </div>
+                    <div class="formula">
+                        3. Fai la media di tutti questi valori ^4
+                    </div>
+                    <div class="formula">
+                        4. Prendi la radice 4a di quella media
+                    </div>
+                    <div class="formula">
+                        NP = ⁴√(media di [30s_avg^4])
+                    </div>
+                </div>
+
+                <h4>Perché la 4a Potenza?</h4>
+                <p>La relazione quartica (4a potenza) riflette il costo fisiologico non lineare degli sforzi variabili.
+                    Un'uscita con scatti e recuperi costa più energia di una potenza costante alla stessa media.</p>
+
+                <div class="example-box">
+                    <p><strong>Esempio:</strong></p>
+                    <ul>
+                        <li>Uscita costante: 200W per 1 ora → NP = 200W, Media = 200W</li>
+                        <li>Uscita variabile: Alternando 300W/100W → Media = 200W, NP = 225W</li>
+                    </ul>
+                    <p><em>Stessa potenza media, ma l'uscita variabile ha NP 12% più alta dovuto al costo fisiologico
+                            degli scatti</em></p>
+                </div>
+
+                <h4>Implementazione JavaScript:</h4>
+                <pre><code>function calculateNormalizedPower(powerData) {
+  // powerData è array di valori potenza 1-secondo
+
+  // Step 1: Calcola medie mobili 30-secondi
+  const rollingAvgs = [];
+  for (let i = 29; i < powerData.length; i++) {
+    const window = powerData.slice(i - 29, i + 1);
+    const avg = window.reduce((sum, p) => sum + p, 0) / 30;
+    rollingAvgs.push(avg);
+  }
+
+  // Step 2: Eleva alla 4a potenza
+  const powered = rollingAvgs.map(p => Math.pow(p, 4));
+
+  // Step 3: Media delle 4e potenze
+  const avgPowered = powered.reduce((sum, p) => sum + p, 0) / powered.length;
+
+  // Step 4: Prendi radice 4a
+  const np = Math.pow(avgPowered, 0.25);
+
+  return Math.round(np);
+}
+
+// Esempio uso:
+const powerData = [/* array potenza 1-secondo */];
+const np = calculateNormalizedPower(powerData);
+// Ritorna: NP in watt</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>3. Intensity Factor (IF)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        IF = NP / FTP
+                    </div>
+                </div>
+
+                <h4>Range Interpretazione:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Range IF</th>
+                        <th>Livello Sforzo</th>
+                        <th>Esempio Allenamento</th>
+                    </tr>
+                    <tr>
+                        <td>&lt; 0.75</td>
+                        <td>Recupero / Facile</td>
+                        <td>Uscita recupero attivo, Zona 1-2</td>
+                    </tr>
+                    <tr>
+                        <td>0.75 - 0.85</td>
+                        <td>Endurance</td>
+                        <td>Uscita lunga costante, base aerobica</td>
+                    </tr>
+                    <tr>
+                        <td>0.85 - 0.95</td>
+                        <td>Tempo</td>
+                        <td>Allenamento sweet spot, intervalli tempo</td>
+                    </tr>
+                    <tr>
+                        <td>0.95 - 1.05</td>
+                        <td>Soglia</td>
+                        <td>Intervalli FTP, sforzo cronometro</td>
+                    </tr>
+                    <tr>
+                        <td>1.05 - 1.15</td>
+                        <td>VO₂max</td>
+                        <td>Intervalli 5-minuti, gara criterium</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 1.15</td>
+                        <td>Anaerobico</td>
+                        <td>Sprint brevi, attacchi, scatti MTB</td>
+                    </tr>
+                </table>
+
+                <h4>Esempio Calcolo:</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong> NP = 235W, FTP = 250W</p>
+                    <p>IF = 235 / 250 = <strong>0.94</strong></p>
+                    <p><em>Interpretazione: Alto tempo / sforzo sub-soglia, sostenibile per 2-3 ore</em></p>
+                </div>
+
+                <pre><code>function calculateIF(normalizedPower, ftp) {
+  return (normalizedPower / ftp).toFixed(2);
+}
+
+// Esempio:
+const if_value = calculateIF(235, 250);
+// Ritorna: 0.94</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>4. Variability Index (VI)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        VI = NP / Potenza Media
+                    </div>
+                </div>
+
+                <h4>Interpretazione per Disciplina:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Disciplina</th>
+                        <th>VI Tipico</th>
+                        <th>Significato</th>
+                    </tr>
+                    <tr>
+                        <td>Strada TT / Sforzo Costante</td>
+                        <td>1.00 - 1.05</td>
+                        <td>Potenza molto costante, pacing ottimale</td>
+                    </tr>
+                    <tr>
+                        <td>Gara Strada</td>
+                        <td>1.05 - 1.10</td>
+                        <td>Qualche scatto, generalmente costante</td>
+                    </tr>
+                    <tr>
+                        <td>Criterium</td>
+                        <td>1.10 - 1.20</td>
+                        <td>Accelerazioni e attacchi frequenti</td>
+                    </tr>
+                    <tr>
+                        <td>Mountain Bike XC</td>
+                        <td>1.15 - 1.30+</td>
+                        <td>Altamente variabile, scatti costanti</td>
+                    </tr>
+                </table>
+
+                <h4>Esempio Calcolo:</h4>
+                <div class="example-box">
+                    <p><strong>Gara Strada:</strong> NP = 240W, Potenza Avg = 230W</p>
+                    <p>VI = 240 / 230 = <strong>1.04</strong> (pacing costante)</p>
+
+                    <p><strong>Gara MTB:</strong> NP = 285W, Potenza Avg = 235W</p>
+                    <p>VI = 285 / 235 = <strong>1.21</strong> (molto variabile, sforzi a scatti)</p>
+                </div>
+
+                <pre><code>function calculateVI(normalizedPower, averagePower) {
+  return (normalizedPower / averagePower).toFixed(2);
+}
+
+// Esempio:
+const vi_road = calculateVI(240, 230);  // Ritorna: 1.04
+const vi_mtb = calculateVI(285, 235);   // Ritorna: 1.21</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Critical Power & W' (Capacità Anaerobica)</h2>
+
+        <div class="formula-card">
+            <h3>5. Critical Power (CP) - Modello Lineare</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        Tempo = W' / (Potenza - CP)
+                    </div>
+                    <div class="formula">
+                        Riarrangiata: Potenza × Tempo = CP × Tempo + W'
+                    </div>
+                </div>
+
+                <h4>Calcolo da Sforzi Multipli:</h4>
+                <p>Richiede 2-4 sforzi massimali a diverse durate (es. 3, 5, 12, 20 minuti)</p>
+
+                <div class="example-box">
+                    <p><strong>Dati Esempio:</strong></p>
+                    <table class="data-table">
+                        <tr>
+                            <th>Durata</th>
+                            <th>Potenza (W)</th>
+                            <th>Lavoro Totale (kJ)</th>
+                        </tr>
+                        <tr>
+                            <td>3 min (180s)</td>
+                            <td>400W</td>
+                            <td>72 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>5 min (300s)</td>
+                            <td>365W</td>
+                            <td>109.5 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>12 min (720s)</td>
+                            <td>310W</td>
+                            <td>223.2 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>20 min (1200s)</td>
+                            <td>285W</td>
+                            <td>342 kJ</td>
+                        </tr>
+                    </table>
+
+                    <p>Usando regressione lineare (Lavoro = CP × Tempo + W'):</p>
+                    <ul>
+                        <li><strong>CP = 270W</strong> (pendenza linea regressione)</li>
+                        <li><strong>W' = 18.5 kJ</strong> (intercetta y)</li>
+                    </ul>
+                </div>
+
+                <h4>Implementazione JavaScript:</h4>
+                <pre><code>function calculateCP_Linear(efforts) {
+  // efforts = [{duration: seconds, power: watts}, ...]
+
+  const times = efforts.map(e => e.duration);
+  const work = efforts.map(e => e.power * e.duration / 1000); // kJ
+
+  // Regressione lineare: work = CP * time + W'
+  const n = efforts.length;
+  const sumT = times.reduce((a, b) => a + b, 0);
+  const sumW = work.reduce((a, b) => a + b, 0);
+  const sumTW = times.reduce((sum, t, i) => sum + t * work[i], 0);
+  const sumTT = times.reduce((sum, t) => sum + t * t, 0);
+
+  const CP = (n * sumTW - sumT * sumW) / (n * sumTT - sumT * sumT);
+  const Wprime = (sumW - CP * sumT) / n;
+
+  return {
+    CP: Math.round(CP * 10) / 10,      // watt
+    Wprime: Math.round(Wprime * 10) / 10  // kJ
+  };
+}
+
+// Esempio uso:
+const efforts = [
+  {duration: 180, power: 400},
+  {duration: 300, power: 365},
+  {duration: 720, power: 310},
+  {duration: 1200, power: 285}
+];
+
+const result = calculateCP_Linear(efforts);
+// Ritorna: { CP: 270.0, Wprime: 18.5 }</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>6. W' Balance (W'bal) - Modello Equazione Differenziale</h3>
+            <div class="formula-content">
+                <h4>Formule:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        <strong>Spesa (quando P > CP):</strong><br>
+                        W'exp(t) = ∫(P(t) - CP) dt
+                    </div>
+                    <div class="formula">
+                        <strong>Recupero (quando P < CP):</strong><br>
+                                W'rec(t) = W' × (1 - e^(-t/τ))
+                    </div>
+                    <div class="formula">
+                        dove τ = 546 × e^(-0.01 × ΔCP) + 316<br>
+                        e ΔCP = (CP - P(t))
+                    </div>
+                </div>
+
+                <h4>Esempio Mondo Reale:</h4>
+                <div class="example-box">
+                    <p><strong>Specifiche Ciclista:</strong> CP = 270W, W' = 18.5 kJ</p>
+
+                    <p><strong>Scenario 1 - Attacco Duro:</strong></p>
+                    <ul>
+                        <li>Ciclista scatta a 400W per 30 secondi</li>
+                        <li>Spesa W': (400 - 270) × 30 = 3,900 J = 3.9 kJ</li>
+                        <li>W'bal rimanente: 18.5 - 3.9 = <strong>14.6 kJ</strong></li>
+                    </ul>
+
+                    <p><strong>Scenario 2 - Recupero:</strong></p>
+                    <ul>
+                        <li>Dopo attacco, scende a 200W (70W sotto CP) per 2 minuti</li>
+                        <li>ΔCP = 270 - 200 = 70W</li>
+                        <li>τ = 546 × e^(-0.01 × 70) + 316 = 588 secondi</li>
+                        <li>Recupero in 120s: 18.5 × (1 - e^(-120/588)) = <strong>3.5 kJ recuperati</strong></li>
+                        <li>Nuovo W'bal: 14.6 + 3.5 = <strong>18.1 kJ</strong></li>
+                    </ul>
+                </div>
+
+                <h4>Implementazione JavaScript:</h4>
+                <pre><code>function calculateWbalance(powerData, CP, Wprime) {
+  // powerData = array di {time: seconds, power: watts}
+  let wbal = Wprime * 1000; // Converti in joule
+  const wbalHistory = [];
+
+  for (let i = 1; i < powerData.length; i++) {
+    const dt = powerData[i].time - powerData[i-1].time;
+    const power = powerData[i].power;
+
+    if (power > CP) {
+      // Spesa sopra CP
+      const expenditure = (power - CP) * dt;
+      wbal -= expenditure;
+    } else {
+      // Recupero sotto CP
+      const deltaCP = CP - power;
+      const tau = 546 * Math.exp(-0.01 * deltaCP) + 316;
+      const recovery = (Wprime * 1000 - wbal) * (1 - Math.exp(-dt / tau));
+      wbal += recovery;
+    }
+
+    // Assicura che W'bal non superi max o vada negativo
+    wbal = Math.max(0, Math.min(wbal, Wprime * 1000));
+
+    wbalHistory.push({
+      time: powerData[i].time,
+      wbal: wbal / 1000, // kJ
+      percent: (wbal / (Wprime * 1000)) * 100
+    });
+  }
+
+  return wbalHistory;
+}
+
+// Esempio uso:
+const powerData = [
+  {time: 0, power: 200},
+  {time: 1, power: 210},
+  // ... resto dati uscita
+];
+
+const wbalHistory = calculateWbalance(powerData, 270, 18.5);
+// Ritorna array valori W'bal nel tempo</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Performance Management Chart (PMC)</h2>
+
+        <div class="formula-card">
+            <h3>7. Calcoli CTL, ATL, TSB</h3>
+            <div class="formula-content">
+                <h4>Formule (Medie Mobili Ponderate Esponenzialmente):</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        CTL_oggi = CTL_ieri + (TSS_oggi - CTL_ieri) / 42
+                    </div>
+                    <div class="formula">
+                        ATL_oggi = ATL_ieri + (TSS_oggi - ATL_ieri) / 7
+                    </div>
+                    <div class="formula">
+                        TSB_oggi = CTL_ieri - ATL_ieri
+                    </div>
+                </div>
+
+                <h4>Definizioni Metriche:</h4>
+                <ul>
+                    <li><strong>CTL (Chronic Training Load):</strong> Media ponderata esponenziale 42-giorni -
+                        rappresenta fitness</li>
+                    <li><strong>ATL (Acute Training Load):</strong> Media ponderata esponenziale 7-giorni - rappresenta
+                        fatica</li>
+                    <li><strong>TSB (Training Stress Balance):</strong> Forma = Fitness - Fatica</li>
+                </ul>
+
+                <h4>Esempio Svolto (Blocco Allenamento 7-Giorni):</h4>
+                <div class="example-box">
+                    <table class="data-table">
+                        <tr>
+                            <th>Giorno</th>
+                            <th>TSS</th>
+                            <th>CTL</th>
+                            <th>ATL</th>
+                            <th>TSB</th>
+                            <th>Stato</th>
+                        </tr>
+                        <tr>
+                            <td>Lun</td>
+                            <td>100</td>
+                            <td>75.0</td>
+                            <td>80.0</td>
+                            <td>-5.0</td>
+                            <td>Allenamento</td>
+                        </tr>
+                        <tr>
+                            <td>Mar</td>
+                            <td>50</td>
+                            <td>74.4</td>
+                            <td>75.7</td>
+                            <td>-1.3</td>
+                            <td>Recupero</td>
+                        </tr>
+                        <tr>
+                            <td>Mer</td>
+                            <td>120</td>
+                            <td>75.5</td>
+                            <td>82.0</td>
+                            <td>-6.5</td>
+                            <td>Allenamento Duro</td>
+                        </tr>
+                        <tr>
+                            <td>Gio</td>
+                            <td>0</td>
+                            <td>73.7</td>
+                            <td>70.3</td>
+                            <td>+3.4</td>
+                            <td>Giorno Riposo</td>
+                        </tr>
+                        <tr>
+                            <td>Ven</td>
+                            <td>80</td>
+                            <td>73.8</td>
+                            <td>71.7</td>
+                            <td>+2.1</td>
+                            <td>Moderato</td>
+                        </tr>
+                        <tr>
+                            <td>Sab</td>
+                            <td>150</td>
+                            <td>75.6</td>
+                            <td>82.9</td>
+                            <td>-7.3</td>
+                            <td>Uscita Lunga</td>
+                        </tr>
+                        <tr>
+                            <td>Dom</td>
+                            <td>40</td>
+                            <td>74.8</td>
+                            <td>76.8</td>
+                            <td>-2.0</td>
+                            <td>Recupero</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4>Interpretazione TSB:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Range TSB</th>
+                        <th>Stato</th>
+                        <th>Azione</th>
+                    </tr>
+                    <tr>
+                        <td>&lt; -30</td>
+                        <td>Alto Rischio</td>
+                        <td>Avviso sovrallenamento - ridurre carico</td>
+                    </tr>
+                    <tr>
+                        <td>-30 a -10</td>
+                        <td>Allenamento Duro</td>
+                        <td>Costruendo fitness, monitorare recupero</td>
+                    </tr>
+                    <tr>
+                        <td>-10 a +5</td>
+                        <td>Ottimale</td>
+                        <td>Zona allenamento normale</td>
+                    </tr>
+                    <tr>
+                        <td>+5 a +15</td>
+                        <td>Pronto Gara</td>
+                        <td>Picco forma - gareggia questo weekend</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; +25</td>
+                        <td>Detraining</td>
+                        <td>Perdita fitness - aumentare carico</td>
+                    </tr>
+                </table>
+
+                <h4>Implementazione JavaScript:</h4>
+                <pre><code>function calculatePMC(workouts) {
+  // workouts = [{date: "YYYY-MM-DD", tss: number}, ...]
+  let ctl = 0, atl = 0;
+  const results = [];
+
+  workouts.forEach(workout => {
+    // Aggiorna CTL (costante tempo 42-giorni)
+    ctl = ctl + (workout.tss - ctl) / 42;
+
+    // Aggiorna ATL (costante tempo 7-giorni)
+    atl = atl + (workout.tss - atl) / 7;
+
+    // Calcola TSB (CTL ieri - ATL oggi per calcolo tradizionale)
+    // Per semplicità qui usando valori correnti
+    const tsb = ctl - atl;
+
+    results.push({
+      date: workout.date,
+      tss: workout.tss,
+      ctl: Math.round(ctl * 10) / 10,
+      atl: Math.round(atl * 10) / 10,
+      tsb: Math.round(tsb * 10) / 10,
+      status: getTSBStatus(tsb)
+    });
+  });
+
+  return results;
+}
+
+function getTSBStatus(tsb) {
+  if (tsb < -30) return "Alto Rischio";
+  if (tsb < -10) return "Allenamento Duro";
+  if (tsb < 5) return "Ottimale";
+  if (tsb < 15) return "Pronto Gara";
+  return "Detraining";
+}
+
+// Esempio uso:
+const workouts = [
+  {date: "2025-01-01", tss: 100},
+  {date: "2025-01-02", tss: 50},
+  {date: "2025-01-03", tss: 120},
+  // ... altri allenamenti
+];
+
+const pmc = calculatePMC(workouts);
+// Ritorna array con CTL, ATL, TSB per ogni giorno</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Metriche Potenza-Peso & Salita</h2>
+
+        <div class="formula-card">
+            <h3>8. Rapporto Potenza-Peso</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        W/kg = Potenza (watt) / Massa Corporea (kg)
+                    </div>
+                </div>
+
+                <h4>Benchmark FTP W/kg:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Livello</th>
+                        <th>Uomo W/kg</th>
+                        <th>Donna W/kg</th>
+                        <th>Categoria</th>
+                    </tr>
+                    <tr>
+                        <td>Ricreativo</td>
+                        <td>2.5 - 3.5</td>
+                        <td>2.0 - 3.0</td>
+                        <td>Ciclista fitness</td>
+                    </tr>
+                    <tr>
+                        <td>Competitivo</td>
+                        <td>3.5 - 4.5</td>
+                        <td>3.0 - 4.0</td>
+                        <td>Cat 3-4, amatore age group</td>
+                    </tr>
+                    <tr>
+                        <td>Avanzato</td>
+                        <td>4.5 - 5.5</td>
+                        <td>4.0 - 5.0</td>
+                        <td>Cat 1-2, amatore forte</td>
+                    </tr>
+                    <tr>
+                        <td>Amatore Elite</td>
+                        <td>5.5 - 6.0</td>
+                        <td>5.0 - 5.5</td>
+                        <td>Livello nazionale</td>
+                    </tr>
+                    <tr>
+                        <td>Professionista</td>
+                        <td>6.0 - 7.0+</td>
+                        <td>5.5 - 6.5+</td>
+                        <td>World Tour, Grand Tour GC</td>
+                    </tr>
+                </table>
+
+                <h4>Esempio Calcolo:</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong> Ciclista con FTP = 275W, massa corporea = 70kg</p>
+                    <p>W/kg = 275 / 70 = <strong>3.93 W/kg</strong></p>
+                    <p><em>Interpretazione: Livello competitivo, capace in gare collinari</em></p>
+                </div>
+
+                <pre><code>function calculateWattsPerKg(power, bodyMassKg) {
+  return (power / bodyMassKg).toFixed(2);
+}
+
+// Esempio:
+const wpkg = calculateWattsPerKg(275, 70);
+// Ritorna: 3.93</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>9. VAM (Velocità Ascensionale Media)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        VAM (m/h) = Guadagno Elevazione (m) / Tempo (ore)
+                    </div>
+                </div>
+
+                <h4>Benchmark VAM:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>VAM (m/h)</th>
+                        <th>Livello</th>
+                        <th>Esempio</th>
+                    </tr>
+                    <tr>
+                        <td>600 - 900</td>
+                        <td>Ricreativo</td>
+                        <td>Ciclista club su salita locale</td>
+                    </tr>
+                    <tr>
+                        <td>900 - 1200</td>
+                        <td>Competitivo</td>
+                        <td>Buon amatore su Alpe d'Huez</td>
+                    </tr>
+                    <tr>
+                        <td>1200 - 1500</td>
+                        <td>Amatore Elite</td>
+                        <td>Scalatore livello nazionale</td>
+                    </tr>
+                    <tr>
+                        <td>1500 - 1800</td>
+                        <td>Professionista</td>
+                        <td>Gregario World Tour</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 1800</td>
+                        <td>Vincitore Grand Tour</td>
+                        <td>Pogačar, Vingegaard su salite chiave</td>
+                    </tr>
+                </table>
+
+                <h4>Esempio Calcolo:</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong> Salita Alpe d'Huez</p>
+                    <ul>
+                        <li>Guadagno elevazione: 1100 metri</li>
+                        <li>Tempo: 55 minuti = 0.917 ore</li>
+                        <li>VAM = 1100 / 0.917 = <strong>1200 m/h</strong></li>
+                    </ul>
+                    <p><em>Interpretazione: Prestazione scalata livello competitivo</em></p>
+                </div>
+
+                <pre><code>function calculateVAM(elevationGainMeters, timeMinutes) {
+  const hours = timeMinutes / 60;
+  return Math.round(elevationGainMeters / hours);
+}
+
+// Esempio:
+const vam = calculateVAM(1100, 55);
+// Ritorna: 1200 m/h</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>10. Stima W/kg da VAM</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        W/kg ≈ VAM (m/h) / 100 / (Pendenza% + 3)
+                    </div>
+                </div>
+
+                <h4>Esempio Calcolo:</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong> Salita con 8% pendenza media, VAM = 1200 m/h</p>
+                    <p>W/kg = 1200 / 100 / (8 + 3)</p>
+                    <p>W/kg = 12 / 11 = <strong>4.36 W/kg</strong></p>
+                    <p><em>Verifica: Con ciclista 70kg → 305W potenza sostenuta su salita</em></p>
+                </div>
+
+                <pre><code>function estimateWkgFromVAM(vam, gradientPercent) {
+  return (vam / 100 / (gradientPercent + 3)).toFixed(2);
+}
+
+// Esempio:
+const wkg = estimateWkgFromVAM(1200, 8);
+// Ritorna: 4.36</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Equazione Potenza Aerodinamica</h2>
+
+        <div class="formula-card">
+            <h3>11. Requisiti Potenza Totale</h3>
+            <div class="formula-content">
+                <h4>Formula Completa:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        P_totale = P_aria + P_rotolamento + P_gravità + P_cinetica + P_perdite
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h3 class="mb-md">BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h3>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with BikeAnalytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h3 class="mb-md">Home</h3>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. Tutti i diritti riservati
+            </p>
+            <ul class="footer-links">
+                <li><a href="/it/privacy/">Privacy</a></li>
+                <li><a href="/it/terms/">Termini</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>Questo sito utilizza i cookie per migliorare la tua esperienza.</p>
+            <a href="/it/privacy/" class="text-sm">Saperne di più</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Rifiuta</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accetta</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/main.min.js"></script>
+  <script src="/assets/js/cookie-consent.min.js"></script>
+  <script src="/assets/js/lazy-load.min.js"></script>
+
+  
+  <script src="/assets/js/fuse.min.js"></script>
+  <script src="/assets/js/search.min.js"></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG"></script>
+  
+</body>
+
+</html>

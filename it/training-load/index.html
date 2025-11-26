@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>TSS, CTL, ATL, TSB - Gestione Carico Allenamento Ciclismo</title>
+  <meta name="description" content="Padroneggia il Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL) e Training Stress Balance (TSB) per il ciclismo.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="TSS ciclismo, punteggio stress allenamento, CTL ciclismo, ATL ciclismo, TSB ciclismo, gestione carico allenamento">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/it/training-load/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-11-25T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/it/training-load/">
+  <meta property="og:title" content="TSS, CTL, ATL, TSB - Gestione Carico Allenamento Ciclismo">
+  <meta property="og:description" content="Padroneggia il Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL) e Training Stress Balance (TSB) per il ciclismo.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/bike-analytics-og.jpg">
+  
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/it/training-load/">
+  <meta name="twitter:title" content="TSS, CTL, ATL, TSB - Gestione Carico Allenamento Ciclismo">
+  <meta name="twitter:description" content="Padroneggia il Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL) e Training Stress Balance (TSB) per il ciclismo.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/bike-analytics-og.jpg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/training-load/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/training-load/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/training-load/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/training-load/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/training-load/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/training-load/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/training-load/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/training-load/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/training-load/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+
+  
+  <link rel="stylesheet" href="/assets/css/main.min.css">
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Vai al contenuto</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/it/" class="site-logo">
+                <picture>
+                    
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    
+                    <img src="/assets/images/logo.png" alt="BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">BikeAnalytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        
+                        <a href="/it/"  aria-current="">
+                            Home
+                        </a>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">Impara</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/it/getting-started/" 
+                                    aria-current="">
+                                    Iniziare
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/critical-power/" 
+                                    aria-current="">
+                                    Potenza Critica
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/training-zones/" 
+                                    aria-current="">
+                                    Zone di Allenamento
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/training-load/" class="active" 
+                                    aria-current="page">
+                                    Carico di Allenamento
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/tss-calculator/" 
+                                    aria-current="">
+                                    Calcolatore TSS
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">Scienza</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/it/research/" 
+                                    aria-current="">
+                                    Ricerca
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/formulas/" 
+                                    aria-current="">
+                                    Formule
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/power-metrics/" 
+                                    aria-current="">
+                                    Metriche Potenza
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/efficiency/" 
+                                    aria-current="">
+                                    Efficienza
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Meccanica Pedalata
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodinamica
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/climbing-performance/" 
+                                    aria-current="">
+                                    Prestazioni in Salita
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/bibliography/" 
+                                    aria-current="">
+                                    Bibliografia
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">Discipline</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/it/road-cycling/" 
+                                    aria-current="">
+                                    Ciclismo su Strada
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Bike
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/road-vs-mtb/" 
+                                    aria-current="">
+                                    Strada vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/it/comparisons/" 
+                                    aria-current="">
+                                    Confronto Piattaforme
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li>
+                        
+                        
+                        <a href="/it/contact/"  aria-current="">
+                            Contatti
+                        </a>
+                        
+                        </li>
+                        
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Seleziona lingua">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="it" selected>
+                        Italiano
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"
+                    title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Attiva/disattiva menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Gestione Carico Allenamento: TSS, CTL, ATL & TSB per Ciclismo</h1>
+        <p class="lead">Padroneggia il Grafico Gestione Prestazioni per ottimizzare l'allenamento, prevenire il
+            sovrallenamento e raggiungere il picco per i tuoi obiettivi ciclistici</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-success">
+            <h3>🎯 Punti Chiave: Carico Allenamento per Ciclismo</h3>
+            <ul>
+                <li><strong>Training Stress Score (TSS)</strong> quantifica quanto duramente ogni uscita impatta il tuo
+                    corpo, combinando potenza, intensità e durata</li>
+                <li><strong>CTL (Chronic Training Load)</strong> misura il tuo fitness a lungo termine costruito su 42
+                    giorni di allenamento costante</li>
+                <li><strong>ATL (Acute Training Load)</strong> traccia la fatica recente dagli ultimi 7 giorni di guida
+                </li>
+                <li><strong>TSB (Training Stress Balance)</strong> mostra il tuo bilancio fitness-fatica e la prontezza
+                    per gareggiare o recuperare</li>
+                <li>Comprendere il carico di allenamento ciclismo previene il sovrallenamento e ottimizza il timing
+                    delle prestazioni attraverso periodizzazione guidata dai dati</li>
+            </ul>
+            <p><em>Fondamento: I calcoli TSS richiedono la tua <a href="/it/ftp/">Functional Threshold Power
+                        (FTP)</a> come punto di riferimento soglia.</em></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Cos'è il Training Stress Score (TSS)?</h2>
+        <p class="lead">Il Training Stress Score risponde alla domanda critica: <strong>Quanto è stata dura
+                quell'uscita?</strong> Non solo distanza o tempo, ma il vero stress fisiologico imposto al tuo corpo da
+            ogni sessione ciclistica.</p>
+
+        <p>Il Training Stress Score (TSS), sviluppato dal Dr. Andrew Coggan, fornisce un metodo standardizzato per
+            quantificare intensità e durata dell'allenamento in un singolo numero. TSS ha rivoluzionato l'allenamento
+            ciclistico rendendo l'allenamento basato sulla potenza accessibile e azionabile.</p>
+
+        <div class="callout callout-info">
+            <h3>Lo Standard TSS per Ciclismo</h3>
+            <p>Un'ora alla tua <a href="/it/ftp/">Functional Threshold Power (FTP)</a> = <strong>100
+                    TSS</strong></p>
+            <p>Questa standardizzazione permette il confronto tra allenamenti, settimane e cicli di allenamento. Uno
+                sforzo soglia di 30 minuti = ~50 TSS. Un'uscita soglia di 2 ore = ~200 TSS.</p>
+        </div>
+
+        <h3>Come viene Calcolato il TSS</h3>
+        <div class="formula-box">
+            <div class="formula">
+                TSS = (secondi × NP × IF) / (FTP × 3600) × 100
+            </div>
+            <div class="formula-explanation">
+                <p>Dove:</p>
+                <ul>
+                    <li><strong>NP (Normalized Power)</strong> = Il "costo" fisiologico dell'uscita</li>
+                    <li><strong>IF (Intensity Factor)</strong> = NP / FTP (intensità relativa alla soglia)</li>
+                    <li><strong>Durata</strong> = Tempo totale uscita in secondi</li>
+                    <li><strong>FTP</strong> = La tua potenza di soglia funzionale in watt</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Esempio Pratico: Uscita Endurance 2 Ore</h3>
+        <div class="example-box">
+            <h4>Profilo Rider:</h4>
+            <ul>
+                <li>FTP: <strong>250W</strong></li>
+            </ul>
+
+            <h4>Dati Uscita:</h4>
+            <ul>
+                <li>Durata: <strong>2 ore (7200 secondi)</strong></li>
+                <li>Normalized Power: <strong>200W</strong></li>
+            </ul>
+
+            <h4>Passo 1: Calcola Intensity Factor (IF)</h4>
+            <div class="calculation">
+                IF = NP / FTP<br>
+                IF = 200W / 250W<br>
+                IF = <strong>0.80</strong>
+            </div>
+
+            <h4>Passo 2: Calcola TSS</h4>
+            <div class="calculation">
+                TSS = (7200s × 200W × 0.80) / (250W × 3600) × 100<br>
+                TSS = (1,152,000) / (900,000) × 100<br>
+                TSS = <strong>128 TSS</strong>
+            </div>
+
+            <p class="mt-md"><strong>Interpretazione:</strong> Questa uscita endurance di 2 ore all'80% dell'FTP ha
+                generato 128 TSS—un solido stimolo di allenamento aerobico tipico delle uscite di costruzione base.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-xl">Linee Guida TSS per Tipo Allenamento</h2>
+
+        <div class="intensity-guide">
+            <table class="intensity-table">
+                <thead>
+                    <tr>
+                        <th>Tipo Allenamento</th>
+                        <th>Range TSS</th>
+                        <th>Intensity Factor</th>
+                        <th>Descrizione</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Uscita Recupero</strong></td>
+                        <td>20-50 TSS</td>
+                        <td>IF &lt; 0.65</td>
+                        <td>Spinning facile, recupero attivo, 30-60 minuti</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Endurance Facile</strong></td>
+                        <td>50-100 TSS</td>
+                        <td>IF 0.65-0.75</td>
+                        <td>Passo conversazione, costruzione base aerobica, 1-2 ore</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Endurance Moderato</strong></td>
+                        <td>100-150 TSS</td>
+                        <td>IF 0.75-0.85</td>
+                        <td>Guida stato stazionario, uscite gruppo, 2-3 ore</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Uscita Tempo</strong></td>
+                        <td>150-200 TSS</td>
+                        <td>IF 0.85-0.95</td>
+                        <td>Allenamento sweet spot, sforzi tempo sostenuti, 2-3 ore</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Allenamento Soglia</strong></td>
+                        <td>200-300 TSS</td>
+                        <td>IF 0.95-1.05</td>
+                        <td>Intervalli FTP, simulazione gara, 2-4 ore con qualità</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intervalli VO₂max</strong></td>
+                        <td>150-250 TSS</td>
+                        <td>IF 1.05-1.15</td>
+                        <td>Intervalli duri al 120% FTP, 1-2 ore con alta intensità</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Simulazione Gara</strong></td>
+                        <td>200-400 TSS</td>
+                        <td>IF 0.90-1.05</td>
+                        <td>Sforzi specifici evento, criterium, gare strada, 2-5 ore</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>📊 Target TSS Settimanali per Livello Ciclista</h3>
+            <ul>
+                <li><strong>Ciclista Principiante:</strong> 200-400 TSS/settimana (3-4 uscite/settimana)</li>
+                <li><strong>Ciclista Ricreativo:</strong> 400-600 TSS/settimana (4-5 uscite/settimana)</li>
+                <li><strong>Amatore Competitivo:</strong> 600-900 TSS/settimana (5-7 uscite/settimana)</li>
+                <li><strong>Elite/Professionista:</strong> 900-1500+ TSS/settimana (8-12+ sessioni/settimana)</li>
+            </ul>
+            <p>Questi si accumulano verso il tuo Chronic Training Load (CTL), la metrica di fitness spiegata sotto.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="text-center mb-xl">Il Performance Management Chart (PMC)</h2>
+        <p class="text-center lead">Il PMC visualizza tre metriche interconnesse che raccontano la storia completa del
+            tuo allenamento ciclistico: fitness, fatica e forma.</p>
+
+        <div class="pmc-overview">
+            <div class="grid grid-3">
+                <div class="pmc-metric">
+                    <div class="metric-icon">📈</div>
+                    <h3>CTL - Chronic Training Load</h3>
+                    <div class="metric-value-label">Il Tuo FITNESS</div>
+                    <p>Media mobile ponderata esponenzialmente su 42 giorni del TSS giornaliero. Rappresenta il fitness
+                        aerobico a lungo termine e l'adattamento all'allenamento da guida costante.</p>
+                    <div class="formula-small">
+                        CTL oggi = CTL ieri + (TSS oggi - CTL ieri) / 42
+                    </div>
+                </div>
+
+                <div class="pmc-metric">
+                    <div class="metric-icon">⚡</div>
+                    <h3>ATL - Acute Training Load</h3>
+                    <div class="metric-value-label">La Tua FATICA</div>
+                    <p>Media mobile ponderata esponenzialmente su 7 giorni del TSS giornaliero. Cattura lo stress di
+                        allenamento recente e la fatica accumulata dalla passata settimana di guida.</p>
+                    <div class="formula-small">
+                        ATL oggi = ATL ieri + (TSS oggi - ATL ieri) / 7
+                    </div>
+                </div>
+
+                <div class="pmc-metric">
+                    <div class="metric-icon">🎯</div>
+                    <h3>TSB - Training Stress Balance</h3>
+                    <div class="metric-value-label">La Tua FORMA</div>
+                    <p>Differenza tra fitness di ieri e fatica di oggi. Indica prontezza a performare o bisogno di
+                        riposo prima della tua prossima uscita di qualità o gara.</p>
+                    <div class="formula-small">
+                        TSB = CTL (ieri) - ATL (oggi)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>CTL: La Tua Metrica di Fitness Ciclistico</h2>
+
+        <div class="grid grid-2">
+            <div>
+                <h3>Cosa Rappresenta CTL per i Ciclisti</h3>
+                <p>CTL quantifica il carico di allenamento a cui il tuo corpo si è <em>adattato</em> nelle ultime 6
+                    settimane. Un CTL più alto nel ciclismo significa:</p>
+                <ul>
+                    <li>Maggiore capacità aerobica e resistenza</li>
+                    <li>Capacità di gestire più volume e intensità di allenamento</li>
+                    <li>Migliore efficienza metabolica e ossidazione grassi</li>
+                    <li>Output di potenza sostenibile più alto</li>
+                    <li>Miglior recupero tra sforzi duri</li>
+                </ul>
+
+                <div class="callout callout-info">
+                    <h4>Costante di Tempo: 42 Giorni</h4>
+                    <p>CTL ha un'emivita di circa 14-15 giorni. Dopo 42 giorni, circa il 36.8% (1/e) dell'impatto di un
+                        singolo allenamento rimane nel tuo calcolo fitness.</p>
+                    <p>Questo lento decadimento significa che il fitness si costruisce gradualmente ma svanisce anche
+                        lentamente—puoi prendere una settimana di pausa senza grossa perdita di fitness.</p>
+                </div>
+            </div>
+
+            <div>
+                <h3>Valori CTL Tipici per Livello Ciclista</h3>
+                <div class="levels-comparison">
+                    <div class="level-card-compact">
+                        <strong>Ciclisti Principianti:</strong>
+                        <div class="value">20-40 CTL</div>
+                        <p>Costruzione fitness base, 3-4 uscite/settimana</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>Ciclisti Ricreativi:</strong>
+                        <div class="value">40-80 CTL</div>
+                        <p>Allenamento regolare, 4-5 uscite/settimana</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>Amatori Competitivi:</strong>
+                        <div class="value">80-120 CTL</div>
+                        <p>Gare alto volume, 6-8 sessioni/settimana</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>Elite/Professionisti:</strong>
+                        <div class="value">120-200+ CTL</div>
+                        <p>Carico allenamento professionale, 10-15+ ore/settimana</p>
+                    </div>
+                </div>
+
+                <div class="warning-box mt-md">
+                    <strong>⚠️ Limiti Tasso Rampa CTL</strong>
+                    <ul>
+                        <li><strong>Sicuro:</strong> +3-8 CTL a settimana</li>
+                        <li><strong>Aggressivo ma sostenibile:</strong> +8-12 CTL a settimana</li>
+                        <li><strong>Alto rischio:</strong> >12 CTL a settimana</li>
+                    </ul>
+                    <p>Superare questi tassi aumenta significativamente il rischio infortunio e malattia. Costruisci
+                        gradualmente per guadagni fitness sostenibili.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-xl">Costruire CTL in Sicurezza: Il Tasso di Rampa</h3>
+        <div class="example-box">
+            <h4>Esempio Progressione CTL (fase base 12 settimane)</h4>
+            <ul>
+                <li><strong>Settimana 1:</strong> CTL 60 → 65 (+5)</li>
+                <li><strong>Settimana 2:</strong> CTL 65 → 70 (+5)</li>
+                <li><strong>Settimana 3:</strong> CTL 70 → 75 (+5)</li>
+                <li><strong>Settimana 4:</strong> CTL 75 → 78 (+3, settimana recupero)</li>
+                <li><strong>Settimana 5:</strong> CTL 78 → 83 (+5)</li>
+                <li><strong>Settimana 6:</strong> CTL 83 → 88 (+5)</li>
+                <li><strong>Settimana 7:</strong> CTL 88 → 93 (+5)</li>
+                <li><strong>Settimana 8:</strong> CTL 93 → 96 (+3, settimana recupero)</li>
+                <li><strong>Settimana 9:</strong> CTL 96 → 102 (+6)</li>
+                <li><strong>Settimana 10:</strong> CTL 102 → 108 (+6)</li>
+                <li><strong>Settimana 11:</strong> CTL 108 → 114 (+6)</li>
+                <li><strong>Settimana 12:</strong> CTL 114 → 116 (+2, recupero pre-build)</li>
+            </ul>
+            <p><strong>Risultato:</strong> +56 punti CTL su 12 settimane (media 4.7/settimana) - progressione
+                sostenibile da livello fitness ricreativo a competitivo.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>ATL: La Tua Metrica di Fatica Ciclistica</h2>
+
+        <div class="content-split">
+            <div>
+                <p>ATL traccia lo stress di allenamento a breve termine—la fatica accumulata nella passata settimana di
+                    guida. Sale velocemente dopo allenamenti duri e scende velocemente durante il riposo, rendendolo
+                    essenziale per gestire il recupero tra sessioni di qualità.</p>
+
+                <h3>Dinamiche ATL nell'Allenamento Ciclistico</h3>
+                <ul>
+                    <li><strong>Risposta Veloce:</strong> Costante tempo 7-giorni (emivita ~2.4 giorni)</li>
+                    <li><strong>Pattern a Picchi:</strong> Salta dopo uscite dure, scende durante giorni recupero</li>
+                    <li><strong>Indicatore Recupero:</strong> ATL in calo = fatica che si dissipa tra sessioni</li>
+                    <li><strong>Avviso Sovrallenamento:</strong> ATL cronicamente elevato suggerisce recupero inadeguato
+                    </li>
+                    <li><strong>Bilancio Allenamento:</strong> ATL dovrebbe tracciare con CTL ma fluttuare di più</li>
+                </ul>
+
+                <div class="callout callout-science">
+                    <h4>🔬 Il Modello Fitness-Fatica</h4>
+                    <p>Ogni uscita di allenamento produce due effetti:</p>
+                    <ol>
+                        <li><strong>Stimolo Fitness</strong> (costruzione lenta, lunga durata)</li>
+                        <li><strong>Fatica</strong> (costruzione veloce, dissipazione veloce)</li>
+                    </ol>
+                    <p>Prestazione = Fitness - Fatica. Il PMC visualizza questo modello, abilitando periodizzazione
+                        scientifica e timing gara ottimale.</p>
+                </div>
+            </div>
+
+            <div>
+                <h3>A Stato Stazionario</h3>
+                <p>Quando il carico di allenamento è costante settimana per settimana, CTL e ATL convergono:</p>
+                <div class="example-box">
+                    <h4>Esempio: 500 TSS/settimana costantemente</h4>
+                    <div class="calculation">
+                        TSS Giornaliero ≈ 71<br>
+                        CTL approccia ~71<br>
+                        ATL approccia ~71<br>
+                        TSB approccia 0
+                    </div>
+                    <p><strong>Interpretazione:</strong> Fitness e fatica sono bilanciati. Mantenimento allenamento
+                        sostenibile—nessun deficit o surplus accumulato.</p>
+                </div>
+
+                <h3>Durante Fasi Build</h3>
+                <p>Quando si aumenta volume o intensità:</p>
+                <div class="example-box">
+                    <p>ATL sale <em>più velocemente</em> di CTL a causa della costante tempo più breve. TSB diventa
+                        negativo (fatica > fitness). Questo è normale e produttivo—stai applicando sovraccarico per
+                        stimolare adattamenti.</p>
+                    <p><strong>Target TSB:</strong> -10 a -30 durante blocchi allenamento produttivi</p>
+                </div>
+
+                <h3>Durante Taper per Gare</h3>
+                <p>Quando si riduce carico allenamento prima della competizione:</p>
+                <div class="example-box">
+                    <p>ATL scende <em>più velocemente</em> di CTL. TSB diventa positivo (fitness > fatica). Questo è
+                        l'obiettivo—arrivare al giorno gara freschi con gambe pronte a performare mentre si mantiene il
+                        fitness.</p>
+                    <p><strong>Target TSB:</strong> +10 a +25 il giorno gara a seconda dell'evento</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>TSB: Il Tuo Bilancio Fitness-Fatica e Prontezza Gara</h2>
+
+        <p class="lead">TSB (Training Stress Balance) è la differenza tra fitness di ieri (CTL) e fatica di oggi (ATL).
+            Indica se sei fresco o affaticato, pronto a gareggiare o bisognoso di giorni di recupero.</p>
+
+        <div class="tsb-zones-container">
+            <h3>Guida Interpretazione TSB per Ciclisti</h3>
+            <table class="tsb-zones-table">
+                <thead>
+                    <tr>
+                        <th>Range TSB</th>
+                        <th>Stato</th>
+                        <th>Interpretazione</th>
+                        <th>Azione Raccomandata</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tsb-critical">
+                        <td>&lt; -30</td>
+                        <td><strong>Rischio Sovrallenamento</strong></td>
+                        <td>Fatica estrema. Alto rischio malattia/infortunio.</td>
+                        <td>Recupero immediato necessario. Riduci volume 50%+. Considera giorni riposo.</td>
+                    </tr>
+                    <tr class="tsb-training">
+                        <td>-20 a -30</td>
+                        <td><strong>Blocco Allenamento Ottimale</strong></td>
+                        <td>Sovraccarico produttivo. Costruzione fitness.</td>
+                        <td>Continua piano. Monitora per fatica eccessiva o potenza in calo.</td>
+                    </tr>
+                    <tr class="tsb-moderate">
+                        <td>-10 a -20</td>
+                        <td><strong>Carico Allenamento Moderato</strong></td>
+                        <td>Accumulo allenamento standard.</td>
+                        <td>Allenamento normale. Può gestire sessioni intervalli qualità o soglia.</td>
+                    </tr>
+                    <tr class="tsb-neutral">
+                        <td>-10 a +10</td>
+                        <td><strong>Neutro/Mantenimento</strong></td>
+                        <td>Stato bilanciato. Leggera fatica o freschezza.</td>
+                        <td>Buono per gare B/C, test FTP o settimane recupero.</td>
+                    </tr>
+                    <tr class="tsb-fresh">
+                        <td>+10 a +25</td>
+                        <td><strong>Forma Gara Picco</strong></td>
+                        <td>Fresco e in forma. Finestra prestazione ottimale.</td>
+                        <td>Gare priorità A. Prestazione ciclistica picco attesa.</td>
+                    </tr>
+                    <tr class="tsb-very-fresh">
+                        <td>&gt; +25</td>
+                        <td><strong>Molto Fresco/Detraining</strong></td>
+                        <td>Altamente riposato. Potrebbe perdere fitness.</td>
+                        <td>Eventi esplosivi brevi OK. Riprendi allenamento se riposo esteso.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-tip mt-xl">
+            <h3>🎯 Target TSB per Tipo Evento</h3>
+            <ul>
+                <li><strong>Criterium/Sprint:</strong> TSB +5 a +15 (taper breve, mantieni brillantezza)</li>
+                <li><strong>Gare su Strada:</strong> TSB +10 a +20 (taper 10-14 giorni)</li>
+                <li><strong>Cronometro:</strong> TSB +15 a +25 (taper 14-21 giorni per potenza picco)</li>
+                <li><strong>Gran Fondo/Secoli:</strong> TSB +5 a +15 (taper 7-10 giorni, mantieni resistenza)</li>
+                <li><strong>Gare a Tappe:</strong> TSB -5 a +10 (arriva leggermente stanco, bisogno resistenza su
+                    freschezza)</li>
+            </ul>
+            <p><em>Eventi esplosivi più brevi necessitano TSB più alto. Eventi endurance più lunghi necessitano TSB
+                    moderato per mantenere resistenza.</em></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Periodizzazione con il Performance Management Chart</h2>
+
+        <div class="example-box">
+            <h3>Esempio Ciclo Allenamento 16-Settimane</h3>
+
+            <h4>Settimane 1-4: Fase Base</h4>
+            <ul>
+                <li><strong>Obiettivo:</strong> Costruire CTL costantemente a 3-5 punti/settimana</li>
+                <li><strong>TSS Settimanale:</strong> 400 → 450 → 500 → 450 (settimana recupero)</li>
+                <li><strong>Progressione CTL:</strong> 60 → 73</li>
+                <li><strong>Range TSB:</strong> -5 a -15 (fatica gestibile)</li>
+                <li><strong>Focus:</strong> Uscite costanti lunghe, endurance Zona 2, costruzione base aerobica</li>
+            </ul>
+
+            <h4>Settimane 5-8: Fase Build</h4>
+            <ul>
+                <li><strong>Obiettivo:</strong> Continuare crescita CTL a 5-8 punti/settimana con allenamenti più duri
+                </li>
+                <li><strong>TSS Settimanale:</strong> 500 → 550 → 600 → 500 (settimana recupero)</li>
+                <li><strong>Progressione CTL:</strong> 73 → 93</li>
+                <li><strong>Range TSB:</strong> -15 a -25 (sovraccarico produttivo)</li>
+                <li><strong>Focus:</strong> Intervalli sweet spot, lavoro soglia, uscite tempo più lunghe</li>
+            </ul>
+
+            <h4>Settimane 9-12: Fase Picco</h4>
+            <ul>
+                <li><strong>Obiettivo:</strong> Massimizzare CTL, carico allenamento più alto</li>
+                <li><strong>TSS Settimanale:</strong> 600 → 650 → 650 → 550 (settimana recupero)</li>
+                <li><strong>Progressione CTL:</strong> 93 → 108</li>
+                <li><strong>Range TSB:</strong> -20 a -30 (stimolo massimo)</li>
+                <li><strong>Focus:</strong> Intervalli specifici gara, lavoro VO₂max, simulazione evento</li>
+            </ul>
+
+            <h4>Settimane 13-14: Blocco Recupero</h4>
+            <ul>
+                <li><strong>Obiettivo:</strong> Lasciare che il corpo assorba allenamento, preparare per taper</li>
+                <li><strong>TSS Settimanale:</strong> 400 → 400</li>
+                <li><strong>Progressione CTL:</strong> 108 → 103 (leggero calo, fitness mantenuto)</li>
+                <li><strong>Range TSB:</strong> -5 a +5 (neutro)</li>
+                <li><strong>Focus:</strong> Endurance facile, uscite divertimento, ridurre intensità</li>
+            </ul>
+
+            <h4>Settimane 15-16: Taper + Settimana Gara</h4>
+            <ul>
+                <li><strong>Obiettivo:</strong> Picco per giorno gara con TSB +15-20</li>
+                <li><strong>TSS Settimanale:</strong> 350 → 250 + gara</li>
+                <li><strong>Progressione CTL:</strong> 103 → 98 (perdita fitness minima)</li>
+                <li><strong>Progressione ATL:</strong> Scende rapidamente da ~85 a ~50</li>
+                <li><strong>TSB giorno gara:</strong> <strong>+18 a +22</strong></li>
+                <li><strong>Risultato:</strong> Gambe fresche, fitness mantenuto, pronto per prestazione picco</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-success">
+            <h3>✅ Perché il Taper Funziona</h3>
+            <p>Le diverse costanti di tempo (42 giorni per CTL, 7 giorni per ATL) creano l'effetto taper:</p>
+            <ul>
+                <li>ATL risponde velocemente → Fatica scompare entro 7-10 giorni</li>
+                <li>CTL risponde lentamente → Fitness persiste per settimane</li>
+                <li>Risultato: Fitness rimane mentre fatica svanisce = gambe fresche per prestazione picco</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Carico Allenamento Ciclismo su Strada vs Mountain Bike</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Aspetto</th>
+                    <th>Ciclismo su Strada</th>
+                    <th>Mountain Biking</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Profilo Potenza</strong></td>
+                    <td>Sforzi costanti, sostenuti con fluttuazione minima</td>
+                    <td>Potenza "a scatti" altamente variabile con frequenti picchi</td>
+                </tr>
+                <tr>
+                    <td><strong>Variability Index (VI)</strong></td>
+                    <td>1.02-1.05 (molto costante)</td>
+                    <td>1.10-1.20+ (altamente variabile)</td>
+                </tr>
+                <tr>
+                    <td><strong>Accumulo TSS</strong></td>
+                    <td>Prevedibile, pianificabile con precisione</td>
+                    <td>Variabile, difficoltà sentiero influenza TSS grandemente</td>
+                </tr>
+                <tr>
+                    <td><strong>Normalized Power</strong></td>
+                    <td>Vicino alla potenza media</td>
+                    <td>Significativamente più alta della potenza media</td>
+                </tr>
+                <tr>
+                    <td><strong>Focus Allenamento Chiave</strong></td>
+                    <td>Soglia sostenuta, lavoro tempo</td>
+                    <td>Intervalli scatto, gestione W', abilità tecniche</td>
+                </tr>
+                <tr>
+                    <td><strong>Interpretazione CTL</strong></td>
+                    <td>Indicatore fitness diretto</td>
+                    <td>Indicatore fitness ma abilità tecnica = 50% della prestazione</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout callout-info mt-lg">
+            <h3>Considerazioni Specifiche MTB</h3>
+            <p>La mountain bike richiede interpretazione PMC modificata:</p>
+            <ul>
+                <li><strong>Stesso sentiero, TSS diverso:</strong> Difficoltà sentiero influenza massicciamente TSS per
+                    lo stesso percorso</li>
+                <li><strong>Rilevamento scatti:</strong> Conta picchi sopra soglia—gare XC possono avere 88+ scatti in 2
+                    ore</li>
+                <li><strong>Abilità contano di più:</strong> Abilità tecnica conta per ~50% prestazione MTB vs ~20%
+                    ciclismo strada</li>
+                <li><strong>Usa finestre potenza brevi:</strong> Medie 3-5 secondi contano per MTB vs 30-secondi per
+                    strada</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Errori Comuni Gestione Carico Allenamento</h2>
+
+        <div class="guidelines-grid">
+            <div class="guideline-item">
+                <h3>1️⃣ Costruire CTL Troppo Velocemente</h3>
+                <p><strong>Errore:</strong> Saltare 15-20 punti CTL a settimana cercando di "recuperare" un livello
+                    fitness target.</p>
+                <p><strong>Soluzione:</strong> Limita aumenti a 3-8 CTL/settimana. Sii paziente—il fitness richiede
+                    tempo per costruirsi in sicurezza.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>2️⃣ Mai Fare Tapering</h3>
+                <p><strong>Errore:</strong> Allenarsi duramente continuamente, arrivando alle gare con TSB di -20 a -30.
+                </p>
+                <p><strong>Soluzione:</strong> Riduci volume 7-14 giorni prima eventi chiave. Lascia salire TSB a +10-25
+                    per prestazione picco.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>3️⃣ Ignorare Avvisi TSB</h3>
+                <p><strong>Errore:</strong> Continuare a spingere quando TSB scende sotto -30 per periodi estesi.</p>
+                <p><strong>Soluzione:</strong> Prendi recupero obbligatorio quando TSB < -30. Il tuo corpo ti sta
+                        dicendo che ha bisogno di riposo.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>4️⃣ Inseguire Allenamenti Casuali</h3>
+                <p><strong>Errore:</strong> Seguire qualunque cosa sembri buona piuttosto che aumenti carico
+                    progressivi.</p>
+                <p><strong>Soluzione:</strong> Segui un piano strutturato con progressione CTL pianificata e settimane
+                    recupero.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>5️⃣ Confrontarsi con Altri</h3>
+                <p><strong>Errore:</strong> "Il mio compagno ha CTL di 120, ne ho bisogno anch'io!"</p>
+                <p><strong>Soluzione:</strong> CTL è individuale. Il tuo CTL sostenibile dipende dalla tua storia
+                    allenamento e genetica.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>6️⃣ Saltare Settimane Recupero</h3>
+                <p><strong>Errore:</strong> Costruire CTL continuamente senza settimane recupero programmate.</p>
+                <p><strong>Soluzione:</strong> Ogni 3-4 settimane, riduci volume 30-40% per consolidare adattamenti
+                    fitness.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Ricerca & Validazione Scientifica</h2>
+
+        <p>Il Performance Management Chart e la metodologia TSS sono supportati da decenni di ricerca in scienza dello
+            sport:</p>
+
+        <div class="research-references">
+            <h3>Paper Ricerca Chiave</h3>
+            <ul>
+                <li><strong>Allen, H., & Coggan, A.R. (2019).</strong> <em>Training and Racing with a Power Meter</em>
+                    (3rd Edition). VeloPress. — Testo fondamentale che introduce TSS, NP, IF, CTL, ATL, TSB.</li>
+                <li><strong>Banister, E.W., Calvert, T.W., Savage, M.V., & Bach, T. (1975).</strong> A Systems Model of
+                    Training for Athletic Performance. <em>Australian Journal of Sports Medicine</em>, 7, 57-61. —
+                    Modello originale impulso-risposta fitness-fatica.</li>
+                <li><strong>Murray, N.B., et al. (2017).</strong> Training Load Monitoring Using Exponentially Weighted
+                    Moving Averages. — Valida EWMA per monitoraggio carico acuto/cronico.</li>
+                <li><strong>Jones, A.M., et al. (2019).</strong> Critical Power: Theory and Applications. <em>Journal of
+                        Applied Physiology</em>, 126(6), 1905-1915. — Modello Critical Power sottostante concetti FTP.
+                </li>
+            </ul>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>💡 TrainingPeaks & WKO5</h3>
+            <p>TSS, CTL, ATL e TSB sono metriche proprietarie sviluppate dal Dr. Andrew Coggan e licenziate a
+                TrainingPeaks. Sono considerate standard industriali per gestione carico allenamento basato su potenza
+                nel ciclismo.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Domande Frequenti: Carico Allenamento per Ciclismo</h2>
+
+        <div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Quanto TSS a settimana dovrei fare?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSS settimanale dipende dal tuo livello: Principianti: 200-400 TSS/settimana, Ricreativi:
+                            400-600 TSS/settimana, Amatori competitivi: 600-900 TSS/settimana, Elite/Pro: 900-1500+
+                            TSS/settimana. Inizia conservativamente e aumenta gradualmente di 3-8 punti CTL a settimana.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Qual è un buon CTL per il mio livello ciclistico?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Valori CTL tipici: Principianti 20-40, Ciclisti ricreativi 40-80, Amatori competitivi 80-120,
+                            Elite/Professionisti 120-200+. Il tuo CTL sostenibile dipende da storia allenamento, tempo
+                            disponibile e capacità recupero. Focalizzati su miglioramento progressivo piuttosto che
+                            numeri assoluti.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Quanto tempo dovrei fare taper prima di una gara?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Durata taper dipende da tipo evento: Gare brevi/criterium: 7-10 giorni, Gare strada: 10-14
+                            giorni, Cronometro: 14-21 giorni (bisogno massima freschezza), Gare a tappe: 7-10 giorni
+                            (non vuoi essere troppo fresco). Target TSB di +10 a +25 giorno gara a seconda richieste
+                            evento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Posso allenarmi quando TSB è -30 o inferiore?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSB sotto -30 indica fatica estrema e alto rischio sovrallenamento. Non è raccomandato
+                            continuare allenamento duro a questo livello. Riduci volume del 50%+ e fai uscite recupero
+                            facili finché TSB sale a -20 o superiore. Ascolta il tuo corpo—fatica persistente, potenza
+                            in calo, sonno scarso o malattia sono segnali avvertimento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Come uso PMC per gare mountain bike?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Gare MTB richiedono interpretazione PMC modificata: Focalizzati su rilevamento scatti/picchi
+                            sopra soglia (88+ in gare XC), usa finestre potenza più brevi (3-5 secondi), riconosci che
+                            abilità tecniche contano per ~50% prestazione (vs ~20% ciclismo strada), e comprendi che
+                            difficoltà sentiero influenza grandemente accumulo TSS per lo stesso percorso.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Perché il mio CTL scende durante il taper?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>CTL che scende leggermente durante taper è normale e atteso. Un calo 5-10 punti CTL su 2
+                            settimane di tapering rappresenta perdita fitness minima (costante tempo 42-giorni significa
+                            fitness mantenuto). Nel frattempo, ATL scende molto più velocemente (costante tempo
+                            7-giorni), eliminando fatica. Questo crea TSB positivo e gambe fresche per gareggiare.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Qual è la differenza tra TSS e kilojoule?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Kilojoule misurano lavoro totale svolto (spesa energetica), mentre TSS misura stress
+                            allenamento relativo alla tua FTP. Un'uscita 200W per 1 ora = 720 kJ per tutti, ma TSS
+                            dipende dalla tua FTP. Se la tua FTP è 200W, TSS = 100. Se la tua FTP è 300W, TSS = 44. TSS
+                            tiene conto livello fitness individuale; kJ no.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Dovrei tracciare TSS per allenamento indoor?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Assolutamente. TSS è ideale per allenamento indoor perché dati potenza sono consistenti e
+                            variabili ambientali controllate. TSS indoor contribuisce direttamente ai tuoi calcoli
+                            CTL/ATL/TSB. Tuttavia, alcuni ciclisti trovano che possono gestire TSS indoor leggermente
+                            più alto di outdoor a causa di assenza coasting o discese.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow text-center">
+        <h2>Padroneggia il Tuo Carico Allenamento Ciclistico</h2>
+        <p class="lead">Comprendere Training Stress Score e Performance Management Chart trasforma allenamento
+            soggettivo in ottimizzazione prestazione oggettiva, guidata dai dati. Monitorando TSS, CTL, ATL e TSB,
+            ottieni controllo preciso su progressione fitness, gestione fatica e timing picco gara.</p>
+
+        <p>Il sistema CTL-ATL-TSB previene sovrallenamento, ottimizza timing recupero e assicura che arrivi alle gare
+            obiettivo con il perfetto bilancio fitness-fatica per prestazione ciclistica picco.</p>
+
+        <div class="mt-xl">
+            <a href="/it/ftp/" class="btn btn-secondary">← Functional Threshold Power (FTP)</a>
+            <a href="/it/tss-calculator/" class="btn btn-primary">Calcolatore TSS →</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h3 class="mb-md">BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h3>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with BikeAnalytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h3 class="mb-md">Home</h3>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. Tutti i diritti riservati
+            </p>
+            <ul class="footer-links">
+                <li><a href="/it/privacy/">Privacy</a></li>
+                <li><a href="/it/terms/">Termini</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>Questo sito utilizza i cookie per migliorare la tua esperienza.</p>
+            <a href="/it/privacy/" class="text-sm">Saperne di più</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Rifiuta</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accetta</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/main.min.js"></script>
+  <script src="/assets/js/cookie-consent.min.js"></script>
+  <script src="/assets/js/lazy-load.min.js"></script>
+
+  
+  <script src="/assets/js/fuse.min.js"></script>
+  <script src="/assets/js/search.min.js"></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG"></script>
+  
+</body>
+
+</html>
