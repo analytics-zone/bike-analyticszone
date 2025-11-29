@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>TSS, CTL, ATL, TSB - 自行车训练负荷管理</title>
+  <meta name="description" content="掌握自行车的训练压力评分 (TSS)，慢性训练负荷 (CTL)，急性训练负荷 (ATL) 和训练压力平衡 (TSB)。">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="TSS 自行车, 训练压力评分, CTL 自行车, ATL 自行车, TSB 自行车, 训练负荷管理">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/zh/training-load/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-11-24T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/zh/training-load/">
+  <meta property="og:title" content="TSS, CTL, ATL, TSB - 自行车训练负荷管理">
+  <meta property="og:description" content="掌握自行车的训练压力评分 (TSS)，慢性训练负荷 (CTL)，急性训练负荷 (ATL) 和训练压力平衡 (TSB)。">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/bike-analytics-og.jpg">
+  
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/zh/training-load/">
+  <meta name="twitter:title" content="TSS, CTL, ATL, TSB - 自行车训练负荷管理">
+  <meta name="twitter:description" content="掌握自行车的训练压力评分 (TSS)，慢性训练负荷 (CTL)，急性训练负荷 (ATL) 和训练压力平衡 (TSB)。">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/bike-analytics-og.jpg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/training-load/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/training-load/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/training-load/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/training-load/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/training-load/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/training-load/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/training-load/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/training-load/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/training-load/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/training-load/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+
+  
+  <link rel="stylesheet" href="/assets/css/main.min.css">
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">跳转到内容</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/zh/" class="site-logo">
+                <picture>
+                    
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    
+                    <img src="/assets/images/logo.png" alt="BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">BikeAnalytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        
+                        <a href="/zh/"  aria-current="">
+                            首页
+                        </a>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">学习</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/zh/getting-started/" 
+                                    aria-current="">
+                                    入门指南
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/critical-power/" 
+                                    aria-current="">
+                                    临界功率
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/training-zones/" 
+                                    aria-current="">
+                                    训练区间
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/training-load/" class="active" 
+                                    aria-current="page">
+                                    训练负荷
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/tss-calculator/" 
+                                    aria-current="">
+                                    TSS计算器
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">科学</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/zh/research/" 
+                                    aria-current="">
+                                    研究
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/formulas/" 
+                                    aria-current="">
+                                    公式
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/power-metrics/" 
+                                    aria-current="">
+                                    功率指标
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/efficiency/" 
+                                    aria-current="">
+                                    效率
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/pedaling-mechanics/" 
+                                    aria-current="">
+                                    踏频机制
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/aerodynamics/" 
+                                    aria-current="">
+                                    空气动力学
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/climbing-performance/" 
+                                    aria-current="">
+                                    爬坡表现
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/bibliography/" 
+                                    aria-current="">
+                                    参考文献
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">学科</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/zh/road-cycling/" 
+                                    aria-current="">
+                                    公路骑行
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/mountain-biking/" 
+                                    aria-current="">
+                                    山地骑行
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/road-vs-mtb/" 
+                                    aria-current="">
+                                    公路vs山地
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/comparisons/" 
+                                    aria-current="">
+                                    平台比较
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li>
+                        
+                        
+                        <a href="/zh/contact/"  aria-current="">
+                            联系
+                        </a>
+                        
+                        </li>
+                        
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="选择语言">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="zh" selected>
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"
+                    title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="切换菜单"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>训练负荷管理：自行车训练的TSS、CTL、ATL和TSB</h1>
+        <p class="lead">掌握表现管理图表，优化训练、预防过度训练，并为自行车目标达到最佳状态</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-success">
+            <h3>🎯 关键要点：自行车训练负荷</h3>
+            <ul>
+                <li><strong>训练压力分数（TSS）</strong>量化每次骑行对身体的影响程度，结合功率、强度和持续时间</li>
+                <li><strong>CTL（慢性训练负荷）</strong>衡量通过42天持续训练积累的长期体能</li>
+                <li><strong>ATL（急性训练负荷）</strong>追踪过去7天骑行产生的近期疲劳</li>
+                <li><strong>TSB（训练压力平衡）</strong>显示体能-疲劳平衡状态，以及比赛或恢复的准备程度</li>
+                <li>理解自行车训练负荷可预防过度训练，并通过数据驱动的周期化训练优化表现时机</li>
+            </ul>
+            <p><em>基础：TSS计算需要您的<a href="/zh/ftp/">功能性阈值功率（FTP）</a>作为阈值参考点。</em></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>什么是训练压力分数（TSS）？</h2>
+        <p class="lead">训练压力分数回答了一个关键问题：<strong>这次骑行有多辛苦？</strong>不仅仅是距离或时间，而是每次自行车训练对身体施加的真正生理压力。</p>
+
+        <p>由Andrew Coggan博士开发的训练压力分数（TSS）提供了一种标准化方法，将训练强度和持续时间量化为单一数值。TSS通过使功率训练变得易于理解和可操作，彻底改变了自行车训练。</p>
+
+        <div class="callout callout-info">
+            <h3>自行车训练的TSS标准</h3>
+            <p>在您的<a href="/zh/ftp/">功能性阈值功率（FTP）</a>下骑行1小时 = <strong>100 TSS</strong></p>
+            <p>这种标准化允许跨训练课程、周期和训练周期进行比较。30分钟阈值训练 = ~50 TSS。2小时阈值骑行 = ~200 TSS。</p>
+        </div>
+
+        <h3>TSS的计算方法</h3>
+        <div class="formula-box">
+            <div class="formula">
+                TSS = (秒数 × NP × IF) / (FTP × 3600) × 100
+            </div>
+            <div class="formula-explanation">
+                <p>其中：</p>
+                <ul>
+                    <li><strong>NP（标准化功率）</strong> = 骑行的生理"成本"</li>
+                    <li><strong>IF（强度系数）</strong> = NP / FTP（相对于阈值的强度）</li>
+                    <li><strong>持续时间</strong> = 总骑行时间（秒）</li>
+                    <li><strong>FTP</strong> = 您的功能性阈值功率（瓦特）</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>实例：2小时耐力骑行</h3>
+        <div class="example-box">
+            <h4>骑手资料：</h4>
+            <ul>
+                <li>FTP：<strong>250W</strong></li>
+            </ul>
+
+            <h4>骑行数据：</h4>
+            <ul>
+                <li>持续时间：<strong>2小时（7200秒）</strong></li>
+                <li>标准化功率：<strong>200W</strong></li>
+            </ul>
+
+            <h4>步骤1：计算强度系数（IF）</h4>
+            <div class="calculation">
+                IF = NP / FTP<br>
+                IF = 200W / 250W<br>
+                IF = <strong>0.80</strong>
+            </div>
+
+            <h4>步骤2：计算TSS</h4>
+            <div class="calculation">
+                TSS = (7200s × 200W × 0.80) / (250W × 3600) × 100<br>
+                TSS = (1,152,000) / (900,000) × 100<br>
+                TSS = <strong>128 TSS</strong>
+            </div>
+
+            <p class="mt-md"><strong>解读：</strong>这次在FTP的80%强度下进行的2小时耐力骑行产生了128 TSS——这是典型基础训练期的良好有氧训练刺激。</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-xl">按训练类型的TSS指南</h2>
+
+        <div class="intensity-guide">
+            <table class="intensity-table">
+                <thead>
+                    <tr>
+                        <th>训练类型</th>
+                        <th>TSS范围</th>
+                        <th>强度系数</th>
+                        <th>描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>恢复骑行</strong></td>
+                        <td>20-50 TSS</td>
+                        <td>IF &lt; 0.65</td>
+                        <td>轻松踩踏，主动恢复，30-60分钟</td>
+                    </tr>
+                    <tr>
+                        <td><strong>轻松耐力</strong></td>
+                        <td>50-100 TSS</td>
+                        <td>IF 0.65-0.75</td>
+                        <td>可对话配速，有氧基础建立，1-2小时</td>
+                    </tr>
+                    <tr>
+                        <td><strong>中等耐力</strong></td>
+                        <td>100-150 TSS</td>
+                        <td>IF 0.75-0.85</td>
+                        <td>稳态骑行，集体骑行，2-3小时</td>
+                    </tr>
+                    <tr>
+                        <td><strong>节奏骑行</strong></td>
+                        <td>150-200 TSS</td>
+                        <td>IF 0.85-0.95</td>
+                        <td>甜点训练，持续节奏训练，2-3小时</td>
+                    </tr>
+                    <tr>
+                        <td><strong>阈值训练</strong></td>
+                        <td>200-300 TSS</td>
+                        <td>IF 0.95-1.05</td>
+                        <td>FTP间歇，比赛模拟，2-4小时高质量训练</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VO₂max间歇</strong></td>
+                        <td>150-250 TSS</td>
+                        <td>IF 1.05-1.15</td>
+                        <td>120% FTP的高强度间歇，1-2小时高强度</td>
+                    </tr>
+                    <tr>
+                        <td><strong>比赛模拟</strong></td>
+                        <td>200-400 TSS</td>
+                        <td>IF 0.90-1.05</td>
+                        <td>特定赛事训练，绕圈赛，公路赛，2-5小时</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>📊 按骑手水平的每周TSS目标</h3>
+            <ul>
+                <li><strong>初学者：</strong>200-400 TSS/周（每周3-4次骑行）</li>
+                <li><strong>休闲骑手：</strong>400-600 TSS/周（每周4-5次骑行）</li>
+                <li><strong>竞技业余选手：</strong>600-900 TSS/周（每周5-7次骑行）</li>
+                <li><strong>精英/职业选手：</strong>900-1500+ TSS/周（每周8-12+次训练）</li>
+            </ul>
+            <p>这些累积到您的慢性训练负荷（CTL），即下文解释的体能指标。</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="text-center mb-xl">表现管理图表（PMC）</h2>
+        <p class="text-center lead">PMC可视化三个相互关联的指标，讲述您自行车训练的完整故事：体能、疲劳和状态。</p>
+
+        <div class="pmc-overview">
+            <div class="grid grid-3">
+                <div class="pmc-metric">
+                    <div class="metric-icon">📈</div>
+                    <h3>CTL - 慢性训练负荷</h3>
+                    <div class="metric-value-label">您的体能</div>
+                    <p>每日TSS的42天指数加权平均值。代表通过持续骑行获得的长期有氧体能和训练适应。</p>
+                    <div class="formula-small">
+                        今日CTL = 昨日CTL + (今日TSS - 昨日CTL) / 42
+                    </div>
+                </div>
+
+                <div class="pmc-metric">
+                    <div class="metric-icon">⚡</div>
+                    <h3>ATL - 急性训练负荷</h3>
+                    <div class="metric-value-label">您的疲劳</div>
+                    <p>每日TSS的7天指数加权平均值。捕捉过去一周骑行产生的近期训练压力和累积疲劳。</p>
+                    <div class="formula-small">
+                        今日ATL = 昨日ATL + (今日TSS - 昨日ATL) / 7
+                    </div>
+                </div>
+
+                <div class="pmc-metric">
+                    <div class="metric-icon">🎯</div>
+                    <h3>TSB - 训练压力平衡</h3>
+                    <div class="metric-value-label">您的状态</div>
+                    <p>昨日体能与今日疲劳之间的差值。表明下次高质量骑行或比赛的准备程度或休息需求。</p>
+                    <div class="formula-small">
+                        TSB = CTL（昨日）- ATL（今日）
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>CTL：您的自行车体能指标</h2>
+
+        <div class="grid grid-2">
+            <div>
+                <h3>CTL对骑手的意义</h3>
+                <p>CTL量化您的身体在过去6周内<em>适应的</em>训练负荷。在自行车运动中，更高的CTL意味着：</p>
+                <ul>
+                    <li>更强的有氧能力和耐力</li>
+                    <li>能够承受更大的训练量和强度</li>
+                    <li>改善的代谢效率和脂肪氧化</li>
+                    <li>更高的可持续功率输出</li>
+                    <li>高强度训练间更好的恢复</li>
+                </ul>
+
+                <div class="callout callout-info">
+                    <h4>时间常数：42天</h4>
+                    <p>CTL的半衰期约为14-15天。42天后，单次训练对体能计算的影响约保留36.8%（1/e）。</p>
+                    <p>这种缓慢衰减意味着体能逐渐增强但也缓慢消退——您可以休息一周而不会有重大体能损失。</p>
+                </div>
+            </div>
+
+            <div>
+                <h3>按骑手水平的典型CTL值</h3>
+                <div class="levels-comparison">
+                    <div class="level-card-compact">
+                        <strong>初学者：</strong>
+                        <div class="value">20-40 CTL</div>
+                        <p>建立基础体能，每周3-4次骑行</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>休闲骑手：</strong>
+                        <div class="value">40-80 CTL</div>
+                        <p>常规训练，每周4-5次骑行</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>竞技业余选手：</strong>
+                        <div class="value">80-120 CTL</div>
+                        <p>大量比赛，每周6-8次训练</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>精英/职业选手：</strong>
+                        <div class="value">120-200+ CTL</div>
+                        <p>职业训练负荷，每周10-15+小时</p>
+                    </div>
+                </div>
+
+                <div class="warning-box mt-md">
+                    <strong>⚠️ CTL增长速率限制</strong>
+                    <ul>
+                        <li><strong>安全：</strong>每周+3-8 CTL</li>
+                        <li><strong>激进但可持续：</strong>每周+8-12 CTL</li>
+                        <li><strong>高风险：</strong>每周>12 CTL</li>
+                    </ul>
+                    <p>显著超过这些速率会增加受伤和生病风险。逐步建立以获得可持续的体能增益。</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-xl">安全建立CTL：增长速率</h3>
+        <div class="example-box">
+            <h4>CTL增长示例（12周基础期）</h4>
+            <ul>
+                <li><strong>第1周：</strong>CTL 60 → 65（+5）</li>
+                <li><strong>第2周：</strong>CTL 65 → 70（+5）</li>
+                <li><strong>第3周：</strong>CTL 70 → 75（+5）</li>
+                <li><strong>第4周：</strong>CTL 75 → 78（+3，恢复周）</li>
+                <li><strong>第5周：</strong>CTL 78 → 83（+5）</li>
+                <li><strong>第6周：</strong>CTL 83 → 88（+5）</li>
+                <li><strong>第7周：</strong>CTL 88 → 93（+5）</li>
+                <li><strong>第8周：</strong>CTL 93 → 96（+3，恢复周）</li>
+                <li><strong>第9周：</strong>CTL 96 → 102（+6）</li>
+                <li><strong>第10周：</strong>CTL 102 → 108（+6）</li>
+                <li><strong>第11周：</strong>CTL 108 → 114（+6）</li>
+                <li><strong>第12周：</strong>CTL 114 → 116（+2，建立期前恢复）</li>
+            </ul>
+            <p><strong>结果：</strong>12周内增长+56 CTL（平均每周4.7）- 从休闲水平到竞技体能的可持续进步。</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>ATL：您的自行车疲劳指标</h2>
+
+        <div class="content-split">
+            <div>
+                <p>ATL追踪短期训练压力——过去一周骑行累积的疲劳。它在高强度训练后快速上升，在休息期间快速下降，使其成为管理高质量训练间恢复的关键指标。</p>
+
+                <h3>自行车训练中的ATL动态</h3>
+                <ul>
+                    <li><strong>快速响应：</strong>7天时间常数（半衰期~2.4天）</li>
+                    <li><strong>峰值模式：</strong>高强度骑行后跃升，恢复日下降</li>
+                    <li><strong>恢复指标：</strong>ATL下降 = 训练间疲劳消散</li>
+                    <li><strong>过度训练预警：</strong>长期高位ATL表明恢复不足</li>
+                    <li><strong>训练平衡：</strong>ATL应与CTL同步但波动更大</li>
+                </ul>
+
+                <div class="callout callout-science">
+                    <h4>🔬 体能-疲劳模型</h4>
+                    <p>每次训练骑行产生两种效应：</p>
+                    <ol>
+                        <li><strong>体能刺激</strong>（缓慢建立，持续时间长）</li>
+                        <li><strong>疲劳</strong>（快速建立，快速消散）</li>
+                    </ol>
+                    <p>表现 = 体能 - 疲劳。PMC可视化这个模型，实现科学周期化和最佳比赛时机。</p>
+                </div>
+            </div>
+
+            <div>
+                <h3>稳定状态下</h3>
+                <p>当训练负荷每周保持一致时，CTL和ATL趋于收敛：</p>
+                <div class="example-box">
+                    <h4>示例：持续每周500 TSS</h4>
+                    <div class="calculation">
+                        每日TSS ≈ 71<br>
+                        CTL接近~71<br>
+                        ATL接近~71<br>
+                        TSB接近0
+                    </div>
+                    <p><strong>解读：</strong>体能和疲劳处于平衡。可持续的训练维持——没有累积赤字或盈余。</p>
+                </div>
+
+                <h3>建立期间</h3>
+                <p>增加训练量或强度时：</p>
+                <div class="example-box">
+                    <p>由于时间常数较短，ATL上升<em>快于</em>CTL。TSB变为负值（疲劳 > 体能）。这是正常且有益的——您正在施加负荷以刺激适应。</p>
+                    <p><strong>目标TSB：</strong>在有效训练期间-10至-30</p>
+                </div>
+
+                <h3>比赛前减量期间</h3>
+                <p>比赛前减少训练负荷时：</p>
+                <div class="example-box">
+                    <p>ATL下降<em>快于</em>CTL。TSB变为正值（体能 > 疲劳）。这就是目标——在保留体能的同时以新鲜的双腿到达比赛日，准备好表现。</p>
+                    <p><strong>目标TSB：</strong>比赛日+10至+25，取决于赛事</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>TSB：您的体能-疲劳平衡和比赛准备度</h2>
+
+        <p class="lead">TSB（训练压力平衡）是昨日体能（CTL）与今日疲劳（ATL）之间的差值。它表明您是新鲜还是疲劳，准备比赛还是需要恢复日。</p>
+
+        <div class="tsb-zones-container">
+            <h3>骑手的TSB解读指南</h3>
+            <table class="tsb-zones-table">
+                <thead>
+                    <tr>
+                        <th>TSB范围</th>
+                        <th>状态</th>
+                        <th>解读</th>
+                        <th>建议行动</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tsb-critical">
+                        <td>&lt; -30</td>
+                        <td><strong>过度训练风险</strong></td>
+                        <td>极度疲劳。生病/受伤高风险。</td>
+                        <td>立即需要恢复。减少训练量50%+。考虑休息日。</td>
+                    </tr>
+                    <tr class="tsb-training">
+                        <td>-20至-30</td>
+                        <td><strong>最佳训练期</strong></td>
+                        <td>有效负荷。建立体能。</td>
+                        <td>继续计划。监测过度疲劳或功率下降。</td>
+                    </tr>
+                    <tr class="tsb-moderate">
+                        <td>-10至-20</td>
+                        <td><strong>中等训练负荷</strong></td>
+                        <td>标准训练累积。</td>
+                        <td>正常训练。可进行高质量间歇或阈值训练。</td>
+                    </tr>
+                    <tr class="tsb-neutral">
+                        <td>-10至+10</td>
+                        <td><strong>中性/维持</strong></td>
+                        <td>平衡状态。轻微疲劳或新鲜。</td>
+                        <td>适合B/C级比赛、测试FTP或恢复周。</td>
+                    </tr>
+                    <tr class="tsb-fresh">
+                        <td>+10至+25</td>
+                        <td><strong>巅峰比赛状态</strong></td>
+                        <td>新鲜且有体能。最佳表现窗口。</td>
+                        <td>A级重点比赛。预期巅峰自行车表现。</td>
+                    </tr>
+                    <tr class="tsb-very-fresh">
+                        <td>&gt; +25</td>
+                        <td><strong>非常新鲜/脱训练</strong></td>
+                        <td>高度休息。可能正在失去体能。</td>
+                        <td>短爆发赛事可以。如果休息过长应恢复训练。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-tip mt-xl">
+            <h3>🎯 按赛事类型的目标TSB</h3>
+            <ul>
+                <li><strong>绕圈赛/冲刺：</strong>TSB +5至+15（短减量，保持锐度）</li>
+                <li><strong>公路赛：</strong>TSB +10至+20（10-14天减量）</li>
+                <li><strong>计时赛：</strong>TSB +15至+25（14-21天减量以达到峰值功率）</li>
+                <li><strong>大型骑行/百英里：</strong>TSB +5至+15（7-10天减量，保持耐力）</li>
+                <li><strong>多日赛：</strong>TSB -5至+10（到达时略感疲劳，需要耐力而非新鲜度）</li>
+            </ul>
+            <p><em>较短的爆发性赛事需要更高的TSB。较长的耐力赛事需要中等TSB以保持耐力。</em></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>使用表现管理图表进行周期化训练</h2>
+
+        <div class="example-box">
+            <h3>16周训练周期示例</h3>
+
+            <h4>第1-4周：基础期</h4>
+            <ul>
+                <li><strong>目标：</strong>以每周3-5点稳步建立CTL</li>
+                <li><strong>每周TSS：</strong>400 → 450 → 500 → 450（恢复周）</li>
+                <li><strong>CTL进展：</strong>60 → 73</li>
+                <li><strong>TSB范围：</strong>-5至-15（可管理的疲劳）</li>
+                <li><strong>重点：</strong>长时间稳定骑行，Zone 2耐力，建立有氧基础</li>
+            </ul>
+
+            <h4>第5-8周：建立期</h4>
+            <ul>
+                <li><strong>目标：</strong>通过更高强度训练继续以每周5-8点增长CTL</li>
+                <li><strong>每周TSS：</strong>500 → 550 → 600 → 500（恢复周）</li>
+                <li><strong>CTL进展：</strong>73 → 93</li>
+                <li><strong>TSB范围：</strong>-15至-25（有效负荷）</li>
+                <li><strong>重点：</strong>甜点间歇，阈值训练，更长的节奏骑行</li>
+            </ul>
+
+            <h4>第9-12周：高峰期</h4>
+            <ul>
+                <li><strong>目标：</strong>最大化CTL，最高训练负荷</li>
+                <li><strong>每周TSS：</strong>600 → 650 → 650 → 550（恢复周）</li>
+                <li><strong>CTL进展：</strong>93 → 108</li>
+                <li><strong>TSB范围：</strong>-20至-30（最大刺激）</li>
+                <li><strong>重点：</strong>比赛特定间歇，VO₂max训练，赛事模拟</li>
+            </ul>
+
+            <h4>第13-14周：恢复期</h4>
+            <ul>
+                <li><strong>目标：</strong>让身体吸收训练，为减量做准备</li>
+                <li><strong>每周TSS：</strong>400 → 400</li>
+                <li><strong>CTL进展：</strong>108 → 103（轻微下降，体能保留）</li>
+                <li><strong>TSB范围：</strong>-5至+5（中性）</li>
+                <li><strong>重点：</strong>轻松耐力，娱乐骑行，降低强度</li>
+            </ul>
+
+            <h4>第15-16周：减量+比赛周</h4>
+            <ul>
+                <li><strong>目标：</strong>以TSB +15-20达到比赛日巅峰</li>
+                <li><strong>每周TSS：</strong>350 → 250 + 比赛</li>
+                <li><strong>CTL进展：</strong>103 → 98（最小体能损失）</li>
+                <li><strong>ATL进展：</strong>从~85快速下降至~50</li>
+                <li><strong>比赛日TSB：</strong><strong>+18至+22</strong></li>
+                <li><strong>结果：</strong>新鲜的双腿，保留的体能，准备好巅峰表现</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-success">
+            <h3>✅ 减量为何有效</h3>
+            <p>不同的时间常数（CTL为42天，ATL为7天）创造了减量效果：</p>
+            <ul>
+                <li>ATL快速响应 → 疲劳在7-10天内消失</li>
+                <li>CTL响应缓慢 → 体能保持数周</li>
+                <li>结果：体能保留而疲劳消失 = 新鲜双腿实现巅峰表现</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>公路自行车vs山地自行车训练负荷</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>方面</th>
+                    <th>公路自行车</th>
+                    <th>山地自行车</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>功率特征</strong></td>
+                    <td>稳定、持续的训练，波动最小</td>
+                    <td>高度可变的"突发"功率，频繁激增</td>
+                </tr>
+                <tr>
+                    <td><strong>变异指数（VI）</strong></td>
+                    <td>1.02-1.05（非常稳定）</td>
+                    <td>1.10-1.20+（高度可变）</td>
+                </tr>
+                <tr>
+                    <td><strong>TSS累积</strong></td>
+                    <td>可预测，可精确计划</td>
+                    <td>可变，路线难度极大影响TSS</td>
+                </tr>
+                <tr>
+                    <td><strong>标准化功率</strong></td>
+                    <td>接近平均功率</td>
+                    <td>显著高于平均功率</td>
+                </tr>
+                <tr>
+                    <td><strong>关键训练重点</strong></td>
+                    <td>持续阈值、节奏训练</td>
+                    <td>突发间歇、W'管理、技术技能</td>
+                </tr>
+                <tr>
+                    <td><strong>CTL解读</strong></td>
+                    <td>直接的体能指标</td>
+                    <td>体能指标但技术技能 = 表现的50%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout callout-info mt-lg">
+            <h3>山地自行车特定考虑</h3>
+            <p>山地自行车需要不同的PMC解读：</p>
+            <ul>
+                <li><strong>相同路线，不同TSS：</strong>路线难度对相同路线的TSS影响巨大</li>
+                <li><strong>突发检测：</strong>计算超阈值激增——XC比赛可在2小时内有88+次激增</li>
+                <li><strong>技术更重要：</strong>技术能力占山地自行车表现的~50%，而公路自行车仅~20%</li>
+                <li><strong>使用短功率窗口：</strong>山地自行车重要的是3-5秒平均值，而公路自行车是30秒</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>常见训练负荷管理错误</h2>
+
+        <div class="guidelines-grid">
+            <div class="guideline-item">
+                <h3>1️⃣ CTL建立过快</h3>
+                <p><strong>错误：</strong>试图"赶上"目标体能水平，每周增加15-20 CTL点。</p>
+                <p><strong>解决方案：</strong>限制增长为每周3-8 CTL。要有耐心——安全建立体能需要时间。</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>2️⃣ 从不减量</h3>
+                <p><strong>错误：</strong>持续高强度训练，以TSB -20至-30到达比赛。</p>
+                <p><strong>解决方案：</strong>重要赛事前7-14天减少训练量。让TSB上升至+10-25以获得巅峰表现。</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>3️⃣ 忽视TSB警告</h3>
+                <p><strong>错误：</strong>TSB持续低于-30时继续推进。</p>
+                <p><strong>解决方案：</strong>TSB < -30时强制恢复。您的身体在告诉您需要休息。</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>4️⃣ 追逐随机训练</h3>
+                <p><strong>错误：</strong>根据感觉而非渐进负荷增加来训练。</p>
+                <p><strong>解决方案：</strong>遵循有计划的CTL进展和恢复周的结构化计划。</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>5️⃣ 与他人比较</h3>
+                <p><strong>错误：</strong>"我的队友CTL是120，我也需要！"</p>
+                <p><strong>解决方案：</strong>CTL是个体化的。您的可持续CTL取决于训练历史和遗传。</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>6️⃣ 跳过恢复周</h3>
+                <p><strong>错误：</strong>持续建立CTL而不安排恢复周。</p>
+                <p><strong>解决方案：</strong>每3-4周减少训练量30-40%以巩固体能适应。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>研究与科学验证</h2>
+
+        <p>表现管理图表和TSS方法得到了数十年运动科学研究的支持：</p>
+
+        <div class="research-references">
+            <h3>关键研究论文</h3>
+            <ul>
+                <li><strong>Allen, H., & Coggan, A.R. (2019).</strong> <em>Training and Racing with a Power Meter</em> (第3版). VeloPress. — 介绍TSS、NP、IF、CTL、ATL、TSB的基础文本。</li>
+                <li><strong>Banister, E.W., Calvert, T.W., Savage, M.V., & Bach, T. (1975).</strong> A Systems Model of Training for Athletic Performance. <em>Australian Journal of Sports Medicine</em>, 7, 57-61. — 原始冲量-响应体能-疲劳模型。</li>
+                <li><strong>Murray, N.B., et al. (2017).</strong> Training Load Monitoring Using Exponentially Weighted Moving Averages. — 验证用于急性/慢性负荷监测的EWMA。</li>
+                <li><strong>Jones, A.M., et al. (2019).</strong> Critical Power: Theory and Applications. <em>Journal of Applied Physiology</em>, 126(6), 1905-1915. — FTP概念基础的临界功率模型。</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>💡 TrainingPeaks与WKO5</h3>
+            <p>TSS、CTL、ATL和TSB是由Andrew Coggan博士开发并授权给TrainingPeaks的专有指标。它们被认为是自行车功率训练负荷管理的行业标准。</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>常见问题：自行车训练负荷</h2>
+
+        <div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">我每周应该完成多少TSS？</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>每周TSS取决于您的水平：初学者：200-400 TSS/周，休闲：400-600 TSS/周，竞技业余：600-900 TSS/周，精英/职业：900-1500+ TSS/周。保守起步，每周逐步增加3-8 CTL点。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">对我的自行车水平来说什么是好的CTL？</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>典型CTL值：初学者20-40，休闲骑手40-80，竞技业余80-120，精英/职业120-200+。您的可持续CTL取决于训练历史、可用时间和恢复能力。专注于渐进改善而非绝对数字。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">比赛前应该减量多久？</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>减量持续时间取决于赛事类型：短距离赛/绕圈赛：7-10天，公路赛：10-14天，计时赛：14-21天（需要最大新鲜度），多日赛：7-10天（不想过于新鲜）。比赛日目标TSB为+10至+25，取决于赛事要求。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">TSB为-30或更低时可以训练吗？</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSB低于-30表明极度疲劳和高过度训练风险。不建议在此水平继续高强度训练。减少训练量50%+，进行轻松恢复骑行，直到TSB上升至-20或更高。倾听您的身体——持续疲劳、功率下降、睡眠质量差或生病都是警告信号。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">如何将PMC用于山地自行车比赛？</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>山地自行车比赛需要修改的PMC解读：专注于超阈值的突发/激增检测（XC比赛中88+次），使用较短的功率窗口（3-5秒），认识到技术技能占表现的~50%（而公路自行车~20%），并理解路线难度极大影响相同路线的TSS累积。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">为什么我的CTL在减量期间下降？</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>减量期间CTL略微下降是正常和预期的。2周减量期间CTL下降5-10点代表最小的体能损失（42天时间常数意味着体能得以保留）。同时，ATL下降得快得多（7天时间常数），消除疲劳。这创造了正TSB和新鲜的双腿用于比赛。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">TSS和千焦有什么区别？</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>千焦衡量完成的总功（能量消耗），而TSS衡量相对于您FTP的训练压力。1小时200W骑行 = 对所有人720 kJ，但TSS取决于您的FTP。如果您的FTP是200W，TSS = 100。如果您的FTP是300W，TSS = 44。TSS考虑个体体能水平；千焦不考虑。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">室内训练应该追踪TSS吗？</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>绝对应该。TSS非常适合室内训练，因为功率数据一致且环境变量受控。室内TSS直接计入您的CTL/ATL/TSB计算。然而，一些骑手发现由于没有滑行或下坡，他们可以承受略高的室内TSS。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow text-center">
+        <h2>掌握您的自行车训练负荷</h2>
+        <p class="lead">理解训练压力分数和表现管理图表将主观训练转变为客观的、数据驱动的表现优化。通过监测TSS、CTL、ATL和TSB，您可以精确控制体能进展、疲劳管理和巅峰比赛时机。</p>
+
+        <p>CTL-ATL-TSB系统可预防过度训练，优化恢复时机，并确保您以完美的体能-疲劳平衡到达目标比赛，实现巅峰自行车表现。</p>
+
+        <div class="mt-xl">
+            <a href="/zh/ftp/" class="btn btn-secondary">← 功能性阈值功率（FTP）</a>
+            <a href="/zh/tss-calculator/" class="btn btn-primary">TSS计算器 →</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h3 class="mb-md">BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h3>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with BikeAnalytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h3 class="mb-md">首页</h3>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h3 class="mb-md">Download</h3>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. 保留所有权利
+            </p>
+            <ul class="footer-links">
+                <li><a href="/zh/privacy/">隐私政策</a></li>
+                <li><a href="/zh/terms/">服务条款</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>本网站使用cookies来改善您的体验。</p>
+            <a href="/zh/privacy/" class="text-sm">了解更多</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">拒绝</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">接受</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/main.min.js"></script>
+  <script src="/assets/js/cookie-consent.min.js"></script>
+  <script src="/assets/js/lazy-load.min.js"></script>
+
+  
+  <script src="/assets/js/fuse.min.js"></script>
+  <script src="/assets/js/search.min.js"></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG"></script>
+  
+</body>
+
+</html>

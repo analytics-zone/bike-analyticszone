@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>公路自行车分析 - 训练与表现指标</title>
+  <meta name="description" content="公路自行车专业分析：稳定功率分布，气动优化，配速策略和公路特定训练。">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="公路自行车分析, 公路自行车训练, 公路车功率计, 公路自行车表现">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/zh/road-cycling/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-11-24T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/zh/road-cycling/">
+  <meta property="og:title" content="公路自行车分析 - 训练与表现指标">
+  <meta property="og:description" content="公路自行车专业分析：稳定功率分布，气动优化，配速策略和公路特定训练。">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/bike-analytics-og.jpg">
+  
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/zh/road-cycling/">
+  <meta name="twitter:title" content="公路自行车分析 - 训练与表现指标">
+  <meta name="twitter:description" content="公路自行车专业分析：稳定功率分布，气动优化，配速策略和公路特定训练。">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/bike-analytics-og.jpg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/road-cycling/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/road-cycling/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/road-cycling/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/road-cycling/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/road-cycling/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/road-cycling/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/road-cycling/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/road-cycling/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/road-cycling/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/road-cycling/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+
+  
+  <link rel="stylesheet" href="/assets/css/main.min.css">
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">跳转到内容</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/zh/" class="site-logo">
+                <picture>
+                    
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    
+                    <img src="/assets/images/logo.png" alt="BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">BikeAnalytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        
+                        <a href="/zh/"  aria-current="">
+                            首页
+                        </a>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">学习</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/zh/getting-started/" 
+                                    aria-current="">
+                                    入门指南
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/critical-power/" 
+                                    aria-current="">
+                                    临界功率
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/training-zones/" 
+                                    aria-current="">
+                                    训练区间
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/training-load/" 
+                                    aria-current="">
+                                    训练负荷
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/tss-calculator/" 
+                                    aria-current="">
+                                    TSS计算器
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">科学</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/zh/research/" 
+                                    aria-current="">
+                                    研究
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/formulas/" 
+                                    aria-current="">
+                                    公式
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/power-metrics/" 
+                                    aria-current="">
+                                    功率指标
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/efficiency/" 
+                                    aria-current="">
+                                    效率
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/pedaling-mechanics/" 
+                                    aria-current="">
+                                    踏频机制
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/aerodynamics/" 
+                                    aria-current="">
+                                    空气动力学
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/climbing-performance/" 
+                                    aria-current="">
+                                    爬坡表现
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/bibliography/" 
+                                    aria-current="">
+                                    参考文献
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li class="has-submenu" >
+                        
+                        
+                        
+                        
+                        <span class="nav-label">学科</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/zh/road-cycling/" class="active" 
+                                    aria-current="page">
+                                    公路骑行
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/mountain-biking/" 
+                                    aria-current="">
+                                    山地骑行
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/road-vs-mtb/" 
+                                    aria-current="">
+                                    公路vs山地
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/zh/comparisons/" 
+                                    aria-current="">
+                                    平台比较
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                        </li>
+                        
+                    <li>
+                        
+                        
+                        <a href="/zh/contact/"  aria-current="">
+                            联系
+                        </a>
+                        
+                        </li>
+                        
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="选择语言">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="zh" selected>
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"
+                    title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="切换菜单"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <!-- 公路自行车分析 - BikeAnalytics -->
+
+<section class="hero hero-small">
+    <div class="container">
+        <h1>公路自行车分析 - 优化您的公路骑行表现</h1>
+        <p class="lead">基于功率的训练指标，用于稳态骑行、空气动力学优化和定义公路自行车表现的配速策略</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-info mb-xl">
+            <h2>公路自行车的独特之处</h2>
+            <p>公路自行车的特点是<strong>稳定的功率输出、空气动力学优化和战略配速</strong>。与山地自行车的爆发性冲刺不同，公路自行车回报持续的努力、高效的骑姿以及在长距离中的能量管理。理解这些特点对于有效的基于功率的训练至关重要。</p>
+        </div>
+
+        <h2>功率曲线特征</h2>
+
+        <p>与其他自行车运动相比，公路自行车产生明显更平滑的功率曲线：</p>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>稳态骑行</h3>
+                <p><strong>变异性指数（VI）：1.02-1.05</strong> - 公路车手保持极其稳定的功率输出。您的标准化功率（NP）非常接近平均功率，表明平滑、持续的努力，而不是波动的强度。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>可预测的TSS累积</h3>
+                <p>在公路上，训练压力评分（TSS）稳定且可预测地累积。在80% FTP进行2小时的节奏骑行持续提供约120 TSS，使训练负荷管理变得简单。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>较低的无氧需求</h3>
+                <p>公路自行车主要消耗有氧系统（2-4区）。虽然攻击和冲刺需要无氧能力，但大多数公路骑行相比山地自行车保持W'（无氧工作能力）相对完整。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>空气动力学姿势至关重要</h3>
+                <p>在速度超过25公里/小时时，<strong>70-90%的阻力来自空气阻力</strong>。通过改变姿势优化您的CdA（阻力系数×正面面积）在更高速度下比提高体能节省更多瓦特。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>更长的持续努力</h3>
+                <p>公路自行车的特点是长时间的阈值努力：在爬坡、计时赛或突围期间在FTP下进行20-60分钟以上。这需要出色的有氧耐力和维持功率输出的心理韧性。</p>
+            </div>
+        </div>
+
+        <h2>公路车手的关键指标</h2>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon">🎯</div>
+                <h3 class="metric-name">FTP（功能性阈值功率）</h3>
+                <p class="metric-description">所有公路训练的基础。您的FTP决定训练区间、配速策略和表现基准。每6-8周使用20分钟方案测试一次。</p>
+                <a href="/zh/ftp/" class="btn btn-secondary btn-small mt-sm">了解FTP →</a>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">⚖️</div>
+                <h3 class="metric-name">IF（强度因子）</h3>
+                <p class="metric-description">IF = NP ÷ FTP。您的主要配速工具。目标IF值：耐力骑行0.65-0.75，节奏骑行0.85-0.95，阈值努力0.95-1.05。防止出发过猛。</p>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📊</div>
+                <h3 class="metric-name">TSS（训练压力评分）</h3>
+                <p class="metric-description">通过结合强度和持续时间来量化训练负荷。管理每周TSS以平衡体能增长（CTL）与恢复。典型值：竞技车手每周300-600 TSS。</p>
+                <a href="/zh/training-load/" class="btn btn-secondary btn-small mt-sm">探索TSS →</a>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🌬️</div>
+                <h3 class="metric-name">CdA（空气动力学阻力）</h3>
+                <p class="metric-description">阻力系数×正面面积，单位为平方米。公路自行车在高速下最重要的指标。目标：0.32-0.37 m²（下把姿势），0.20-0.25 m²（计时赛姿势）。每减少0.01 m²在40公里/小时节省约10瓦特。</p>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🏔️</div>
+                <h3 class="metric-name">W/kg（功率体重比）</h3>
+                <p class="metric-description">每公斤瓦特预测爬坡表现。竞技水平：FTP下4.0+ W/kg。精英业余：4.5+。世界巡回赛职业车手：5.5-6.5 W/kg。对于多山比赛和山地赛段至关重要。</p>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">⛰️</div>
+                <h3 class="metric-name">VAM（垂直爬升速度）</h3>
+                <p class="metric-description">Velocità Ascensionale Media - 每小时爬升的米数。估计爬坡能力：竞技车手1000-1200米/小时，精英车手1300-1500米/小时，世界巡回赛冠军>1500米/小时。</p>
+            </div>
+        </div>
+
+        <h2>公路车手的训练重点</h2>
+
+        <h3>长距离Z2耐力骑行（3-6小时）</h3>
+        <p>公路自行车体能的基础。在56-75% FTP（2区）骑行以建立有氧基础、脂肪氧化和肌肉耐力。目标：每次骑行150-300 TSS。这些骑行培养gran fondos、百英里和多日赛所需的耐力。</p>
+
+        <h3>阈值间歇（2×20、3×15、4×10分钟）</h3>
+        <p>公路比赛准备的基本训练。在91-105% FTP（4区）的间歇直接提高您的FTP和维持高功率输出的能力。间歇之间休息5-10分钟。从2×20分钟开始，随着体能提高进展到3×15或4×10。</p>
+
+        <h3>VO₂max重复（5×5分钟）</h3>
+        <p>通过106-120% FTP（5区）的5分钟间歇发展最大有氧能力。重复之间休息5分钟。这些间歇提高您的表现上限，使阈值训练感觉更轻松。对于公路比赛的攻击和弥合差距至关重要。</p>
+        <a href="/zh/vo2max/" class="btn btn-secondary btn-small">了解VO2max →</a>
+
+        <h3>计时赛练习</h3>
+        <p>在空气动力学姿势下以95-105% FTP进行20-60分钟的持续努力。练习配速纪律、空气动力学定位和精神专注。使用IF防止起步过于激进。目标：全程保持稳定功率，略微负分段。</p>
+
+        <h3>集体骑行战术</h3>
+        <p>掌握跟车效率、轮换领骑和集团中的定位。学习通过有效跟车节省27-50%的功率。练习冲刺恢复：短暂加速超过阈值，然后在跟车时以60-70% FTP恢复。</p>
+
+        <h2>比赛类型和基于功率的策略</h2>
+
+        <div class="card mb-lg">
+            <h3 class="card-title">公路赛</h3>
+            <div class="card-content">
+                <p><strong>策略：</strong>通过跟车保存能量，战略性使用W'进行攻击。平均IF：0.75-0.85，但由于冲刺NP要高得多。</p>
+                <p><strong>功率分布：</strong>60-70%时间<85% FTP（集团中轻松），20-25%时间85-95% FTP（追赶/轮换），10-15%时间>105% FTP（攻击/冲刺）</p>
+                <p><strong>关键见解：</strong>即使平均功率看起来很低，NP揭示了真实的生理成本。3小时公路赛平均200瓦特可能有250瓦特NP（IF 0.85），代表艰苦努力。</p>
+            </div>
+        </div>
+
+        <div class="card mb-lg">
+            <h3 class="card-title">计时赛（TT）</h3>
+            <div class="card-content">
+                <p><strong>策略：</strong>以最高可持续IF均匀配速。目标：60分钟以内努力0.95-1.05。</p>
+                <p><strong>功率分布：</strong>避免在比赛前25%超过105% FTP。保持95-100% FTP中间50%。如果有储备（W'允许），冲刺最后25%。</p>
+                <p><strong>关键见解：</strong>起步过猛5%比以低于阈值5%完成损失更多时间。实时使用IF完美配速。VI应为1.00-1.02（极其稳定）。</p>
+            </div>
+        </div>
+
+        <div class="card mb-lg">
+            <h3 class="card-title">Gran Fondos（公开赛）</h3>
+            <div class="card-content">
+                <p><strong>策略：</strong>负分段方法 - 保守起步，强势完成。总体目标IF：0.65-0.75。</p>
+                <p><strong>功率分布：</strong>前50%：以65-70% FTP骑行。后50%：如果感觉强劲增加到75-80% FTP。除了最后的爬坡外永远不要超过85% FTP。</p>
+                <p><strong>关键见解：</strong>营养对于4-8小时的活动至关重要。低IF允许脂肪氧化以保存糖原。TSS：200-400+取决于距离。相应计划恢复。</p>
+            </div>
+        </div>
+
+        <div class="card mb-lg">
+            <h3 class="card-title">绕圈赛（Crits）</h3>
+            <div class="card-content">
+                <p><strong>策略：</strong>由于持续加速，尽管IF适中但NP高。小心管理W' - 每次弯道出口都消耗无氧能力。</p>
+                <p><strong>功率分布：</strong>40%时间<75% FTP（滑行/恢复），30%时间75-100% FTP（保持速度），30%时间>105% FTP（加速）。VI：1.15-1.30典型值。</p>
+                <p><strong>关键见解：</strong>60分钟平均220瓦特的绕圈赛可能有280瓦特NP（IF 0.90+）。感觉比数字表明的要难得多。练习重复10-30秒冲刺，恢复不完全。</p>
+            </div>
+        </div>
+
+        <h2>公路自行车的装备优化</h2>
+
+        <h3>空气动力学轮组（50-80mm深度）</h3>
+        <p><strong>CdA减少：约0.006 m²</strong>相比标准轮组。更深更快但更重，受侧风影响。最佳点：全能使用50-60mm，计时赛前80mm/后盘轮。</p>
+        <p><strong>功率节省：</strong>在40公里/小时约15-20瓦特。在更高速度下更显著（立方关系）。相比更轻的部件，性价比出色。</p>
+
+        <h3>TT/铁三空气动力学把</h3>
+        <p><strong>CdA减少：约0.05-0.08 m²</strong>从下把到空气动力学姿势。巨大的功率节省：在40公里/小时30-50瓦特。</p>
+        <p><strong>权衡：</strong>降低自行车操控性和功率输出。预计在空气动力学姿势下初始可持续功率降低5-10瓦特。通过练习改善。对于计时赛和铁人三项必不可少。</p>
+
+        <h3>空气动力学头盔</h3>
+        <p><strong>CdA减少：约0.004 m²</strong>相比标准公路头盔。在40公里/小时节省8-10瓦特。</p>
+        <p><strong>考虑：</strong>通风不如标准头盔。用于计时赛、平路比赛、凉爽条件。在炎热天气或山地赛段切换到通风头盔。</p>
+
+        <h3>连体服 vs 常规套装</h3>
+        <p><strong>CdA减少：0.003-0.005 m²</strong>高质量连体服相比标准骑行衣/裤。在40公里/小时节省6-12瓦特。</p>
+        <p><strong>专业提示：</strong>紧身衣服比昂贵的面料更重要。合身的标准套装胜过宽松的昂贵套装。连体服适合比赛和计时赛。</p>
+
+        <h3>功率计（必备）</h3>
+        <p>所有基于功率训练的必需品。选项：</p>
+        <ul>
+            <li><strong>踏板式：</strong>Garmin Rally、Favero Assioma（€500-1200）。易于在自行车之间更换，测量左/右平衡。</li>
+            <li><strong>曲柄式：</strong>Stages、4iiii（€300-500）。轻量，防路面喷溅。单侧版本价格实惠。</li>
+            <li><strong>蜘蛛式：</strong>Quarq、Power2Max（€700-1500）。最准确，需要特定曲柄组。非常适合公路比赛。</li>
+        </ul>
+        <p><strong>准确性：</strong>寻找±1-2%精度。骑行前校准（零点偏移）。一致性比绝对准确性更重要，用于跟踪进度。</p>
+
+        <h2>公路自行车训练计划示例</h2>
+
+        <div class="callout callout-success">
+            <h3>每周训练结构（基础阶段）</h3>
+            <p><strong>周一：</strong>休息或60分钟Z1恢复（40 TSS）</p>
+            <p><strong>周二：</strong>90分钟，包含3×10分钟阈值间歇 @ 95-100% FTP（75 TSS）</p>
+            <p><strong>周三：</strong>90分钟Z2耐力 @ 65% FTP（60 TSS）</p>
+            <p><strong>周四：</strong>60分钟，包含5×5分钟VO2max间歇 @ 110% FTP（65 TSS）</p>
+            <p><strong>周五：</strong>休息或60分钟Z1恢复（40 TSS）</p>
+            <p><strong>周六：</strong>4-5小时Z2耐力骑行 @ 68% FTP（250-300 TSS）</p>
+            <p><strong>周日：</strong>2小时节奏 @ 80% FTP（120 TSS）</p>
+            <p class="mt-md"><strong>每周总计：550-650 TSS</strong> - 适合针对百英里比赛或绕圈赛的竞技业余车手。</p>
+        </div>
+
+        <h2>常见的公路自行车错误</h2>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>❌ 集体骑行起步过猛</h3>
+                <p>前30分钟超过90% FTP过早消耗糖原和W'。结果：后来难以跟上。<strong>解决方案：</strong>以70-75% FTP开始，热身后30-45分钟逐渐增加强度。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>❌ 忽视空气动力学</h3>
+                <p>训练时专注于300瓦特，但由于姿势不佳比赛时只有270瓦特。空气动力学增益是免费的速度。<strong>解决方案：</strong>练习下把姿势，降低把立，减少CdA。在>35公里/小时时，姿势优化比体能带来更大增益。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>❌ 不使用IF进行配速</h3>
+                <p>在计时赛或gran fondos中起步过猛。<strong>解决方案：</strong>根据持续时间瞄准特定IF。<60分钟 = 0.95-1.05 IF，1-2小时 = 0.85-0.95 IF，2-4小时 = 0.75-0.85 IF，4+小时 = 0.65-0.75 IF。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>❌ 过度使用Z3（节奏）</h3>
+                <p>过多"中间"强度（76-90% FTP）。既不够轻松以恢复，也不够艰苦以适应。<strong>解决方案：</strong>极化训练：80% Z1-Z2，20% Z4-Z6。避免Z3的"垃圾里程"。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>❌ 忽视恢复周</h3>
+                <p>持续艰苦训练而没有休息周会导致过度训练。<strong>解决方案：</strong>每3-4周，减少TSS 40-50%以恢复。监控TSB：在关键赛事前瞄准+5到+15。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>相关主题</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">对比：公路 vs 山地</h3>
+                <div class="card-content">
+                    <p>了解公路自行车和山地自行车在功率曲线、训练方法和分析需求方面的根本差异。</p>
+                    <a href="/zh/road-vs-mtb/" class="btn btn-primary btn-small mt-md">查看对比 →</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">爬坡表现</h3>
+                <div class="card-content">
+                    <p>了解VAM、W/kg比率和功率体重优化，以征服山口和多山公路赛。</p>
+                    <a href="/zh/climbing-performance/" class="btn btn-secondary btn-small mt-md">了解更多 →</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">训练区间</h3>
+                <div class="card-content">
+                    <p>公路自行车基于功率的7个训练区间完整指南，从主动恢复到神经肌肉功率。</p>
+                    <a href="/zh/training-zones/" class="btn btn-secondary btn-small mt-md">探索区间 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="mt-xl text-center">
+            <h2>准备好优化您的公路自行车了吗？</h2>
+            <p class="lead mb-lg">使用BikeAnalytics跟踪FTP、TSS和性能指标 - 为公路车手打造的注重隐私的功率分析应用。</p>
+            <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="btn btn-primary btn-large" target="_blank" rel="noopener">下载BikeAnalytics</a>
+            <p class="mt-md text-secondary">7天免费试用 • iOS 16+ • 100%本地数据处理</p>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h3 class="mb-md">BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h3>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with BikeAnalytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h3 class="mb-md">首页</h3>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h3 class="mb-md">Download</h3>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 BikeAnalytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. 保留所有权利
+            </p>
+            <ul class="footer-links">
+                <li><a href="/zh/privacy/">隐私政策</a></li>
+                <li><a href="/zh/terms/">服务条款</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>本网站使用cookies来改善您的体验。</p>
+            <a href="/zh/privacy/" class="text-sm">了解更多</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">拒绝</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">接受</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/main.min.js"></script>
+  <script src="/assets/js/cookie-consent.min.js"></script>
+  <script src="/assets/js/lazy-load.min.js"></script>
+
+  
+  <script src="/assets/js/fuse.min.js"></script>
+  <script src="/assets/js/search.min.js"></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG"></script>
+  
+</body>
+
+</html>
