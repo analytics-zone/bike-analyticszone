@@ -19,7 +19,7 @@
   
   
   <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2025-11-29T14:30:00Z">
+  <meta property="article:modified_time" content="2025-12-02T14:30:00Z">
   <meta property="article:author" content="Albert Arno">
   
 
@@ -71,6 +71,18 @@
   
   <link rel="alternate" hreflang="zh"
     href="https://bike.analyticszone.app/zh/tss-calculator/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/tss-calculator/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/tss-calculator/">
   
   <link rel="alternate" hreflang="x-default"
     href="https://bike.analyticszone.app/en/tss-calculator/">
@@ -323,6 +335,14 @@
                         Afrikaans
                     </option>
                     
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
                     <option value="ca" >
                         Català
                     </option>
@@ -343,12 +363,20 @@
                         Français
                     </option>
                     
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
                     <option value="it" >
                         Italiano
                     </option>
                     
                     <option value="pt" >
                         Português
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
                     </option>
                     
                     <option value="zh" >
@@ -426,30 +454,60 @@
                 <div class="calculator-inputs">
                     <div class="form-group">
                         <label for="ftp" class="form-label">Jou FTP (Watt)</label>
-                        <input type="number" id="ftp" class="form-input" placeholder="bv. 250" min="50" max="600" />
-                        <small class="form-help">Jou Funksionele Drempelkrag in watt</small>
+                        <input
+                            type="number"
+                            id="ftp"
+                            class="form-input"
+                            placeholder="bv. 250"
+                            min="50"
+                            max="600"
+                            aria-required="true"
+                            aria-describedby="ftp-help"
+                        />
+                        <small id="ftp-help" class="form-help">Jou Funksionele Drempelkrag in watt</small>
+                        <div class="form-error" id="ftp-error"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="duration" class="form-label">Rit Duur (minute)</label>
-                        <input type="number" id="duration" class="form-input" placeholder="bv. 120" min="1" max="720" />
-                        <small class="form-help">Totale rit tyd in minute (1-720)</small>
+                        <input
+                            type="number"
+                            id="duration"
+                            class="form-input"
+                            placeholder="bv. 120"
+                            min="1"
+                            max="720"
+                            aria-required="true"
+                            aria-describedby="duration-help"
+                        />
+                        <small id="duration-help" class="form-help">Totale rit tyd in minute (1-720)</small>
+                        <div class="form-error" id="duration-error"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="normalizedPower" class="form-label">Genormaliseerde Krag (Watt)</label>
-                        <input type="number" id="normalizedPower" class="form-input" placeholder="bv. 200" min="10" max="800" />
-                        <small class="form-help">NP van jou rit-data (nie gemiddelde krag nie)</small>
+                        <input
+                            type="number"
+                            id="normalizedPower"
+                            class="form-input"
+                            placeholder="bv. 200"
+                            min="10"
+                            max="800"
+                            aria-required="true"
+                            aria-describedby="np-help"
+                        />
+                        <small id="np-help" class="form-help">NP van jou rit-data (nie gemiddelde krag nie)</small>
+                        <div class="form-error" id="np-error"></div>
                     </div>
 
                     <div class="calculator-buttons">
-                        <button type="submit" class="btn btn-primary">Bereken TSS</button>
-                        <button type="reset" class="btn btn-ghost">Maak Skoon</button>
+                        <button type="submit" class="btn btn-primary" id="calculateTssBtn">Bereken TSS</button>
+                        <button type="reset" class="btn btn-ghost" id="resetTssBtn">Maak Skoon</button>
                     </div>
                 </div>
             </form>
 
-            <div class="calculator-results hidden" id="tssResults">
+            <div class="calculator-results hidden" id="tssResults" aria-live="polite">
                 <h3>Jou Oefenstres-telling</h3>
                 <div class="results-summary">
                     <div class="result-item">
@@ -461,9 +519,12 @@
                         <div class="css-result-value" id="intensityFactor">--</div>
                     </div>
                 </div>
+
                 <div class="zones-result">
                     <h4>Oefening Moeilikheid</h4>
-                    <p class="mb-md text-secondary" id="tssInterpretation"></p>
+                    <p class="mb-md text-secondary" id="tssInterpretation">
+                        <!-- Gevul deur JavaScript -->
+                    </p>
                 </div>
             </div>
         </div>
@@ -487,7 +548,115 @@
             </div>
         </div>
 
-        <h2 class="mt-xl">TSS Riglyne volgens Oefening Tipe</h2>
+        <h2 class="mt-xl">Uitgewerkte Voorbeelde</h2>
+
+        <div class="grid grid-2 mb-xl">
+            <div class="example-box">
+                <h3>Voorbeeld 1: Maklike Uithouvermoë Rit</h3>
+                <h4>Ryer Data:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Duur: <strong>120 minute (7200s)</strong></li>
+                    <li>Genormaliseerde Krag: <strong>150W</strong></li>
+                </ul>
+
+                <h4>Stap 1: Bereken Intensiteitsfaktor</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 150W / 250W<br>
+                    IF = <strong>0.60</strong>
+                </div>
+
+                <h4>Stap 2: Bereken TSS</h4>
+                <div class="calculation">
+                    TSS = (7200 × 150 × 0.60) / (250 × 3600) × 100<br>
+                    TSS = (648,000) / (900,000) × 100<br>
+                    TSS = <strong>72 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Interpretasie:</strong> Maklike uithouvermoë rit op 60% intensiteit—perfek vir aërobiese basis bou en herstel.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>Voorbeeld 2: Drempel Intervalle</h3>
+                <h4>Ryer Data:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Duur: <strong>90 minute (5400s)</strong></li>
+                    <li>Genormaliseerde Krag: <strong>235W</strong></li>
+                </ul>
+
+                <h4>Stap 1: Bereken Intensiteitsfaktor</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 235W / 250W<br>
+                    IF = <strong>0.94</strong>
+                </div>
+
+                <h4>Stap 2: Bereken TSS</h4>
+                <div class="calculation">
+                    TSS = (5400 × 235 × 0.94) / (250 × 3600) × 100<br>
+                    TSS = (1,192,860) / (900,000) × 100<br>
+                    TSS = <strong>133 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Interpretasie:</strong> Harde drempel sessie op 94% intensiteit—beduidende oefen-stimulus vir FTP verbetering.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>Voorbeeld 3: Harde Groep Rit</h3>
+                <h4>Ryer Data:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Duur: <strong>180 minute (10800s)</strong></li>
+                    <li>Genormaliseerde Krag: <strong>210W</strong></li>
+                </ul>
+
+                <h4>Stap 1: Bereken Intensiteitsfaktor</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 210W / 250W<br>
+                    IF = <strong>0.84</strong>
+                </div>
+
+                <h4>Stap 2: Bereken TSS</h4>
+                <div class="calculation">
+                    TSS = (10800 × 210 × 0.84) / (250 × 3600) × 100<br>
+                    TSS = (1,905,120) / (900,000) × 100<br>
+                    TSS = <strong>212 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Interpretasie:</strong> Lang harde rit op 84% intensiteit—hoë oefen-lading wat 1-2 dae herstel vereis.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>Voorbeeld 4: VO₂max Intervalle</h3>
+                <h4>Ryer Data:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Duur: <strong>75 minute (4500s)</strong></li>
+                    <li>Genormaliseerde Krag: <strong>270W</strong></li>
+                </ul>
+
+                <h4>Stap 1: Bereken Intensiteitsfaktor</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 270W / 250W<br>
+                    IF = <strong>1.08</strong>
+                </div>
+
+                <h4>Stap 2: Bereken TSS</h4>
+                <div class="calculation">
+                    TSS = (4500 × 270 × 1.08) / (250 × 3600) × 100<br>
+                    TSS = (1,312,200) / (900,000) × 100<br>
+                    TSS = <strong>146 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Interpretasie:</strong> Baie harde VO₂max sessie bo drempel—hoë oefen-stimulus ten spyte van korter duur.</p>
+            </div>
+        </div>
+
+        <h2 class="mt-3xl">TSS Riglyne volgens Oefening Tipe</h2>
 
         <div class="zones-table-container">
             <table class="zones-table">
@@ -546,6 +715,219 @@
             </table>
         </div>
 
+        <h2 class="mt-3xl">Weeklikse TSS Teikens volgens Fietsryer Vlak</h2>
+
+        <div class="grid grid-2 mb-xl">
+            <div class="card">
+                <h3 class="card-title">Beginner Fietsryers</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>Weeklikse TSS:</strong> 200-400</p>
+                    <p>3-4 ritte per week, 50-100 TSS elk. Fokus op bou van aërobiese basis en fiets hantering vaardighede.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Ontspannings Fietsryers</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>Weeklikse TSS:</strong> 400-600</p>
+                    <p>4-5 ritte per week, 80-120 TSS elk. Mengsel van uithouvermoë en sommige kwaliteit sessies.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Kompeterende Amateurs</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>Weeklikse TSS:</strong> 600-900</p>
+                    <p>5-7 ritte per week, 85-130 TSS elk. Gestruktureerde oefening met periodisering en wedrenne.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Elite / Professioneel</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>Weeklikse TSS:</strong> 900-1500+</p>
+                    <p>10-15+ sessies per week. Hoë volume professionele oefen-lading. Na-Grand Tour CTL: 150-170.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout-warning">
+            <h3>⚠️ Belangrike Notas oor TSS</h3>
+            <ul>
+                <li><strong>Vereis akkurate FTP:</strong> Jou FTP moet onlangs wees (getoets binne 4-6 weke) vir akkurate TSS.</li>
+                <li><strong>Gebruik Genormaliseerde Krag, nie Gemiddelde Krag nie:</strong> NP reken vir veranderlikheid en fisiologiese koste.</li>
+                <li><strong>Binne vs Buite:</strong> Binne TSS mag harder voel weens geen uitrol of afdalings.</li>
+                <li><strong>Individuele variasie:</strong> Dieselfde TSS voel anders vir verskillende ryers. Pas aan gebaseer op jou herstel.</li>
+                <li><strong>Verhogings tempo belangrik:</strong> Verhoog weeklikse TSS geleidelik—3-8 CTL punte per week is volhoubaar.</li>
+            </ul>
+        </div>
+
+        <h2 class="mt-3xl">Begrip van Genormaliseerde Krag (NP)</h2>
+
+        <p>Genormaliseerde Krag is meer akkuraat as Gemiddelde Krag vir die berekening van TSS omdat dit reken vir die fisiologiese koste van krag veranderlikheid:</p>
+
+        <div class="example-box mb-lg">
+            <h4>Waarom NP Saak Maak: Twee Ritte Vergelyk</h4>
+            <div class="grid grid-2">
+                <div>
+                    <h5>Rit A: Bestendige Tempo</h5>
+                    <ul>
+                        <li>Duur: 60 minute</li>
+                        <li>Gemiddelde Krag: 200W</li>
+                        <li>Genormaliseerde Krag: 202W</li>
+                        <li>Veranderlikheid Indeks: 1.01</li>
+                        <li>TSS: 65</li>
+                    </ul>
+                    <p><em>Bestendige, konsekwente poging—lae fisiologiese koste</em></p>
+                </div>
+                <div>
+                    <h5>Rit B: Harde Groep Rit</h5>
+                    <ul>
+                        <li>Duur: 60 minute</li>
+                        <li>Gemiddelde Krag: 200W</li>
+                        <li>Genormaliseerde Krag: 240W</li>
+                        <li>Veranderlikheid Indeks: 1.20</li>
+                        <li>TSS: 92</li>
+                    </ul>
+                    <p><em>Veranderlik met uitbarstings—veel hoër fisiologiese koste</em></p>
+                </div>
+            </div>
+            <p class="mt-md"><strong>Sleutel insig:</strong> Beide ritte het 200W gemiddeld, maar Rit B is 42% harder (92 vs 65 TSS) weens krag veranderlikheid. NP vang hierdie verskil.</p>
+        </div>
+
+        <div class="callout callout-tip">
+            <h3>💡 Hoe om Genormaliseerde Krag te Kry</h3>
+            <p>Meeste fiets rekenaars en toepassings bereken NP outomaties:</p>
+            <ul>
+                <li><strong>Garmin/Wahoo/Hammerhead:</strong> Wys NP in rit opsomming</li>
+                <li><strong>TrainingPeaks/Strava/Intervals.icu:</strong> Bereken NP van opgelaaide ritte</li>
+                <li><strong>Golden Cheetah/WKO5:</strong> Gevorderde NP analise gereedskap</li>
+            </ul>
+            <p>As jy net gemiddelde krag het, skat: NP ≈ Gemiddelde Krag × 1.03-1.05 vir bestendige ritte, × 1.10-1.15 vir veranderlike ritte.</p>
+        </div>
+
+        <h2 class="mt-3xl">Waarom TSS Saak Maak: CTL, ATL, TSB</h2>
+
+        <p class="mb-md">Oefenstres-telling is die fondament vir die Prestasie Bestuur Grafiek:</p>
+
+        <ul class="mb-xl">
+            <li><strong>CTL (Chroniese Oefen-lading):</strong> Jou fiksheidsvlak - 42-dag eksponensieel geweegde gemiddelde van daaglikse TSS</li>
+            <li><strong>ATL (Akute Oefen-lading):</strong> Jou moegheid - 7-dag eksponensieel geweegde gemiddelde van daaglikse TSS</li>
+            <li><strong>TSB (Oefenstres-balans):</strong> Jou vorm - TSB = CTL - ATL (positief = vars, negatief = moeg)</li>
+            <li><strong>Periodisering:</strong> Beplan oefen-fases (basis, bou, piek, afbou) deur gebruik te maak van teiken CTL progressies</li>
+            <li><strong>Wedren Tydsberekening:</strong> Afbou om TSB van +10 tot +25 op wedren dag te bereik vir piek prestasie</li>
+        </ul>
+
+        <div class="callout callout-tip">
+            <h3>Pro Wenk: Volg jou Prestasie Bestuur Grafiek</h3>
+            <p>Log daaglikse TSS in TrainingPeaks, Intervals.icu, of 'n sigblad. Monitor jou CTL (42-dag gemiddeld) en ATL (7-dag gemiddeld). Teiken bestendige CTL groei van 3-8 punte per week tydens basis bou. Verminder TSS 7-14 dae voor wedrenne om TSB te laat styg na positiewe waardes vir piek prestasie.</p>
+            <p><a href="/af/training-load/">Leer meer oor CTL, ATL, en TSB →</a></p>
+        </div>
+
+        <h2 class="mt-3xl">Gereelde Vrae</h2>
+
+        <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Wat as ek nie 'n kragmeter het nie?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSS vereis krag data (FTP en Genormaliseerde Krag). Sonder 'n kragmeter, kan jy hartklop-gebaseerde alternatiewe soos HRSS (Hartklop Stres Telling) gebruik of waargenome inspanning skattings gebruik, maar hierdie is minder akkuraat. Kragmeters is die goue standaard vir TSS berekening en oefen-lading bestuur in fietse.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Hoe akkuraat is TSS?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSS is hoogs akkuraat wanneer gebaseer op huidige FTP en behoorlik berekende Genormaliseerde Krag. Studies wys TSS voorspel betroubaar oefen-lading en herstel behoeftes. Akkuraatheid hang af van: onlangse FTP toets (binne 4-6 weke), korrekte NP berekening, en kragmeter akkuraatheid (meeste is ±1-2%).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Kan ek TSS tussen pad en bergfiets vergelyk?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Ja, maar met voorbehoud. Padfiets TSS is meer voorspelbaar met bestendige krag profiele (VI 1.02-1.05). Bergfiets TSS is hoogs veranderlik (VI 1.10-1.20+) met gereelde uitbarstings bo drempel. Dieselfde TSS van bergfiets mag harder voel weens tegniese eise. Fokus op tendens analise eerder as absolute vergelykings tussen dissiplines.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Wat is 'n goeie TSS vir een oefening?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Dit hang af van oefen-doelwitte: Herstel ritte: 20-50 TSS, Maklike uithouvermoë: 50-100 TSS, Matige ritte: 100-150 TSS, Harde oefenings: 150-250 TSS, Baie harde sessies/wedrenne: 200-400+ TSS. Meeste oefen-ritte val tussen 50-150 TSS. Kwaliteit intervalle genereer 100-200 TSS. Wedrenne en lang gebeurtenisse: 200-400+ TSS.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Hoeveel TSS moet ek per week doen?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Weeklikse TSS teikens volgens vlak: Beginners: 200-400 TSS/week, Ontspanning: 400-600 TSS/week, Kompeterende amateur: 600-900 TSS/week, Elite/Professioneel: 900-1500+ TSS/week. Begin konserwatief en verhoog met 3-8 CTL punte per week. Jou volhoubare weeklikse TSS hang af van oefen-geskiedenis, beskikbare tyd, en herstel vermoë.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Moet ek TSS gebruik vir binne oefening?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Absoluut. TSS is ideaal vir binne oefening omdat krag konsekwent is en daar geen omgewingsveranderlikes is nie. Binne TSS dra direk by tot jou CTL/ATL/TSB. Binne ritte mag egter harder voel as buite vir dieselfde TSS weens geen uitrol, afdalings, of wind-gesteunde afdelings.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Wat is die verskil tussen TSS en kilojoules?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Kilojoules meet totale werk gedoen (energie verbruik)—dieselfde vir almal by dieselfde krag. TSS meet oefen-stres relatief tot JOU FTP. Voorbeeld: 200W vir 1 uur = 720 kJ vir almal. Maar as jou FTP 200W is, TSS = 100. As jou FTP 300W is, TSS = 44. TSS is geïndividualiseer; kJ is absoluut.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Moet ek my FTP ken?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Ja, FTP is noodsaaklik vir TSS berekening. Sonder om jou FTP te ken, kan jy nie Intensiteitsfaktor of TSS bereken nie. Toets jou FTP deur gebruik te maak van 'n 20-minuut of 8-minuut toets, of gebruik Helling Toets protokolle. Hertoets elke 4-6 weke om TSS berekeninge akkuraat te hou soos jou fiksheid verbeter. Leer meer: <a href="/af/ftp/">FTP Toets Gids</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-3xl">Verwante Hulpbronne</h2>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">FTP Toetsing</h3>
+                <div class="card-content">
+                    <p>Benodig jou FTP? Leer hoe om Funksionele Drempelkrag akkuraat te toets.</p>
+                    <a href="/af/ftp/" class="btn btn-secondary btn-small mt-md">FTP Gids →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Oefen-lading Gids</h3>
+                <div class="card-content">
+                    <p>Leer oor CTL, ATL, TSB en Prestasie Bestuur Grafiek maatstawwe.</p>
+                    <a href="/af/training-load/" class="btn btn-secondary btn-small mt-md">Oefen-lading →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Krag Maatstawwe</h3>
+                <div class="card-content">
+                    <p>Verstaan Genormaliseerde Krag, Intensiteitsfaktor, en Veranderlikheid Indeks.</p>
+                    <a href="/af/power-metrics/" class="btn btn-secondary btn-small mt-md">Krag Maatstawwe →</a>
+                </div>
+            </div>
+        </div>
+
         <div class="mt-xl text-center">
             <p class="mb-md"><strong>Wil outomatiese TSS opsporing met CTL/ATL/TSB grafieke?</strong></p>
             <a href="/af/" class="btn btn-primary btn-large">Leer Oor Bike Analytics</a>
@@ -556,6 +938,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('tssCalculatorForm');
+    const ftpInput = document.getElementById('ftp');
+    const durationInput = document.getElementById('duration');
+    const npInput = document.getElementById('normalizedPower');
     const results = document.getElementById('tssResults');
     const tssValue = document.getElementById('tssValue');
     const intensityFactor = document.getElementById('intensityFactor');
@@ -563,33 +948,74 @@ document.addEventListener('DOMContentLoaded', function() {
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        const ftp = parseFloat(document.getElementById('ftp').value);
-        const duration = parseFloat(document.getElementById('duration').value);
-        const np = parseFloat(document.getElementById('normalizedPower').value);
 
-        if (!ftp || !duration || !np) return;
+        // Maak vorige foute skoon
+        document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
 
+        // Kry waardes
+        const ftp = parseFloat(ftpInput.value);
+        const duration = parseFloat(durationInput.value);
+        const np = parseFloat(npInput.value);
+
+        // Validasie
+        let hasError = false;
+
+        if (!ftp || ftp < 50 || ftp > 600) {
+            document.getElementById('ftp-error').textContent = 'Voer asseblief FTP tussen 50-600W in';
+            hasError = true;
+        }
+
+        if (!duration || duration < 1 || duration > 720) {
+            document.getElementById('duration-error').textContent = 'Voer asseblief duur tussen 1-720 minute in';
+            hasError = true;
+        }
+
+        if (!np || np < 10 || np > 800) {
+            document.getElementById('np-error').textContent = 'Voer asseblief Genormaliseerde Krag tussen 10-800W in';
+            hasError = true;
+        }
+
+        if (hasError) {
+            results.classList.add('hidden');
+            return;
+        }
+
+        // Bereken TSS
         const durationSeconds = duration * 60;
+        const durationHours = duration / 60;
         const IF = np / ftp;
         const tss = (durationSeconds * np * IF) / (ftp * 3600) * 100;
 
+        // Vertoon resultate
         tssValue.textContent = Math.round(tss);
         intensityFactor.textContent = IF.toFixed(3);
 
+        // Interpretasie
         let interpretText = '';
-        if (tss < 50) interpretText = 'Maklike herstel rit - Lae oefen-stres, minimale herstel nodig.';
-        else if (tss < 100) interpretText = 'Maklike uithouvermoë rit - Matige oefen-lading, goed vir aërobiese basis bou.';
-        else if (tss < 150) interpretText = 'Matige uithouvermoë rit - Stewige oefen-stimulus, 1 dag herstel aanbeveel.';
-        else if (tss < 200) interpretText = 'Tempo/Sweet spot oefening - Harde oefen-lading, 1-2 dae herstel nodig.';
-        else if (tss < 300) interpretText = 'Drempel oefening of lang harde rit - Baie harde oefen-lading, 2-3 dae herstel vereis.';
-        else interpretText = 'Ekstreme oefening of wedren poging - Ekstreme oefen-stres, 3+ dae herstel noodsaaklik.';
+        if (tss < 50) {
+            interpretText = 'Maklike herstel rit - Lae oefen-stres, minimale herstel nodig.';
+        } else if (tss < 100) {
+            interpretText = 'Maklike uithouvermoë rit - Matige oefen-lading, goed vir aërobiese basis bou.';
+        } else if (tss < 150) {
+            interpretText = 'Matige uithouvermoë rit - Stewige oefen-stimulus, 1 dag herstel aanbeveel.';
+        } else if (tss < 200) {
+            interpretText = 'Tempo/Sweet spot oefening - Harde oefen-lading, 1-2 dae herstel nodig.';
+        } else if (tss < 300) {
+            interpretText = 'Drempel oefening of lang harde rit - Baie harde oefen-lading, 2-3 dae herstel vereis.';
+        } else {
+            interpretText = 'Ekstreme oefening of wedren poging - Ekstreme oefen-stres, 3+ dae herstel noodsaaklik.';
+        }
 
         interpretation.textContent = interpretText;
+
+        // Wys resultate
         results.classList.remove('hidden');
+        results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 
     form.addEventListener('reset', function() {
         results.classList.add('hidden');
+        document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
     });
 });
 </script>
@@ -644,6 +1070,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     <li>
                         <a href="/zh/">中文</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
                     </li>
                     
                 </ul>

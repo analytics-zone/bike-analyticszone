@@ -74,6 +74,18 @@
   <link rel="alternate" hreflang="zh"
     href="https://bike.analyticszone.app/zh/ftp/">
   
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/ftp/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/ftp/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/ftp/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/ftp/">
+  
   <link rel="alternate" hreflang="x-default"
     href="https://bike.analyticszone.app/en/ftp/">
 
@@ -325,6 +337,14 @@
                         Afrikaans
                     </option>
                     
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
                     <option value="ca" >
                         Català
                     </option>
@@ -345,12 +365,20 @@
                         Français
                     </option>
                     
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
                     <option value="it" >
                         Italiano
                     </option>
                     
                     <option value="pt" >
                         Português
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
                     </option>
                     
                     <option value="zh" >
@@ -455,7 +483,7 @@
         </ul>
 
         <div class="warning-box">
-            <strong>⚠️ Kritische Abhängigkeit:</strong> Ohne einen genauen FTP-Test können fortgeschrittene Trainingsbelastungsmetriken (TSS, Intensity Factor, CTL, ATL, TSB) nicht korrekt berechnet werden. Ein ungenaues FTP wird alle nachfolgenden leistungsbasierten Trainingsanalysen verfälschen.
+            <strong>⚠️ Kritische Abhängigkeit:</strong> Ohne einen genauen FTP-Test können fortgeschrittene Trainingsbelastungsmetriken (TSS, Intensitätsfaktor, CTL, ATL, TSB) nicht korrekt berechnet werden. Ein ungenaues FTP wird alle nachfolgenden leistungsbasierten Trainingsanalysen verfälschen.
         </div>
 
         <div class="callout callout-primary mt-xl">
@@ -465,7 +493,7 @@
             <ul>
                 <li>Automatische FTP-Schätzung aus Trainingsdaten</li>
                 <li>Personalisierte Leistungszonenaktualisierungen, wenn sich Ihr FTP verbessert</li>
-                <li>Echtzeit-Verfolgung von TSS, Intensity Factor und Normalized Power</li>
+                <li>Echtzeit-Verfolgung von TSS, Intensitätsfaktor und Normalisierter Leistung</li>
                 <li>Historische FTP-Verlaufsdiagramme und Fitnesstrends</li>
                 <li>Separate FTP-Verfolgung für Straßen- vs. MTB-Disziplinen</li>
             </ul>
@@ -506,7 +534,7 @@
                         <td>Genauere Modellierung, W'-Balance-Verfolgung</td>
                     </tr>
                     <tr>
-                        <td><strong><a href="/de/normalized-power/">Normalized Power (NP)</a></strong></td>
+                        <td><strong><a href="/de/normalized-power/">Normalisierte Leistung (NP)</a></strong></td>
                         <td>Physiologische Kosten variabler Anstrengungen</td>
                         <td>Aus Fahrtdaten berechnet</td>
                         <td>N/V (abgeleitete Metrik)</td>
@@ -790,6 +818,338 @@
         </div>
     </div>
 </section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>FTP und Training Stress Score (TSS)</h2>
+
+        <p class="lead">FTP ist der Nenner, der die Berechnung des Training Stress Score (TSS) ermöglicht und eine objektive Quantifizierung der Trainingsbelastung erlaubt.</p>
+
+        <h3>Wie TSS FTP verwendet</h3>
+        <p>Der Training Stress Score quantifiziert die Trainingsbelastung jeder Fahrt durch Kombination von Intensität und Dauer:</p>
+
+        <div class="formula-box">
+            <h3>TSS-Formel</h3>
+            <div class="formula">
+                TSS = (Sekunden × NP × IF) / (FTP × 3600) × 100
+            </div>
+            <div class="formula-explanation">
+                <p>Wobei:</p>
+                <ul>
+                    <li><strong>NP</strong> = Normalisierte Leistung (gewichteter Durchschnitt unter Berücksichtigung der Variabilität)</li>
+                    <li><strong>IF</strong> = Intensitätsfaktor (NP / FTP)</li>
+                    <li><strong>FTP</strong> = Ihre Funktionelle Schwellenleistung</li>
+                </ul>
+            </div>
+
+            <h3 class="mt-lg">Vereinfacht:</h3>
+            <div class="formula">
+                TSS = (IF)² × Dauer (Stunden) × 100
+            </div>
+            <p class="text-secondary mt-sm">Eine Stunde bei FTP = TSS von 100</p>
+        </div>
+
+        <h3 class="mt-xl">Beispiel TSS-Berechnung</h3>
+        <div class="example-box">
+            <h4>Fahrtdaten:</h4>
+            <ul>
+                <li>Dauer: <strong>2 Stunden</strong> (7.200 Sekunden)</li>
+                <li>Normalisierte Leistung: <strong>210W</strong></li>
+                <li>Ihr FTP: <strong>250W</strong></li>
+            </ul>
+
+            <h4>Schritt 1: Intensitätsfaktor berechnen</h4>
+            <div class="calculation">
+                IF = NP / FTP<br>
+                IF = 210W / 250W<br>
+                IF = <strong>0,84</strong>
+            </div>
+
+            <h4>Schritt 2: TSS berechnen</h4>
+            <div class="calculation">
+                TSS = (0,84)² × 2 Stunden × 100<br>
+                TSS = 0,706 × 2 × 100<br>
+                TSS = <strong>141 TSS</strong>
+            </div>
+
+            <p class="mt-md"><strong>Interpretation:</strong> Diese 2-stündige Ausdauerfahrt bei 84% des FTP erzeugte eine Trainingsbelastung, die 1,41 Stunden an der Schwelle entspricht. Es ist ein solides aerobes Training, das zur Fitness beiträgt, ohne übermäßige Ermüdung zu verursachen.</p>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>Warum ein genaues FTP für TSS wichtig ist</h3>
+            <p>Wenn Ihr FTP zu niedrig eingestellt ist, wird TSS künstlich aufgebläht, sodass Sie denken, Sie trainieren härter, als Sie es tatsächlich tun. Ist FTP zu hoch, wird TSS reduziert, was potenziell zu Übertraining führen kann, da Sie die Ermüdung unterschätzen. <strong>Genaues FTP = genaue Trainingsbelastungsüberwachung.</strong></p>
+            <p><a href="/de/training-load/">Erfahren Sie mehr über TSS, CTL, ATL und TSB →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Straßen- vs. MTB-FTP: Wichtige Unterschiede</h2>
+
+        <p class="lead">Straßen- und Mountainbike-FTP-Werte unterscheiden sich erheblich aufgrund von Biomechanik, Trittfrequenzmustern und Unterschieden in der Kraftübertragung.</p>
+
+        <div class="comparison-grid">
+            <div class="comparison-item">
+                <h3>🚴 Straßenrad-FTP</h3>
+                <ul>
+                    <li><strong>Höhere absolute Leistung:</strong> Anhaltende Steady-State-Anstrengungen</li>
+                    <li><strong>Optimale Trittfrequenz:</strong> 85-95 U/min an der Schwelle</li>
+                    <li><strong>Gleichmäßige Kraftübertragung:</strong> VI (Variabilitätsindex) von 1,02-1,05</li>
+                    <li><strong>Aerodynamische Position:</strong> Tiefere, aggressivere Haltung</li>
+                    <li><strong>Längere anhaltende Anstrengungen:</strong> 20-60 Minuten Schwellenblöcke</li>
+                </ul>
+            </div>
+
+            <div class="comparison-item">
+                <h3>🚵 MTB-FTP</h3>
+                <ul>
+                    <li><strong>5-10% niedrigere Leistung:</strong> Aufgrund technischer Anforderungen und Position</li>
+                    <li><strong>Variable Trittfrequenz:</strong> 70-85 U/min im Durchschnitt, häufige Änderungen</li>
+                    <li><strong>Schwankende Leistung:</strong> VI von 1,10-1,20+ mit konstanten Spitzen</li>
+                    <li><strong>Aufrechte Position:</strong> Kompromittiert Leistung zugunsten der Bike-Kontrolle</li>
+                    <li><strong>Intermittierende Anstrengungen:</strong> Ständige Mikro-Erholungen bei technischen Abschnitten</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-warning mt-lg">
+            <h3>⚠️ Warum MTB-FTP niedriger ist</h3>
+            <p>MTB-Fahrer erleben:</p>
+            <ul>
+                <li><strong>Körperposition:</strong> Aufrechte Position für technische Kontrolle reduziert die Effizienz der Kraftübertragung</li>
+                <li><strong>Trittfrequenzvariabilität:</strong> Häufige Beschleunigungen und technische Abschnitte stören den Rhythmus</li>
+                <li><strong>Federungsverluste:</strong> Vollgefederte Bikes absorbieren 14-30% der Leistung auf rauem Gelände</li>
+                <li><strong>Muskelrekrutierung:</strong> Oberkörpereinsatz für Bike-Kontrolle lenkt Energie von den Beinen ab</li>
+                <li><strong>Geländevariabilität:</strong> Steine, Wurzeln und technische Features erfordern ständige Leistungsmodulation</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-success mt-lg">
+            <h3>✅ Separate FTP-Werte verfolgen</h3>
+            <p>Bike Analytics verfolgt automatisch separate FTP-Werte für Straßen- und MTB-Disziplinen. Testprotokolle:</p>
+            <ul>
+                <li><strong>Straßen-FTP:</strong> Test auf flacher Straße oder Indoor-Trainer mit anhaltender gleichmäßiger Leistung</li>
+                <li><strong>MTB-FTP:</strong> Test auf mäßigem Klettertrail oder Indoor-Trainer in MTB-Position</li>
+                <li><strong>Erwarteter Unterschied:</strong> MTB-FTP typischerweise 5-10% niedriger als Straßen-FTP</li>
+            </ul>
+            <p><a href="/de/road-vs-mtb/">Erfahren Sie mehr über Straßen- vs. MTB-Trainingsunterschiede →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Typische FTP-Werte nach Leistungsniveau</h2>
+
+        <div class="levels-comparison">
+            <div class="level-card">
+                <h3>🥇 World Tour Profis</h3>
+                <div class="pace-value">5,5-6,5 W/kg</div>
+                <div class="pace-equivalent">380-450W (70kg Fahrer)</div>
+                <p>Grand Tour-Anwärter und professionelle Radfahrer. Jahre elitären Trainings mit Vollzeit-Coaching, Ernährung und Erholungsprotokollen.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🏆 Elite-Amateure / Kat 1-2</h3>
+                <div class="pace-value">4,5-5,5 W/kg</div>
+                <div class="pace-equivalent">315-385W (70kg Fahrer)</div>
+                <p>Hochrangige Wettkampfradfahrer, nationale Rennfahrer. Strukturiertes Training 12-18 Stunden pro Woche mit dediziertem Coaching.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🚴 Wettkampf / Kat 3-4</h3>
+                <div class="pace-value">3,5-4,5 W/kg</div>
+                <div class="pace-equivalent">245-315W (70kg Fahrer)</div>
+                <p>Regelmäßige Rennfahrer und ernsthafte Enthusiasten. Konsistentes Training 8-12 Stunden pro Woche mit strukturierten Plänen.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🚵 Freizeit / Fitness</h3>
+                <div class="pace-value">2,5-3,5 W/kg</div>
+                <div class="pace-equivalent">175-245W (70kg Fahrer)</div>
+                <p>Regelmäßige Fahrer mit 5-8 Stunden Training pro Woche. Fitnessaufbau mit Gruppenfahrten und gelegentlichen Events.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🌟 Anfänger</h3>
+                <div class="pace-value">2,0-2,5 W/kg</div>
+                <div class="pace-equivalent">140-175W (70kg Fahrer)</div>
+                <p>Neu im strukturierten Training oder nach Auszeit zurückkehrend. Weniger als 1 Jahr konsistentes leistungsbasiertes Training.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-info mt-lg">
+            <h3>W/kg vs. absolute Watt</h3>
+            <p><strong>Leistungs-Gewichts-Verhältnis (W/kg)</strong> ist aussagekräftiger als absolute Watt für Klettern und Vergleich von Fahrern unterschiedlicher Größe:</p>
+            <ul>
+                <li><strong>Klettern:</strong> W/kg sagt Klettergeschwindigkeit direkt voraus (gravitationsbegrenzt)</li>
+                <li><strong>Flaches Gelände:</strong> Absolute Watt sind wichtiger (aerodynamikbegrenzt)</li>
+                <li><strong>Zeitfahren:</strong> Absolute Leistung + Aerodynamik übertrumpfen W/kg</li>
+            </ul>
+            <p>Berechnen Sie Ihr W/kg: <strong>FTP (Watt) / Körpergewicht (kg)</strong></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="container container-narrow">
+        <h2>Wissenschaftliche Validierung von FTP</h2>
+
+        <div class="research-highlight">
+            <h3>Allen & Coggan (2019) - Training and Racing with a Power Meter</h3>
+            <p>Dr. Andrew Coggan und Hunter Allen etablierten FTP als grundlegende Metrik für leistungsbasiertes Training in ihrem bahnbrechenden Werk, jetzt in der 3. Auflage:</p>
+
+            <ul class="research-findings">
+                <li><strong>Praktische Schwellendefinition:</strong> Maximale 1-Stunden-Leistung ohne Ermüdungsakkumulation</li>
+                <li><strong>20-Minuten-Testprotokoll:</strong> 95% der 20-Minuten-Leistung korreliert stark mit 60-Minuten-Leistung</li>
+                <li><strong>Ermöglicht Training Stress Score:</strong> Objektive Quantifizierung der Trainingsbelastung</li>
+                <li><strong>Personalisierte Trainingszonen:</strong> 7-Zonen-System basierend auf physiologischen Schwellen</li>
+                <li><strong>Industriestandard:</strong> Übernommen von TrainingPeaks, Zwift, TrainerRoad und allen wichtigen Plattformen</li>
+            </ul>
+        </div>
+
+        <div class="research-highlight mt-lg">
+            <h3>MacInnis, Thomas & Phillips (2019) - FTP-Testzuverlässigkeit</h3>
+            <p>Validierungsstudie, die hohe Zuverlässigkeit und Reproduzierbarkeit von FTP-Tests bei trainierten Athleten demonstriert:</p>
+
+            <ul class="research-findings">
+                <li><strong>Hohe Zuverlässigkeit:</strong> ICC = 0,98, r² = 0,96 zwischen Test-Retest</li>
+                <li><strong>Ausgezeichnete Wiederholbarkeit:</strong> ±2W Bias, typischer Fehler 2,3%</li>
+                <li><strong>Identifiziert 1-Stunden-Leistung:</strong> Sagt zuverlässig nachhaltige Schwelle bei 89% der Athleten voraus</li>
+                <li><strong>Praktische Alternative:</strong> Gültiger Ersatz für teure Labor-Laktat-Tests</li>
+            </ul>
+
+            <div class="citation">
+                <p><strong>Quelle:</strong> MacInnis, M.J., Thomas, A.C.Q., & Phillips, S.M. (2019). "Is the FTP Test a Reliable, Reproducible and Functional Assessment Tool in Highly-Trained Athletes?" <em>International Journal of Exercise Science</em>, PMC6886609.</p>
+            </div>
+        </div>
+
+        <div class="research-highlight mt-lg">
+            <h3>Karsten et al. (2019) - FTP-Validität für Leistungsvorhersage</h3>
+            <p>Forschung, die die Überlegenheit von FTP gegenüber VO₂max für die Vorhersage von Radfahrleistung demonstriert:</p>
+
+            <ul class="research-findings">
+                <li><strong>Starke Leistungskorrelation:</strong> W/kg bei FTP korreliert mit Rennleistung (r = -0,74, p < 0,01)</li>
+                <li><strong>Besser als VO₂max:</strong> VO₂max zeigte keine signifikante Korrelation (r = -0,37)</li>
+                <li><strong>Praktische Relevanz:</strong> FTP übersetzt sich direkt in Renntempo und Trainingsverschreibung</li>
+            </ul>
+
+            <div class="citation">
+                <p><strong>Quelle:</strong> Karsten, B., et al. (2019). "The Validity of Functional Threshold Power and Maximal Oxygen Uptake for Cycling Performance in Moderately Trained Cyclists" PMC6835290.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-science mt-lg">
+            <h3>🔬 Warum FTP funktioniert</h3>
+            <p>Funktionelle Schwellenleistung repräsentiert die Grenze zwischen den <strong>schweren und schweren Belastungsdomänen</strong>. Unter FTP bleiben Laktatproduktion und -abbau im Gleichgewicht – Sie können die Anstrengung unbegrenzt aufrechterhalten (theoretisch). Über FTP akkumuliert Laktat progressiv bis zur Erschöpfung innerhalb von 20-60 Minuten.</p>
+            <p>Dies macht FTP zur perfekten Intensität für:</p>
+            <ul>
+                <li>Festlegung nachhaltiger Zeitfahr- und Klettertempo</li>
+                <li>Verschreibung von Laktatschwellen-Intervalltraining</li>
+                <li>Überwachung aerober Fitnessverbesserungen im Laufe der Zeit</li>
+                <li>Berechnung von Trainingsbelastung, Ermüdung und Erholungsbedarf</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2 class="mt-3xl">Häufig gestellte Fragen zu FTP</h2>
+
+        <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Was ist FTP beim Radfahren?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>FTP (Funktionelle Schwellenleistung) ist die höchste durchschnittliche Leistungsabgabe, die Sie für ungefähr eine Stunde ohne übermäßige Ermüdung aufrechterhalten können. Sie repräsentiert Ihre aerobe Schwelle – die Intensität, bei der Laktatproduktion gleich Laktatabbau ist. FTP dient als Grundlage für personalisierte <a href="/de/training-zones/">leistungsbasierte Trainingszonen</a> und genaue <a href="/de/training-load/">Trainingsbelastungsberechnung</a>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Wie teste ich mein FTP?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Das häufigste FTP-Testprotokoll: (1) 20 Minuten aufwärmen, (2) 5 Minuten All-out fahren, (3) 10 Minuten erholen, (4) Maximale nachhaltige Anstrengung für 20 Minuten fahren und Durchschnittsleistung aufzeichnen, (5) Berechnen Sie <strong>FTP = 95% der 20-Minuten-Durchschnittsleistung</strong>. Alternative Methoden umfassen den Ramp-Test (75% der max. 1-Minuten-Leistung) oder echten 60-Minuten-Test (am genauesten, aber sehr anspruchsvoll).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Wie oft sollte ich mein FTP erneut testen?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Testen Sie Ihr FTP alle 6-8 Wochen während aktiver Trainingsblöcke erneut, um Trainingszonen zu aktualisieren, wenn sich Ihre Fitness verbessert. Testen Sie häufiger (alle 4 Wochen) während intensiver Aufbauphasen oder wenn Sie vorgeschriebene Leistungszonen konsistent überschreiten können. Testen Sie auch nach signifikanten Fitnessänderungen (Krankheit, Verletzung, Nebensaison), vor Beginn neuer Trainingspläne oder wenn die Herzfrequenz bei Schwellenleistung merklich sinkt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Was ist ein gutes FTP für einen Anfänger-Radfahrer?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Für Anfänger mit weniger als 1 Jahr strukturiertem Training ist ein typisches FTP 2,0-2,5 W/kg (140-175W für einen 70kg Fahrer). Freizeitradfahrer mit 5-8 Stunden Training pro Woche erreichen typischerweise 2,5-3,5 W/kg. Vergleichen Sie sich nicht mit Profis (5,5-6,5 W/kg) – konzentrieren Sie sich darauf, Ihr eigenes FTP über eine Trainingsperiode um 10-20% zu verbessern. Jedes FTP ist ein gültiger Ausgangspunkt für leistungsbasiertes Training.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Ist FTP dasselbe wie Critical Power?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>FTP und <a href="/de/critical-power/">Critical Power (CP)</a> sind eng verwandt, aber unterschiedlich. FTP ist eine einzelne Zahl, die Ihre 1-Stunden-Leistung repräsentiert, während CP Teil eines Zwei-Komponenten-Modells ist (CP + W' anaerobe Kapazität). Sie unterscheiden sich typischerweise nur um ±5W, wobei CP normalerweise 5-7W höher ist als FTP. FTP ist einfacher und praktischer für die meisten Radfahrer, während CP eine genauere Modellierung von Anstrengungen mit variabler Intensität bietet und W'-Balance-Verfolgung für Rennsituationen ermöglicht.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Warum ist mein Indoor-FTP niedriger als draußen?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Indoor-FTP ist oft 5-10W niedriger als draußen aufgrund von Hitzeaufbau, fehlendem Kühlungsluftstrom und psychologischen Faktoren. Drinnen steigt Ihre Körpertemperatur schneller ohne natürliche Windkühlung, was Sie zwingt, die Leistungsabgabe zu reduzieren, um Überhitzung zu verhindern. Die statische Position auf einem Trainer reduziert auch die Muskelrekrutierungseffizienz. Für genaues Training verwenden Sie separate FTP-Werte für Indoor- und Outdoor-Fahren oder testen Sie in der Umgebung, in der Sie am meisten trainieren werden.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Was ist der Unterschied zwischen Straßen- und MTB-FTP?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>MTB-FTP ist typischerweise 5-10% niedriger als Straßen-FTP aufgrund von: (1) aufrechter Fahrposition, die die Effizienz der Kraftübertragung reduziert, (2) Federung, die 14-30% der Leistung auf rauem Gelände absorbiert, (3) variabler Trittfrequenz durch technische Abschnitte, (4) Oberkörpereinsatz für Bike-Handling. Verfolgen Sie separate FTP-Werte für jede Disziplin. <a href="/de/road-vs-mtb/">Erfahren Sie mehr über Straßen- vs. MTB-Unterschiede →</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Kann ich FTP ohne Test schätzen?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Während Sie FTP aus aktuellen Renndaten oder harten Gruppenfahrten schätzen können, ist direktes Testen weitaus genauer für <a href="/de/training-load/">TSS-Berechnung</a> und Trainingszonenverschreibung. Schätzungen aus Rennleistung: verwenden Sie 95-100% einer starken 40-60 Minuten Kletter- oder Zeitfahranstrengung. Der 20-Minuten-Test dauert jedoch nur 50 Minuten insgesamt (einschließlich Aufwärmen) und bietet die Präzision, die für effektives leistungsbasiertes Training erforderlich ist. Bike Analytics kann FTP auch automatisch aus Ihren Trainingsdaten schätzen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-3xl">
+            <h3>Wenden Sie Ihr FTP-Wissen an</h3>
+            <p>Jetzt, da Sie die Funktionelle Schwellenleistung verstehen, unternehmen Sie die nächsten Schritte zur Optimierung Ihres Trainings:</p>
+            <ul>
+                <li><a href="/de/training-zones/">Erkunden Sie die 7 Leistungstrainingszonen</a> und lernen Sie, wie man Workouts für spezifische Anpassungen strukturiert</li>
+                <li><a href="/de/training-load/">Berechnen Sie den Training Stress Score (TSS)</a> basierend auf Ihrem FTP, um Trainingsintensität zu quantifizieren</li>
+                <li><a href="/de/critical-power/">Vergleichen Sie FTP mit Critical Power</a>, um zu verstehen, welches Modell zu Ihrem Fahrstil passt</li>
+                <li><a href="/de/normalized-power/">Erfahren Sie mehr über Normalisierte Leistung</a> und wie sie die TSS-Genauigkeit für variable Fahrten verbessert</li>
+                <li><a href="/de/">Laden Sie Bike Analytics herunter</a>, um FTP, Leistungszonen und Leistungstrends automatisch zu verfolgen</li>
+            </ul>
+        </div>
+
+        <div class="mt-xl text-center">
+            <a href="/de/training-zones/" class="btn btn-primary">Leistungstrainingszonen erkunden →</a>
+            <a href="/de/training-load/" class="btn btn-secondary">Mehr über TSS erfahren →</a>
+        </div>
+    </div>
+</section>
   </main>
 
   
@@ -841,6 +1201,22 @@
                     
                     <li>
                         <a href="/zh/">中文</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
                     </li>
                     
                 </ul>
