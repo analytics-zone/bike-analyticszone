@@ -95,9 +95,277 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
 
   
-  <link rel="stylesheet" href="/assets/css/main.min.css">
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
 
   
   
@@ -106,6 +374,33 @@
   
 
   
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "TSS, CTL, ATL, TSB - Gestió Càrrega Entrenament Ciclisme",
+      "description": "Domina la Puntuació d&#39;Estrès d&#39;Entrenament (TSS), Càrrega d&#39;Entrenament Crònica (CTL), Càrrega d&#39;Entrenament Aguda (ATL) i Balanç d&#39;Estrès d&#39;Entrenament (TSB) pel ciclisme.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-11-12",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/ca/training-load/"
+      }
+    }
+  </script>
   
 </head>
 
@@ -465,9 +760,9 @@
         <p>Puntuació d'Estrès d'Entrenament (TSS), developed by Dr. Andrew Coggan, proporciona un mètode estandarditzat per quantificar la intensitat i durada de l'entrenament en un sol número. TSS va revolucionar l'entrenament ciclista fent l'entrenament basat en potència accessible i accionable.</p>
 
         <div class="callout callout-info">
-            <h3>The TSS Standard per a Ciclisme</h3>
-            <p>One hora at la teva <a href="/ca/ftp/">Functional Threshold Power (FTP)</a> = <strong>100 TSS</strong></p>
-            <p>This standardization allows comparison across entrenaments, setmanas, i entrenament cycles. A 30-minute llindar effort = ~50 TSS. A 2-hour llindar sortida = ~200 TSS.</p>
+            <h3>L'Estàndard TSS per al Ciclisme</h3>
+            <p>Una hora a la teva <a href="/ca/ftp/">Potència Llindar Funcional (FTP)</a> = <strong>100 TSS</strong></p>
+            <p>Aquesta estandardització permet comparar entrenaments, setmanes i cicles d'entrenament. Un esforç llindar de 30 minuts = ~50 TSS. Una sortida llindar de 2 hores = ~200 TSS.</p>
         </div>
 
         <h3>Com es Calcula el TSS</h3>
@@ -478,7 +773,7 @@
             <div class="formula-explanation">
                 <p>On:</p>
                 <ul>
-                    <li><strong>NP (Normalized Power)</strong> = The physiological "cost" of la sortida</li>
+                    <li><strong>NP (Potència Normalitzada)</strong> = El cost fisiològic de la sortida</li>
                     <li><strong>IF (Factor d'Intensitat)</strong> = NP / FTP (intensity relative to threshold)</li>
                     <li><strong>Duration</strong> = Total sortida time in segons</li>
                     <li><strong>FTP</strong> = Your functional llindar potència in watts</li>
@@ -513,7 +808,7 @@
                 TSS = <strong>128 TSS</strong>
             </div>
 
-            <p class="mt-md"><strong>Interpretació:</strong> This 2-hour resistència sortida at 80% del FTP generated 128 TSS—a solid aerobic entrenament stimulus typical of base building sortidas.</p>
+            <p class="mt-md"><strong>Interpretació:</strong> Aquesta sortida de resistència de 2 hores al 80% del FTP va generar 128 TSS—un estímul d'entrenament aeròbic sòlid típic de sortides de construcció de base.</p>
         </div>
     </div>
 </section>
@@ -595,7 +890,7 @@
 <section class="section section-alt">
     <div class="container">
         <h2 class="text-center mb-xl">El Gràfic de Gestió del Rendiment (PMC)</h2>
-        <p class="text-center lead">The PMC visualizes three interconnected metrics that tell la complete story of la teva ciclisme entrenament: forma física, fatiga, i form.</p>
+        <p class="text-center lead">El PMC visualitza tres mètriques interconnectades que expliquen la història completa del teu entrenament de ciclisme: forma física, fatiga i forma.</p>
 
         <div class="pmc-overview">
             <div class="grid grid-3">
@@ -652,7 +947,7 @@
                 <div class="callout callout-info">
                     <h4>Time Constant: 42 Days</h4>
                     <p>CTL has a half-life of approximately 14-15 dies. After 42 dies, about 36.8% (1/e) of a single entrenament's impact remains in la teva forma física calculation.</p>
-                    <p>This slow decay means forma física builds gradually but also fades slowly—you can take a setmana off without major forma física loss.</p>
+                    <p>Aquest decaïment lent significa que la forma física es construeix gradualment però també s'esvaeix lentament—pots prendre una setmana de descans sense pèrdua major de forma física.</p>
                 </div>
             </div>
 
@@ -696,7 +991,7 @@
             </div>
         </div>
 
-        <h3 class="mt-xl">Building CTL Safely: The Ramp Rate</h3>
+        <h3 class="mt-xl">Construir CTL de Forma Segura: La Taxa de Pendent</h3>
         <div class="example-box">
             <h4>Example CTL Progression (12-week base phase)</h4>
             <ul>
@@ -742,7 +1037,7 @@
                         <li><strong>Fitness stimulus</strong> (slow-building, long-lasting)</li>
                         <li><strong>Fatigue</strong> (fast-building, fast-dissipating)</li>
                     </ol>
-                    <p>Performance = Fitness - Fatigue. The PMC visualizes this model, enabling scientific periodization i optimal race timing.</p>
+                    <p>Rendiment = Forma Física - Fatiga. El PMC visualitza aquest model, permetent la periodització científica i el temps òptim de carrera.</p>
                 </div>
             </div>
 
@@ -763,14 +1058,14 @@
                 <h3>During Fase de Construcciós</h3>
                 <p>When increasing volume or intensity:</p>
                 <div class="example-box">
-                    <p>ATL rises <em>faster</em> than CTL due to shorter time constant. TSB becomes negative (fatiga > forma física). This són normal i productive—you're applying overload to stimulate adaptations.</p>
+                    <p>L'ATL puja <em>més ràpid</em> que el CTL a causa de la constant de temps més curta. El TSB esdevé negatiu (fatiga > forma física). Això és normal i productiu—estàs aplicant sobrecàrrega per estimular adaptacions.</p>
                     <p><strong>Target TSB:</strong> -10 to -30 during productive entrenament blocks</p>
                 </div>
 
                 <h3>During Taper for Races</h3>
                 <p>When reducing entrenament load before competition:</p>
                 <div class="example-box">
-                    <p>ATL drops <em>faster</em> than CTL. TSB becomes positive (forma física > fatiga). This són la goal—arrive at race dia fresh with legs ready to perform while retaining forma física.</p>
+                    <p>L'ATL cau <em>més ràpid</em> que el CTL. El TSB esdevé positiu (forma física > fatiga). Això és l'objectiu—arribar al dia de carrera fresc amb cames preparades per rendir mentre es reté la forma física.</p>
                     <p><strong>Target TSB:</strong> +10 to +25 on race dia depending on event</p>
                 </div>
             </div>
@@ -906,7 +1201,7 @@
 
         <div class="callout callout-success">
             <h3>✅ Per Què Funciona la Reducció</h3>
-            <p>The different time constants (42 dies for CTL, 7 dies for ATL) create la taper effect:</p>
+            <p>Les diferents constants de temps (42 dies per al CTL, 7 dies per a l'ATL) creen l'efecte de taper:</p>
             <ul>
                 <li>ATL responds quickly → Fatigue disappears within 7-10 dies</li>
                 <li>CTL responds slowly → Fitness persists for setmanas</li>
@@ -1023,7 +1318,7 @@
     <div class="container container-narrow">
         <h2>Investigació i Validació Científica</h2>
 
-        <p>The Performance Management Chart i TSS methodology are backed by decades of sports science research:</p>
+        <p>El Gràfic de Gestió del Rendiment i la metodologia TSS estan recolzats per dècades de recerca en ciències de l'esport:</p>
 
         <div class="research-references">
             <h3>Articles d'Investigació Clau</h3>
@@ -1096,7 +1391,7 @@
                 <h3 itemprop="name">Per què cau el meu CTL durant la reducció?</h3>
                 <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                     <div itemprop="text">
-                        <p>CTL dropping slightly during taper són normal i expected. A 5-10 point CTL drop over 2 setmanas of tapering represents minimal forma física loss (la 42-day time constant means forma física són retained). Meanwhile, ATL drops much faster (7-day time constant), eliminating fatiga. This creates positive TSB i fresh legs for racing.</p>
+                        <p>La caiguda lleu de CTL durant el taper és normal i esperada. Una caiguda de CTL de 5-10 punts durant 2 setmanes de tapering representa una pèrdua mínima de forma física (la constant de temps de 42 dies significa que la forma física es reté). Mentrestant, ATL cau molt més ràpid (constant de temps de 7 dies), eliminant la fatiga. Això crea un TSB positiu i cames fresques per a les curses.</p>
                     </div>
                 </div>
             </div>
@@ -1127,7 +1422,7 @@
         <h2>Master Your Ciclisme Càrrega d'Entrenament</h2>
         <p class="lead">Understanding Training Stress Score i la Performance Management Chart transforms subjective entrenament into objective, data-driven performance optimization. By monitoring TSS, CTL, ATL, i TSB, you gain precise control over forma física progression, fatiga management, i peak race timing.</p>
 
-        <p>The CTL-ATL-TSB system prevents overentrenament, optimizes recuperació timing, i ensures you arrive at goal races with la perfect forma física-fatiga balance for peak ciclisme performance.</p>
+        <p>El sistema CTL-ATL-TSB prevé el sobreentrenament, optimitza el temps de recuperació i assegura que arribis a les curses objectives amb el perfecte equilibri forma física-fatiga per al màxim rendiment ciclista.</p>
 
         <div class="mt-xl">
             <a href="/ca/ftp/" class="btn btn-secondary">← Functional Threshold Power (FTP)</a>
@@ -1249,17 +1544,17 @@
 </div>
 
   
-  <script src="/assets/js/main.min.js"></script>
-  <script src="/assets/js/cookie-consent.min.js"></script>
-  <script src="/assets/js/lazy-load.min.js"></script>
+  <script src="/assets/js/main.min.js" defer></script>
+  <script src="/assets/js/cookie-consent.min.js" defer></script>
+  <script src="/assets/js/lazy-load.min.js" defer></script>
 
   
-  <script src="/assets/js/fuse.min.js"></script>
-  <script src="/assets/js/search.min.js"></script>
+  <script src="/assets/js/fuse.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
 
   
   
-  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG"></script>
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
   
 </body>
 
