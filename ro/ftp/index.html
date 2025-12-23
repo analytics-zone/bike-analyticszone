@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Functional Threshold Power Calculator - FTP Test &amp; Zones</title>
+  <meta name="description" content="Free FTP test calculator for cyclists. Measure Functional Threshold Power in 20-minute test, discover training zones, optimize power work.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="functional threshold power, FTP calculator, cycling performance metrics, power training zones, FTP test protocol">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/ro/ftp/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-22T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/ro/ftp/">
+  <meta property="og:title" content="Functional Threshold Power Calculator - FTP Test &amp; Zones">
+  <meta property="og:description" content="Free FTP test calculator for cyclists. Measure Functional Threshold Power in 20-minute test, discover training zones, optimize power work.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/ro/ftp/">
+  <meta name="twitter:title" content="Functional Threshold Power Calculator - FTP Test &amp; Zones">
+  <meta name="twitter:description" content="Free FTP test calculator for cyclists. Measure Functional Threshold Power in 20-minute test, discover training zones, optimize power work.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/ftp/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/ftp/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/ftp/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/ftp/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/ftp/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/ftp/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/ftp/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/ftp/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/ftp/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/ftp/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/ftp/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/ftp/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/ftp/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/ftp/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/ftp/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/ftp/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/ftp/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/ftp/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/ftp/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/ftp/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/ftp/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/ftp/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/ftp/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/ftp/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/ftp/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/ftp/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Functional Threshold Power Calculator - FTP Test &amp; Zones",
+      "description": "Free FTP test calculator for cyclists. Measure Functional Threshold Power in 20-minute test, discover training zones, optimize power work.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-22",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/ro/ftp/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/ro/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/ro/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/ftp/" class="active"
+                                    aria-current="page">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/ro/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" selected>
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Puterea Prag Funcțional (FTP)</h1>
+        <p class="lead">Fundamentul antrenamentului bazat pe putere</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-success mb-xl">
+            <h2>Puncte Cheie</h2>
+            <ul class="key-points">
+                <li><strong>Ce este:</strong> FTP este cea mai mare putere medie pe care o poți susține timp de
+                    aproximativ 1 oră fără a obosi excesiv</li>
+                <li><strong>Cum se testează:</strong> Cel mai comun este protocolul de test de 20 de minute: 95% din cea
+                    mai bună putere medie pe 20 de minute</li>
+                <li><strong>De ce contează:</strong> FTP permite configurarea <a
+                        href="/ro/training-zones/">zonelor de putere</a> personalizate, calculul precis al <a
+                        href="/ro/training-load/">TSS</a> și urmărirea obiectivă a condiției fizice</li>
+                <li><strong>Valori tipice:</strong> Recreațional: 2,0-3,0 W/kg | Competitiv: 3,5-4,5 W/kg | Elită:
+                    5,5-6,5 W/kg</li>
+                <li><strong>Frecvența testării:</strong> Retestează la fiecare 6-8 săptămâni în timpul blocurilor de
+                    antrenament pentru a actualiza zonele pe măsură ce progresezi</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-info mb-xl">
+            <h2>Ce este FTP?</h2>
+            <p><strong>Puterea Prag Funcțional (FTP)</strong> este cea mai mare putere medie pe care o poți susține timp
+                de aproximativ o oră fără a acumula oboseală. Reprezintă pragul tău aerobic — granița dintre eforturile
+                sustenabile și cele nesustenabile. FTP servește ca fundament pentru tot antrenamentul bazat pe putere,
+                permițând zone de antrenament personalizate și cuantificarea precisă a sarcinii de antrenament.</p>
+        </div>
+
+        <p class="lead">Puterea Prag Funcțional a revoluționat antrenamentul de ciclism la începutul anilor 2000,
+            oferind o singură metrică practică ce definește pragul tău fiziologic. Spre deosebire de testarea lactatului
+            în laborator, FTP poate fi măsurat doar cu un senzor de putere și un drum deschis.</p>
+
+        <div class="callout callout-info">
+            <h3>🎯 Semnificație Fiziologică</h3>
+            <p>FTP corespunde îndeaproape cu:</p>
+            <ul>
+                <li><strong>Pragul de Lactat 2 (LT2)</strong> - Al doilea prag ventilator</li>
+                <li><strong>Starea Stabilă Maximă de Lactat (MLSS)</strong> - Aproximativ 88,5% din FTP-ul real</li>
+                <li><strong>Puterea Critică (CP)</strong> - De obicei în limita a ±5W față de FTP</li>
+                <li><strong>~4 mmol/L lactat în sânge</strong> - Markerul tradițional OBLA</li>
+            </ul>
+        </div>
+
+        <h3>De ce contează FTP</h3>
+        <p>Puterea Prag Funcțional este <strong>metrica fundamentală</strong> care deblochează tot antrenamentul avansat
+            bazat pe putere:</p>
+        <ul>
+            <li><strong><a href="/ro/training-zones/">Zone de Antrenament de Putere</a>:</strong> Personalizează
+                zonele de intensitate conform fiziologiei tale individuale</li>
+            <li><strong><a href="/ro/training-load/">Calculul TSS</a>:</strong> Permite cuantificarea precisă a
+                Training Stress Score</li>
+            <li><strong><a href="/ro/training-load/">CTL/ATL/TSB</a>:</strong> Necesar pentru metricile
+                Diagramei de Management al Performanței</li>
+            <li><strong>Urmărirea Progresului:</strong> Măsură obiectivă a îmbunătățirii puterii de prag în timp</li>
+            <li><strong>Dozarea Efortului în Cursă:</strong> Determină puterile sustenabile pentru contratimp și curse
+                de șosea</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠️ Dependență Critică:</strong> Fără un test FTP precis, metricile avansate de sarcină de
+            antrenament (TSS, Factor de Intensitate, CTL, ATL, TSB) nu pot fi calculate corect. Un FTP inexact va altera
+            toate analizele ulterioare ale antrenamentului bazat pe putere.
+        </div>
+
+        <div class="callout callout-primary mt-xl">
+            <h3>📱 Bike Analytics Automatizează Tot Antrenamentul Bazat pe FTP</h3>
+            <p>În timp ce acest ghid explică știința din spatele FTP, <strong>Bike Analytics detectează și urmărește
+                    automat Puterea Prag Funcțional</strong> din datele curselor tale — fără a fi necesare teste manuale
+                sau calcule.</p>
+            <p><strong>Aplicația gestionează:</strong></p>
+            <ul>
+                <li>Estimarea automată a FTP din datele de antrenament</li>
+                <li>Actualizarea personalizată a zonelor de putere pe măsură ce FTP se îmbunătățește</li>
+                <li>Urmărirea în timp real a TSS, Factorului de Intensitate și Puterii Normalizate</li>
+                <li>Diagrame istorice de progresie FTP și tendințe de fitness</li>
+                <li>Urmărire separată a FTP pentru disciplinele Șosea vs MTB</li>
+            </ul>
+            <p><a href="/ro/" class="btn btn-accent btn-small">Descarcă Bike Analytics Gratis →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="container container-narrow">
+        <h2>FTP vs Alte Metrici de Putere</h2>
+        <p class="lead">Înțelegerea modului în care FTP se compară cu alți indicatori de performanță în ciclism te ajută
+            să alegi metrica potrivită pentru obiectivele tale de antrenament.</p>
+
+        <div class="comparison-table-container">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metrică</th>
+                        <th>Ce măsoară</th>
+                        <th>Metodă de Testare</th>
+                        <th>Durată Sustenabilă</th>
+                        <th>Cel mai bun caz de utilizare</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td><strong>Puterea Prag Funcțional (FTP)</strong></td>
+                        <td>Puterea maximă pe 1 oră (prag aerobic)</td>
+                        <td>Test pe 20 min (95%) sau test pe 60 min</td>
+                        <td>~60 minute</td>
+                        <td>Zone de antrenament, calcul TSS, dozare efort cursă</td>
+                    </tr>
+                    <tr>
+                        <td><strong><a href="/ro/critical-power/">Putere Critică (CP)</a></strong></td>
+                        <td>Granița aerobic-anaerobică</td>
+                        <td>Multiple eforturi maximale (3, 5, 12, 20 min)</td>
+                        <td>30-40 minute</td>
+                        <td>Modelare mai precisă, urmărire balanță W'</td>
+                    </tr>
+                    <tr>
+                        <td><strong><a href="/ro/power-metrics/">Putere Normalizată (NP)</a></strong></td>
+                        <td>Costul fiziologic al eforturilor variabile</td>
+                        <td>Calculat din datele cursei</td>
+                        <td>N/A (metrică derivată)</td>
+                        <td>Curse cu intensitate variabilă, TSS în lumea reală</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Puterea pe 5 minute (VO₂max)</strong></td>
+                        <td>Capacitatea aerobică maximă</td>
+                        <td>Test maximal pe 5 min</td>
+                        <td>5-8 minute</td>
+                        <td>Intervale VO₂max, urcări scurte</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Puterea pe 20 de secunde (Anaerob)</strong></td>
+                        <td>Putere neuromusculară</td>
+                        <td>Sprint maxim pe 20 sec</td>
+                        <td>20-30 secunde</td>
+                        <td>Antrenament de sprint, sprinturi finale</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>De ce să alegi FTP?</h3>
+            <p>FTP atinge echilibrul perfect între acuratețe și caracter practic. Spre deosebire de Puterea Critică
+                (care necesită teste multiple) sau testarea lactatului în laborator (scumpă și incomodă), FTP poate fi
+                măsurat într-un singur efort de 20 de minute. Acest lucru îl face ideal pentru retestări regulate la
+                fiecare 6-8 săptămâni pentru a urmări progresia fitness-ului și a actualiza zonele de antrenament.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="text-center mb-xl">Cum să îți testezi FTP-ul</h2>
+        <p class="lead text-center mb-xl">Trei protocoale dovedite pentru a determina Puterea Prag Funcțional</p>
+
+        <div class="grid grid-3">
+            <div class="protocol-card">
+                <h3>🏆 Test FTP de 20 de minute</h3>
+                <p class="protocol-subtitle">Cea mai comună metodă</p>
+                <ol class="protocol-steps">
+                    <li>
+                        <strong>Încălzire (20 minute)</strong>
+                        <p>Pedalare ușoară, crescând treptat intensitatea. Include 2-3 sprinturi scurte la ritm de
+                            cursă.</p>
+                    </li>
+                    <li>
+                        <strong>5 minute efort maxim</strong>
+                        <p>Efort maxim sustenabil pentru a goli rezervele anaerobe. Nu te reține.</p>
+                    </li>
+                    <li>
+                        <strong>Recuperare (10 minute)</strong>
+                        <p>Pedalare ușoară pentru a elimina lactatul. Lasă ritmul cardiac să scadă sub 120 bpm.</p>
+                    </li>
+                    <li>
+                        <strong>Testul de 20 de minute</strong>
+                        <p>Efort sustenabil maxim. Menține o putere constantă — nu ceda prea devreme. Înregistrează
+                            puterea medie.</p>
+                    </li>
+                    <li>
+                        <strong>Calculează FTP</strong>
+                        <p><strong>FTP = 95% din puterea medie pe 20 de minute</strong></p>
+                        <p class="text-secondary">Exemplu: 250W timp de 20 min → FTP = 238W</p>
+                    </li>
+                </ol>
+                <div class="callout callout-tip mt-md">
+                    <strong>💡 Sfat Pro:</strong> Vizează o distribuție uniformă a puterii. Dacă nu poți menține puterea
+                    în ultimele 5 minute, ai început prea tare. Dozarea este critică pentru rezultate precise.
+                </div>
+            </div>
+
+            <div class="protocol-card">
+                <h3>⚡ Ramp Test</h3>
+                <p class="protocol-subtitle">Alternativă mai scurtă (20-30 minute în total)</p>
+                <ol class="protocol-steps">
+                    <li>
+                        <strong>Încălzire (10 minute)</strong>
+                        <p>Pedalare ușoară la ritm de anduranță pentru a pregăti picioarele.</p>
+                    </li>
+                    <li>
+                        <strong>Protocolul Ramp</strong>
+                        <p>Începe la o putere ușoară (100-150W). Crește cu 20W la fiecare minut până la epuizare.</p>
+                    </li>
+                    <li>
+                        <strong>Pedalează până la cedare</strong>
+                        <p>Continuă până când nu mai poți menține puterea țintă. Înregistrează puterea medie maximă pe 1
+                            minut.</p>
+                    </li>
+                    <li>
+                        <strong>Calculează FTP</strong>
+                        <p><strong>FTP = 75% din puterea maximă pe 1 minut</strong></p>
+                        <p class="text-secondary">Exemplu: 340W max pe 1 min → FTP = 255W</p>
+                    </li>
+                </ol>
+                <div class="callout callout-success mt-md">
+                    <strong>✅ Avantaje:</strong> Mai puțin solicitant mental, durată mai scurtă, mai ușor de dozat.
+                    Popular pe platformele de antrenament de interior precum Zwift și TrainerRoad.
+                </div>
+            </div>
+
+            <div class="protocol-card">
+                <h3>🥇 Test de 60 de minute</h3>
+                <p class="protocol-subtitle">Standardul de Aur (Cel mai precis)</p>
+                <ol class="protocol-steps">
+                    <li>
+                        <strong>Încălzire (20 minute)</strong>
+                        <p>Încălzire progresivă cu câteva eforturi la ritm de cursă pentru a te pregăti pentru efortul
+                            susținut la prag.</p>
+                    </li>
+                    <li>
+                        <strong>60 de minute efort maximal</strong>
+                        <p>Efort sustenabil maxim timp de o oră întreagă. Dozarea este totul — începe conservator.</p>
+                    </li>
+                    <li>
+                        <strong>Înregistrează puterea medie</strong>
+                        <p>Puterea ta medie pentru cele 60 de minute ESTE FTP-ul tău real. Nu se aplică niciun calcul.
+                        </p>
+                    </li>
+                </ol>
+                <div class="warning-box mt-md">
+                    <strong>⚠️ Cel mai precis, dar cel mai greu:</strong> Testul de 60 de minute este brutal de dificil
+                    și epuizant mental. Majoritatea cicliștilor folosesc protocolul de 20 de minute pentru testări
+                    regulate și rezervă testul de o oră pentru validare sau evaluarea formei maxime.
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout-info mt-xl">
+            <h3>🔄 Condițiile de testare contează</h3>
+            <p>Pentru rezultate consistente și comparabile:</p>
+            <ul>
+                <li><strong>Interior vs Exterior:</strong> Testele de interior sunt mai controlate (fără vânt, trafic,
+                    teren variabil), dar pot fi cu 5-10W mai mici din cauza acumulării de căldură</li>
+                <li><strong>Momentul zilei:</strong> Testează la aceeași oră la care te antrenezi de obicei pentru
+                    rezultate comparabile</li>
+                <li><strong>Hidratare & Nutriție:</strong> Alimentat și hidratat corect, dar nu imediat după masă</li>
+                <li><strong>Starea de oboseală:</strong> Testează când ești relativ odihnit, nu după blocuri de
+                    antrenament grele</li>
+                <li><strong>Senzorul de putere:</strong> Folosește același senzor pentru toate testele pentru a evita
+                    diferențele de calibrare</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>🔄 Când să retestezi FTP-ul</h3>
+            <p>Actualizează-ți FTP-ul la fiecare <strong>6-8 săptămâni</strong> în timpul blocurilor de antrenament
+                activ, sau când:</p>
+            <ul>
+                <li>Poți finaliza constant antrenamentele peste zonele prescrise</li>
+                <li>Ritmul tău cardiac este mai mic la aceleași puteri</li>
+                <li>După o schimbare a fazei de antrenament (bază → acumulare → vârf)</li>
+                <li>În urma unor schimbări semnificative ale fitness-ului (accidentare, boală, extrasezon)</li>
+                <li>Înainte de a începe un nou plan de antrenament sau un sezon de curse</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>FTP vs Putere Critică: Care este diferența?</h2>
+
+        <p class="lead">Atât FTP cât și Puterea Critică (CP) descriu pragul tău, dar folosesc abordări diferite.</p>
+
+        <div class="grid grid-2 mt-lg">
+            <div class="comparison-card">
+                <h3>Puterea Prag Funcțional (FTP)</h3>
+                <ul class="comparison-list">
+                    <li><strong>Un singur număr:</strong> O singură valoare de putere îți definește pragul</li>
+                    <li><strong>Simplu de testat:</strong> Un singur efort de 20 de minute sau 60 de minute</li>
+                    <li><strong>Adoptat pe scară largă:</strong> Standardul industriei de la începutul anilor 2000</li>
+                    <li><strong>Ușor de înțeles:</strong> „Puterea maximă pe 1 oră”</li>
+                    <li><strong>Practic:</strong> Rapid de retestat regulat</li>
+                    <li><strong>Limitare:</strong> Nu ține cont de capacitatea anaerobică (W')</li>
+                </ul>
+            </div>
+
+            <div class="comparison-card">
+                <h3><a href="/ro/critical-power/">Putere Critică (CP)</a></h3>
+                <ul class="comparison-list">
+                    <li><strong>Model cu două componente:</strong> CP (putere sustenabilă) + W' (capacitate anaerobică)
+                    </li>
+                    <li><strong>Mai complex:</strong> Necesită 3-4 eforturi maximale la durate diferite</li>
+                    <li><strong>Mai precis:</strong> Modelează precis relația putere-durată</li>
+                    <li><strong>Permite balanța W':</strong> Urmărește consumul și recuperarea „bateriei anaerobe”</li>
+                    <li><strong>Mai bun pentru eforturi variabile:</strong> Curse de șosea, criterium, MTB</li>
+                    <li><strong>Compromis:</strong> Mai mult timp pentru testare, analiză mai complexă</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>Pe care ar trebui să o folosești?</h3>
+            <ul>
+                <li><strong>Folosește FTP dacă:</strong> Dorești zone de antrenament simple și practice pentru eforturi
+                    constante (contratimp, triatlon, urcare)</li>
+                <li><strong>Folosește CP dacă:</strong> Dorești o modelare precisă a eforturilor cu intensitate
+                    variabilă (criterium, curse de șosea, MTB) și ai nevoie de urmărirea balanței W'</li>
+                <li><strong>Veste bună:</strong> FTP și CP sunt de obicei în limita a ±5W una față de cealaltă. Mulți
+                    cicliști folosesc FTP pentru simplitate, știind că CP ar oferi zone similare</li>
+            </ul>
+            <p><a href="/ro/critical-power/">Află mai multe despre Puterea Critică și balanța W' →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="container container-narrow">
+        <h2>Folosirea FTP pentru Zonele de Antrenament</h2>
+
+        <p class="lead">FTP deblochează sistemul de antrenament cu 7 zone de putere Coggan, permițând prescrierea
+            precisă a intensității pentru fiecare antrenament.</p>
+
+        <div class="callout callout-info mb-lg">
+            <h3>Modelul Coggan cu 7 Zone</h3>
+            <p>Dr. Andrew Coggan a dezvoltat acest sistem bazat pe pragurile fiziologice. Fiecare zonă vizează adaptări
+                specifice:</p>
+        </div>
+
+        <div class="zones-table-container">
+            <table class="zones-table">
+                <thead>
+                    <tr>
+                        <th>Zonă</th>
+                        <th>Nume</th>
+                        <th>% din FTP</th>
+                        <th>Exemplu (250W FTP)</th>
+                        <th>RPE</th>
+                        <th>Scop</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="zone-1">
+                        <td><strong>1</strong></td>
+                        <td>Recuperare Activă</td>
+                        <td>&lt;55%</td>
+                        <td>&lt;138W</td>
+                        <td>1-2/10</td>
+                        <td>Curse de recuperare, încălzire, revenire</td>
+                    </tr>
+                    <tr class="zone-2">
+                        <td><strong>2</strong></td>
+                        <td>Anduranță</td>
+                        <td>56-75%</td>
+                        <td>140-188W</td>
+                        <td>3-4/10</td>
+                        <td>Bază aerobică, oxidarea grăsimilor, densitate mitocondrială</td>
+                    </tr>
+                    <tr class="zone-3">
+                        <td><strong>3</strong></td>
+                        <td>Tempo</td>
+                        <td>76-90%</td>
+                        <td>190-225W</td>
+                        <td>5-6/10</td>
+                        <td>Anduranță musculară, metabolismul carbohidraților</td>
+                    </tr>
+                    <tr class="zone-4">
+                        <td><strong>4</strong></td>
+                        <td>Prag de Lactat</td>
+                        <td>91-105%</td>
+                        <td>228-263W</td>
+                        <td>7-8/10</td>
+                        <td>Creșterea FTP, eliminarea lactatului, ritm de cursă</td>
+                    </tr>
+                    <tr class="zone-5">
+                        <td><strong>5</strong></td>
+                        <td>VO₂max</td>
+                        <td>106-120%</td>
+                        <td>265-300W</td>
+                        <td>9/10</td>
+                        <td>Capacitate aerobică maximă, eforturi de 3-8 minute</td>
+                    </tr>
+                    <tr class="zone-6">
+                        <td><strong>6</strong></td>
+                        <td>Capacitate Anaerobă</td>
+                        <td>121-150%</td>
+                        <td>303-375W</td>
+                        <td>10/10</td>
+                        <td>Putere anaerobă, 30 secunde-3 minute</td>
+                    </tr>
+                    <tr class="zone-7">
+                        <td><strong>7</strong></td>
+                        <td>Neuromusculară</td>
+                        <td>&gt;150%</td>
+                        <td>&gt;375W</td>
+                        <td>MAX</td>
+                        <td>Putere de sprint, explozii foarte scurte (&lt;30 secunde)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-success mt-lg">
+            <h3>🎯 Distribuția Antrenamentului</h3>
+            <p>Pentru o dezvoltare optimă a anduranței, majoritatea cicliștilor urmează o distribuție piramidală sau
+                polarizată a antrenamentului:</p>
+            <ul>
+                <li><strong>Zona 1-2 (Ușor):</strong> 70-80% din timpul de antrenament — construiește baza aerobică</li>
+                <li><strong>Zona 3-4 (Prag):</strong> 10-15% din timpul de antrenament — crește FTP-ul</li>
+                <li><strong>Zona 5-7 (Intensitate mare):</strong> 5-10% din timpul de antrenament — dezvoltă puterea
+                    maximă</li>
+            </ul>
+            <p><a href="/ro/training-zones/">Află mai multe despre zonele de antrenament bazate pe putere →</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>FTP și Training Stress Score (TSS)</h2>
+
+        <p class="lead">FTP este numitorul care face posibil calculul Training Stress Score (TSS), permițând
+            cuantificarea obiectivă a sarcinii de antrenament.</p>
+
+        <h3>Cum folosește TSS FTP-ul</h3>
+        <p>Training Stress Score cuantifică sarcina de antrenament a oricărei curse combinând intensitatea și durata:
+        </p>
+
+        <div class="formula-box">
+            <h3>Formula TSS</h3>
+            <div class="formula">
+                TSS = (secunde × NP × IF) / (FTP × 3600) × 100
+            </div>
+            <div class="formula-explanation">
+                <p>Unde:</p>
+                <ul>
+                    <li><strong>NP</strong> = Putere Normalizată (medie ponderată ce ține cont de variabilitate)</li>
+                    <li><strong>IF</strong> = Factor de Intensitate (NP / FTP)</li>
+                    <li><strong>FTP</strong> = Puterea ta Prag Funcțional</li>
+                </ul>
+            </div>
+
+            <h3 class="mt-lg">Simplificat:</h3>
+            <div class="formula">
+                TSS = (IF)² × durata (ore) × 100
+            </div>
+            <p class="text-secondary mt-sm">O oră la FTP = TSS de 100</p>
+        </div>
+
+        <h3 class="mt-xl">Exemplu de calcul TSS</h3>
+        <div class="example-box">
+            <h4>Datele cursei:</h4>
+            <ul>
+                <li>Durată: <strong>2 ore</strong> (7.200 secunde)</li>
+                <li>Putere Normalizată: <strong>210W</strong></li>
+                <li>FTP-ul tău: <strong>250W</strong></li>
+            </ul>
+
+            <h4>Pasul 1: Calculează Factorul de Intensitate</h4>
+            <div class="calculation">
+                IF = NP / FTP<br>
+                IF = 210W / 250W<br>
+                IF = <strong>0,84</strong>
+            </div>
+
+            <h4>Pasul 2: Calculează TSS</h4>
+            <div class="calculation">
+                TSS = (0,84)² × 2 ore × 100<br>
+                TSS = 0,706 × 2 × 100<br>
+                TSS = <strong>141 TSS</strong>
+            </div>
+
+            <p class="mt-md"><strong>Interpretare:</strong> Această cursă de anduranță de 2 ore la 84% din FTP a creat o
+                sarcină de antrenament echivalentă cu 1,41 ore la prag. Este un antrenament aerobic solid care va
+                contribui la fitness fără a genera oboseală excesivă.</p>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>De ce contează un FTP precis pentru TSS</h3>
+            <p>Dacă FTP-ul tău este setat prea jos, TSS-ul va fi umflat artificial, făcându-te să crezi că te antrenezi
+                mai greu decât o faci în realitate. Dacă FTP-ul este prea mare, TSS-ul va fi subestimat, ducând
+                potențial la supraantrenament deoarece subestimezi oboseala. <strong>FTP precis = monitorizarea precisă
+                    a sarcinii de antrenament.</strong></p>
+            <p><a href="/ro/training-load/">Află mai multe despre TSS, CTL, ATL și TSB →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>FTP Șosea vs MTB: Diferențe Importante</h2>
+
+        <p class="lead">Valorile FTP pentru șosea și mountain bike diferă semnificativ din cauza biomecanicii, modelelor
+            de cadență și diferențelor în livrarea puterii.</p>
+
+        <div class="comparison-grid">
+            <div class="comparison-item">
+                <h3>🚴 FTP Ciclism Șosea</h3>
+                <ul>
+                    <li><strong>Putere absolută mai mare:</strong> Eforturi sustenabile în stare stabilă</li>
+                    <li><strong>Cadență optimă:</strong> 85-95 RPM la prag</li>
+                    <li><strong>Livrare constantă a puterii:</strong> VI (Indice de Variabilitate) de 1,02-1,05</li>
+                    <li><strong>Poziție aerodinamică:</strong> Postură mai joasă, mai agresivă</li>
+                    <li><strong>Eforturi sustenabile mai lungi:</strong> Blocuri la prag de 20-60 de minute</li>
+                </ul>
+            </div>
+
+            <div class="comparison-item">
+                <h3>🚵 FTP MTB</h3>
+                <ul>
+                    <li><strong>Putere cu 5-10% mai mică:</strong> Din cauza cerințelor tehnice și a poziției</li>
+                    <li><strong>Cadență variabilă:</strong> medie de 70-85 RPM, schimbări frecvente</li>
+                    <li><strong>Putere explozivă (burts):</strong> VI de 1,10-1,20+ cu accelerări constante</li>
+                    <li><strong>Poziție verticală:</strong> Compromite puterea pentru manevrabilitate</li>
+                    <li><strong>Eforturi intermitente:</strong> micro-recuperări constante în secțiunile tehnice</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-warning mt-lg">
+            <h3>⚠️ De ce FTP-ul MTB este mai mic</h3>
+            <p>Riderii MTB experimentează:</p>
+            <ul>
+                <li><strong>Poziția corpului:</strong> Poziția mai verticală pentru control tehnic reduce eficiența
+                    transferului de putere</li>
+                <li><strong>Variabilitatea cadenței:</strong> Accelerările frecvente și secțiunile tehnice perturbă
+                    ritmul</li>
+                <li><strong>Pierderi prin suspensie:</strong> Bicicletele full suspension absorb 14-30% din putere pe
+                    teren accidentat</li>
+                <li><strong>Recrutarea musculară:</strong> Angajarea părții superioare a corpului pentru controlul
+                    bicicletei deviază energia de la picioare</li>
+                <li><strong>Variabilitatea terenului:</strong> Pietrele, rădăcinile și caracteristicile tehnice necesită
+                    modularea constantă a puterii</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-success mt-lg">
+            <h3>✅ Urmărește valori FTP separate</h3>
+            <p>Bike Analytics urmărește automat valori FTP separate pentru disciplinele șosea și MTB. Protocoale de
+                testare:</p>
+            <ul>
+                <li><strong>FTP Șosea:</strong> Testează pe drum plat sau pe un trainer de interior cu putere constantă
+                    susținută</li>
+                <li><strong>FTP MTB:</strong> Testează pe o potecă cu urcare moderată sau pe un trainer de interior în
+                    poziția de MTB</li>
+                <li><strong>Diferența așteptată:</strong> FTP-ul MTB este de obicei cu 5-10% mai mic decât FTP-ul de
+                    șosea</li>
+            </ul>
+            <p><a href="/ro/road-vs-mtb/">Află mai multe despre diferențele de antrenament șosea vs MTB →</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Valori tipice pentru FTP pe niveluri</h2>
+
+        <div class="levels-comparison">
+            <div class="level-card">
+                <h3>🥇 Profesioniști World Tour</h3>
+                <div class="pace-value">5,5-6,5 W/kg</div>
+                <div class="pace-equivalent">380-450W (ciclist de 70kg)</div>
+                <p>Pretendenți la Marile Tururi și cicliști profesioniști. Ani de antrenament de elită cu protocoale de
+                    coaching, nutriție și recuperare full-time.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🏆 Amatori Elită / Cat 1-2</h3>
+                <div class="pace-value">4,5-5,5 W/kg</div>
+                <div class="pace-equivalent">315-385W (ciclist de 70kg)</div>
+                <p>Cicliști competitivi de nivel înalt, concurenți la nivel național. Antrenament structurat 12-18 ore
+                    pe săptămână cu coaching dedicat.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🚴 Competitivi / Cat 3-4</h3>
+                <div class="pace-value">3,5-4,5 W/kg</div>
+                <div class="pace-equivalent">245-315W (ciclist de 70kg)</div>
+                <p>Concurenți obișnuiți și entuziaști serioși. Antrenament constant 8-12 ore pe săptămână cu planuri
+                    structurate.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🚵 Recreaționali / Fitness</h3>
+                <div class="pace-value">2,5-3,5 W/kg</div>
+                <div class="pace-equivalent">175-245W (ciclist de 70kg)</div>
+                <p>Rideri regulați care se antrenează 5-8 ore pe săptămână. Își construiesc condiția fizică prin ture de
+                    grup și evenimente ocazionale.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🌟 Începători</h3>
+                <div class="pace-value">2,0-2,5 W/kg</div>
+                <div class="pace-equivalent">140-175W (ciclist de 70kg)</div>
+                <p>Noi în antrenamentul structurat sau care revin după o pauză. Mai puțin de 1 an de antrenament
+                    constant bazat pe putere.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-info mt-lg">
+            <h3>W/kg vs Wați Absoluți</h3>
+            <p><strong>Raportul putere-greutate (W/kg)</strong> este mai relevant decât wații absoluți pentru urcări și
+                pentru compararea cicliștilor de dimensiuni diferite:</p>
+            <ul>
+                <li><strong>Urcare:</strong> W/kg prezice direct viteza de urcare (limitată de gravitație)</li>
+                <li><strong>Teren plat:</strong> Wații absoluți contează mai mult (limitați de aerodinamică)</li>
+                <li><strong>Contratimp:</strong> Puterea absolută + aerodinamica înving W/kg</li>
+            </ul>
+            <p>Calculează-ți propriul W/kg: <strong>FTP (wați) / greutate corporală (kg)</strong></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="container container-narrow">
+        <h2>Validarea Științifică a FTP</h2>
+
+        <div class="research-highlight">
+            <h3>Allen & Coggan (2019) - Training and Racing with a Power Meter</h3>
+            <p>Dr. Andrew Coggan și Hunter Allen au stabilit FTP-ul ca metrica fundamentală pentru antrenamentul bazat
+                pe putere în lucrarea lor seminală, aflată acum la a treia ediție:</p>
+
+            <ul class="research-findings">
+                <li><strong>Definiția practică a pragului:</strong> Puterea maximă pe 1 oră fără acumularea oboselii
+                </li>
+                <li><strong>Protocolul de test de 20 de minute:</strong> 95% din puterea pe 20 de minute corelează
+                    puternic cu puterea pe 60 de minute</li>
+                <li><strong>Permite Training Stress Score:</strong> Cuantificarea obiectivă a sarcinii de antrenament
+                </li>
+                <li><strong>Zone de antrenament personalizate:</strong> Sistemul cu 7 zone bazat pe pragurile
+                    fiziologice</li>
+                <li><strong>Standardul industriei:</strong> Adoptat de TrainingPeaks, Zwift, TrainerRoad și toate marile
+                    platforme</li>
+            </ul>
+        </div>
+
+        <div class="research-highlight mt-lg">
+            <h3>MacInnis, Thomas & Phillips (2019) - Fiabilitatea Testului FTP</h3>
+            <p>Studiu de validare ce demonstrează fiabilitatea și reproductibilitatea ridicată a testării FTP la
+                sportivii antrenați:</p>
+
+            <ul class="research-findings">
+                <li><strong>Fiabilitate ridicată:</strong> ICC = 0,98, r² = 0,96 între test-retest</li>
+                <li><strong>Repetabilitate excelentă:</strong> bias de ±2W, eroare tipică de 2,3%</li>
+                <li><strong>Identifică puterea pe 1 oră:</strong> Prezice cu acuratețe pragul sustenabil la 89% dintre
+                    sportivi</li>
+                <li><strong>Alternativă practică:</strong> Substitut valid pentru testarea scumpă a lactatului în
+                    laborator</li>
+            </ul>
+
+            <div class="citation">
+                <p><strong>Sursă:</strong> MacInnis, M.J., Thomas, A.C.Q., & Phillips, S.M. (2019). „Is the FTP Test a
+                    Reliable, Reproducible and Functional Assessment Tool in Highly-Trained Athletes?” <em>International
+                        Journal of Exercise Science</em>, PMC6886609.</p>
+            </div>
+        </div>
+
+        <div class="research-highlight mt-lg">
+            <h3>Karsten et al. (2019) - Validitatea FTP-ului pentru Predicția Performanței</h3>
+            <p>Cercetare ce demonstrează superioritatea FTP-ului față de VO₂max pentru prezicerea performanței în
+                ciclism:</p>
+
+            <ul class="research-findings">
+                <li><strong>Corelație puternică cu performanța:</strong> W/kg la FTP corelează cu performanța în cursă
+                    (r = -0,74, p < 0,01)</li>
+                <li><strong>Mai bun decât VO₂max:</strong> VO₂max nu a arătat nicio corelație semnificativă (r = -0,37)
+                </li>
+                <li><strong>Relevanță practică:</strong> FTP se traduce direct în ritmul de cursă și prescrierea
+                    antrenamentului</li>
+            </ul>
+
+            <div class="citation">
+                <p><strong>Sursă:</strong> Karsten, B., et al. (2019). „The Validity of Functional Threshold Power and
+                    Maximal Oxygen Uptake for Cycling Performance in Moderately Trained Cyclists” PMC6835290.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-science mt-lg">
+            <h3>🔬 De ce funcționează FTP</h3>
+            <p>Puterea Prag Funcțional reprezintă granița între <strong>domeniul efortului intens și cel sever</strong>.
+                Sub FTP, producția și eliminarea lactatului rămân echilibrate — poți susține efortul la infinit
+                (teoretic). Peste FTP, lactatul se acumulează progresiv până la epuizare în decurs de 20-60 de minute.
+            </p>
+            <p>Acest lucru face ca FTP să fie intensitatea perfectă pentru:</p>
+            <ul>
+                <li>Stabilirea ritmului sustenabil de contratimp și urcare</li>
+                <li>Prescrierea antrenamentelor cu intervale la pragul de lactat</li>
+                <li>Monitorizarea îmbunătățirilor condiției fizice aerobice în timp</li>
+                <li>Calcularea sarcinii de antrenament, a oboselii și a nevoilor de recuperare</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2 class="mt-3xl">Întrebări Frecvente Despre FTP</h2>
+
+        <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Ce este FTP în ciclism?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>FTP (Functional Threshold Power) este cea mai mare putere medie pe care o poți susține timp
+                            de aproximativ o oră fără a acumula oboseală excesivă. Reprezintă pragul tău aerobic —
+                            intensitatea unde producția de lactat este egală cu eliminarea acestuia. FTP servește ca
+                            fundament pentru <a href="/ro/training-zones/">zonele de antrenament bazate pe
+                                putere</a> personalizate și pentru calculul precis al <a
+                                href="/ro/training-load/">sarcinii de antrenament</a>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Cum îmi testez FTP-ul?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Cel mai comun protocol de test FTP: (1) Încălzește-te timp de 20 de minute, (2) Pedalează la
+                            efort maxim timp de 5 minute, (3) Recuperează-te timp de 10 minute, (4) Pedalează la efortul
+                            maxim sustenabil timp de 20 de minute și înregistrează puterea medie, (5) Calculează
+                            <strong>FTP = 95% din puterea medie pe 20 de minute</strong>. Metodele alternative includ
+                            ramp test (75% din puterea maximă pe un minut) sau testul real de 60 de minute (cel mai
+                            precis, dar foarte solicitant).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Cât de des ar trebui să-mi retestez FTP-ul?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Retestează FTP-ul la fiecare 6-8 săptămâni în timpul blocurilor de antrenament activ pentru a
+                            actualiza zonele pe măsură ce progresezi. Testează mai frecvent (la fiecare 4 săptămâni) în
+                            timpul fazelor intensive de acumulare sau când poți depăși constant zonele de putere
+                            prescrise. De asemenea, retestează după schimbări semnificative ale fitness-ului (boală,
+                            accidentare, extrasezon), înainte de a începe noi planuri de antrenament sau când ritmul
+                            cardiac la puterea de prag scade vizibil.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Care este un FTP bun pentru un ciclist începător?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Pentru începătorii cu mai puțin de 1 an de antrenament structurat, un FTP tipic este de
+                            2,0-2,5 W/kg (140-175W pentru un ciclist de 70kg). Cicliștii recreaționali care se
+                            antrenează 5-8 ore/săptămână obțin de obicei 2,5-3,5 W/kg. Nu te compara cu profesioniștii
+                            (5,5-6,5 W/kg) — concentrează-te pe îmbunătățirea propriului FTP cu 10-20% pe parcursul unui
+                            sezon de antrenament. Orice FTP este un punct de pornire valid pentru antrenamentul bazat pe
+                            putere.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Este FTP același lucru cu Puterea Critică?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>FTP și <a href="/ro/critical-power/">Puterea Critică (CP)</a> sunt strâns legate, dar
+                            diferite. FTP este un singur număr ce reprezintă puterea ta pe 1 oră, în timp ce CP face
+                            parte dintr-un model cu două componente (CP + capacitatea anaerobă W'). Acestea diferă de
+                            obicei cu doar ±5W, CP fiind de obicei cu 5-7W mai mare decât FTP. FTP este mai simplu și
+                            mai practic pentru majoritatea cicliștilor, în timp ce CP oferă o modelare mai precisă
+                            pentru eforturile cu intensitate variabilă și permite urmărirea balanței W' în situații de
+                            cursă.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">De ce FTP-ul meu de interior este mai mic decât cel de exterior?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>FTP-ul de interior este adesea cu 5-10W mai mic decât cel de exterior din cauza: acumulării
+                            de căldură, lipsei fluxului de aer pentru răcire și factorilor psihologici. În interior,
+                            temperatura corpului crește mai repede fără răcirea naturală a vântului, forțându-te să
+                            reduci puterea pentru a preveni supraîncălzirea. Poziția statică pe trainer reduce, de
+                            asemenea, eficiența recrutării musculare. Pentru un antrenament precis, folosește valori FTP
+                            separate pentru interior și exterior, sau testează în mediul unde te vei antrena cel mai
+                            mult.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Care este diferența între FTP-ul de șosea și cel de MTB?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>FTP-ul de MTB este de obicei cu 5-10% mai mic decât cel de șosea din cauza: (1) poziției mai
+                            verticale ce reduce eficiența transferului de putere, (2) suspensiei care absoarbe 14-30%
+                            din putere pe teren denivelat, (3) cadenței variabile din secțiunile tehnice, (4) angajării
+                            părții superioare a corpului pentru manevrabilitate. Urmărește valori FTP separate pentru
+                            fiecare disciplină. <a href="/ro/road-vs-mtb/">Află mai multe despre diferențele
+                                șosea vs MTB →</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Pot estima FTP-ul fără testare?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Deși poți estima FTP-ul din datele recentelor curse sau ture grele de grup, testarea directă
+                            este mult mai precisă pentru <a href="/ro/training-load/">calculul TSS</a> și
+                            prescrierea zonelor de antrenament. Estimări din puterea din cursă: folosește 95-100%
+                            dintr-o urcare susținută sau un contratimp de 40-60 de minute. Totuși, testul de 20 de
+                            minute durează doar 50 de minute în total (inclusiv încălzirea) și oferă precizia necesară.
+                            Bike Analytics poate, de asemenea, să estimeze automat FTP-ul din datele tale de
+                            antrenament.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-3xl">
+            <h3>Aplică-ți cunoștințele despre FTP</h3>
+            <p>Acum că ai înțeles Puterea Prag Funcțional, fă următorii pași pentru a-ți optimiza antrenamentul:</p>
+            <ul>
+                <li><a href="/ro/training-zones/">Explorează cele 7 zone de antrenament de putere</a> și învață
+                    cum să structurezi antrenamentele pentru adaptări specifice</li>
+                <li><a href="/ro/training-load/">Calculează Training Stress Score (TSS)</a> bazat pe FTP-ul tău
+                    pentru a cuantifica intensitatea antrenamentului</li>
+                <li><a href="/ro/critical-power/">Compară FTP-ul cu Puterea Critică</a> pentru a înțelege care
+                    model se potrivește stilului tău de pedalat</li>
+                <li><a href="/ro/power-metrics/">Învață despre Puterea Normalizată</a> și cum aceasta
+                    îmbunătățește acuratețea TSS pentru cursele variabile</li>
+                <li><a href="/ro/">Descarcă Bike Analytics</a> pentru a urmări automat FTP-ul, zonele de putere
+                    și tendințele de performanță</li>
+            </ul>
+        </div>
+
+        <div class="mt-xl text-center">
+            <a href="/ro/training-zones/" class="btn btn-primary">Explorează Zonele de Antrenament de Putere
+                →</a>
+            <a href="/ro/training-load/" class="btn btn-secondary">Află despre TSS →</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/ro/privacy/">Privacy</a></li>
+                <li><a href="/ro/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/ro/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

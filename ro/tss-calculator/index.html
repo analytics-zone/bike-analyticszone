@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>TSS Calculator - Free Training Stress Score Calculator</title>
+  <meta name="description" content="Free TSS calculator for cycling. Calculate Training Stress Score from power data, duration, and FTP. Plan your training load.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="TSS calculator, training stress score calculator, cycling TSS, power meter calculator">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/ro/tss-calculator/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-22T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/ro/tss-calculator/">
+  <meta property="og:title" content="TSS Calculator - Free Training Stress Score Calculator">
+  <meta property="og:description" content="Free TSS calculator for cycling. Calculate Training Stress Score from power data, duration, and FTP. Plan your training load.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/ro/tss-calculator/">
+  <meta name="twitter:title" content="TSS Calculator - Free Training Stress Score Calculator">
+  <meta name="twitter:description" content="Free TSS calculator for cycling. Calculate Training Stress Score from power data, duration, and FTP. Plan your training load.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/tss-calculator/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/tss-calculator/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/tss-calculator/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/tss-calculator/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/tss-calculator/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/tss-calculator/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/tss-calculator/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/tss-calculator/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/tss-calculator/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/tss-calculator/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/tss-calculator/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/tss-calculator/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/tss-calculator/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/tss-calculator/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/tss-calculator/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/tss-calculator/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/tss-calculator/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/tss-calculator/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/tss-calculator/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "TSS Calculator - Free Training Stress Score Calculator",
+      "description": "Free TSS calculator for cycling. Calculate Training Stress Score from power data, duration, and FTP. Plan your training load.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-22",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/ro/tss-calculator/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/ro/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/ro/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/tss-calculator/" class="active"
+                                    aria-current="page">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/ro/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" selected>
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Calculator TSS Gratuit - Training Stress Score pentru Ciclism</h1>
+        <p class="lead">Calculează Training Stress Score pentru antrenamentele tale de ciclism folosind puterea, durata
+            și FTP</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-info mb-xl">
+            <h2>Ce este Training Stress Score (TSS)?</h2>
+            <p><strong>Training Stress Score (TSS)</strong> cuantifică sarcina de antrenament a unei sesiuni de ciclism
+                combinând intensitatea și durata pe baza puterii tale. Dezvoltat de Dr. Andrew Coggan, TSS folosește
+                Puterea Prag Funcțional (FTP) ca punct de referință. Un antrenament de 1 oră la FTP = 100 TSS.</p>
+        </div>
+
+        <h2 class="mt-3xl">Calculator TSS Gratuit</h2>
+        <p class="lead mb-xl">Calculează stresul de antrenament pentru orice sesiune de ciclism folosind datele de
+            putere.</p>
+
+        <div class="css-calculator">
+            <form id="tssCalculatorForm">
+                <div class="calculator-inputs">
+                    <div class="form-group">
+                        <label for="ftp" class="form-label">FTP-ul Tău (Wați)</label>
+                        <input type="number" id="ftp" class="form-input" placeholder="ex. 250" min="50" max="600"
+                            aria-required="true" aria-describedby="ftp-help" />
+                        <small id="ftp-help" class="form-help">Puterea Prag Funcțional în wați</small>
+                        <div class="form-error" id="ftp-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration" class="form-label">Durata Cursei (minute)</label>
+                        <input type="number" id="duration" class="form-input" placeholder="ex. 120" min="1" max="720"
+                            aria-required="true" aria-describedby="duration-help" />
+                        <small id="duration-help" class="form-help">Timpul total al cursei în minute (1-720)</small>
+                        <div class="form-error" id="duration-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="normalizedPower" class="form-label">Putere Normalizată (Wați)</label>
+                        <input type="number" id="normalizedPower" class="form-input" placeholder="ex. 200" min="10"
+                            max="800" aria-required="true" aria-describedby="np-help" />
+                        <small id="np-help" class="form-help">NP din datele cursei tale (nu puterea medie)</small>
+                        <div class="form-error" id="np-error"></div>
+                    </div>
+
+                    <div class="calculator-buttons">
+                        <button type="submit" class="btn btn-primary" id="calculateTssBtn">Calculează TSS</button>
+                        <button type="reset" class="btn btn-ghost" id="resetTssBtn">Șterge</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="calculator-results hidden" id="tssResults" aria-live="polite">
+                <h3>Training Stress Score-ul Tău</h3>
+                <div class="results-summary">
+                    <div class="result-item">
+                        <div class="result-label">TSS</div>
+                        <div class="css-result-value" id="tssValue">--</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Factor de Intensitate (IF)</div>
+                        <div class="css-result-value" id="intensityFactor">--</div>
+                    </div>
+                </div>
+
+                <div class="zones-result">
+                    <h4>Dificultatea Antrenamentului</h4>
+                    <p class="mb-md text-secondary" id="tssInterpretation">
+                        <!-- Filled by JavaScript -->
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-3xl">Cum se Calculează TSS</h2>
+
+        <div class="formula-box">
+            <h3>Formula TSS</h3>
+            <div class="formula">
+                TSS = (secunde × NP × IF) / (FTP × 3600) × 100
+            </div>
+            <div class="formula-explanation">
+                <p>Unde:</p>
+                <ul>
+                    <li><strong>NP (Putere Normalizată)</strong> = „Costul" fiziologic al cursei în wați</li>
+                    <li><strong>IF (Factor de Intensitate)</strong> = NP / FTP (intensitatea relativă la prag)</li>
+                    <li><strong>Durata</strong> = Timpul total al cursei în secunde</li>
+                    <li><strong>FTP</strong> = Puterea ta Prag Funcțional în wați</li>
+                </ul>
+                <p class="mt-md"><em>Simplificat: TSS = Durata (ore) × IF² × 100</em></p>
+            </div>
+        </div>
+
+        <h2 class="mt-xl">Exemple de Calcul</h2>
+
+        <div class="grid grid-2 mb-xl">
+            <div class="example-box">
+                <h3>Exemplul 1: Cursă Ușoară de Anduranță</h3>
+                <h4>Datele Ciclistului:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Durată: <strong>120 minute (7200s)</strong></li>
+                    <li>Putere Normalizată: <strong>150W</strong></li>
+                </ul>
+
+                <h4>Pasul 1: Calculează Factorul de Intensitate</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 150W / 250W<br>
+                    IF = <strong>0,60</strong>
+                </div>
+
+                <h4>Pasul 2: Calculează TSS</h4>
+                <div class="calculation">
+                    TSS = (7200 × 150 × 0,60) / (250 × 3600) × 100<br>
+                    TSS = (648.000) / (900.000) × 100<br>
+                    TSS = <strong>72 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Interpretare:</strong> Cursă ușoară de anduranță la 60% intensitate — perfectă
+                    pentru construirea bazei aerobice și recuperare.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>Exemplul 2: Intervale la Prag</h3>
+                <h4>Datele Ciclistului:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Durată: <strong>90 minute (5400s)</strong></li>
+                    <li>Putere Normalizată: <strong>235W</strong></li>
+                </ul>
+
+                <h4>Pasul 1: Calculează Factorul de Intensitate</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 235W / 250W<br>
+                    IF = <strong>0,94</strong>
+                </div>
+
+                <h4>Pasul 2: Calculează TSS</h4>
+                <div class="calculation">
+                    TSS = (5400 × 235 × 0,94) / (250 × 3600) × 100<br>
+                    TSS = (1.192.860) / (900.000) × 100<br>
+                    TSS = <strong>133 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Interpretare:</strong> Sesiune grea de prag la 94% intensitate — stimul
+                    semnificativ de antrenament pentru îmbunătățirea FTP.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>Exemplul 3: Tură Grea de Grup</h3>
+                <h4>Datele Ciclistului:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Durată: <strong>180 minute (10800s)</strong></li>
+                    <li>Putere Normalizată: <strong>210W</strong></li>
+                </ul>
+
+                <h4>Pasul 1: Calculează Factorul de Intensitate</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 210W / 250W<br>
+                    IF = <strong>0,84</strong>
+                </div>
+
+                <h4>Pasul 2: Calculează TSS</h4>
+                <div class="calculation">
+                    TSS = (10800 × 210 × 0,84) / (250 × 3600) × 100<br>
+                    TSS = (1.905.120) / (900.000) × 100<br>
+                    TSS = <strong>212 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Interpretare:</strong> Cursă lungă și grea la 84% intensitate — sarcină mare de
+                    antrenament ce necesită 1-2 zile de recuperare.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>Exemplul 4: Intervale VO₂max</h3>
+                <h4>Datele Ciclistului:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Durată: <strong>75 minute (4500s)</strong></li>
+                    <li>Putere Normalizată: <strong>270W</strong></li>
+                </ul>
+
+                <h4>Pasul 1: Calculează Factorul de Intensitate</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 270W / 250W<br>
+                    IF = <strong>1,08</strong>
+                </div>
+
+                <h4>Pasul 2: Calculează TSS</h4>
+                <div class="calculation">
+                    TSS = (4500 × 270 × 1,08) / (250 × 3600) × 100<br>
+                    TSS = (1.312.200) / (900.000) × 100<br>
+                    TSS = <strong>146 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Interpretare:</strong> Sesiune foarte grea VO₂max peste prag — stimul mare de
+                    antrenament în ciuda duratei mai scurte.</p>
+            </div>
+        </div>
+
+        <h2 class="mt-3xl">Ghid TSS pe Tipuri de Antrenament</h2>
+
+        <div class="zones-table-container">
+            <table class="zones-table">
+                <thead>
+                    <tr>
+                        <th>Tip de Antrenament</th>
+                        <th>Interval TSS</th>
+                        <th>Factor de Intensitate</th>
+                        <th>Descriere</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cursă de Recuperare</strong></td>
+                        <td>20-50 TSS</td>
+                        <td>IF &lt; 0,65</td>
+                        <td>Pedalare ușoară, 30-60 minute</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anduranță Ușoară</strong></td>
+                        <td>50-100 TSS</td>
+                        <td>IF 0,65-0,75</td>
+                        <td>Ritm de conversație, 1-2 ore</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anduranță Moderată</strong></td>
+                        <td>100-150 TSS</td>
+                        <td>IF 0,75-0,85</td>
+                        <td>Pedalare constantă, 2-3 ore</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cursă Tempo</strong></td>
+                        <td>150-200 TSS</td>
+                        <td>IF 0,85-0,95</td>
+                        <td>Sweet spot, muncă tempo, 2-3 ore</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Antrenament de Prag</strong></td>
+                        <td>200-300 TSS</td>
+                        <td>IF 0,95-1,05</td>
+                        <td>Intervale FTP, simulare cursă, 2-4 ore</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intervale VO₂max</strong></td>
+                        <td>150-250 TSS</td>
+                        <td>IF 1,05-1,15</td>
+                        <td>Intervale grele, 1-2 ore intensitate mare</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cursă/Eveniment Greu</strong></td>
+                        <td>200-400 TSS</td>
+                        <td>IF 0,90-1,05</td>
+                        <td>Criterium, curse de șosea, 2-5 ore</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="mt-3xl">Ținte TSS Săptămânale pe Nivel de Ciclist</h2>
+
+        <div class="grid grid-2 mb-xl">
+            <div class="card">
+                <h3 class="card-title">Cicliști Începători</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>TSS Săptămânal:</strong> 200-400</p>
+                    <p>3-4 curse pe săptămână, 50-100 TSS fiecare. Focus pe construirea bazei aerobice și abilitățile de
+                        mânuire a bicicletei.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Cicliști Recreaționali</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>TSS Săptămânal:</strong> 400-600</p>
+                    <p>4-5 curse pe săptămână, 80-120 TSS fiecare. Mix de anduranță și câteva sesiuni de calitate.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Amatori Competitivi</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>TSS Săptămânal:</strong> 600-900</p>
+                    <p>5-7 curse pe săptămână, 85-130 TSS fiecare. Antrenament structurat cu periodizare și curse.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Elită / Profesioniști</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>TSS Săptămânal:</strong> 900-1500+</p>
+                    <p>10-15+ sesiuni pe săptămână. Sarcină de antrenament profesional ridicată. CTL post-Tur Mare:
+                        150-170.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout-warning">
+            <h3>⚠️ Note Importante despre TSS</h3>
+            <ul>
+                <li><strong>Necesită FTP precis:</strong> FTP-ul tău trebuie să fie actual (testat în ultimele 4-6
+                    săptămâni) pentru TSS precis.</li>
+                <li><strong>Folosește Puterea Normalizată, nu Puterea Medie:</strong> NP ține cont de variabilitate și
+                    costul fiziologic.</li>
+                <li><strong>Interior vs Exterior:</strong> TSS de interior poate părea mai greu din cauza lipsei
+                    coastingului sau coborârilor.</li>
+                <li><strong>Variație individuală:</strong> Același TSS se simte diferit pentru diferiți cicliști.
+                    Ajustează în funcție de recuperarea ta.</li>
+                <li><strong>Rata de creștere contează:</strong> Crește TSS-ul săptămânal treptat — 3-8 puncte CTL pe
+                    săptămână este sustenabil.</li>
+            </ul>
+        </div>
+
+        <h2 class="mt-3xl">Înțelegerea Puterii Normalizate (NP)</h2>
+
+        <p>Puterea Normalizată este mai precisă decât Puterea Medie pentru calculul TSS deoarece ține cont de costul
+            fiziologic al variabilității puterii:</p>
+
+        <div class="example-box mb-lg">
+            <h3>De ce Contează NP: Două Curse Comparate</h3>
+            <div class="grid grid-2">
+                <div>
+                    <h4>Cursa A: Tempo Constant</h4>
+                    <ul>
+                        <li>Durată: 60 minute</li>
+                        <li>Putere Medie: 200W</li>
+                        <li>Putere Normalizată: 202W</li>
+                        <li>Indice de Variabilitate: 1,01</li>
+                        <li>TSS: 65</li>
+                    </ul>
+                    <p><em>Efort constant, consistent — cost fiziologic scăzut</em></p>
+                </div>
+                <div>
+                    <h5>Cursa B: Tură Grea de Grup</h5>
+                    <ul>
+                        <li>Durată: 60 minute</li>
+                        <li>Putere Medie: 200W</li>
+                        <li>Putere Normalizată: 240W</li>
+                        <li>Indice de Variabilitate: 1,20</li>
+                        <li>TSS: 92</li>
+                    </ul>
+                    <p><em>Variabilă cu accelerări — cost fiziologic mult mai mare</em></p>
+                </div>
+            </div>
+            <p class="mt-md"><strong>Insight cheie:</strong> Ambele curse au 200W medie, dar Cursa B este cu 42% mai
+                grea (92 vs 65 TSS) din cauza variabilității puterii. NP surprinde această diferență.</p>
+        </div>
+
+        <div class="callout callout-tip">
+            <h3>💡 Cum să Obții Puterea Normalizată</h3>
+            <p>Majoritatea computerelor de ciclism și aplicațiilor calculează NP automat:</p>
+            <ul>
+                <li><strong>Garmin/Wahoo/Hammerhead:</strong> Afișează NP în rezumatul cursei</li>
+                <li><strong>TrainingPeaks/Strava/Intervals.icu:</strong> Calculează NP din cursele încărcate</li>
+                <li><strong>Golden Cheetah/WKO5:</strong> Instrumente avansate de analiză NP</li>
+            </ul>
+            <p>Dacă ai doar puterea medie, estimează: NP ≈ Putere Medie × 1,03-1,05 pentru curse constante, × 1,10-1,15
+                pentru curse variabile.</p>
+        </div>
+
+        <h2 class="mt-3xl">De ce Contează TSS: CTL, ATL, TSB</h2>
+
+        <p class="mb-md">Training Stress Score este fundamentul Diagramei de Management al Performanței:</p>
+
+        <ul class="mb-xl">
+            <li><strong>CTL (Chronic Training Load):</strong> Nivelul tău de fitness — media exponențial ponderată pe 42
+                de zile a TSS-ului zilnic</li>
+            <li><strong>ATL (Acute Training Load):</strong> Oboseala ta — media exponențial ponderată pe 7 zile a
+                TSS-ului zilnic</li>
+            <li><strong>TSB (Training Stress Balance):</strong> Forma ta — TSB = CTL - ATL (pozitiv = proaspăt, negativ
+                = obosit)</li>
+            <li><strong>Periodizare:</strong> Planifică fazele de antrenament (bază, construire, vârf, taper) folosind
+                progresii țintă ale CTL</li>
+            <li><strong>Sincronizarea Cursei:</strong> Fă taper pentru a atinge TSB de +10 la +25 în ziua cursei pentru
+                performanță de vârf</li>
+        </ul>
+
+        <div class="callout callout-tip">
+            <h3>Sfat Pro: Urmărește Diagrama de Management al Performanței</h3>
+            <p>Înregistrează TSS-ul zilnic în TrainingPeaks, Intervals.icu, sau într-un tabel. Monitorizează CTL-ul
+                (media pe 42 de zile) și ATL-ul (media pe 7 zile). Țintește creșterea constantă a CTL de 3-8 puncte pe
+                săptămână în timpul construirii bazei. Redu TSS-ul cu 7-14 zile înainte de curse pentru a lăsa TSB să
+                crească la valori pozitive pentru performanță de vârf.</p>
+            <p><a href="/ro/training-load/">Află mai multe despre CTL, ATL și TSB →</a></p>
+        </div>
+
+        <h2 class="mt-3xl">Întrebări Frecvente</h2>
+
+        <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Ce fac dacă nu am senzor de putere?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSS necesită date de putere (FTP și Putere Normalizată). Fără un senzor de putere, poți
+                            folosi alternative bazate pe ritm cardiac precum HRSS (Heart Rate Stress Score) sau estimări
+                            pe baza efortului perceput, dar acestea sunt mai puțin precise. Senzorii de putere sunt
+                            standardul de aur pentru calculul TSS și gestionarea sarcinii de antrenament în ciclism.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Cât de precis este TSS?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSS este foarte precis când se bazează pe FTP actual și Putere Normalizată calculată corect.
+                            Studiile arată că TSS prezice fiabil sarcina de antrenament și nevoile de recuperare.
+                            Precizia depinde de: test FTP recent (în ultimele 4-6 săptămâni), calcul corect al NP, și
+                            precizia senzorului de putere (majoritatea sunt ±1-2%).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Pot compara TSS între șosea și MTB?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Da, dar cu rezerve. TSS-ul pentru ciclismul de șosea este mai predictibil cu profiluri de
+                            putere constante (VI 1,02-1,05). TSS-ul pentru MTB este foarte variabil (VI 1,10-1,20+) cu
+                            explozii frecvente peste prag. Același TSS din MTB poate părea mai greu din cauza cerințelor
+                            tehnice. Concentrează-te pe analiza tendințelor mai degrabă decât pe comparații absolute
+                            între discipline.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Care este un TSS bun pentru un antrenament?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Depinde de obiectivele de antrenament: Curse de recuperare: 20-50 TSS, Anduranță ușoară:
+                            50-100 TSS, Curse moderate: 100-150 TSS, Antrenamente grele: 150-250 TSS, Sesiuni foarte
+                            grele/curse: 200-400+ TSS. Majoritatea curselor de antrenament sunt între 50-150 TSS.
+                            Intervalele de calitate generează 100-200 TSS. Cursele și evenimentele lungi: 200-400+ TSS.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Cât TSS ar trebui să fac pe săptămână?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Ținte TSS săptămânale pe nivel: Începători: 200-400 TSS/săptămână, Recreaționali: 400-600
+                            TSS/săptămână, Amatori competitivi: 600-900 TSS/săptămână, Elită/Profesionist: 900-1500+
+                            TSS/săptămână. Începe conservator și crește cu 3-8 puncte CTL pe săptămână. TSS-ul tău
+                            săptămânal sustenabil depinde de istoricul antrenamentului, timpul disponibil și capacitatea
+                            de recuperare.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Ar trebui să folosesc TSS pentru antrenamentul de interior?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Absolut. TSS este ideal pentru antrenamentul de interior deoarece puterea este constantă și
+                            nu există variabile de mediu. TSS-ul de interior contribuie direct la calculele CTL/ATL/TSB.
+                            Totuși, cursele de interior pot părea mai grele decât cele de exterior pentru același TSS
+                            din cauza lipsei coastingului, coborârilor sau secțiunilor asistate de vânt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Care este diferența dintre TSS și kilojouli?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Kilojoulii măsoară munca totală făcută (cheltuieli energetice) — la fel pentru toată lumea la
+                            aceeași putere. TSS măsoară stresul de antrenament relativ la FTP-ul TĂU. Exemplu: 200W
+                            pentru 1 oră = 720 kJ pentru toată lumea. Dar dacă FTP-ul tău este 200W, TSS = 100. Dacă
+                            FTP-ul tău este 300W, TSS = 44. TSS este individualizat; kJ este absolut.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Trebuie să-mi știu FTP-ul?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Da, FTP-ul este esențial pentru calculul TSS. Fără să-ți cunoști FTP-ul, nu poți calcula
+                            Factorul de Intensitate sau TSS. Testează-ți FTP-ul folosind un test de 20 de minute sau 8
+                            minute, sau protocoale Ramp Test. Retestează la fiecare 4-6 săptămâni pentru a menține
+                            calculele TSS precise pe măsură ce fitness-ul tău se îmbunătățește. Află mai multe: <a
+                                href="/ro/ftp/">Ghid de Testare FTP</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-3xl">Resurse Înrudite</h2>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">Testarea FTP</h3>
+                <div class="card-content">
+                    <p>Ai nevoie de FTP-ul tău? Învață cum să testezi Puterea Prag Funcțional cu precizie.</p>
+                    <a href="/ro/ftp/" class="btn btn-secondary btn-small mt-md">Ghid FTP →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Ghid Sarcină de Antrenament</h3>
+                <div class="card-content">
+                    <p>Învață despre CTL, ATL, TSB și metricile Diagramei de Management al Performanței.</p>
+                    <a href="/ro/training-load/" class="btn btn-secondary btn-small mt-md">Sarcina de
+                        Antrenament →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Metrici de Putere</h3>
+                <div class="card-content">
+                    <p>Înțelege Puterea Normalizată, Factorul de Intensitate și Indicele de Variabilitate.</p>
+                    <a href="/ro/power-metrics/" class="btn btn-secondary btn-small mt-md">Metrici de Putere
+                        →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-xl text-center">
+            <p class="mb-md"><strong>Vrei urmărire automată TSS cu diagrame CTL/ATL/TSB?</strong></p>
+            <a href="/ro/" class="btn btn-primary btn-large">Află despre Bike Analytics</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('tssCalculatorForm');
+        const ftpInput = document.getElementById('ftp');
+        const durationInput = document.getElementById('duration');
+        const npInput = document.getElementById('normalizedPower');
+        const results = document.getElementById('tssResults');
+        const tssValue = document.getElementById('tssValue');
+        const intensityFactor = document.getElementById('intensityFactor');
+        const interpretation = document.getElementById('tssInterpretation');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Clear previous errors
+            document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+
+            // Get values
+            const ftp = parseFloat(ftpInput.value);
+            const duration = parseFloat(durationInput.value);
+            const np = parseFloat(npInput.value);
+
+            // Validation
+            let hasError = false;
+
+            if (!ftp || ftp < 50 || ftp > 600) {
+                document.getElementById('ftp-error').textContent = 'Introduceți FTP între 50-600W';
+                hasError = true;
+            }
+
+            if (!duration || duration < 1 || duration > 720) {
+                document.getElementById('duration-error').textContent = 'Introduceți durata între 1-720 minute';
+                hasError = true;
+            }
+
+            if (!np || np < 10 || np > 800) {
+                document.getElementById('np-error').textContent = 'Introduceți Puterea Normalizată între 10-800W';
+                hasError = true;
+            }
+
+            if (hasError) {
+                results.classList.add('hidden');
+                return;
+            }
+
+            // Calculate TSS
+            const durationSeconds = duration * 60;
+            const durationHours = duration / 60;
+            const IF = np / ftp;
+            const tss = (durationSeconds * np * IF) / (ftp * 3600) * 100;
+
+            // Display results
+            tssValue.textContent = Math.round(tss);
+            intensityFactor.textContent = IF.toFixed(3);
+
+            // Interpretation
+            let interpretText = '';
+            if (tss < 50) {
+                interpretText = 'Cursă ușoară de recuperare - Stres de antrenament scăzut, recuperare minimă necesară.';
+            } else if (tss < 100) {
+                interpretText = 'Cursă ușoară de anduranță - Sarcină moderată de antrenament, bună pentru construirea bazei aerobice.';
+            } else if (tss < 150) {
+                interpretText = 'Cursă moderată de anduranță - Stimul solid de antrenament, 1 zi recuperare recomandată.';
+            } else if (tss < 200) {
+                interpretText = 'Antrenament Tempo/Sweet spot - Sarcină grea de antrenament, 1-2 zile recuperare necesare.';
+            } else if (tss < 300) {
+                interpretText = 'Antrenament de prag sau cursă lungă grea - Sarcină foarte grea, 2-3 zile recuperare necesare.';
+            } else {
+                interpretText = 'Antrenament extrem sau efort de cursă - Stres de antrenament extrem, 3+ zile recuperare esențiale.';
+            }
+
+            interpretation.textContent = interpretText;
+
+            // Show results
+            results.classList.remove('hidden');
+            results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        form.addEventListener('reset', function () {
+            results.classList.add('hidden');
+            document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+        });
+    });
+</script>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/ro/privacy/">Privacy</a></li>
+                <li><a href="/ro/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/ro/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

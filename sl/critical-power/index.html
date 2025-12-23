@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="sl" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Critical Power &amp; W&#39; Model - Advanced Cycling Analytics</title>
+  <meta name="description" content="Understand Critical Power (CP) and W&#39; (W Prime) for cycling. Advanced fatigue modeling, W&#39;bal tracking, and performance optimization.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="critical power cycling, W prime cycling, CP model, W prime balance, anaerobic capacity cycling">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/sl/critical-power/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-22T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/sl/critical-power/">
+  <meta property="og:title" content="Critical Power &amp; W&#39; Model - Advanced Cycling Analytics">
+  <meta property="og:description" content="Understand Critical Power (CP) and W&#39; (W Prime) for cycling. Advanced fatigue modeling, W&#39;bal tracking, and performance optimization.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="sl_SI">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/sl/critical-power/">
+  <meta name="twitter:title" content="Critical Power &amp; W&#39; Model - Advanced Cycling Analytics">
+  <meta name="twitter:description" content="Understand Critical Power (CP) and W&#39; (W Prime) for cycling. Advanced fatigue modeling, W&#39;bal tracking, and performance optimization.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/critical-power/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/critical-power/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/critical-power/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/critical-power/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/critical-power/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/critical-power/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/critical-power/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/critical-power/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/critical-power/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/critical-power/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/critical-power/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/critical-power/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/critical-power/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/critical-power/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/critical-power/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/critical-power/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/critical-power/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/critical-power/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/critical-power/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/critical-power/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/critical-power/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/critical-power/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/critical-power/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/critical-power/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/critical-power/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/critical-power/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Critical Power &amp; W&#39; Model - Advanced Cycling Analytics",
+      "description": "Understand Critical Power (CP) and W&#39; (W Prime) for cycling. Advanced fatigue modeling, W&#39;bal tracking, and performance optimization.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-22",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/sl/critical-power/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/sl/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/sl/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/sl/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/critical-power/" class="active"
+                                    aria-current="page">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/sl/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/sl/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/sl/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/sl/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" selected>
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <article class="article-content">
+    <header class="article-header">
+        <h1>Kritična moč in W': Znanstveni okvir za zmogljivost</h1>
+        <p class="article-meta">Razumevanje mej med aerobnim in anaerobnim delom za boljše tempiranje in trening</p>
+    </header>
+
+    <section id="introduction">
+        <h2>Več kot le FTP: Koncept kritične moči</h2>
+        <p>Čeprav je <a href="/sl/ftp/">funkcionalni prag moči (FTP)</a> najbolj priljubljena metrika v
+            kolesarstvu, se koncept <strong>kritične moči (CP)</strong> pogosto šteje za znanstveno bolj utemeljenega.
+            Model kritične moči opisuje razmerje med močjo in časom do izčrpanosti ter zagotavlja natančen okvir za
+            razumevanje vaših fizioloških omejitev.</p>
+
+        <p>Ta model nam omogoča, da vašo zmogljivost razdelimo na dve ključni komponenti:</p>
+        <ul>
+            <li><strong>Kritična moč (CP):</strong> Maksimalna izhodna moč, ki jo lahko vzdržujete neomejeno dolgo
+                (teoretično) brez izčrpanosti.</li>
+            <li><strong>W' (W-prime):</strong> Končna količina dela, ki ga lahko opravite nad svojo kritično močjo,
+                preden pride do izčrpanosti (merjeno v kilodžulih).</li>
+        </ul>
+
+        <div class="info-box">
+            <h3>Analogija baterije</h3>
+            <p>Mislite na kritično moč kot na moč vašega motorja pri križarjenju – napor, ki ga lahko držite "cel dan".
+                W' pa je kot <strong>rezervna baterija</strong> ali rezervoar z dušikovim oksidom. Vsakič, ko presežete
+                CP, začnete prazniti to baterijo. Ko je baterija prazna (W' doseže nič), morate napor zmanjšati pod CP,
+                da se regenerirate.</p>
+        </div>
+    </section>
+
+    <section id="critical-power-explained">
+        <h2>Kaj je kritična moč (CP)?</h2>
+        <p>Kritična moč predstavlja fiziološko mejo med stacionarnim stanjem (aerobno delo) in nestacionarnim stanjem
+            (anaerobno delo). Ko vozite pod CP, vaše telo vzdržuje ravnovesje laktata in srčni utrip se stabilizira. Nad
+            CP te vrednosti začnejo neustavljivo naraščati, dokler ne pride do odpovedi.</p>
+
+        <div class="formula-box">
+            <h3>Matematični model (Enačba moč-čas)</h3>
+            <div class="formula">
+                Čas do izčrpanosti = W' / (Moč - CP)
+            </div>
+            <p class="formula-explanation">Ta hiperbolični model kaže, da višja kot je moč nad CP, krajši je čas, ki ga
+                lahko vzdržujete.</p>
+        </div>
+
+        <h3>CP proti FTP: Kakšna je razlika?</h3>
+        <p>V praksi sta si CP in FTP zelo blizu, vendar obstajajo ključne razlike:</p>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Značilnost</th>
+                    <th>FTP (Functional Threshold Power)</th>
+                    <th>CP (Critical Power)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Definicija</strong></td>
+                    <td>Moč, ki jo lahko vzdržujete približno eno uro.</td>
+                    <td>Fiziološka meja stacionarnega stanja.</td>
+                </tr>
+                <tr>
+                    <td><strong>Osnova</strong></td>
+                    <td>Pragmatična, temelji na 20-minutnem testu.</td>
+                    <td>Znanstvena, temelji na večih maksimalnih naporih.</td>
+                </tr>
+                <tr>
+                    <td><strong>Napovedljivost</strong></td>
+                    <td>Dobra za bazični trening.</td>
+                    <td>Odlična za napovedovanje časa do izčrpanosti.</td>
+                </tr>
+                <tr>
+                    <td><strong>Vrednost</strong></td>
+                    <td>Običajno 2–5 % višja od CP.</td>
+                    <td>Bolj natančno določa dno anaerobnega dela.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="w-prime-explained">
+        <h2>W': Vaša anaerobna kapaciteta</h2>
+        <p><strong>W' (izgovori se "W-prime")</strong> je merilo celotne energije, ki jo imate na voljo za delo nad
+            svojo kritično močjo. Izraža se v kilodžulih (kJ). Višji kot je vaš W', več "metkov" imate za napade na
+            klancih, sprinte ali težke intervale.</p>
+
+        <h3>Tipične vrednosti W'</h3>
+        <ul>
+            <li><strong>Vzdržljivostni kolesarji:</strong> 15–20 kJ</li>
+            <li><strong>Vsestranski kolesarji (All-rounders):</strong> 20–28 kJ</li>
+            <li><strong>Sprinterji / Šprinterji:</strong> 30–40+ kJ</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Primer praznjenja W'</h4>
+            <p>Kolesar s CP = 300 W in W' = 20 kJ (20.000 J):</p>
+            <ul>
+                <li>Napor pri 350 W (50 W nad CP): Vzdrži lahko 400 sekund (20.000 / 50).</li>
+                <li>Napor pri 400 W (100 W nad CP): Vzdrži lahko 200 sekund (20.000 / 100).</li>
+                <li>Napor pri 500 W (200 W nad CP): Vzdrži lahko le 100 sekund (20.000 / 200).</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="testing-cp">
+        <h2>Kako izmeriti svojo kritično moč in W'</h2>
+        <p>Za določitev CP in W' potrebujete vsaj dva (idealno tri) maksimalne napore na različnih časovnih razponih. Ti
+            napori morajo biti opravljeni v stanju spočitosti.</p>
+
+        <h3>Protokol testiranja</h3>
+        <ol>
+            <li><strong>Kratek napor (2–3 min):</strong> Testira vašo anaerobno komponento.</li>
+            <li><strong>Srednji napor (5–7 min):</strong> Mešanica obeh sistemov.</li>
+            <li><strong>Dolg napor (12–20 min):</strong> Testira predvsem aerobno komponento.</li>
+        </ol>
+
+        <div class="callout callout-tip">
+            <h3>💡 Nasvet za testiranje</h3>
+            <p>Testov ni treba opraviti v enem dnevu. Lahko jih razporedite čez en teden. Pomembno je, da je vsak napor
+                resnično maksimalen (do odpovedi).</p>
+        </div>
+
+        <h3>Izračun: Linearna regresija</h3>
+        <p>Najlažji način za izračun je grafični prikaz celotnega opravljenega dela (Work) proti času (Time). Naklon
+            premice predstavlja CP, presečišče z navpično osjo pa W'.</p>
+
+        <div class="formula-box">
+            <h4>Linearni model (Work-Time)</h4>
+            <div class="formula">
+                Delo (J) = (CP × Čas) + W'
+            </div>
+        </div>
+    </section>
+
+    <section id="application">
+        <h2>Uporaba v realnem času: W' Balance</h2>
+        <p>Eden najmočnejših vidikov tega modela je možnost spremljanja preostale energije med vožnjo. To imenujemo
+            <strong>W' Balance (W'bal)</strong>.
+        </p>
+
+        <ul>
+            <li><strong>Praznjenje:</strong> Ko vozite nad CP, se vaš W'bal zmanjšuje.</li>
+            <li><strong>Regeneracija:</strong> Ko vozite pod CP, se vaš W'bal obnavlja (regenerira). Hitrost
+                regeneracije je odvisna od tega, kako globoko pod CP ste.</li>
+        </ul>
+
+        <div class="callout callout-warning">
+            <h3>Tempiranje na dirkah</h3>
+            <p>S poznavanjem svojega W' lahko natančno ocenite, kdaj lahko napadete in kako dolgo bo napad trajal,
+                preden vas bo "pobralo". Če na zadnjem vzponu vaš W'bal pade na nič, ne boste mogli sprintati za zmago.
+            </p>
+        </div>
+    </section>
+
+    <section id="training">
+        <h2>Kako izboljšati CP in W'</h2>
+        <p>Trening za obe komponenti se razlikuje, saj ciljata na različne fiziološke sisteme.</p>
+
+        <h3>Povečanje kritične moči (CP)</h3>
+        <p>Cilj je izboljšati aerobno učinkovitost in prag. Najboljše vadbe so:</p>
+        <ul>
+            <li><strong>Steady State intervali:</strong> 2 x 20 min pri 95-100 % CP.</li>
+            <li><strong>Sweet Spot:</strong> Dolge vožnje blizu praga za gradnjo baze.</li>
+            <li><strong>Vzdržljivostne vožnje:</strong> Dolga, enakomerna obremenitev pod CP.</li>
+        </ul>
+
+        <h3>Povečanje W' (Anaerobne kapacitete)</h3>
+        <p>Cilj je povečati rezervoar energije za visoko intenzivnost. Najboljše vadbe so:</p>
+        <ul>
+            <li><strong>Tabata intervali:</strong> Kratki, ekstremno intenzivni sunki.</li>
+            <li><strong>Intervali z mikro-odmori:</strong> npr. 30/30 (30 s polne moči, 30 s počitka).</li>
+            <li><strong>Sprinti na hrib:</strong> 30-sekundni maksimalni napori nad CP.</li>
+        </ul>
+    </section>
+
+    <section id="faq">
+        <h2>Pogosto zastavljena vprašanja</h2>
+
+        <div class="faq-item">
+            <h3>Ali je kritična moč enaka 20-minutnemu testu?</h3>
+            <p>Ne. 20-minutni test se običajno uporablja za oceno FTP (tako da vzamemo 95 % rezultata). Kritična moč je
+                matematično določena iz več različnih testov in je običajno malo nižja od rezultata 20-minutnega testa,
+                a bolj natančna kot meja anaerobnega dela.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Zakaj moja CP pada med vožnjo?</h3>
+            <p>Model CP predpostavlja, da sta CP in W' konstantna, vendar se v realnosti zaradi
+                <strong>utrujenosti</strong> CP sčasoma zmanjšuje. Dolge ure na kolesu zmanjšujejo vašo sposobnost
+                proizvajanja moči na pragu.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kako hitro se W' regenerira?</h3>
+            <p>Regeneracija ni trenutna. Traja lahko od nekaj minut do pol ure vožnje pod pragom, da se W' popolnoma
+                obnovi. Počitek (vrtenje pod 50 % CP) pospeši obnovo baterije.</p>
+        </div>
+    </section>
+
+    <section id="related-resources">
+        <h2>Povezani viri</h2>
+        <ul>
+            <li><a href="/sl/ftp/">Vodič za testiranje FTP</a></li>
+            <li><a href="/sl/training-zones/">Razumevanje območij treninga</a></li>
+            <li><a href="/sl/power-metrics/">Napredne metrike moči (NP, IF, VI)</a></li>
+            <li><a href="/sl/training-load/">Upravljanje obremenitve treninga</a></li>
+        </ul>
+    </section>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Kritična moč in W': Znanstveni okvir za zmogljivost",
+  "description": "Razumevanje kritične moči in metrike W' za kolesarje. Naučite se meriti svojo anaerobno kapaciteto in optimizirati tempiranje.",
+  "author": {
+    "@type": "Person",
+    "name": "Albert Arno"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bike Analytics",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bike.analyticszone.app/assets/images/logo_bikeanalytics.png"
+    }
+  },
+  "datePublished": "2025-01-27",
+  "dateModified": "2025-01-27"
+}
+</script>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/sl/privacy/">Privacy</a></li>
+                <li><a href="/sl/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/sl/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

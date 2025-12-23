@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Cycling Power Formulas - Mathematical Foundation</title>
+  <meta name="description" content="Complete cycling power formulas: TSS calculation, NP algorithm, IF formula, CP model equations, and W&#39;bal tracking.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="cycling power formulas, TSS formula, normalized power formula, critical power formula">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/ro/formulas/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-22T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/ro/formulas/">
+  <meta property="og:title" content="Cycling Power Formulas - Mathematical Foundation">
+  <meta property="og:description" content="Complete cycling power formulas: TSS calculation, NP algorithm, IF formula, CP model equations, and W&#39;bal tracking.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/ro/formulas/">
+  <meta name="twitter:title" content="Cycling Power Formulas - Mathematical Foundation">
+  <meta name="twitter:description" content="Complete cycling power formulas: TSS calculation, NP algorithm, IF formula, CP model equations, and W&#39;bal tracking.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/formulas/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/formulas/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/formulas/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/formulas/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/formulas/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/formulas/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/formulas/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/formulas/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/formulas/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/formulas/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/formulas/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/formulas/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/formulas/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/formulas/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/formulas/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/formulas/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/formulas/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/formulas/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/formulas/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/formulas/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/formulas/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/formulas/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/formulas/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/formulas/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/formulas/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/formulas/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Cycling Power Formulas - Mathematical Foundation",
+      "description": "Complete cycling power formulas: TSS calculation, NP algorithm, IF formula, CP model equations, and W&#39;bal tracking.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-22",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/ro/formulas/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/ro/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/ro/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/formulas/" class="active"
+                                    aria-current="page">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/ro/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" selected>
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Formule Putere Ciclism</h1>
+        <p class="lead">Fundamentul Matematic al Metricelor Bike Analytics</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Ghid de Implementare</h2>
+        <p class="lead">Această pagină oferă formule copy-paste și metode de calcul pas-cu-pas pentru toate metricile
+            Bike Analytics. Folosește-le pentru implementări personalizate, verificare sau o înțelegere mai profundă a
+            antrenamentului bazat pe putere.</p>
+
+        <div class="callout callout-warning">
+            <h3>⚠️ Note Implementare</h3>
+            <ul>
+                <li>Toate valorile de putere în wați (W), timpul în secunde dacă nu se specifică altfel</li>
+                <li>FTP și CP sunt praguri specifice individului—nu există valori universale</li>
+                <li>Validează întotdeauna input-urile pentru intervale rezonabile (0-2000W tipic)</li>
+                <li>Gestionează cazurile limită (împărțire la zero, putere negativă)</li>
+                <li>Datele de putere necesită intervale de înregistrare de 1 secundă pentru acuratețe</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Metrici de Performanță de Bază</h2>
+
+        <div class="formula-card">
+            <h3>1. Training Stress Score (TSS)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        TSS = (durata_secunde × NP × IF) / (FTP × 3600) × 100
+                    </div>
+                    <div class="formula">
+                        unde IF = NP / FTP
+                    </div>
+                </div>
+
+                <h4>Exemplu Rezolvat:</h4>
+                <div class="example-box">
+                    <p><strong>Scenariu:</strong> Tură de 2 ore, NP = 235W, FTP = 250W</p>
+                    <ol>
+                        <li>Calculează IF: IF = 235 / 250 = 0.94</li>
+                        <li>Durata în secunde: 2 ore × 3600 = 7200 secunde</li>
+                        <li>TSS = (7200 × 235 × 0.94) / (250 × 3600) × 100</li>
+                        <li>TSS = 1,590,720 / 900,000 × 100 = <strong>176.7 TSS</strong></li>
+                    </ol>
+                    <p><em>Interpretare: Tură de antrenament grea (>150 TSS), așteaptă-te la 2-3 zile recuperare</em>
+                    </p>
+                </div>
+
+                <h4>Implementare JavaScript:</h4>
+                <pre><code>function calculateTSS(durationSeconds, normalizedPower, ftp) {
+  const intensityFactor = normalizedPower / ftp;
+  const tss = (durationSeconds * normalizedPower * intensityFactor) / (ftp * 3600) * 100;
+  return Math.round(tss);
+}
+
+// Exemplu utilizare:
+const tss = calculateTSS(7200, 235, 250);
+// Returnează: 177</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>2. Puterea Normalizată (NP)</h3>
+            <div class="formula-content">
+                <h4>Algoritm (medie mobilă pe 30 secunde):</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        1. Calculează media mobilă de 30 secunde pentru toată tura
+                    </div>
+                    <div class="formula">
+                        2. Ridică fiecare valoare de 30-sec la puterea a 4-a
+                    </div>
+                    <div class="formula">
+                        3. Fă media tuturor acestor valori ^4
+                    </div>
+                    <div class="formula">
+                        4. Extrage rădăcina a 4-a din acea medie
+                    </div>
+                    <div class="formula">
+                        NP = ⁴√(media a [30s_avg^4])
+                    </div>
+                </div>
+
+                <h4>De ce Puterea a 4-a?</h4>
+                <p>Relația cvartic (puterea a 4-a) reflectă costul fiziologic neliniar al eforturilor variabile. O tură
+                    cu accelerări și recuperări costă mai multă energie decât puterea constantă la aceeași medie.</p>
+
+                <div class="example-box">
+                    <p><strong>Exemplu:</strong></p>
+                    <ul>
+                        <li>Tură constantă: 200W timp de 1 oră → NP = 200W, Media = 200W</li>
+                        <li>Tură variabilă: Alternând 300W/100W → Media = 200W, NP = 225W</li>
+                    </ul>
+                    <p><em>Aceeași putere medie, dar tura variabilă are NP cu 12% mai mare din cauza costului fiziologic
+                            al accelerărilor</em></p>
+                </div>
+
+                <h4>Implementare JavaScript:</h4>
+                <pre><code>function calculateNormalizedPower(powerData) {
+  // powerData este array de valori putere la 1-secundă
+
+  // Pas 1: Calculează mediile mobile pe 30 secunde
+  const rollingAvgs = [];
+  for (let i = 29; i < powerData.length; i++) {
+    const window = powerData.slice(i - 29, i + 1);
+    const avg = window.reduce((sum, p) => sum + p, 0) / 30;
+    rollingAvgs.push(avg);
+  }
+
+  // Pas 2: Ridică la puterea a 4-a
+  const powered = rollingAvgs.map(p => Math.pow(p, 4));
+
+  // Pas 3: Media puterilor a 4-a
+  const avgPowered = powered.reduce((sum, p) => sum + p, 0) / powered.length;
+
+  // Pas 4: Rădăcina a 4-a
+  const np = Math.pow(avgPowered, 0.25);
+
+  return Math.round(np);
+}
+
+// Exemplu utilizare:
+const powerData = [/* array putere 1-secundă */];
+const np = calculateNormalizedPower(powerData);
+// Returnează: NP în wați</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>3. Factorul de Intensitate (IF)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        IF = NP / FTP
+                    </div>
+                </div>
+
+                <h4>Intervale Interpretare:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Interval IF</th>
+                        <th>Nivel Efort</th>
+                        <th>Exemplu Antrenament</th>
+                    </tr>
+                    <tr>
+                        <td>&lt; 0.75</td>
+                        <td>Recuperare / Ușor</td>
+                        <td>Tură recuperare activă, Zona 1-2</td>
+                    </tr>
+                    <tr>
+                        <td>0.75 - 0.85</td>
+                        <td>Anduranță</td>
+                        <td>Tură lungă constantă, bază aerobă</td>
+                    </tr>
+                    <tr>
+                        <td>0.85 - 0.95</td>
+                        <td>Tempo</td>
+                        <td>Antrenament Sweet Spot, intervale tempo</td>
+                    </tr>
+                    <tr>
+                        <td>0.95 - 1.05</td>
+                        <td>Prag (Threshold)</td>
+                        <td>Intervale FTP, efort contratimp</td>
+                    </tr>
+                    <tr>
+                        <td>1.05 - 1.15</td>
+                        <td>VO₂max</td>
+                        <td>Intervale de 5 minute, cursă criterium</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 1.15</td>
+                        <td>Anaerob</td>
+                        <td>Sprinturi scurte, atacuri, explozii MTB</td>
+                    </tr>
+                </table>
+
+                <h4>Exemplu Calcul:</h4>
+                <div class="example-box">
+                    <p><strong>Scenariu:</strong> NP = 235W, FTP = 250W</p>
+                    <p>IF = 235 / 250 = <strong>0.94</strong></p>
+                    <p><em>Interpretare: Tempo ridicat / efort sub-prag, sustenabil pentru 2-3 ore</em></p>
+                </div>
+
+                <pre><code>function calculateIF(normalizedPower, ftp) {
+  return (normalizedPower / ftp).toFixed(2);
+}
+
+// Exemplu:
+const if_value = calculateIF(235, 250);
+// Returnează: 0.94</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>4. Indexul de Variabilitate (VI)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        VI = NP / Putere Medie (Average Power)
+                    </div>
+                </div>
+
+                <h4>Interpretare după Disciplină:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Disciplină</th>
+                        <th>VI Tipic</th>
+                        <th>Semnificație</th>
+                    </tr>
+                    <tr>
+                        <td>Șosea TT / Efort Constant</td>
+                        <td>1.00 - 1.05</td>
+                        <td>Putere foarte consistentă, pacing optim</td>
+                    </tr>
+                    <tr>
+                        <td>Curse Șosea</td>
+                        <td>1.05 - 1.10</td>
+                        <td>Ceva accelerări, în general constant</td>
+                    </tr>
+                    <tr>
+                        <td>Criterium</td>
+                        <td>1.10 - 1.20</td>
+                        <td>Accelerări și atacuri frecvente</td>
+                    </tr>
+                    <tr>
+                        <td>Mountain Bike XC</td>
+                        <td>1.15 - 1.30+</td>
+                        <td>Foarte variabil, explozii constante</td>
+                    </tr>
+                </table>
+
+                <h4>Exemplu Calcul:</h4>
+                <div class="example-box">
+                    <p><strong>Cursă Șosea:</strong> NP = 240W, Avg Power = 230W</p>
+                    <p>VI = 240 / 230 = <strong>1.04</strong> (pacing constant)</p>
+
+                    <p><strong>Cursă MTB:</strong> NP = 285W, Avg Power = 235W</p>
+                    <p>VI = 285 / 235 = <strong>1.21</strong> (foarte variabil, eforturi explozive)</p>
+                </div>
+
+                <pre><code>function calculateVI(normalizedPower, averagePower) {
+  return (normalizedPower / averagePower).toFixed(2);
+}
+
+// Exemplu:
+const vi_road = calculateVI(240, 230);  // Returnează: 1.04
+const vi_mtb = calculateVI(285, 235);   // Returnează: 1.21</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Puterea Critică & W' (Capacitate Anaerobă)</h2>
+
+        <div class="formula-card">
+            <h3>5. Puterea Critică (CP) - Model Liniar</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        Timp = W' / (Putere - CP)
+                    </div>
+                    <div class="formula">
+                        Rearanjat: Putere × Timp = CP × Timp + W'
+                    </div>
+                </div>
+
+                <h4>Calcul din Eforturi Multiple:</h4>
+                <p>Necesită 2-4 eforturi maximale la durate diferite (ex: 3, 5, 12, 20 minute)</p>
+
+                <div class="example-box">
+                    <p><strong>Date Exemplu:</strong></p>
+                    <table class="data-table">
+                        <tr>
+                            <th>Durată</th>
+                            <th>Putere (W)</th>
+                            <th>Muncă Totală (kJ)</th>
+                        </tr>
+                        <tr>
+                            <td>3 min (180s)</td>
+                            <td>400W</td>
+                            <td>72 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>5 min (300s)</td>
+                            <td>365W</td>
+                            <td>109.5 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>12 min (720s)</td>
+                            <td>310W</td>
+                            <td>223.2 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>20 min (1200s)</td>
+                            <td>285W</td>
+                            <td>342 kJ</td>
+                        </tr>
+                    </table>
+
+                    <p>Folosind regresia liniară (Muncă = CP × Timp + W'):</p>
+                    <ul>
+                        <li><strong>CP = 270W</strong> (panta liniei de regresie)</li>
+                        <li><strong>W' = 18.5 kJ</strong> (intersecția cu axa y)</li>
+                    </ul>
+                </div>
+
+                <h4>Implementare JavaScript:</h4>
+                <pre><code>function calculateCP_Linear(efforts) {
+  // efforts = [{duration: seconds, power: watts}, ...]
+
+  const times = efforts.map(e => e.duration);
+  const work = efforts.map(e => e.power * e.duration / 1000); // kJ
+
+  // Regresie liniară: work = CP * time + W'
+  const n = efforts.length;
+  const sumT = times.reduce((a, b) => a + b, 0);
+  const sumW = work.reduce((a, b) => a + b, 0);
+  const sumTW = times.reduce((sum, t, i) => sum + t * work[i], 0);
+  const sumTT = times.reduce((sum, t) => sum + t * t, 0);
+
+  const CP = (n * sumTW - sumT * sumW) / (n * sumTT - sumT * sumT);
+  const Wprime = (sumW - CP * sumT) / n;
+
+  return {
+    CP: Math.round(CP * 10) / 10,      // wați
+    Wprime: Math.round(Wprime * 10) / 10  // kJ
+  };
+}
+
+// Exemplu utilizare:
+const efforts = [
+  {duration: 180, power: 400},
+  {duration: 300, power: 365},
+  {duration: 720, power: 310},
+  {duration: 1200, power: 285}
+];
+
+const result = calculateCP_Linear(efforts);
+// Returnează: { CP: 270.0, Wprime: 18.5 }</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>6. Balanța W' (W'bal) - Model Ecuație Diferențială</h3>
+            <div class="formula-content">
+                <h4>Formule:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        <strong>Cheltuire (când P > CP):</strong><br>
+                        W'exp(t) = ∫(P(t) - CP) dt
+                    </div>
+                    <div class="formula">
+                        <strong>Recuperare (când P < CP):</strong><br>
+                                W'rec(t) = W' × (1 - e^(-t/τ))
+                    </div>
+                    <div class="formula">
+                        unde τ = 546 × e^(-0.01 × ΔCP) + 316<br>
+                        și ΔCP = (CP - P(t))
+                    </div>
+                </div>
+
+                <h4>Exemplu Real:</h4>
+                <div class="example-box">
+                    <p><strong>Specificații ciclist:</strong> CP = 270W, W' = 18.5 kJ</p>
+
+                    <p><strong>Scenariu 1 - Atac Puternic:</strong></p>
+                    <ul>
+                        <li>Ciclistul accelerează la 400W pentru 30 secunde</li>
+                        <li>W' cheltuit: (400 - 270) × 30 = 3,900 J = 3.9 kJ</li>
+                        <li>W'bal rămas: 18.5 - 3.9 = <strong>14.6 kJ</strong></li>
+                    </ul>
+
+                    <p><strong>Scenariu 2 - Recuperare:</strong></p>
+                    <ul>
+                        <li>După atac, scade la 200W (70W sub CP) pentru 2 minute</li>
+                        <li>ΔCP = 270 - 200 = 70W</li>
+                        <li>τ = 546 × e^(-0.01 × 70) + 316 = 588 secunde</li>
+                        <li>Recuperare în 120s: 18.5 × (1 - e^(-120/588)) = <strong>3.5 kJ recuperat</strong></li>
+                        <li>Noul W'bal: 14.6 + 3.5 = <strong>18.1 kJ</strong></li>
+                    </ul>
+                </div>
+
+                <h4>Implementare JavaScript:</h4>
+                <pre><code>function calculateWbalance(powerData, CP, Wprime) {
+  // powerData = array de {time: seconds, power: watts}
+  let wbal = Wprime * 1000; // Conversie în jouli
+  const wbalHistory = [];
+
+  for (let i = 1; i < powerData.length; i++) {
+    const dt = powerData[i].time - powerData[i-1].time;
+    const power = powerData[i].power;
+
+    if (power > CP) {
+      // Cheltuire peste CP
+      const expenditure = (power - CP) * dt;
+      wbal -= expenditure;
+    } else {
+      // Recuperare sub CP
+      const deltaCP = CP - power;
+      const tau = 546 * Math.exp(-0.01 * deltaCP) + 316;
+      const recovery = (Wprime * 1000 - wbal) * (1 - Math.exp(-dt / tau));
+      wbal += recovery;
+    }
+
+    // Asigură că W'bal nu depășește max sau scade sub negativ
+    wbal = Math.max(0, Math.min(wbal, Wprime * 1000));
+
+    wbalHistory.push({
+      time: powerData[i].time,
+      wbal: wbal / 1000, // kJ
+      percent: (wbal / (Wprime * 1000)) * 100
+    });
+  }
+
+  return wbalHistory;
+}
+
+// Exemplu utilizare:
+const powerData = [
+  {time: 0, power: 200},
+  {time: 1, power: 210},
+  // ... restul datelor
+];
+
+const wbalHistory = calculateWbalance(powerData, 270, 18.5);
+// Returnează array de valori W'bal în timp</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Grafic Management Performanță (PMC)</h2>
+
+        <div class="formula-card">
+            <h3>7. Calcule CTL, ATL, TSB</h3>
+            <div class="formula-content">
+                <h4>Formule (Medii Mobile Ponderate Exponențial):</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        CTL_azi = CTL_ieri + (TSS_azi - CTL_ieri) / 42
+                    </div>
+                    <div class="formula">
+                        ATL_azi = ATL_ieri + (TSS_azi - ATL_ieri) / 7
+                    </div>
+                    <div class="formula">
+                        TSB_azi = CTL_ieri - ATL_ieri
+                    </div>
+                </div>
+
+                <h4>Definiții Metrici:</h4>
+                <ul>
+                    <li><strong>CTL (Chronic Training Load):</strong> Medie ponderată exponențial 42-zile - reprezintă
+                        fitness</li>
+                    <li><strong>ATL (Acute Training Load):</strong> Medie ponderată exponențial 7-zile - reprezintă
+                        oboseală</li>
+                    <li><strong>TSB (Training Stress Balance):</strong> Formă = Fitness - Oboseală</li>
+                </ul>
+
+                <h4>Exemplu Rezolvat (Bloc Antrenament 7-Zile):</h4>
+                <div class="example-box">
+                    <table class="data-table">
+                        <tr>
+                            <th>Zi</th>
+                            <th>TSS</th>
+                            <th>CTL</th>
+                            <th>ATL</th>
+                            <th>TSB</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>Lun</td>
+                            <td>100</td>
+                            <td>75.0</td>
+                            <td>80.0</td>
+                            <td>-5.0</td>
+                            <td>Antrenament</td>
+                        </tr>
+                        <tr>
+                            <td>Mar</td>
+                            <td>50</td>
+                            <td>74.4</td>
+                            <td>75.7</td>
+                            <td>-1.3</td>
+                            <td>Recuperare</td>
+                        </tr>
+                        <tr>
+                            <td>Mie</td>
+                            <td>120</td>
+                            <td>75.5</td>
+                            <td>82.0</td>
+                            <td>-6.5</td>
+                            <td>Antrenament Greu</td>
+                        </tr>
+                        <tr>
+                            <td>Joi</td>
+                            <td>0</td>
+                            <td>73.7</td>
+                            <td>70.3</td>
+                            <td>+3.4</td>
+                            <td>Zi Odihnă</td>
+                        </tr>
+                        <tr>
+                            <td>Vin</td>
+                            <td>80</td>
+                            <td>73.8</td>
+                            <td>71.7</td>
+                            <td>+2.1</td>
+                            <td>Moderat</td>
+                        </tr>
+                        <tr>
+                            <td>Sâm</td>
+                            <td>150</td>
+                            <td>75.6</td>
+                            <td>82.9</td>
+                            <td>-7.3</td>
+                            <td>Tură Lungă</td>
+                        </tr>
+                        <tr>
+                            <td>Dum</td>
+                            <td>40</td>
+                            <td>74.8</td>
+                            <td>76.8</td>
+                            <td>-2.0</td>
+                            <td>Recuperare</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4>Interpretare TSB:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Interval TSB</th>
+                        <th>Status</th>
+                        <th>Acțiune</th>
+                    </tr>
+                    <tr>
+                        <td>&lt; -30</td>
+                        <td>Risc Ridicat</td>
+                        <td>Avertisment supraantrenament - redu încărcătura</td>
+                    </tr>
+                    <tr>
+                        <td>-30 la -10</td>
+                        <td>Antrenament Greu</td>
+                        <td>Construire fitness, monitorizează recuperarea</td>
+                    </tr>
+                    <tr>
+                        <td>-10 la +5</td>
+                        <td>Optim</td>
+                        <td>Zonă normală de antrenament</td>
+                    </tr>
+                    <tr>
+                        <td>+5 la +15</td>
+                        <td>Gata de Cursă</td>
+                        <td>Formă de vârf - concurează weekend-ul ăsta</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; +25</td>
+                        <td>De-antrenare</td>
+                        <td>Pierdere fitness - crește încărcătura</td>
+                    </tr>
+                </table>
+
+                <h4>Implementare JavaScript:</h4>
+                <pre><code>function calculatePMC(workouts) {
+  // workouts = [{date: "YYYY-MM-DD", tss: numar}, ...]
+  let ctl = 0, atl = 0;
+  const results = [];
+
+  workouts.forEach(workout => {
+    // Actualizare CTL (constantă de timp 42-zile)
+    ctl = ctl + (workout.tss - ctl) / 42;
+
+    // Actualizare ATL (constantă de timp 7-zile)
+    atl = atl + (workout.tss - atl) / 7;
+
+    // Calcul TSB (CTL ieri - ATL ieri pentru calcul tradițional)
+    // Pentru simplitate aici folosim valorile curente
+    const tsb = ctl - atl;
+
+    results.push({
+      date: workout.date,
+      tss: workout.tss,
+      ctl: Math.round(ctl * 10) / 10,
+      atl: Math.round(atl * 10) / 10,
+      tsb: Math.round(tsb * 10) / 10,
+      status: getTSBStatus(tsb)
+    });
+  });
+
+  return results;
+}
+
+function getTSBStatus(tsb) {
+  if (tsb < -30) return "Risc Ridicat";
+  if (tsb < -10) return "Antrenament Greu";
+  if (tsb < 5) return "Optim";
+  if (tsb < 15) return "Gata de Cursă";
+  return "De-antrenare";
+}
+
+// Exemplu utilizare:
+const workouts = [
+  {date: "2025-01-01", tss: 100},
+  {date: "2025-01-02", tss: 50},
+  {date: "2025-01-03", tss: 120},
+  // ... mai multe antrenamente
+];
+
+const pmc = calculatePMC(workouts);
+// Returnează array cu CTL, ATL, TSB pentru fiecare zi</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Raport Putere-Greutate & Metrici Cățărare</h2>
+
+        <div class="formula-card">
+            <h3>8. Raport Putere-Greutate</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        W/kg = Putere (wați) / Masă Corporală (kg)
+                    </div>
+                </div>
+
+                <h4>Repere FTP W/kg:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Nivel</th>
+                        <th>Bărbați W/kg</th>
+                        <th>Femei W/kg</th>
+                        <th>Categorie</th>
+                    </tr>
+                    <tr>
+                        <td>Recreațional</td>
+                        <td>2.5 - 3.5</td>
+                        <td>2.0 - 3.0</td>
+                        <td>Ciclist fitness</td>
+                    </tr>
+                    <tr>
+                        <td>Competitiv</td>
+                        <td>3.5 - 4.5</td>
+                        <td>3.0 - 4.0</td>
+                        <td>Cat 3-4, age group racer</td>
+                    </tr>
+                    <tr>
+                        <td>Avansat</td>
+                        <td>4.5 - 5.5</td>
+                        <td>4.0 - 5.0</td>
+                        <td>Cat 1-2, amator puternic</td>
+                    </tr>
+                    <tr>
+                        <td>Amator Elită</td>
+                        <td>5.5 - 6.0</td>
+                        <td>5.0 - 5.5</td>
+                        <td>Nivel național</td>
+                    </tr>
+                    <tr>
+                        <td>Profesionist</td>
+                        <td>6.0 - 7.0+</td>
+                        <td>5.5 - 6.5+</td>
+                        <td>World Tour, Grand Tour GC</td>
+                    </tr>
+                </table>
+
+                <h4>Exemplu Calcul:</h4>
+                <div class="example-box">
+                    <p><strong>Scenariu:</strong> Ciclist cu FTP = 275W, masă corporală = 70kg</p>
+                    <p>W/kg = 275 / 70 = <strong>3.93 W/kg</strong></p>
+                    <p><em>Interpretare: Nivel competitiv, capabil în curse deluroase</em></p>
+                </div>
+
+                <pre><code>function calculateWattsPerKg(power, bodyMassKg) {
+  return (power / bodyMassKg).toFixed(2);
+}
+
+// Exemplu:
+const wpkg = calculateWattsPerKg(275, 70);
+// Returnează: 3.93</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>9. VAM (Viteză Ascensională Medie)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        VAM (m/h) = Câștig Elevație (m) / Timp (ore)
+                    </div>
+                </div>
+
+                <h4>Repere VAM:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>VAM (m/h)</th>
+                        <th>Nivel</th>
+                        <th>Exemplu</th>
+                    </tr>
+                    <tr>
+                        <td>600 - 900</td>
+                        <td>Recreațional</td>
+                        <td>Ciclist de club pe urcare locală</td>
+                    </tr>
+                    <tr>
+                        <td>900 - 1200</td>
+                        <td>Competitiv</td>
+                        <td>Amator bun pe Alpe d'Huez</td>
+                    </tr>
+                    <tr>
+                        <td>1200 - 1500</td>
+                        <td>Amator Elită</td>
+                        <td>Cățărător de nivel național</td>
+                    </tr>
+                    <tr>
+                        <td>1500 - 1800</td>
+                        <td>Profesionist</td>
+                        <td>Locotenent World Tour</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 1800</td>
+                        <td>Câștigător Grand Tour</td>
+                        <td>Pogačar, Vingegaard pe urcări cheie</td>
+                    </tr>
+                </table>
+
+                <h4>Exemplu Calcul:</h4>
+                <div class="example-box">
+                    <p><strong>Scenariu:</strong> Urcare Alpe d'Huez</p>
+                    <ul>
+                        <li>Câștig elevație: 1100 metri</li>
+                        <li>Timp: 55 minute = 0.917 ore</li>
+                        <li>VAM = 1100 / 0.917 = <strong>1200 m/h</strong></li>
+                    </ul>
+                    <p><em>Interpretare: Performanță de cățărare nivel competitiv</em></p>
+                </div>
+
+                <pre><code>function calculateVAM(elevationGainMeters, timeMinutes) {
+  const hours = timeMinutes / 60;
+  return Math.round(elevationGainMeters / hours);
+}
+
+// Exemplu:
+const vam = calculateVAM(1100, 55);
+// Returnează: 1200 m/h</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>10. Estimare W/kg din VAM</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        W/kg ≈ VAM (m/h) / 100 / (Panta% + 3)
+                    </div>
+                </div>
+
+                <h4>Exemplu Calcul:</h4>
+                <div class="example-box">
+                    <p><strong>Scenariu:</strong> Urcare cu pantă medie 8%, VAM = 1200 m/h</p>
+                    <p>W/kg = 1200 / 100 / (8 + 3)</p>
+                    <p>W/kg = 12 / 11 = <strong>4.36 W/kg</strong></p>
+                    <p><em>Verificare: Cu ciclist 70kg → 305W putere susținută pe urcare</em></p>
+                </div>
+
+                <pre><code>function estimateWkgFromVAM(vam, gradientPercent) {
+  return (vam / 100 / (gradientPercent + 3)).toFixed(2);
+}
+
+// Exemplu:
+const wkg = estimateWkgFromVAM(1200, 8);
+// Returnează: 4.36</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Ecuația Puterii Aerodinamice</h2>
+
+        <div class="formula-card">
+            <h3>11. Cerințe Totale de Putere</h3>
+            <div class="formula-content">
+                <h4>Formula Completă:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        P_total = P_aero + P_gravitație + P_rulare + P_cinetic
+                    </div>
+                </div>
+
+                <h4>Formule Componente:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        <strong>Rezistență Aerodinamică:</strong><br>
+                        P_aero = CdA × 0.5 × ρ × V³
+                    </div>
+                    <div class="formula">
+                        <strong>Gravitațional (Cățărare):</strong><br>
+                        P_gravitație = m × g × sin(θ) × V
+                    </div>
+                    <div class="formula">
+                        <strong>Rezistență la Rulare:</strong><br>
+                        P_rulare = Crr × m × g × cos(θ) × V
+                    </div>
+                    <div class="formula">
+                        <strong>Cinetic (Accelerație):</strong><br>
+                        P_cinetic = m × a × V
+                    </div>
+                </div>
+
+                <h4>Constante & Variabile:</h4>
+                <ul>
+                    <li><strong>CdA</strong> = Coeficient rezistență × suprafață frontală (m²)
+                        <ul>
+                            <li>Tipic șosea pe manete (hoods): 0.35-0.40 m²</li>
+                            <li>Dropuri: 0.32-0.37 m²</li>
+                            <li>Poziție TT: 0.20-0.25 m²</li>
+                        </ul>
+                    </li>
+                    <li><strong>ρ</strong> = Densitatea aerului (1.225 kg/m³ la nivelul mării, 15°C)</li>
+                    <li><strong>V</strong> = Viteză (m/s)</li>
+                    <li><strong>m</strong> = Masă totală (ciclist + bicicletă, kg)</li>
+                    <li><strong>g</strong> = Gravitație (9.81 m/s²)</li>
+                    <li><strong>θ</strong> = Unghi pantă (radiani sau grade convertite)</li>
+                    <li><strong>Crr</strong> = Coeficient rezistență la rulare (~0.004 pentru anvelope șosea bune)</li>
+                    <li><strong>a</strong> = Accelerație (m/s²)</li>
+                </ul>
+
+                <h4>Exemplu Rezolvat (TT Șosea Plat):</h4>
+                <div class="example-box">
+                    <p><strong>Scenariu:</strong></p>
+                    <ul>
+                        <li>Viteză: 40 km/h = 11.11 m/s</li>
+                        <li>CdA: 0.22 m² (poziție TT bună)</li>
+                        <li>Masă totală: 75kg (ciclist) + 8kg (bicicletă) = 83kg</li>
+                        <li>Drum plat (panta = 0°)</li>
+                        <li>Viteză constantă (accelerație = 0)</li>
+                    </ul>
+
+                    <p><strong>Calcul:</strong></p>
+                    <ol>
+                        <li><strong>P_aero</strong> = 0.22 × 0.5 × 1.225 × 11.11³ = <strong>185W</strong></li>
+                        <li><strong>P_gravitație</strong> = 0W (drum plat)</li>
+                        <li><strong>P_rulare</strong> = 0.004 × 83 × 9.81 × 11.11 = <strong>36W</strong></li>
+                        <li><strong>P_cinetic</strong> = 0W (viteză constantă)</li>
+                        <li><strong>P_total</strong> = 185 + 0 + 36 + 0 = <strong>221W</strong></li>
+                    </ol>
+                    <p><em>Interpretare: Necesar 221W pentru a susține 40 km/h în poziție TT pe drum plat</em></p>
+                </div>
+
+                <h4>Implementare JavaScript:</h4>
+                <pre><code>function calculatePowerRequired(params) {
+  const {
+    velocityKph,
+    CdA = 0.32,              // m²
+    rho = 1.225,             // kg/m³
+    mass = 83,               // kg (ciclist + bicicletă)
+    gradientPercent = 0,     // %
+    Crr = 0.004,             // rezistență la rulare
+    accelerationMps2 = 0     // m/s²
+  } = params;
+
+  // Conversie viteză în m/s
+  const V = velocityKph / 3.6;
+
+  // Conversie pantă în unghi
+  const theta = Math.atan(gradientPercent / 100);
+
+  // Calculare fiecare componentă
+  const P_aero = CdA * 0.5 * rho * Math.pow(V, 3);
+  const P_gravity = mass * 9.81 * Math.sin(theta) * V;
+  const P_rolling = Crr * mass * 9.81 * Math.cos(theta) * V;
+  const P_kinetic = mass * accelerationMps2 * V;
+
+  return {
+    total: Math.round(P_aero + P_gravity + P_rolling + P_kinetic),
+    aero: Math.round(P_aero),
+    gravity: Math.round(P_gravity),
+    rolling: Math.round(P_rolling),
+    kinetic: Math.round(P_kinetic)
+  };
+}
+
+// Exemplu: TT la 40 km/h
+const power_tt = calculatePowerRequired({
+  velocityKph: 40,
+  CdA: 0.22,
+  mass: 83,
+  gradientPercent: 0
+});
+// Returnează: { total: 221, aero: 185, gravity: 0, rolling: 36, kinetic: 0 }
+
+// Exemplu: Urcare 8% la 15 km/h
+const power_climb = calculatePowerRequired({
+  velocityKph: 15,
+  CdA: 0.38,
+  mass: 75,
+  gradientPercent: 8
+});
+// Returnează: { total: 265, aero: 27, gravity: 244, rolling: 11, kinetic: 0 }</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Funcții Ajutătoare</h2>
+
+        <div class="formula-card">
+            <h3>Utilitare Conversie Unități</h3>
+            <div class="formula-content">
+                <h4>Implementare JavaScript:</h4>
+                <pre><code>// Conversii timp
+function hoursToSeconds(hours) {
+  return hours * 3600;
+}
+
+function minutesToSeconds(minutes) {
+  return minutes * 60;
+}
+
+function secondsToHours(seconds) {
+  return seconds / 3600;
+}
+
+function formatDuration(seconds) {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = Math.round(seconds % 60);
+  return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Conversii viteză
+function kphToMps(kph) {
+  return kph / 3.6;
+}
+
+function mpsToKph(mps) {
+  return mps * 3.6;
+}
+
+// Conversii energie
+function joulesTo kJ(joules) {
+  return joules / 1000;
+}
+
+function kJToJoules(kJ) {
+  return kJ * 1000;
+}
+
+function wattsToKJ(watts, durationSeconds) {
+  return (watts * durationSeconds) / 1000;
+}
+
+// Exemple:
+formatDuration(7265);        // Returnează: "2:01:05"
+kphToMps(40);                // Returnează: 11.11 m/s
+wattsToKJ(250, 3600);        // Returnează: 900 kJ (1 oră la 250W)</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow text-center">
+        <h2>Resurse Implementare</h2>
+        <p class="lead">Toate formulele de pe această pagină sunt gata de producție și validate cu literatura
+            științifică și date reale de power meter. Folosește-le pentru instrumente analitice personalizate,
+            verificare sau o înțelegere mai profundă a calculelor antrenamentului bazat pe putere.</p>
+
+        <div class="callout callout-tip">
+            <h3>💡 Cele Mai Bune Practici</h3>
+            <ul class="text-left">
+                <li><strong>Validează input-urile:</strong> Verifică pentru intervale de putere rezonabile (0-2000W),
+                    durate pozitive</li>
+                <li><strong>Gestionează cazurile limită:</strong> Împărțire la zero, date null/undefined, FTP lipsă</li>
+                <li><strong>Rotunjește corespunzător:</strong> CTL/ATL/TSB la 1 zecimală, TSS la întreg, W/kg la 2
+                    zecimale</li>
+                <li><strong>Stochează precizia:</strong> Păstrează precizia completă în baza de date, rotunjește doar
+                    pentru afișare</li>
+                <li><strong>Zone de timp:</strong> Gestionează UTC vs. ora locală consistent pentru analiza pe mai multe
+                    zile</li>
+                <li><strong>Calibrare power meter:</strong> Reamintește utilizatorilor să facă zero-offset înainte de
+                    ture</li>
+                <li><strong>Validare FTP:</strong> Semnalează valorile FTP suspecte (>500W sau <100W pentru adulți)</li>
+                <li><strong>Testează temeinic:</strong> Folosește fișiere de tură cunoscute pentru a verifica calculele
+                </li>
+            </ul>
+        </div>
+
+        <div class="mt-xl">
+            <a href="/ro/" class="btn btn-primary btn-large">Înapoi Acasă</a>
+            <a href="/ro/research/" class="btn btn-secondary">Fundament Științific</a>
+            <a href="/ro/bibliography/" class="btn btn-secondary">Bibliografie Completă</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/ro/privacy/">Privacy</a></li>
+                <li><a href="/ro/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/ro/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

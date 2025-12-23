@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Cycling Climbing Performance - VAM, W/kg, Gradient Analysis</title>
+  <meta name="description" content="Master climbing performance metrics: VAM (vertical ascent meters), power-to-weight ratio (W/kg), and gradient-adjusted performance.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="VAM cycling, climbing performance cycling, power to weight cycling, gradient analysis cycling, vertical ascent meters">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/ro/climbing-performance/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-22T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/ro/climbing-performance/">
+  <meta property="og:title" content="Cycling Climbing Performance - VAM, W/kg, Gradient Analysis">
+  <meta property="og:description" content="Master climbing performance metrics: VAM (vertical ascent meters), power-to-weight ratio (W/kg), and gradient-adjusted performance.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/ro/climbing-performance/">
+  <meta name="twitter:title" content="Cycling Climbing Performance - VAM, W/kg, Gradient Analysis">
+  <meta name="twitter:description" content="Master climbing performance metrics: VAM (vertical ascent meters), power-to-weight ratio (W/kg), and gradient-adjusted performance.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/climbing-performance/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/climbing-performance/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/climbing-performance/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/climbing-performance/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/climbing-performance/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/climbing-performance/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/climbing-performance/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/climbing-performance/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/climbing-performance/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/climbing-performance/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/climbing-performance/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/climbing-performance/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/climbing-performance/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/climbing-performance/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/climbing-performance/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/climbing-performance/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/climbing-performance/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/climbing-performance/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/climbing-performance/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/climbing-performance/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/climbing-performance/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/climbing-performance/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/climbing-performance/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/climbing-performance/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/climbing-performance/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/climbing-performance/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Cycling Climbing Performance - VAM, W/kg, Gradient Analysis",
+      "description": "Master climbing performance metrics: VAM (vertical ascent meters), power-to-weight ratio (W/kg), and gradient-adjusted performance.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-22",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/ro/climbing-performance/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/ro/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/ro/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/climbing-performance/" class="active"
+                                    aria-current="page">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ro/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ro/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/ro/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" selected>
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <article class="article-content">
+    <header class="article-header">
+        <h1>Performanța în urcare: VAM, W/kg, Analiza Pantei</h1>
+        <p class="article-meta">Înțelegerea metricilor care determină viteza de urcare și cum să le îmbunătățești</p>
+    </header>
+
+    <section id="climbing-fundamentals">
+        <h2>Ce face un cățărător bun?</h2>
+        <p>Performanța în urcare în ciclism este fundamental despre <strong>raportul putere-greutate</strong>. Spre
+            deosebire de pedalarea pe plat unde aerodinamica domină, urcarea este o luptă împotriva gravitației. Cu cât
+            ești mai ușor relativ la producția ta de putere, cu atât vei urca mai repede.</p>
+
+        <p>Dar greutatea singură nu spune toată povestea. Două metrici cheie dezvăluie abilitatea de cățărare:</p>
+        <ul>
+            <li><strong>Raportul putere-greutate (W/kg):</strong> FTP-ul tău împărțit la greutatea corporală</li>
+            <li><strong>VAM (Velocità Ascensionale Media):</strong> Rata de ascensiune verticală în metri pe oră</li>
+        </ul>
+
+        <div class="info-box">
+            <h3>Distribuția puterii la Urcare vs. Plat</h3>
+            <p><strong>Drum plat la 40 km/h:</strong></p>
+            <ul>
+                <li>Rezistență aerodinamică: 80-90%</li>
+                <li>Rezistență la rulare: 8-12%</li>
+                <li>Gravitație: ~0%</li>
+            </ul>
+            <p><strong>Urcare 8% la 15 km/h:</strong></p>
+            <ul>
+                <li>Gravitație: 75-85%</li>
+                <li>Rezistență la rulare: 10-15%</li>
+                <li>Rezistență aerodinamică: 5-10%</li>
+            </ul>
+            <p><em>Urcarea inversează ecuația—raportul putere-greutate devine totul.</em></p>
+        </div>
+    </section>
+
+    <section id="power-to-weight">
+        <h2>Raportul Putere-Greutate (W/kg): Moneda Cățărătorului</h2>
+        <p><strong>Raportul putere-greutate</strong> este Puterea ta la Prag Funcțional (FTP) împărțită la greutatea ta
+            corporală în kilograme. Este cel mai bun predictor singular al performanței în urcare.</p>
+
+        <div class="formula-box">
+            <h3>Formula</h3>
+            <div class="formula">
+                W/kg = FTP (wați) / Greutate Corporală (kg)
+            </div>
+            <div class="example-box mt-md">
+                <h4>Exemplu:</h4>
+                <p>Ciclist cu 300W FTP și 75kg greutate:</p>
+                <div class="calculation">
+                    W/kg = 300 / 75 = <strong>4,0 W/kg</strong>
+                </div>
+                <p>Acest ciclist ar fi competitiv la nivel de amatori, puternic în curse locale.</p>
+            </div>
+        </div>
+
+        <h3>Categorii W/kg după Nivel</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Categorie</th>
+                    <th>W/kg la FTP</th>
+                    <th>Abilitate de Cățărare</th>
+                    <th>Performanță Exemplu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Recreațional</strong></td>
+                    <td>2,0-3,0</td>
+                    <td>Poate termina urcări dar încet</td>
+                    <td>Alpe d'Huez în 90+ minute</td>
+                </tr>
+                <tr>
+                    <td><strong>Amator competitiv</strong></td>
+                    <td>3,0-4,0</td>
+                    <td>Competitiv în curse locale</td>
+                    <td>Alpe d'Huez în 60-70 minute</td>
+                </tr>
+                <tr>
+                    <td><strong>Concurent Cat 1/2</strong></td>
+                    <td>4,0-5,0</td>
+                    <td>Nivel regional/național puternic</td>
+                    <td>Alpe d'Huez în 50-60 minute</td>
+                </tr>
+                <tr>
+                    <td><strong>Amator elită</strong></td>
+                    <td>5,0-5,5</td>
+                    <td>Potențial de campion național</td>
+                    <td>Alpe d'Huez în 45-50 minute</td>
+                </tr>
+                <tr>
+                    <td><strong>Domestic Profesionist</strong></td>
+                    <td>5,5-6,0</td>
+                    <td>Cățărător profesionist</td>
+                    <td>Alpe d'Huez în 42-45 minute</td>
+                </tr>
+                <tr>
+                    <td><strong>Cățărător World Tour</strong></td>
+                    <td>6,0-6,5</td>
+                    <td>Concurent clasament general Grand Tour</td>
+                    <td>Alpe d'Huez în 38-42 minute</td>
+                </tr>
+                <tr>
+                    <td><strong>Elită World Tour</strong></td>
+                    <td>6,5+</td>
+                    <td>Pogačar, Vingegaard, Evenepoel</td>
+                    <td>Alpe d'Huez în &lt;38 minute</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Compromisul Scădere în Greutate vs. Câștig de Putere</h3>
+
+        <h4>Puterea Scăderii în Greutate</h4>
+        <p>Fiecare 1kg pierdut îmbunătățește raportul W/kg <em>fără</em> a crește puterea:</p>
+
+        <div class="example-box">
+            <h4>Impactul Scăderii în Greutate:</h4>
+            <p>Ciclist: 300W FTP, 75kg (4,0 W/kg)</p>
+            <ul>
+                <li><strong>Pierzi 2kg → 73kg:</strong> 300W / 73kg = <strong>4,11 W/kg</strong> (+2,7%)</li>
+                <li><strong>Pierzi 5kg → 70kg:</strong> 300W / 70kg = <strong>4,29 W/kg</strong> (+7,2%)</li>
+            </ul>
+            <p><strong>Impact urcare:</strong> Pe Alpe d'Huez (13,8km, 8,1%), pierderea a 5kg economisește ~3 minute la
+                aceeași putere!</p>
+        </div>
+
+        <h4>⚠️ Nu Pierde Masă Musculară</h4>
+        <p>Scăderea agresivă în greutate poate reduce FTP dacă pierzi masă musculară:</p>
+        <ul>
+            <li><strong>Scădere sănătoasă:</strong> Pierzi grăsime, menții FTP → W/kg se îmbunătățește</li>
+            <li><strong>Scădere nesănătoasă:</strong> Pierzi mușchi, FTP scade 10-15% → W/kg se poate înrăutăți</li>
+        </ul>
+
+        <p><strong>Abordare sigură:</strong> Scade 0,25-0,5kg pe săptămână printr-un deficit caloric moderat, menținând
+            aportul de proteine (1,6-2,2g per kg corp) și volumul de antrenament.</p>
+
+        <h4>Construirea Puterii Fără Câștig în Greutate</h4>
+        <p>Creșterea FTP menținând greutatea este ideală:</p>
+
+        <div class="example-box">
+            <h4>Impact Câștig de Putere:</h4>
+            <p>Ciclist: 300W FTP, 75kg (4,0 W/kg)</p>
+            <ul>
+                <li><strong>+20W FTP → 320W:</strong> 320W / 75kg = <strong>4,27 W/kg</strong> (+6,7%)</li>
+                <li><strong>+30W FTP → 330W:</strong> 330W / 75kg = <strong>4,40 W/kg</strong> (+10%)</li>
+            </ul>
+            <p><strong>Cum?</strong> Antrenament structurat țintind pragul și VO2max. Necesită 3-6 luni de muncă
+                consistentă.</p>
+        </div>
+
+        <h3>Greutatea Optimă pentru Cățărare</h3>
+        <p>Există un punct de randament descrescător. Cicliștii ultra-ușori (&lt;60kg) adesea au:</p>
+        <ul>
+            <li>Putere absolută mai mică (mai greu să împingă wați mulți)</li>
+            <li>Dezavantaj pe plat și în vânt din față</li>
+            <li>Putere de sprint mai slabă</li>
+            <li>Mai fragili (predispus la accidentări, boli)</li>
+        </ul>
+
+        <p><strong>Punctul ideal pentru majoritatea:</strong> 10-15% grăsime corporală pentru bărbați, 15-20% pentru
+            femei. Grăsimea mai mică îmbunătățește W/kg dar devine contraproductivă sub ~8% (bărbați) sau 12% (femei)
+            din cauza problemelor de sănătate și performanță.</p>
+    </section>
+
+    <section id="vam">
+        <h2>VAM (Velocità Ascensionale Media): Rata Pură de Urcare</h2>
+        <p><strong>VAM</strong> măsoară câți metri verticali urci pe oră. Spre deosebire de viteză (km/h), care variază
+            dramatic în funcție de pantă, VAM oferă o metrică a performanței de cățărare independentă de pantă.</p>
+
+        <div class="formula-box">
+            <h3>Formula</h3>
+            <div class="formula">
+                VAM (m/h) = Câștig Elevație (metri) / Timp (ore)
+            </div>
+            <div class="example-box mt-md">
+                <h4>Exemplu: Alpe d'Huez</h4>
+                <p>Urcare: 1100m elevație în 50 minute (0,833 ore)</p>
+                <div class="calculation">
+                    VAM = 1100 / 0,833 = <strong>1320 m/h</strong>
+                </div>
+                <p>Acest VAM indică performanță de amator de elită / profesionist inferior.</p>
+            </div>
+        </div>
+
+        <h3>Repere VAM după Nivel de Efort</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>VAM (m/h)</th>
+                    <th>Nivel Efort</th>
+                    <th>Durată Tipică</th>
+                    <th>Exemplu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>300-600</strong></td>
+                    <td>Anduranță ușoară</td>
+                    <td>2-6 ore</td>
+                    <td>Urcări lungi de bază, recuperare</td>
+                </tr>
+                <tr>
+                    <td><strong>600-900</strong></td>
+                    <td>Tempo moderat</td>
+                    <td>1-3 ore</td>
+                    <td>Ritm de maratonbike, grup moderat</td>
+                </tr>
+                <tr>
+                    <td><strong>900-1200</strong></td>
+                    <td>Prag greu</td>
+                    <td>30-90 minute</td>
+                    <td>Urcare nivel FTP, simulare cursă</td>
+                </tr>
+                <tr>
+                    <td><strong>1200-1500</strong></td>
+                    <td>VO2max foarte greu</td>
+                    <td>10-30 minute</td>
+                    <td>Urcări scurte, abrupte aproape de maxim</td>
+                </tr>
+                <tr>
+                    <td><strong>1500-1800+</strong></td>
+                    <td>Ritm cursă Pro</td>
+                    <td>20-60 minute</td>
+                    <td>Rutieri GC World Tour pe urcări majore</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>De ce VAM este Independent de Pantă</h3>
+        <p>Viteza (km/h) scade dramatic pe măsură ce panta crește, chiar și la putere constantă. VAM rămâne relativ
+            constant:</p>
+
+        <div class="example-box">
+            <h4>Ciclist la 300W (75kg, 4,0 W/kg)</h4>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Pantă</th>
+                        <th>Viteză (km/h)</th>
+                        <th>VAM (m/h)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5%</td>
+                        <td>18,0</td>
+                        <td>900</td>
+                    </tr>
+                    <tr>
+                        <td>8%</td>
+                        <td>15,0</td>
+                        <td>1200</td>
+                    </tr>
+                    <tr>
+                        <td>10%</td>
+                        <td>12,5</td>
+                        <td>1250</td>
+                    </tr>
+                    <tr>
+                        <td>12%</td>
+                        <td>10,5</td>
+                        <td>1260</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Analiză:</strong> Viteza scade cu 42% de la 5% la 12%, dar VAM crește doar cu 40% (datorită
+                rezistenței aerului reduse la viteză mai mică pe pante mai abrupte). VAM reflectă <em>efortul</em> de
+                cățărare mai consistent decât viteza.</p>
+        </div>
+
+        <h3>Factori care Afectează VAM</h3>
+
+        <h4>1. Putere-Greutate (Primar)</h4>
+        <p>W/kg mai mare se traduce direct în VAM mai mare. Acesta este motorul principal.</p>
+
+        <h4>2. Pantă (Secundar)</h4>
+        <p>VAM crește natural pe pante mai abrupte deoarece:</p>
+        <ul>
+            <li>Rezistența aerodinamică este mai mică la viteze de urcare mai lente</li>
+            <li>Mai multă putere merge în ridicare (gravitație) vs. împingerea aerului</li>
+        </ul>
+
+        <p>Totuși, pantele foarte abrupte (12%+) pot reduce VAM dacă ciclistul nu poate susține puterea din cauza
+            oboselii musculare.</p>
+
+        <h4>3. Altitudine</h4>
+        <p>La altitudine:</p>
+        <ul>
+            <li><strong>Densitate aer mai mică:</strong> Rezistență aero mai mică → VAM ușor mai mare (1-2%)</li>
+            <li><strong>Oxigen mai puțin:</strong> Putere sustenabilă redusă → VAM mai mic (5-10% la 2000m)</li>
+        </ul>
+
+        <p>Efect net: VAM scade de obicei la altitudine în ciuda beneficiului aero.</p>
+
+        <h4>4. Vânt</h4>
+        <p>Vântul din față reduce VAM, vântul din spate îl crește. Vântul puternic din față pe o urcare abruptă poate
+            reduce VAM cu 10-20%.</p>
+    </section>
+
+    <section id="vam-to-watts">
+        <h2>Estimarea W/kg din VAM</h2>
+        <p>Poți aproxima raportul putere-greutate din VAM și pantă folosind această formulă empirică:</p>
+
+        <div class="formula-box">
+            <h3>Estimare VAM în W/kg</h3>
+            <div class="formula">
+                W/kg ≈ VAM (m/h) / [100 × (Pantă % + 3)]
+            </div>
+            <p class="formula-explanation">Aceasta ține cont de pantă, rezistență la rulare și rezistență aerodinamică
+                la viteze tipice de urcare.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemplu 1: Alpe d'Huez</h4>
+            <p><strong>Date urcare:</strong> 1320 VAM pe 8% pantă medie</p>
+            <div class="calculation">
+                W/kg ≈ 1320 / [100 × (8 + 3)]<br>
+                W/kg ≈ 1320 / 1100<br>
+                W/kg ≈ <strong>4,36</strong>
+            </div>
+            <p>Nivel de amator de elită / Cat 1.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemplu 2: Col du Tourmalet</h4>
+            <p><strong>Performanță Pro:</strong> 1650 VAM pe 7,5% pantă medie</p>
+            <div class="calculation">
+                W/kg ≈ 1650 / [100 × (7,5 + 3)]<br>
+                W/kg ≈ 1650 / 1050<br>
+                W/kg ≈ <strong>5,71</strong>
+            </div>
+            <p>Nivel de cățărator profesionist World Tour.</p>
+        </div>
+
+        <h3>Note de Acuratețe</h3>
+        <ul>
+            <li><strong>Acuratețe maximă:</strong> Pante 5-10%, viteze 15-25 km/h</li>
+            <li><strong>Mai puțin precis:</strong> Pante foarte abrupte (>12%) sau domoale (&lt;3%)</li>
+            <li><strong>Afectat de:</strong> Vânt, drafting (reduce W/kg necesar), greutate bicicletă</li>
+        </ul>
+
+        <p>Folosește această formulă ca o estimare brută, nu măsurătoare absolută. Datele directe de la power meter sunt
+            întotdeauna mai precise.</p>
+    </section>
+
+    <section id="gradient-effects">
+        <h2>Cum Afectează Panta Cerințele de Putere</h2>
+        <p>Panta are un efect exponențial asupra puterii necesare pentru a menține viteza. Înțelegerea acestui lucru te
+            ajută să dozezi urcările corect.</p>
+
+        <h3>Putere Necesară după Pantă</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Pantă</th>
+                    <th>Viteză @ 3,5 W/kg</th>
+                    <th>Viteză @ 4,5 W/kg</th>
+                    <th>Viteză @ 5,5 W/kg</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>5%</strong></td>
+                    <td>18,5 km/h</td>
+                    <td>21,5 km/h</td>
+                    <td>24,0 km/h</td>
+                </tr>
+                <tr>
+                    <td><strong>7%</strong></td>
+                    <td>16,0 km/h</td>
+                    <td>18,5 km/h</td>
+                    <td>21,0 km/h</td>
+                </tr>
+                <tr>
+                    <td><strong>10%</strong></td>
+                    <td>12,5 km/h</td>
+                    <td>14,5 km/h</td>
+                    <td>16,5 km/h</td>
+                </tr>
+                <tr>
+                    <td><strong>15%</strong></td>
+                    <td>8,5 km/h</td>
+                    <td>10,0 km/h</td>
+                    <td>11,5 km/h</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><em>Presupune ciclist 75kg + bicicletă 8kg, nivelul mării, fără vânt, drum neted</em></p>
+
+        <h3>De ce Aerodinamica Contează Mai Puțin pe Urcări Abrupte</h3>
+        <p>La viteze de cățărare (&lt;20 km/h), rezistența aerodinamică devine o componentă minoră a rezistenței totale:
+        </p>
+
+        <ul>
+            <li><strong>Pantă 5% la 20 km/h:</strong> ~15% aero, ~10% rulare, ~75% gravitație</li>
+            <li><strong>Pantă 10% la 12 km/h:</strong> ~8% aero, ~12% rulare, ~80% gravitație</li>
+            <li><strong>Pantă 15% la 9 km/h:</strong> ~5% aero, ~10% rulare, ~85% gravitație</li>
+        </ul>
+
+        <p><strong>Implicație practică:</strong> Pe urcări abrupte, statul drept pentru respirație și putere mai bună
+            este mai rapid decât a sta aero. Confortul și puterea produsă > aerodinamica.</p>
+
+        <div class="callout callout-tip">
+            <h3>💡 Pacing pe Urcări Abrupte</h3>
+            <p>Pe pante >10%, rezistă impulsului de a accelera la start. Cerințele de putere cresc exponențial—pornirea
+                cu 5% prea tare înseamnă că vei ceda dramatic.</p>
+            <p><strong>Strategie mai bună:</strong> Începe la 95% din putere țintă, intră în ritm, apoi crește efortul
+                în ultimii 20-25% dacă te simți puternic.</p>
+        </div>
+    </section>
+
+    <section id="pacing-strategies">
+        <h2>Strategii de Pacing pentru Cățărare Optimă</h2>
+        <p>Cum distribui puterea pe o urcare afectează dramatic timpul total. Puterea constantă este aproape întotdeauna
+            cea mai rapidă.</p>
+
+        <h3>Pacing Putere Egală (Iso-Power)</h3>
+        <p><strong>Scop:</strong> Menține producția de putere constantă pe toată durata urcării, indiferent de
+            schimbările pantei.</p>
+
+        <p><strong>De ce funcționează:</strong></p>
+        <ul>
+            <li>Evită epuizarea W' (capacitatea anaerobă) cu șocuri</li>
+            <li>Maximizează efortul sustenabil</li>
+            <li>Previne oboseala timpurie care se compune mai târziu</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Exemplu: Urcare de 20 minute</h4>
+            <p><strong>Strategia A (Putere Variabilă):</strong></p>
+            <ul>
+                <li>Primele 5 min: 320W (simțit puternic, șoc pe secțiune abruptă)</li>
+                <li>Mijloc 10 min: 270W (obosit de la șoc)</li>
+                <li>Ultimele 5 min: 260W (luptă)</li>
+                <li><strong>Medie: 283W</strong></li>
+            </ul>
+
+            <p><strong>Strategia B (Putere Egală):</strong></p>
+            <ul>
+                <li>Întreg 20 min: 290W (constant, controlat)</li>
+                <li><strong>Medie: 290W</strong></li>
+            </ul>
+
+            <p><strong>Rezultat:</strong> Strategia B este 2,5% mai rapidă deși pare „mai ușoară" devreme. Putere egală
+                = cățărare mai rapidă.</p>
+        </div>
+
+        <h3>Folosirea Schimbărilor de Pantă Inteligent</h3>
+
+        <h4>Strategie Secțiuni Domoale</h4>
+        <p>Când panta scade (ex. 9% → 5%), ai două opțiuni:</p>
+        <ol>
+            <li><strong>Menține puterea:</strong> Viteza crește, ajungi înaintea graficului (recomandat pentru urcări
+                lungi)</li>
+            <li><strong>Redu puterea ușor:</strong> Permite recuperare scurtă în timp ce încă faci progres</li>
+        </ol>
+
+        <h4>Strategie Secțiuni Abrupte</h4>
+        <p>Când panta crește (ex. 5% → 10%), evită:</p>
+        <ul>
+            <li>❌ Accelerarea pentru „a termina repede" → Epuizează W', cauzează cedare</li>
+            <li>✅ Menține puterea țintă → Viteza scade natural, dar efortul rămâne sustenabil</li>
+        </ul>
+
+        <h3>Ridicarea în Pedale vs. Șezut</h3>
+
+        <h4>Șezut (Implicit)</h4>
+        <p><strong>Pro:</strong></p>
+        <ul>
+            <li>Mai aerodinamic</li>
+            <li>Puls mai mic (~5-10 bpm)</li>
+            <li>Sustenabil pentru durate lungi</li>
+        </ul>
+
+        <p><strong>Contra:</strong></p>
+        <ul>
+            <li>Te poți simți „blocat" pe secțiuni foarte abrupte</li>
+            <li>Bicepșii femurali/fesierii pot obosi pe urcări lungi</li>
+        </ul>
+
+        <h4>Ridicarea în Pedale (Strategic)</h4>
+        <p><strong>Pro:</strong></p>
+        <ul>
+            <li>Activează grupe musculare diferite (cvadriceps, gambe, trunchi)</li>
+            <li>Permite corpului să se întindă, fluxul sanguin să se recupereze</li>
+            <li>Poate genera putere momentană mai mare (atacuri, rampe abrupte)</li>
+        </ul>
+
+        <p><strong>Contra:</strong></p>
+        <ul>
+            <li>Cerință de putere cu 5-10W mai mare la aceeași viteză (mai puțin aero)</li>
+            <li>Puls mai mare</li>
+            <li>Nesustenabil pentru perioade lungi</li>
+        </ul>
+
+        <p><strong>Cea mai bună practică:</strong> Stai așezat majoritatea urcării. Ridică-te scurt (15-30 secunde) la
+            fiecare 3-5 minute pentru:</p>
+        <ul>
+            <li>A elibera presiunea de pe oasele șezutului</li>
+            <li>A întinde flexorii șoldului și zona lombară</li>
+            <li>A activa grupe musculare proaspete</li>
+        </ul>
+
+        <div class="callout callout-warning">
+            <h3>⚠️ Greșeli Comune de Pacing</h3>
+            <ul>
+                <li><strong>Start prea tare:</strong> Primii 20% din urcare la 110% din puterea sustenabilă → cedare
+                    garantată</li>
+                <li><strong>Accelerare pe secțiuni abrupte:</strong> Pare necesar dar epuizează W' mai repede decât
+                    beneficiul câștigat</li>
+                <li><strong>Ridicat prea mult:</strong> Penalizarea de 5-10W se adună pe urcări de 30-60 minute</li>
+                <li><strong>Ignorarea schimbărilor de pantă:</strong> Menține puterea țintă, nu viteza țintă</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="training-for-climbing">
+        <h2>Antrenament pentru Îmbunătățirea Performanței în Urcare</h2>
+        <p>Îmbunătățirea la cățărare vine din trei zone: creșterea FTP, reducerea greutății și construirea anduranței
+            musculare specifice.</p>
+
+        <h3>1. Construiește Baza Aerobă (Zona 2)</h3>
+        <p>Ture lungi, constante la 60-70% FTP dezvoltă:</p>
+        <ul>
+            <li>Densitatea mitocondrială</li>
+            <li>Rețeaua capilară</li>
+            <li>Oxidarea grăsimilor (economisește glicogen pe urcări lungi)</li>
+        </ul>
+
+        <p><strong>Țintă volum:</strong> 70-80% din timpul de antrenament săptămânal în Zona 2 pentru cicliști de
+            anduranță. Vezi <a href="/ro/training-zones/">Ghid Zone Antrenament</a>.</p>
+
+        <h3>2. Intervale la Prag (Zona 4)</h3>
+        <p>Construiește FTP cu eforturi susținute la prag:</p>
+
+        <div class="workout-box">
+            <h4>Antrenament Prag Exemplu</h4>
+            <p><strong>3 × 12 minute @ 95-100% FTP (5 min recuperare)</strong></p>
+            <p>Efectuează pe urcări când e posibil pentru a simula condițiile de cursă. Focus pe putere egală pe tot
+                parcursul intervalelor.</p>
+            <p><strong>Frecvență:</strong> 1-2× pe săptămână în faza de construcție</p>
+        </div>
+
+        <h3>3. Repetări VO2max (Zona 5)</h3>
+        <p>Intervale scurte, grele cresc plafonul aerob:</p>
+
+        <div class="workout-box">
+            <h4>Antrenament VO2max Exemplu</h4>
+            <p><strong>5 × 4 minute @ 110-120% FTP (4 min recuperare)</strong></p>
+            <p>Acestea dor—asta e ideea. Munca VO2max este cheie pentru creșterea FTP în timp.</p>
+            <p><strong>Frecvență:</strong> 1× pe săptămână în faza de construcție/vârf</p>
+        </div>
+
+        <h3>4. Urcări Lungi (Simulare Cursă)</h3>
+        <p>Practică pacing-ul pe urcări susținute:</p>
+
+        <div class="workout-box">
+            <h4>Antrenament Urcare Lungă Exemplu</h4>
+            <p><strong>2 × 30-40 minute @ FTP pe urcare moderată (15 min recuperare)</strong></p>
+            <p>Scop: Învață să dozezi egal, gestionează nutriția, stai confortabil în poziție de cățărare pentru
+                perioade extinse.</p>
+            <p><strong>Frecvență:</strong> 1× pe săptămână în fază de pregătire specifică</p>
+        </div>
+
+        <h3>5. Managementul Greutății</h3>
+        <p>Redu grăsimea corporală în exces strategic:</p>
+        <ul>
+            <li><strong>Țintă:</strong> 0,25-0,5kg pe săptămână maxim</li>
+            <li><strong>Metodă:</strong> Deficit zilnic de 300-500 calorii</li>
+            <li><strong>Proteine:</strong> Menține 1,6-2,2g/kg corp pentru a păstra mușchii</li>
+            <li><strong>Timing:</strong> Slăbește în faza de bază/construcție, nu faza de vârf/cursă</li>
+        </ul>
+
+        <p><strong>Avertisment:</strong> Nu vâna o definire extremă. Performanța stagnează sau scade sub ~8% grăsime
+            (bărbați) sau ~12% (femei).</p>
+
+        <div class="callout callout-science">
+            <h3>🔬 Cronologie Adaptare Antrenament</h3>
+            <ul>
+                <li><strong>4-8 săptămâni:</strong> Îmbunătățiri neuromusculare, pacing mai bun</li>
+                <li><strong>8-12 săptămâni:</strong> Pragul lactat crește, FTP crește 5-10%</li>
+                <li><strong>12-16 săptămâni:</strong> Capacitatea aerobă (VO2max) se îmbunătățește</li>
+                <li><strong>16-24 săptămâni:</strong> Adaptări mitocondriale majore, economia de cățărare se
+                    îmbunătățește</li>
+            </ul>
+            <p>Antrenament consistent peste 6+ luni = cele mai mari câștiguri. Nu există scurtături.</p>
+        </div>
+    </section>
+
+    <section id="famous-climbs">
+        <h2>Urcări Faimoase: Analiza Performanței</h2>
+        <p>Analiza performanțelor pro pe urcări iconice dezvăluie cum arată W/kg în practică.</p>
+
+        <h3>Alpe d'Huez</h3>
+        <ul>
+            <li><strong>Distanță:</strong> 13,8 km</li>
+            <li><strong>Câștig elevație:</strong> 1100m</li>
+            <li><strong>Pantă medie:</strong> 8,1%</li>
+            <li><strong>21 viraje ac de păr</strong></li>
+        </ul>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Ciclist / Nivel</th>
+                    <th>Timp</th>
+                    <th>W/kg Estimat</th>
+                    <th>VAM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Marco Pantani (record 1997)</strong></td>
+                    <td>37:35</td>
+                    <td>~6,7</td>
+                    <td>~1750</td>
+                </tr>
+                <tr>
+                    <td><strong>Câștigător World Tour</strong></td>
+                    <td>39-42 min</td>
+                    <td>6,0-6,3</td>
+                    <td>1570-1690</td>
+                </tr>
+                <tr>
+                    <td><strong>Concurent GC World Tour</strong></td>
+                    <td>42-45 min</td>
+                    <td>5,5-6,0</td>
+                    <td>1470-1570</td>
+                </tr>
+                <tr>
+                    <td><strong>Amator elită</strong></td>
+                    <td>50-55 min</td>
+                    <td>4,5-5,0</td>
+                    <td>1200-1320</td>
+                </tr>
+                <tr>
+                    <td><strong>Amator puternic</strong></td>
+                    <td>60-70 min</td>
+                    <td>3,5-4,0</td>
+                    <td>940-1100</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Mont Ventoux</h3>
+        <ul>
+            <li><strong>Distanță:</strong> 21,5 km (din Bédoin)</li>
+            <li><strong>Câștig elevație:</strong> 1600m</li>
+            <li><strong>Pantă medie:</strong> 7,5%</li>
+            <li><strong>Final 6km:</strong> Expus, adesea vânt</li>
+        </ul>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Ciclist / Nivel</th>
+                    <th>Timp</th>
+                    <th>W/kg Estimat</th>
+                    <th>VAM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Iban Mayo (record 2004)</strong></td>
+                    <td>55:51</td>
+                    <td>~6,6</td>
+                    <td>~1720</td>
+                </tr>
+                <tr>
+                    <td><strong>Rutier GC World Tour</strong></td>
+                    <td>58-62 min</td>
+                    <td>6,0-6,2</td>
+                    <td>1550-1655</td>
+                </tr>
+                <tr>
+                    <td><strong>Amator elită</strong></td>
+                    <td>70-80 min</td>
+                    <td>4,8-5,2</td>
+                    <td>1200-1370</td>
+                </tr>
+                <tr>
+                    <td><strong>Amator puternic</strong></td>
+                    <td>90-100 min</td>
+                    <td>3,8-4,2</td>
+                    <td>960-1065</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Col du Tourmalet</h3>
+        <ul>
+            <li><strong>Distanță:</strong> 18,8 km (din Luz-Saint-Sauveur)</li>
+            <li><strong>Câștig elevație:</strong> 1400m</li>
+            <li><strong>Pantă medie:</strong> 7,5%</li>
+            <li><strong>Cea mai înaltă trecătoare asfaltată din Pirinei</strong> (2115m altitudine)</li>
+        </ul>
+
+        <p><strong>Performanțe Pro:</strong> 50-55 minute (~6,0-6,3 W/kg, 1530-1680 VAM). Altitudinea afectează acești
+            timpi—aerul mai rarefiat reduce puterea cu ~5-8%.</p>
+
+        <div class="callout callout-tip">
+            <h3>💡 Folosirea Reperelor de Urcare</h3>
+            <p>Găsește urcarea țintă (locală sau faimoasă). Testează-te la efort maxim sustenabil. Compară timpul tău cu
+                reperele pentru a estima nivelul tău curent W/kg:</p>
+            <ol>
+                <li>Înregistrează timp urcare, câștig elevație, pantă</li>
+                <li>Calculează VAM: (câștig elevație / timp în ore)</li>
+                <li>Estimează W/kg: VAM / [100 × (pantă% + 3)]</li>
+                <li>Compară cu reperele de mai sus</li>
+            </ol>
+            <p>Retestează la fiecare 8-12 săptămâni pentru a urmări progresul!</p>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2>Întrebări Frecvente</h2>
+
+        <div class="faq-item">
+            <h3>Ce e mai important pentru cățărare: scăderea în greutate sau creșterea puterii?</h3>
+            <p>Ambele îmbunătățesc W/kg, dar contextul contează. Dacă ai grăsime corporală în exces (>15% bărbați, >22%
+                femei), pierderea a 2-5kg grăsime menținând puterea este cea mai rapidă cale de îmbunătățire. Dacă ești
+                deja slab, focusează-te pe creșterea FTP prin antrenament structurat. Pierderea de mușchi pentru a vâna
+                greutatea este contraproductivă.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Cum afectează altitudinea performanța în urcare?</h3>
+            <p>La 2000m altitudine, așteaptă-te la ~5-8% reducere a puterii sustenabile din cauza oxigenului mai puțin.
+                Totuși, aerul mai rarefiat reduce rezistența aerodinamică ușor (~2%). Efect net: urcare mai lentă la
+                altitudine. Aclimatizarea (7-14 zile) restaurează parțial performanța.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Ar trebui să stau ridicat sau așezat când urc?</h3>
+            <p>Stai așezat majoritatea urcării (mai eficient, cerință de putere mai mică). Ridică-te scurt la fiecare
+                3-5 minute (15-30 secunde) pentru a te întinde, elibera presiunea și angrena mușchi diferiți. Statul
+                ridicat continuu costă 5-10W extra putere și nu este sustenabil pe termen lung.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Ce este un W/kg bun pentru curse de amatori?</h3>
+            <p>3,5-4,0 W/kg este competitiv la nivel local. 4,0-4,5 W/kg poate câștiga curse locale și plasa bine
+                regional. 4,5-5,0 W/kg este nivel Cat 1/2. Peste 5,0 W/kg intră în teritoriu amator elită / semi-pro.
+                Context: acestea sunt valori FTP susținute pentru 20-60 minute.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Cum dozez corect o urcare lungă?</h3>
+            <p>Puterea egală (iso-power) este cea mai rapidă. Începe la 95% din țintă, intră în ritm, menține wați
+                constanți indiferent de schimbările pantei. Evită accelerarea pe secțiuni abrupte—epuizează W' și
+                cauzează cedare. Crește efortul doar în ultimii 20-25% dacă te simți puternic.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Ajută drafting-ul pe urcări?</h3>
+            <p>Da, mai ales pe pante moderate (5-8%) la viteze mai mari (18+ km/h). Cercetările arată 7% economie de
+                putere la 21 km/h pe pantă de 7,5%. Pe urcări foarte abrupte (10%+) la viteze mici (&lt;15 km/h),
+                beneficiul drafting-ului este minim (~2%).</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Cât durează să îmbunătățesc W/kg semnificativ?</h3>
+            <p>Cu antrenament structurat: 5-10% creștere FTP în 12-16 săptămâni este realist pentru majoritatea.
+                Combinat cu 2-4kg scădere strategică în greutate = 10-20% îmbunătățire W/kg în 4-6 luni. Câștiguri
+                continue (încă 5-10%) posibile în anul 2, apoi progres mai lent pe măsură ce te apropii de potențialul
+                genetic.</p>
+        </div>
+    </section>
+
+    <section id="related-resources">
+        <h2>Resurse Înrudite</h2>
+        <ul>
+            <li><a href="/ro/ftp/">Testare Putere la Prag Funcțional (FTP)</a></li>
+            <li><a href="/ro/power-metrics/">Metrici Avansate de Putere (NP, IF, VI, W'bal)</a></li>
+            <li><a href="/ro/training-zones/">Zone de Antrenament pentru Îmbunătățirea Cățărării</a></li>
+            <li><a href="/ro/aerodynamics/">Aerodinamica: Când Contează vs. Urcări</a></li>
+            <li><a href="/ro/getting-started/">Începe cu Antrenamentul Bazat pe Putere</a></li>
+        </ul>
+    </section>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Performanța în Urcare: VAM, W/kg, Analiza Pantei",
+  "description": "Ghid complet pentru performanța în urcare în ciclism: raport putere-greutate, calcul VAM, efectele pantei, strategii de pacing și metode de antrenament pentru a urca mai repede.",
+  "author": {
+    "@type": "Person",
+    "name": "Albert Arno"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bike Analytics",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bike.analyticszone.app/assets/images/logo_bikeanalytics.png"
+    }
+  },
+  "datePublished": "2025-01-27",
+  "dateModified": "2025-01-27"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ce e mai important pentru cățărare: scăderea în greutate sau creșterea puterii?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ambele îmbunătățesc W/kg. Dacă ai grăsime în exces, pierderea a 2-5kg menținând puterea este cea mai rapidă îmbunătățire. Dacă ești slab, focusează-te pe creșterea FTP. Pierderea de mușchi e contraproductivă."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ar trebui să stau ridicat sau așezat când urc?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stai așezat majoritatea urcării (mai eficient). Ridică-te scurt la fiecare 3-5 minute (15-30 secunde) pentru a te întinde și activa mușchi diferiți. Statul ridicat continuu costă 5-10W extra."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ajută drafting-ul pe urcări?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da, mai ales pe pante moderate (5-8%) la viteze mai mari. Cercetările arată 7% economie de putere la 21 km/h. Pe urcări abrupte la viteze mici, beneficiul e minim."
+      }
+    }
+  ]
+}
+</script>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/ro/privacy/">Privacy</a></li>
+                <li><a href="/ro/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/ro/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

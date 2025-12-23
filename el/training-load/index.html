@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="el" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>TSS, CTL, ATL, TSB - Cycling Training Load Management</title>
+  <meta name="description" content="Master Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL), and Training Stress Balance (TSB) for cycling.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="TSS cycling, training stress score, CTL cycling, ATL cycling, TSB cycling, training load management">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/el/training-load/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-21T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/el/training-load/">
+  <meta property="og:title" content="TSS, CTL, ATL, TSB - Cycling Training Load Management">
+  <meta property="og:description" content="Master Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL), and Training Stress Balance (TSB) for cycling.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="el_GR">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/el/training-load/">
+  <meta name="twitter:title" content="TSS, CTL, ATL, TSB - Cycling Training Load Management">
+  <meta name="twitter:description" content="Master Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL), and Training Stress Balance (TSB) for cycling.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/training-load/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/training-load/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/training-load/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/training-load/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/training-load/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/training-load/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/training-load/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/training-load/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/training-load/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/training-load/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/training-load/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/training-load/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/training-load/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/training-load/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/training-load/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/training-load/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/training-load/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/training-load/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/training-load/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/training-load/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/training-load/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/training-load/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/training-load/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/training-load/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/training-load/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/training-load/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "TSS, CTL, ATL, TSB - Cycling Training Load Management",
+      "description": "Master Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL), and Training Stress Balance (TSB) for cycling.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/el/training-load/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/el/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/el/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/el/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/training-load/" class="active"
+                                    aria-current="page">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/el/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/el/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/el/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" selected>
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Διαχείριση Προπονητικού Φορτίου: TSS, CTL, ATL & TSB για Ποδηλασία</h1>
+        <p class="lead">Κατανοήστε το Διάγραμμα Διαχείρισης Απόδοσης για να βελτιστοποιήσετε την προπόνηση, να προλάβετε
+            την υπερπροπόνηση και να φτάσετε στο απόγειο της απόδοσής σας.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-success">
+            <h2>🎯 Βασικά Σημεία: Προπονητικό Φορτίο στην Ποδηλασία</h2>
+            <ul>
+                <li><strong>Training Stress Score (TSS)</strong>: Προσδιορίζει ποσοτικά πόσο επηρεάζει το σώμα σας κάθε
+                    διαδρομή, συνδυάζοντας ισχύ, ένταση και διάρκεια.</li>
+                <li><strong>CTL (Χρόνιο Προπονητικό Φορτίο)</strong>: Μετράει τη μακροπρόθεσμη φυσική σας κατάσταση που
+                    χτίστηκε σε 42 ημέρες συνεπούς προπόνησης.</li>
+                <li><strong>ATL (Οξύ Προπονητικό Φορτίο)</strong>: Παρακολουθεί την πρόσφατη κόπωση από τις τελευταίες 7
+                    ημέρες ποδηλασίας.</li>
+                <li><strong>TSB (Ισορροπία Προπονητικού Στρες)</strong>: Δείχνει την ισορροπία μεταξύ φυσικής κατάστασης
+                    και κόπωσης και την ετοιμότητά σας για αγώνα ή αποκατάσταση.</li>
+                <li>Η κατανόηση του προπονητικού φορτίου προλαμβάνει την υπερπροπόνηση και βελτιστοποιεί το χρόνο
+                    απόδοσης μέσω της περιοδικότητας βάσει δεδομένων.</li>
+            </ul>
+            <p><em>Θεμέλιο: Οι υπολογισμοί του TSS απαιτούν τη <a href="/el/ftp/">Λειτουργική Ισχύ Κατωφλίου
+                        (FTP)</a> ως σημείο αναφοράς.</em></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Τι είναι το Training Stress Score (TSS);</h2>
+        <p class="lead">Το Training Stress Score απαντά στο κρίσιμο ερώτημα: <strong>Πόσο σκληρή ήταν αυτή η
+                διαδρομή;</strong> Όχι μόνο από άποψη απόστασης ή χρόνου, αλλά το πραγματικό φυσιολογικό στρες που
+            δέχτηκε το σώμα σας σε κάθε ποδηλατική συνεδρία.</p>
+
+        <p>Το Training Stress Score (TSS), που αναπτύχθηκε από τον Δρ. Andrew Coggan, παρέχει μια τυποποιημένη μέθοδο
+            για την ποσοτικοποίηση της έντασης και της διάρκειας της προπόνησης σε έναν μόνο αριθμό. Το TSS έφερε
+            επανάσταση στην προπόνηση ποδηλασίας καθιστώντας την προπόνηση βάσει ισχύος προσβάσιμη και αξιοποιήσιμη.</p>
+
+        <div class="callout callout-info">
+            <h3>Το Πρότυπο TSS για την Ποδηλασία</h3>
+            <p>Μία ώρα στη <a href="/el/ftp/">Λειτουργική Ισχύ Κατωφλίου (FTP)</a> σας = <strong>100
+                    TSS</strong></p>
+            <p>Αυτή η τυποποίηση επιτρέπει τη σύγκριση μεταξύ προπονήσεων, εβδομάδων και προπονητικών κύκλων. Μια
+                προσπάθεια 30 λεπτών στο κατώφλι = ~50 TSS. Μια διαδρομή 2 ωρών στο κατώφλι = ~200 TSS.</p>
+        </div>
+
+        <h3>Πώς Υπολογίζεται το TSS</h3>
+        <div class="formula-box">
+            <div class="formula">
+                TSS = (δευτερόλεπτα × NP × IF) / (FTP × 3600) × 100
+            </div>
+            <div class="formula-explanation">
+                <p>Όπου:</p>
+                <ul>
+                    <li><strong>NP (Normalized Power)</strong> = Το φυσιολογικό "κόστος" της διαδρομής</li>
+                    <li><strong>IF (Intensity Factor)</strong> = NP / FTP (ένταση σε σχέση με το κατώφλι)</li>
+                    <li><strong>Διάρκεια</strong> = Συνολικός χρόνος διαδρομής σε δευτερόλεπτα</li>
+                    <li><strong>FTP</strong> = Η λειτουργική ισχύς κατωφλίου σας σε watts</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Παράδειγμα: Διαδρομή Αντοχής 2 Ωρών</h3>
+        <div class="example-box">
+            <h4>Προφίλ Αναβάτη:</h4>
+            <ul>
+                <li>FTP: <strong>250W</strong></li>
+            </ul>
+
+            <h4>Δεδομένα Διαδρομής:</h4>
+            <ul>
+                <li>Διάρκεια: <strong>2 ώρες (7200 δευτερόλεπτα)</strong></li>
+                <li>Normalized Power: <strong>200W</strong></li>
+            </ul>
+
+            <h4>Βήμα 1: Υπολογισμός Συντελεστή Έντασης (IF)</h4>
+            <div class="calculation">
+                IF = NP / FTP<br>
+                IF = 200W / 250W<br>
+                IF = <strong>0,80</strong>
+            </div>
+
+            <h4>Βήμα 2: Υπολογισμός TSS</h4>
+            <div class="calculation">
+                TSS = (7200s × 200W × 0,80) / (250W × 3600) × 100<br>
+                TSS = (1.152.000) / (900.000) × 100<br>
+                TSS = <strong>128 TSS</strong>
+            </div>
+
+            <p class="mt-md"><strong>Ερμηνεία:</strong> Αυτή η διαδρομή αντοχής 2 ωρών στο 80% του FTP δημιούργησε 128
+                TSS—ένα σταθερό αερόβιο προπονητικό ερέθισμα τυπικό για διαδρομές χτισίματος βάσης.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-xl">Οδηγίες TSS ανά Τύπο Προπόνησης</h2>
+
+        <div class="intensity-guide">
+            <table class="intensity-table">
+                <thead>
+                    <tr>
+                        <th>Τύπος Προπόνησης</th>
+                        <th>Εύρος TSS</th>
+                        <th>Συντελεστής Έντασης</th>
+                        <th>Περιγραφή</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Διαδρομή Αποκατάστασης</strong></td>
+                        <td>20-50 TSS</td>
+                        <td>IF &lt; 0,65</td>
+                        <td>Χαλαρή περιστροφή, ενεργητική αποκατάσταση, 30-60 λεπτά</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Εύκολη Αντοχή</strong></td>
+                        <td>50-100 TSS</td>
+                        <td>IF 0,65-0,75</td>
+                        <td>Συζητήσιμος ρυθμός, χτίσιμο αερόβιας βάσης, 1-2 ώρες</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Μέτρια Αντοχή</strong></td>
+                        <td>100-150 TSS</td>
+                        <td>IF 0,75-0,85</td>
+                        <td>Σταθερή οδήγηση, ομαδικές διαδρομές, 2-3 ώρες</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Διαδρομή Tempo</strong></td>
+                        <td>150-200 TSS</td>
+                        <td>IF 0,85-0,95</td>
+                        <td>Προπόνηση sweet spot, συνεχείς προσπάθειες tempo, 2-3 ώρες</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Προπόνηση Κατωφλίου</strong></td>
+                        <td>200-300 TSS</td>
+                        <td>IF 0,95-1,05</td>
+                        <td>FTP intervals, προσομοίωση αγώνα, 2-4 ώρες με ποιότητα</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VO₂max Intervals</strong></td>
+                        <td>150-250 TSS</td>
+                        <td>IF 1,05-1,15</td>
+                        <td>Σκληρά intervals στο 120% FTP, 1-2 ώρες με υψηλή ένταση</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Προσομοίωση Αγώνα</strong></td>
+                        <td>200-400 TSS</td>
+                        <td>IF 0,90-1,05</td>
+                        <td>Προσπάθειες ειδικές για κάθε γεγονός, criteriums, αγώνες δρόμου, 2-5 ώρες</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>📊 Εβδομαδιαίοι Στόχοι TSS ανά Επίπεδο Ποδηλάτη</h3>
+            <ul>
+                <li><strong>Αρχάριος Ποδηλάτης:</strong> 200-400 TSS/εβδομάδα (3-4 διαδρομές/εβδομάδα)</li>
+                <li><strong>Ερασιτέχνης Ποδηλάτης:</strong> 400-600 TSS/εβδομάδα (4-5 διαδρομές/εβδομάδα)</li>
+                <li><strong>Ανταγωνιστικός Ερασιτέχνης:</strong> 600-900 TSS/εβδομάδα (5-7 διαδρομές/εβδομάδα)</li>
+                <li><strong>Elite/Επαγγελματίας:</strong> 900-1500+ TSS/εβδομάδα (8-12+ συνεδρίες/εβδομάδα)</li>
+            </ul>
+            <p>Αυτά συσσωρεύονται στο Χρόνιο Προπονητικό Φορτίο (CTL), τον δείκτη φυσικής κατάστασης που εξηγείται
+                παρακάτω.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="text-center mb-xl">Το Διάγραμμα Διαχείρισης Απόδοσης (PMC)</h2>
+        <p class="text-center lead">Το PMC οπτικοποιεί τρεις διασυνδεδεμένους δείκτες που περιγράφουν την πλήρη ιστορία
+            της ποδηλατικής σας προπόνησης: φυσική κατάσταση, κόπωση και φόρμα.</p>
+
+        <div class="pmc-overview">
+            <div class="grid grid-3">
+                <div class="pmc-metric">
+                    <div class="metric-icon">📈</div>
+                    <h3>CTL - Χρόνιο Προπονητικό Φορτίο</h3>
+                    <div class="metric-value-label">Η ΦΥΣΙΚΗ ΣΑΣ ΚΑΤΑΣΤΑΣΗ</div>
+                    <p>Εκθετικά σταθμισμένος κινητός μέσος όρος 42 ημερών του καθημερινού TSS. Αντιπροσωπεύει τη
+                        μακροπρόθεσμη αερόβια φυσική κατάσταση και την προπονητική προσαρμογή από τη συνεπή οδήγηση.</p>
+                    <div class="formula-small">
+                        CTL σήμερα = CTL χθες + (TSS σήμερα - CTL χθες) / 42
+                    </div>
+                </div>
+
+                <div class="pmc-metric">
+                    <div class="metric-icon">⚡</div>
+                    <h3>ATL - Οξύ Προπονητικό Φορτίο</h3>
+                    <div class="metric-value-label">Η ΚΟΠΩΣΗ ΣΑΣ</div>
+                    <p>Εκθετικά σταθμισμένος κινητός μέσος όρος 7 ημερών του καθημερινού TSS. Καταγράφει το πρόσφατο
+                        προπονητικό στρες και τη συσσωρευμένη κόπωση από την τελευταία εβδομάδα οδήγησης.</p>
+                    <div class="formula-small">
+                        ATL σήμερα = ATL χθες + (TSS σήμερα - ATL χθες) / 7
+                    </div>
+                </div>
+
+                <div class="pmc-metric">
+                    <div class="metric-icon">🎯</div>
+                    <h3>TSB - Ισορροπία Προπονητικού Στρες</h3>
+                    <div class="metric-value-label">Η ΦΟΡΜΑ ΣΑΣ</div>
+                    <p>Η διαφορά μεταξύ της χθεσινής φυσικής κατάστασης και της σημερινής κόπωσης. Υποδεικνύει την
+                        ετοιμότητα για απόδοση ή την ανάγκη για ξεκούραση πριν από την επόμενη ποιοτική διαδρομή ή
+                        αγώνα.</p>
+                    <div class="formula-small">
+                        TSB = CTL (χθες) - ATL (σήμερα)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>CTL: Ο Δείκτης της Ποδηλατικής σας Φυσικής Κατάστασης</h2>
+
+        <div class="grid grid-2">
+            <div>
+                <h3>Τι Αντιπροσωπεύει το CTL για τους Ποδηλάτες</h3>
+                <p>Το CTL ποσοτικοποιεί το προπονητικό φορτίο στο οποίο το σώμα σας έχει <em>προσαρμοστεί</em> τις
+                    τελευταίες 6 εβδομάδες. Ένα υψηλότερο CTL στην ποδηλασία σημαίνει:</p>
+                <ul>
+                    <li>Μεγαλύτερη αερόβια ικανότητα και αντοχή</li>
+                    <li>Ικανότητα διαχείρισης μεγαλύτερου όγκου και έντασης προπόνησης</li>
+                    <li>Βελτιωμένη μεταβολική απόδοση και οξείδωση λίπους</li>
+                    <li>Υψηλότερη διατηρήσιμη παραγωγή ισχύος</li>
+                    <li>Καλύτερη αποκατάσταση μεταξύ σκληρών προσπαθειών</li>
+                </ul>
+
+                <div class="callout callout-info">
+                    <h4>Σταθερά Χρόνου: 42 Ημέρες</h4>
+                    <p>Το CTL έχει χρόνο ημιζωής περίπου 14-15 ημέρες. Μετά από 42 ημέρες, περίπου το 36,8% (1/e) του
+                        αντίκτυπου μιας προπόνησης παραμένει στον υπολογισμό της φυσικής κατάστασης.</p>
+                    <p>Αυτή η αργή μείωση σημαίνει ότι η φυσική κατάσταση χτίζεται σταδιακά αλλά και χάνεται
+                        αργά—μπορείτε να κάνετε μια εβδομάδα αποχή χωρίς σημαντική απώλεια.</p>
+                </div>
+            </div>
+
+            <div>
+                <h3>Τυπικές Τιμές CTL ανά Επίπεδο Ποδηλάτη</h3>
+                <div class="levels-comparison">
+                    <div class="level-card-compact">
+                        <strong>Αρχάριοι Ποδηλάτες:</strong>
+                        <div class="value">20-40 CTL</div>
+                        <p>Χτίσιμο βασικής φυσικής κατάστασης, 3-4 διαδρομές/εβδομάδα</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>Ερασιτέχνες Ποδηλάτες:</strong>
+                        <div class="value">40-80 CTL</div>
+                        <p>Τακτική προπόνηση, 4-5 διαδρομές/εβδομάδα</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>Ανταγωνιστικοί Ερασιτέχνες:</strong>
+                        <div class="value">80-120 CTL</div>
+                        <p>Αγώνες υψηλού όγκου, 6-8 συνεδρίες/εβδομάδα</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>Elite/Επαγγελματίες:</strong>
+                        <div class="value">120-200+ CTL</div>
+                        <p>Επαγγελματικό προπονητικό φορτίο, 10-15+ ώρες/εβδομάδα</p>
+                    </div>
+                </div>
+
+                <div class="warning-box mt-md">
+                    <strong>⚠️ Όρια Ρυθμού Αύξησης CTL (Ramp Rate)</strong>
+                    <ul>
+                        <li><strong>Ασφαλές:</strong> +3-8 CTL την εβδομάδα</li>
+                        <li><strong>Επιθετικό αλλά βιώσιμο:</strong> +8-12 CTL την εβδομάδα</li>
+                        <li><strong>Υψηλού κινδύνου:</strong> >12 CTL την εβδομάδα</li>
+                    </ul>
+                    <p>Η υπέρβαση αυτών των ρυθμών αυξάνει σημαντικά τον κίνδυνο τραυματισμού και ασθένειας. Χτίστε
+                        σταδιακά για βιώσιμα κέρδη στη φυσική κατάσταση.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-xl">Χτίζοντας το CTL με Ασφάλεια: Ο Ρυθμός Ramp Rate</h3>
+        <div class="example-box">
+            <h4>Παράδειγμα Προόδου CTL (Φάση βάσης 12 εβδομάδων)</h4>
+            <ul>
+                <li><strong>Εβδομάδα 1:</strong> CTL 60 → 65 (+5)</li>
+                <li><strong>Εβδομάδα 2:</strong> CTL 65 → 70 (+5)</li>
+                <li><strong>Εβδομάδα 3:</strong> CTL 70 → 75 (+5)</li>
+                <li><strong>Εβδομάδα 4:</strong> CTL 75 → 78 (+3, εβδομάδα αποκατάστασης)</li>
+                <li><strong>Εβδομάδα 5:</strong> CTL 78 → 83 (+5)</li>
+                <li><strong>Εβδομάδα 6:</strong> CTL 83 → 88 (+5)</li>
+                <li><strong>Εβδομάδα 7:</strong> CTL 88 → 93 (+5)</li>
+                <li><strong>Εβδομάδα 8:</strong> CTL 93 → 96 (+3, εβδομάδα αποκατάστασης)</li>
+                <li><strong>Εβδομάδα 9:</strong> CTL 96 → 102 (+6)</li>
+                <li><strong>Εβδομάδα 10:</strong> CTL 102 → 108 (+6)</li>
+                <li><strong>Εβδομάδα 11:</strong> CTL 108 → 114 (+6)</li>
+                <li><strong>Εβδομάδα 12:</strong> CTL 114 → 116 (+2, αποκατάσταση πριν το build)</li>
+            </ul>
+            <p><strong>Αποτέλεσμα:</strong> +56 πόντοι CTL σε 12 εβδομάδες (μ.ό. 4,7/εβδομάδα)—βιώσιμη πρόοδος από
+                ερασιτεχνικό σε ανταγωνιστικό επίπεδο φυσικής κατάστασης.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>ATL: Ο Δείκτης της Ποδηλατικής σας Κόπωσης</h2>
+
+        <div class="content-split">
+            <div>
+                <p>Το ATL παρακολουθεί το βραχυπρόθεσμο προπονητικό στρες—την κόπωση που συσσωρεύτηκε την τελευταία
+                    εβδομάδα οδήγησης. Αυξάνεται γρήγορα μετά από σκληρή προπόνηση και μειώνεται γρήγορα κατά την
+                    ανάπαυση, καθιστώντας το απαραίτητο για τη διαχείριση της αποκατάστασης μεταξύ ποιοτικών συνεδριών.
+                </p>
+
+                <h3>Δυναμική του ATL στην Ποδηλατική Προπόνηση</h3>
+                <ul>
+                    <li><strong>Γρήγορη Απόκριση:</strong> Σταθερά χρόνου 7 ημερών (ημιζωή ~2,4 ημέρες)</li>
+                    <li><strong>Μορφή με αιχμές:</strong> Ανεβαίνει μετά από σκληρές διαδρομές, πέφτει κατά τις ημέρες
+                        αποκατάστασης</li>
+                    <li><strong>Δείκτης Αποκατάστασης:</strong> Το μειούμενο ATL = διάχυση της κόπωσης μεταξύ των
+                        συνεδριών</li>
+                    <li><strong>Προειδοποίηση Υπερπροπόνησης:</strong> Το συνεχώς αυξημένο ATL υποδηλώνει ανεπαρκή
+                        αποκατάσταση</li>
+                    <li><strong>Προπονητική Ισορροπία:</strong> Το ATL πρέπει να ακολουθεί το CTL αλλά να παρουσιάζει
+                        μεγαλύτερες διακυμάνσεις</li>
+                </ul>
+
+                <div class="callout callout-science">
+                    <h4>🔬 Το Μοντέλο Φυσικής Κατάστασης-Κόπωσης</h4>
+                    <p>Κάθε προπονητική διαδρομή παράγει δύο αποτελέσματα:</p>
+                    <ol>
+                        <li><strong>Ερέθισμα φυσικής κατάστασης</strong> (χτίζεται αργά, διαρκεί πολύ)</li>
+                        <li><strong>Κόπωση</strong> (χτίζεται γρήγορα, χάνεται γρήγορα)</li>
+                    </ol>
+                    <p>Απόδοση = Φυσική Κατάσταση - Κόπωση. Το PMC οπτικοποιεί αυτό το μοντέλο, επιτρέποντας την
+                        επιστημονική περιοδικότητα και τον βέλτιστο χρόνο για τον αγώνα.</p>
+                </div>
+            </div>
+
+            <div>
+                <h3>Σε Σταθερή Κατάσταση</h3>
+                <p>Όταν το προπονητικό φορτίο είναι σταθερό εβδομάδα με την εβδομάδα, το CTL και το ATL συγκλίνουν:</p>
+                <div class="example-box">
+                    <h4>Παράδειγμα: 500 TSS/εβδομάδα σταθερά</h4>
+                    <div class="calculation">
+                        Καθημερινό TSS ≈ 71<br>
+                        Το CTL πλησιάζει το ~71<br>
+                        Το ATL πλησιάζει το ~71<br>
+                        Το TSB πλησιάζει το 0
+                    </div>
+                    <p><strong>Ερμηνεία:</strong> Φυσική κατάσταση και κόπωση είναι εξισορροπημένες. Βιώσιμη διατήρηση
+                        της προπόνησης—χωρίς συσσωρευμένο έλλειμμα ή πλεόνασμα.</p>
+                </div>
+
+                <h3>Κατά τη Διάρκεια Φάσεων Build</h3>
+                <p>Όταν αυξάνεται ο όγκος ή η ένταση:</p>
+                <div class="example-box">
+                    <p>Το ATL αυξάνεται <em>ταχύτερα</em> από το CTL λόγω της μικρότερης σταθεράς χρόνου. Το TSB γίνεται
+                        αρνητικό (κόπωση > φυσική κατάσταση). Αυτό είναι φυσιολογικό και παραγωγικό—εφαρμόζετε
+                        υπερφόρτωση για να διεγείρετε προσαρμογές.</p>
+                    <p><strong>Στόχος TSB:</strong> -10 έως -30 κατά τη διάρκεια παραγωγικών προπονητικών μπλοκ</p>
+                </div>
+
+                <h3>Κατά τη Διάρκεια του Taper για Αγώνες</h3>
+                <p>Όταν μειώνεται το προπονητικό φορτίο πριν από τον ανταγωνισμό:</p>
+                <div class="example-box">
+                    <p>Το ATL πέφτει <em>ταχύτερα</em> από το CTL. Το TSB γίνεται θετικό (φυσική κατάσταση > κόπωση).
+                        Αυτός είναι ο στόχος—να φτάσετε την ημέρα του αγώνα ξεκούραστοι με τα πόδια έτοιμα να αποδώσουν,
+                        διατηρώντας παράλληλα τη φυσική κατάσταση.</p>
+                    <p><strong>Στόχος TSB:</strong> +10 έως +25 την ημέρα του αγώνα ανάλογα με το γεγονός</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>TSB: Η Ισορροπία Φυσικής Κατάστασης-Κόπωσης και η Ετοιμότητα για Αγώνα</h2>
+
+        <p class="lead">Το TSB (Training Stress Balance) είναι η διαφορά μεταξύ της χθεσινής φυσικής κατάστασης (CTL)
+            και της σημερινής κόπωσης (ATL). Υποδεικνύει εάν είστε ξεκούραστοι ή κουρασμένοι, έτοιμοι για αγώνα ή αν
+            χρειάζεστε ημέρες αποκατάστασης.</p>
+
+        <div class="tsb-zones-container">
+            <h3>Οδηγός Ερμηνείας TSB για Ποδηλάτες</h3>
+            <table class="tsb-zones-table">
+                <thead>
+                    <tr>
+                        <th>Εύρος TSB</th>
+                        <th>Κατάσταση</th>
+                        <th>Ερμηνεία</th>
+                        <th>Συνιστώμενη Ενέργεια</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tsb-critical">
+                        <td>&lt; -30</td>
+                        <td><strong>Κίνδυνος Υπερπροπόνησης</strong></td>
+                        <td>Ακραία κόπωση. Υψηλός κίνδυνος ασθένειας/τραυματισμού.</td>
+                        <td>Άμεση αποκατάσταση. Μείωση όγκου κατά 50%+. Εξετάστε ημέρες ανάπαυσης.</td>
+                    </tr>
+                    <tr class="tsb-training">
+                        <td>-20 έως -30</td>
+                        <td><strong>Βέλτιστο Προπονητικό Μπλοκ</strong></td>
+                        <td>Παραγωγική υπερφόρτωση. Χτίσιμο φυσικής κατάστασης.</td>
+                        <td>Συνεχίστε το πλάνο. Παρακολουθήστε για υπερβολική κόπωση ή πτώση της ισχύος.</td>
+                    </tr>
+                    <tr class="tsb-moderate">
+                        <td>-10 έως -20</td>
+                        <td><strong>Μέτριο Προπονητικό Φορτίο</strong></td>
+                        <td>Τυπική συσσώρευση προπόνησης.</td>
+                        <td>Κανονική προπόνηση. Μπορείτε να διαχειριστείτε ποιοτικές συνεδρίες intervals ή κατωφλίου.
+                        </td>
+                    </tr>
+                    <tr class="tsb-neutral">
+                        <td>-10 έως +10</td>
+                        <td><strong>Ουδέτερο/Συντήρηση</strong></td>
+                        <td>Ισορροπημένη κατάσταση. Ελαφριά κόπωση ή φρεσκάδα.</td>
+                        <td>Καλό για αγώνες B/C, δοκιμή FTP ή εβδομάδες αποκατάστασης.</td>
+                    </tr>
+                    <tr class="tsb-fresh">
+                        <td>+10 έως +25</td>
+                        <td><strong>Κορυφαία Αγωνιστική Φόρμα</strong></td>
+                        <td>Ξεκούραστοι και σε φόρμα. Βέλτιστο παράθυρο απόδοσης.</td>
+                        <td>Αγώνες προτεραιότητας Α. Αναμενόμενη κορύφωση ποδηλατικής απόδοσης.</td>
+                    </tr>
+                    <tr class="tsb-very-fresh">
+                        <td>&gt; +25</td>
+                        <td><strong>Πολύ Ξεκούραστοι / Αποπροπόνηση</strong></td>
+                        <td>Πολύ ξεκούραστοι. Πιθανή απώλεια φυσικής κατάστασης.</td>
+                        <td>Σύντομα εκρηκτικά γεγονότα ΟΚ. Συνεχίστε την προπόνηση μετά από παρατεταμένη ανάπαυση.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-tip mt-xl">
+            <h3>🎯 Στόχος TSB ανά Τύπο Γεγονότος</h3>
+            <ul>
+                <li><strong>Criterium/Sprints:</strong> TSB +5 έως +15 (σύντομο taper, διατήρηση οξύτητας)</li>
+                <li><strong>Αγώνες Δρόμου:</strong> TSB +10 έως +20 (taper 10-14 ημερών)</li>
+                <li><strong>Ατομική Χρονομέτρηση:</strong> TSB +15 έως +25 (taper 14-21 ημερών για μέγιστη ισχύ)</li>
+                <li><strong>Gran Fondos:</strong> TSB +5 έως +15 (taper 7-10 ημερών, διατήρηση αντοχής)</li>
+                <li><strong>Πολυήμεροι Αγώνες:</strong> TSB -5 έως +10 (άφιξη με ελαφρά κόπωση, ανάγκη για αντοχή έναντι
+                    φρεσκάδας)</li>
+            </ul>
+            <p><em>Τα πιο σύντομα εκρηκτικά γεγονότα χρειάζονται υψηλότερο TSB. Τα μεγαλύτερα γεγονότα αντοχής
+                    χρειάζονται μέτριο TSB για διατήρηση της αντοχής.</em></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Περιοδικότητα με το Διάγραμμα Διαχείρισης Απόδοσης</h2>
+
+        <div class="example-box">
+            <h3>Παράδειγμα Προπονητικού Κύκλου 16 Εβδομάδων</h3>
+
+            <h4>Εβδομάδες 1-4: Φάση Βάσης (Base)</h4>
+            <ul>
+                <li><strong>Στόχος:</strong> Σταθερό χτίσιμο CTL με 3-5 πόντους/εβδομάδα</li>
+                <li><strong>Εβδομαδιαίο TSS:</strong> 400 → 450 → 500 → 450 (αποκατάσταση)</li>
+                <li><strong>Πρόοδος CTL:</strong> 60 → 73</li>
+                <li><strong>Εύρος TSB:</strong> -5 έως -15 (διαχειρίσιμη κόπωση)</li>
+                <li><strong>Εστίαση:</strong> Μεγάλες σταθερές διαδρομές, αντοχή Ζώνης 2, χτίσιμο αερόβιας βάσης</li>
+            </ul>
+
+            <h4>Εβδομάδες 5-8: Φάση Build</h4>
+            <ul>
+                <li><strong>Στόχος:</strong> Συνέχιση αύξησης CTL με 5-8 πόντους/εβδομάδα με σκληρότερες προπονήσεις
+                </li>
+                <li><strong>Εβδομαδιαίο TSS:</strong> 500 → 550 → 600 → 500 (αποκατάσταση)</li>
+                <li><strong>Πρόοδος CTL:</strong> 73 → 93</li>
+                <li><strong>Εύρος TSB:</strong> -15 έως -25 (παραγωγική υπερφόρτωση)</li>
+                <li><strong>Εστίαση:</strong> Sweet spot intervals, εργασία κατωφλίου, μεγαλύτερες διαδρομές tempo</li>
+            </ul>
+
+            <h4>Εβδομάδες 9-12: Φάση Peak</h4>
+            <ul>
+                <li><strong>Στόχος:</strong> Μεγιστοποίηση CTL, υψηλότερο προπονητικό φορτίο</li>
+                <li><strong>Εβδομαδιαίο TSS:</strong> 600 → 650 → 650 → 550 (αποκατάσταση)</li>
+                <li><strong>Πρόοδος CTL:</strong> 93 → 108</li>
+                <li><strong>Εύρος TSB:</strong> -20 έως -30 (μέγιστο ερέθισμα)</li>
+                <li><strong>Εστίαση:</strong> Intervals ειδικά για αγώνα, εργασία VO₂max, προσομοίωση γεγονότος</li>
+            </ul>
+
+            <h4>Εβδομάδες 13-14: Μπλοκ Αποκατάστασης</h4>
+            <ul>
+                <li><strong>Στόχος:</strong> Επιτρέψτε στο σώμα να απορροφήσει την προπόνηση, προετοιμασία για το taper
+                </li>
+                <li><strong>Εβδομαδιαίο TSS:</strong> 400 → 400</li>
+                <li><strong>Πρόοδος CTL:</strong> 108 → 103 (μικρή πτώση, διατήρηση φυσικής κατάστασης)</li>
+                <li><strong>Εύρος TSB:</strong> -5 έως +5 (ουδέτερο)</li>
+                <li><strong>Εστίαση:</strong> Εύκολη αντοχή, διασκεδαστικές διαδρομές, μείωση έντασης</li>
+            </ul>
+
+            <h4>Εβδομάδες 15-16: Taper + Εβδομάδα Αγώνα</h4>
+            <ul>
+                <li><strong>Στόχος:</strong> Κορύφωση για την ημέρα του αγώνα με TSB +15-20</li>
+                <li><strong>Εβδομαδιαίο TSS:</strong> 350 → 250 + αγώνας</li>
+                <li><strong>Πρόοδος CTL:</strong> 103 → 98 (ελάχιστη απώλεια φυσικής κατάστασης)</li>
+                <li><strong>Πρόοδος ATL:</strong> Πέφτει ραγδαία από ~85 σε ~50</li>
+                <li><strong>TSB την ημέρα του αγώνα:</strong> <strong>+18 έως +22</strong></li>
+                <li><strong>Αποτέλεσμα:</strong> Ξεκούραστα πόδια, διατήρηση φυσικής κατάστασης, έτοιμοι για κορυφαία
+                    απόδοση</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-success">
+            <h3>✅ Γιατί το Taper Λειτουργεί</h3>
+            <p>Οι διαφορετικές σταθερές χρόνου (42 ημέρες για το CTL, 7 ημέρες για το ATL) δημιουργούν το αποτέλεσμα του
+                taper:</p>
+            <ul>
+                <li>Το ATL ανταποκρίνεται γρήγορα → Η κόπωση εξαφανίζεται εντός 7-10 ημερών</li>
+                <li>Το CTL ανταποκρίνεται αργά → Η φυσική κατάσταση παραμένει για εβδομάδες</li>
+                <li>Αποτέλεσμα: Η φυσική κατάσταση παραμένει ενώ η κόπωση εξαφανίζεται = ξεκούραστα πόδια για κορυφαία
+                    απόδοση</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Ποδηλασία Δρόμου έναντι Mountain Biking</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Πτυχή</th>
+                    <th>Ποδηλασία Δρόμου</th>
+                    <th>Mountain Biking</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Προφίλ Ισχύος</strong></td>
+                    <td>Σταθερές, παρατεταμένες προσπάθειες με ελάχιστες διακυμάνσεις</td>
+                    <td>Πολύ μεταβλητή ισχύς με συχνές εκρήξεις (surges)</td>
+                </tr>
+                <tr>
+                    <td><strong>Δείκτης Μεταβλητότητας (VI)</strong></td>
+                    <td>1,02-1,05 (πολύ σταθερό)</td>
+                    <td>1,10-1,20+ (πολύ μεταβλητό)</td>
+                </tr>
+                <tr>
+                    <td><strong>Συσσώρευση TSS</strong></td>
+                    <td>Προβλέψιμη, μπορεί να σχεδιαστεί με ακρίβεια</td>
+                    <td>Μεταβλητή, η δυσκολία του μονοπατιού επηρεάζει πολύ το TSS</td>
+                </tr>
+                <tr>
+                    <td><strong>Normalized Power</strong></td>
+                    <td>Κοντά στη μέση ισχύ</td>
+                    <td>Σημαντικά υψηλότερη από τη μέση ισχύ</td>
+                </tr>
+                <tr>
+                    <td><strong>Κύρια Εστίαση Προπόνησης</strong></td>
+                    <td>Παρατεταμένο κατώφλι, εργασία tempo</td>
+                    <td>Burst intervals, διαχείριση W', τεχνικές δεξιότητες</td>
+                </tr>
+                <tr>
+                    <td><strong>Ερμηνεία CTL</strong></td>
+                    <td>Άμεσος δείκτης φυσικής κατάστασης</td>
+                    <td>Δείκτης φυσικής κατάστασης αλλά η τεχνική = 50% της απόδοσης</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout callout-info mt-lg">
+            <h3>Ιδιαίτερες Σκέψεις για το MTB</h3>
+            <p>Το mountain bike απαιτεί διαφορετική ερμηνεία του PMC:</p>
+            <ul>
+                <li><strong>Ίδιο μονοπάτι, διαφορετικό TSS:</strong> Η δυσκολία του μονοπατιού επηρεάζει μαζικά το TSS
+                    για την ίδια διαδρομή</li>
+                <li><strong>Εντοπισμός Surges:</strong> Μετρήστε τις εκρήξεις πάνω από το κατώφλι—οι αγώνες XC μπορεί να
+                    έχουν 88+ surges σε 2 ώρες</li>
+                <li><strong>Οι δεξιότητες μετρούν περισσότερο:</strong> Η τεχνική ικανότητα αντιπροσωπεύει ~50% της
+                    απόδοσης στο MTB έναντι ~20% στο δρόμο</li>
+                <li><strong>Χρήση σύντομων παραθύρων ισχύος:</strong> Οι μέσοι όροι 3-5 δευτερολέπτων έχουν σημασία για
+                    το MTB έναντι των 30 δευτερολέπτων για το δρόμο</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Κοινά Λάθη στη Διαχείριση του Προπονητικού Φορτίου</h2>
+
+        <div class="guidelines-grid">
+            <div class="guideline-item">
+                <h3>1️⃣ Πολύ Γρήγορο Χτίσιμο του CTL</h3>
+                <p><strong>Λάθος:</strong> Άλμα 15-20 πόντων CTL την εβδομάδα προσπαθώντας να "προλάβετε" ένα
+                    επίπεδο-στόχο.</p>
+                <p><strong>Λύση:</strong> Περιορίστε τις αυξήσεις σε 3-8 CTL/εβδομάδα. Να είστε υπομονετικοί—η φυσική
+                    κατάσταση χρειάζεται χρόνο για να χτιστεί με ασφάλεια.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>2️⃣ Παράλειψη του Taper</h3>
+                <p><strong>Λάθος:</strong> Συνεχής σκληρή προπόνηση, άφιξη στους αγώνες με TSB -20 έως -30.</p>
+                <p><strong>Λύση:</strong> Μειώστε τον όγκο 7-14 ημέρες πριν από σημαντικά γεγονότα. Αφήστε το TSB να
+                    ανέβει στο +10-25 για κορυφαία απόδοση.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>3️⃣ Παράβλεψη των Προειδοποιήσεων του TSB</h3>
+                <p><strong>Λάθος:</strong> Συνέχιση της πίεσης όταν το TSB πέφτει κάτω από το -30 για παρατεταμένες
+                    περιόδους.</p>
+                <p><strong>Λύση:</strong> Κάντε υποχρεωτική αποκατάσταση όταν TSB < -30. Το σώμα σας σάς λέει ότι
+                        χρειάζεται ξεκούραση.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>4️⃣ Κυνήγι Τυχαίων Προπονήσεων</h3>
+                <p><strong>Λάθος:</strong> Ακολουθείτε ό,τι σας φαίνεται καλό αντί για προοδευτικές αυξήσεις φορτίου.
+                </p>
+                <p><strong>Λύση:</strong> Ακολουθήστε ένα δομημένο πλάνο με προγραμματισμένη πρόοδο CTL και εβδομάδες
+                    αποκατάστασης.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>5️⃣ Σύγκριση με Άλλους</h3>
+                <p><strong>Λάθος:</strong> "Ο συναθλητής μου έχει CTL 120, το χρειάζομαι και εγώ!"</p>
+                <p><strong>Λύση:</strong> Το CTL είναι ατομικό. Το βιώσιμο CTL σας εξαρτάται από το προπονητικό ιστορικό
+                    και τη γενετική σας.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>6️⃣ Παράλειψη Εβδομάδων Αποκατάστασης</h3>
+                <p><strong>Λάθος:</strong> Χτίσιμο του CTL συνεχώς χωρίς προγραμματισμένες εβδομάδες αποκατάστασης.</p>
+                <p><strong>Λύση:</strong> Κάθε 3-4 εβδομάδες, μειώστε τον όγκο κατά 30-40% για να εδραιώσετε τις
+                    προπονητικές προσαρμογές.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Έρευνα & Επιστημονική Τεκμηρίωση</h2>
+
+        <p>Το Διάγραμμα Διαχείρισης Απόδοσης και η μεθοδολογία TSS υποστηρίζονται από δεκαετίες έρευνας στην αθλητική
+            επιστήμη:</p>
+
+        <div class="research-references">
+            <h3>Βασικές Ερευνητικές Εργασίες</h3>
+            <ul>
+                <li><strong>Allen, H., & Coggan, A.R. (2019).</strong> <em>Training and Racing with a Power Meter</em>
+                    (3rd Edition). VeloPress. — Το θεμελιώδες κείμενο που εισάγει τα TSS, NP, IF, CTL, ATL, TSB.</li>
+                <li><strong>Banister, E.W., et al. (1975).</strong> A Systems Model of Training for Athletic
+                    Performance. <em>Australian Journal of Sports Medicine</em>. — Το αρχικό μοντέλο απόκρισης φυσικής
+                    κατάστασης-κόπωσης.</li>
+                <li><strong>Murray, N.B., et al. (2017).</strong> Training Load Monitoring Using Exponentially Weighted
+                    Moving Averages. — Επιβεβαιώνει τη χρήση του EWMA για την παρακολούθηση του οξέος/χρόνιου φορτίου.
+                </li>
+                <li><strong>Jones, A.M., et al. (2019).</strong> Critical Power: Theory and Applications. <em>Journal of
+                        Applied Physiology</em>. — Το μοντέλο Κρίσιμης Ισχύος που διέπει τις έννοιες του FTP.</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>💡 TrainingPeaks & WKO5</h3>
+            <p>Τα TSS, CTL, ATL και TSB είναι ιδιόκτητοι δείκτες που αναπτύχθηκαν από τον Δρ. Andrew Coggan και
+                αδειοδοτήθηκαν στην TrainingPeaks. Θεωρούνται βιομηχανικά πρότυπα για τη διαχείριση του προπονητικού
+                φορτίου βάσει ισχύος στην ποδηλασία.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Συχνές Ερωτήσεις: Προπονητικό Φορτίο στην Ποδηλασία</h2>
+
+        <div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Πόσο TSS την εβδομάδα πρέπει να κάνω;</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Το εβδομαδιαίο TSS εξαρτάται από το επίπεδό σας: Αρχάριοι: 200-400 TSS/εβδομάδα, Ερασιτέχνες:
+                            400-600 TSS/εβδομάδα, Ανταγωνιστικοί ερασιτέχνες: 600-900 TSS/εβδομάδα, Elite/Επαγγελματίες:
+                            900-1500+ TSS/εβδομάδα. Ξεκινήστε συντηρητικά και αυξήστε σταδιακά κατά 3-8 πόντους CTL την
+                            εβδομάδα.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Ποιο είναι ένα καλό CTL για το ποδηλατικό μου επίπεδο;</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Τυπικές τιμές CTL: Αρχάριοι 20-40, Ερασιτέχνες 40-80, Ανταγωνιστικοί ερασιτέχνες 80-120,
+                            Elite/Επαγγελματίες 120-200+. Το βιώσιμο CTL σας εξαρτάται από το προπονητικό ιστορικό, το
+                            διαθέσιμο χρόνο και την ικανότητα αποκατάστασης. Εστιάστε στην προοδευτική βελτίωση και όχι
+                            σε απόλυτους αριθμούς.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Πόσο καιρό πρέπει να κάνω taper πριν από έναν αγώνα;</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Η διάρκεια του taper εξαρτάται από τον τύπο του αγώνα: Σύντομοι αγώνες/criteriums: 7-10
+                            ημέρες, Αγώνες δρόμου: 10-14 ημέρες, Ατομική χρονομέτρηση: 14-21 ημέρες (χρειάζεται μέγιστη
+                            φρεσκάδα), Πολυήμεροι αγώνες: 7-10 ημέρες (δεν πρέπει να είστε πολύ ξεκούραστοι). Στοχεύστε
+                            σε TSB +10 έως +25 την ημέρα του αγώνα ανάλογα με τις απαιτήσεις.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Μπορώ να προπονηθώ όταν το TSB είναι -30 ή χαμηλότερο;</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSB κάτω από -30 υποδηλώνει ακραία κόπωση και υψηλό κίνδυνο υπερπροπόνησης. Δεν συνιστάται η
+                            συνέχιση της σκληρής προπόνησης σε αυτό το επίπεδο. Μειώστε τον όγκο κατά 50%+ και κάντε
+                            εύκολες διαδρομές αποκατάστασης μέχρι το TSB να ανέβει στο -20 ή υψηλότερα. Ακούστε το σώμα
+                            σας—επίμονη κόπωση, μείωση της ισχύος, κακός ύπνος ή ασθένεια είναι προειδοποιητικά σημάδια.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Πώς χρησιμοποιώ το PMC για αγώνες mountain bike;</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Οι αγώνες MTB απαιτούν τροποποιημένη ερμηνεία του PMC: Εστιάστε στον εντοπισμό surges πάνω
+                            από το κατώφλι (88+ σε αγώνες XC), χρησιμοποιήστε μικρότερα παράθυρα ισχύος (3-5
+                            δευτερόλεπτα), αναγνωρίστε ότι οι τεχνικές δεξιότητες αποτελούν ~50% της απόδοσης και
+                            κατανοήστε ότι η δυσκολία του μονοπατιού επηρεάζει σημαντικά τη συσσώρευση TSS για την ίδια
+                            διαδρομή.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Γιατί πέφτει το CTL μου κατά τη διάρκεια του taper;</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Η μικρή πτώση του CTL κατά το taper είναι φυσιολογική και αναμενόμενη. Μια πτώση 5-10 πόντων
+                            CTL σε 2 εβδομάδες taper αντιπροσωπεύει ελάχιστη απώλεια φυσικής κατάστασης (η σταθερά
+                            χρόνου 42 ημερών σημαίνει ότι η φυσική κατάσταση διατηρείται). Εν τω μεταξύ, το ATL πέφτει
+                            πολύ πιο γρήγορα (σταθερά 7 ημερών), εξαλείφοντας την κόπωση. Αυτό δημιουργεί θετικό TSB και
+                            ξεκούραστα πόδια για τον αγώνα.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Ποια είναι η διαφορά μεταξύ TSS και kilojoules;</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Τα Kilojoules μετρούν τη συνολική εργασία που παράχθηκε (ενεργειακή δαπάνη), ενώ το TSS
+                            μετράει το προπονητικό στρες σε σχέση με το FTP σας. Μια διαδρομή 200W για 1 ώρα = 720 kJ
+                            για όλους, αλλά το TSS εξαρτάται από το FTP σας. Εάν το FTP σας είναι 200W, TSS = 100. Εάν
+                            το FTP σας είναι 300W, TSS = 44. Το TSS λαμβάνει υπόψη το ατομικό επίπεδο φυσικής
+                            κατάστασης, τα kJ όχι.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Πρέπει να παρακολουθώ το TSS για την προπόνηση σε εσωτερικό χώρο;</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Οπωσδήποτε. Το TSS είναι ιδανικό για προπόνηση σε εσωτερικό χώρο επειδή τα δεδομένα ισχύος
+                            είναι συνεπή και οι περιβαλλοντικές μεταβλητές ελεγχόμενες. Το εσωτερικό TSS συμβάλλει άμεσα
+                            στους υπολογισμούς CTL/ATL/TSB. Ωστόσο, ορισμένοι ποδηλάτες διαπιστώνουν ότι μπορούν να
+                            αντέξουν ελαφρώς υψηλότερο εσωτερικό TSS καθώς δεν υπάρχουν περίοδοι χωρίς πετάλι ή
+                            καταβάσεις.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow text-center">
+        <h2>Κυριαρχήστε στο Προπονητικό σας Φορτίο</h2>
+        <p class="lead">Η κατανόηση του Training Stress Score και του Διαγράμματος Διαχείρισης Απόδοσης μετατρέπει την
+            υποκειμενική προπόνηση σε μια αντικειμενική βελτιστοποίηση της απόδοσης βάσει δεδομένων. Παρακολουθώντας τα
+            TSS, CTL, ATL και TSB, αποκτάτε ακριβή έλεγχο στην πρόοδο της φυσικής σας κατάστασης, τη διαχείριση της
+            κόπωσης και το σωστό χρόνο κορύφωσης για τους αγώνες.</p>
+
+        <p>Το σύστημα CTL-ATL-TSB προλαμβάνει την υπερπροπόνηση, βελτιστοποιεί το χρόνο αποκατάστασης και διασφαλίζει
+            ότι θα φτάσετε στους αγώνες-στόχους σας με την τέλεια ισορροπία φυσικής κατάστασης και κόπωσης για κορυφαία
+            ποδηλατική απόδοση.</p>
+
+        <div class="mt-xl">
+            <a href="/el/ftp/" class="btn btn-secondary">← Λειτουργική Ισχύς Κατωφλίου (FTP)</a>
+            <a href="/el/tss-calculator/" class="btn btn-primary">Υπολογιστής TSS →</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/el/privacy/">Privacy</a></li>
+                <li><a href="/el/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/el/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

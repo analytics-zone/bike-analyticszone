@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Mountain Bike Analytics - MTB Training &amp; Performance</title>
+  <meta name="description" content="Specialized analytics for mountain biking: variable power profiles, burst analysis, Grit/Flow metrics, and MTB-specific training.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="mountain bike analytics, MTB power meter, mountain bike training, MTB performance metrics, grit flow MTB">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/ja/mountain-biking/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-21T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/ja/mountain-biking/">
+  <meta property="og:title" content="Mountain Bike Analytics - MTB Training &amp; Performance">
+  <meta property="og:description" content="Specialized analytics for mountain biking: variable power profiles, burst analysis, Grit/Flow metrics, and MTB-specific training.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/ja/mountain-biking/">
+  <meta name="twitter:title" content="Mountain Bike Analytics - MTB Training &amp; Performance">
+  <meta name="twitter:description" content="Specialized analytics for mountain biking: variable power profiles, burst analysis, Grit/Flow metrics, and MTB-specific training.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/mountain-biking/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/mountain-biking/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/mountain-biking/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/mountain-biking/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/mountain-biking/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/mountain-biking/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/mountain-biking/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/mountain-biking/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/mountain-biking/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/mountain-biking/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/mountain-biking/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/mountain-biking/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/mountain-biking/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/mountain-biking/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/mountain-biking/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/mountain-biking/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/mountain-biking/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/mountain-biking/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/mountain-biking/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/mountain-biking/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/mountain-biking/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/mountain-biking/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/mountain-biking/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/mountain-biking/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/mountain-biking/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/mountain-biking/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Mountain Bike Analytics - MTB Training &amp; Performance",
+      "description": "Specialized analytics for mountain biking: variable power profiles, burst analysis, Grit/Flow metrics, and MTB-specific training.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/ja/mountain-biking/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/ja/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/ja/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ja/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ja/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ja/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/mountain-biking/" class="active"
+                                    aria-current="page">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/ja/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" selected>
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <!-- Mountain Biking Analytics - Bike Analytics -->
+
+<section class="hero hero-small">
+    <div class="container">
+        <h1>マウンテンバイクアナリティクス - 可変パワーとテクニカルな地形をマスターする</h1>
+        <p class="lead">爆発的なエフォート、変化する地形、そしてクロスカントリーやトレイルライディングの独自の要求に特化したパワー分析</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-info mb-xl">
+            <h2>なぜMTBは異なる分析が必要なのか</h2>
+            <p>マウンテンバイクは<strong>爆発的で、変化が激しく、テクニカル</strong>であり、ロードサイクリングとは完全に異なります。MTBは、閾値を超える絶え間ないパワーサージ、疲労した状態でのスキルの実行、そして変化する地形でのアナエロビック容量（無酸素容量）の管理を要求します。一般的なサイクリング分析では、これらの独自の特徴を捉えることができません。
+            </p>
+        </div>
+
+        <h2>パワープロファイルの特徴</h2>
+
+        <p>マウンテンバイクは、ロードサイクリングと比較して劇的に異なるパワープロファイルを生み出します。</p>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>非常に変動の激しいエフォート</h3>
+                <p><strong>変動指数 (VI): 1.10-1.20+</strong> - MTBのパワーは絶え間ない変動が特徴です。トレイルライディングやレースの「バースト性」を反映して、標準化パワー (NP)
+                    は平均パワーより30-50W高くなることがあります。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>頻繁な閾値超えのバースト</h3>
+                <p>XCレースでは、<strong>わずか2時間で閾値を超える加速が88回以上</strong>発生します。テクニカルセクションの出口、急な登り、追い越しの機会のたびに、FTPの125%以上で5-25秒のエフォートが必要になります。これはMTBでは正常であり、ペーシングが悪いわけではありません。
+                </p>
+            </div>
+
+            <div class="feature-item">
+                <h3>高い W' (アナエロビック容量) の利用</h3>
+                <p>「アナエロビックバッテリー」(W')
+                    は常に枯渇し、部分的に回復します。ロードの定常状態とは異なり、MTBは継続的なW'管理を必要とします：木の根の登りでサージ、平坦なセクションでわずかに回復、再びサージ。W'バランスの追跡が重要です。
+                </p>
+            </div>
+
+            <div class="feature-item">
+                <h3>短く高強度の登り</h3>
+                <p>MTBの登りが10-15分を超えることは稀です。より一般的なのは、変化の激しい勾配（2%から15%以上）を伴う2-8分のパンチの効いた登りです。急なセクション、木の根、岩、およびテクニカルな特徴でのパワースパイクは避けられません。
+                </p>
+            </div>
+
+            <div class="feature-item">
+                <h3> значи的なコースティング時間</h3>
+                <p>テクニカルな下り坂では、<strong>ライド時間の20-40%がゼロパワー</strong>になります。これは正常です！心拍数は上昇したままですが（テクニカルなストレス、恐怖反応）、パワーはゼロに落ちます。低い平均パワーに騙されないでください
+                    - 代わりにNPを確認してください。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>テクニカルスキル > 純粋なパワー</h3>
+                <p>260WのFTPと優れたスキルを持つライダーは、テクニカルなトレイルで貧弱なテクニックの300Wのライダーに勝ちます。パワーはあなたをトレイルに導きますが、スキルはそこであなたを速く保ちます。<strong>MTBのパフォーマンス
+                        = 50%のフィットネス、50%のテクニカル能力。</strong></p>
+            </div>
+        </div>
+
+        <h2>マウンテンバイカーのための主要な指標</h2>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon">🎯</div>
+                <h3 class="metric-name">クリティカルパワー (CP) & W'</h3>
+                <p class="metric-description">
+                    MTBにとってFTPよりも関連性が高いです。CPは持続可能なパワーを表し、W'はアナエロビック作業容量を定量化します。レース中に爆発しないように、W'バランスをリアルタイムで追跡します。</p>
+                <a href="/ja/critical-power/" class="btn btn-secondary btn-small mt-sm">CP/W' を学ぶ →</a>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🔋</div>
+                <h3 class="metric-name">W' Balance</h3>
+                <p class="metric-description">
+                    「アナエロビックバッテリー」のリアルタイム追跡。CPを超えるサージ中に枯渇し、CP未満で回復します。レース戦略に不可欠：いつアタックできるか、いつ回復する必要があるかを知りましょう。</p>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📊</div>
+                <h3 class="metric-name">変動指数 (VI)</h3>
+                <p class="metric-description">VI = NP ÷
+                    平均パワー。MTBは通常、1.10-1.20+のVIを示します（ロードは1.02-1.05）。高いVIは正常であり、期待されます。過度にスムーズなセクション（もっとプッシュできた場所）を特定するために使用します。
+                </p>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">⚡</div>
+                <h3 class="metric-name">標準化パワー (NP)</h3>
+                <p class="metric-description">
+                    MTBの場合、NPは平均パワーより30-50W高くなります。MTBのエフォート強度を評価するには、常に（平均ではなく）NPを使用してください。平均200WだがNP250Wのライドは、実際にはハードな閾値ワークアウトです。
+                </p>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">💥</div>
+                <h3 class="metric-name">バースト分析</h3>
+                <p class="metric-description">
+                    FTPの120%を超えるサージをカウントして分析します。エリートXCレーサーは1レースあたり80-100回以上のバーストを生み出します。頻度、持続時間（通常5-25秒）、バースト間の回復を追跡します。MTBレースに特有です。
+                </p>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🏔️</div>
+                <h3 class="metric-name">Grit & Flow (Strava)</h3>
+                <p class="metric-description">Gritはトレイルの難易度（地形の変動、勾配の変化）を測定します。Flowはリズム/スムーズさを測定します。高Grit + 高Flow =
+                    テクニカルな習熟。高Grit + 低Flow = 地形に苦戦している。</p>
+            </div>
+        </div>
+        <h2>マウンテンバイカーのトレーニングフォーカス</h2>
+
+        <h3>VO₂max 反復性 (5×3分、短い休息)</h3>
+        <p>不完全な回復で高強度のエフォートを繰り返す能力を開発します。<strong>110-115% FTPで3分を5回、休息はわずか2-3分。</strong>
+            レースの要求を模倣します：登りでサージ、短い回復、再びサージ。これはMTB特有のフィットネスです。</p>
+        <p><strong>なぜ短い休息なのか？</strong> MTBレースでは、エフォート間の完全な回復は許されません。不完全な回復でのトレーニングは、XCレースに必要な特異的な持久力を構築します。</p>
+
+        <h3>アナエロビック容量インターバル (30秒-2分の最大エフォート)</h3>
+        <p>短時間の最大エフォートでW'容量を構築します。例：</p>
+        <ul>
+            <li><strong>8×45秒 オールアウト</strong> (4-5分回復) - 純粋な無酸素開発</li>
+            <li><strong>6×90秒 130-140% FTP</strong> (5分回復) - 拡張された無酸素パワー</li>
+            <li><strong>4×2分 120% FTP</strong> (6分回復) - 無酸素持久力</li>
+        </ul>
+        <p>これらのインターバルはW'容量を拡大し、レース中により多く、より長いバーストを可能にします。</p>
+
+        <h3>登りでの持続パワー (5-15分)</h3>
+        <p>MTBの登りの持続時間に合わせて調整された閾値インターバル。<strong>95-100% FTPで8分を5回</strong> または <strong>90-95% FTPで12分を4回</strong>
+            (5分回復)。VO₂maxインターバルより長く、ロードの閾値ワークより短い。典型的なMTBの登りの長さと一致します。</p>
+        <p><strong>プロのヒント:</strong> 疲労状態でテクニカルなクライミングを練習するために、実際のトレイルでこれらを行ってください。疲労下でのスキル + パワーが目標です。</p>
+
+        <h3>Z2 ベース構築 (テクニカルトレイルライド)</h3>
+        <p>適度なトレイルで65-75% FTPで2-4時間乗ります。テクニカルスキルを開発しながら有酸素ベースを構築します。<strong>パワーが変動することを受け入れてください</strong> -
+            瞬間のパワーではなく、全体的なNPがZ2に留まることに焦点を当てます。</p>
+        <p>利点：有酸素能力の開発、トレイル練習、精神的なタフネス、バイクハンドリングの向上。MTBフィットネスの基礎です。</p>
+
+        <h3>スプリントパワー開発 (10-30秒 オールアウト)</h3>
+        <p>短く爆発的なエフォートは、テクニカルな特徴のための神経筋パワーを開発します。<strong>15秒の最大スプリントを8-10回</strong> (3-5分の完全回復)。焦点：持久力ではなく、最大出力。</p>
+        <p>これらは、障害物をクリアし、コーナーから加速し、狭いトレイルセクションで競合他社を追い越す能力を向上させます。</p>
+
+        <h3>テクニカルスキル練習</h3>
+        <p><strong>MTBにとって重要:</strong>
+            フィットネスだけでなく、スキルにトレーニング時間を割いてください。ドロップ、ロックガーデン、スイッチバック、丸太越え、急な下りを練習します。<strong>10%のスキル向上は、テクニカルなトレイルで20Wの価値があります。</strong>
+        </p>
+        <p>オプション：スキルクリニック、パンプトラックセッション、低速でのテクニカルドリル、難しいセクションの反復練習。</p>
+
+        <h2>MTBレースの種類と戦略</h2>
+
+        <div class="card mb-lg">
+            <h3 class="card-title">XC (クロスカントリー) レース</h3>
+            <div class="card-content">
+                <p><strong>持続時間:</strong> 1.5-2時間、最大心拍数の約91%</p>
+                <p><strong>パワープロファイル:</strong> 非常に変動が激しく、VIは1.15-1.25。閾値を超えるサージが80-100回以上予想されます。</p>
+                <p><strong>戦略:</strong>
+                    W'バランスを慎重に管理します。追い越しやリーダーについていくために戦略的にサージします。可能な場合（テクニカルな下り、平坦なセクション）は回復します。最後の登りのためにW'を温存します。</p>
+                <p><strong>典型的な分布:</strong></p>
+                <ul>
+                    <li>25% が 10% MAP 未満 (下り、テクニカル)</li>
+                    <li>21% が 10% MAP と VT1 の間</li>
+                    <li>13% が VT1 と VT2 の間</li>
+                    <li>16% が VT2 と MAP の間</li>
+                    <li><strong>25% が MAP 以上</strong> (超最大エフォート！)</li>
+                </ul>
+                <p class="mt-sm"><strong>重要な洞察:</strong> レース時間の4分の1は最大有酸素パワーを超えています。これはXCでは正常であり、ペーシングが悪いわけではありません！</p>
+            </div>
+        </div>
+
+        <div class="card mb-lg">
+            <h3 class="card-title">XCC (ショートトラック)</h3>
+            <div class="card-content">
+                <p><strong>持続時間:</strong> 20-30分の純粋な強度</p>
+                <p><strong>パワープロファイル:</strong> XCよりも高い平均パワー（同じライダーで301Wに対して365W）。爆発的なバーストを伴う、より持続的な閾値ワーク。</p>
+                <p><strong>戦略:</strong> 最初からハードに行きます -
+                    ペーシングの時間はありません。W'が枯渇することを受け入れます。早い段階での位置取りが重要です（短いコースでの追い越しは制限されます）。スタートからフィニッシュまでオールアウトのエフォート。</p>
+                <p><strong>トレーニングフォーカス:</strong> 最大強度での反復性。95-105% FTPで20-30分のエフォートを練習し、130%以上のサージを入れます。</p>
+            </div>
+        </div>
+
+        <div class="card mb-lg">
+            <h3 class="card-title">マラソン/エンデュランス MTB</h3>
+            <div class="card-content">
+                <p><strong>持続時間:</strong> 3-6時間以上</p>
+                <p><strong>パワープロファイル:</strong> 依然として変動的ですが（VI 1.10-1.15）、XCより全体的な強度は低いです。ペーシングが重要になります。</p>
+                <p><strong>戦略:</strong> 保守的なスタート（最初の1時間は60-70%
+                    FTP）。レースが進むにつれて強度を徐々に上げます。最後の登りのためにエネルギーを温存します。栄養と水分補給が重要です。</p>
+                <p><strong>目標 IF:</strong> 全体で0.70-0.80。登りでの高いNPを受け入れ、コースティングの下りでバランスを取ります。TSSを監視：レースは400-500
+                    TSSを超えることがあります。</p>
+            </div>
+        </div>
+
+        <div class="card mb-lg">
+            <h3 class="card-title">エンデューロレース</h3>
+            <div class="card-content">
+                <p><strong>フォーマット:</strong> 時間計測される下りステージと、計測されない登り/移動区間</p>
+                <p><strong>パワープロファイル:</strong> 計測される下りでは最小限のパワー（下り中はゼロワット）。移動区間では高いパワー（しばしば>90% FTPでの登り）。</p>
+                <p><strong>戦略:</strong> 計測ステージ（下り）ではパワー分析はあまり関係ありません。移動区間の管理にパワーを使用します：下りにフレッシュな状態で到着するために、75-85%
+                    FTPで効率的に登ります。移動区間で力を使いすぎないでください。</p>
+                <p><strong>重要な洞察:</strong>
+                    テクニカルな下りのスキルが最も重要です。パワーデータはトレーニングや移動区間のペーシングに役立ちますが、レースパフォーマンスは重力セグメントによって決定されます。</p>
+            </div>
+        </div>
+        <h2>MTB特有の課題</h2>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>森の中でのGPS精度</h3>
+                <p><strong>問題:</strong> 木々が密集していると、GPSの距離と高度に10-20%の誤差が生じます。</p>
+                <p><strong>解決策:</strong>
+                    ホイールにスピードセンサー（磁気ピックアップ）を使用します。GPS信号に関係なく正確な距離を提供します。時間の経過とともにトレイルパフォーマンスを比較するために不可欠です。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>木の根/岩でのパワースパイク</h3>
+                <p><strong>観察:</strong> 「楽な」セクションであっても、障害物に当たると400-600W+の瞬時のパワースパイクが発生します。</p>
+                <p><strong>解釈:</strong>
+                    これらは現実ですが、持続可能なエフォートを表すものではありません。MTBには3-5秒のスムージングを使用してください（ロードの30秒に対して）。全体的な強度の評価にはNPに焦点を当てます。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>下りでのコースティング（ゼロパワー、高心拍数）</h3>
+                <p><strong>観察:</strong> 下り坂ではパワーが0Wを示している間、心拍数は最大値の85-90%に留まります。</p>
+                <p><strong>説明:</strong> テクニカルなストレス、腕上がり、恐怖反応、体幹の安定化による心血管系の要求です。テクニカルな地形では心拍数はパワー要求と等しくありません。これは正常です。
+                </p>
+            </div>
+
+            <div class="feature-item">
+                <h3>テクニカルセクション（低パワー、高心拍数）</h3>
+                <p><strong>観察:</strong> 低速でテクニカルなロックガーデンでは150Wを示しますが、心拍数は170 bpm（最大90%）です。</p>
+                <p><strong>説明:</strong> 精神的ストレス、体幹/上半身の作業、効率の悪い低ケイデンスペダリング。パワーデータは不完全な図です。完全な理解のために心拍数データを追加してください。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>MTB対ロードでの異なるFTP</h3>
+                <p><strong>現実:</strong> 同じライダーでも、MTBのFTPは通常ロードのFTPより5-10%低くなります。</p>
+                <p><strong>理由:</strong> 低いケイデンス（65-75 rpm）、テクニカルな要求、ポジションの変化、トレイルでの一定パワーの維持の難しさ。</p>
+                <p><strong>解決策:</strong> MTBで具体的にFTPをテストしてください。ロードのFTPが適用されると想定しないでください。各種目に別々のFTP値を使用してください。</p>
+            </div>
+        </div>
+
+        <h2>MTBのための機材に関する考慮事項</h2>
+
+        <h3>MTB用パワーメーター</h3>
+        <p><strong>推奨:</strong> ペダル型（Garmin Rally XC, Favero Assioma Pro MX）またはスパイダー型（Quarq, Power2Max）。</p>
+        <p><strong>なぜペダル型？</strong> バイク間の移動が簡単。ヒットしやすいが交換可能。MXバージョンはスタックハイトが低い（岩へのヒットが少ない）。</p>
+        <p><strong>なぜスパイダー型？</strong> クランクスピンドル内で十分に保護されています。攻撃的なライディングに対して優れた耐久性。特定のクランクセットが必要です。</p>
+        <p><strong>避けるべきもの:</strong> ハードなMTB用のクランクアームパワーメーター（高トルクと衝撃でたわみやすいため）。</p>
+
+        <h3>サスペンション設定がパワー伝達に影響する</h3>
+        <p>過度に柔らかいサスペンション：ペダリング力がサスペンションを圧縮するため、滑らかな地形で14-30%のパワー損失。</p>
+        <p><strong>解決策:</strong>
+            登りではロックアウトまたは硬いコンプレッションを使用します。下りや荒れた地形ではサスペンションを開放します。適切なサスペンション設定で持続可能なパワーが20-30W高くなるライダーもいます。</p>
+
+        <h3>タイヤ空気圧のトレードオフ</h3>
+        <p><strong>低圧 (18-22 psi):</strong> トラクションが良く、乗り心地がスムーズで、パンク保護が向上。転がり抵抗が高い (-5-10W)。</p>
+        <p><strong>高圧 (25-30 psi):</strong> 転がり抵抗が低く、効率が良い。トラクションが低下し、乗り心地が硬く、パンクが増える。</p>
+        <p><strong>スイートスポット:</strong> ほとんどのトレイルライディングで20-24 psi。レース圧：22-26 psi（スピードのためにある程度のトラクション損失を受け入れる）。</p>
+
+        <h3>クリップレス vs フラットペダル論争</h3>
+        <p><strong>クリップレスの利点:</strong> パワー伝達が5-10%良く、登りが効率的で、バイクとの一体感が向上。</p>
+        <p><strong>フラットの利点:</strong> 足の位置調整が簡単で、テクニカルな地形で安全で、初心者にとって威圧感が少ない。</p>
+        <p><strong>パワーデータの判定:</strong> クリップレスはわずかに高く、より一貫したパワー出力を示します。しかし、難しいトレイルでは10Wよりもテクニカルスキルの方が重要です。</p>
+
+        <h2>MTBトレーニングプランの例</h2>
+
+        <div class="callout callout-success">
+            <h3>週間トレーニング構造 (XCレース準備)</h3>
+            <p><strong>月曜日:</strong> 休息または60分のZ1リカバリースピン (40 TSS)</p>
+            <p><strong>火曜日:</strong> 90分、5×3分 VO2max リピート @ 115% FTP、3分休息 (70 TSS)</p>
+            <p><strong>水曜日:</strong> 90分 Z2 テクニカルトレイルライド @ 70% FTP (60 TSS)</p>
+            <p><strong>木曜日:</strong> 75分、8×45秒 オールアウトスプリント、完全回復 (55 TSS)</p>
+            <p><strong>金曜日:</strong> 休息または45分のイージースピン + スキル練習 (30 TSS)</p>
+            <p><strong>土曜日:</strong> 3時間 トレイルライド、レースペースセクションあり @ 85-90% FTP (200 TSS)</p>
+            <p><strong>日曜日:</strong> 2時間 Z2 ライド、4×8分 閾値エフォート @ 95% FTP (120 TSS)</p>
+            <p class="mt-md"><strong>週間合計: 575 TSS</strong> - ビルドフェーズの競技XCレーサーに適切です。</p>
+        </div>
+
+        <h2>よくあるMTBトレーニングの間違い</h2>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>❌ 平均パワーでエフォートを判断する</h3>
+                <p>平均パワーはMTBにとって無意味です。真の強度を評価するために<strong>常に標準化パワー (NP)
+                        を使用してください</strong>。平均180WだがNP240Wのライドは、実際には閾値ワークアウトです。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>❌ パワーを平坦化しようとする</h3>
+                <p>トレイルで一定のパワーを維持しようとすることは不可能であり、逆効果です。<strong>変動性を受け入れてください。</strong> 必要なときにサージし、可能なときに回復します。高いVI
+                    (1.15-1.25) はMTBにとって正常で最適です。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>❌ MTBトレーニングにロードのFTPを使用する</h3>
+                <p>ロードのFTPはMTBの閾値を5-10%過大評価します。その結果：インターバルがきつすぎて、実行が不十分になります。<strong>解決策:</strong>
+                    MTBで具体的にFTPをテストしてください。ロードFTPが280Wなら、MTB FTPは260Wと予想してください。</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>❌ テクニカルスキルを無視する</h3>
+                <p>パワー向上だけに焦点を当て、スキルを無視する。<strong>現実:</strong> テクニカルスキルの向上は、挑戦的なトレイルでの20WのFTP増加よりも大きなパフォーマンス向上をもたらします。
+                </p>
+            </div>
+
+            <div class="feature-item">
+                <h3>❌ レースエフォートを練習しない</h3>
+                <p>インターバル間の長い回復を伴うトレーニングは、レースの現実（不完全な回復）に備えることができません。<strong>解決策:</strong>
+                    疲労下での反復性を構築するために、短い休息（2-3分回復）のインターバルを含めてください。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>関連トピック</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">ロード vs MTB 分析</h3>
+                <div class="card-content">
+                    <p>なぜロードサイクリングとマウンテンバイクが完全に異なる分析アプローチ、指標、トレーニング戦略を必要とするのかを深く掘り下げます。</p>
+                    <a href="/ja/road-vs-mtb/" class="btn btn-primary btn-small mt-md">種目を比較する →</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">クリティカルパワーモデル</h3>
+                <div class="card-content">
+                    <p>MTB分析にとって、なぜCPとW'がFTPよりも役立つのかを学びます。レース戦略のためのW'バランス追跡を含みます。</p>
+                    <a href="/ja/critical-power/" class="btn btn-secondary btn-small mt-md">CP/W' を学ぶ →</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">パワー指標</h3>
+                <div class="card-content">
+                    <p>NP, VI, TSS, およびその他のパワー指標の、MTB特有の解釈と応用に関する完全なガイド。</p>
+                    <a href="/ja/power-metrics/" class="btn btn-secondary btn-small mt-md">指標を探索する →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="mt-xl text-center">
+            <h2>MTBパフォーマンスを追跡する</h2>
+            <p class="lead mb-lg">Bike Analyticsは、トレイルおよびXCライディング向けの専用分析モードで、MTBの可変パワー需要を理解しています。</p>
+            <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="btn btn-primary btn-large" target="_blank" rel="noopener">Bike
+                Analytics をダウンロード</a>
+            <p class="mt-md text-secondary">7日間無料トライアル • iOS 16+ • ロード & MTBモード込み</p>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/ja/privacy/">Privacy</a></li>
+                <li><a href="/ja/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/ja/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

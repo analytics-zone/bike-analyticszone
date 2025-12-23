@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="el" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Road Cycling vs Mountain Biking - Power Profile Differences</title>
+  <meta name="description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="road vs MTB, cycling power profiles, variability index, road MTB differences">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/el/road-vs-mtb/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-21T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/el/road-vs-mtb/">
+  <meta property="og:title" content="Road Cycling vs Mountain Biking - Power Profile Differences">
+  <meta property="og:description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="el_GR">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/el/road-vs-mtb/">
+  <meta name="twitter:title" content="Road Cycling vs Mountain Biking - Power Profile Differences">
+  <meta name="twitter:description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/road-vs-mtb/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/road-vs-mtb/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Road Cycling vs Mountain Biking - Power Profile Differences",
+      "description": "Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/el/road-vs-mtb/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/el/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/el/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/el/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/el/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/el/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/road-vs-mtb/" class="active"
+                                    aria-current="page">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/el/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" selected>
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <!-- Ανάλυση Ποδηλασίας Δρόμου vs MTB - Bike Analytics -->
+
+<section class="hero hero-small">
+    <div class="container">
+        <h1>Ποδηλασία Δρόμου vs MTB - Γιατί τα Προφίλ Ισχύος Είναι Εντελώς Διαφορετικά</h1>
+        <p class="lead">Οι περισσότερες πλατφόρμες ποδηλατικής ανάλυσης αντιμετωπίζουν κάθε είδους ποδηλασία ως το ίδιο.
+            Αυτό είναι λάθος. Ο Δρόμος και το MTB απαιτούν θεμελιωδώς διαφορετικές προσεγγίσεις ανάλυσης.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-warning mb-xl">
+            <h2>🚨 Το Κρίσιμο Πρόβλημα με τα Γενικά Ποδηλατικά Αναλυτικά Στοιχεία</h2>
+            <p>Το TrainingPeaks, το Strava, το WKO5 και άλλα εφαρμόζουν <strong>υποθέσεις ποδηλασίας δρόμου</strong> στα
+                δεδομένα της ορεινής ποδηλασίας. Αναμένουν ομαλή ισχύ, σταθερές προσπάθειες και χαμηλή μεταβλητότητα.
+                Όταν βλέπουν τις εκρηκτικές προσπάθειες και την υψηλή μεταβλητότητα του MTB, τις επισημαίνουν ως "κακό
+                ρυθμό" ή "αναποτελεσματικότητα".</p>
+            <p class="mt-md mb-0"><strong>Πραγματικότητα:</strong> Η υψηλή μεταβλητότητα είναι η βέλτιστη για το MTB. Η
+                χαμηλή μεταβλητότητα στα μονοπάτια σημαίνει ότι δεν πιέζετε αρκετά στις ανηφόρες ή ότι κάνετε πεντάλ
+                στις κατηφόρες (σπαταλώντας ενέργεια). <strong>Το Bike Analytics κατανοεί αυτή τη διαφορά.</strong></p>
+        </div>
+
+        <h2>Σύγκριση Δίπλα-Δίπλα: Δρόμος vs MTB</h2>
+
+        <div class="comparison-table-container">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Δείκτης</th>
+                        <th>Ποδηλασία Δρόμου</th>
+                        <th>Ορεινή Ποδηλασία (MTB)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Δείκτης Μεταβλητότητας (VI)</strong></td>
+                        <td>1.02-1.05</td>
+                        <td class="highlight">1.10-1.20+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ομαλότητα Ισχύος</strong></td>
+                        <td>Σταθερή, συνεπής παροχή</td>
+                        <td class="highlight">Μεγάλη μεταβλητότητα, "εκρηκτική"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Διαφορά Μέσης Ισχύος vs NP</strong></td>
+                        <td>5-10W</td>
+                        <td class="highlight">30-50W</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Κύριο Ενεργειακό Σύστημα</strong></td>
+                        <td>Αερόβιο (Ζ2-Ζ4)</td>
+                        <td class="highlight">Μικτό αερόβιο/αναερόβιο</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Μοτίβο Χρήσης W'</strong></td>
+                        <td>Ελάχιστη εξάντληση</td>
+                        <td class="highlight">Συνεχείς κύκλοι εξάντλησης/ανάκαμψης</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Καλύτερο Μοντέλο Ανάλυσης</strong></td>
+                        <td>Ζώνες βάσει FTP</td>
+                        <td class="highlight">Ισορροπία CP & W'</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Τυπική Διάρκεια Προσπάθειας</strong></td>
+                        <td>20-60+ λεπτά σταθερά</td>
+                        <td class="highlight">30δ-10λ μεταβλητά</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Χρόνος Χωρίς Πεντάλ (%)</strong></td>
+                        <td>5-10%</td>
+                        <td class="highlight">20-40%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Επίδραση Τεχνικής Δεξιότητας</strong></td>
+                        <td>Χαμηλή (10-20% της απόδοσης)</td>
+                        <td class="highlight">Πολύ Υψηλή (40-50% της απόδοσης)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Σημασία Αεροδυναμικής</strong></td>
+                        <td class="highlight">Κρίσιμη (80% αντίστασης >25 km/h)</td>
+                        <td>Ελάχιστη (όρθια θέση υποχρεωτική)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Τοποθέτηση Βατόμετρου</strong></td>
+                        <td>Οποιαδήποτε (σταθερή θέση)</td>
+                        <td class="highlight">Πεντάλ ή spider (προστασία)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cadence (rpm)</strong></td>
+                        <td>85-95 τυπικά</td>
+                        <td class="highlight">65-75 τυπικά</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Χτύποι Καρδιάς vs Ισχύς</strong></td>
+                        <td class="highlight">Ναι (σταθερή συσχέτιση)</td>
+                        <td>Όχι (υψηλοί παλμοί στο 0W)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Γιατί αυτές οι διαφορές έχουν σημασία για την Ανάλυση</h2>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>1. Προκλήσεις Τεστ FTP</h3>
+                <div class="grid grid-2 mt-md">
+                    <div>
+                        <h4>Ποδηλασία Δρόμου</h4>
+                        <ul>
+                            <li>Το τεστ FTP 20 λεπτών λειτουργεί τέλεια (σταθερή κατάσταση επιτεύξιμη)</li>
+                            <li>Βρείτε μια επίπεδη διαδρομή ή προπονητήριο</li>
+                            <li>Οδηγήστε στη μέγιστη διατηρήσιμη ένταση για 20 λεπτά</li>
+                            <li>FTP = 95% της μέσης ισχύος των 20 λεπτών</li>
+                            <li>Εξαιρετικά επαναλήψιμο (±3W διαφορά)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Ορεινή Ποδηλασία (MTB)</h4>
+                        <ul>
+                            <li>Το τεστ 20 λεπτών <strong>υπερεκτιμά το κατώφλι</strong> (δύσκολο να διατηρηθεί σταθερή
+                                ισχύς)</li>
+                            <li>Το μονοπάτι διακόπτει συνεχώς την προσπάθεια</li>
+                            <li>Το MTB FTP είναι τυπικά <strong>5-10% χαμηλότερο από του δρόμου</strong></li>
+                            <li><strong>Λύση #1:</strong> Τεστ στον δρόμο, μείωση 5-10% για τις ζώνες MTB</li>
+                            <li><strong>Λύση #2:</strong> Χρήση του μοντέλου Κρίσιμης Ισχύος (CP)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="callout mt-md">
+                    <p><strong>Πραγματικό παράδειγμα:</strong> Ένας αναβάτης έχει FTP 280W στον δρόμο. Στο MTB, η
+                        διατηρήσιμη ισχύς πέφτει στα 260W λόγω χαμηλότερου cadence, αλλαγών στη θέση και διακοπτόμενων
+                        προσπαθειών. Η χρήση 280W FTP για τις ζώνες MTB σημαίνει ότι όλες οι προπονήσεις θα είναι 7% πιο
+                        δύσκολες από το κανονικό.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <h3>2. Εφαρμογή Ζωνών Προπόνησης</h3>
+                <div class="grid grid-2 mt-md">
+                    <div>
+                        <h4>Ποδηλασία Δρόμου</h4>
+                        <ul>
+                            <li>Τα όρια των ζωνών είναι ξεκάθαρα και λειτουργούν τέλεια</li>
+                            <li>Στόχος: "20 λεπτά στη Ζώνη 4 (91-105% FTP)"</li>
+                            <li>Επιτεύξιμο: Διατήρηση σταθερού 95-100% FTP για ολόκληρο το 20λεπτο</li>
+                            <li>Αποτέλεσμα: 19-20 λεπτά στη Ζ4, <1 λεπτό σε άλλες ζώνες</li>
+                            <li>Η πειθαρχία των ζωνών είναι απλή</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Ορεινή Ποδηλασία (MTB)</h4>
+                        <ul>
+                            <li>Η ανάμειξη των ζωνών είναι <strong>αναπόφευκτη και φυσιολογική</strong></li>
+                            <li>Στόχος: "Threshold ride Ζ4"</li>
+                            <li>Πραγματικότητα: 40% χρόνος στη Ζ4, 25% Ζ5-Ζ6 (ανηφόρες), 20% Ζ2-Ζ3 (αποκατάσταση), 15%
+                                Ζ1 (κατηφόρες)</li>
+                            <li>Αποτέλεσμα: Επιτυγχάνεται μέσω υψηλής NP παρά τη μεταβλητή ισχύ</li>
+                            <li><strong>Αποδεχτείτε τη διακύμανση</strong> - κρίνετε από την NP και το συνολικό TSS</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="callout mt-md">
+                    <p><strong>Βασική γνώση:</strong> Η προπόνηση MTB στοχεύει στην NP στην επιθυμητή ζώνη, όχι στην
+                        ακαριαία ισχύ. Μια διαδρομή με NP στο 85% του FTP είναι αποτελεσματική προπόνηση κατωφλίου,
+                        ακόμα κι αν η ισχύς κυμαίνεται από 50-150%.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <h3>3. Υπολογισμός & Ερμηνεία TSS</h3>
+                <div class="grid grid-2 mt-md">
+                    <div>
+                        <h4>Ποδηλασία Δρόμου</h4>
+                        <ul>
+                            <li>Το TSS συσσωρεύεται προβλέψιμα: 100 TSS = 1 ώρα στο FTP</li>
+                            <li>Παράδειγμα: 2 ώρες στο 80% του FTP = 128 TSS (πολύ συνεπές)</li>
+                            <li>Το TSS αντανακλά με ακρίβεια το φυσιολογικό στρες</li>
+                            <li>Η σύγκριση TSS μεταξύ διαδρομών είναι αξιόπιστη</li>
+                            <li>Η αποκατάσταση είναι ανάλογη με το TSS</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Ορεινή Ποδηλασία (MTB)</h4>
+                        <ul>
+                            <li>Ίδιο μονοπάτι = παρόμοιο TSS (καλό για παρακολούθηση προόδου)</li>
+                            <li>Παράδειγμα: Ίδιο μονοπάτι 2 ωρών = 105 TSS κάθε φορά</li>
+                            <li><strong>Η υψηλή NP διογκώνει το TSS</strong> - 100 TSS φαίνονται πιο δύσκολα</li>
+                            <li>Το τεχνικό στρες δεν αποτυπώνεται μόνο από το TSS</li>
+                            <li><strong>Λύση:</strong> Προσαρμόστε την ερμηνεία ή προσθέστε 10-20% load στα τεχνικά
+                                μονοπάτια</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="callout callout-warning mt-md">
+                    <p><strong>⚠️ Προειδοποίηση:</strong> Μην συγκρίνετε το TSS απευθείας μεταξύ των αθλημάτων. Μια
+                        διαδρομή δρόμου 150 TSS ≠ μια τεχνική διαδρομή MTB 150 TSS ως προς την κόπωση. Οι μεταβλητές
+                        προσπάθειες και οι τεχνικές απαιτήσεις του MTB δημιουργούν πρόσθετο στρες που δεν
+                        αντικατοπτρίζεται στο TSS.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <h3>4. Στρατηγική Ρυθμού (Pacing)</h3>
+                <div class="grid grid-2 mt-md">
+                    <div>
+                        <h4>Ποδηλασία Δρόμου</h4>
+                        <ul>
+                            <li><strong>Η σταθερή ισχύς (iso-power) είναι η βέλτιστη</strong></li>
+                            <li>Ατομική χρονομέτρηση: Διατήρηση 95-100% FTP σε όλη τη διάρκεια</li>
+                            <li>Ελαχιστοποίηση εξάντλησης W' (φύλαξη για sprint/επίθεση)</li>
+                            <li>Η μεταβλητότητα είναι αναποτελεσματική (σπαταλά ενέργεια)</li>
+                            <li>Στόχος: VI < 1.05 για χρονομετρήσεις</li>
+                            <li>Η ομαλότητα ισχύος ισούται με αποδοτικότητα ταχύτητας</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Ορεινή Ποδηλασία (MTB)</h4>
+                        <ul>
+                            <li><strong>Η μεταβλητή ισχύς είναι η βέλτιστη</strong> - επιταχύνετε όπου χρειάζεται</li>
+                            <li>Απότομα τμήματα: Πιέστε στο 130-150% FTP για 10-30 δευτερόλεπτα</li>
+                            <li>Χρησιμοποιήστε το W' τακτικά, ανάκαμψη σε επίπεδα/κατηφόρες</li>
+                            <li>Η διαχείριση της ισορροπίας W' είναι η στρατηγική του αγώνα</li>
+                            <li>Αναμενόμενο: VI 1.10-1.20 (χαμηλό VI = δεν πιέζετε αρκετά)</li>
+                            <li>Το έδαφος υπαγορεύει την ισχύ, όχι τα πλάνα ρυθμού</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="callout mt-md">
+                    <p><strong>Πρακτικό παράδειγμα:</strong> Ανηφόρα MTB με 5% μέση κλίση αλλά απότομα τμήματα 8-12%.
+                        Έξυπνος ρυθμός: Επιτάχυνση στο 140% του FTP στα τμήματα 12% (20-30δ), ανάκαμψη στο 70% του FTP
+                        στα τμήματα 5%. Αποτέλεσμα: Ταχύτερος χρόνος από το σταθερό 95% FTP σε όλη την ανάβαση.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <h3>5. Βελτιστοποίηση Εξοπλισμού & Ρύθμισης</h3>
+                <div class="grid grid-2 mt-md">
+                    <div>
+                        <h4>Ποδηλασία Δρόμου</h4>
+                        <ul>
+                            <li><strong>Αεροδυναμική παντού</strong> - τροχοί, κράνος, θέση, ρούχα</li>
+                            <li>Η αεροδυναμική θέση εξοικονομεί 30-50W στα 40 km/h</li>
+                            <li>Η μείωση του CdA είναι η κύρια εστίαση στις υψηλές ταχύτητες</li>
+                            <li>Τροχοί υψηλού προφίλ (50-80mm)</li>
+                            <li>Βελτιστοποίηση θέσης > μείωση βάρους</li>
+                            <li>Οποιοδήποτε βατόμετρο λειτουργεί (σταθερή θέση)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Ορεινή Ποδηλασία (MTB)</h4>
+                        <ul>
+                            <li><strong>Άνεση/έλεγχος > αεροδυναμική</strong></li>
+                            <li>Όρθια θέση υποχρεωτική (ορατότητα, χειρισμός)</li>
+                            <li>Αεροδυναμικά κέρδη αμελητέα στις ταχύτητες MTB (<25 km/h)</li>
+                            <li>Τυπικοί τροχοί (ανθεκτικότητα > αεροδυναμική)</li>
+                            <li>Η μείωση βάρους έχει σημασία (εστίαση στην ανάβαση)</li>
+                            <li>Βατόμετρο: Πεντάλ ή spider (προστασία από χτυπήματα)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Πραγματικά Δεδομένα: Αρχεία Ισχύος Δρόμου vs MTB</h2>
+
+        <div class="grid grid-2 mb-xl">
+            <div class="card">
+                <h3 class="card-title">Παράδειγμα Αγώνα Δρόμου</h3>
+                <div class="card-content">
+                    <p><strong>Διάρκεια:</strong> 2 ώρες 15 λεπτά</p>
+                    <p><strong>Απόσταση:</strong> 85 km</p>
+                    <p><strong>Μέση Ισχύς:</strong> 205W</p>
+                    <p><strong>Εξομαλυμένη Ισχύς:</strong> 215W (NP)</p>
+                    <p><strong>Δείκτης Μεταβλητότητας:</strong> 1.05 (πολύ ομαλός)</p>
+                    <p><strong>Δείκτης Έντασης:</strong> 0.77 (μέτριος)</p>
+                    <p><strong>TSS:</strong> 145</p>
+                    <p><strong>Χρόνος χωρίς πεντάλ:</strong> 8% (μόνο κατηφόρες)</p>
+                    <p><strong>Επιταχύνσεις >120% FTP:</strong> 12 (επιθέσεις, sprint)</p>
+                    <hr class="my-md">
+                    <p class="text-sm"><strong>Ερμηνεία:</strong> Σταθερή προσπάθεια αντοχής με περιστασιακές επιθέσεις.
+                        Χαμηλό VI υποδηλώνει ομαλή παροχή ισχύος. Μέση ισχύς και NP πολύ κοντά. Τυπικό για αγώνα δρόμου
+                        στο πελοτόν.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Παράδειγμα Αγώνα XC MTB</h3>
+                <div class="card-content">
+                    <p><strong>Διάρκεια:</strong> 1 ώρα 45 λεπτά</p>
+                    <p><strong>Απόσταση:</strong> 32 km</p>
+                    <p><strong>Μέση Ισχύς:</strong> 185W</p>
+                    <p><strong>Εξομαλυμένη Ισχύς:</strong> 235W (NP)</p>
+                    <p><strong>Δείκτης Μεταβλητότητας:</strong> 1.27 (πολύ μεταβλητός)</p>
+                    <p><strong>Δείκτης Έντασης:</strong> 0.90 (σκληρή προσπάθεια)</p>
+                    <p><strong>TSS:</strong> 165</p>
+                    <p><strong>Χρόνος χωρίς πεντάλ:</strong> 35% (κατηφόρες, τεχνικά)</p>
+                    <p><strong>Επιταχύνσεις >120% FTP:</strong> 94 (συνεχείς εκρήξεις)</p>
+                    <hr class="my-md">
+                    <p class="text-sm"><strong>Ερμηνεία:</strong> Χαμηλότερη μέση ισχύς αλλά πολύ υψηλότερη NP (+50W!).
+                        Το υψηλό VI αντανακλά το εκρηκτικό μοτίβο προσπάθειας. Μικρότερη απόσταση αλλά υψηλότερο TSS.
+                        Σχεδόν 100 επιταχύνσεις - φυσιολογικό για XC αγώνα.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout-info mb-xl">
+            <h3>🔍 Κρίσιμη Παρατήρηση</h3>
+            <p>Ο αγώνας MTB έχει <strong>χαμηλότερη μέση ισχύ αλλά υψηλότερο TSS</strong> από τον μεγαλύτερο αγώνα
+                δρόμου. Γιατί; Η Εξομαλυμένη Ισχύς (235W vs 215W) υπολογίζει το φυσιολογικό κόστος των μεταβλητών
+                προσπαθειών. Αυτές οι 94 εκρήξεις πάνω από το κατώφλι δημιουργούν μεταβολικό στρες που η μέση ισχύς δεν
+                καταγράφει.</p>
+            <p class="mt-md mb-0"><strong>Συμπέρασμα:</strong> Ποτέ μην κρίνετε μια προσπάθεια MTB από τη μέση ισχύ.
+                Ελέγχετε πάντα την NP και το VI. Ένας ποδηλάτης δρόμου μπορεί να νομίζει ότι 185W μέση ισχύς είναι
+                εύκολη διαδρομή - αλλά 235W NP με IF 0.90 είναι στην πραγματικότητα μια πολύ σκληρή προσπάθεια στο
+                κατώφλι.</p>
+        </div>
+
+        <h2>Πώς το Bike Analytics Λύνει Αυτό το Πρόβλημα</h2>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>✅ Ξεχωριστή Παρακολούθηση FTP ανά Άθλημα</h3>
+                <p>Το Bike Analytics διατηρεί <strong>ξεχωριστές τιμές FTP για δρόμο και MTB</strong>. Ορίστε 280W στον
+                    δρόμο και 260W στο MTB ανεξάρτητα. Οι ζώνες προπόνησης υπολογίζονται αυτόματα σωστά για κάθε
+                    δραστηριότητα.</p>
+                <p><strong>Γιατί αυτό έχει σημασία:</strong> Οι γενικές εφαρμογές χρησιμοποιούν ένα μόνο FTP, κάνοντας
+                    τα διαστήματα MTB πολύ σκληρά ή τα διαστήματα δρόμου πολύ εύκολα.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>✅ Αυτόματη Ανίχνευση Αθλήματος</h3>
+                <p>Το Bike Analytics αναλύει τον Δείκτη Μεταβλητότητας (VI) για να ανιχνεύσει αυτόματα τον τύπο της
+                    διαδρομής:</p>
+                <ul>
+                    <li><strong>VI < 1.08:</strong> Ταξινομείται ως Δρόμος (εφαρμόζει 30δ εξομάλυνση, FTP δρόμου)</li>
+                    <li><strong>VI ≥ 1.08:</strong> Ταξινομείται ως MTB (εφαρμόζει 3-5δ εξομάλυνση, FTP MTB)</li>
+                </ul>
+                <p>Δεν χρειάζεται χειροκίνητη προσθήκη ετικετών. Η εφαρμογή αναγνωρίζει τις εκρηκτικές προσπάθειες MTB
+                    vs τις ομαλές προσπάθειες δρόμου αυτόματα.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>✅ Προτίμηση CP & W'bal για Ανάλυση MTB</h3>
+                <p>Το Bike Analytics προσφέρει μοντελοποίηση <strong>Κρίσιμης Ισχύος (CP) και Ισορροπίας W
+                        Prime</strong>, η οποία είναι ανώτερη από το FTP για το MTB:</p>
+                <ul>
+                    <li><strong>CP:</strong> Αντιπροσωπεύει με μεγαλύτερη ακρίβεια τη διατηρήσιμη ισχύ για μεταβλητές
+                        προσπάθειες</li>
+                    <li><strong>W' balance:</strong> Παρακολουθεί σε πραγματικό χρόνο την εξάντληση/ανάκαμψη της
+                        αναερόβιας ικανότητας</li>
+                    <li>Προβλέπει καλύτερα την απόδοση σε αγώνες MTB</li>
+                </ul>
+                <a href="/el/critical-power/" class="btn btn-secondary btn-small mt-sm">Μάθετε για το CP/W'
+                    →</a>
+            </div>
+
+            <div class="feature-item">
+                <h3>✅ Διαφορετική Ερμηνεία TSS ανά Άθλημα</h3>
+                <p>Το Bike Analytics προσαρμόζει την ερμηνεία του TSS βάσει του τύπου της διαδρομής:</p>
+                <ul>
+                    <li><strong>Road TSS:</strong> Τυπικός υπολογισμός, άμεση συσχέτιση κόπωσης</li>
+                    <li><strong>MTB TSS:</strong> Επισημαίνεται με σημείωση ότι το τεχνικό στρες προσθέτει 10-20%
+                        επιπλέον φόρτο</li>
+                    <li>Οι συστάσεις αποκατάστασης λαμβάνουν υπόψη τις διαφορές</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>FAQ: Ανάλυση Δρόμου vs MTB</h2>
+
+        <div class="faq-item">
+            <h3>Πρέπει να κάνω τεστ FTP ξεχωριστά για δρόμο και MTB;</h3>
+            <p><strong>Ναι, ιδανικά.</strong> Το MTB FTP είναι τυπικά 5-10% χαμηλότερο λόγω του χαμηλότερου cadence και
+                των τεχνικών απαιτήσεων. Τα δύο τεστ δίνουν τις πιο ακριβείς ζώνες προπόνησης.</p>
+            <p><strong>Εναλλακτικά:</strong> Κάντε τεστ στον δρόμο και μειώστε το κατά 7% για τις ζώνες MTB. Παράδειγμα:
+                280W δρόμου → 260W MTB.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Είναι το TSS συγκρίσιμο μεταξύ δρόμου και MTB;</h3>
+            <p><strong>Όχι άμεσα.</strong> 100 TSS στο MTB συνήθως φαίνονται πιο δύσκολα από 100 TSS στον δρόμο επειδή:
+            </p>
+            <ul>
+                <li>Το τεχνικό στρες (ψυχική κόπωση) δεν καταγράφεται στο TSS</li>
+                <li>Κόπωση σε όλο το σώμα (κορμός, χέρια) vs μόνο πόδια στον δρόμο</li>
+                <li>Το υψηλό VI δημιουργεί περισσότερο μεταβολικό στρες</li>
+            </ul>
+        </div>
+
+        <div class="faq-item">
+            <h3>Γιατί οι παλμοί μου παραμένουν υψηλοί στις κατηφόρες MTB χωρίς πεντάλ;</h3>
+            <p><strong>Λόγω τεχνικού και ψυχικού στρες.</strong> Κατά τη διάρκεια της κατηφόρας, η εστίαση, ο φόβος και
+                η σταθεροποίηση του σώματος αυξάνουν τους παλμούς, ακόμα και χωρίς παραγωγή ισχύος. Γι' αυτό οι παλμοί
+                δεν ταιριάζουν με την ισχύ στο MTB όπως στον δρόμο.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <div class="callout callout-success mb-xl">
+            <h3>🎯 Το Πλεονέκτημα του Bike Analytics</h3>
+            <p>Είμαστε η <strong>μόνη πλατφόρμη ποδηλατικής ανάλυσης</strong> που κατανοεί πραγματικά ότι ο δρόμος και
+                το MTB είναι διαφορετικά αθλήματα:</p>
+            <ul class="mt-md">
+                <li>✅ <strong>Αυτόματη ανίχνευση αθλήματος</strong> βάσει του VI</li>
+                <li>✅ <strong>Ξεχωριστή παρακολούθηση FTP</strong> για δρόμο vs MTB</li>
+                <li>✅ <strong>Διαφορετική εξομάλυνση ισχύος</strong></li>
+                <li>✅ <strong>Προτίμηση CP & W'bal για το MTB</strong></li>
+                <li>✅ <strong>Προσαρμοσμένη ερμηνεία TSS</strong></li>
+            </ul>
+        </div>
+
+        <h2>Σχετικά Θέματα</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">Ανάλυση Δρόμου</h3>
+                <div class="card-content">
+                    <p>Εμβαθύνετε στα προφίλ σταθερής ισχύος, την αεροδυναμική και την προπόνηση βάσει FTP για ποδηλάτες
+                        δρόμου.</p>
+                    <a href="/el/road-cycling/" class="btn btn-secondary btn-small mt-md">Μάθετε Περισσότερα
+                        →</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">Ανάλυση MTB</h3>
+                <div class="card-content">
+                    <p>Πλήρης οδηγός για την ανάλυση μεταβλητής ισχύος, την ισορροπία W' και την προπόνηση για αγώνες
+                        MTB.</p>
+                    <a href="/el/mountain-biking/" class="btn btn-secondary btn-small mt-md">Εξερευνήστε το MTB
+                        →</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">Μοντέλο Κρίσιμης Ισχύος</h3>
+                <div class="card-content">
+                    <p>Γιατί η CP και το W' είναι ανώτερα από το FTP για το MTB. Περιλαμβάνει παρακολούθηση W' balance
+                        και στρατηγική αγώνα.</p>
+                    <a href="/el/critical-power/" class="btn btn-secondary btn-small mt-md">Μάθετε για το CP/W'
+                        →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="mt-xl text-center">
+            <h2>Αποκτήστε Αναλυτικά Στοιχεία που Κατανούν το Άθλημά σας</h2>
+            <p class="lead mb-lg">Είτε κάνετε δρόμο, MTB ή και τα δύο - το Bike Analytics αναλύει τα δεδομένα ισχύος σας
+                σωστά με εξειδικευμένες πληροφορίες.</p>
+            <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="btn btn-primary btn-large" target="_blank"
+                rel="noopener">Κατεβάστε το Bike Analytics</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/el/privacy/">Privacy</a></li>
+                <li><a href="/el/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/el/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

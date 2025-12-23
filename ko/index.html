@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Private Cycling Analytics - FTP, TSS Metrics for iOS</title>
+  <meta name="description" content="Private iOS cycling app with advanced analytics. Track FTP, TSS, power metrics locally. Science-based training insights for cyclists. 7-day free trial.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="cycling analytics app, cycling performance metrics, privacy-first iOS app, FTP calculator, training stress score, power meter analytics, road cycling analytics, mountain bike analytics">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/ko/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-21T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bike.analyticszone.app/ko/">
+  <meta property="og:title" content="Private Cycling Analytics - FTP, TSS Metrics for iOS">
+  <meta property="og:description" content="Private iOS cycling app with advanced analytics. Track FTP, TSS, power metrics locally. Science-based training insights for cyclists. 7-day free trial.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/ko/">
+  <meta name="twitter:title" content="Private Cycling Analytics - FTP, TSS Metrics for iOS">
+  <meta name="twitter:description" content="Private iOS cycling app with advanced analytics. Track FTP, TSS, power metrics locally. Science-based training insights for cyclists. 7-day free trial.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS",
+      "url": "https://bike.analyticszone.app",
+      "logo": "https://bike.analyticszone.app/assets/images/logo.png",
+      "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+      "author": "Albert Arno",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "analyticszone@onmedic.org"
+      },
+      "sameAs": [
+        "https://twitter.com/bikeanalytics",
+        "https://apps.apple.com/app/bikeanalytics/id6755187319"
+      ]
+    }
+    </script>
+
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Bike Analytics",
+      "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+      "url": "https://bike.analyticszone.app",
+      "applicationCategory": ["HealthApplication", "FitnessApplication"],
+      "operatingSystem": "iOS",
+      "softwareVersion": "Latest",
+      "author": {
+        "@type": "Organization",
+        "name": "Albert Arno"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free Trial",
+          "description": "7-day free trial of Bike Analytics premium features",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "category": "Trial Subscription",
+          "url": "https://apps.apple.com/app/bikeanalytics/id6755187319"
+        },
+        {
+          "@type": "Offer",
+          "name": "Monthly Subscription",
+          "description": "Monthly access to all Bike Analytics premium features",
+          "price": "3.99",
+          "priceCurrency": "EUR",
+          "billingDuration": "P1M",
+          "category": "Subscription",
+          "url": "https://apps.apple.com/app/bikeanalytics/id6755187319"
+        },
+        {
+          "@type": "Offer",
+          "name": "Annual Subscription",
+          "description": "Annual access to all Bike Analytics premium features at 18% discount",
+          "price": "39",
+          "priceCurrency": "EUR",
+          "billingDuration": "P1Y",
+          "category": "Subscription",
+          "url": "https://apps.apple.com/app/bikeanalytics/id6755187319"
+        }
+      ],
+      "downloadUrl": "https://apps.apple.com/app/bikeanalytics/id6755187319",
+      "featureList": [
+        "FTP (Functional Threshold Power) calculation",
+        "TSS (Training Stress Score) tracking",
+        "Power Curve analysis",
+        "Critical Power metrics",
+        "Training Zones customization",
+        "Ride analysis",
+        "Weekly, monthly, and yearly comparisons",
+        "Cycling efficiency tracking",
+        "Personal records (PR) detection",
+        "Apple Health app integration",
+        "Export in JSON, CSV, HTML, PDF formats",
+        "100% local data processing",
+        "Privacy-first architecture",
+        "Native SwiftUI interface"
+      ],
+      "screenshot": [
+        "https://bike.analyticszone.app/assets/images/screenshots/workouts-list.png",
+        "https://bike.analyticszone.app/assets/images/screenshots/workout-detail.png",
+        "https://bike.analyticszone.app/assets/images/screenshots/analytics.png",
+        "https://bike.analyticszone.app/assets/images/screenshots/performance.png",
+        "https://bike.analyticszone.app/assets/images/screenshots/training-zones.png",
+        "https://bike.analyticszone.app/assets/images/screenshots/export-options.png"
+      ]
+    }
+    </script>
+
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Bike Analytics",
+      "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+      "url": "https://bike.analyticszone.app",
+      "image": "https://bike.analyticszone.app/assets/images/logo.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bike Analytics"
+      },
+      "category": "Fitness & Health Software",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "0",
+        "highPrice": "39",
+        "offerCount": "3",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "7-Day Free Trial",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "url": "https://apps.apple.com/app/bikeanalytics/id6755187319"
+          },
+          {
+            "@type": "Offer",
+            "name": "Monthly Plan",
+            "price": "3.99",
+            "priceCurrency": "EUR",
+            "billingDuration": "P1M",
+            "url": "https://apps.apple.com/app/bikeanalytics/id6755187319"
+          },
+          {
+            "@type": "Offer",
+            "name": "Annual Plan",
+            "price": "39",
+            "priceCurrency": "EUR",
+            "billingDuration": "P1Y",
+            "url": "https://apps.apple.com/app/bikeanalytics/id6755187319"
+          }
+        ]
+      }
+    }
+    </script>
+
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Bike Analytics get my cycling data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bike Analytics syncs with Apple Health to import cycling workouts recorded by any compatible device or app. This includes bike computers (Garmin, Wahoo), smart watches, and manual entries. The app processes this data locally to calculate advanced metrics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is FTP and how do I calculate it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FTP (Functional Threshold Power) is the highest power you can maintain for one hour. Bike Analytics estimates this from your best 20-minute power or ramp test data. It automatically updates your training zones based on your FTP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data uploaded to the cloud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Bike Analytics processes all data locally on your iPhone. There are no external servers, no cloud accounts, no data transfers. You control exports: generate JSON, CSV, HTML, or PDF files and share them however you want."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Bike Analytics for mountain biking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Bike Analytics works with any cycling workout in Apple Health, including mountain biking. The app adapts to available metrics (Power, Heart Rate) to provide relevant analysis for each discipline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between monthly and annual plans?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both plans offer identical features: all metrics, unlimited zones, temporal comparisons, multiple exports, and free updates. The only difference is price: annual saves 18%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel my subscription anytime?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Subscriptions are managed through the App Store, so you can cancel anytime from Settings → [Your Name] → Subscriptions. If you cancel, you'll maintain access until the end of your current billing period."
+          }
+        }
+      ]
+    }
+    </script>
+
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://bike.analyticszone.app/ko/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Running Analytics",
+          "item": "https://bike.analyticszone.app/ko/#features"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Pricing",
+          "item": "https://bike.analyticszone.app/ko/#pricing"
+        }
+      ]
+    }
+    </script>
+
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Private Cycling Analytics - FTP, TSS Metrics for iOS",
+      "description": "Private iOS cycling app with advanced analytics. Track FTP, TSS, power metrics locally. Science-based training insights for cyclists. 7-day free trial.",
+      "url": "https://bike.analyticszone.app/ko/",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS",
+        "url": "https://bike.analyticszone.app"
+      },
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Bike Analytics"
+      }
+    }
+    </script>
+
+  
+
+  
+  
+
+  
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/ko/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/ko/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ko/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ko/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ko/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/ko/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" selected>
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <!-- Bike Analytics App Landing Page - Homepage -->
+
+<!-- Hero Section with App Introduction -->
+<section class="app-hero">
+    <div class="container">
+        <div class="app-hero-content">
+            <div class="app-hero-text">
+                <div class="app-hero-badge">
+                    <span>🚴</span>
+                    <span>전문 사이클링 분석</span>
+                </div>
+                <h1>더 스마트하게 훈련하고, 더 빠르게 달리세요</h1>
+                <p class="app-hero-subtitle">
+                    로드 사이클리스트와 산악자전거 라이더를 위한 파워 기반 iOS 앱. FTP, TSS, 퍼포먼스 트래킹을 지원합니다. 모든 데이터는 iPhone에서 로컬로 처리되어 완벽한 개인정보
+                    보호를 보장합니다.
+                </p>
+                <div class="app-hero-cta store-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="store-badge" target="_blank" rel="noopener"
+                        aria-label="App Store에서 다운로드">
+                        <img src="/assets/images/badge-app-store.svg" alt="App Store에서 다운로드" width="140" height="47">
+                    </a>
+                    <a href="" class="store-badge" target="_blank" rel="noopener"
+                        aria-label="Google Play에서 다운로드">
+                        <img src="/assets/images/badge-google-play.svg" alt="Google Play에서 다운로드" width="140"
+                            height="47">
+                    </a>
+                </div>
+                <div class="app-hero-secondary">
+                    <a href="#features" class="btn btn-large btn-secondary">
+                        기능 살펴보기
+                    </a>
+                </div>
+                <p class="mt-6 text-sm-muted">
+                    ✓ 7일 무료 체험 &nbsp;&nbsp; ✓ 계정 필요 없음 &nbsp;&nbsp; ✓ 100% 로컬 데이터
+                </p>
+            </div>
+            <div class="app-hero-mockup">
+                <div class="mockup-phone">
+                    <img src="/assets/images/screenshots/workouts-list.png"
+                        alt="Bike Analytics iOS 앱 스크린샷: 파워, FTP, 훈련 지표가 표시된 운동 목록" width="400" height="auto"
+                        loading="eager" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Key Features Section -->
+<section id="features" class="app-features">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">기능</div>
+            <h2 class="section-title">고급 사이클링 퍼포먼스 지표</h2>
+            <p class="section-subtitle">모든 수준의 사이클리스트를 위해 설계된 전문가급 분석 도구</p>
+        </div>
+        <div class="app-features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon" aria-hidden="true">
+                        <use href="/assets/images/icons-sprite.svg#icon-chart"></use>
+                    </svg>
+                </div>
+                <h3>과학적인 파워 지표</h3>
+                <p><a href="/ko/ftp/">FTP (Functional Threshold Power)</a>를 통해 문턱 파워를 결정하고, 입증된 스포츠 과학 연구를 기반으로
+                    <a href="/ko/training-load/">훈련 스트레스 점수 (TSS)</a> 계산 및 <a
+                        href="/ko/training-load/#pmc">CTL/ATL/TSB 퍼포먼스 트래킹</a>을 지원합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon" aria-hidden="true">
+                        <use href="/assets/images/icons-sprite.svg#icon-zones"></use>
+                    </svg>
+                </div>
+                <h3>개인화된 훈련 존</h3>
+                <p>당신의 FTP에 맞춰 조정된 7단계의 <a href="/ko/training-zones/">파워 기반 훈련 존</a>을 제공합니다. 회복, 유산소 능력 개발, 역치
+                    훈련, <a href="/ko/critical-power/">VO₂max</a> 향상 등 모든 라이딩의 목표를 최적화하세요.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon" aria-hidden="true">
+                        <use href="/assets/images/icons-sprite.svg#icon-calendar"></use>
+                    </svg>
+                </div>
+                <h3>로드 및 MTB 모드</h3>
+                <p><a href="/ko/road-vs-mtb/">로드 사이클링과 산악자전거</a> 각각에 특화된 분석을 위해, 각 라이딩 스타일에 맞춘 서로 다른 파워 스무딩
+                    알고리즘과 종목별 지표를 제공합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon" aria-hidden="true">
+                        <use href="/assets/images/icons-sprite.svg#icon-shield"></use>
+                    </svg>
+                </div>
+                <h3>완벽한 개인정보 보호</h3>
+                <p>모든 사이클링 데이터는 iOS 기기 내부에서만 처리됩니다. 서버도, 클라우드 저장소도, 추적도 없습니다. 당신의 분석 데이터는 온전히 당신의 것입니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon" aria-hidden="true">
+                        <use href="/assets/images/icons-sprite.svg#icon-export"></use>
+                    </svg>
+                </div>
+                <h3>어디서나 내보내기</h3>
+                <p>라이딩 기록과 퍼포먼스 지표를 JSON, CSV, HTML, PDF 형식으로 내보낼 수 있습니다. 코치와의 공유나 스프레드시트, 다른 훈련 플랫폼과 호환됩니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon" aria-hidden="true">
+                        <use href="/assets/images/icons-sprite.svg#icon-lightning"></use>
+                    </svg>
+                </div>
+                <h3>즉각적인 성능</h3>
+                <p>로컬 우선 아키텍처로 0.35초 미만의 앱 실행 속도를 자랑합니다. 동기화나 다운로드를 기다릴 필요 없이 즉시 분석 결과를 확인하세요.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Screenshots Carousel -->
+<section class="app-screenshots">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">스크린샷</div>
+            <h2 class="section-title">Bike Analytics 실제 화면</h2>
+            <p class="section-subtitle">사이클리스트를 위해 디자인된 아름답고 직관적인 iOS 인터페이스</p>
+        </div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn carousel-btn-prev" aria-label="이전 스크린샷">
+                <svg aria-hidden="true">
+                    <use href="/assets/images/icons-sprite.svg#icon-arrow-left"></use>
+                </svg>
+            </button>
+            <div class="screenshots-carousel" id="screenshotsCarousel">
+                <div class="screenshot-item">
+                    <img src="/assets/images/screenshots/workouts-list.png"
+                        alt="훈련 스트레스 점수와 파워 기반 훈련 존이 표시된 Bike Analytics 라이딩 목록" loading="lazy" />
+                    <p class="screenshot-caption">라이딩 개요</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="/assets/images/screenshots/workout-detail.png"
+                        alt="구간별 파워, 노멀라이즈드 파워, 심박수 데이터가 포함된 상세 라이딩 분석" loading="lazy" />
+                    <p class="screenshot-caption">구간별 상세 분석</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="/assets/images/screenshots/analytics.png" alt="CTL, ATL, TSB 퍼포먼스 관리 차트를 보여주는 대시보드"
+                        loading="lazy" />
+                    <p class="screenshot-caption">고급 퍼포먼스 지표</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="/assets/images/screenshots/performance.png" alt="시간에 따른 FTP 변화와 훈련 부하 추이 차트"
+                        loading="lazy" />
+                    <p class="screenshot-caption">퍼포먼스 트렌드</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="/assets/images/screenshots/training-zones.png" alt="FTP 기반의 7단계 개인화된 훈련 존"
+                        loading="lazy" />
+                    <p class="screenshot-caption">훈련 존</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="/assets/images/screenshots/export-options.png"
+                        alt="코치 공유 및 분석을 위한 JSON, CSV, HTML, PDF 데이터 내보내기" loading="lazy" />
+                    <p class="screenshot-caption">내보내기 옵션</p>
+                </div>
+            </div>
+            <button class="carousel-btn carousel-btn-next" aria-label="다음 스크린샷">
+                <svg aria-hidden="true">
+                    <use href="/assets/images/icons-sprite.svg#icon-arrow-right"></use>
+                </svg>
+            </button>
+            <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="스크린샷 탐색"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Scientific Metrics Section -->
+<section class="app-metrics">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">과학 기반</div>
+            <h2 class="section-title text-white">스포츠 과학에 기초한 퍼포먼스 지표</h2>
+            <p class="section-subtitle text-white-90">
+                Bike Analytics는 스포츠 과학 연구로 검증된 TSS, FTP 및 고급 계산식을 사용하여 원시 파워 데이터를 실행 가능한 인사이트로 변환합니다.
+            </p>
+        </div>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon">🎯</div>
+                <div class="metric-label">역치 파워</div>
+                <h3 class="metric-name">FTP</h3>
+                <p class="metric-description">Functional Threshold Power - 1시간 동안 유지 가능한 파워</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">📊</div>
+                <div class="metric-label">운동 부하</div>
+                <h3 class="metric-name">TSS</h3>
+                <p class="metric-description">Training Stress Score - 훈련 강도를 수치화한 점수</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">💪</div>
+                <div class="metric-label">체력 (Fitness)</div>
+                <h3 class="metric-name">CTL</h3>
+                <p class="metric-description">Chronic Training Load - 42일간의 장기 훈련 부하</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">😴</div>
+                <div class="metric-label">피로도 (Fatigue)</div>
+                <h3 class="metric-name">ATL</h3>
+                <p class="metric-description">Acute Training Load - 7일간의 단기 훈련 부하</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">⚖️</div>
+                <div class="metric-label">컨디션 (Form)</div>
+                <h3 class="metric-name">TSB</h3>
+                <p class="metric-description">Training Stress Balance - 훈련 준비 상태 지표</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">🏔️</div>
+                <div class="metric-label">상승 속도</div>
+                <h3 class="metric-name">VAM</h3>
+                <p class="metric-description">Velocità Ascensionale Media - 시간당 수직 상승 미터</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">⚡</div>
+                <div class="metric-label">노멀라이즈드 파워</div>
+                <h3 class="metric-name">NP</h3>
+                <p class="metric-description">변동성을 보정한 평균 파워</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">🚴</div>
+                <div class="metric-label">고급 모델</div>
+                <h3 class="metric-name">CP/W'</h3>
+                <p class="metric-description">Critical Power 및 W Prime 무산소 용량</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="app-pricing">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">가격</div>
+            <h2 class="section-title">단순하고 투명한 가격</h2>
+            <p class="section-subtitle">7일 무료 체험으로 시작하세요. 언제든 취소 가능합니다.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-name">일반 라이더</h3>
+                    <div class="pricing-price">
+                        <span class="pricing-currency">€</span>
+                        <span class="pricing-amount">3.99</span>
+                        <span class="pricing-period">/월</span>
+                    </div>
+                    <p class="pricing-trial">7일 무료 체험</p>
+                </div>
+                <ul class="pricing-features">
+                    <li>무제한 라이딩 동기화</li>
+                    <li>모든 과학적 지표 (FTP, TSS, CTL/ATL/TSB)</li>
+                    <li>7단계 개인화된 파워 존</li>
+                    <li>로드 및 MTB 분석 모드</li>
+                    <li>JSON, CSV, HTML, PDF 내보내기</li>
+                    <li>100% 개인정보 보호, 로컬 데이터</li>
+                    <li>모든 향후 업데이트 포함</li>
+                </ul>
+            </div>
+            <div class="pricing-card featured" data-badge="최고의 가치">
+                <div class="pricing-header">
+                    <h3 class="pricing-name">전문 사이클리스트</h3>
+                    <div class="pricing-price">
+                        <span class="pricing-currency">€</span>
+                        <span class="pricing-amount">39</span>
+                        <span class="pricing-period">/년</span>
+                    </div>
+                    <p class="pricing-trial">연간 €8.88 절약 (18% 할인)</p>
+                </div>
+                <ul class="pricing-features">
+                    <li>무제한 라이딩 동기화</li>
+                    <li>모든 과학적 지표 (FTP, TSS, CTL/ATL/TSB)</li>
+                    <li>7단계 개인화된 파워 존</li>
+                    <li>로드 및 MTB 분석 모드</li>
+                    <li>JSON, CSV, HTML, PDF 내보내기</li>
+                    <li>100% 개인정보 보호, 로컬 데이터</li>
+                    <li>모든 향후 업데이트 포함</li>
+                    <li><strong>월 €3.25 수준</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="app-benefits">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">왜 Bike Analytics인가요?</div>
+            <h2 class="section-title">진지한 선수를 위한 개인정보 중심 분석</h2>
+            <p class="section-subtitle">복잡함 없이 즐기는 전문가급 사이클링 퍼포먼스 지표</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">🎯</div>
+                <div class="benefit-content">
+                    <h3>FTP 테스트 프로토콜</h3>
+                    <p>내장된 20분 FTP 테스트로 기능적 문턱 파워를 측정하세요. 6-8주마다 반복하여 진행 상황을 추적하고 훈련 존을 자동으로 조정할 수 있습니다.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📱</div>
+                <div class="benefit-content">
+                    <h3>네이티브 iOS 앱</h3>
+                    <p>SwiftUI로 제작되어 부드러운 성능과 완벽한 iOS 통합을 제공합니다. Apple 건강 앱과의 원활한 동기화, 위젯 지원, 그리고 친숙한 Apple 디자인을 경험하세요.
+                    </p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🔒</div>
+                <div class="benefit-content">
+                    <h3>타협 없는 프라이버시</h3>
+                    <p>당신의 훈련 데이터는 비즈니스 모델이 아닙니다. Bike Analytics는 오직 당신을 위해 작동하며, 데이터를 제3자에게 전송하지 않습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/ko/privacy/">Privacy</a></li>
+                <li><a href="/ko/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/ko/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

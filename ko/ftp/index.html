@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Functional Threshold Power Calculator - FTP Test &amp; Zones</title>
+  <meta name="description" content="Free FTP test calculator for cyclists. Measure Functional Threshold Power in 20-minute test, discover training zones, optimize power work.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="functional threshold power, FTP calculator, cycling performance metrics, power training zones, FTP test protocol">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/ko/ftp/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-21T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/ko/ftp/">
+  <meta property="og:title" content="Functional Threshold Power Calculator - FTP Test &amp; Zones">
+  <meta property="og:description" content="Free FTP test calculator for cyclists. Measure Functional Threshold Power in 20-minute test, discover training zones, optimize power work.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/ko/ftp/">
+  <meta name="twitter:title" content="Functional Threshold Power Calculator - FTP Test &amp; Zones">
+  <meta name="twitter:description" content="Free FTP test calculator for cyclists. Measure Functional Threshold Power in 20-minute test, discover training zones, optimize power work.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/ftp/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/ftp/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/ftp/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/ftp/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/ftp/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/ftp/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/ftp/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/ftp/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/ftp/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/ftp/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/ftp/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/ftp/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/ftp/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/ftp/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/ftp/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/ftp/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/ftp/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/ftp/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/ftp/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/ftp/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/ftp/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/ftp/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/ftp/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/ftp/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/ftp/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/ftp/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Functional Threshold Power Calculator - FTP Test &amp; Zones",
+      "description": "Free FTP test calculator for cyclists. Measure Functional Threshold Power in 20-minute test, discover training zones, optimize power work.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/ko/ftp/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/ko/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/ko/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ko/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/ftp/" class="active"
+                                    aria-current="page">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ko/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ko/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/ko/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" selected>
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>기능적 문턱 파워 (FTP)</h1>
+        <p class="lead">파워 기반 훈련의 기초</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-success mb-xl">
+            <h2>핵심 요약</h2>
+            <ul class="key-points">
+                <li><strong>정의:</strong> FTP는 피로가 쌓이지 않고 약 1시간 동안 지속할 수 있는 가장 높은 평균 파워입니다.</li>
+                <li><strong>측정 방법:</strong> 가장 흔한 방법은 20분 테스트 프로토콜입니다. 20분간의 최고 평균 파워의 95%로 계산합니다.</li>
+                <li><strong>중요성:</strong> FTP를 통해 개인화된 <a href="/ko/training-zones/">파워 존</a> 설정, 정확한 <a
+                        href="/ko/training-load/">TSS 계산</a>, 객관적인 체력 추적이 가능합니다.</li>
+                <li><strong>일반적인 수치:</strong> 레크리에이션: 2.0-3.0 W/kg | 중급/경쟁: 3.5-4.5 W/kg | 엘리트: 5.5-6.5 W/kg</li>
+                <li><strong>테스트 주기:</strong> 훈련 블록 동안 6-8주마다 재측정하여 향상된 체력에 맞춰 존을 업데이트하세요.</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-info mb-xl">
+            <h2>FTP란 무엇인가요?</h2>
+            <p><strong>기능적 문턱 파워 (Functional Threshold Power, FTP)</strong>는 약 1시간 동안 피로를 누적시키지 않고 유지할 수 있는 최대 평균
+                출력(와트)입니다. 이것은 유산소 역치, 즉 '지속 가능한 노력'과 '지속 불가능한 노력' 사이의 경계를 나타냅니다. FTP는 모든 파워 기반 훈련의 기초가 되며, 개인별 훈련 존 설정과
+                훈련 부하의 정확한 수치화를 가능하게 합니다.</p>
+        </div>
+
+        <p class="lead">기능적 문턱 파워는 2000년대 초반, 생리적 역치를 정의하는 단일하고 실용적인 지표를 제공함으로써 사이클링 훈련에 혁신을 가져왔습니다. 실험실에서 수행하는 젖산 테스트와
+            달리, FTP는 파워미터와 탁 트인 도로만 있다면 누구나 직접 측정할 수 있습니다.</p>
+
+        <div class="callout callout-info">
+            <h3>🎯 생리적 의미</h3>
+            <p>FTP는 다음과 같은 지표들과 밀접하게 관련되어 있습니다:</p>
+            <ul>
+                <li><strong>젖산 역치 2 (LT2)</strong> - 두 번째 환기 역치</li>
+                <li><strong>최대 젖산 정상 상태 (MLSS)</strong> - 실제 FTP의 약 88.5% 수준</li>
+                <li><strong>크리티컬 파워 (CP)</strong> - 일반적으로 FTP 대비 ±5W 이내</li>
+                <li><strong>혈중 젖산 농도 약 4 mmol/L</strong> - 전통적인 OBLA(혈중 젖산 축적 시점) 지표</li>
+            </ul>
+        </div>
+
+        <h3>FTP가 중요한 이유</h3>
+        <p>기능적 문턱 파워는 모든 고급 파워 기반 훈련을 가능하게 하는 <strong>기초 지표</strong>입니다:</p>
+        <ul>
+            <li><strong><a href="/ko/training-zones/">파워 훈련 존</a>:</strong> 각 개인의 생리적 특성에 맞춰 강도 존을 개인화합니다.</li>
+            <li><strong><a href="/ko/training-load/">TSS 계산</a>:</strong> 훈련 스트레스 점수(TSS)를 정확하게 수치화할 수 있게 합니다.
+            </li>
+            <li><strong><a href="/ko/training-load/">CTL/ATL/TSB</a>:</strong> 퍼포먼스 관리 차트(PMC) 지표 산출에 필수적입니다.
+            </li>
+            <li><strong>진행 상황 추적:</strong> 시간에 따른 역치 파워의 향상을 객관적으로 측정합니다.</li>
+            <li><strong>레이스 페이싱:</strong> 타임 트라이얼이나 로드 레이스에서 유지 가능한 파워를 결정합니다.</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠️ 필수 주의 사항:</strong> 정확한 FTP 테스트 수치 없이는 고급 훈련 부하 지표(TSS, 강도 계수, CTL, ATL, TSB)를 올바르게 계산할 수 없습니다.
+            부정확한 FTP는 이후의 모든 파워 기반 훈련 분석을 왜곡시킵니다.
+        </div>
+
+        <div class="callout callout-primary mt-xl">
+            <h3>📱 Bike Analytics는 모든 FTP 기반 훈련을 자동화합니다</h3>
+            <p>이 가이드가 FTP의 과학적 원리를 설명하는 동안, <strong>Bike Analytics는 여러분의 주행 데이터에서 기능적 문턱 파워를 자동으로 감지하고 추적합니다</strong>.
+                수동 테스트나 복잡한 계산이 필요하지 않습니다.</p>
+            <p><strong>앱이 처리하는 항목:</strong></p>
+            <ul>
+                <li>훈련 데이터를 통한 자동 FTP 추정</li>
+                <li>FTP 향상에 따른 개인별 파워 존 자동 업데이트</li>
+                <li>실시간 TSS, 강도 계수(IF), 표준화 파워(NP) 추적</li>
+                <li>과거 FTP 변화 차트 및 체력 트렌드 분석</li>
+                <li>로드와 MTB 종목별 별도 FTP 추적</li>
+            </ul>
+            <p><a href="/ko/" class="btn btn-accent btn-small">Bike Analytics 무료 다운로드 →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="container container-narrow">
+        <h2>FTP와 다른 파워 지표 비교</h2>
+        <p class="lead">FTP가 다른 사이클링 퍼포먼스 지표들과 어떻게 비교되는지 이해하면 훈련 목표에 맞는 올바른 지표를 선택하는 데 도움이 됩니다.</p>
+
+        <div class="comparison-table-container">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>지표</th>
+                        <th>측정 내용</th>
+                        <th>측정 방법</th>
+                        <th>지속 가능 시간</th>
+                        <th>주요 활용 사례</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td><strong>기능적 문턱 파워 (FTP)</strong></td>
+                        <td>최대 1시간 파워 (유산소 역치)</td>
+                        <td>20분 테스트(95%) 또는 60분 테스트</td>
+                        <td>~60분</td>
+                        <td>훈련 존, TSS 계산, 레이싱 페이싱</td>
+                    </tr>
+                    <tr>
+                        <td><strong><a href="/ko/critical-power/">크리티컬 파워 (CP)</a></strong></td>
+                        <td>유산소-무산소 경계</td>
+                        <td>다양한 최대 노력 (3, 5, 12, 20분)</td>
+                        <td>30-40분</td>
+                        <td>더 정확한 모델링, W' 밸런스 추적</td>
+                    </tr>
+                    <tr>
+                        <td><strong><a href="/ko/power-metrics/">표준화 파워 (NP)</a></strong></td>
+                        <td>변화무쌍한 노력의 생리적 비용</td>
+                        <td>주행 데이터로부터 계산</td>
+                        <td>해당 없음 (유도 지표)</td>
+                        <td>강도 변화가 심한 라이딩, 실제 TSS 산출</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5분 파워 (VO₂max)</strong></td>
+                        <td>최대 유산소 능력</td>
+                        <td>5분 전력 질주 테스트</td>
+                        <td>5-8분</td>
+                        <td>VO₂max 인터벌, 짧은 업힐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>20초 파워 (무산소)</strong></td>
+                        <td>신경근 파워 (순발력)</td>
+                        <td>20초 최대 스프린트</td>
+                        <td>20-30초</td>
+                        <td>스프린트 훈련, 피니시 대결</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>왜 FTP를 선택해야 하나요?</h3>
+            <p>FTP는 정확성과 실용성 사이에서 완벽한 균형을 이룹니다. 여러 번의 테스트가 필요한 크리티컬 파워(CP)나 비싸고 불편한 실험실 젖산 테스트와 달리, FTP는 단 한 번의 20분 측정으로
+                확인할 수 있습니다. 따라서 6-8주마다 정기적으로 재측정하여 체력 향상을 확인하고 훈련 존을 업데이트하기에 가장 이상적입니다.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="text-center mb-xl">FTP 측정 방법</h2>
+        <p class="lead text-center mb-xl">기능적 문턱 파워를 결정하기 위한 세 가지 검증된 프로토콜</p>
+
+        <div class="grid grid-3">
+            <div class="protocol-card">
+                <h3>🏆 20분 FTP 테스트</h3>
+                <p class="protocol-subtitle">가장 일반적인 방법</p>
+                <ol class="protocol-steps">
+                    <li>
+                        <strong>웜업 (20분)</strong>
+                        <p>가벼운 페달링으로 시작하여 강도를 점진적으로 올립니다. 레이스 페이스의 짧은 버스트를 2-3회 포함시키세요.</p>
+                    </li>
+                    <li>
+                        <strong>5분 전력 투구</strong>
+                        <p>무산소 예비력을 소진하기 위해 5분간 최대한 지속 가능한 노력을 합니다. 힘을 아끼지 마세요.</p>
+                    </li>
+                    <li>
+                        <strong>회복 (10분)</strong>
+                        <p>젖산을 제거하기 위해 가볍게 탑니다. 심박수가 120 bpm 아래로 떨어지게 하세요.</p>
+                    </li>
+                    <li>
+                        <strong>20분 본 테스트</strong>
+                        <p>최대 지속 노력을 합니다. 일정한 파워를 유지하세요. 초반에 너무 무리하지 마세요. 평균 파워를 기록합니다.</p>
+                    </li>
+                    <li>
+                        <strong>FTP 계산</strong>
+                        <p><strong>FTP = 20분 평균 파워의 95%</strong></p>
+                        <p class="text-secondary">예: 20분간 250W 유지 → FTP = 238W</p>
+                    </li>
+                </ol>
+                <div class="callout callout-tip mt-md">
+                    <strong>💡 프로 팁:</strong> 고른 파워 분포를 목표로 하세요. 마지막 5분을 버티지 못한다면 너무 세게 시작한 것입니다. 정확한 결과를 위해 페이싱이 중요합니다.
+                </div>
+            </div>
+
+            <div class="protocol-card">
+                <h3>⚡ 램프 테스트 (Ramp Test)</h3>
+                <p class="protocol-subtitle">짧은 대안 (총 20-30분 소요)</p>
+                <ol class="protocol-steps">
+                    <li>
+                        <strong>웜업 (10분)</strong>
+                        <p>다리를 예열하기 위해 엔듀런스 페이스로 가볍게 탑니다.</p>
+                    </li>
+                    <li>
+                        <strong>램프 프로토콜</strong>
+                        <p>가벼운 파워(100-150W)에서 시작합니다. 탈진할 때까지 1분마다 20W씩 높입니다.</p>
+                    </li>
+                    <li>
+                        <strong>한계까지 주행</strong>
+                        <p>목표 파워를 더 이상 유지할 수 없을 때까지 계속합니다. 마지막 1분간의 평균 파워를 기록합니다.</p>
+                    </li>
+                    <li>
+                        <strong>Calculate FTP</strong>
+                        <p><strong>FTP = 마지막 1분 파워의 75%</strong></p>
+                        <p class="text-secondary">예: 마지막 1분 340W → FTP = 255W</p>
+                    </li>
+                </ol>
+                <div class="callout callout-success mt-md">
+                    <strong>✅ 장점:</strong> 심리적 부담이 적고, 소요 시간이 짧으며, 페이스 조절이 쉽습니다. Zwift나 TrainerRoad 같은 실내 훈련 플랫폼에서 인기가
+                    많습니다.
+                </div>
+            </div>
+
+            <div class="protocol-card">
+                <h3>🥇 60분 테스트</h3>
+                <p class="protocol-subtitle">골드 스탠다드 (가장 정확함)</p>
+                <ol class="protocol-steps">
+                    <li>
+                        <strong>웜업 (20분)</strong>
+                        <p>지속적인 역치 주행을 준비하기 위해 레이스 페이스 노력을 몇 번 포함한 점진적 웜업을 수행합니다.</p>
+                    </li>
+                    <li>
+                        <strong>60분 최대 노력</strong>
+                        <p>한 시간 전체 동안 유지할 수 있는 최대 노력을 합니다. 페이싱이 전부입니다. 보수적으로 시작하세요.</p>
+                    </li>
+                    <li>
+                        <strong>평균 파워 기록</strong>
+                        <p>60분 전체의 평균 파워가 바로 여러분의 '진정한 FTP'입니다. 추가 계산이 필요 없습니다.</p>
+                    </li>
+                </ol>
+                <div class="warning-box mt-md">
+                    <strong>⚠️ 가장 정확하지만 가장 힘든 방법:</strong> 60분 테스트는 매우 고통스럽고 정신적으로 지칩니다. 대부분의 라이더는 정기적인 테스트에 20분 프로토콜을
+                    사용하고, 60분 테스트는 실력을 검증하거나 최상의 컨디션을 확인할 때 가끔 수행합니다.
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout-info mt-xl">
+            <h3>🔄 테스트 조건의 중요성</h3>
+            <p>일관되고 비교 가능한 결과를 얻으려면:</p>
+            <ul>
+                <li><strong>실내 vs 실외:</strong> 실내 테스트는 변수 통제가 쉽지만(바람, 교통, 지형 없음), 열 축적으로 인해 실외보다 5-10W 낮게 나올 수 있습니다.
+                </li>
+                <li><strong>시간대:</strong> 평소 훈련하는 시간과 동일한 시간대에 테스트하세요.</li>
+                <li><strong>수분 및 영양:</strong> 수분과 연료를 충분히 섭취하되, 식사 직후는 피하세요.</li>
+                <li><strong>피로 상태:</strong> 힘든 훈련 직후가 아닌, 충분히 휴식한 상태에서 하세요.</li>
+                <li><strong>파워미터:</strong> 보정 오차를 피하기 위해 모든 테스트에 동일한 파워미터를 사용하세요.</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>🔄 FTP 재측정 시기</h3>
+            <p>활동적인 훈련 중에는 <strong>6-8주마다</strong> FTP를 업데이트하거나, 다음과 같은 경우에 하세요:</p>
+            <ul>
+                <li>설정된 존을 넘어선 강도로 운동을 계속 완수할 수 있을 때</li>
+                <li>동일한 파워 출력에서 심박수가 이전보다 낮아졌을 때</li>
+                <li>훈련 단계가 바뀔 때 (기초 단계 → 강화 단계 → 피크 단계)</li>
+                <li>체력에 큰 변화가 있을 때 (부상, 질병, 비시즌 후)</li>
+                <li>새로운 훈련 계획이나 레이스 시즌을 시작하기 전</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>FTP vs 크리티컬 파워: 차이점은 무엇인가요?</h2>
+
+        <p class="lead">FTP와 크리티컬 파워(CP) 모두 여러분의 역치를 설명하지만, 접근 방식이 다릅니다.</p>
+
+        <div class="grid grid-2 mt-lg">
+            <div class="comparison-card">
+                <h3>기능적 문턱 파워 (FTP)</h3>
+                <ul class="comparison-list">
+                    <li><strong>단일 수치:</strong> 하나의 파워 값으로 역치를 정의합니다.</li>
+                    <li><strong>측정이 간편:</strong> 20분 또는 60분 노력 한 번이면 됩니다.</li>
+                    <li><strong>널리 보급됨:</strong> 2000년대 초반부터 업계 표준으로 자리 잡았습니다.</li>
+                    <li><strong>이해하기 쉬움:</strong> "최대 1시간 지속 가능 파워".</li>
+                    <li><strong>실용적:</strong> 정기적으로 재측정하기에 부담이 적습니다.</li>
+                    <li><strong>한계:</strong> 무산소 능력(W')을 고려하지 않습니다.</li>
+                </ul>
+            </div>
+
+            <div class="comparison-card">
+                <h3><a href="/ko/critical-power/">크리티컬 파워 (CP)</a></h3>
+                <ul class="comparison-list">
+                    <li><strong>두 가지 구성 요소:</strong> CP(지속 가능 파워) + W'(무산소 용량).</li>
+                    <li><strong>더 복잡함:</strong> 서로 다른 지속 시간의 최대 노력이 3-4회 필요합니다.</li>
+                    <li><strong>더 정확함:</strong> 파워-시간 관계를 정밀하게 모델링합니다.</li>
+                    <li><strong>W' 밸런스 가능:</strong> '무산소 배터리'의 소진과 회복을 추적합니다.</li>
+                    <li><strong>가변적인 노력에 적합:</strong> 로드 레이스, 크리테리움, MTB 등에 유리합니다.</li>
+                    <li><strong>기회비용:</strong> 더 많은 테스트 시간과 복잡한 분석이 필요합니다.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>둘 중 무엇을 사용해야 하나요?</h3>
+            <ul>
+                <li><strong>FTP 권장 사례:</strong> 꾸준한 지속 주행(타임 트라이얼, 철인 3종, 업힐)을 위해 간단하고 실용적인 훈련 존이 필요한 경우</li>
+                <li><strong>CP 권장 사례:</strong> 강도 변화가 심한 주행(크리테리움, 로드 레이스, MTB)의 정밀한 모델링과 W' 밸런스 추적이 필요한 경우</li>
+                <li><strong>참고:</strong> FTP와 CP는 대개 ±5W 이내로 비슷합니다. 많은 라이더들이 편의를 위해 FTP를 사용하며, CP를 써도 존 결과는 비슷할 것이라는 점을
+                    인지하고 있습니다.</li>
+            </ul>
+            <p><a href="/ko/critical-power/">크리티컬 파워와 W' 밸런스에 대해 더 알아보기 →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="container container-narrow">
+        <h2>FTP를 이용한 훈련 존 활용</h2>
+
+        <p class="lead">FTP는 코건(Coggan)의 7단계 파워 훈련 존 시스템을 활성화하여, 모든 운동에 대해 정밀한 강도 처방을 가능하게 합니다.</p>
+
+        <div class="callout callout-info mb-lg">
+            <h3>코건의 7단계 존 모델</h3>
+            <p>앤드류 코건 박사가 생리적 역치를 바탕으로 개발한 시스템입니다. 각 존은 특정 신체 적응을 목표로 합니다:</p>
+        </div>
+
+        <div class="zones-table-container">
+            <table class="zones-table">
+                <thead>
+                    <tr>
+                        <th>존</th>
+                        <th>명칭</th>
+                        <th>FTP 대비 %</th>
+                        <th>예시 (FTP 250W 기준)</th>
+                        <th>RPE (운동 자각도)</th>
+                        <th>훈련 목적</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="zone-1">
+                        <td><strong>1</strong></td>
+                        <td>능동적 회복</td>
+                        <td>&lt;55%</td>
+                        <td>&lt;138W</td>
+                        <td>1-2/10</td>
+                        <td>회복 주행, 웜업, 쿨다운</td>
+                    </tr>
+                    <tr class="zone-2">
+                        <td><strong>2</strong></td>
+                        <td>엔듀런스</td>
+                        <td>56-75%</td>
+                        <td>140-188W</td>
+                        <td>3-4/10</td>
+                        <td>유산소 기초, 지방 산화, 미토콘드리아 밀도</td>
+                    </tr>
+                    <tr class="zone-3">
+                        <td><strong>3</strong></td>
+                        <td>템포</td>
+                        <td>76-90%</td>
+                        <td>190-225W</td>
+                        <td>5-6/10</td>
+                        <td>근지구력, 탄수화물 대사 능력</td>
+                    </tr>
+                    <tr class="zone-4">
+                        <td><strong>4</strong></td>
+                        <td>젖산 역치</td>
+                        <td>91-105%</td>
+                        <td>228-263W</td>
+                        <td>7-8/10</td>
+                        <td>FTP 향상, 젖산 제거 능력, 레이스 페이스</td>
+                    </tr>
+                    <tr class="zone-5">
+                        <td><strong>5</strong></td>
+                        <td>VO₂max</td>
+                        <td>106-120%</td>
+                        <td>265-300W</td>
+                        <td>9/10</td>
+                        <td>최대 유산소 능력, 3-8분 주행 능력</td>
+                    </tr>
+                    <tr class="zone-6">
+                        <td><strong>6</strong></td>
+                        <td>무산소 용량</td>
+                        <td>121-150%</td>
+                        <td>303-375W</td>
+                        <td>10/10</td>
+                        <td>무산소 파워, 30초~3분 주행 능력</td>
+                    </tr>
+                    <tr class="zone-7">
+                        <td><strong>7</strong></td>
+                        <td>신경근 파워</td>
+                        <td>&gt;150%</td>
+                        <td>&gt;375W</td>
+                        <td>최대(MAX)</td>
+                        <td>스프린트 파워, 매우 짧은 폭발력 (&lt;30초)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-success mt-lg">
+            <h3>🎯 훈련 비중 제안</h3>
+            <p>최적의 지구력 발달을 위해 대부분의 라이더는 피라미드형 또는 양극화(Polarized) 훈련 비중을 따릅니다:</p>
+            <ul>
+                <li><strong>존 1-2 (가볍게):</strong> 전체 시간의 70-80% — 유산소 기초 구축</li>
+                <li><strong>존 3-4 (역치 부근):</strong> 전체 시간의 10-15% — FTP 향상</li>
+                <li><strong>존 5-7 (고강도):</strong> 전체 시간의 5-10% — 최대 출력 개발</li>
+            </ul>
+            <p><a href="/ko/training-zones/">파워 기반 훈련 존에 대해 더 알아보기 →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>FTP와 훈련 스트레스 점수 (TSS)</h2>
+
+        <p class="lead">FTP는 훈련 스트레스 점수(TSS) 계산을 가능하게 하는 분모 역할을 하며, 객관적인 훈련 부하 수치화를 가능하게 합니다.</p>
+
+        <h3>TSS가 FTP를 사용하는 방식</h3>
+        <p>TSS는 강도와 지속 시간을 결합하여 모든 라이딩의 훈련 부하를 수치화합니다:</p>
+
+        <div class="formula-box">
+            <h3>TSS 계산 공식</h3>
+            <div class="formula">
+                TSS = (지속 시간(초) × NP × IF) / (FTP × 3600) × 100
+            </div>
+            <div class="formula-explanation">
+                <p>각 항목 설명:</p>
+                <ul>
+                    <li><strong>NP</strong> = 표준화 파워 (변동성을 고려한 가중 평균 파워)</li>
+                    <li><strong>IF</strong> = 강도 계수 (NP / FTP)</li>
+                    <li><strong>FTP</strong> = 여러분의 기능적 문턱 파워</li>
+                </ul>
+            </div>
+
+            <h3 class="mt-lg">간략화된 개념:</h3>
+            <div class="formula">
+                TSS = (IF)² × 지속 시간(시간) × 100
+            </div>
+            <p class="text-secondary mt-sm">FTP 강도(IF 1.0)로 1시간 주행 = 100 TSS</p>
+        </div>
+
+        <h3 class="mt-xl">TSS 계산 예시</h3>
+        <div class="example-box">
+            <h4>라이딩 데이터:</h4>
+            <ul>
+                <li>지속 시간: <strong>2시간</strong> (7,200초)</li>
+                <li>표준화 파워(NP): <strong>210W</strong></li>
+                <li>본인의 FTP: <strong>250W</strong></li>
+            </ul>
+
+            <h4>1단계: 강도 계수(IF) 계산</h4>
+            <div class="calculation">
+                IF = NP / FTP<br>
+                IF = 210W / 250W<br>
+                IF = <strong>0.84</strong>
+            </div>
+
+            <h4>2단계: TSS 계산</h4>
+            <div class="calculation">
+                TSS = (0.84)² × 2시간 × 100<br>
+                TSS = 0.706 × 2 × 100<br>
+                TSS = <strong>141 TSS</strong>
+            </div>
+
+            <p class="mt-md"><strong>해석:</strong> FTP의 84% 강도로 수행한 이 2시간 엔듀런스 라이딩은 임계 강도로 1.41시간 주행한 것과 동일한 훈련 부하를
+                생성했습니다. 이는 과도한 피로를 주지 않으면서 체력에 기여하는 훌륭한 유산소 운동입니다.</p>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>정확한 FTP가 TSS에 중요한 이유</h3>
+            <p>FTP가 실제보다 낮게 설정되어 있으면 TSS가 인위적으로 부풀려져, 실제보다 더 힘들게 훈련하고 있다고 착각하게 됩니다. 반대로 FTP가 너무 높으면 TSS가 낮게 책정되어 피로도를
+                과소평가하고 오버트레이닝에 빠질 위험이 있습니다. <strong>정확한 FTP 설정이 정확한 훈련 부하 모니터링의 시작입니다.</strong></p>
+            <p><a href="/ko/training-load/">TSS, CTL, ATL, TSB에 대해 더 알아보기 →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>로드 vs MTB FTP: 중요한 차이점</h2>
+
+        <p class="lead">로드와 산악자전거(MTB)의 FTP 값은 생체 역학, 케이던스 패턴, 파워 전달 방식의 차이로 인해 상당한 차이를 보일 수 있습니다.</p>
+
+        <div class="comparison-grid">
+            <div class="comparison-item">
+                <h3>🚴 로드 사이클링 FTP</h3>
+                <ul>
+                    <li><strong>높은 절대 파워:</strong> 일정한 정상 상태 노력 유지에 유리합니다.</li>
+                    <li><strong>최적 케이던스:</strong> 역치 부근에서 85-95 RPM.</li>
+                    <li><strong>매끄러운 파워 전달:</strong> 변동성 지수(VI) 1.02-1.05 수준.</li>
+                    <li><strong>에어로 자세:</strong> 더 낮고 공격적인 자세.</li>
+                    <li><strong>긴 지속 노력:</strong> 20-60분간의 역치 주행 블록 가능.</li>
+                </ul>
+            </div>
+
+            <div class="comparison-item">
+                <h3>🚵 MTB FTP</h3>
+                <ul>
+                    <li><strong>5-10% 낮은 파워:</strong> 기술적 요구와 자세 때문입니다.</li>
+                    <li><strong>가변적인 케이던스:</strong> 평균 70-85 RPM, 잦은 변화.</li>
+                    <li><strong>폭발적인 파워:</strong> 인터벌성 주행으로 VI 1.10-1.20 이상.</li>
+                    <li><strong>상체 위주 자세:</strong> 기술적 제어를 위해 상체를 세우므로 파워 효율이 떨어집니다.</li>
+                    <li><strong>간헐적 노력:</strong> 기술 구간에서 지속적인 미세 회복이 수반됩니다.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-warning mt-lg">
+            <h3>⚠️ MTB FTP가 낮은 이유</h3>
+            <p>MTB 라이더는 다음을 경험합니다:</p>
+            <ul>
+                <li><strong>신체 자세:</strong> 제어를 위해 상체를 세우는 자세는 다리로의 파워 전달 효율을 떨어뜨립니다.</li>
+                <li><strong>케이던스 변동성:</strong> 잦은 가속과 기술 구간은 페달링 리듬을 깨뜨립니다.</li>
+                <li><strong>서스펜션 손실:</strong> 풀 서스펜션 바이크는 거친 지형에서 파워의 14-30%를 흡수할 수 있습니다.</li>
+                <li><strong>근육 동원:</strong> 바이크 제어를 위한 상체 사용은 다리로 갈 에너지를 분산시킵니다.</li>
+                <li><strong>지형 변동성:</strong> 돌, 뿌리 등의 장애물은 지속적인 파워 조절을 요구합니다.</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-success mt-lg">
+            <h3>✅ 종목별 별도 FTP 추적</h3>
+            <p>Bike Analytics는 로드와 MTB 종목에 대해 별도의 FTP 값을 자동으로 추적합니다. 테스트 시 고려 사항:</p>
+            <ul>
+                <li><strong>로드 FTP:</strong> 평탄한 도로나 실내 트레이너에서 일정하고 지속적인 파워로 측정하세요.</li>
+                <li><strong>MTB FTP:</strong> 완만한 경사의 산악 트레일이나 실내 트레이너의 MTB 포지션에서 측정하세요.</li>
+                <li><strong>예상 차이:</strong> MTB FTP는 일반적으로 로드 FTP보다 5-10% 낮게 형성됩니다.</li>
+            </ul>
+            <p><a href="/ko/road-vs-mtb/">로드 vs MTB 훈련 차이점에 대해 더 알아보기 →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>수준별 일반적인 FTP 수치</h2>
+
+        <div class="levels-comparison">
+            <div class="level-card">
+                <h3>🥇 월드 투어 프로 (World Tour)</h3>
+                <div class="pace-value">5.5-6.5 W/kg</div>
+                <div class="pace-equivalent">380-450W (70kg 라이더 기준)</div>
+                <p>그랜드 투어 우승 후보 및 프로 사이클리스트들입니다. 전문 코칭, 영양, 회복 시스템 속에서 수년간 엘리트 훈련을 받은 수준입니다.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🏆 엘리트 동호인 / Cat 1-2</h3>
+                <div class="pace-value">4.5-5.5 W/kg</div>
+                <div class="pace-equivalent">315-385W (70kg 라이더 기준)</div>
+                <p>최상위권 경쟁 동호인 및 국가대표급 라이더들입니다. 주당 12-18시간 이상의 체계적인 훈련과 코칭을 병행합니다.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🚴 경쟁 동호인 / Cat 3-4</h3>
+                <div class="pace-value">3.5-4.5 W/kg</div>
+                <div class="pace-equivalent">245-315W (70kg 라이더 기준)</div>
+                <p>정기적으로 대회에 참여하는 진지한 애호가들입니다. 주당 8-12시간의 꾸준한 계획 훈련을 수행합니다.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🚵 레크리에이션 / 건강 증진</h3>
+                <div class="pace-value">2.5-3.5 W/kg</div>
+                <div class="pace-equivalent">175-245W (70kg 라이더 기준)</div>
+                <p>주당 5-8시간 훈련하는 일반인 라이더들입니다. 그룹 라이딩과 아마추어 이벤트 참여를 통해 체력을 키우는 단계입니다.</p>
+            </div>
+
+            <div class="level-card">
+                <h3>🌟 초급자</h3>
+                <div class="pace-value">2.0-2.5 W/kg</div>
+                <div class="pace-equivalent">140-175W (70kg 라이더 기준)</div>
+                <p>체계적인 훈련을 시작한 지 얼마 되지 않았거나 휴식 후 복귀한 단계입니다. 파워 기반 훈련 경력 1년 미만이 대개 여기에 속합니다.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-info mt-lg">
+            <h3>W/kg vs 절대 와트</h3>
+            <p><strong>체중 대비 파워 (W/kg)</strong>는 절대적인 와트 수치보다 업힐 성능 분석과 체격이 다른 라이더 간 비교 시 훨씬 의미가 큽니다:</p>
+            <ul>
+                <li><strong>업힐:</strong> W/kg가 등반 속도를 직접적으로 예측합니다 (중력 지배적).</li>
+                <li><strong>평지:</strong> 절대 와트가 더 중요합니다 (공기 저항 지배적).</li>
+                <li><strong>타임 트라이얼:</strong> 절대 파워와 에어로 성능의 조합이 W/kg보다 중요합니다.</li>
+            </ul>
+            <p>여러분의 W/kg 계산법: <strong>FTP (와트) / 체중 (kg)</strong></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="container container-narrow">
+        <h2>FTP의 과학적 검증</h2>
+
+        <div class="research-highlight">
+            <h3>Allen & Coggan (2019) - Training and Racing with a Power Meter</h3>
+            <p>앤드류 코건 박사와 헌터 앨런은 그들의 기념비적인 저서(현재 3판)에서 FTP를 파워 기반 훈련의 핵심 지표로 확립했습니다:</p>
+
+            <ul class="research-findings">
+                <li><strong>실질적인 역치 정의:</strong> 피로 누적 없이 1시간 동안 낼 수 있는 최대 파워.</li>
+                <li><strong>20분 테스트 프로토콜:</strong> 20분 파워의 95% 수치가 60분 지속 파워와 강력한 상관관계를 보임을 입증.</li>
+                <li><strong>훈련 스트레스 점수(TSS) 활성화:</strong> 훈련 부하의 객관적 수치화 기여.</li>
+                <li><strong>개인화된 훈련 존:</strong> 생리적 역치에 기반한 7단계 시스템 구축.</li>
+                <li><strong>업계 표준:</strong> TrainingPeaks, Zwift, TrainerRoad 등 모든 주요 플랫폼이 채택.</li>
+            </ul>
+        </div>
+
+        <div class="research-highlight mt-lg">
+            <h3>MacInnis, Thomas & Phillips (2019) - FTP 테스트의 신뢰성</h3>
+            <p>훈련된 선수들을 대상으로 FTP 테스트의 높은 신뢰성과 재현성을 입증한 검증 연구입니다:</p>
+
+            <ul class="research-findings">
+                <li><strong>높은 신뢰도:</strong> 테스트-재테스트 간 상관계수 ICC = 0.98, r² = 0.96 기록.</li>
+                <li><strong>검증된 재현성:</strong> 편차 ±2W, 전형적인 오차율 2.3%의 수치 제시.</li>
+                <li><strong>1시간 파워 식별:</strong> 선수의 89%에서 지속 가능한 역치를 정확하게 예측.</li>
+                <li><strong>실용적 대안:</strong> 비용이 많이 드는 실험실 젖산 테스트를 유효하게 대체할 수 있음을 확인.</li>
+            </ul>
+
+            <div class="citation">
+                <p><strong>출처:</strong> MacInnis, M.J., Thomas, A.C.Q., & Phillips, S.M. (2019). "Is the FTP Test a
+                    Reliable, Reproducible and Functional Assessment Tool in Highly-Trained Athletes?" <em>International
+                        Journal of Exercise Science</em>, PMC6886609.</p>
+            </div>
+        </div>
+
+        <div class="research-highlight mt-lg">
+            <h3>Karsten et al. (2019) - 퍼포먼스 예측을 위한 FTP의 유효성</h3>
+            <p>사이클링 퍼포먼스 예측에 있어 FTP가 VO₂max보다 우월함을 입증한 연구입니다:</p>
+
+            <ul class="research-findings">
+                <li><strong>강력한 성능 상관관계:</strong> FTP 기반의 W/kg 수치가 레이스 성적과 높은 상관관계 보임 (r = -0.74).</li>
+                <li><strong>VO₂max보다 우수:</strong> VO₂max 수치는 상대적으로 낮은 상관관계(r = -0.37)를 보임.</li>
+                <li><strong>실질적 관련성:</strong> FTP 수치가 실제 레이스 페이스 및 훈련 처방에 직접적으로 연결됨.</li>
+            </ul>
+
+            <div class="citation">
+                <p><strong>출처:</strong> Karsten, B., et al. (2019). "The Validity of Functional Threshold Power and
+                    Maximal Oxygen Uptake for Cycling Performance in Moderately Trained Cyclists" PMC6835290.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-science mt-lg">
+            <h3>🔬 FTP가 작동하는 원리</h3>
+            <p>기능적 문턱 파워는 <strong>고강도(Heavy) 운동 영역과 극한(Severe) 운동 영역의 경계</strong>를 나타냅니다. FTP 이하에서는 젖산 생성과 제거가 균형을 이루어
+                이론적으로 매우 오랫동안 운동을 지속할 수 있습니다. FTP를 넘어서면 젖산이 급격히 쌓이기 시작하며 결국 20-60분 내에 탈진에 이르게 됩니다.</p>
+            <p>이러한 특성 때문에 FTP는 다음과 같은 활동에 완벽한 기준이 됩니다:</p>
+            <ul>
+                <li>지속 가능한 타임 트라이얼 및 업힐 페이스 설정</li>
+                <li>젖산 역치 인터벌 훈련 처방</li>
+                <li>시간에 따른 유산소 체능 향상 모니터링</li>
+                <li>훈련 부하, 피로도 및 회복 필요량 계산</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2 class="mt-3xl">FTP에 관한 자주 묻는 질문 (FAQ)</h2>
+
+        <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">사이클링에서 FTP란 무엇인가요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>FTP(Functional Threshold Power)는 과도한 피로 없이 약 1시간 동안 유지할 수 있는 최대 평균 파워 출력입니다. 이는 젖산 생성량과 제거량이
+                            일치하는 지점인 유산소 역치를 의미합니다. FTP는 개인화된 <a href="/ko/training-zones/">파워 기반 훈련 존</a>과 정확한
+                            <a href="/ko/training-load/">훈련 부하 계산</a>의 기초가 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">FTP는 어떻게 테스트하나요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>가장 일반적인 FTP 테스트 프로토콜은 다음과 같습니다: (1) 20분간 웜업, (2) 5분간 전력 질주, (3) 10분간 회복 주행, (4) 20분간 최대 지속 노력
+                            주행 후 평균 파워 기록, (5) <strong>FTP = 20분 평균 파워의 95%</strong>로 계산. 대안으로는 램프 테스트나 실제 60분 테스트가
+                            있습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">얼마나 자주 FTP를 재측정해야 하나요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>활동적인 훈련 중에는 6-8주마다 재측정하여 향상된 체력에 맞춰 훈련 존을 업데이트하는 것이 좋습니다. 집중적인 단련 단계에서는 4주마다 하기도 합니다. 또한 질병이나
+                            부상 후, 심박수가 평소보다 눈에 띄게 낮아졌을 때도 다시 측정해 보세요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">입문자에게 적절한 FTP 수치는 얼마인가요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>체계적인 훈련 경력이 1년 미만인 초급자의 경우, 일반적인 FTP는 2.0-2.5 W/kg (70kg 라이더 기준 140-175W) 정도입니다. 주당 5-8시간
+                            훈련하는 동호인은 보통 2.5-3.5 W/kg 수준을 달성합니다. 프로 선수(5.5-6.5 W/kg)와 비교하기보다는 자신의 수치를 한 시즌에 10-20% 향상하는
+                            데 집중하세요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">FTP와 크리티컬 파워는 같은 건가요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>FTP와 <a href="/ko/critical-power/">크리티컬 파워 (CP)</a>는 밀접하지만 다릅니다. FTP는 1시간 파워를 나타내는 단일
+                            수치인 반면, CP는 지속 가능 파워와 무산소 용량을 모두 포함하는 두 가지 요소 모델입니다. 대개 ±5W 정도 차이가 나며 CP가 조금 더 높게 나오는 경향이
+                            있습니다. 대중적으로는 FTP가 훨씬 널리 쓰입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">왜 실내 FTP가 실외보다 낮게 측정되나요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>실내 FTP는 열 축적, 냉각 공기의 부재, 심리적 요인 등으로 인해 실외보다 5-10W 낮게 나올 수 있습니다. 실내에서는 주행 풍이 없으므로 체온이 더 빨리 오르고
+                            신체가 과열을 막기 위해 파워를 낮추게 됩니다. 정확한 훈련을 위해 실내외 FTP를 별도로 관리하거나, 주로 훈련하는 환경에서 테스트하는 것이 좋습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">로드와 MTB FTP의 차이는 무엇인가요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>MTB FTP는 대개 로드보다 5-10% 낮습니다. 이는 (1) 상체를 세우는 포지션으로 인한 파워 전달 효율 저하, (2) 서스펜션의 파워 흡수, (3) 거친 지형에
+                            의한 가변적인 케이던스, (4) 조향을 위한 상체 근육 개입 때문입니다. 종목별로 별도의 FTP 값을 관리하는 것이 권장됩니다. <a
+                                href="/ko/road-vs-mtb/">로드 vs MTB 차이점 더 알아보기 →</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">테스트 없이 FTP를 추정할 수 있나요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>최근의 대회 기록이나 고강도 그룹 라이딩 데이터를 통해 추정할 수 있지만, 직접적인 테스트가 <a href="/ko/training-load/">TSS
+                                계산</a>과 훈련 존 설정에 훨씬 정확합니다. 20분 테스트는 웜업을 포함해 50분이면 끝납니다. Bike Analytics 앱은 여러분의 평소 주행
+                            데이터를 분석하여 FTP를 자동으로 추정해 주는 기능도 제공합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-3xl">
+            <h3>FTP 지식을 실전에 적용하기</h3>
+            <p>기능적 문턱 파워를 이해하셨다면, 훈련을 최적화하기 위한 다음 단계로 넘어가 보세요:</p>
+            <ul>
+                <li><a href="/ko/training-zones/">7단계 파워 훈련 존 탐구:</a> 각 영역에 맞춰 운동을 구성하는 방법 학습</li>
+                <li><a href="/ko/training-load/">훈련 스트레스 점수(TSS) 계산:</a> FTP를 기준으로 운동 강도 수치화</li>
+                <li><a href="/ko/critical-power/">FTP와 크리티컬 파워 비교:</a> 자신의 주행 스타일에는 어떤 모델이 적합한지 판단</li>
+                <li><a href="/ko/power-metrics/">표준화 파워(NP) 이해:</a> 가변적인 주행에서 TSS 정확도 높이기</li>
+                <li><a href="/ko/">Bike Analytics 다운로드:</a> FTP, 파워 존, 퍼포먼스 트렌드 자동 추적 시작</li>
+            </ul>
+        </div>
+
+        <div class="mt-xl text-center">
+            <a href="/ko/training-zones/" class="btn btn-primary">파워 훈련 존 알아보기 →</a>
+            <a href="/ko/training-load/" class="btn btn-secondary">TSS 가이드 보기 →</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/ko/privacy/">Privacy</a></li>
+                <li><a href="/ko/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/ko/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

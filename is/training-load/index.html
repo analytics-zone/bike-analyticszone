@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="is" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>TSS, CTL, ATL, TSB - Cycling Training Load Management</title>
+  <meta name="description" content="Master Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL), and Training Stress Balance (TSB) for cycling.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="TSS cycling, training stress score, CTL cycling, ATL cycling, TSB cycling, training load management">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/is/training-load/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-21T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/is/training-load/">
+  <meta property="og:title" content="TSS, CTL, ATL, TSB - Cycling Training Load Management">
+  <meta property="og:description" content="Master Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL), and Training Stress Balance (TSB) for cycling.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="is_IS">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/is/training-load/">
+  <meta name="twitter:title" content="TSS, CTL, ATL, TSB - Cycling Training Load Management">
+  <meta name="twitter:description" content="Master Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL), and Training Stress Balance (TSB) for cycling.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/training-load/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/training-load/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/training-load/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/training-load/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/training-load/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/training-load/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/training-load/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/training-load/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/training-load/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/training-load/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/training-load/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/training-load/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/training-load/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/training-load/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/training-load/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/training-load/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/training-load/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/training-load/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/training-load/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/training-load/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/training-load/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/training-load/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/training-load/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/training-load/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/training-load/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/training-load/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "TSS, CTL, ATL, TSB - Cycling Training Load Management",
+      "description": "Master Training Stress Score (TSS), Chronic Training Load (CTL), Acute Training Load (ATL), and Training Stress Balance (TSB) for cycling.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/is/training-load/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/is/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/is/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/is/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/training-load/" class="active"
+                                    aria-current="page">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/is/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/is/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/is/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" selected>
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Stjórnun þjálfunarálags: TSS, CTL, ATL og TSB í hjólreiðum</h1>
+        <p class="lead">Náðu tökum á frammistöðugröfum til að hámarka þjálfun, forðast ofþjálfun og ná toppformi á
+            réttum tíma</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-success">
+            <h2>🎯 Helstu atriði: Þjálfunarálag í hjólreiðum</h2>
+            <ul>
+                <li><strong>TSS (Training Stress Score)</strong> mælir hversu mikið hver hjólaferð reynir á líkamann með
+                    því að sameina afl, ákefð og tímalengd</li>
+                <li><strong>CTL (Chronic Training Load)</strong> mælir langtímaform þitt sem byggist upp á 42 dögum af
+                    stöðugri þjálfun</li>
+                <li><strong>ATL (Acute Training Load)</strong> fylgist með skammtímaþreytu síðustu 7 daga</li>
+                <li><strong>TSB (Training Stress Balance)</strong> sýnir jafnvægið á milli forms og þreytu og hversu
+                    tilbúinn þú ert í keppni eða þarft hvíld</li>
+                <li>Skilningur á þjálfunarálagi í hjólreiðum kemur í veg fyrir ofþjálfun og auðveldar þér að ná
+                    toppformi með gagnaþreyttri tímabilaskiptingu</li>
+            </ul>
+            <p><em>Grunnurinn: TSS útreikningar byggja á þínu <a href="/is/ftp/">FTP gildi (Functional Threshold
+                        Power)</a> sem viðmiðunarpunkti.</em></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Hvað er TSS (Training Stress Score)?</h2>
+        <p class="lead">TSS svarar mikilvægu spurningunni: <strong>Hversu erfið var ferðin?</strong> Ekki bara hvað
+            varðar vegalengd eða tíma, heldur raunverulegt lífeðlisfræðilegt álag á líkamann í hverri æfingu.</p>
+
+        <p>TSS (Training Stress Score), þróað af Dr. Andrew Coggan, er staðlað aðferð til að breyta ákefð og lengd
+            æfingar í eina tölu. TSS gjörbylti þjálfun í hjólreiðum með því að gera aflmiðaða þjálfun aðgengilega og
+            hagnýta.</p>
+
+        <div class="callout callout-info">
+            <h3>TSS staðallinn í hjólreiðum</h3>
+            <p>Ein klukkustund á þínu <a href="/is/ftp/">FTP afli</a> = <strong>100 TSS</strong></p>
+            <p>Þessi stöðlun gerir þér kleift að bera saman mismunandi æfingar, vikur og þjálfunartímabil. 30 mínútna
+                æfing á FTP = ~50 TSS. 2 tíma ferð á FTP = ~200 TSS.</p>
+        </div>
+
+        <h3>Hvernig er TSS reiknað?</h3>
+        <div class="formula-box">
+            <div class="formula">
+                TSS = (sekúndur × NP × IF) / (FTP × 3600) × 100
+            </div>
+            <div class="formula-explanation">
+                <p>Þar sem:</p>
+                <ul>
+                    <li><strong>NP (Normalized Power)</strong> = Raunálag (lífeðlisfræðilegur "kostnaður") ferðarinnar
+                    </li>
+                    <li><strong>IF (Intensity Factor)</strong> = NP / FTP (ákefð miðað við þröskuld)</li>
+                    <li><strong>Tímalengd</strong> = Heildartími ferðarinnar í sekúndum</li>
+                    <li><strong>FTP</strong> = Þitt aflmiðaða hámarksgeta í vöttum</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Dæmi: 2 klukkustunda þolferð</h3>
+        <div class="example-box">
+            <h4>Prófíll hjólara:</h4>
+            <ul>
+                <li>FTP: <strong>250W</strong></li>
+            </ul>
+
+            <h4>Gögn ferðarinnar:</h4>
+            <ul>
+                <li>Lengd: <strong>2 klukkustundir (7200 sekúndur)</strong></li>
+                <li>Jafnað afl (NP): <strong>200W</strong></li>
+            </ul>
+
+            <h4>Skref 1: Reikna ákefðarstuðul (IF)</h4>
+            <div class="calculation">
+                IF = NP / FTP<br>
+                IF = 200W / 250W<br>
+                IF = <strong>0.80</strong>
+            </div>
+
+            <h4>Skref 2: Reikna TSS</h4>
+            <div class="calculation">
+                TSS = (7200s × 200W × 0.80) / (250W × 3600) × 100<br>
+                TSS = (1,152,000) / (900,000) × 100<br>
+                TSS = <strong>128 TSS</strong>
+            </div>
+
+            <p class="mt-md"><strong>Túlkun:</strong> Þessi 2 klukkustunda þolferð á 80% af FTP skilaði 128 TSS – góð
+                örvun fyrir loftháð þol sem er dæmigert fyrir grunnþjálfun.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-xl">TSS leiðbeiningar eftir tegund æfingar</h2>
+
+        <div class="intensity-guide">
+            <table class="intensity-table">
+                <thead>
+                    <tr>
+                        <th>Tegund æfingar</th>
+                        <th>TSS bil</th>
+                        <th>Ákefðarstuðull (IF)</th>
+                        <th>Lýsing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Endurheimtarferð</strong></td>
+                        <td>20-50 TSS</td>
+                        <td>IF &lt; 0.65</td>
+                        <td>Auðvelt snúningur, virk endurheimt, 30-60 mínútur</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Létt þolferð</strong></td>
+                        <td>50-100 TSS</td>
+                        <td>IF 0.65-0.75</td>
+                        <td>Ræðuhraði, uppbygging grunnþols, 1-2 klukkustundir</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Miðlungs þolferð</strong></td>
+                        <td>100-150 TSS</td>
+                        <td>IF 0.75-0.85</td>
+                        <td>Stöðugt flæði, hópkeyrsla, 2-3 klukkustundir</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tempóferð</strong></td>
+                        <td>150-200 TSS</td>
+                        <td>IF 0.85-0.95</td>
+                        <td>"Sweet spot" þjálfun, viðurhlutamikil tempóferð, 2-3 klukkustundir</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Þröskuldaæfing</strong></td>
+                        <td>200-300 TSS</td>
+                        <td>IF 0.95-1.05</td>
+                        <td>FTP sprettir, keppnisstúdíur, 2-4 klukkustundir með gæðum</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VO₂max æfing</strong></td>
+                        <td>150-250 TSS</td>
+                        <td>IF 1.05-1.15</td>
+                        <td>Erfiðir sprettir á 120% af FTP, 1-2 klukkustundir með mikilli ákefð</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Keppnisstúdía</strong></td>
+                        <td>200-400 TSS</td>
+                        <td>IF 0.90-1.05</td>
+                        <td>Sértæk áreynsla, götu- eða brautarkeppnir, 2-5 klukkustundir</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>📊 Vikuleg TSS markmið eftir getu</h3>
+            <ul>
+                <li><strong>Byrjandi:</strong> 200-400 TSS á viku (3-4 ferðir á viku)</li>
+                <li><strong>Áhugamaður:</strong> 400-600 TSS á viku (4-5 ferðir á viku)</li>
+                <li><strong>Keppnismaður:</strong> 600-900 TSS á viku (5-7 ferðir á viku)</li>
+                <li><strong>Atvinnumaður:</strong> 900-1500+ TSS á viku (8-12+ æfingar á viku)</li>
+            </ul>
+            <p>Þetta safnast saman í langtímaþjálfunarálag þitt (CTL), sem er mælikvarði á formið þitt og útskýrt hér að
+                neðan.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="text-center mb-xl">Frammistöðugrafið (Performance Management Chart - PMC)</h2>
+        <p class="text-center lead">Frammistöðugrafið (PMC) sýnir þrjár samtengdar mælingar sem segja alla söguna um
+            þína þjálfun: form, þreytu og ástand.</p>
+
+        <div class="pmc-overview">
+            <div class="grid grid-3">
+                <div class="pmc-metric">
+                    <div class="metric-icon">📈</div>
+                    <h3>CTL - Chronic Training Load</h3>
+                    <div class="metric-value-label">Þitt FORM</div>
+                    <p>42 daga vegið meðaltal af daglegu TSS. Táknar langtímaform og aðlögun líkamans að þjálfun yfir
+                        lengri tíma.</p>
+                    <div class="formula-small">
+                        CTL í dag = CTL í gær + (TSS í dag - CTL í gær) / 42
+                    </div>
+                </div>
+
+                <div class="pmc-metric">
+                    <div class="metric-icon">⚡</div>
+                    <h3>ATL - Acute Training Load</h3>
+                    <div class="metric-value-label">Þín ÞREYTA</div>
+                    <p>7 daga vegið meðaltal af daglegu TSS. Sýnir nýlegt þjálfunarálag og uppsafnaða þreytu síðustu
+                        viku.</p>
+                    <div class="formula-small">
+                        ATL í dag = ATL í gær + (TSS í dag - ATL í gær) / 7
+                    </div>
+                </div>
+
+                <div class="pmc-metric">
+                    <div class="metric-icon">🎯</div>
+                    <h3>TSB - Training Stress Balance</h3>
+                    <div class="metric-value-label">Þitt ÁSTAND</div>
+                    <p>Munurinn á formi gærdagsins og þreytu dagsins í dag. Segir til um hversu tilbúinn þú ert í átök
+                        eða hvort þú þurfir hvíld.</p>
+                    <div class="formula-small">
+                        TSB = CTL (í gær) - ATL (í dag)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>CTL: Mælikvarði á formið þitt</h2>
+
+        <div class="grid grid-2">
+            <div>
+                <h3>Hvað CTL táknar fyrir hjólreiðafólk</h3>
+                <p>CTL mælir það þjálfunarálag sem líkaminn þinn hefur <em>aðlagast</em> síðustu 6 vikurnar. Hærra CTL í
+                    hjólreiðum þýðir:</p>
+                <ul>
+                    <li>Meira loftháð þol og úthald</li>
+                    <li>Getu til að höndla meira æfingamagn og hærri ákefð</li>
+                    <li>Bætt efnaskiptahagkvæmni og fitubrennsla</li>
+                    <li>Hærra vinnuafl yfir lengri tíma</li>
+                    <li>Betri endurheimt á milli erfiðra spretta</li>
+                </ul>
+
+                <div class="callout callout-info">
+                    <h4>Tímavídd: 42 dagar</h4>
+                    <p>CTL hefur helmingunartíma upp á u.þ.b. 14-15 daga. Eftir 42 daga eru eftir um 36,8% (1/e) af
+                        áhrifum stakrar æfingar í útreikningi formsins þíns.</p>
+                    <p>Þessi hæga þróun þýðir að formið byggist upp smám saman en dalar líka hægt – þú getur tekið þér
+                        vikufrí án þess að missa verulegt form.</p>
+                </div>
+            </div>
+
+            <div>
+                <h3>Dæmigerð CTL gildi eftir getu</h3>
+                <div class="levels-comparison">
+                    <div class="level-card-compact">
+                        <strong>Byrjendur:</strong>
+                        <div class="value">20-40 CTL</div>
+                        <p>Byggja upp grunninn, 3-4 ferðir á viku</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>Áhuga-hjólreiðafólk:</strong>
+                        <div class="value">40-80 CTL</div>
+                        <p>Regluleg þjálfun, 4-5 ferðir á viku</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>Keppnisfólk:</strong>
+                        <div class="value">80-120 CTL</div>
+                        <p>Mikið magn, 6-8 æfingar á viku</p>
+                    </div>
+
+                    <div class="level-card-compact">
+                        <strong>Atvinnufólk:</strong>
+                        <div class="value">120-200+ CTL</div>
+                        <p>Atvinnuþjálfun, 10-15+ stundir á viku</p>
+                    </div>
+                </div>
+
+                <div class="warning-box mt-md">
+                    <strong>⚠️ Hvað á CTL að hækka hratt?</strong>
+                    <ul>
+                        <li><strong>Öruggt:</strong> +3-8 CTL á viku</li>
+                        <li><strong>Kraptmikið en sjálfbært:</strong> +8-12 CTL á viku</li>
+                        <li><strong>Hættulegt:</strong> >12 CTL á viku</li>
+                    </ul>
+                    <p>Ef CTL hækkar of hratt eykst hætta á meiðslum og veikindum verulega. Byggðu formið upp hægt og
+                        bítandi.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-xl">Uppbygging CTL: Dæmi um framvindu</h3>
+        <div class="example-box">
+            <h4>Dæmi um 12 vikna grunnþjálfun</h4>
+            <ul>
+                <li><strong>Vika 1:</strong> CTL 60 → 65 (+5)</li>
+                <li><strong>Vika 2:</strong> CTL 65 → 70 (+5)</li>
+                <li><strong>Vika 3:</strong> CTL 70 → 75 (+5)</li>
+                <li><strong>Vika 4:</strong> CTL 75 → 78 (+3, hvíldarvika)</li>
+                <li><strong>Vika 5:</strong> CTL 78 → 83 (+5)</li>
+                <li><strong>Vika 6:</strong> CTL 83 → 88 (+5)</li>
+                <li><strong>Vika 7:</strong> CTL 88 → 93 (+5)</li>
+                <li><strong>Vika 8:</strong> CTL 93 → 96 (+3, hvíldarvika)</li>
+                <li><strong>Vika 9:</strong> CTL 96 → 102 (+6)</li>
+                <li><strong>Vika 10:</strong> CTL 102 → 108 (+6)</li>
+                <li><strong>Vika 11:</strong> CTL 108 → 114 (+6)</li>
+                <li><strong>Vika 12:</strong> CTL 114 → 116 (+2, hvíld fyrir næsta tímabil)</li>
+            </ul>
+            <p><strong>Niðurstaða:</strong> +56 CTL stig á 12 vikum (meðaltal 4,7 á viku) - sjálfbær framvinda frá
+                áhugamanni yfir í keppnisform.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>ATL: Skammtímaþreytan þín</h2>
+
+        <div class="content-split">
+            <div>
+                <p>ATL fylgist með skammtíma þjálfunarálagi – þreytunni sem hefur safnast upp síðustu viku. Hún hækkar
+                    hratt eftir erfiðar æfingar en lækkar líka hratt við hvíld, sem gerir hana nauðsynlega til að stýra
+                    endurheimt á milli gæðaæfinga.</p>
+
+                <h3>Einkenni ATL í hjólreiðaþjálfun</h3>
+                <ul>
+                    <li><strong>Fljót svörun:</strong> 7 daga tímavídd (helmingunartími ~2,4 dagar)</li>
+                    <li><strong>Óreglulegt mynstur:</strong> Hækkar skarpt eftir átök, lækkar á hvíldardögum</li>
+                    <li><strong>Vísir um endurheimt:</strong> Lækkandi ATL = þreyta er að hverfa á milli æfinga</li>
+                    <li><strong>Viðvörun um ofþjálfun:</strong> Stöðugt hátt ATL bendir til ófullnægjandi hvíldar</li>
+                    <li><strong>Jafnvægi:</strong> ATL ætti að fylgja CTL en með miklu meiri sveiflum</li>
+                </ul>
+
+                <div class="callout callout-science">
+                    <h4>🔬 Form-Þreytu módelið</h4>
+                    <p>Hver hjólaferð hefur tvenns konar áhrif:</p>
+                    <ol>
+                        <li><strong>Örvun formsins</strong> (byggist hægt upp, varir lengi)</li>
+                        <li><strong>Þreyta</strong> (safnast hratt upp, hverfur hratt)</li>
+                    </ol>
+                    <p>Frammistaða = Form - Þreyta. PMC grafið sýnir þetta líkan á myndrænan hátt, sem gerir vísindalega
+                        tímabilaskiptingu mögulega.</p>
+                </div>
+            </div>
+
+            <div>
+                <h3>Við stöðuga þjálfun</h3>
+                <p>Þegar þjálfunarálag er jafnt viku eftir viku, mætast CTL og ATL:</p>
+                <div class="example-box">
+                    <h4>Dæmi: 500 TSS á viku stöðugt</h4>
+                    <div class="calculation">
+                        Daglegt TSS ≈ 71<br>
+                        CTL nálgast ~71<br>
+                        ATL nálgast ~71<br>
+                        TSB nálgast 0
+                    </div>
+                    <p><strong>Túlkun:</strong> Form og þreyta eru í jafnvægi. Sjálfbært viðhald á þjálfun – hvorki
+                        vöxtur né hnignun á formi.</p>
+                </div>
+
+                <h3>Á uppbyggingartímabili</h3>
+                <p>Þegar magn eða ákefð er aukin:</p>
+                <div class="example-box">
+                    <p>ATL hækkar <em>hraðar</em> en CTL vegna skemmri tímavíddar. TSB verður neikvætt (þreyta > form).
+                        Þetta er eðlilegt og nauðsynlegt til að örva framfarir.</p>
+                    <p><strong>Markmið TSB:</strong> -10 til -30 á meðan virkri þjálfun stendur</p>
+                </div>
+
+                <h3>Við niðurtoppun (Taper)</h3>
+                <p>Þegar dregið er úr álagi fyrir keppni:</p>
+                <div class="example-box">
+                    <p>ATL lækkar <em>hraðar</em> en CTL. TSB verður jákvætt (form > þreyta). Þetta er lokamarkmiðið –
+                        að mæta hvíldur á keppnisdaginn með ferska fætur en halda þó forminu.</p>
+                    <p><strong>Markmið TSB:</strong> +10 til +25 á keppnisdegi, eftir tegund keppni</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>TSB: Jafnvægi og keppnisbúnaður</h2>
+
+        <p class="lead">TSB (Training Stress Balance) er mismunurinn á formi gærdagsins (CTL) og þreytu dagsins í dag
+            (ATL). Það segir þér hvort þú sért ferskur eða þreyttur, og hvort þú eigir að gefa í eða hvíla.</p>
+
+        <div class="tsb-zones-container">
+            <h3>Túlkun á TSB fyrir hjólreiðafólk</h3>
+            <table class="tsb-zones-table">
+                <thead>
+                    <tr>
+                        <th>TSB bil</th>
+                        <th>Staða</th>
+                        <th>Túlkun</th>
+                        <th>Ráðlagt viðbragð</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tsb-critical">
+                        <td>&lt; -30</td>
+                        <td><strong>Hætta á ofþjálfun</strong></td>
+                        <td>Almenn þreyta. Mikil hætta á veikindum eða meiðslum.</td>
+                        <td>Tafarlaus hvíld nauðsynleg. Minnka magn um 50%+. Íhuga algera hvíld.</td>
+                    </tr>
+                    <tr class="tsb-training">
+                        <td>-20 til -30</td>
+                        <td><strong>Besta þjálfunartímabilið</strong></td>
+                        <td>Góð yfirvinna. Formið að styrkjast.</td>
+                        <td>Haltu áætlun. Fylgstu með mikilli þreytu eða minnkandi afli.</td>
+                    </tr>
+                    <tr class="tsb-moderate">
+                        <td>-10 til -20</td>
+                        <td><strong>Miðlungs þjálfunarálag</strong></td>
+                        <td>Stöðug uppbygging þjálfunar.</td>
+                        <td>Eðlileg þjálfun. Getur höndlað þröskuldaæfingar eða gæðaspretti.</td>
+                    </tr>
+                    <tr class="tsb-neutral">
+                        <td>-10 til +10</td>
+                        <td><strong>Viðhald / Jafnvægi</strong></td>
+                        <td>Jafnvægisstaða. Smá þreyta eða ferskleiki.</td>
+                        <td>Gott fyrir B eða C keppnir, FTP próf eða hvíldarvikur.</td>
+                    </tr>
+                    <tr class="tsb-fresh">
+                        <td>+10 til +25</td>
+                        <td><strong>Toppform fyrir keppni</strong></td>
+                        <td>Ferskur og í formi. Besti tíminn til að skila árangri.</td>
+                        <td>A-keppnir dagsins. Búist við bestu frammistöðu.</td>
+                    </tr>
+                    <tr class="tsb-very-fresh">
+                        <td>&gt; +25</td>
+                        <td><strong>Of hvíldur / Formið að dala</strong></td>
+                        <td>Líkaminn mjög hvíldur. Formið gæti byrjað að minnka.</td>
+                        <td>Stuttar og snaggallægar æfingar í lagi. Byrjaðu að æfa á ný.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-tip mt-xl">
+            <h3>🎯 Markmið TSB eftir tegund keppni</h3>
+            <ul>
+                <li><strong>Sprettkeppnir / Braut:</strong> TSB +5 til +15 (stutt niðurtoppun, halda snerpu)</li>
+                <li><strong>Götukeppnir:</strong> TSB +10 til +20 (10-14 daga niðurtoppun)</li>
+                <li><strong>Tímataka (TT):</strong> TSB +15 til +25 (14-21 daga niðurtoppun fyrir hámarksafl)</li>
+                <li><strong>Gran Fondo / Langferðir:</strong> TSB +5 til +15 (7-10 daga niðurtoppun, halda úthaldi)</li>
+                <li><strong>Margvíslegar dagleiðir:</strong> TSB -5 til +10 (mæta örlítið þreyttur, þörf á úthaldi
+                    frekar en ferskleika)</li>
+            </ul>
+            <p><em>Styttri og snaggallar keppnir krefjast hærra TSB. Lengri þolkeppnir þurfa miðlungs TSB til að missa
+                    ekki niður úthald.</em></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Tímabilaskipting með frammistöðugrafinu</h2>
+
+        <div class="example-box">
+            <h3>Dæmi um 16 vikna þjálfunarferli</h3>
+
+            <h4>Vikur 1-4: Grunnþjálfun</h4>
+            <ul>
+                <li><strong>Markmið:</strong> Byggja upp CTL jafnt og þétt um 3-5 stig á viku</li>
+                <li><strong>Vikulegt TSS:</strong> 400 → 450 → 500 → 450 (hvíldarvika)</li>
+                <li><strong>CTL framvinda:</strong> 60 → 73</li>
+                <li><strong>TSB bil:</strong> -5 til -15 (viðráðanleg þreyta)</li>
+                <li><strong>Áhersla:</strong> Langar og stöðugar ferðir, Svæði 2 (Z2), grunnþol</li>
+            </ul>
+
+            <h4>Vikur 5-8: Uppbygging</h4>
+            <ul>
+                <li><strong>Markmið:</strong> Halda CTL vexti í 5-8 stigum á viku með erfiðari æfingum</li>
+                <li><strong>Vikulegt TSS:</strong> 500 → 550 → 600 → 500 (hvíldarvika)</li>
+                <li><strong>CTL framvinda:</strong> 73 → 93</li>
+                <li><strong>TSB bil:</strong> -15 til -25 (virk yfirvinna)</li>
+                <li><strong>Áhersla:</strong> Sweet spot sprettir, þröskuldaæfingar, lengri tempóferðir</li>
+            </ul>
+
+            <h4>Vikur 9-12: Hámörkun</h4>
+            <ul>
+                <li><strong>Markmið:</strong> Hámarka CTL, mestu æfingaálagi náð</li>
+                <li><strong>Vikulegt TSS:</strong> 600 → 650 → 650 → 550 (hvíldarvika)</li>
+                <li><strong>CTL framvinda:</strong> 93 → 108</li>
+                <li><strong>TSB bil:</strong> -20 til -30 (hámarks örvun)</li>
+                <li><strong>Áhersla:</strong> Sértækar keppnisæfingar, VO₂max vinna, keppnisstúdíur</li>
+            </ul>
+
+            <h4>Vikur 13-14: Endurheimt</h4>
+            <ul>
+                <li><strong>Markmið:</strong> Láta líkamann meðtaka þjálfunina, undirbúa niðurtoppun</li>
+                <li><strong>Vikulegt TSS:</strong> 400 → 400</li>
+                <li><strong>CTL framvinda:</strong> 108 → 103 (smá lækkun, forminu haldið)</li>
+                <li><strong>TSB bil:</strong> -5 til +5 (hlutlaust)</li>
+                <li><strong>Áhersla:</strong> Auðvelt þol, skemmtiferðir, minni ákefð</li>
+            </ul>
+
+            <h4>Vikur 15-16: Niðurtoppun + Keppnisvika</h4>
+            <ul>
+                <li><strong>Markmið:</strong> Ná toppformi á keppnisdegi með TSB +15-20</li>
+                <li><strong>Vikulegt TSS:</strong> 350 → 250 + keppni</li>
+                <li><strong>CTL framvinda:</strong> 103 → 98 (lágmarks formtap)</li>
+                <li><strong>ATL framvinda:</strong> Lækkar hratt úr ~85 í ~50</li>
+                <li><strong>TSB á keppnisdegi:</strong> <strong>+18 til +22</strong></li>
+                <li><strong>Niðurstaða:</strong> Ferskir fætur, forminu haldið, tilbúinn í hámarksárangur</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-success">
+            <h3>✅ Af hverju virkar niðurtoppun?</h3>
+            <p>Mismunandi tímavíddir (42 dagar fyrir CTL, 7 dagar fyrir ATL) skapa þessi áhrif:</p>
+            <ul>
+                <li>ATL svarar hratt → Þreytan hverfur á 7-10 dögum</li>
+                <li>CTL svarar hægt → Formið helst í nokkrar vikur</li>
+                <li>Niðurstaða: Formið er enn til staðar á meðan þreytan gufar upp = toppform</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Götuhjólreiðar vs Fjallahjólreiðar: Þjálfunarálag</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Þáttur</th>
+                    <th>Götuhjólreiðar</th>
+                    <th>Fjallahjólreiðar (MTB)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Aflprófíll</strong></td>
+                    <td>Stöðugt og jafnt afl með lágmarks sveiflum</td>
+                    <td>Mjög breytilegt afl með tíðum og kröftugum sprettum</td>
+                </tr>
+                <tr>
+                    <td><strong>Breytileikastuðull (VI)</strong></td>
+                    <td>1.02-1.05 (mjög stöðugt)</td>
+                    <td>1.10-1.20+ (mikill breytileiki)</td>
+                </tr>
+                <tr>
+                    <td><strong>TSS uppsöfnun</strong></td>
+                    <td>Fyrirsjáanleg, hægt að skipuleggja nákvæmlega</td>
+                    <td>Breytileg, erfiðleikastig slóða hefur mikil áhrif</td>
+                </tr>
+                <tr>
+                    <td><strong>Jafnað afl (NP)</strong></td>
+                    <td>Nálægt meðalafli</td>
+                    <td>Verulega hærra en meðalafl</td>
+                </tr>
+                <tr>
+                    <td><strong>Aðaláhersla þjálfunar</strong></td>
+                    <td>Stöðugt þröskuldaafl, tempóvinna</td>
+                    <td>Sprettir, stjórnun á W', tæknileg færni</td>
+                </tr>
+                <tr>
+                    <td><strong>Túlkun á CTL</strong></td>
+                    <td>Beinn vísir á form</td>
+                    <td>Vísir á form en tækni skiptir ~50% máli fyrir árangur</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout callout-info mt-lg">
+            <h3>Sértæk atriði fyrir MTB</h3>
+            <p>Fjallahjólreiðar krefjast annars konar túlkunar á frammistöðugrafinu:</p>
+            <ul>
+                <li><strong>Sami slóði, mismunandi TSS:</strong> Erfiðleikar undirlags hafa gríðarleg áhrif á TSS fyrir
+                    sömu leið</li>
+                <li><strong>Spretta-greining:</strong> Teldu fjölda átaka yfir þröskuldi – XC keppnir geta verið með 88+
+                    spretti á 2 tímum</li>
+                <li><strong>Tækni skiptir meira máli:</strong> Tæknileg færni telur um 50% af árangri í MTB á móti ~20%
+                    í götuhjólreiðum</li>
+                <li><strong>Notaðu styttri aflglugga:</strong> 3-5 sekúndna meðaltöl skipta máli í MTB á meðan 30
+                    sekúndur duga í götuhjólreiðum</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Algeng mistök í stjórnun þjálfunarálags</h2>
+
+        <div class="guidelines-grid">
+            <div class="guideline-item">
+                <h3>1️⃣ CTL hækkað of hratt</h3>
+                <p><strong>Mistök:</strong> Auka CTL um 15-20 stig á viku til að "reyna að ná upp" forminu fljótt.</p>
+                <p><strong>Lausn:</strong> Takmarkaðu aukningu við 3-8 CTL á viku. Vertu þolinmóður – form tekur tíma að
+                    byggjast upp.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>2️⃣ Engin niðurtoppun (Taper)</h3>
+                <p><strong>Mistök:</strong> Æfa stíft fram að keppni og mæta með TSB á bilinu -20 til -30.</p>
+                <p><strong>Lausn:</strong> Dragðu úr magni 7-14 dögum fyrir mikilvægar keppnir. Láttu TSB hækka í
+                    +10-25.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>3️⃣ Hunsa TSB viðvaranir</h3>
+                <p><strong>Mistök:</strong> Halda áfram að keyra sig út þegar TSB fer niður fyrir -30 í langan tíma.</p>
+                <p><strong>Lausn:</strong> Taktu nauðsynlega hvíld þegar TSB < -30. Líkaminn er að segja þér að hann
+                        þurfi hvíld.</p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>4️⃣ Eltast við handahófskenndar æfingar</h3>
+                <p><strong>Mistök:</strong> Gera það eitt sem manni finnst skemmtilegt frekar en að fylgja stigvaxandi
+                    álagi.</p>
+                <p><strong>Lausn:</strong> Fylgdu skipulagðri áætlun með fyrirfram ákveðnum CTL vexti og hvíldarvikum.
+                </p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>5️⃣ Bera sig saman við aðra</h3>
+                <p><strong>Mistök:</strong> "Félagi minn er með CTL upp á 120, ég verð að ná því líka!"</p>
+                <p><strong>Lausn:</strong> CTL er einstaklingsbundið. Þitt hámarks CTL veltur á þjálfunarsögu og erfðum.
+                </p>
+            </div>
+
+            <div class="guideline-item">
+                <h3>6️⃣ Sleppa hvíldarvikum</h3>
+                <p><strong>Mistök:</strong> Byggja upp CTL sleitulaust án þess að áætla hvíldarvikur inn á milli.</p>
+                <p><strong>Lausn:</strong> Á 3-4 vikna fresti ættirðu að minnka æfingamagn um 30-40% til að líkaminn fái
+                    ráðrúm til að styrkjast.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Rannsóknir og vísindaleg staðfesting</h2>
+
+        <p>Frammistöðugrafið og TSS aðferðafræðin byggja á áratuga rannsóknum í íþróttavísindum:</p>
+
+        <div class="research-references">
+            <h3>Helstu rannsóknir</h3>
+            <ul>
+                <li><strong>Allen, H., & Coggan, A.R. (2019).</strong> <em>Training and Racing with a Power Meter</em>
+                    (3. útgáfa). VeloPress. — Grunnbókin sem kynnti TSS, NP, IF, CTL, ATL, TSB.</li>
+                <li><strong>Banister, E.W., Calvert, T.W., Savage, M.V., & Bach, T. (1975).</strong> A Systems Model of
+                    Training for Athletic Performance. <em>Australian Journal of Sports Medicine</em>, 7, 57-61. —
+                    Upprunalega módelið um form og þreytu.</li>
+                <li><strong>Murray, N.B., o.fl. (2017).</strong> Training Load Monitoring Using Exponentially Weighted
+                    Moving Averages. — Staðfestir notkun EWMA fyrir vöktun á álagi.</li>
+                <li><strong>Jones, A.M., o.fl. (2019).</strong> Critical Power: Theory and Applications. <em>Journal of
+                        Applied Physiology</em>, 126(6), 1905-1915. — Líkanið um Critical Power sem liggur að baki FTP
+                    hugtakinu.</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-tip mt-lg">
+            <h3>💡 TrainingPeaks og WKO5</h3>
+            <p>TSS, CTL, ATL og TSB eru vörumerki þróuð af Dr. Andrew Coggan og leyfisbundin til TrainingPeaks. Þau eru
+                talin iðnaðarstaðall fyrir stjórnun þjálfunarálags í hjólreiðum.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Algengar spurningar: Þjálfunarálag í hjólreiðum</h2>
+
+        <div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Hversu mikið TSS á viku ætti ég að stefna að?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Vikulegt TSS veltur á þínu getustigi: Byrjendur: 200-400 TSS, Áhugamenn: 400-600 TSS,
+                            Keppnisfólk: 600-900 TSS, Atvinnumenn: 900-1500+ TSS. Byrjaðu varlega og aukðu álagið jafnt
+                            og þétt um 3-8 CTL stig á viku.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Hvað er gott CTL fyrir mitt getustig?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Dæmigerð CTL gildi: Byrjendur 20-40, Áhugamenn 40-80, Keppnisfólk 80-120, Atvinnumenn
+                            120-200+. Þitt sjálfbæra CTL fer eftir þjálfunarsögu, tíma sem þú hefur til umráða og getu
+                            til endurheimtar. Einbeittu þér að framförum frekar en absólút tölum.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Hversu lengi á ég að hvíla fyrir keppni (Taper)?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Lengd niðurtoppunar veltur á tegund keppni: Stuttar keppnir/sprettir: 7-10 dagar,
+                            Götukeppnir: 10-14 dagar, Tímatökur: 14-21 dagar (hámarks ferskleiki nauðsynlegur),
+                            Dagleiðakeppnir: 7-10 dagar. Stefnir á TSB milli +10 og +25 á keppnisdegi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Má ég æfa þegar TSB er -30 eða lægra?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSB undir -30 gefur til kynna mikla þreytu og hættu á ofþjálfun. Ekki er mælt með því að
+                            halda áfram stífum æfingum við þessar aðstæður. Minnkaðu magnið um helming eða meira þar til
+                            TSB hækkar í -20 eða hærra. Hlustaðu á líkamann – viðvarandi þreyta, minnkandi afl eða
+                            veikindi eru skýr merki.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Hvernig nota ég frammistöðugrafið fyrir fjallahjólreiðar?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>MTB keppnir krefjast annars konar túlkunar: Einbeittu þér að sprettum yfir þröskuldi (oft 80+
+                            í XC keppnum), notaðu styttri aflglugga (3-5 sekúndur) og gerðu þér grein fyrir að tækni
+                            skiptir um 50% máli. Mundu líka að erfiðleikar slóða hafa mikil áhrif á TSS.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Af hverju lækkar CTL á meðan ég hvíli fyrir keppni?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Það er eðlilegt að CTL lækki örlítið við niðurtoppun. 5-10 stiga lækkun á tveimur vikum þýðir
+                            hverfandi tap á formi (vegna 42 daga tímavíddarinnar). Á sama tíma lækkar ATL miklu hraðar,
+                            sem eyðir þreytu og skapar jákvætt TSB fyrir keppnina.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Hver er munurinn á TSS og kílójúlum (kJ)?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Kílójúl mæla heildarvinnuna sem er innt af hendi (orkueyðslu), en TSS mælist út frá þínu FTP.
+                            200W ferð í 1 klukkustund jafngildir 720 kJ hjá öllum, en TSS veltur á þínu FTP. Ef þitt FTP
+                            er 200W, þá er TSS = 100. Ef þitt FTP er 300W, þá er TSS = 44. TSS horfir til getu hvers og
+                            eins.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Á ég að fylgjast með TSS á æfingum innandyra?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Algjörlega. TSS er frábært fyrir innanhússæfingar þar sem aflgögn eru oft mjög nákvæm. TSS
+                            innandyra telur beint inn í þína CTL/ATL/TSB útreikninga. Sumir finna þó að þeir geta
+                            höndlað hærra TSS innandyra þar sem þar eru engar brekkur niður á við eða hvíld í beygjum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow text-center">
+        <h2>Náðu tökum á þjálfunarálaginu þínu</h2>
+        <p class="lead">Skilningur á TSS og frammistöðugröfum breytir óvissu í vísindalega nálgun til að hámarka
+            árangur. Með því að fylgjast með TSS, CTL, ATL og TSB færðu nákvæma stjórn á framförum, þreytu og hvenær þú
+            átt að ná toppformi.</p>
+
+        <p>CTL-ATL-TSB kerfið kemur í veg fyrir ofþjálfun, hámarkar endurheimt og tryggir að þú mætir í erfiðustu
+            keppnir ársins í þínu besta formi.</p>
+
+        <div class="mt-xl">
+            <a href="/is/ftp/" class="btn btn-secondary">← Functional Threshold Power (FTP)</a>
+            <a href="/is/tss-calculator/" class="btn btn-primary">TSS reikningur →</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/is/privacy/">Privacy</a></li>
+                <li><a href="/is/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/is/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

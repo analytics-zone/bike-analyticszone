@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Pierwsze kroki z Bike Analytics - Szybki start</title>
+  <meta name="description" content="Zacznij przygodę z Bike Analytics: przewodnik konfiguracji, pierwszy test FTP, ustawianie stref, import aktywności i śledzenie wydajności.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="konfiguracja Bike Analytics, początek analityki kolarskiej, konfiguracja testu FTP">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/pl/getting-started/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-21T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/pl/getting-started/">
+  <meta property="og:title" content="Pierwsze kroki z Bike Analytics - Szybki start">
+  <meta property="og:description" content="Zacznij przygodę z Bike Analytics: przewodnik konfiguracji, pierwszy test FTP, ustawianie stref, import aktywności i śledzenie wydajności.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/pl/getting-started/">
+  <meta name="twitter:title" content="Pierwsze kroki z Bike Analytics - Szybki start">
+  <meta name="twitter:description" content="Zacznij przygodę z Bike Analytics: przewodnik konfiguracji, pierwszy test FTP, ustawianie stref, import aktywności i śledzenie wydajności.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/getting-started/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/getting-started/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/getting-started/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/getting-started/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/getting-started/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/getting-started/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/getting-started/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/getting-started/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/getting-started/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/getting-started/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/getting-started/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/getting-started/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/getting-started/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/getting-started/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/getting-started/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/getting-started/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/getting-started/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/getting-started/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/getting-started/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/getting-started/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/getting-started/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/getting-started/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/getting-started/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/getting-started/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/getting-started/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/getting-started/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Pierwsze kroki z Bike Analytics - Szybki start",
+      "description": "Zacznij przygodę z Bike Analytics: przewodnik konfiguracji, pierwszy test FTP, ustawianie stref, import aktywności i śledzenie wydajności.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/pl/getting-started/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Przejdź do treści</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/pl/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/pl/" 
+                            aria-current="">
+                            Strona główna
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Wiedza</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/pl/getting-started/" class="active"
+                                    aria-current="page">
+                                    Pierwsze kroki
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/critical-power/" 
+                                    aria-current="">
+                                    Moc krytyczna
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/training-zones/" 
+                                    aria-current="">
+                                    Strefy treningowe
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/training-load/" 
+                                    aria-current="">
+                                    Obciążenie treningowe
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/tss-calculator/" 
+                                    aria-current="">
+                                    Kalkulator TSS
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Nauka</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/pl/research/" 
+                                    aria-current="">
+                                    Badania
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/formulas/" 
+                                    aria-current="">
+                                    Wzory
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/power-metrics/" 
+                                    aria-current="">
+                                    Metryki mocy
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/efficiency/" 
+                                    aria-current="">
+                                    Efektywność
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Mechanika pedałowania
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamika
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/climbing-performance/" 
+                                    aria-current="">
+                                    Wydajność na podjazdach
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/bibliography/" 
+                                    aria-current="">
+                                    Bibliografia
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Dyscypliny</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/pl/road-cycling/" 
+                                    aria-current="">
+                                    Kolarstwo szosowe
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/mountain-biking/" 
+                                    aria-current="">
+                                    Kolarstwo górskie
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/road-vs-mtb/" 
+                                    aria-current="">
+                                    Szosa vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/pl/comparisons/" 
+                                    aria-current="">
+                                    Porównanie platform
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/pl/contact/" 
+                            aria-current="">
+                            Kontakt
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Wybierz język">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" selected>
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Przełącz menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Pierwsze kroki z Bike Analytics</h1>
+        <p class="lead">Twój kompletny przewodnik po treningu z pomiarem mocy, testach FTP i analityce wydajności
+            kolarskiej</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-info mb-xl">
+            <h2>Witaj w świecie kolarstwa opartego na danych</h2>
+            <p>Bike Analytics przekształca Twoje przejażdżki rowerowe w konkretne wnioski, wykorzystując metryki
+                <strong>funkcjonalnej mocy progowej (FTP)</strong>, <strong>wskaźnika stresu treningowego (TSS)</strong>
+                oraz <strong>wykresu zarządzania wydajnością (PMC)</strong>. Ten przewodnik przeprowadzi Cię od
+                pierwszej konfiguracji do zaawansowanej analizy obciążenia treningowego w 5 prostych krokach.</p>
+        </div>
+
+        <h2>Szybki start (10 minut)</h2>
+
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Pobierz i zainstaluj</h3>
+                    <p>Pobierz Bike Analytics z App Store i przyznaj uprawnienia do dostępu do Apple Zdrowie. Aplikacja
+                        automatycznie synchronizuje treningi kolarskie – nie jest wymagane ręczne logowanie.</p>
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="btn btn-secondary btn-small mt-sm" target="_blank"
+                        rel="noopener">Pobierz aplikację →</a>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Zaimportuj swoją pierwszą jazdę</h3>
+                    <p>Synchronizuj jazdy ze Stravy (darmowe API), przesyłaj pliki FIT/GPX/TCX ze swojego licznika
+                        rowerowego lub ręcznie wprowadź dane treningowe. Bike Analytics obsługuje wszystkie główne
+                        platformy kolarskie.</p>
+                    <a href="#import-guide" class="btn btn-secondary btn-small mt-sm">Opcje importu ↓</a>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Ustaw swoje FTP</h3>
+                    <p>Wykonaj 20-minutowy test FTP lub oszacuj go na podstawie ostatnich jazd. FTP jest fundamentem
+                        wszystkich metryk opartych na mocy – bez niego nie można dokładnie obliczyć TSS ani stref
+                        treningowych.</p>
+                    <a href="#ftp-test-guide" class="btn btn-secondary btn-small mt-sm">Protokół testu FTP ↓</a>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Skonfiguruj strefy treningowe</h3>
+                    <p>Bike Analytics automatycznie oblicza 7 stref treningowych opartych na mocy z Twojego FTP. Strefy
+                        te personalizują wszystkie metryki pod kątem Twojej fizjologii. Aktualizuj je co 6-8 tygodni
+                        wraz z poprawą kondycji.</p>
+                    <a href="/pl/training-zones/" class="btn btn-secondary btn-small mt-sm">Poznaj strefy →</a>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Zacznij śledzić wydajność</h3>
+                    <p>Jeźdź z miernikiem mocy i licznikiem rowerowym. Bike Analytics automatycznie importuje treningi,
+                        oblicza TSS, aktualizuje CTL/ATL/TSB i śledzi postępy. Ręczne wprowadzanie danych nie jest
+                        potrzebne.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt" id="import-guide">
+    <div class="container">
+        <h2 class="mb-xl text-center">Opcje importu danych</h2>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">🔗 Integracja ze Stravą (Zalecane)</h3>
+                <div class="card-content">
+                    <p><strong>100% darmowy dostęp do API</strong> bez limitów dla użytku osobistego.</p>
+                    <ul>
+                        <li>Połączenie OAuth jednym kliknięciem</li>
+                        <li>Automatyczna synchronizacja jazd</li>
+                        <li>Pełne dane o mocy, tętnie i kadencji</li>
+                        <li>Trasy GPS i przewyższenia</li>
+                        <li>Czasy segmentów i rankingi KOM</li>
+                    </ul>
+                    <div class="tip-box mt-sm">
+                        <strong>Konfiguracja:</strong> Ustawienia → Integracje → Połącz ze Stravą. Przyznaj uprawnienia
+                        do odczytu aktywności. Synchronizacja odbywa się automatycznie po każdej jeździe.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">📁 Przesyłanie plików</h3>
+                <div class="card-content">
+                    <p>Przesyłaj dane bezpośrednio z liczników rowerowych i platform treningowych.</p>
+                    <ul>
+                        <li><strong>FIT:</strong> Garmin, Wahoo, Hammerhead (zalecane)</li>
+                        <li><strong>TCX:</strong> Training Center XML (standard Garmin)</li>
+                        <li><strong>GPX:</strong> GPS Exchange Format (podstawowa kompatybilność)</li>
+                        <li>Obsługuje wszystkie marki mierników mocy</li>
+                        <li>Zachowuje pełne dane z czujników</li>
+                    </ul>
+                    <div class="tip-box mt-sm">
+                        <strong>Jak:</strong> Dotknij ikony + → Prześlij plik → Wybierz z aplikacji Pliki. Bike
+                        Analytics automatycznie przetwarza wszystkie formaty.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">⌚ Synchronizacja z Apple Zdrowie</h3>
+                <div class="card-content">
+                    <p>Automatyczna synchronizacja z Apple Watch i kompatybilnych aplikacji.</p>
+                    <ul>
+                        <li>Cyclemeter, Workoutdoors, Slopes</li>
+                        <li>Natywne treningi kolarskie Apple Watch</li>
+                        <li>Aplikacje liczników rowerowych innych firm</li>
+                        <li>Tętno z urządzeń ubieralnych</li>
+                        <li>Synchronizacja w tle po każdej jeździe</li>
+                    </ul>
+                    <div class="tip-box mt-sm">
+                        <strong>Wymagania:</strong> Przyznaj uprawnienia do odczytu w aplikacji Zdrowie podczas
+                        konfiguracji. Bike Analytics automatycznie odczytuje treningi kolarskie.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">✍️ Ręczne wprowadzanie</h3>
+                <div class="card-content">
+                    <p>Dla jazd bez danych o mocy lub możliwości eksportu pliku.</p>
+                    <ul>
+                        <li>Wprowadź czas trwania, dystans, przewyższenie</li>
+                        <li>Oszacuj średnią moc na podstawie odczuwalnego wysiłku</li>
+                        <li>Dodaj notatki i typ treningu</li>
+                        <li>Przydatne do wprowadzania danych historycznych</li>
+                        <li>TSS obliczany na podstawie szacowanego IF</li>
+                    </ul>
+                    <div class="tip-box mt-sm">
+                        <strong>Uwaga:</strong> Ręczne wpisy są mniej dokładne niż dane z miernika mocy. Używaj ich do
+                        jazd regeneracyjnych lub gdy dane o mocy są niedostępne.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout-warning mt-xl">
+            <h3>⚠️ Czy potrzebujesz miernika mocy?</h3>
+            <p><strong>Tak – dla dokładnych obliczeń FTP, TSS i stref treningowych.</strong> Bike Analytics jest
+                zoptymalizowane pod kątem treningu z pomiarem mocy. Choć można szacować moc na podstawie
+                prędkości/nachylenia/wagi, prawdziwe mierniki mocy zapewniają:</p>
+            <ul class="mb-0">
+                <li>Dokładność ±1-2% w porównaniu do ±15-25% błędu szacowania</li>
+                <li>Informację zwrotną o strefach treningowych w czasie rzeczywistym</li>
+                <li>Moc znormalizowaną (NP) dla zróżnicowanego terenu</li>
+                <li>Balans lewa/prawa i dynamikę pedałowania</li>
+                <li>Spójność wewnątrz i na zewnątrz (niezależnie od pogody)</li>
+            </ul>
+            <p class="mt-md"><strong>Zalecane mierniki mocy:</strong> Pedały Garmin Rally (ok. 2600 PLN), Favero Assioma
+                (ok. 2200 PLN), ramię korby Stages (ok. 1300 PLN), jednostronny 4iiii (ok. 1100 PLN). Zob. <a
+                    href="/pl/power-metrics/">Przewodnik kupującego miernik mocy</a>.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="ftp-test-guide">
+    <div class="container">
+        <h2 class="mb-xl text-center">Kompletny protokół testu FTP</h2>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">📋 Czego potrzebujesz</h3>
+                <div class="card-content">
+                    <ul>
+                        <li><strong>Miernik mocy:</strong> Skalibrowany (zero-offset przed testem)</li>
+                        <li><strong>Licznik rowerowy lub trenażer smart:</strong> Rejestruje dane o mocy</li>
+                        <li><strong>Lokalizacja:</strong> Płaska droga, trenażer stacjonarny lub lekki podjazd</li>
+                        <li><strong>Czas rozgrzewki:</strong> 15-20 minut narastającego wysiłku</li>
+                        <li><strong>Czas trwania:</strong> 20-minutowy maksymalny wysiłek</li>
+                        <li><strong>Regeneracja:</strong> Odpoczynek, brak ciężkich treningów 24-48h przed</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">⏱️ Warunki w dniu testu</h3>
+                <div class="card-content">
+                    <ul>
+                        <li><strong>Wypoczęty:</strong> Brak ciężkiego treningu 48 godzin przed</li>
+                        <li><strong>Nawodniony:</strong> Dobre nawodnienie, normalne posiłki</li>
+                        <li><strong>Temperatura:</strong> Idealnie 18-22°C (unikaj ekstremów)</li>
+                        <li><strong>Pora dnia:</strong> Kiedy zazwyczaj jeździsz najlepiej</li>
+                        <li><strong>Sprzęt:</strong> Ta sama konfiguracja co na treningu (przełożenia, pozycja)</li>
+                        <li><strong>Mentalnie:</strong> Przygotowany na maksymalny, stały wysiłek</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-3xl">Test FTP krok po kroku (protokół 20-minutowy)</h3>
+
+        <div class="protocol-timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">Przed testem</div>
+                <div class="timeline-content">
+                    <h4>Kalibracja</h4>
+                    <p>Wykonaj <strong>kalibrację (zero-offset)</strong> miernika mocy. Dla mierników w pedałach: zakręć
+                        korbami i skalibruj w menu licznika. Dla mierników w korbie/pająku: postępuj zgodnie z
+                        instrukcją producenta. To kluczowe dla dokładności.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">Rozgrzewka</div>
+                <div class="timeline-content">
+                    <h4>15-20 minut narastająco</h4>
+                    <p>Zacznij spokojnie przez 10 minut (Strefa 2). Następnie 3×1 minuta z rosnącą intensywnością: 75%
+                        wysiłku, 85% wysiłku, 95% wysiłku z 1 minutą spokojnego kręcenia pomiędzy. Zakończ 3 minutami
+                        spokojnego kręcenia. To przygotuje Twój system tlenowy do maksymalnego wysiłku.</p>
+                    <div class="tip-box mt-sm">
+                        <strong>Docelowe tętno:</strong> Rozgrzewka powinna podnieść tętno do ok. 75% tętna maksymalnego
+                        na koniec.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">TEST</div>
+                <div class="timeline-content">
+                    <h4>20 minut maksymalnego, stałego wysiłku</h4>
+                    <p><strong>To NIE jest sprint.</strong> Twoim celem jest uzyskanie jak najwyższej <em>średniej
+                            mocy</em>, którą jesteś w stanie utrzymać przez pełne 20 minut. Rozłóż siły – jeśli
+                        "pękniesz" w 15. minucie, test jest nieważny.</p>
+                    <div class="tip-box mt-sm">
+                        <strong>Strategia rozłożenia sił:</strong>
+                        <ul>
+                            <li><strong>Minuty 0-5:</strong> Stopniowo dochodź do docelowej mocy (nie zaczynaj zbyt
+                                mocno)</li>
+                            <li><strong>Minuty 5-15:</strong> Utrzymuj stabilną moc (wahania ±5-10W są akceptowalne)
+                            </li>
+                            <li><strong>Minuty 15-20:</strong> Daj z siebie wszystko, co zostało (lekki wzrost jest ok)
+                            </li>
+                        </ul>
+                        <strong>Odczuwalny wysiłek:</strong> Ciężko, ale do utrzymania. RPE 8-9/10. Oddech głęboki, ale
+                        kontrolowany.
+                    </div>
+                    <p class="mt-md"><strong>Co monitorować:</strong> Średnią moc (priorytet), tętno (powinno wynosić
+                        ok. 90-95% tętna max), kadencję (utrzymuj normalną, 85-95 obr./min). Unikaj patrzenia na czas –
+                        skup się na mocy.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">Schłodzenie</div>
+                <div class="timeline-content">
+                    <h4>15 minut spokojnego kręcenia</h4>
+                    <p>Kręć bardzo spokojnie (100-150W, Strefa 1), aby usunąć mleczan. NIE zatrzymuj się gwałtownie –
+                        trzymaj nogi w ruchu. Po schłodzeniu wykonaj rozciąganie. Od razu zanotuj swoją średnią moc z 20
+                        minut.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">Obliczenie FTP</div>
+                <div class="timeline-content">
+                    <h4>FTP = 95% średniej mocy z 20 minut</h4>
+                    <p><strong>Przykład:</strong> Średnia moc z 20 min = 250W → FTP = 250 × 0.95 = <strong>238W</strong>
+                    </p>
+                    <p class="mt-sm">Współczynnik 95% uwzględnia niewielki wkład beztlenowy w 20-minutowym wysiłku.
+                        Twoje prawdziwe FTP to moc, którą mógłbyś utrzymać przez ok. 60 minut.</p>
+                    <div class="tip-box mt-sm">
+                        <strong>Wprowadź w Bike Analytics:</strong> Ustawienia → FTP → Wpisz 238W → Zapisz. Wszystkie
+                        strefy treningowe zaktualizują się automatycznie.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout-warning mt-xl">
+            <h3>⚠️ Częste błędy w teście FTP</h3>
+            <ul>
+                <li><strong>Zbyt mocny początek:</strong> Pójście "vabank" w pierwszych 5 minutach prowadzi do
+                    załamania. Zacznij konserwatywnie.</li>
+                <li><strong>Niewystarczająca rozgrzewka:</strong> Zimne mięśnie = niższa generowana moc. Rozgrzej się
+                    porządnie.</li>
+                <li><strong>Testowanie przy zmęczeniu:</strong> Ciężki trening 24-48h wcześniej obniża wynik FTP. Testuj
+                    na świeżości.</li>
+                <li><strong>Złe przełożenia:</strong> Zbyt wysoka lub zbyt niska kadencja obniża moc. Utrzymuj 85-95
+                    obr./min przez cały czas.</li>
+                <li><strong>Brak kalibracji miernika mocy:</strong> Dryft może spowodować błąd rzędu ±5-10W. Zawsze
+                    wykonuj zero-offset przed testem.</li>
+                <li><strong>Testowanie w zmiennym terenie:</strong> Górki, postoje, wiatr uniemożliwiają równe tempo.
+                    Użyj płaskiej drogi lub trenażera.</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-tip mt-xl">
+            <h3>💡 Alternatywne testy FTP</h3>
+            <p><strong>Test 8-minutowy (dla doświadczonych kolarzy):</strong></p>
+            <ul>
+                <li>Wykonaj 2×8 minut maksymalnego wysiłku z 10 minutami przerwy pomiędzy</li>
+                <li>Wyciągnij średnią moc z obu prób</li>
+                <li>FTP = 90% średniej mocy z 8 min</li>
+                <li>Bardziej wymagający ze względu na dwa maksymalne wysiłki</li>
+            </ul>
+            <p class="mt-md"><strong>Ramp Test (krótszy, mniej bolesny):</strong></p>
+            <ul>
+                <li>Zwiększaj moc o 20W co minutę aż do odmowy</li>
+                <li>FTP = 75% mocy z ostatniej pełnej minuty</li>
+                <li>Popularny na platformach Zwift i TrainerRoad</li>
+                <li>Mniej obciążający psychicznie, ale potencjalnie mniej dokładny</li>
+            </ul>
+            <p class="mt-md"><strong>Rekomendacja:</strong> Test 20-minutowy jest złotym standardem pod względem
+                dokładności i powtarzalności. Używaj go konsekwentnie do śledzenia postępów.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Wprowadzanie wyników FTP w Bike Analytics</h2>
+
+        <div class="screenshot-guide">
+            <div class="step-item">
+                <h3>Krok 1: Otwórz ustawienia FTP</h3>
+                <p>W aplikacji Bike Analytics przejdź do <strong>Ustawienia → Funkcjonalna moc progowa (FTP)</strong>.
+                    Dotknij "Wykonaj test FTP" lub "Aktualizuj FTP".</p>
+            </div>
+
+            <div class="step-item">
+                <h3>Krok 2: Wprowadź swoje FTP</h3>
+                <p>Wpisz obliczone FTP w watach (np. <code>238</code>). Jeśli ukończyłeś test 20-minutowy, aplikacja
+                    obliczy 95% za Ciebie. Dotknij "Oblicz".</p>
+            </div>
+
+            <div class="step-item">
+                <h3>Krok 3: Przejrzyj wyniki</h3>
+                <p>Aplikacja wyświetli:</p>
+                <ul>
+                    <li><strong>FTP w watach:</strong> 238W</li>
+                    <li><strong>FTP w W/kg:</strong> 3.4 W/kg (jeśli podano wagę)</li>
+                    <li><strong>Strefy treningowe:</strong> 7 spersonalizowanych stref mocy (Strefa 1-7)</li>
+                    <li><strong>Podstawę TSS:</strong> Teraz włączoną dla wszystkich treningów</li>
+                </ul>
+            </div>
+
+            <div class="step-item">
+                <h3>Krok 4: Zapisz i synchronizuj</h3>
+                <p>Dotknij "Zapisz FTP". Aplikacja natychmiast:</p>
+                <ul>
+                    <li>Przeliczy strefy treningowe</li>
+                    <li>Wstecznie zaktualizuje TSS dla ostatnich 90 dni</li>
+                    <li>Dostosuje obliczenia CTL/ATL/TSB</li>
+                    <li>Włączy analizę treningów opartą na strefach</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-tip mt-xl">
+            <h3>💡 Pro tip: Harmonogram testów FTP</h3>
+            <p>Ponownie testuj FTP co <strong>6-8 tygodni</strong> w fazach budowania formy. Twoje FTP powinno rosnąć
+                wraz z kondycją. Przetestuj się również po:</p>
+            <ul class="mb-0">
+                <li>Chorobie lub kontuzji (FTP może spaść)</li>
+                <li>Przerwie w treningu dłuższej niż 2 tygodnie</li>
+                <li>Zmianie miernika mocy lub problemach z kalibracją</li>
+                <li>Gdy strefy wydają się stale zbyt łatwe lub zbyt trudne</li>
+            </ul>
+            <p class="mt-md">Śledź FTP w czasie, aby monitorować skuteczność treningu. Średnia poprawa: 5-15W na
+                8-tygodniowy blok treningowy.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="mb-xl text-center">Zrozum swoje metryki</h2>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">Funkcjonalna moc progowa (FTP)</h3>
+                <div class="card-content">
+                    <p><strong>Co to jest:</strong> Maksymalna moc, jaką możesz utrzymać przez około 1 godzinę.
+                        Reprezentuje Twój próg mleczanowy.</p>
+                    <p><strong>Co to oznacza:</strong> FTP = 238W oznacza, że możesz utrzymać 238 watów podczas długich
+                        wysiłków progowych (~60 minut).</p>
+                    <p><strong>Jak używać:</strong> Podstawa dla wszystkich stref treningowych i obliczeń TSS.
+                        Aktualizuj co 6-8 tygodni.</p>
+                    <a href="/pl/ftp/" class="btn btn-secondary btn-small mt-md">O FTP →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Strefy treningowe (system 7 stref)</h3>
+                <div class="card-content">
+                    <p><strong>Co to jest:</strong> 7 zakresów mocy opartych na Twoim FTP, od aktywnej regeneracji
+                        (Strefa 1) po moc nerwowo-mięśniową (Strefa 7).</p>
+                    <p><strong>Co to oznacza:</strong> Każda strefa celuje w konkretne adaptacje fizjologiczne (baza
+                        tlenowa, próg, VO₂max).</p>
+                    <p><strong>Jak używać:</strong> Postępuj zgodnie z zaleceniami stref dla ustrukturyzowanego
+                        treningu. Aplikacja pokazuje czas spędzony w każdej strefie.</p>
+                    <a href="/pl/training-zones/" class="btn btn-secondary btn-small mt-md">Strefy treningowe
+                        →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Wskaźnik stresu treningowego (TSS)</h3>
+                <div class="card-content">
+                    <p><strong>Co to jest:</strong> Skwantyfikowany stres treningowy łączący intensywność i czas
+                        trwania. 1 godzina na FTP = 100 TSS.</p>
+                    <p><strong>Co to oznacza:</strong> TSS 50 = łatwa regeneracja, TSS 100 = umiarkowany wysiłek, TSS
+                        200+ = bardzo ciężka sesja.</p>
+                    <p><strong>Jak używać:</strong> Śledź dzienny/tygodniowy TSS, aby zarządzać obciążeniem. Planuj
+                        wzrost o max 5-10 TSS tygodniowo.</p>
+                    <a href="/pl/training-load/" class="btn btn-secondary btn-small mt-md">Przewodnik po TSS
+                        →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">CTL / ATL / TSB</h3>
+                <div class="card-content">
+                    <p><strong>Co to są:</strong></p>
+                    <ul>
+                        <li><strong>CTL:</strong> Chroniczne obciążenie (kondycja) – 42-dniowa średnia TSS</li>
+                        <li><strong>ATL:</strong> Ostre obciążenie (zmęczenie) – 7-dniowa średnia TSS</li>
+                        <li><strong>TSB:</strong> Bilans stresu (forma) = CTL - ATL</li>
+                    </ul>
+                    <p><strong>Jak używać:</strong> Dodatnie TSB = świeżość/superkompensacja, ujemne TSB = zmęczenie.
+                        Startuj, gdy TSB = +5 do +25.</p>
+                    <a href="/pl/training-load/#pmc" class="btn btn-secondary btn-small mt-md">Wykres PMC →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-xl">
+            <h3>📊 Cele na pierwszy tydzień</h3>
+            <p>Po wprowadzeniu FTP i ukończeniu 3-5 jazd:</p>
+            <ul>
+                <li><strong>Sprawdź wartości TSS:</strong> Potwierdź, czy pasują do odczuwanego wysiłku (łatwo ~50,
+                    średnio ~100, ciężko ~150+)</li>
+                <li><strong>Przejrzyj rozkład stref:</strong> Czy spędzasz 60-70% czasu w Strefie 2 (baza tlenowa)?</li>
+                <li><strong>Ustal bazowe CTL:</strong> Średni TSS z pierwszego tygodnia staje się Twoim punktem wyjścia
+                    kondycji</li>
+                <li><strong>Zidentyfikuj wzorce:</strong> Które jazdy generują najwyższy TSS? Czy regenerujesz się
+                    odpowiednio?</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Typowa droga użytkownika (pierwsze 8 tygodni)</h2>
+
+        <div class="journey-timeline">
+            <div class="journey-phase">
+                <h3>Tydzień 1-2: Ustalenie punktu odniesienia</h3>
+                <ul>
+                    <li>Wykonaj test FTP i wprowadź wyniki</li>
+                    <li>Ukończ 3-5 normalnych treningów</li>
+                    <li>Obserwuj wartości TSS i rozkład stref</li>
+                    <li>Ustal początkowe CTL (poziom kondycji)</li>
+                    <li><strong>Cel:</strong> Zrozumienie metryk, bez zmian w treningu</li>
+                </ul>
+            </div>
+
+            <div class="journey-phase">
+                <h3>Tydzień 3-4: Stosowanie stref</h3>
+                <ul>
+                    <li>Wykorzystuj strefy FTP w planowaniu treningów</li>
+                    <li>Świadomie jeźdź w Strefie 2 na bazę tlenową</li>
+                    <li>Śledź tygodniowe sumy TSS (dąż do regularności)</li>
+                    <li>Monitoruj TSB (powinno być lekko ujemne = trening)</li>
+                    <li><strong>Cel:</strong> Trenuj według stref mocy, nie na wyczucie</li>
+                </ul>
+            </div>
+
+            <div class="journey-phase">
+                <h3>Tydzień 5-6: Progresywne przeciążenie</h3>
+                <ul>
+                    <li>Zwiększaj tygodniowy TSS o 5-10% względem bazy</li>
+                    <li>Dodaj 1 sesję progową (Strefa 4) tygodniowo</li>
+                    <li>CTL powinno stopniowo rosnąć (poprawa kondycji)</li>
+                    <li>ATL może wzrosnąć w ciężkich tygodniach (normalne)</li>
+                    <li><strong>Cel:</strong> Kontrolowany wzrost formy</li>
+                </ul>
+            </div>
+
+            <div class="journey-phase">
+                <h3>Tydzień 7-8: Ponowny test i korekta</h3>
+                <ul>
+                    <li>Wykonaj drugi test FTP (wynik powinien być wyższy)</li>
+                    <li>Zaktualizuj strefy w aplikacji (moc rośnie)</li>
+                    <li>Porównaj CTL z 1. i 8. tygodnia (wzrost o +10-20)</li>
+                    <li>Przejrzyj postępy: Czy FTP wzrosło? Czy jazda jest łatwiejsza?</li>
+                    <li><strong>Cel:</strong> Potwierdzenie skuteczności treningu</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-success mt-xl">
+            <h3>✅ Wskaźniki sukcesu</h3>
+            <p>Po 8 tygodniach ustrukturyzowanego treningu z Bike Analytics powinieneś zauważyć:</p>
+            <ul>
+                <li><strong>Poprawę FTP:</strong> Wzrost o +5-15W (np. 238W → 250W)</li>
+                <li><strong>Wzrost CTL:</strong> O +15-25 punktów (np. 40 → 60 CTL)</li>
+                <li><strong>Spójny TSS:</strong> Tygodniowe sumy z odchyleniem 10-15%</li>
+                <li><strong>Lepsze rozłożenie sił:</strong> Rowniejsza moc, lepsza kalibracja wysiłku</li>
+                <li><strong>Ulepszoną regenerację:</strong> Przewidywalne cykle TSB (-10 do +5)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Rozwiązywanie problemów i FAQ</h2>
+
+        <div class="faq-item">
+            <h3>Mój TSS wydaje się zbyt wysoki/niski względem wysiłku</h3>
+            <p><strong>Przyczyna:</strong> FTP jest nieaktualne lub błędne.</p>
+            <p><strong>Rozwiązanie:</strong> Ponownie przetestuj FTP. Jeśli testowałeś się będąc zmęczonym lub źle
+                rozłożyłeś siły, wynik będzie błędny. Prawidłowy test FTP jest kluczowy dla wszystkich metryk.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Aplikacja pokazuje "Brak skonfigurowanego FTP"</h3>
+            <p><strong>Przyczyna:</strong> Test FTP nie został ukończony lub zapisany.</p>
+            <p><strong>Rozwiązanie:</strong> Przejdź do Ustawienia → Funkcjonalna moc progowa → Wprowadź wartość FTP, a
+                następnie dotknij Zapisz.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Jazdy nie synchronizują się ze Stravą</h3>
+            <p><strong>Przyczyna:</strong> Token OAuth wygasł lub nie przyznano uprawnień.</p>
+            <p><strong>Rozwiązanie:</strong> Ustawienia → Integracje → Połącz ponownie ze Stravą. Przyznaj uprawnienia
+                do odczytu aktywności. Sprawdź, czy jazda w Stravie zawiera dane o mocy.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>CTL nie rośnie mimo regularnego treningu</h3>
+            <p><strong>Przyczyna:</strong> Sumy TSS są zbyt niskie lub częstotliwość jest nieregularna.</p>
+            <p><strong>Rozwiązanie:</strong> CTL to 42-dniowa wykładnicza średnia krocząca. Rośnie powoli. Zwiększ
+                tygodniowy TSS o 5-10% i utrzymuj 4+ jazdy tygodniowo dla stałego wzrostu.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Jak często mam powtarzać test FTP?</h3>
+            <p><strong>Rekomendacja:</strong> Co 6-8 tygodni w fazach bazy/budowania. Przetestuj się po chorobie,
+                kontuzji, długiej przerwie lub gdy strefy stale wydają się zbyt łatwe/trudne.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Czy mogę używać Bike Analytics do treningu w domu?</h3>
+            <p><strong>Tak:</strong> Bike Analytics działa identycznie dla jazd w terenie i w pomieszczeniu. Trenażery
+                smart dostarczają bardzo dokładne dane o mocy. Synchronizuj ze Zwift, TrainerRoad lub przesyłaj pliki
+                FIT bezpośrednio.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>A co z różnicami między Szosą a MTB?</h3>
+            <p><strong>Bike Analytics ma specjalistyczne tryby:</strong> Kolarstwo szosowe wykorzystuje 30-sekundowe
+                wygładzanie mocy. Tryb MTB używa krótszych okien, aby uchwycić gwałtowne skoki mocy. Oba korzystają z
+                tego samego FTP, ale mają inne oczekiwania co do wskaźnika zmienności (VI). <a
+                    href="/pl/road-vs-mtb/">Poznaj różnice</a>.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Następne kroki</h2>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">Poznaj strefy treningowe</h3>
+                <div class="card-content">
+                    <p>Zrozum, jak trenować w Strefie 2 (baza), Strefie 4 (próg) i Strefie 5 (VO₂max) dla konkretnych
+                        adaptacji.</p>
+                    <a href="/pl/training-zones/" class="btn btn-secondary btn-small mt-md">Strefy treningowe
+                        →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Odkryj moc krytyczną</h3>
+                <div class="card-content">
+                    <p>Poznaj zaawansowane modele CP i W' do przewidywania wydajności i zarządzania wydolnością
+                        beztlenową.</p>
+                    <a href="/pl/critical-power/" class="btn btn-secondary btn-small mt-md">Moc krytyczna →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Zgłęb naukę o metrykach</h3>
+                <div class="card-content">
+                    <p>Poznaj naukowe podstawy FTP, TSS, CTL/ATL/TSB wraz z odniesieniami do recenzowanych badań.</p>
+                    <a href="/pl/research/" class="btn btn-secondary btn-small mt-md">Badania →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-xl text-center">
+            <p class="mb-md"><strong>Gotowy, by zacząć śledzenie?</strong></p>
+            <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="btn btn-primary btn-large" target="_blank"
+                rel="noopener">Pobierz darmowe Bike Analytics</a>
+            <p class="mt-sm text-secondary">7-dniowy okres próbny • Karta nie jest wymagana • iOS 16+</p>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Strona główna</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. Wszelkie prawa zastrzeżone
+            </p>
+            <ul class="footer-links">
+                <li><a href="/pl/privacy/">Prywatność</a></li>
+                <li><a href="/pl/terms/">Regulamin</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>Ta strona używa plików cookie, aby poprawić komfort użytkowania.</p>
+            <a href="/pl/privacy/" class="text-sm">Dowiedz się więcej</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Odrzuć</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Akceptuj</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

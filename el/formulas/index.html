@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="el" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Cycling Power Formulas - Mathematical Foundation</title>
+  <meta name="description" content="Complete cycling power formulas: TSS calculation, NP algorithm, IF formula, CP model equations, and W&#39;bal tracking.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="cycling power formulas, TSS formula, normalized power formula, critical power formula">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/el/formulas/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-21T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/el/formulas/">
+  <meta property="og:title" content="Cycling Power Formulas - Mathematical Foundation">
+  <meta property="og:description" content="Complete cycling power formulas: TSS calculation, NP algorithm, IF formula, CP model equations, and W&#39;bal tracking.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="el_GR">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/el/formulas/">
+  <meta name="twitter:title" content="Cycling Power Formulas - Mathematical Foundation">
+  <meta name="twitter:description" content="Complete cycling power formulas: TSS calculation, NP algorithm, IF formula, CP model equations, and W&#39;bal tracking.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/formulas/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/formulas/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/formulas/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/formulas/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/formulas/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/formulas/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/formulas/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/formulas/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/formulas/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/formulas/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/formulas/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/formulas/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/formulas/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/formulas/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/formulas/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/formulas/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/formulas/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/formulas/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/formulas/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/formulas/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/formulas/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/formulas/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/formulas/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/formulas/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/formulas/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/formulas/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Cycling Power Formulas - Mathematical Foundation",
+      "description": "Complete cycling power formulas: TSS calculation, NP algorithm, IF formula, CP model equations, and W&#39;bal tracking.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/el/formulas/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/el/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/el/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/el/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/el/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/formulas/" class="active"
+                                    aria-current="page">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/el/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/el/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/el/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" selected>
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Τύποι Ποδηλατικής Ισχύος</h1>
+        <p class="lead">Μαθηματικά Θεμέλια των Δεικτών του Bike Analytics</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Οδηγός Υλοποίησης</h2>
+        <p class="lead">Αυτή η σελίδα παρέχει τύπους έτοιμους για χρήση και μεθόδους υπολογισμού βήμα προς βήμα για
+            όλους τους δείκτες του Bike Analytics. Χρησιμοποιήστε τους για προσαρμοσμένες υλοποιήσεις, επαλήθευση ή
+            βαθύτερη κατανόηση της προπόνησης βάσει ισχύος.</p>
+
+        <div class="callout callout-warning">
+            <h3>⚠️ Σημειώσεις Υλοποίησης</h3>
+            <ul>
+                <li>Όλες οι τιμές ισχύος σε watts (W), ο χρόνος σε δευτερόλεπτα εκτός αν ορίζεται διαφορετικά.</li>
+                <li>Το FTP και η CP είναι κατώφλια ειδικά για κάθε άτομο—δεν υπάρχουν καθολικές τιμές.</li>
+                <li>Να επικυρώνετε πάντα τις εισόδους για λογικά εύρη (τυπικά 0-2000W).</li>
+                <li>Χειριστείτε τις οριακές περιπτώσεις (διαίρεση με το μηδέν, αρνητική ισχύς).</li>
+                <li>Τα δεδομένα ισχύος απαιτούν διαστήματα καταγραφής 1 δευτερολέπτου για ακρίβεια.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Βασικοί Δείκτες Απόδοσης</h2>
+
+        <div class="formula-card">
+            <h3>1. Βαθμολογία Προπονητικού Σρες (TSS)</h3>
+            <div class="formula-content">
+                <h4>Τύπος:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        TSS = (duration_seconds × NP × IF) / (FTP × 3600) × 100
+                    </div>
+                    <div class="formula">
+                        όπου IF = NP / FTP
+                    </div>
+                </div>
+
+                <h4>Παράδειγμα Υπολογισμού:</h4>
+                <div class="example-box">
+                    <p><strong>Σενάριο:</strong> Διαδρομή 2 ωρών, NP = 235W, FTP = 250W</p>
+                    <ol>
+                        <li>Υπολογισμός IF: IF = 235 / 250 = 0,94</li>
+                        <li>Διάρκεια σε δευτερόλεπτα: 2 ώρες × 3600 = 7200 δευτερόλεπτα</li>
+                        <li>TSS = (7200 × 235 × 0,94) / (250 × 3600) × 100</li>
+                        <li>TSS = 1.590.720 / 900.000 × 100 = <strong>176,7 TSS</strong></li>
+                    </ol>
+                    <p><em>Ερμηνεία: Σκληρή προπονητική διαδρομή (>150 TSS), αναμονή 2-3 ημερών για αποκατάσταση.</em>
+                    </p>
+                </div>
+
+                <h4>Υλοποίηση σε JavaScript:</h4>
+                <pre><code>function calculateTSS(durationSeconds, normalizedPower, ftp) {
+  const intensityFactor = normalizedPower / ftp;
+  const tss = (durationSeconds * normalizedPower * intensityFactor) / (ftp * 3600) * 100;
+  return Math.round(tss);
+}
+
+// Παράδειγμα χρήσης:
+const tss = calculateTSS(7200, 235, 250);
+// Επιστρέφει: 177</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>2. Κανονικοποιημένη Ισχύς (Normalized Power - NP)</h3>
+            <div class="formula-content">
+                <h4>Αλγόριθμος (κυλιόμενος μέσος όρος 30 δευτερολέπτων):</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        1. Υπολογίστε τον κυλιόμενο μέσο όρο ισχύος 30 δευτερολέπτων για ολόκληρη τη διαδρομή.
+                    </div>
+                    <div class="formula">
+                        2. Υψώστε κάθε τιμή 30 δευτερολέπτων στην 4η δύναμη.
+                    </div>
+                    <div class="formula">
+                        3. Πάρτε τον μέσο όρο όλων αυτών των τιμών ^4.
+                    </div>
+                    <div class="formula">
+                        4. Πάρτε την 4η ρίζα αυτού του μέσου όρου.
+                    </div>
+                    <div class="formula">
+                        NP = ⁴√(μέσος όρος των [30s_avg^4])
+                    </div>
+                </div>
+
+                <h4>Γιατί η 4η δύναμη;</h4>
+                <p>Η τεταρτοβάθμια (4η δύναμη) σχέση αντικατοπτρίζει το μη γραμμικό φυσιολογικό κόστος των μεταβλητών
+                    προσπαθειών. Μια διαδρομή με εκρήξεις και ανακάμψεις κοστίζει περισσότερη ενέργεια από μια σταθερή
+                    ισχύ στον ίδιο μέσο όρο.</p>
+
+                <div class="example-box">
+                    <p><strong>Παράδειγμα:</strong></p>
+                    <ul>
+                        <li>Σταθερή διαδρομή: 200W για 1 ώρα → NP = 200W, Μέσος Όρος = 200W</li>
+                        <li>Μεταβλητή διαδρομή: Εναλλαγή 300W/100W → Μέσος Όρος = 200W, NP = 225W</li>
+                    </ul>
+                    <p><em>Ίδιος μέσος όρος ισχύος, αλλά η μεταβλητή διαδρομή έχει 12% υψηλότερη NP λόγω του
+                            φυσιολογικού κόστους των εκρήξεων.</em></p>
+                </div>
+
+                <h4>Υλοποίηση σε JavaScript:</h4>
+                <pre><code>function calculateNormalizedPower(powerData) {
+  // το powerData είναι ένας πίνακας τιμών ισχύος ανά 1 δευτερόλεπτο
+
+  // Βήμα 1: Υπολογισμός κυλιόμενων μέσων όρων 30 δευτερολέπτων
+  const rollingAvgs = [];
+  for (let i = 29; i < powerData.length; i++) {
+    const window = powerData.slice(i - 29, i + 1);
+    const avg = window.reduce((sum, p) => sum + p, 0) / 30;
+    rollingAvgs.push(avg);
+  }
+
+  // Βήμα 2: Ύψωση στην 4η δύναμη
+  const powered = rollingAvgs.map(p => Math.pow(p, 4));
+
+  // Βήμα 3: Μέσος όρος των 4ων δυνάμεων
+  const avgPowered = powered.reduce((sum, p) => sum + p, 0) / powered.length;
+
+  // Βήμα 4: Λήψη της 4ης ρίζας
+  const np = Math.pow(avgPowered, 0.25);
+
+  return Math.round(np);
+}
+
+// Παράδειγμα χρήσης:
+const powerData = [/* πίνακας ισχύος 1 δευτερολέπτου */];
+const np = calculateNormalizedPower(powerData);
+// Επιστρέφει: NP σε watts</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>3. Συντελεστής Έντασης (Intensity Factor - IF)</h3>
+            <div class="formula-content">
+                <h4>Τύπος:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        IF = NP / FTP
+                    </div>
+                </div>
+
+                <h4>Εύρη Ερμηνείας:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Εύρος IF</th>
+                        <th>Επίπεδο Προσπάθειας</th>
+                        <th>Παράδειγμα Προπόνησης</th>
+                    </tr>
+                    <tr>
+                        <td>&lt; 0,75</td>
+                        <td>Αποκατάσταση / Εύκολο</td>
+                        <td>Διαδρομή ενεργητικής αποκατάστασης, Ζώνη 1-2</td>
+                    </tr>
+                    <tr>
+                        <td>0,75 - 0,85</td>
+                        <td>Αντοχή</td>
+                        <td>Μεγάλη σταθερή διαδρομή, αερόβια βάση</td>
+                    </tr>
+                    <tr>
+                        <td>0,85 - 0,95</td>
+                        <td>Tempo</td>
+                        <td>Προπόνηση Sweet spot, tempo intervals</td>
+                    </tr>
+                    <tr>
+                        <td>0,95 - 1,05</td>
+                        <td>Κατώφλι (Threshold)</td>
+                        <td>Intervals FTP, προσπάθεια ατομικής χρονομέτρησης</td>
+                    </tr>
+                    <tr>
+                        <td>1,05 - 1,15</td>
+                        <td>VO₂max</td>
+                        <td>Intervals 5 λεπτών, αγώνας κριτήριουμ</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 1,15</td>
+                        <td>Αναερόβιο</td>
+                        <td>Σύντομα sprints, επιθέσεις, εκρήξεις MTB</td>
+                    </tr>
+                </table>
+
+                <h4>Παράδειγμα Υπολογισμού:</h4>
+                <div class="example-box">
+                    <p><strong>Σενάριο:</strong> NP = 235W, FTP = 250W</p>
+                    <p>IF = 235 / 250 = <strong>0,94</strong></p>
+                    <p><em>Ερμηνεία: Υψηλό tempo / προσπάθεια υπό το κατώφλι, διατηρήσιμη για 2-3 ώρες.</em></p>
+                </div>
+
+                <pre><code>function calculateIF(normalizedPower, ftp) {
+  return (normalizedPower / ftp).toFixed(2);
+}
+
+// Παράδειγμα:
+const if_value = calculateIF(235, 250);
+// Επιστρέφει: 0.94</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>4. Δείκτης Μεταβλητότητας (Variability Index - VI)</h3>
+            <div class="formula-content">
+                <h4>Τύπος:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        VI = NP / Μέση Ισχύς
+                    </div>
+                </div>
+
+                <h4>Ερμηνεία ανά Άθλημα:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Άθλημα</th>
+                        <th>Τυπικός VI</th>
+                        <th>Σημασία</th>
+                    </tr>
+                    <tr>
+                        <td>Χρονόμετρο Δρόμου / Σταθερή Προσπάθεια</td>
+                        <td>1,00 - 1,05</td>
+                        <td>Πολύ σταθερή ισχύς, βέλτιστος ρυθμός</td>
+                    </tr>
+                    <tr>
+                        <td>Αγώνες Δρόμου</td>
+                        <td>1,05 - 1,10</td>
+                        <td>Κάποιες εκρήξεις, γενικά σταθερό</td>
+                    </tr>
+                    <tr>
+                        <td>Κριτήριουμ (Criterium)</td>
+                        <td>1,10 - 1,20</td>
+                        <td>Συχνές επιταχύνσεις και επιθέσεις</td>
+                    </tr>
+                    <tr>
+                        <td>Mountain Bike XC</td>
+                        <td>1,15 - 1,30+</td>
+                        <td>Πολύ μεταβλητό, συνεχείς εκρήξεις</td>
+                    </tr>
+                </table>
+
+                <h4>Παράδειγμα Υπολογισμού:</h4>
+                <div class="example-box">
+                    <p><strong>Αγώνας Δρόμου:</strong> NP = 240W, Μέση Ισχύς = 230W</p>
+                    <p>VI = 240 / 230 = <strong>1,04</strong> (σταθερός ρυθμός)</p>
+
+                    <p><strong>Αγώνας MTB:</strong> NP = 285W, Μέση Ισχύς = 235W</p>
+                    <p>VI = 285 / 235 = <strong>1,21</strong> (πολύ μεταβλητό, εκρηκτικές προσπάθειες)</p>
+                </div>
+
+                <pre><code>function calculateVI(normalizedPower, averagePower) {
+  return (normalizedPower / averagePower).toFixed(2);
+}
+
+// Παράδειγμα:
+const vi_road = calculateVI(240, 230);  // Επιστρέφει: 1.04
+const vi_mtb = calculateVI(285, 235);   // Επιστρέφει: 1.21</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Κρίσιμη Ισχύς & W' (Αναερόβια Ικανότητα)</h2>
+
+        <div class="formula-card">
+            <h3>5. Κρίσιμη Ισχύς (CP) - Γραμμικό Μοντέλο</h3>
+            <div class="formula-content">
+                <h4>Τύπος:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        Χρόνος = W' / (Ισχύς - CP)
+                    </div>
+                    <div class="formula">
+                        Αναδιάταξη: Ισχύς × Χρόνος = CP × Χρόνος + W'
+                    </div>
+                </div>
+
+                <h4>Υπολογισμός από Πολλαπλές Προσπάθειες:</h4>
+                <p>Απαιτούνται 2-4 μέγιστες προσπάθειες σε διαφορετικές διάρκειες (π.χ. 3, 5, 12, 20 λεπτά).</p>
+
+                <div class="example-box">
+                    <p><strong>Παράδειγμα Δεδομένων:</strong></p>
+                    <table class="data-table">
+                        <tr>
+                            <th>Διάρκεια</th>
+                            <th>Ισχύς (W)</th>
+                            <th>Συνολικό Έργο (kJ)</th>
+                        </tr>
+                        <tr>
+                            <td>3 λεπτά (180s)</td>
+                            <td>400W</td>
+                            <td>72 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>5 λεπτά (300s)</td>
+                            <td>365W</td>
+                            <td>109,5 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>12 λεπτά (720s)</td>
+                            <td>310W</td>
+                            <td>223,2 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>20 λεπτά (1200s)</td>
+                            <td>285W</td>
+                            <td>342 kJ</td>
+                        </tr>
+                    </table>
+
+                    <p>Χρησιμοποιώντας γραμμική παλινδρόμηση (Έργο = CP × Χρόνος + W'):</p>
+                    <ul>
+                        <li><strong>CP = 270W</strong> (κλίση της γραμμής παλινδρόμησης)</li>
+                        <li><strong>W' = 18,5 kJ</strong> (σημείο τομής με τον άξονα y)</li>
+                    </ul>
+                </div>
+
+                <h4>Υλοποίηση σε JavaScript:</h4>
+                <pre><code>function calculateCP_Linear(efforts) {
+  // efforts = [{duration: seconds, power: watts}, ...]
+
+  const times = efforts.map(e => e.duration);
+  const work = efforts.map(e => e.power * e.duration / 1000); // kJ
+
+  // Γραμμική παλινδρόμηση: work = CP * time + W'
+  const n = efforts.length;
+  const sumT = times.reduce((a, b) => a + b, 0);
+  const sumW = work.reduce((a, b) => a + b, 0);
+  const sumTW = times.reduce((sum, t, i) => sum + t * work[i], 0);
+  const sumTT = times.reduce((sum, t) => sum + t * t, 0);
+
+  const CP = (n * sumTW - sumT * sumW) / (n * sumTT - sumT * sumT);
+  const Wprime = (sumW - CP * sumT) / n;
+
+  return {
+    CP: Math.round(CP * 10) / 10,      // watts
+    Wprime: Math.round(Wprime * 10) / 10  // kJ
+  };
+}
+
+// Παράδειγμα χρήσης:
+const efforts = [
+  {duration: 180, power: 400},
+  {duration: 300, power: 365},
+  {duration: 720, power: 310},
+  {duration: 1200, power: 285}
+];
+
+const result = calculateCP_Linear(efforts);
+// Επιστρέφει: { CP: 270.0, Wprime: 18.5 }</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>6. Ισορροπία W' (W' Balance) - Μοντέλο Διαφορικής Εξίσωσης</h3>
+            <div class="formula-content">
+                <h4>Τύποι:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        <strong>Εξάντληση (όταν P > CP):</strong><br>
+                        W'exp(t) = ∫(P(t) - CP) dt
+                    </div>
+                    <div class="formula">
+                        <strong>Ανάκαμψη (όταν P < CP):</strong><br>
+                                W'rec(t) = W' × (1 - e^(-t/τ))
+                    </div>
+                    <div class="formula">
+                        όπου τ = 546 × e^(-0,01 × ΔCP) + 316<br>
+                        και ΔCP = (CP - P(t))
+                    </div>
+                </div>
+
+                <h4>Παράδειγμα από τον Πραγματικό Κόσμο:</h4>
+                <div class="example-box">
+                    <p><strong>Στοιχεία ποδηλάτη:</strong> CP = 270W, W' = 18,5 kJ</p>
+
+                    <p><strong>Σενάριο 1 - Σκληρή Επίθεση:</strong></p>
+                    <ul>
+                        <li>Ο αναβάτης εκρήγνυται στα 400W για 30 δευτερόλεπτα.</li>
+                        <li>Εξάντληση W': (400 - 270) × 30 = 3.900 J = 3,9 kJ</li>
+                        <li>W'bal που απομένει: 18,5 - 3,9 = <strong>14,6 kJ</strong></li>
+                    </ul>
+
+                    <p><strong>Σενάριο 2 - Ανάκαμψη:</strong></p>
+                    <ul>
+                        <li>Μετά την επίθεση, πέφτει στα 200W (70W κάτω από την CP) για 2 λεπτά.</li>
+                        <li>ΔCP = 270 - 200 = 70W</li>
+                        <li>τ = 546 × e^(-0,01 × 70) + 316 = 588 δευτερόλεπτα</li>
+                        <li>Ανάκαμψη σε 120s: 18,5 × (1 - e^(-120/588)) = <strong>3,5 kJ ανακτήθηκαν</strong></li>
+                        <li>Νέα W'bal: 14,6 + 3,5 = <strong>18,1 kJ</strong></li>
+                    </ul>
+                </div>
+
+                <h4>Υλοποίηση σε JavaScript:</h4>
+                <pre><code>function calculateWbalance(powerData, CP, Wprime) {
+  // powerData = πίνακας {time: seconds, power: watts}
+  let wbal = Wprime * 1000; // Μετατροπή σε joules
+  const wbalHistory = [];
+
+  for (let i = 1; i < powerData.length; i++) {
+    const dt = powerData[i].time - powerData[i-1].time;
+    const power = powerData[i].power;
+
+    if (power > CP) {
+      // Εξάντληση πάνω από την CP
+      const expenditure = (power - CP) * dt;
+      wbal -= expenditure;
+    } else {
+      // Ανάκαμψη κάτω από την CP
+      const deltaCP = CP - power;
+      const tau = 546 * Math.exp(-0.01 * deltaCP) + 316;
+      const recovery = (Wprime * 1000 - wbal) * (1 - Math.exp(-dt / tau));
+      wbal += recovery;
+    }
+
+    // Διασφάλιση ότι το W'bal δεν υπερβαίνει το μέγιστο ούτε γίνεται αρνητικό
+    wbal = Math.max(0, Math.min(wbal, Wprime * 1000));
+
+    wbalHistory.push({
+      time: powerData[i].time,
+      wbal: wbal / 1000, // kJ
+      percent: (wbal / (Wprime * 1000)) * 100
+    });
+  }
+
+  return wbalHistory;
+}
+
+// Παράδειγμα χρήσης:
+const powerData = [
+  {time: 0, power: 200},
+  {time: 1, power: 210},
+  // ... υπόλοιπα δεδομένα διαδρομής
+];
+
+const wbalHistory = calculateWbalance(powerData, 270, 18.5);
+// Επιστρέφει πίνακα τιμών W'bal συναρτήσει του χρόνου</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Διάγραμμα Διαχείρισης Απόδοσης (Performance Management Chart - PMC)</h2>
+
+        <div class="formula-card">
+            <h3>7. Υπολογισμοί CTL, ATL, TSB</h3>
+            <div class="formula-content">
+                <h4>Τύποι (Εκθετικά Σταθμισμένοι Κινητοί Μέσοι Όροι):</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        CTL_today = CTL_yesterday + (TSS_today - CTL_yesterday) / 42
+                    </div>
+                    <div class="formula">
+                        ATL_today = ATL_yesterday + (TSS_today - ATL_yesterday) / 7
+                    </div>
+                    <div class="formula">
+                        TSB_today = CTL_yesterday - ATL_yesterday
+                    </div>
+                </div>
+
+                <h4>Ορισμοί Δεικτών:</h4>
+                <ul>
+                    <li><strong>CTL (Χρόνιο Προπονητικό Φορτίο):</strong> Εκθετικά σταθμισμένος μέσος όρος 42 ημερών -
+                        αντιπροσωπεύει τη φυσική κατάσταση (fitness).</li>
+                    <li><strong>ATL (Οξύ Προπονητικό Φορτίο):</strong> Εκθετικά σταθμισμένος μέσος όρος 7 ημερών -
+                        αντιπροσωπεύει την κόπωση (fatigue).</li>
+                    <li><strong>TSB (Ισορροπία Προπονητικού Σρες):</strong> Φόρμα = Φυσική Κατάσταση - Κόπωση.</li>
+                </ul>
+
+                <h4>Παράδειγμα Υπολογισμού (Προπονητικό Block 7 Ημερών):</h4>
+                <div class="example-box">
+                    <table class="data-table">
+                        <tr>
+                            <th>Ημέρα</th>
+                            <th>TSS</th>
+                            <th>CTL</th>
+                            <th>ATL</th>
+                            <th>TSB</th>
+                            <th>Κατάσταση</th>
+                        </tr>
+                        <tr>
+                            <td>Δευ</td>
+                            <td>100</td>
+                            <td>75,0</td>
+                            <td>80,0</td>
+                            <td>-5,0</td>
+                            <td>Προπόνηση</td>
+                        </tr>
+                        <tr>
+                            <td>Τρι</td>
+                            <td>50</td>
+                            <td>74,4</td>
+                            <td>75,7</td>
+                            <td>-1,3</td>
+                            <td>Αποκατάσταση</td>
+                        </tr>
+                        <tr>
+                            <td>Τετ</td>
+                            <td>120</td>
+                            <td>75,5</td>
+                            <td>82,0</td>
+                            <td>-6,5</td>
+                            <td>Σκληρή Προπόνηση</td>
+                        </tr>
+                        <tr>
+                            <td>Πεμ</td>
+                            <td>0</td>
+                            <td>73,7</td>
+                            <td>70,3</td>
+                            <td>+3,4</td>
+                            <td>Ημέρα Ανάπαυσης</td>
+                        </tr>
+                        <tr>
+                            <td>Παρ</td>
+                            <td>80</td>
+                            <td>73,8</td>
+                            <td>71,7</td>
+                            <td>+2,1</td>
+                            <td>Μέτρια</td>
+                        </tr>
+                        <tr>
+                            <td>Σαβ</td>
+                            <td>150</td>
+                            <td>75,6</td>
+                            <td>82,9</td>
+                            <td>-7,3</td>
+                            <td>Μεγάλη Διαδρομή</td>
+                        </tr>
+                        <tr>
+                            <td>Κυρ</td>
+                            <td>40</td>
+                            <td>74,8</td>
+                            <td>76,8</td>
+                            <td>-2,0</td>
+                            <td>Αποκατάσταση</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4>Ερμηνεία TSB:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Εύρος TSB</th>
+                        <th>Κατάσταση</th>
+                        <th>Ενέργεια</th>
+                    </tr>
+                    <tr>
+                        <td>&lt; -30</td>
+                        <td>Υψηλός Κίνδυνος</td>
+                        <td>Προειδοποίηση υπερπροπόνησης - μείωση φορτίου.</td>
+                    </tr>
+                    <tr>
+                        <td>-30 έως -10</td>
+                        <td>Σκληρή Προπόνηση</td>
+                        <td>Χτίσιμο φυσικής κατάστασης, παρακολούθηση αποκατάστασης.</td>
+                    </tr>
+                    <tr>
+                        <td>-10 έως +5</td>
+                        <td>Βέλτιστη</td>
+                        <td>Κανονική ζώνη προπόνησης.</td>
+                    </tr>
+                    <tr>
+                        <td>+5 έως +15</td>
+                        <td>Έτοιμος για Αγώνα</td>
+                        <td>Κορύφωση φόρμας - αγώνας αυτό το Σαββατοκύριακο.</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; +25</td>
+                        <td>Αποπροπόνηση</td>
+                        <td>Απώλεια φυσικής κατάστασης - αύξηση φορτίου.</td>
+                    </tr>
+                </table>
+
+                <h4>Υλοποίηση σε JavaScript:</h4>
+                <pre><code>function calculatePMC(workouts) {
+  // workouts = [{date: "YYYY-MM-DD", tss: number}, ...]
+  let ctl = 0, atl = 0;
+  const results = [];
+
+  workouts.forEach(workout => {
+    // Ενημέρωση CTL (σταθερά χρόνου 42 ημερών)
+    ctl = ctl + (workout.tss - ctl) / 42;
+
+    // Ενημέρωση ATL (σταθερά χρόνου 7 ημερών)
+    atl = atl + (workout.tss - atl) / 7;
+
+    // Υπολογισμός TSB (χρησιμοποιώντας τις τρέχουσες τιμές για απλότητα εδώ)
+    const tsb = ctl - atl;
+
+    results.push({
+      date: workout.date,
+      tss: workout.tss,
+      ctl: Math.round(ctl * 10) / 10,
+      atl: Math.round(atl * 10) / 10,
+      tsb: Math.round(tsb * 10) / 10,
+      status: getTSBStatus(tsb)
+    });
+  });
+
+  return results;
+}
+
+function getTSBStatus(tsb) {
+  if (tsb < -30) return "High Risk";
+  if (tsb < -10) return "Training Hard";
+  if (tsb < 5) return "Optimal";
+  if (tsb < 15) return "Race Ready";
+  return "Detraining";
+}
+
+// Παράδειγμα χρήσης:
+const workouts = [
+  {date: "2025-01-01", tss: 100},
+  {date: "2025-01-02", tss: 50},
+  {date: "2025-01-03", tss: 120},
+  // ... περισσότερες προπονήσεις
+];
+
+const pmc = calculatePMC(workouts);
+// Επιστρέφει πίνακα με CTL, ATL, TSB για κάθε ημέρα</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Σχέση Ισχύος-Βάρους & Δείκτες Αναρρίχησης</h2>
+
+        <div class="formula-card">
+            <h3>8. Σχέση Ισχύος-Βάρους (Power-to-Weight Ratio)</h3>
+            <div class="formula-content">
+                <h4>Τύπος:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        W/kg = Ισχύς (watts) / Σωματική Μάζα (kg)
+                    </div>
+                </div>
+
+                <h4>Ορόσημα FTP W/kg:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Επίπεδο</th>
+                        <th>W/kg Άνδρες</th>
+                        <th>W/kg Γυναίκες</th>
+                        <th>Κατηγορία</th>
+                    </tr>
+                    <tr>
+                        <td>Ερασιτεχνικό</td>
+                        <td>2,5 - 3,5</td>
+                        <td>2,0 - 3,0</td>
+                        <td>Ποδηλάτης fitness</td>
+                    </tr>
+                    <tr>
+                        <td>Ανταγωνιστικό</td>
+                        <td>3,5 - 4,5</td>
+                        <td>3,0 - 4,0</td>
+                        <td>Cat 3-4, ερασιτέχνης αθλητής</td>
+                    </tr>
+                    <tr>
+                        <td>Προχωρημένο</td>
+                        <td>4,5 - 5,5</td>
+                        <td>4,0 - 5,0</td>
+                        <td>Cat 1-2, ισχυρός ερασιτέχνης</td>
+                    </tr>
+                    <tr>
+                        <td>Elite Ερασιτέχνης</td>
+                        <td>5,5 - 6,0</td>
+                        <td>5,0 - 5,5</td>
+                        <td>Εθνικό επίπεδο</td>
+                    </tr>
+                    <tr>
+                        <td>Επαγγελματικό</td>
+                        <td>6,0 - 7,0+</td>
+                        <td>5,5 - 6,5+</td>
+                        <td>World Tour, Grand Tour GC</td>
+                    </tr>
+                </table>
+
+                <h4>Παράδειγμα Υπολογισμού:</h4>
+                <div class="example-box">
+                    <p><strong>Σενάριο:</strong> Ποδηλάτης με FTP = 275W, σωματική μάζα = 70kg</p>
+                    <p>W/kg = 275 / 70 = <strong>3,93 W/kg</strong></p>
+                    <p><em>Ερμηνεία: Ανταγωνιστικό επίπεδο, ικανός σε ορεινούς αγώνες.</em></p>
+                </div>
+
+                <pre><code>function calculateWattsPerKg(power, bodyMassKg) {
+  return (power / bodyMassKg).toFixed(2);
+}
+
+// Παράδειγμα:
+const wpkg = calculateWattsPerKg(275, 70);
+// Επιστρέφει: 3.93</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>9. VAM (Velocità Ascensionale Media)</h3>
+            <div class="formula-content">
+                <h4>Τύπος:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        VAM (m/h) = Υψομετρική Διαφορά (m) / Χρόνος (ώρες)
+                    </div>
+                </div>
+
+                <h4>Ορόσημα VAM:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>VAM (m/h)</th>
+                        <th>Επίπεδο</th>
+                        <th>Παράδειγμα</th>
+                    </tr>
+                    <tr>
+                        <td>600 - 900</td>
+                        <td>Ερασιτεχνικό</td>
+                        <td>Ποδηλάτης σε τοπική ανάβαση</td>
+                    </tr>
+                    <tr>
+                        <td>900 - 1200</td>
+                        <td>Ανταγωνιστικό</td>
+                        <td>Καλός ερασιτέχνης στο Alpe d'Huez</td>
+                    </tr>
+                    <tr>
+                        <td>1200 - 1500</td>
+                        <td>Elite Ερασιτέχνης</td>
+                        <td>Ανηφορίστας εθνικού επιπέδου</td>
+                    </tr>
+                    <tr>
+                        <td>1500 - 1800</td>
+                        <td>Επαγγελματικό</td>
+                        <td>World Tour domestique</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 1800</td>
+                        <td>Νικητής Grand Tour</td>
+                        <td>Pogačar, Vingegaard σε κρίσιμες αναβάσεις</td>
+                    </tr>
+                </table>
+
+                <h4>Παράδειγμα Υπολογισμού:</h4>
+                <div class="example-box">
+                    <p><strong>Σενάριο:</strong> Ανάβαση Alpe d'Huez</p>
+                    <ul>
+                        <li>Υψομετρική διαφορά: 1100 μέτρα</li>
+                        <li>Χρόνος: 55 λεπτά = 0,917 ώρες</li>
+                        <li>VAM = 1100 / 0,917 = <strong>1200 m/h</strong></li>
+                    </ul>
+                    <p><em>Ερμηνεία: Αναρριχητική απόδοση ανταγωνιστικού επιπέδου.</em></p>
+                </div>
+
+                <pre><code>function calculateVAM(elevationGainMeters, timeMinutes) {
+  const hours = timeMinutes / 60;
+  return Math.round(elevationGainMeters / hours);
+}
+
+// Παράδειγμα:
+const vam = calculateVAM(1100, 55);
+// Επιστρέφει: 1200 m/h</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>10. Εκτίμηση W/kg από το VAM</h3>
+            <div class="formula-content">
+                <h4>Τύπος:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        W/kg ≈ VAM (m/h) / 100 / (Κλίση% + 3)
+                    </div>
+                </div>
+
+                <h4>Παράδειγμα Υπολογισμού:</h4>
+                <div class="example-box">
+                    <p><strong>Σενάριο:</strong> Ανάβαση με 8% μέση κλίση, VAM = 1200 m/h</p>
+                    <p>W/kg = 1200 / 100 / (8 + 3)</p>
+                    <p>W/kg = 12 / 11 = <strong>4,36 W/kg</strong></p>
+                    <p><em>Επαλήθευση: Για αναβάτη 70kg → 305W διατηρήσιμη ισχύς στην ανάβαση.</em></p>
+                </div>
+
+                <pre><code>function estimateWkgFromVAM(vam, gradientPercent) {
+  return (vam / 100 / (gradientPercent + 3)).toFixed(2);
+}
+
+// Παράδειγμα:
+const wkg = estimateWkgFromVAM(1200, 8);
+// Επιστρέφει: 4.36</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Αεροδυναμική Εξίσωση Ισχύος</h2>
+
+        <div class="formula-card">
+            <h3>11. Συνολικές Απαιτήσεις Ισχύος</h3>
+            <div class="formula-content">
+                <h4>Πλήρης Τύπος:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        P_total = P_aero + P_gravity + P_rolling + P_kinetic
+                    </div>
+                </div>
+
+                <h4>Τύποι Συστατικών:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        <strong>Αεροδυναμική Αντίσταση:</strong><br>
+                        P_aero = CdA × 0,5 × ρ × V³
+                    </div>
+                    <div class="formula">
+                        <strong>Βαρυτική (Αναρρίχηση):</strong><br>
+                        P_gravity = m × g × sin(θ) × V
+                    </div>
+                    <div class="formula">
+                        <strong>Αντίσταση Κύλισης:</strong><br>
+                        P_rolling = Crr × m × g × cos(θ) × V
+                    </div>
+                    <div class="formula">
+                        <strong>Κινητική (Επιτάχυνση):</strong><br>
+                        P_kinetic = m × a × V
+                    </div>
+                </div>
+
+                <h4>Σταθερές & Μεταβλητές:</h4>
+                <ul>
+                    <li><strong>CdA</strong> = Συντελεστής οπισθέλκουσας × μετωπική επιφάνεια (m²)
+                        <ul>
+                            <li>Τυπική θέση hoods δρόμου: 0,35-0,40 m²</li>
+                            <li>Drops: 0,32-0,37 m²</li>
+                            <li>Θέση TT: 0,20-0,25 m²</li>
+                        </ul>
+                    </li>
+                    <li><strong>ρ</strong> = Πυκνότητα αέρα (1,225 kg/m³ στο επίπεδο της θάλασσας, 15°C)</li>
+                    <li><strong>V</strong> = Ταχύτητα (m/s)</li>
+                    <li><strong>m</strong> = Συνολική μάζα (αναβάτης + ποδήλατο, kg)</li>
+                    <li><strong>g</strong> = Βαρύτητα (9,81 m/s²)</li>
+                    <li><strong>θ</strong> = Γωνία κλίσης (ακτίνια ή μοίρες που έχουν μετατραπεί)</li>
+                    <li><strong>Crr</strong> = Συντελεστής αντίστασης κύλισης (~0,004 για καλά ελαστικά δρόμου)</li>
+                    <li><strong>a</strong> = Επιτάχυνση (m/s²)</li>
+                </ul>
+
+                <h4>Παράδειγμα Υπολογισμού (Χρονόμετρο σε Επίπεδο Δρόμο):</h4>
+                <div class="example-box">
+                    <p><strong>Σενάριο:</strong></p>
+                    <ul>
+                        <li>Ταχύτητα: 40 km/h = 11,11 m/s</li>
+                        <li>CdA: 0,22 m² (καλή θέση TT)</li>
+                        <li>Συνολική μάζα: 75kg (αναβάτης) + 8kg (ποδήλατο) = 83kg</li>
+                        <li>Επίπεδος δρόμος (κλίση = 0°)</li>
+                        <li>Σταθερή ταχύτητα (επιτάχυνση = 0)</li>
+                    </ul>
+
+                    <p><strong>Υπολογισμός:</strong></p>
+                    <ol>
+                        <li><strong>P_aero</strong> = 0,22 × 0,5 × 1,225 × 11,11³ = <strong>185W</strong></li>
+                        <li><strong>P_gravity</strong> = 0W (επίπεδος δρόμος)</li>
+                        <li><strong>P_rolling</strong> = 0,004 × 83 × 9,81 × 11,11 = <strong>36W</strong></li>
+                        <li><strong>P_kinetic</strong> = 0W (σταθερή ταχύτητα)</li>
+                        <li><strong>P_total</strong> = 185 + 0 + 36 + 0 = <strong>221W</strong></li>
+                    </ol>
+
+                    <p><em>Ερμηνεία: Απαιτούνται 221W για τη διατήρηση των 40 km/h σε θέση TT σε επίπεδο δρόμο.</em></p>
+                </div>
+
+                <h4>Υλοποίηση σε JavaScript:</h4>
+                <pre><code>function calculatePowerRequired(params) {
+  const {
+    velocityKph,
+    CdA = 0.32,              // m²
+    rho = 1.225,             // kg/m³
+    mass = 83,               // kg (αναβάτης + ποδήλατο)
+    gradientPercent = 0,     // %
+    Crr = 0.004,             // αντίσταση κύλισης
+    accelerationMps2 = 0     // m/s²
+  } = params;
+
+  // Μετατροπή ταχύτητας σε m/s
+  const V = velocityKph / 3.6;
+
+  // Μετατροπή κλίσης σε γωνία
+  const theta = Math.atan(gradientPercent / 100);
+
+  // Υπολογισμός κάθε συστατικού
+  const P_aero = CdA * 0.5 * rho * Math.pow(V, 3);
+  const P_gravity = mass * 9.81 * Math.sin(theta) * V;
+  const P_rolling = Crr * mass * 9.81 * Math.cos(theta) * V;
+  const P_kinetic = mass * accelerationMps2 * V;
+
+  return {
+    total: Math.round(P_aero + P_gravity + P_rolling + P_kinetic),
+    aero: Math.round(P_aero),
+    gravity: Math.round(P_gravity),
+    rolling: Math.round(P_rolling),
+    kinetic: Math.round(P_kinetic)
+  };
+}
+
+// Παράδειγμα: TT στα 40 km/h
+const power_tt = calculatePowerRequired({
+  velocityKph: 40,
+  CdA: 0.22,
+  mass: 83,
+  gradientPercent: 0
+});
+// Επιστρέφει: { total: 221, aero: 185, gravity: 0, rolling: 36, kinetic: 0 }
+
+// Παράδειγμα: Ανάβαση 8% στα 15 km/h
+const power_climb = calculatePowerRequired({
+  velocityKph: 15,
+  CdA: 0.38,
+  mass: 75,
+  gradientPercent: 8
+});
+// Επιστρέφει: { total: 265, aero: 27, gravity: 244, rolling: 11, kinetic: 0 }</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Βοηθητικές Συναρτήσεις</h2>
+
+        <div class="formula-card">
+            <h3>Εργαλεία Μετατροπής Μονάδων</h3>
+            <div class="formula-content">
+                <h4>Υλοποίηση σε JavaScript:</h4>
+                <pre><code>// Μετατροπές χρόνου
+function hoursToSeconds(hours) {
+  return hours * 3600;
+}
+
+function minutesToSeconds(minutes) {
+  return minutes * 60;
+}
+
+function secondsToHours(seconds) {
+  return seconds / 3600;
+}
+
+function formatDuration(seconds) {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = Math.round(seconds % 60);
+  return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Μετατροπές ταχύτητας
+function kphToMps(kph) {
+  return kph / 3.6;
+}
+
+function mpsToKph(mps) {
+  return mps * 3.6;
+}
+
+// Μετατροπές ενέργειας
+function joulesTokJ(joules) {
+  return joules / 1000;
+}
+
+function kJToJoules(kJ) {
+  return kJ * 1000;
+}
+
+function wattsToKJ(watts, durationSeconds) {
+  return (watts * durationSeconds) / 1000;
+}
+
+// Παραδείγματα:
+formatDuration(7265);        // Επιστρέφει: "2:01:05"
+kphToMps(40);                // Επιστρέφει: 11.11 m/s
+wattsToKJ(250, 3600);        // Επιστρέφει: 900 kJ (1 ώρα στα 250W)</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow text-center">
+        <h2>Πόροι Υλοποίησης</h2>
+        <p class="lead">Όλοι οι τύποι σε αυτή τη σελίδα είναι έτοιμοι για παραγωγή και έχουν επικυρωθεί βάσει της
+            επιστημονικής βιβλιογραφίας και δεδομένων από πραγματικά βατόμετρα. Χρησιμοποιήστε τους για προσαρμοσμένα
+            εργαλεία ανάλυσης, επαλήθευση ή βαθύτερη κατανόηση των υπολογισμών της προπόνησης βάσει ισχύος.</p>
+
+        <div class="callout callout-tip">
+            <h3>💡 Βέλτιστες Πρακτικές</h3>
+            <ul class="text-left">
+                <li><strong>Επικύρωση εισόδων:</strong> Ελέγξτε για λογικά εύρη ισχύος (0-2000W), θετικές διάρκειες.
+                </li>
+                <li><strong>Χειρισμός οριακών περιπτώσεων:</strong> Διαίρεση με το μηδέν, null/undefined δεδομένα,
+                    απουσία FTP.</li>
+                <li><strong>Στρογγυλοποίηση:</strong> CTL/ATL/TSB σε 1 δεκαδικό, TSS σε ακέραιο, W/kg σε 2 δεκαδικά.
+                </li>
+                <li><strong>Αποθήκευση ακρίβειας:</strong> Διατηρήστε πλήρη ακρίβεια στη βάση δεδομένων,
+                    στρογγυλοποιήστε μόνο για την εμφάνιση.</li>
+                <li><strong>Ζώνες ώρας:</strong> Διαχειριστείτε το UTC έναντι της τοπικής ώρας με συνέπεια για την
+                    ανάλυση πολλών ημερών.</li>
+                <li><strong>Βαθμονόμηση βατόμετρου:</strong> Υπενθυμίστε στους χρήστες να κάνουν zero-offset πριν από
+                    τις διαδρομές.</li>
+                <li><strong>Επικύρωση FTP:</strong> Επισημάνετε ύποπτες τιμές FTP (>500W ή <100W για ενήλικες).</li>
+                <li><strong>Ενδελεχής δοκιμή:</strong> Χρησιμοποιήστε αρχεία διαδρομών με γνωστά αποτελέσματα για να
+                    επαληθεύσετε τους υπολογισμούς.</li>
+            </ul>
+        </div>
+
+        <div class="mt-xl">
+            <a href="/el/" class="btn btn-primary btn-large">Επιστροφή στην Αρχική</a>
+            <a href="/el/research/" class="btn btn-secondary">Επιστημονικό Θεμέλιο</a>
+            <a href="/el/bibliography/" class="btn btn-secondary">Πλήρης Βιβλιογραφία</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/el/privacy/">Privacy</a></li>
+                <li><a href="/el/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/el/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

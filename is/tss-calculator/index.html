@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="is" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>TSS Calculator - Free Training Stress Score Calculator</title>
+  <meta name="description" content="Free TSS calculator for cycling. Calculate Training Stress Score from power data, duration, and FTP. Plan your training load.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="TSS calculator, training stress score calculator, cycling TSS, power meter calculator">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/is/tss-calculator/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-22T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/is/tss-calculator/">
+  <meta property="og:title" content="TSS Calculator - Free Training Stress Score Calculator">
+  <meta property="og:description" content="Free TSS calculator for cycling. Calculate Training Stress Score from power data, duration, and FTP. Plan your training load.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="is_IS">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/is/tss-calculator/">
+  <meta name="twitter:title" content="TSS Calculator - Free Training Stress Score Calculator">
+  <meta name="twitter:description" content="Free TSS calculator for cycling. Calculate Training Stress Score from power data, duration, and FTP. Plan your training load.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/tss-calculator/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/tss-calculator/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/tss-calculator/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/tss-calculator/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/tss-calculator/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/tss-calculator/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/tss-calculator/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/tss-calculator/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/tss-calculator/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/tss-calculator/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/tss-calculator/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/tss-calculator/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/tss-calculator/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/tss-calculator/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/tss-calculator/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/tss-calculator/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/tss-calculator/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/tss-calculator/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/tss-calculator/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/tss-calculator/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "TSS Calculator - Free Training Stress Score Calculator",
+      "description": "Free TSS calculator for cycling. Calculate Training Stress Score from power data, duration, and FTP. Plan your training load.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-22",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/is/tss-calculator/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/is/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/is/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/is/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/tss-calculator/" class="active"
+                                    aria-current="page">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/is/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/is/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/is/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/is/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" selected>
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Ókeypis TSS reiknivél - Training Stress Score fyrir hjólareiðar</h1>
+        <p class="lead">Reiknaðu Training Stress Score fyrir hjólaferðirnar þínar út frá afli, lengd og FTP</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-info mb-xl">
+            <h2>Hvað er Training Stress Score (TSS)?</h2>
+            <p><strong>Training Stress Score (TSS)</strong> mælir þjálfunarálag hjólaferðar með því að sameina ákefð og
+                lengd út frá aflskilun þinni. TSS var þróað af Dr. Andrew Coggan og notar þitt FTP (Functional Threshold
+                Power) sem viðmið. 1 klukkustundar æfing á FTP = 100 TSS.</p>
+        </div>
+
+        <h2 class="mt-3xl">Ókeypis TSS reiknivél</h2>
+        <p class="lead mb-xl">Reiknaðu þjálfunarálag fyrir hvaða hjólaferð sem er með aflgögnum.</p>
+
+        <div class="css-calculator">
+            <form id="tssCalculatorForm">
+                <div class="calculator-inputs">
+                    <div class="form-group">
+                        <label for="ftp" class="form-label">Þitt FTP (Vött)</label>
+                        <input type="number" id="ftp" class="form-input" placeholder="t.d., 250" min="50" max="600"
+                            aria-required="true" aria-describedby="ftp-help" />
+                        <small id="ftp-help" class="form-help">Þitt virka þröskuldsafl (FTP) í vöttum</small>
+                        <div class="form-error" id="ftp-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration" class="form-label">Lengd ferðar (mínútur)</label>
+                        <input type="number" id="duration" class="form-input" placeholder="t.d., 120" min="1" max="720"
+                            aria-required="true" aria-describedby="duration-help" />
+                        <small id="duration-help" class="form-help">Heildartími ferðar í mínútum (1-720)</small>
+                        <div class="form-error" id="duration-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="normalizedPower" class="form-label">Normalized Power (Vött)</label>
+                        <input type="number" id="normalizedPower" class="form-input" placeholder="t.d., 200" min="10"
+                            max="800" aria-required="true" aria-describedby="np-help" />
+                        <small id="np-help" class="form-help">NP úr gögnunum þínum (ekki meðalafl)</small>
+                        <div class="form-error" id="np-error"></div>
+                    </div>
+
+                    <div class="calculator-buttons">
+                        <button type="submit" class="btn btn-primary" id="calculateTssBtn">Reikna TSS</button>
+                        <button type="reset" class="btn btn-ghost" id="resetTssBtn">Hreinsa</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="calculator-results hidden" id="tssResults" aria-live="polite">
+                <h3>Þitt Training Stress Score</h3>
+                <div class="results-summary">
+                    <div class="result-item">
+                        <div class="result-label">TSS</div>
+                        <div class="css-result-value" id="tssValue">--</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Intensity Factor (IF)</div>
+                        <div class="css-result-value" id="intensityFactor">--</div>
+                    </div>
+                </div>
+
+                <div class="zones-result">
+                    <h4>Erfiðleikastig æfingar</h4>
+                    <p class="mb-md text-secondary" id="tssInterpretation">
+                        <!-- Filled by JavaScript -->
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-3xl">Hvernig er TSS reiknað?</h2>
+
+        <div class="formula-box">
+            <h3>TSS Formúla</h3>
+            <div class="formula">
+                TSS = (sekúndur × NP × IF) / (FTP × 3600) × 100
+            </div>
+            <div class="formula-explanation">
+                <p>Þar sem:</p>
+                <ul>
+                    <li><strong>NP (Normalized Power)</strong> = Lífeðlisfræðilegur „kostnaður“ ferðarinnar í vöttum
+                    </li>
+                    <li><strong>IF (Intensity Factor)</strong> = NP / FTP (ákefð miðað við þröskuld)</li>
+                    <li><strong>Lengd</strong> = Heildartími ferðar í sekúndum</li>
+                    <li><strong>FTP</strong> = Þitt virka þröskuldsafl í vöttum</li>
+                </ul>
+                <p class="mt-md"><em>Einfölduð: TSS = Lengd (klst) × IF² × 100</em></p>
+            </div>
+        </div>
+
+        <h2 class="mt-xl">Útreiknuð dæmi</h2>
+
+        <div class="grid grid-2 mb-xl">
+            <div class="example-box">
+                <h3>Dæmi 1: Létt þolferð</h3>
+                <h4>Gögn hjólara:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Lengd: <strong>120 mínútur (7200s)</strong></li>
+                    <li>Normalized Power: <strong>150W</strong></li>
+                </ul>
+
+                <h4>Skref 1: Reikna Intensity Factor</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 150W / 250W<br>
+                    IF = <strong>0,60</strong>
+                </div>
+
+                <h4>Skref 2: Reikna TSS</h4>
+                <div class="calculation">
+                    TSS = (7200 × 150 × 0,60) / (250 × 3600) × 100<br>
+                    TSS = (648.000) / (900.000) × 100<br>
+                    TSS = <strong>72 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Túlkun:</strong> Létt þolferð á 60% ákefð — fullkomin til að byggja upp
+                    loftháðan grunn og fyrir endurheimt.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>Dæmi 2: Þröskuldslotur</h3>
+                <h4>Gögn hjólara:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Lengd: <strong>90 mínútur (5400s)</strong></li>
+                    <li>Normalized Power: <strong>235W</strong></li>
+                </ul>
+
+                <h4>Skref 1: Reikna Intensity Factor</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 235W / 250W<br>
+                    IF = <strong>0,94</strong>
+                </div>
+
+                <h4>Skref 2: Reikna TSS</h4>
+                <div class="calculation">
+                    TSS = (5400 × 235 × 0,94) / (250 × 3600) × 100<br>
+                    TSS = (1.192.860) / (900.000) × 100<br>
+                    TSS = <strong>133 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Túlkun:</strong> Hörð þröskuldsæfing á 94% ákefð — mikið þjálfunarálag sem
+                    bætir FTP.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>Dæmi 3: Hörð hópferð</h3>
+                <h4>Gögn hjólara:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Lengd: <strong>180 mínútur (10800s)</strong></li>
+                    <li>Normalized Power: <strong>210W</strong></li>
+                </ul>
+
+                <h4>Skref 1: Reikna Intensity Factor</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 210W / 250W<br>
+                    IF = <strong>0,84</strong>
+                </div>
+
+                <h4>Skref 2: Reikna TSS</h4>
+                <div class="calculation">
+                    TSS = (10800 × 210 × 0,84) / (250 × 3600) × 100<br>
+                    TSS = (1.905.120) / (900.000) × 100<br>
+                    TSS = <strong>212 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Túlkun:</strong> Löng og hörð ferð á 84% ákefð — mikið álag sem krefst 1-2 daga
+                    í endurheimt.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>Dæmi 4: VO₂max lotur</h3>
+                <h4>Gögn hjólara:</h4>
+                <ul>
+                    <li>FTP: <strong>250W</strong></li>
+                    <li>Lengd: <strong>75 mínútur (4500s)</strong></li>
+                    <li>Normalized Power: <strong>270W</strong></li>
+                </ul>
+
+                <h4>Skref 1: Reikna Intensity Factor</h4>
+                <div class="calculation">
+                    IF = NP / FTP<br>
+                    IF = 270W / 250W<br>
+                    IF = <strong>1,08</strong>
+                </div>
+
+                <h4>Skref 2: Reikna TSS</h4>
+                <div class="calculation">
+                    TSS = (4500 × 270 × 1,08) / (250 × 3600) × 100<br>
+                    TSS = (1.312.200) / (900.000) × 100<br>
+                    TSS = <strong>146 TSS</strong>
+                </div>
+
+                <p class="mt-md"><strong>Túlkun:</strong> Mjög hörð VO₂max æfing yfir þröskuldi — mikið áreiti þrátt
+                    fyrir styttri tíma.</p>
+            </div>
+        </div>
+
+        <h2 class="mt-3xl">TSS viðmið eftir tegund æfingar</h2>
+
+        <div class="zones-table-container">
+            <table class="zones-table">
+                <thead>
+                    <tr>
+                        <th>Tegund æfingar</th>
+                        <th>TSS bil</th>
+                        <th>Intensity Factor</th>
+                        <th>Lýsing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Endurheimt</strong></td>
+                        <td>20-50 TSS</td>
+                        <td>IF &lt; 0,65</td>
+                        <td>Léttur snúningur, 30-60 mínútur</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Létt þolferð</strong></td>
+                        <td>50-100 TSS</td>
+                        <td>IF 0,65-0,75</td>
+                        <td>Þægilegur hraði, 1-2 klukkustundir</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Miðlungs þolferð</strong></td>
+                        <td>100-150 TSS</td>
+                        <td>IF 0,75-0,85</td>
+                        <td>Stöðugt mál, 2-3 klukkustundir</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tempo ferð</strong></td>
+                        <td>150-200 TSS</td>
+                        <td>IF 0,85-0,95</td>
+                        <td>Sweet spot og tempo vinna, 2-3 klukkustundir</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Þröskuldsæfing</strong></td>
+                        <td>200-300 TSS</td>
+                        <td>IF 0,95-1,05</td>
+                        <td>FTP lotur eða keppni, 2-4 klukkustundir</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VO₂max lotur</strong></td>
+                        <td>150-250 TSS</td>
+                        <td>IF 1,05-1,15</td>
+                        <td>Harðar lotur, 1-2 klukkustundir í mikilli ákefð</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Keppni / Hörð mót</strong></td>
+                        <td>200-400 TSS</td>
+                        <td>IF 0,90-1,05</td>
+                        <td>Götukeppnir, 2-5 klukkustundir</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="mt-3xl">Vikuleg TSS markmið eftir getustigi</h2>
+
+        <div class="grid grid-2 mb-xl">
+            <div class="card">
+                <h3 class="card-title">Byrjendur</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>Vikulegt TSS:</strong> 200-400</p>
+                    <p>3-4 ferðir á viku, 50-100 TSS hver. Áhersla á að byggja upp loftháðan grunn og tækni.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Hreyfihjólarar</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>Vikulegt TSS:</strong> 400-600</p>
+                    <p>4-5 ferðir á viku, 80-120 TSS hver. Blanda af þolferðum og einni erfiðari æfingu.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Metnaðarfullt áhugafólk</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>Vikulegt TSS:</strong> 600-900</p>
+                    <p>5-7 ferðir á viku, 85-130 TSS hver. Skipulögð þjálfun með tímabilsskiptingu og keppnum.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Atvinnumenn</h3>
+                <div class="card-content">
+                    <p class="mb-sm"><strong>Vikulegt TSS:</strong> 900-1500+</p>
+                    <p>10-15+ æfingar á viku. Gífurlegt æfingamagn. CTL eftir stórmót: 150-170.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout-warning">
+            <h3>⚠️ Mikilvægt varðandi TSS</h3>
+            <ul>
+                <li><strong>Krefst rétts FTP:</strong> Þú verður að vita þitt FTP (prófað á síðustu 4-6 vikum) til að fá
+                    rétt TSS.</li>
+                <li><strong>Notaðu Normalized Power, ekki meðalafl:</strong> NP tekur tillit til breytileika og
+                    raunkostnaðar ferðarinnar.</li>
+                <li><strong>Inni vs. úti:</strong> Inni-TSS getur fundist erfiðara þar sem þú hættir aldrei að traðka.
+                </li>
+                <li><strong>Einstaklingsbundinn munur:</strong> Sama TSS gildir mismunandi fyrir ólíka hjólara. Hlustaðu
+                    á líkamann.</li>
+                <li><strong>Stígandi skiptir máli:</strong> Auktu vikulegt TSS smám saman — 3-8 CTL stig á viku er gott
+                    viðmið.</li>
+            </ul>
+        </div>
+
+        <h2 class="mt-3xl">Að skilja Normalized Power (NP)</h2>
+
+        <p>Normalized Power er nákvæmara en hrein meðalvött fyrir TSS útreikning vegna þess að það tekur tillit til þess
+            hve mikið álagið sveiflast:</p>
+
+        <div class="example-box mb-lg">
+            <h3>Af hverju skiptir NP máli: Samanburður á tveimur ferðum</h3>
+            <div class="grid grid-2">
+                <div>
+                    <h4>Ferð A: Jafa Tempo</h4>
+                    <ul>
+                        <li>Lengd: 60 mínútur</li>
+                        <li>Meðalafl: 200W</li>
+                        <li>Normalized Power: 202W</li>
+                        <li>Variability Index: 1,01</li>
+                        <li>TSS: 65</li>
+                    </ul>
+                    <p><em>Jöfn og stöðug vinna — lítill lífeðlisfræðilegur kostnaður</em></p>
+                </div>
+                <div>
+                    <h5>Ferð B: Hörð hópferð</h5>
+                    <ul>
+                        <li>Lengd: 60 mínútur</li>
+                        <li>Meðalafl: 200W</li>
+                        <li>Normalized Power: 240W</li>
+                        <li>Variability Index: 1,20</li>
+                        <li>TSS: 92</li>
+                    </ul>
+                    <p><em>Sveiflukennd með rykkjum — mun meiri lífeðlisfræðilegur kostnaður</em></p>
+                </div>
+            </div>
+            <p class="mt-md"><strong>Innsýn:</strong> Báðar ferðir hafa 200W meðaltal, en Ferð B er 42% erfiðari (92 vs
+                65 TSS) vegna þess hve sveiflukennt aflið var. NP fangar þennan mun.</p>
+        </div>
+
+        <div class="callout callout-tip">
+            <h3>💡 Hvernig finn ég Normalized Power?</h3>
+            <p>Flestar hjólatölvur og forrit reikna NP sjálfkrafa:</p>
+            <ul>
+                <li><strong>Garmin/Wahoo/Hammerhead:</strong> Sýna NP í samantekt eftir ferð</li>
+                <li><strong>TrainingPeaks/Strava/Intervals.icu:</strong> Reikna NP úr skránum sem þú hleður upp</li>
+            </ul>
+            <p>Ef þú ert aðeins með meðalafl geturðu áætlað: NP ≈ Meðalafl × 1,03-1,05 fyrir jafnar ferðir, × 1,10-1,15
+                fyrir sveiflukenndar ferðir.</p>
+        </div>
+
+        <h2 class="mt-3xl">Af hverju TSS skiptir máli: CTL, ATL, TSB</h2>
+
+        <p class="mb-md">Training Stress Score er grunnurinn að frammistöðustjórnun (Performance Management Chart):</p>
+
+        <ul class="mb-xl">
+            <li><strong>CTL (Chronic Training Load):</strong> Formið þitt - 42-daga veginn meðaltal af daglegu TSS</li>
+            <li><strong>ATL (Acute Training Load):</strong> Þreytan þín - 7-daga veginn meðaltal af daglegu TSS</li>
+            <li><strong>TSB (Training Stress Balance):</strong> Jafnvægið - TSB = CTL - ATL (jákvætt = ferskur, neikvætt
+                = þreyttur)</li>
+            <li><strong>Tímabilsskipting:</strong> Skipuleggðu æfingatímabil (grunnur, uppbygging, toppur) með því að
+                fylgjast með CTL vexti</li>
+            <li><strong>Hámarksárangur í keppni:</strong> Hvíldu fyrir mót til að ná TSB á bilinu +10 til +25 á
+                keppnisdegi</li>
+        </ul>
+
+        <div class="callout callout-tip">
+            <h3>Ráðlegging: Fylgstu með frammistöðunni</h3>
+            <p>Skráðu daglegt TSS í forrit eins og TrainingPeaks eða Intervals.icu. Fylgdu því að CTL vaxi um 3-8 stig á
+                viku í uppbyggingu. Minnkaðu TSS þegar 7-14 dagar eru í mót til að láta TSB verða jákvætt fyrir hámarks
+                frammistöðu.</p>
+            <p><a href="/is/training-load/">Læra meira um CTL, ATL og TSB →</a></p>
+        </div>
+
+        <h2 class="mt-3xl">Algengar spurningar</h2>
+
+        <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Hvað ef ég er ekki með aflmæli?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSS krefst aflgagna (FTP og NP). Án aflmælis geturðu notað púlsmæli og reiknað HRSS (Heart
+                            Rate Stress Score), en það er mun ónákvæmara. Aflmælar eru gullstaðallinn til að mæla
+                            raunverulegt þjálfunarálag.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Hversu nákvæmt er TSS?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSS er gríðarlega nákvæmt svo lengi sem þú ert með rétt uppgefið FTP og mælir Normalized
+                            Power. Rannsóknir sýna að TSS spáir mjög vel fyrir um þreytt og endurheimt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Er hægt að bera saman TSS á götu og í fjallahjólreiðum?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Já, en með ákveðnum fyrirvara. Sama TSS tala úr fjallaferð getur fundist meiri en úr götuferð
+                            vegna tæknilegra krafna og stöðugra rykkja. Einbeittu þér að leitni (trend) frekar en að
+                            bera saman stakar tölur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Hvað er mikið TSS fyrir eina æfingu?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Það fer eftir markmiðum: Endurheimt: 20-50 TSS, Létt þol: 50-100 TSS, Miðlungs ferð: 100-150
+                            TSS, Hörð æfing: 150-250 TSS, Keppni: 200-400+ TSS.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Þarf ég endilega að vita FTP gildið mitt?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Já, FTP er nauðsynlegt til að reikna TSS. Án þess getur reiknivélin ekki vitað hver ákefðin
+                            er miðað við þína getu. Lærðu meira: <a href="/is/ftp/">Leiðbeiningar um FTP
+                                próf</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-3xl">Tengt efni</h2>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">FTP Prófanir</h3>
+                <div class="card-content">
+                    <p>Vantar þig FTP? Lærðu hvernig á að prófa þig á réttan hátt.</p>
+                    <a href="/is/ftp/" class="btn btn-secondary btn-small mt-md">FTP handbók →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Þjálfunarálag</h3>
+                <div class="card-content">
+                    <p>Lærðu um CTL, ATL og TSB og hvernig þú stýrir forminu þínu yfir tíma.</p>
+                    <a href="/is/training-load/" class="btn btn-secondary btn-small mt-md">Læra meira →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Afl-mælikvarðar</h3>
+                <div class="card-content">
+                    <p>Skildu mælikvarða eins og NP, IF og VI til að greina ferðirnar þínar betur.</p>
+                    <a href="/is/power-metrics/" class="btn btn-secondary btn-small mt-md">Skoða mælikvarða
+                        →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-xl text-center">
+            <p class="mb-md"><strong>Viltu sjálfvirka TSS mælingu og gröf fyrir formið þitt?</strong></p>
+            <a href="/is/" class="btn btn-primary btn-large">Kynntu þér Bike Analytics</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('tssCalculatorForm');
+        const ftpInput = document.getElementById('ftp');
+        const durationInput = document.getElementById('duration');
+        const npInput = document.getElementById('normalizedPower');
+        const results = document.getElementById('tssResults');
+        const tssValue = document.getElementById('tssValue');
+        const intensityFactor = document.getElementById('intensityFactor');
+        const interpretation = document.getElementById('tssInterpretation');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Clear previous errors
+            document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+
+            // Get values
+            const ftp = parseFloat(ftpInput.value);
+            const duration = parseFloat(durationInput.value);
+            const np = parseFloat(npInput.value);
+
+            // Validation
+            let hasError = false;
+
+            if (!ftp || ftp < 50 || ftp > 600) {
+                document.getElementById('ftp-error').textContent = 'Vinsamlegast sláðu inn FTP á bilinu 50-600W';
+                hasError = true;
+            }
+
+            if (!duration || duration < 1 || duration > 720) {
+                document.getElementById('duration-error').textContent = 'Vinsamlegast sláðu inn lengd á bilinu 1-720 mínútur';
+                hasError = true;
+            }
+
+            if (!np || np < 10 || np > 800) {
+                document.getElementById('np-error').textContent = 'Vinsamlegast sláðu inn NP á bilinu 10-800W';
+                hasError = true;
+            }
+
+            if (hasError) {
+                results.classList.add('hidden');
+                return;
+            }
+
+            // Calculate TSS
+            const durationSeconds = duration * 60;
+            const IF = np / ftp;
+            const tss = (durationSeconds * np * IF) / (ftp * 3600) * 100;
+
+            // Display results
+            tssValue.textContent = Math.round(tss);
+            intensityFactor.textContent = IF.toFixed(3);
+
+            // Interpretation
+            let interpretText = '';
+            if (tss < 50) {
+                interpretText = 'Létt endurheimtarferð - Lítið þjálfunarálag, lágmarks endurheimt nauðsynleg.';
+            } else if (tss < 100) {
+                interpretText = 'Létt þolferð - Miðlungs þjálfunarálag, gott til að byggja upp loftháðan grunn.';
+            } else if (tss < 150) {
+                interpretText = 'Miðlungs þolferð - Gott þjálfunaráreiti, mælt með 1 degi í hvíld.';
+            } else if (tss < 200) {
+                interpretText = 'Tempo/Sweet spot æfing - Hart þjálfunarálag, 1-2 dagar í endurheimt nauðsynlegir.';
+            } else if (tss < 300) {
+                interpretText = 'Þröskuldsæfing eða löng hörð ferð - Mjög hart álag, 2-3 dagar í hvíld krafist.';
+            } else {
+                interpretText = 'Öfgafull æfing eða keppnisátak - Gríðarlegt álag, 3+ dagar í endurheimt nauðsynlegir.';
+            }
+
+            interpretation.textContent = interpretText;
+
+            // Show results
+            results.classList.remove('hidden');
+            results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        form.addEventListener('reset', function () {
+            results.classList.add('hidden');
+            document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+        });
+    });
+</script>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/is/privacy/">Privacy</a></li>
+                <li><a href="/is/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/is/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Critical Power &amp; W&#39; Model - Advanced Cycling Analytics</title>
+  <meta name="description" content="Understand Critical Power (CP) and W&#39; (W Prime) for cycling. Advanced fatigue modeling, W&#39;bal tracking, and performance optimization.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="critical power cycling, W prime cycling, CP model, W prime balance, anaerobic capacity cycling">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/ko/critical-power/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-21T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/ko/critical-power/">
+  <meta property="og:title" content="Critical Power &amp; W&#39; Model - Advanced Cycling Analytics">
+  <meta property="og:description" content="Understand Critical Power (CP) and W&#39; (W Prime) for cycling. Advanced fatigue modeling, W&#39;bal tracking, and performance optimization.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/ko/critical-power/">
+  <meta name="twitter:title" content="Critical Power &amp; W&#39; Model - Advanced Cycling Analytics">
+  <meta name="twitter:description" content="Understand Critical Power (CP) and W&#39; (W Prime) for cycling. Advanced fatigue modeling, W&#39;bal tracking, and performance optimization.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/critical-power/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/critical-power/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/critical-power/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/critical-power/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/critical-power/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/critical-power/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/critical-power/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/critical-power/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/critical-power/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/critical-power/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/critical-power/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/critical-power/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/critical-power/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/critical-power/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/critical-power/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/critical-power/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/critical-power/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/critical-power/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/critical-power/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/critical-power/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/critical-power/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/critical-power/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/critical-power/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/critical-power/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/critical-power/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/critical-power/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Critical Power &amp; W&#39; Model - Advanced Cycling Analytics",
+      "description": "Understand Critical Power (CP) and W&#39; (W Prime) for cycling. Advanced fatigue modeling, W&#39;bal tracking, and performance optimization.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/ko/critical-power/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/ko/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/ko/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ko/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/critical-power/" class="active"
+                                    aria-current="page">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ko/research/" 
+                                    aria-current="">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ko/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ko/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/ko/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="ko" selected>
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>크리티컬 파워(CP) 및 W' - 고급 사이클링 퍼포먼스 모델</h1>
+        <p class="lead">정교한 페이싱, 피로 예측, 레이스 전략을 위해 CP와 W'를 마스터하세요. 사이클링 성능을 설명하는 가장 과학적이고 강력한 모델입니다.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-success mb-xl">
+            <h2>🎯 핵심 요약</h2>
+            <ul class="mb-0">
+                <li><strong>크리티컬 파워 (CP)</strong>는 장시간 지속 가능한 최대 파워로, FTP보다 과학적으로 더 정교한 역치 지표입니다.</li>
+                <li><strong>W' (W 프라임)</strong>는 CP 이상의 강도에서 사용할 수 있는 무산소 작업 용량(kJ)을 의미합니다.</li>
+                <li><strong>W' 밸런스</strong>는 주행 중 무산소 용량의 실시간 소모와 회복 상태를 추적합니다.</li>
+                <li>실제 데이터에서 <strong>CP는 보통 FTP보다 5-10W 높게</strong> 나타나며, 여러 번의 전력 질주 데이터를 통해 수학적으로 산출됩니다.</li>
+                <li><strong>MTB나 인터벌성 주행</strong>에서 페이싱과 어택 관리에 필수적인 지표입니다.</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-info mb-xl">
+            <h2>크리티컬 파워(CP)란 무엇인가요?</h2>
+            <p><strong>크리티컬 파워(CP)는 피로 없이 장기간 유지할 수 있는 최고의 대사율</strong>을 의미합니다. 이는 유산소 대사가 지배적인 영역과 무산소 기여가 필수적인 비지속 영역
+                사이의 경계선입니다. 단일 20분 테스트에 의존하는 FTP와 달리, CP는 서로 다른 주행 시간의 여러 전력 질주 데이터를 수학적으로 분석하여 도출되므로 더 견고하고 과학적으로 입증된
+                지표입니다.</p>
+        </div>
+
+        <h2 class="mt-2xl">크리티컬 파워의 과학적 배경</h2>
+
+        <p class="mb-md">크리티컬 파워 이론은 1960년대 운동 생리학 연구에서 시작되어 1990년대 사이클링에 정식 도입되었습니다. 이 모델은 파워와 지속 시간 사이의 <strong>쌍곡선형
+                관계(Hyperbolic power-duration relationship)</strong>를 기반으로 합니다.</p>
+
+        <div class="formula-box mb-xl">
+            <h3>파워-지속시간 공식</h3>
+            <p><strong>t = W' / (P - CP)</strong></p>
+            <p class="mt-sm">각 항목 설명:</p>
+            <ul>
+                <li><strong>t</strong> = 고갈까지의 시간 (Time to exhaustion)</li>
+                <li><strong>P</strong> = 현재 파워 출력 (Power output)</li>
+                <li><strong>CP</strong> = 크리티컬 파워 (watts)</li>
+                <li><strong>W'</strong> = 무산소 작업 용량 (kilojoules, kJ)</li>
+            </ul>
+        </div>
+
+        <p class="mb-xl"><strong>공식의 의미:</strong> CP 이상의 파워(P)로 달릴 때, 여러분은 고갈 전까지 한정된 에너지(W')만을 사용할 수 있습니다. CP와 정확히 일치하는
+            파워로는 이론상 무한히 달릴 수 있으며, CP 미만의 강도에서는 W'를 소모하지 않고 매우 오랫동안 주행할 수 있습니다.</p>
+
+        <div class="callout callout-tip">
+            <h3>📚 주요 연구 문헌</h3>
+            <p>크리티컬 파워는 수십 년간의 동료 검토(Peer-reviewed) 연구들에 의해 뒷받침됩니다:</p>
+            <ul class="mb-0">
+                <li><strong>Jones et al. (2019):</strong> "Critical Power: Theory and Applications" - JAP 게재 종합 리뷰</li>
+                <li><strong>Poole et al. (2016):</strong> "Critical Power: An Important Fatigue Threshold" - 생리학적 역치로서의
+                    CP 검증</li>
+                <li><strong>Vanhatalo et al. (2011):</strong> CP가 최대 젖산 정상 상태(MLSS)와 일치함을 입증</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="mb-xl text-center">크리티컬 파워(CP) vs FTP: 주요 차이점</h2>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">기능적 문턱 파워 (FTP)</h3>
+                <div class="card-content">
+                    <p><strong>정의:</strong> 약 1시간 동안 유지 가능한 최대 파워.</p>
+                    <p><strong>테스트:</strong> 20분 또는 60분 단일 전력 주행.</p>
+                    <p><strong>계산:</strong> 20분 파워의 95% (또는 60분 파워의 100%).</p>
+                    <p><strong>장점:</strong></p>
+                    <ul>
+                        <li>테스트와 이해가 매우 간편함</li>
+                        <li>단 한 번의 측정으로 가능</li>
+                        <li>업계 표준으로 널리 사용됨</li>
+                        <li>대부분의 플랫폼(Zwift 등)과 연동됨</li>
+                    </ul>
+                    <p><strong>단점:</strong></p>
+                    <ul>
+                        <li>단일 지점 추정으로 정밀도가 낮음</li>
+                        <li>20-60분간의 정신적 고통이 큼</li>
+                        <li>페이싱 실수 시 오차가 크게 발생</li>
+                        <li>무산소 능력(W')을 측정할 수 없음</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">크리티컬 파워 (CP)</h3>
+                <div class="card-content">
+                    <p><strong>정의:</strong> 이론상 무한히 유지 가능한 최대 파워 역치.</p>
+                    <p><strong>테스트:</strong> 여러 구간의 전력 주행 (예: 3~7분, 12분, 20분 등).</p>
+                    <p><strong>계산:</strong> 여러 데이터 포인트로부터 수학적 커브 피팅.</p>
+                    <p><strong>장점:</strong></p>
+                    <ul>
+                        <li>여러 데이터를 사용해 과학적으로 정교함</li>
+                        <li>무산소 용량(W')을 함께 알 수 있음</li>
+                        <li>단일 테스트보다 높은 정확도</li>
+                        <li>실시간 W' 밸런스 추적 가능</li>
+                    </ul>
+                    <p><strong>단점:</strong></p>
+                    <ul>
+                        <li>최소 3~5번의 별도 전력 주행이 필요함</li>
+                        <li>계산 과정이 다소 복잡함</li>
+                        <li>대중적인 인지도가 FTP보다 낮음</li>
+                        <li>테스트 프로토콜이 더 까다로움</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-xl">
+            <h3>🔍 실제 적용: CP ≈ FTP + 5-10W</h3>
+            <p>잘 훈련된 라이더의 경우, 크리티컬 파워는 보통 <strong>FTP보다 5~10와트 높게</strong> 측정됩니다. 예시:</p>
+            <ul>
+                <li><strong>FTP:</strong> 250W (20분 테스트 기준)</li>
+                <li><strong>CP:</strong> 257W (3분, 12분, 20분 테스트 종합 기준)</li>
+            </ul>
+            <p class="mb-0 mt-md">CP는 이론적인 무한 지속 역치를 나타내고, FTP는 실질적인 1시간 파워 추정치입니다. 편의성을 위해서는 FTP를, 정밀한 분석과 W' 추적을 위해서는
+                CP를 사용하는 것이 좋습니다.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>W' (W 프라임)이란 무엇인가요?</h2>
+
+        <p class="mb-md"><strong>W' (W 프라임)은 크리티컬 파워 이상의 강도에서 수행할 수 있는 한정된 작업 총량입니다.</strong> 이를 "무산소 배터리"라고 생각하세요. CP
+            위로 달리면 배터리가 소모되고, CP 아래로 내려가면 서서히 재충전됩니다.</p>
+
+        <div class="formula-box mb-xl">
+            <h3>W' 정의 공식</h3>
+            <p><strong>W' = (P - CP) × t</strong></p>
+            <p class="mt-sm">각 항목 설명:</p>
+            <ul>
+                <li><strong>W'</strong> = 무산소 작업 용량 (kilojoules, kJ)</li>
+                <li><strong>P</strong> = 현재 파워 출력 (watts)</li>
+                <li><strong>CP</strong> = 크리티컬 파워 (watts)</li>
+                <li><strong>t</strong> = 고갈까지의 시간 (seconds)</li>
+            </ul>
+            <p class="mt-md"><strong>계산 예시:</strong> CP가 250W인 라이더가 350W를 5분(300초)간 유지한 경우:<br>
+                W' = (350 - 250) × 300 = 30,000 줄(J) = <strong>30 kJ</strong></p>
+        </div>
+
+        <h3>수준별 일반적인 W' 수치</h3>
+
+        <div class="table-responsive">
+            <table class="zones-table">
+                <thead>
+                    <tr>
+                        <th>라이더 수준</th>
+                        <th>W' 범위 (kJ)</th>
+                        <th>특징</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>입문/동호인</strong></td>
+                        <td>10 - 15 kJ</td>
+                        <td>짧은 어택이나 순간 가속 능력이 제한적임</td>
+                    </tr>
+                    <tr>
+                        <td><strong>경쟁 아마추어</strong></td>
+                        <td>15 - 20 kJ</td>
+                        <td>일반적인 수준의 무산소 능력을 갖춤</td>
+                    </tr>
+                    <tr>
+                        <td><strong>엘리트 로드 레이서</strong></td>
+                        <td>20 - 25 kJ</td>
+                        <td>반복되는 어택과 스프린트에 강함</td>
+                    </tr>
+                    <tr>
+                        <td><strong>엘리트 MTB/CX</strong></td>
+                        <td>18 - 23 kJ</td>
+                        <td>빈번한 순간 가속과 회복에 최적화됨</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="mb-xl text-center">W' 밸런스: 실시간 피로 추적</h2>
+
+        <div class="container-narrow">
+            <p class="mb-xl text-center"><strong>W' 밸런스(W'bal)는 주행 중 무산소 배터리의 잔량을 실시간으로 보여줍니다.</strong> 이는 페이싱 조절과 레이스
+                승부처 판단에 있어 매우 강력한 도구입니다.</p>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">W'bal 작동 원리</h3>
+                <div class="card-content">
+                    <p><strong>소모 단계 (CP 이상 주행):</strong></p>
+                    <ul>
+                        <li>CP보다 높게 밟는 매 순간 W'가 선형적으로 줄어듭니다.</li>
+                        <li>소모율 = (현재 파워 - CP)</li>
+                        <li>예: CP보다 50W 높게 타면 초당 50줄(J)씩 소모됩니다.</li>
+                    </ul>
+                    <p class="mt-md"><strong>회복 단계 (CP 미만 주행):</strong></p>
+                    <ul>
+                        <li>CP보다 낮게 타면 W'가 지수적으로 회복됩니다.</li>
+                        <li>회복 속도는 CP와의 차이가 클수록 빠릅니다.</li>
+                        <li>완전한 회복에는 수분이 소요됩니다 (스키바 모델 기준 시상수 약 377초).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">W'bal 잔량 해석</h3>
+                <div class="card-content">
+                    <p><strong>100%:</strong> 완전 회복 상태, 강력한 어택 준비 완료</p>
+                    <p><strong>75%:</strong> 양호한 상태, 적극적인 공세 가능</p>
+                    <p><strong>50%:</strong> 중간 정도의 피로, 무리한 가속 주의</p>
+                    <p><strong>25%:</strong> 높은 피로, 순간 가속 능력이 매우 낮음</p>
+                    <p><strong>0%:</strong> 탄약 고갈, 즉시 CP 이하로 낮춰 회복해야 함</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-xl">
+            <h3>🚴 활용 예시: MTB 레이스에서의 W' 관리</h3>
+            <p><strong>상황:</strong> 90분 XC 레이스, CP 250W, W' 20kJ 라이더</p>
+            <ul>
+                <li><strong>초반 업힐 어택 (350W로 90초):</strong> W'bal이 55%까지 급락</li>
+                <li><strong>내리막 회복 (150W 주행):</strong> W'bal이 70%까지 다시 충전</li>
+                <li><strong>연속된 기술 구간:</strong> 잔량이 60~75% 사이에서 요동침</li>
+                <li><strong>종반부 결정적 어택:</strong> W'bal 40% 이상을 확보한 시점에서 승부수를 던짐</li>
+            </ul>
+            <p class="mb-0 mt-md"><strong>결과:</strong> 단순한 느낌이 아니라 데이터를 보고 본인의 잔량을 정확히 알기에, '번아웃' 없이 가장 효율적인 레이스를 운영할 수
+                있습니다.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>공동 연구 및 문헌 정보</h2>
+
+        <div class="reference-list">
+            <div class="reference-item">
+                <h3>Jones, A.M., et al. (2019)</h3>
+                <p><strong>Critical Power: Theory and Applications</strong></p>
+                <p class="text-secondary">Journal of Applied Physiology, 126(6), 1905-1915.</p>
+                <p>크리티컬 파워 이론의 생리학적 기초와 선수 및 코치를 위한 실제 적용법을 다룬 종합 리뷰 논문입니다.</p>
+            </div>
+
+            <div class="reference-item">
+                <h4>Skiba, P.F., et al. (2012)</h4>
+                <p><strong>Modeling the Expenditure and Reconstitution of Work Capacity Above Critical Power</strong>
+                </p>
+                <p class="text-secondary">Medicine and Science in Sports and Exercise, 44(8), 1526-1532.</p>
+                <p>무산소 용량의 소모와 회복을 설명하는 'W' Balance' 모델을 처음으로 제시한 획기적인 연구입니다.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-tip mt-xl">
+            <h3>💡 더 알아보기</h3>
+            <p>Bike Analytics는 앤드류 코건 박사의 7단계 존 시스템뿐만 아니라, 필립 스키바 박사의 W' 밸런스 알고리즘을 완벽하게 지원합니다. 데이터를 통해 여러분의 '무산소 배터리'를
+                실시간으로 확인해 보세요.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>자주 묻는 질문 (FAQ)</h2>
+
+        <div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">CP가 FTP보다 나은가요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>과학적 정교함 측면에서는 CP가 우수합니다. 여러 번의 테스트 데이터를 기반으로 하기 때문에 단일 테스트인 FTP보다 오차가 적습니다. 하지만 대중성과 편의성은
+                            FTP가 앞섭니다. 정밀한 인터벌 설계나 실시간 피로 추적(W'bal)을 원한다면 CP를 추천합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">W'를 더 빨리 회복하려면 어떻게 해야 하나요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>파워를 CP보다 충분히 낮추는 것이 핵심입니다. 가벼운 페달링(100~150W 수준)이 뒷받침될 때 회복 속도가 빨라지며, 완전한 정지 상태보다는 가벼운 회복 주행이
+                            혈류 증진을 도와 복원에 유리합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">W'도 훈련으로 늘릴 수 있나요?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>네, 무산소 자극을 주는 고강도 인터벌(VO₂max 이상)을 통해 8-12주 만에 10~20% 정도 향상할 수 있습니다. 짧고 강력한 업힐 반복 훈련이나 스프린트
+                            훈련이 W'를 키우는 데 효과적입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow text-center">
+        <h2>과학적인 승리의 공식</h2>
+        <p class="lead">CP와 W'를 알면 자신의 파워를 단순한 숫자가 아닌 '가용 자원'으로 관리할 수 있습니다. Bike Analytics와 함께 데이터 기반의 레이스 전략을 세워보세요.
+        </p>
+        <div class="mt-xl">
+            <a href="/ko/ftp/" class="btn btn-secondary">← FTP 테스트 알아보기</a>
+            <a href="/ko/power-metrics/" class="btn btn-primary">파워 지표 해설 보기 →</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/ko/privacy/">Privacy</a></li>
+                <li><a href="/ko/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/ko/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

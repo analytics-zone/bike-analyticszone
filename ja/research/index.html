@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Cycling Performance Research - Scientific Foundation</title>
+  <meta name="description" content="Research behind Bike Analytics: FTP studies, Critical Power model, TSS validation, and power-based training science.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="cycling research, FTP research, critical power research, cycling science">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/ja/research/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-21T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/ja/research/">
+  <meta property="og:title" content="Cycling Performance Research - Scientific Foundation">
+  <meta property="og:description" content="Research behind Bike Analytics: FTP studies, Critical Power model, TSS validation, and power-based training science.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/ja/research/">
+  <meta name="twitter:title" content="Cycling Performance Research - Scientific Foundation">
+  <meta name="twitter:description" content="Research behind Bike Analytics: FTP studies, Critical Power model, TSS validation, and power-based training science.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/research/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/research/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/research/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/research/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/research/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/research/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/research/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/research/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/research/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/research/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/research/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/research/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/research/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/research/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/research/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/research/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/research/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/research/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/research/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/research/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/research/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/research/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/research/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/research/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/research/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/research/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Cycling Performance Research - Scientific Foundation",
+      "description": "Research behind Bike Analytics: FTP studies, Critical Power model, TSS validation, and power-based training science.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/ja/research/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/ja/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/ja/" 
+                            aria-current="">
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Learn</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ja/getting-started/" 
+                                    aria-current="">
+                                    Getting Started
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/critical-power/" 
+                                    aria-current="">
+                                    Critical Power
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/training-zones/" 
+                                    aria-current="">
+                                    Training Zones
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/training-load/" 
+                                    aria-current="">
+                                    Training Load
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/tss-calculator/" 
+                                    aria-current="">
+                                    TSS Calculator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Science</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ja/research/" class="active"
+                                    aria-current="page">
+                                    Research
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/formulas/" 
+                                    aria-current="">
+                                    Formulas
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/power-metrics/" 
+                                    aria-current="">
+                                    Power Metrics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/efficiency/" 
+                                    aria-current="">
+                                    Efficiency
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaling Mechanics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodynamics
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/climbing-performance/" 
+                                    aria-current="">
+                                    Climbing Performance
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/bibliography/" 
+                                    aria-current="">
+                                    Bibliography
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <span class="nav-label">Disciplines</span>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/ja/road-cycling/" 
+                                    aria-current="">
+                                    Road Cycling
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/mountain-biking/" 
+                                    aria-current="">
+                                    Mountain Biking
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/road-vs-mtb/" 
+                                    aria-current="">
+                                    Road vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/ja/comparisons/" 
+                                    aria-current="">
+                                    Platform Comparisons
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/ja/contact/" 
+                            aria-current="">
+                            Contact
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Select language">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" selected>
+                        日本語
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Bike Analytics を支える研究</h1>
+        <p class="lead">科学的根拠に基づいたサイクリングパフォーマンス分析</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>サイクリング分析へのエビデンスベースのアプローチ</h2>
+        <p class="lead">Bike Analytics
+            のすべての指標、公式、および計算は、数十年にわたる査読済みの科学的研究に基づいています。このページでは、ロードサイクリングとマウンテンバイクの両方における当社の分析フレームワークを検証する基礎的な研究を文書化しています。
+        </p>
+
+        <div class="callout callout-info">
+            <h3>🔬 サイクリングパフォーマンスにおける科学的厳密さ</h3>
+            <p>現代のサイクリング分析は、基本的な速度や距離の追跡から、以下のような広範な研究に裏打ちされた高度なパワーベースのトレーニングシステムへと進化しました：</p>
+            <ul>
+                <li><strong>運動生理学</strong> - クリティカルパワー、FTP、乳酸閾値、VO₂max</li>
+                <li><strong>バイオメカニクス</strong> - ペダリング効率、ケイデンスの最適化、パワー出力</li>
+                <li><strong>スポーツ科学</strong> - トレーニング負荷の定量化 (TSS, CTL/ATL)、ピリオダイゼーション</li>
+                <li><strong>空気力学</strong> - CdA 測定、ドラフティングの利点、ポジションの最適化</li>
+                <li><strong>エンジニアリング</strong> - パワーメーターの検証、センサーの精度、データモデリング</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="text-center mb-xl">主要な研究分野</h2>
+
+        <div class="research-area">
+            <h3>1. 機能的作業閾値パワー (FTP)</h3>
+            <p class="lead">FTP は、サイクリストが約1時間、準定常状態で維持できる最高パワーを表します。これはパワーベースのトレーニングゾーンの基礎となります。</p>
+
+            <div class="research-paper">
+                <h4>Allen & Coggan (2010, 2019) - Training and Racing with a Power Meter</h4>
+                <div class="paper-meta">
+                    <strong>出版:</strong> VeloPress (第3版、2019年)<br>
+                    <strong>意義:</strong> 現代のパワーベーストレーニングを定義する基礎的なテキスト
+                </div>
+                <div class="findings">
+                    <h5>主な貢献:</h5>
+                    <ul>
+                        <li><strong>20分間 FTP テストプロトコル</strong> - FTP = 20分間の最大パワーの95%</li>
+                        <li><strong>標準化パワー (NP)</strong> - エフォートの変動を考慮</li>
+                        <li><strong>トレーニングストレススコア (TSS)</strong> - トレーニング負荷を定量化</li>
+                        <li><strong>強度係数 (IF)</strong> - 相対的な強度を測定</li>
+                        <li><strong>パワープロファイリング</strong> - 強みと弱みを特定するためのフレームワーク</li>
+                        <li><strong>クアドラント分析</strong> - ペダルにかかる力と速度の洞察</li>
+                    </ul>
+                </div>
+                <div class="significance">
+                    <p><strong>影響:</strong>
+                        12言語に翻訳されました。プロサイクリングにおけるパワーベースのトレーニングをゴールドスタンダードとして確立しました。現在、TrainingPeaks、Zwift、およびすべての主要なプラットフォームで普遍的に使用されている指標を導入しました。
+                    </p>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>MacInnis et al. (2019) - FTP Test Reliability and Reproducibility</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> International Journal of Exercise Science, PMC6886609<br>
+                    <strong>研究:</strong> 高度なトレーニングを受けたアスリートによる検証研究
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li><strong>高い信頼性:</strong> ICC = 0.98, r² = 0.96 のテスト・再テスト相関</li>
+                        <li><strong>優れた再現性:</strong> +13W ～ -17W の分散、平均バイアス -2W</li>
+                        <li><strong>機能的な精度:</strong> 89%のアスリートにおいて、持続可能な1時間パワーを特定</li>
+                        <li><strong>低い誤差範囲:</strong> 測定の典型的誤差 = 2.3%</li>
+                    </ul>
+                </div>
+                <div class="significance">
+                    <p><strong>影響:</strong> 実験室でのテストを必要とせず、現場でアクセス可能な信頼性の高い指標として FTP
+                        を科学的に検証しました。トレーニングを受けたサイクリストに対する20分間テストプロトコルの精度を確認しました。</p>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Gavin et al. (2012) - FTP Testing Protocol Effectiveness</h4>
+                <div class="paper-meta">
+                    <strong>焦点:</strong> 異なる FTP テスト方法の評価
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li>20分間テストプロトコルは、実験室で測定された乳酸閾値と高い相関を示す</li>
+                        <li>ランプテストと8分間テストも検証されたが、異なる特性を持つ</li>
+                        <li>個人の変動により、長期にわたるパーソナライズされた検証が必要</li>
+                        <li>フィールドテストは、高価なラボテストに代わる実用的な選択肢を提供する</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="research-area">
+            <h3>2. クリティカルパワーモデル</h3>
+            <p class="lead">クリティカルパワー (CP) は、重度の運動領域と過酷な運動領域の境界、つまり身体的な疲労を伴わずに維持できる最大代謝定常状態を表します。</p>
+
+            <div class="research-paper">
+                <h4>Monod & Scherrer (1965) - Original Critical Power Concept</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> Journal de Physiologie<br>
+                    <strong>意義:</strong> CP 理論を確立した独創的な研究
+                </div>
+                <div class="findings">
+                    <h5>基礎となる概念:</h5>
+                    <ul>
+                        <li>パワーと疲労困憊までの時間の双曲線の関係</li>
+                        <li>漸近線としてのクリティカルパワー - 無限に持続可能な最大パワー</li>
+                        <li>W' (Wプライム) - CP を超える有限の無酸素作業容量</li>
+                        <li>線形関係: 仕事 = CP × 時間 + W'</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Jones et al. (2019) - Critical Power: Theory and Applications</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> Journal of Applied Physiology, 126(6), 1905-1915<br>
+                    <strong>研究:</strong> 50年以上にわたる CP 研究の包括的なレビュー
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li>CP は最大代謝定常状態を表し、有酸素優位と無酸素優位の境界である</li>
+                        <li><strong>CP は通常、1分間の最大パワーの 72-77% である</strong></li>
+                        <li><strong>CP はほとんどのサイクリストにおいて FTP の ±5W 以内に収まる</strong></li>
+                        <li>W' はトレーニング状況に応じて 6-25 kJ (典型的には 15-20 kJ) の範囲にある</li>
+                        <li>CP は異なるテストプロトコルにおいて FTP よりも生理学的に堅牢である</li>
+                    </ul>
+                </div>
+                <div class="significance">
+                    <p><strong>影響:</strong> 閾値を定義する上で、CP が科学的に FTP
+                        よりも優れていることを確立しました。閾値を超える有限の作業容量を理解するためのフレームワークを提供しました。</p>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Skiba et al. (2014, 2015) - W' Balance Modeling</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> Medicine and Science in Sports and Exercise<br>
+                    <strong>革新:</strong> リアルタイムの W' 消費と再構築の追跡
+                </div>
+                <div class="findings">
+                    <h5>主な貢献:</h5>
+                    <ul>
+                        <li><strong>W'bal モデル:</strong> 無酸素バッテリー状態のリアルタイム追跡</li>
+                        <li><strong>消費率:</strong> P > CP のとき W'exp = ∫(Power - CP)</li>
+                        <li><strong>回復動態:</strong> 時定数 τ = 546 × e^(-0.01×ΔCP) + 316 の指数関数的回復</li>
+                        <li><strong>MTB に不可欠:</strong> 絶え間ないサージとアタックを管理するために不可欠</li>
+                        <li><strong>レース戦略:</strong> アタックの最適化とスプリントフィニッシュの管理</li>
+                    </ul>
+                </div>
+                <div class="significance">
+                    <p><strong>影響:</strong>
+                        サイクリストが閾値を超えるエフォートを管理する方法を変革しました。特に、2時間のレースで88回以上のサージが発生するマウンテンバイクにおいて極めて重要です。現在は WKO5、Golden
+                        Cheetah、および高度なサイクルコンピューターに実装されています。</p>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Poole et al. (2016) - CP as Fatigue Threshold</h4>
+                <div class="paper-meta">
+                    <strong>焦点:</strong> クリティカルパワーの生理学的根拠
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li>CP は持続可能な運動と持続不可能な運動の境界を表す</li>
+                        <li>CP 未満: 代謝定常状態が達成可能となり、乳酸値が安定する</li>
+                        <li>CP 超過: 代謝副産物の進行的な蓄積 → 不可避な疲労</li>
+                        <li>CP トレーニングは有酸素能力と閾値パワーの両方を向上させる</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="research-area">
+            <h3>3. トレーニングストレススコアとパフォーマンス管理</h3>
+            <p class="lead">TSS によるトレーニング負荷の定量化と、長期/短期負荷バランスの管理により、最適なピリオダイゼーションと疲労管理が可能になります。</p>
+
+            <div class="research-paper">
+                <h4>Coggan (2003) - TSS Development</h4>
+                <div class="paper-meta">
+                    <strong>出版:</strong> Training and Racing with a Power Meter introduction<br>
+                    <strong>意義:</strong> 業界標準のトレーニング負荷指標を作成
+                </div>
+                <div class="findings">
+                    <h5>TSS の公式と応用:</h5>
+                    <ul>
+                        <li><strong>TSS = (時間 × NP × IF) / (FTP × 3600) × 100</strong></li>
+                        <li>100 TSS = FTP での1時間のエフォート (強度係数 = 1.0)</li>
+                        <li>単一の指標で時間と強度の両方を考慮</li>
+                        <li>異なるタイプのワークアウト間での比較が可能</li>
+                        <li>CTL/ATL/TSB パフォーマンス管理システムの基礎</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Banister et al. (1975, 1991) - Impulse-Response Model</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> Australian Journal of Sports Medicine (1975)<br>
+                    <strong>意義:</strong> フィットネス・疲労パラダイムの理論的基礎
+                </div>
+                <div class="findings">
+                    <h5>主な貢献:</h5>
+                    <ul>
+                        <li><strong>フィットネス・疲労モデル:</strong> パフォーマンス = フィットネス - 疲労</li>
+                        <li><strong>指数加重移動平均:</strong> CTL (42日間時定数)、ATL (7日間時定数)</li>
+                        <li><strong>トレーニングストレスバランス (TSB):</strong> TSB = CTL_yesterday - ATL_yesterday</li>
+                        <li>ピリオダイゼーションとテーパリングのための数学的フレームワーク</li>
+                        <li>TrainingPeaks で使用される <strong>TSS/CTL/ATL 指標の理論的根拠</strong></li>
+                    </ul>
+                </div>
+                <div class="significance">
+                    <p><strong>影響:</strong> 定量的なトレーニング負荷管理に科学的根拠を提供しました。ピリオダイゼーションを芸術から、数学的精度を備えた科学へと変革しました。</p>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Busso (2003) - Modeling Training Adaptation</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> Medicine and Science in Sports and Exercise<br>
+                    <strong>焦点:</strong> トレーニングにおける用量反応関係
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li>トレーニング適応は予測可能な数学的パターンに従う</li>
+                        <li>反応の個別変動にはパーソナライズされたモデリングが必要</li>
+                        <li>最適なトレーニング負荷は、刺激と回復のバランスをとる</li>
+                        <li>週に 12 CTL を超える上昇率は、怪我のリスクと関連する</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-xl">空気力学とパワーモデリング</h2>
+
+        <div class="research-area">
+            <h3>4. 空気抵抗と CdA</h3>
+            <p class="lead">
+                時速25kmを超えると、空気抵抗は全抵抗の70-90%を占めるようになります。CdA（抗力係数×前面投影面積）の理解と最適化は、ロードサイクリングのパフォーマンスにおいて極めて重要です。</p>
+
+            <div class="research-paper">
+                <h4>Blocken et al. (2013, 2017) - Cycling Aerodynamics Research</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> Sports Engineering, 20, 81-94<br>
+                    <strong>手法:</strong> 数値流体力学 (CFD) 研究
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li><strong>CdA 範囲:</strong>
+                            <ul>
+                                <li>上ハンドルポジション (ブラケット): 0.35-0.40 m²</li>
+                                <li>下ハンドルポジション (ドロップ): 0.32-0.37 m²</li>
+                                <li>タイムトライアルポジション: 0.20-0.25 m²</li>
+                                <li>エリート TT スペシャリスト: 0.185-0.200 m²</li>
+                            </ul>
+                        </li>
+                        <li><strong>パワー節約:</strong> CdA が 0.01 m² 減少するごとに、時速40kmで約10W節約</li>
+                        <li><strong>ドラフティングの利点:</strong> 他のライダーの後ろを走ることで、27-50%のパワー削減</li>
+                        <li><strong>集団内での位置:</strong> 5番目から8番目のライダーが最大の利益と安全性を得る</li>
+                        <li>ドラフティング距離が重要: 30cm以内で最大利益、1mを超えると減衰</li>
+                    </ul>
+                </div>
+                <div class="significance">
+                    <p><strong>影響:</strong> ポジションの変化やドラフティングがもたらす空気力学的な利益を定量化しました。最適化ターゲットとして、現場で測定可能な CdA
+                        を検証しました。タイムトライアリストがなぜポジションに執着するのかを説明しました。</p>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Martin et al. (2006) - Power Model Validation</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> Journal of Applied Biomechanics<br>
+                    <strong>焦点:</strong> サイクリングの必要パワーに関する数学的モデル
+                </div>
+                <div class="findings">
+                    <h5>パワー方程式の構成要素:</h5>
+                    <ul>
+                        <li><strong>P_total = P_aero + P_gravity + P_rolling + P_kinetic</strong></li>
+                        <li><strong>P_aero = CdA × 0.5 × ρ × V³</strong> (速度の3乗に比例)</li>
+                        <li><strong>P_gravity = m × g × sin(θ) × V</strong> (登坂パワー)</li>
+                        <li><strong>P_rolling = Crr × m × g × cos(θ) × V</strong> (転がり抵抗)</li>
+                        <li>実世界のパワーメーターデータに対して高い精度で検証済み</li>
+                        <li>コースに応じた必要パワーの予測モデリングを可能にする</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Debraux et al. (2011) - Aerodynamic Drag Measurement</h4>
+                <div class="paper-meta">
+                    <strong>焦点:</strong> サイクリングの空気力学を評価する手法
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li>パワーメーターを用いたフィールドテストは実用的な CdA 測定を提供できる</li>
+                        <li>風洞実験は依然としてゴールドスタンダードだが、高価でアクセスが困難</li>
+                        <li>ポジションの最適化により、CdA を 5-15% 改善できる</li>
+                        <li>機材（エアロホイール、ヘルメット、スキンスーツ）の利益は合わせて合計 3-5% になる</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="text-center mb-xl">ペダリングのバイオメカニクスとケイデンス</h2>
+
+        <div class="research-area">
+            <h3>5. ペダリング効率とケイデンスの最適化</h3>
+            <p class="lead">最適なケイデンスとペダリング技術は、エネルギーコストと怪我のリスクを最小限に抑えながら、パワー出力を最大化します。</p>
+
+            <div class="research-paper">
+                <h4>Lucia et al. (2001) - Physiology of Professional Road Cycling</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> Sports Medicine<br>
+                    <strong>研究:</strong> エリートプロサイクリストの分析
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li><strong>最適なケイデンス範囲:</strong>
+                            <ul>
+                                <li>テンポ/閾値: 85-95 RPM</li>
+                                <li>VO₂max インターバル: 100-110 RPM</li>
+                                <li>急な登り: 70-85 RPM</li>
+                            </ul>
+                        </li>
+                        <li>エリートサイクリストは、エネルギーコストを最小限に抑えるケイデンスを自己選択する</li>
+                        <li>ケイデンスが高いほど、ペダルストロークあたりの筋力が軽減される</li>
+                        <li>個人の最適化は、筋線維タイプの組成によって異なる</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Coyle et al. (1991) - Cycling Efficiency and Muscle Fiber Type</h4>
+                <div class="paper-meta">
+                    <strong>焦点:</strong> 効率と生理学の関係
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li>サイクリング効率は、タイプI（遅筋）筋線維の割合に関連する</li>
+                        <li>グロス効率の範囲は 18-25% (エリート: 22-25%)</li>
+                        <li>ペダリング速度は効率に影響し、個人ごとの最適値が存在する</li>
+                        <li>トレーニングは、代謝効率と機械効率の両方を向上させる</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Patterson & Moreno (1990) - Pedal Forces Analysis</h4>
+                <div class="paper-meta">
+                    <strong>焦点:</strong> ペダリング力のバイオメカニクス的分析
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li>有効なペダル踏力は、ペダルストロークのサイクル全体を通じて変化する</li>
+                        <li>最大力は、上死点を 90-110° 過ぎた地点で発生する</li>
+                        <li>熟練したサイクリストは、引き足時のネガティブな仕事を最小限に抑える</li>
+                        <li>トルク効率 (TE) とペダルスムーズネス (PS) 指標が効率を定量化する</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-xl">クライミングパフォーマンス</h2>
+
+        <div class="research-area">
+            <h3>6. パワー・ウェイト・レシオと VAM</h3>
+            <p class="lead">登りでは、パワー・ウェイト・レシオ（パワー体重比）がパフォーマンスの支配的な決定要因になります。VAM（平均上昇速度）は実用的なクライミング評価を提供します。</p>
+
+            <div class="research-paper">
+                <h4>Padilla et al. (1999) - Level vs. Uphill Cycling Efficiency</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> European Journal of Applied Physiology<br>
+                    <strong>研究:</strong> プロサイクリストのクライミング分析
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li>クライミングパフォーマンスは主に、閾値における W/kg によって決定される</li>
+                        <li>急勾配 (>7%) では、空気力学の影響は無視できるほど小さくなる</li>
+                        <li>グロス効率は、平坦路に比べて登りではわずかに低くなる</li>
+                        <li>身体ポジションの変化は、パワー出力と快適性に影響を与える</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Swain (1997) - Climbing Performance Modeling</h4>
+                <div class="paper-meta">
+                    <strong>ジャーナル:</strong> Journal of Sports Sciences<br>
+                    <strong>焦点:</strong> ペーシング戦略の数学的最適化
+                </div>
+                <div class="findings">
+                    <h5>主な貢献:</h5>
+                    <ul>
+                        <li>クライミングのパワー方程式: P = (m × g × V × sin(勾配)) + 転がり + エアロ</li>
+                        <li>VAM 計算: (獲得標高 / 時間) により W/kg を予測</li>
+                        <li><strong>VAM ベンチマーク:</strong>
+                            <ul>
+                                <li>クラブサイクリスト: 700-900 m/h</li>
+                                <li>競技者: 1000-1200 m/h</li>
+                                <li>エリートアマチュア: 1300-1500 m/h</li>
+                                <li>ワールドツアー勝者: >1500 m/h</li>
+                            </ul>
+                        </li>
+                        <li>推測式: W/kg ≈ VAM / (200 + 10 × 勾配%)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="research-paper">
+                <h4>Lucia et al. (2004) - Physiological Profile of Tour Climbers</h4>
+                <div class="paper-meta">
+                    <strong>研究:</strong> グランドツールの山岳スペシャリストの分析
+                </div>
+                <div class="findings">
+                    <h5>主な知見:</h5>
+                    <ul>
+                        <li><strong>閾値における W/kg:</strong>
+                            <ul>
+                                <li>競技志向のサイクリスト: 4.0+ W/kg</li>
+                                <li>エリートアマチュア: 4.5+ W/kg</li>
+                                <li>セミプロ: 5.0+ W/kg</li>
+                                <li>ワールドツアー: 5.5-6.5 W/kg</li>
+                            </ul>
+                        </li>
+                        <li>低い体重が極めて重要であり、エリートレベルでは1kgの差さえ重要となる</li>
+                        <li>エリートクライマーでは VO₂max >75 ml/kg/min が一般的である</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Bike Analytics はどのように研究を実装しているか</h2>
+
+        <div class="callout callout-success">
+            <h3>実験室から実世界のアプリケーションへ</h3>
+            <p>Bike Analytics は、数十年にわたる研究を実用的で実用的な指標に変換します：</p>
+            <ul>
+                <li><strong>FTP テスト:</strong> 検証済みの 20分間プロトコル (MacInnis 2019) とオプションのランプテストを実装</li>
+                <li><strong>トレーニング負荷:</strong> Coggan の TSS 公式と Banister の CTL/ATL フレームワークを使用</li>
+                <li><strong>クリティカルパワー:</strong> 複数の持続時間のエフォートから CP と W' を算出 (Jones 2019)</li>
+                <li><strong>W'bal 追跡:</strong> Skiba の微分方程式モデルを使用したリアルタイムの無酸素容量監視</li>
+                <li><strong>空気力学:</strong> パワー/速度データからの現場で測定可能な CdA 推定 (Martin 2006)</li>
+                <li><strong>クライミング分析:</strong> VAM 計算と W/kg ベンチマーク (Lucia 2004, Swain 1997)</li>
+                <li><strong>MTB 特化型:</strong> バースト（急加速）検出、変動するパワープロファイルに対応する W' 管理</li>
+            </ul>
+        </div>
+
+        <div class="methodology">
+            <h3>検証と継続的な研究</h3>
+            <p>Bike Analytics は以下を約束します：</p>
+            <ul>
+                <li>新しい研究文献の定期的なレビュー</li>
+                <li>新しい手法が検証された際のアルゴリズムの更新</li>
+                <li>計算方法の透明性のあるドキュメント化</li>
+                <li>正しい指標解釈のためのユーザー教育</li>
+                <li>新興技術（左右別パワー、高度なバイオメカニクス）の統合</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>よくある質問</h2>
+
+        <div class="faq-section">
+            <div class="faq-item">
+                <h3>なぜパワーベースのトレーニングは心拍数よりも優れているのですか？</h3>
+                <p>パワーはエフォートの変化に即座に反応しますが、心拍数は 30-60 秒の遅れが生じます。パワーは、心拍数のように熱、カフェイン、ストレス、または疲労の影響を受けません。Allen & Coggan
+                    による研究は、実際に実行された仕事を最も直接的に測定する手段としてパワーを確立しました。</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>パワーメーターはどの程度正確ですか？</h3>
+                <p>Maier et al. (2017) は、9つのメーカーの54個のパワーメーターを、ゴールドスタンダードモデルと比較テストしました。平均偏差は -0.9 ± 3.2% であり、ほとんどの製品が
+                    ±2-3% 以内でした。現代のパワーメーター (Quarq, PowerTap, Stages, Favero) は、適切にキャリブレーションされていれば ±1-2% の精度基準を満たしています。
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>FTP と クリティカルパワーのどちらが良いですか？</h3>
+                <p>Jones et al. (2019) は、CP がより生理学的に堅牢であり、ほとんどのサイクリストにおいて FTP の ±5W 以内に収まることを示しました。しかし、FTP
+                    の単一の20分間テストの方がより実用的です。Bike Analytics は両方をサポートしています。シンプルさを求めるなら FTP を、精度を求めるなら CP を使用してください。</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>TSS は他のトレーニング負荷手法と比べてどうですか？</h3>
+                <p>TSS (Coggan 2003) は、パワーの3乗の関係を使用して、強度と時間の両方を単一の指標で考慮します。これはセッションの
+                    RPE（主観的運動強度）や実験室で測定された生理学的ストレスと高い相関があり、サイクリング特化の負荷定量化におけるゴールドスタンダードとなっています。</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>なぜマウンテンバイクにはロードとは異なる指標が必要なのですか？</h3>
+                <p>研究によると、MTB レース (XCO) では 2時間のレースで FTP の 125% を超えるパワーサージが 88回以上発生します。この「爆発的な」パワープロファイルには W'bal
+                    追跡とインターバルに焦点を当てたトレーニングが必要ですが、ロードサイクリングでは持続的なパワーと空気力学が重視されます。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow text-center">
+        <h2>科学がパフォーマンスを加速させる</h2>
+        <p class="lead">Bike Analytics
+            は、数十年にわたる厳格な科学的研究の成果の上に成り立っています。すべての公式、指標、および計算は、主要な運動生理学およびバイオメカニクスのジャーナルに掲載された査読済み研究によって検証されています。</p>
+
+        <p>このエビデンスベースの基盤は、あなたが得る洞察が単なる数字ではなく、生理学的適応、バイオメカニクスの効率、およびパフォーマンスの向上の科学的に意味のある指標であることを保証します。</p>
+
+        <div class="mt-xl">
+            <a href="/ja/bibliography/" class="btn btn-primary btn-large">完全な参考文献を見る →</a>
+            <a href="/ja/formulas/" class="btn btn-secondary">技術公式</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div>
+                <h2 class="mb-md">Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS</h2>
+                <p class="text-secondary">Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Home</h2>
+                <ul class="footer-links">
+                    
+                    <li>
+                        <a href="/af/">Afrikaans</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ar/">العربية</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/bn/">বাংলা</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ca/">Català</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/de/">Deutsch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/el/">Ελληνικά</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/en/">English</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/es/">Español</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/fr/">Français</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ha/">Hausa</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hi/">हिन्दी</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/hu/">Magyar</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/is/">Íslenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/it/">Italiano</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ja/">日本語</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ko/">한국어</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nb/">Norsk Bokmål</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/nl/">Nederlands</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pl/">Polski</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/pt/">Português</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ro/">Română</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/ru/">Русский</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sl/">Slovenščina</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/sv/">Svenska</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/zh/">中文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2 class="mb-md">Download</h2>
+                <div class="footer-badges">
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="120" height="40">
+                    </a>
+                    <a href="" class="app-store-badge" target="_blank" rel="noopener">
+                        <img src="/assets/images/badge-google-play.svg" alt="Get it on Google Play" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            <p class="text-sm text-secondary">
+                &copy; 2025 Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS. All rights reserved
+            </p>
+            <ul class="footer-links">
+                <li><a href="/ja/privacy/">Privacy</a></li>
+                <li><a href="/ja/terms/">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>This website uses cookies to improve your experience.</p>
+            <a href="/ja/privacy/" class="text-sm">Learn more</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>
