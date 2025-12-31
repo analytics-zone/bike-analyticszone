@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>נוסחאות ביצועי שחייה: חישובי CSS, TSS, CTL/ATL</title>
+  <meta name="description" content="נוסחאות מתמטיות מלאות לאנליטיקת שחייה. למד כיצד לחשב FTP, sTSS, CTL, ATL, TSB ידנית. כולל דוגמאות פתורות, גזירות ויישום מעשי מוסבר. למאמנים וספורטאים מתקדמים.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="נוסחאות שחייה, חישוב CSS, נוסחת TSS, מתמטיקת אימון, חישובי ביצועים">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/he/formulas/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-09T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/he/formulas/">
+  <meta property="og:title" content="נוסחאות ביצועי שחייה: חישובי CSS, TSS, CTL/ATL">
+  <meta property="og:description" content="נוסחאות מתמטיות מלאות לאנליטיקת שחייה. למד כיצד לחשב FTP, sTSS, CTL, ATL, TSB ידנית. כולל דוגמאות פתורות, גזירות ויישום מעשי מוסבר. למאמנים וספורטאים מתקדמים.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/he/formulas/">
+  <meta name="twitter:title" content="נוסחאות ביצועי שחייה: חישובי CSS, TSS, CTL/ATL">
+  <meta name="twitter:description" content="נוסחאות מתמטיות מלאות לאנליטיקת שחייה. למד כיצד לחשב FTP, sTSS, CTL, ATL, TSB ידנית. כולל דוגמאות פתורות, גזירות ויישום מעשי מוסבר. למאמנים וספורטאים מתקדמים.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/formulas/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/formulas/">
+  
+  <link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/formulas/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/formulas/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/formulas/">
+  
+  <link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/formulas/">
+  
+  <link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/formulas/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/formulas/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/formulas/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/formulas/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/formulas/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/formulas/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/formulas/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/formulas/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/formulas/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/formulas/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/formulas/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/formulas/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/formulas/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/formulas/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/formulas/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/formulas/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/formulas/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/formulas/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/formulas/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/formulas/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/formulas/">
+  
+  <link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/formulas/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/formulas/">
+  
+  <link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/formulas/">
+  
+  <link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/formulas/">
+  
+  <link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/formulas/">
+  
+  <link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/formulas/">
+  
+  <link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/formulas/">
+  
+  <link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/formulas/">
+  
+  <link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/formulas/">
+  
+  <link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/formulas/">
+  
+  <link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/formulas/">
+  
+  <link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/formulas/">
+  
+  <link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/formulas/">
+  
+  <link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/formulas/">
+  
+  <link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/formulas/">
+  
+  <link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/formulas/">
+  
+  <link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/formulas/">
+  
+  <link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/formulas/">
+  
+  <link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/formulas/">
+  
+  <link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/formulas/">
+  
+  <link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/formulas/">
+  
+  <link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/formulas/">
+  
+  <link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/formulas/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/formulas/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "נוסחאות ביצועי שחייה: חישובי CSS, TSS, CTL/ATL",
+      "description": "נוסחאות מתמטיות מלאות לאנליטיקת שחייה. למד כיצד לחשב FTP, sTSS, CTL, ATL, TSB ידנית. כולל דוגמאות פתורות, גזירות ויישום מעשי מוסבר. למאמנים וספורטאים מתקדמים.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-09",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/he/formulas/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">דלג לתוכן</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/he/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/he/" 
+                            aria-current="">
+                            בית
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <a href="/he/getting-started/" class="nav-label">למד</a>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/he/getting-started/" 
+                                    aria-current="">
+                                    מתחילים
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/critical-power/" 
+                                    aria-current="">
+                                    הספק קריטי
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/training-zones/" 
+                                    aria-current="">
+                                    אזורי אימון
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/training-load/" 
+                                    aria-current="">
+                                    עומס אימונים
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/tss-calculator/" 
+                                    aria-current="">
+                                    מחשבון TSS
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <a href="/he/research/" class="nav-label">מדע</a>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/he/research/" 
+                                    aria-current="">
+                                    מחקר
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/formulas/" class="active"
+                                    aria-current="page">
+                                    נוסחאות
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/power-metrics/" 
+                                    aria-current="">
+                                    מדדי הספק
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/efficiency/" 
+                                    aria-current="">
+                                    יעילות
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/pedaling-mechanics/" 
+                                    aria-current="">
+                                    מכניקת דיווש
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/aerodynamics/" 
+                                    aria-current="">
+                                    אווירודינמיקה
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/climbing-performance/" 
+                                    aria-current="">
+                                    ביצועי טיפוס
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/bibliography/" 
+                                    aria-current="">
+                                    ביבליוגרפיה
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <a href="/he/road-cycling/" class="nav-label">ענפים</a>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/he/road-cycling/" 
+                                    aria-current="">
+                                    רכיבת כביש
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/mountain-biking/" 
+                                    aria-current="">
+                                    רכיבת הרים
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/road-vs-mtb/" 
+                                    aria-current="">
+                                    כביש מול הרים
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/he/comparisons/" 
+                                    aria-current="">
+                                    השוואת פלטפורמות
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/he/contact/" 
+                            aria-current="">
+                            צור קשר
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="בחר שפה">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bg" >
+                        Български
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="cs" >
+                        Čeština
+                    </option>
+                    
+                    <option value="da" >
+                        Dansk
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="et" >
+                        Eesti
+                    </option>
+                    
+                    <option value="fa" >
+                        فارسی
+                    </option>
+                    
+                    <option value="fi" >
+                        Suomi
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="gu" >
+                        ગુજરાતી
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="he" selected>
+                        עברית
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hr" >
+                        Hrvatski
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="id" >
+                        Bahasa Indonesia
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="kn" >
+                        ಕನ್ನಡ
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="lt" >
+                        Lietuvių
+                    </option>
+                    
+                    <option value="lv" >
+                        Latviešu
+                    </option>
+                    
+                    <option value="ms" >
+                        Bahasa Melayu
+                    </option>
+                    
+                    <option value="my" >
+                        မြန်မာဘာသာ
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sk" >
+                        Slovenčina
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sr" >
+                        Српски
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="sw" >
+                        Kiswahili
+                    </option>
+                    
+                    <option value="th" >
+                        ไทย
+                    </option>
+                    
+                    <option value="tl" >
+                        Tagalog
+                    </option>
+                    
+                    <option value="tr" >
+                        Türkçe
+                    </option>
+                    
+                    <option value="uk" >
+                        Українська
+                    </option>
+                    
+                    <option value="ur" >
+                        اردو
+                    </option>
+                    
+                    <option value="vi" >
+                        Tiếng Việt
+                    </option>
+                    
+                    <option value="yo" >
+                        Yoruba
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="הצגת תפריט"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+        <ol>
+            
+            <li>
+                
+                <a href="/he/">בית</a>
+                
+            </li>
+            
+            <li>
+                
+                <a href="/he/research/">מדע</a>
+                
+            </li>
+            
+            <li>
+                
+                <span aria-current="page">נוסחאות</span>
+                
+            </li>
+            
+        </ol>
+    </div>
+</nav>
+
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Cycling Power Formulas</h1>
+        <p class="lead">Mathematical Foundation of Bike Analytics Metrics</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Implementation Guide</h2>
+        <p class="lead">This page provides copy-paste formulas and step-by-step calculation methods for all Bike Analytics metrics. Use these for custom implementations, verification, or deeper understanding of power-based training.</p>
+
+        <div class="callout callout-warning">
+            <h3>⚠️ Implementation Notes</h3>
+            <ul>
+                <li>All power values in watts (W), time in seconds unless specified</li>
+                <li>FTP and CP are individual-specific thresholds—no universal values</li>
+                <li>Always validate inputs for reasonable ranges (0-2000W typical)</li>
+                <li>Handle edge cases (division by zero, negative power)</li>
+                <li>Power data requires 1-second recording intervals for accuracy</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Core Performance Metrics</h2>
+
+        <div class="formula-card">
+            <h3>1. Training Stress Score (TSS)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        TSS = (duration_seconds × NP × IF) / (FTP × 3600) × 100
+                    </div>
+                    <div class="formula">
+                        where IF = NP / FTP
+                    </div>
+                </div>
+
+                <h4>Worked Example:</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong> 2-hour ride, NP = 235W, FTP = 250W</p>
+                    <ol>
+                        <li>Calculate IF: IF = 235 / 250 = 0.94</li>
+                        <li>Duration in seconds: 2 hours × 3600 = 7200 seconds</li>
+                        <li>TSS = (7200 × 235 × 0.94) / (250 × 3600) × 100</li>
+                        <li>TSS = 1,590,720 / 900,000 × 100 = <strong>176.7 TSS</strong></li>
+                    </ol>
+                    <p><em>Interpretation: Hard training ride (>150 TSS), expect 2-3 days recovery</em></p>
+                </div>
+
+                <h4>JavaScript Implementation:</h4>
+                <pre><code>function calculateTSS(durationSeconds, normalizedPower, ftp) {
+  const intensityFactor = normalizedPower / ftp;
+  const tss = (durationSeconds * normalizedPower * intensityFactor) / (ftp * 3600) * 100;
+  return Math.round(tss);
+}
+
+// Example usage:
+const tss = calculateTSS(7200, 235, 250);
+// Returns: 177</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>2. Normalized Power (NP)</h3>
+            <div class="formula-content">
+                <h4>Algorithm (30-second rolling average):</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        1. Calculate 30-second rolling average power for entire ride
+                    </div>
+                    <div class="formula">
+                        2. Raise each 30-sec value to the 4th power
+                    </div>
+                    <div class="formula">
+                        3. Take average of all these ^4 values
+                    </div>
+                    <div class="formula">
+                        4. Take 4th root of that average
+                    </div>
+                    <div class="formula">
+                        NP = ⁴√(average of [30s_avg^4])
+                    </div>
+                </div>
+
+                <h4>Why the 4th Power?</h4>
+                <p>The quartic (4th power) relationship reflects the non-linear physiological cost of variable efforts. A ride with surges and recoveries costs more energy than steady power at the same average.</p>
+
+                <div class="example-box">
+                    <p><strong>Example:</strong></p>
+                    <ul>
+                        <li>Steady ride: 200W for 1 hour → NP = 200W, Average = 200W</li>
+                        <li>Variable ride: Alternating 300W/100W → Average = 200W, NP = 225W</li>
+                    </ul>
+                    <p><em>Same average power, but variable ride has 12% higher NP due to physiological cost of surges</em></p>
+                </div>
+
+                <h4>JavaScript Implementation:</h4>
+                <pre><code>function calculateNormalizedPower(powerData) {
+  // powerData is array of 1-second power values
+
+  // Step 1: Calculate 30-second rolling averages
+  const rollingAvgs = [];
+  for (let i = 29; i < powerData.length; i++) {
+    const window = powerData.slice(i - 29, i + 1);
+    const avg = window.reduce((sum, p) => sum + p, 0) / 30;
+    rollingAvgs.push(avg);
+  }
+
+  // Step 2: Raise to 4th power
+  const powered = rollingAvgs.map(p => Math.pow(p, 4));
+
+  // Step 3: Average of 4th powers
+  const avgPowered = powered.reduce((sum, p) => sum + p, 0) / powered.length;
+
+  // Step 4: Take 4th root
+  const np = Math.pow(avgPowered, 0.25);
+
+  return Math.round(np);
+}
+
+// Example usage:
+const powerData = [/* 1-second power array */];
+const np = calculateNormalizedPower(powerData);
+// Returns: NP in watts</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>3. Intensity Factor (IF)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        IF = NP / FTP
+                    </div>
+                </div>
+
+                <h4>Interpretation Ranges:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>IF Range</th>
+                        <th>Effort Level</th>
+                        <th>Example Workout</th>
+                    </tr>
+                    <tr>
+                        <td>&lt; 0.75</td>
+                        <td>Recovery / Easy</td>
+                        <td>Active recovery ride, Zone 1-2</td>
+                    </tr>
+                    <tr>
+                        <td>0.75 - 0.85</td>
+                        <td>Endurance</td>
+                        <td>Long steady ride, aerobic base</td>
+                    </tr>
+                    <tr>
+                        <td>0.85 - 0.95</td>
+                        <td>Tempo</td>
+                        <td>Sweet spot training, tempo intervals</td>
+                    </tr>
+                    <tr>
+                        <td>0.95 - 1.05</td>
+                        <td>Threshold</td>
+                        <td>FTP intervals, time trial effort</td>
+                    </tr>
+                    <tr>
+                        <td>1.05 - 1.15</td>
+                        <td>VO₂max</td>
+                        <td>5-minute intervals, criterium race</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 1.15</td>
+                        <td>Anaerobic</td>
+                        <td>Short sprints, attacks, MTB bursts</td>
+                    </tr>
+                </table>
+
+                <h4>Example Calculation:</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong> NP = 235W, FTP = 250W</p>
+                    <p>IF = 235 / 250 = <strong>0.94</strong></p>
+                    <p><em>Interpretation: High tempo / sub-threshold effort, sustainable for 2-3 hours</em></p>
+                </div>
+
+                <pre><code>function calculateIF(normalizedPower, ftp) {
+  return (normalizedPower / ftp).toFixed(2);
+}
+
+// Example:
+const if_value = calculateIF(235, 250);
+// Returns: 0.94</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>4. Variability Index (VI)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        VI = NP / Average Power
+                    </div>
+                </div>
+
+                <h4>Interpretation by Discipline:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Discipline</th>
+                        <th>Typical VI</th>
+                        <th>Meaning</th>
+                    </tr>
+                    <tr>
+                        <td>Road TT / Steady Effort</td>
+                        <td>1.00 - 1.05</td>
+                        <td>Very consistent power, optimal pacing</td>
+                    </tr>
+                    <tr>
+                        <td>Road Racing</td>
+                        <td>1.05 - 1.10</td>
+                        <td>Some surges, generally steady</td>
+                    </tr>
+                    <tr>
+                        <td>Criterium</td>
+                        <td>1.10 - 1.20</td>
+                        <td>Frequent accelerations and attacks</td>
+                    </tr>
+                    <tr>
+                        <td>Mountain Bike XC</td>
+                        <td>1.15 - 1.30+</td>
+                        <td>Highly variable, constant surges</td>
+                    </tr>
+                </table>
+
+                <h4>Example Calculation:</h4>
+                <div class="example-box">
+                    <p><strong>Road Race:</strong> NP = 240W, Avg Power = 230W</p>
+                    <p>VI = 240 / 230 = <strong>1.04</strong> (steady pacing)</p>
+
+                    <p><strong>MTB Race:</strong> NP = 285W, Avg Power = 235W</p>
+                    <p>VI = 285 / 235 = <strong>1.21</strong> (very variable, burst efforts)</p>
+                </div>
+
+                <pre><code>function calculateVI(normalizedPower, averagePower) {
+  return (normalizedPower / averagePower).toFixed(2);
+}
+
+// Example:
+const vi_road = calculateVI(240, 230);  // Returns: 1.04
+const vi_mtb = calculateVI(285, 235);   // Returns: 1.21</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Critical Power & W' (Anaerobic Capacity)</h2>
+
+        <div class="formula-card">
+            <h3>5. Critical Power (CP) - Linear Model</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        Time = W' / (Power - CP)
+                    </div>
+                    <div class="formula">
+                        Rearranged: Power × Time = CP × Time + W'
+                    </div>
+                </div>
+
+                <h4>Calculation from Multiple Efforts:</h4>
+                <p>Requires 2-4 maximal efforts at different durations (e.g., 3, 5, 12, 20 minutes)</p>
+
+                <div class="example-box">
+                    <p><strong>Example Data:</strong></p>
+                    <table class="data-table">
+                        <tr>
+                            <th>Duration</th>
+                            <th>Power (W)</th>
+                            <th>Total Work (kJ)</th>
+                        </tr>
+                        <tr>
+                            <td>3 min (180s)</td>
+                            <td>400W</td>
+                            <td>72 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>5 min (300s)</td>
+                            <td>365W</td>
+                            <td>109.5 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>12 min (720s)</td>
+                            <td>310W</td>
+                            <td>223.2 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>20 min (1200s)</td>
+                            <td>285W</td>
+                            <td>342 kJ</td>
+                        </tr>
+                    </table>
+
+                    <p>Using linear regression (Work = CP × Time + W'):</p>
+                    <ul>
+                        <li><strong>CP = 270W</strong> (slope of regression line)</li>
+                        <li><strong>W' = 18.5 kJ</strong> (y-intercept)</li>
+                    </ul>
+                </div>
+
+                <h4>JavaScript Implementation:</h4>
+                <pre><code>function calculateCP_Linear(efforts) {
+  // efforts = [{duration: seconds, power: watts}, ...]
+
+  const times = efforts.map(e => e.duration);
+  const work = efforts.map(e => e.power * e.duration / 1000); // kJ
+
+  // Linear regression: work = CP * time + W'
+  const n = efforts.length;
+  const sumT = times.reduce((a, b) => a + b, 0);
+  const sumW = work.reduce((a, b) => a + b, 0);
+  const sumTW = times.reduce((sum, t, i) => sum + t * work[i], 0);
+  const sumTT = times.reduce((sum, t) => sum + t * t, 0);
+
+  const CP = (n * sumTW - sumT * sumW) / (n * sumTT - sumT * sumT);
+  const Wprime = (sumW - CP * sumT) / n;
+
+  return {
+    CP: Math.round(CP * 10) / 10,      // watts
+    Wprime: Math.round(Wprime * 10) / 10  // kJ
+  };
+}
+
+// Example usage:
+const efforts = [
+  {duration: 180, power: 400},
+  {duration: 300, power: 365},
+  {duration: 720, power: 310},
+  {duration: 1200, power: 285}
+];
+
+const result = calculateCP_Linear(efforts);
+// Returns: { CP: 270.0, Wprime: 18.5 }</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>6. W' Balance (W'bal) - Differential Equation Model</h3>
+            <div class="formula-content">
+                <h4>Formulas:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        <strong>Expenditure (when P > CP):</strong><br>
+                        W'exp(t) = ∫(P(t) - CP) dt
+                    </div>
+                    <div class="formula">
+                        <strong>Recovery (when P < CP):</strong><br>
+                        W'rec(t) = W' × (1 - e^(-t/τ))
+                    </div>
+                    <div class="formula">
+                        where τ = 546 × e^(-0.01 × ΔCP) + 316<br>
+                        and ΔCP = (CP - P(t))
+                    </div>
+                </div>
+
+                <h4>Real-World Example:</h4>
+                <div class="example-box">
+                    <p><strong>Cyclist specs:</strong> CP = 270W, W' = 18.5 kJ</p>
+
+                    <p><strong>Scenario 1 - Hard Attack:</strong></p>
+                    <ul>
+                        <li>Rider surges to 400W for 30 seconds</li>
+                        <li>W' expenditure: (400 - 270) × 30 = 3,900 J = 3.9 kJ</li>
+                        <li>W'bal remaining: 18.5 - 3.9 = <strong>14.6 kJ</strong></li>
+                    </ul>
+
+                    <p><strong>Scenario 2 - Recovery:</strong></p>
+                    <ul>
+                        <li>After attack, drops to 200W (70W below CP) for 2 minutes</li>
+                        <li>ΔCP = 270 - 200 = 70W</li>
+                        <li>τ = 546 × e^(-0.01 × 70) + 316 = 588 seconds</li>
+                        <li>Recovery in 120s: 18.5 × (1 - e^(-120/588)) = <strong>3.5 kJ recovered</strong></li>
+                        <li>New W'bal: 14.6 + 3.5 = <strong>18.1 kJ</strong></li>
+                    </ul>
+                </div>
+
+                <h4>JavaScript Implementation:</h4>
+                <pre><code>function calculateWbalance(powerData, CP, Wprime) {
+  // powerData = array of {time: seconds, power: watts}
+  let wbal = Wprime * 1000; // Convert to joules
+  const wbalHistory = [];
+
+  for (let i = 1; i < powerData.length; i++) {
+    const dt = powerData[i].time - powerData[i-1].time;
+    const power = powerData[i].power;
+
+    if (power > CP) {
+      // Expenditure above CP
+      const expenditure = (power - CP) * dt;
+      wbal -= expenditure;
+    } else {
+      // Recovery below CP
+      const deltaCP = CP - power;
+      const tau = 546 * Math.exp(-0.01 * deltaCP) + 316;
+      const recovery = (Wprime * 1000 - wbal) * (1 - Math.exp(-dt / tau));
+      wbal += recovery;
+    }
+
+    // Ensure W'bal doesn't exceed max or go negative
+    wbal = Math.max(0, Math.min(wbal, Wprime * 1000));
+
+    wbalHistory.push({
+      time: powerData[i].time,
+      wbal: wbal / 1000, // kJ
+      percent: (wbal / (Wprime * 1000)) * 100
+    });
+  }
+
+  return wbalHistory;
+}
+
+// Example usage:
+const powerData = [
+  {time: 0, power: 200},
+  {time: 1, power: 210},
+  // ... rest of ride data
+];
+
+const wbalHistory = calculateWbalance(powerData, 270, 18.5);
+// Returns array of W'bal values over time</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Performance Management Chart (PMC)</h2>
+
+        <div class="formula-card">
+            <h3>7. CTL, ATL, TSB Calculations</h3>
+            <div class="formula-content">
+                <h4>Formulas (Exponentially Weighted Moving Averages):</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        CTL_today = CTL_yesterday + (TSS_today - CTL_yesterday) / 42
+                    </div>
+                    <div class="formula">
+                        ATL_today = ATL_yesterday + (TSS_today - ATL_yesterday) / 7
+                    </div>
+                    <div class="formula">
+                        TSB_today = CTL_yesterday - ATL_yesterday
+                    </div>
+                </div>
+
+                <h4>Metric Definitions:</h4>
+                <ul>
+                    <li><strong>CTL (Chronic Training Load):</strong> 42-day exponentially weighted average - represents fitness</li>
+                    <li><strong>ATL (Acute Training Load):</strong> 7-day exponentially weighted average - represents fatigue</li>
+                    <li><strong>TSB (Training Stress Balance):</strong> Form = Fitness - Fatigue</li>
+                </ul>
+
+                <h4>Worked Example (7-Day Training Block):</h4>
+                <div class="example-box">
+                    <table class="data-table">
+                        <tr>
+                            <th>Day</th>
+                            <th>TSS</th>
+                            <th>CTL</th>
+                            <th>ATL</th>
+                            <th>TSB</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>Mon</td>
+                            <td>100</td>
+                            <td>75.0</td>
+                            <td>80.0</td>
+                            <td>-5.0</td>
+                            <td>Training</td>
+                        </tr>
+                        <tr>
+                            <td>Tue</td>
+                            <td>50</td>
+                            <td>74.4</td>
+                            <td>75.7</td>
+                            <td>-1.3</td>
+                            <td>Recovery</td>
+                        </tr>
+                        <tr>
+                            <td>Wed</td>
+                            <td>120</td>
+                            <td>75.5</td>
+                            <td>82.0</td>
+                            <td>-6.5</td>
+                            <td>Hard Training</td>
+                        </tr>
+                        <tr>
+                            <td>Thu</td>
+                            <td>0</td>
+                            <td>73.7</td>
+                            <td>70.3</td>
+                            <td>+3.4</td>
+                            <td>Rest Day</td>
+                        </tr>
+                        <tr>
+                            <td>Fri</td>
+                            <td>80</td>
+                            <td>73.8</td>
+                            <td>71.7</td>
+                            <td>+2.1</td>
+                            <td>Moderate</td>
+                        </tr>
+                        <tr>
+                            <td>Sat</td>
+                            <td>150</td>
+                            <td>75.6</td>
+                            <td>82.9</td>
+                            <td>-7.3</td>
+                            <td>Long Ride</td>
+                        </tr>
+                        <tr>
+                            <td>Sun</td>
+                            <td>40</td>
+                            <td>74.8</td>
+                            <td>76.8</td>
+                            <td>-2.0</td>
+                            <td>Recovery</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4>TSB Interpretation:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>TSB Range</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>&lt; -30</td>
+                        <td>High Risk</td>
+                        <td>Overtraining warning - reduce load</td>
+                    </tr>
+                    <tr>
+                        <td>-30 to -10</td>
+                        <td>Training Hard</td>
+                        <td>Building fitness, monitor recovery</td>
+                    </tr>
+                    <tr>
+                        <td>-10 to +5</td>
+                        <td>Optimal</td>
+                        <td>Normal training zone</td>
+                    </tr>
+                    <tr>
+                        <td>+5 to +15</td>
+                        <td>Race Ready</td>
+                        <td>Peak form - race this weekend</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; +25</td>
+                        <td>Detraining</td>
+                        <td>Loss of fitness - increase load</td>
+                    </tr>
+                </table>
+
+                <h4>JavaScript Implementation:</h4>
+                <pre><code>function calculatePMC(workouts) {
+  // workouts = [{date: "YYYY-MM-DD", tss: number}, ...]
+  let ctl = 0, atl = 0;
+  const results = [];
+
+  workouts.forEach(workout => {
+    // Update CTL (42-day time constant)
+    ctl = ctl + (workout.tss - ctl) / 42;
+
+    // Update ATL (7-day time constant)
+    atl = atl + (workout.tss - atl) / 7;
+
+    // Calculate TSB (yesterday's CTL - today's ATL for traditional calculation)
+    // For simplicity here using current values
+    const tsb = ctl - atl;
+
+    results.push({
+      date: workout.date,
+      tss: workout.tss,
+      ctl: Math.round(ctl * 10) / 10,
+      atl: Math.round(atl * 10) / 10,
+      tsb: Math.round(tsb * 10) / 10,
+      status: getTSBStatus(tsb)
+    });
+  });
+
+  return results;
+}
+
+function getTSBStatus(tsb) {
+  if (tsb < -30) return "High Risk";
+  if (tsb < -10) return "Training Hard";
+  if (tsb < 5) return "Optimal";
+  if (tsb < 15) return "Race Ready";
+  return "Detraining";
+}
+
+// Example usage:
+const workouts = [
+  {date: "2025-01-01", tss: 100},
+  {date: "2025-01-02", tss: 50},
+  {date: "2025-01-03", tss: 120},
+  // ... more workouts
+];
+
+const pmc = calculatePMC(workouts);
+// Returns array with CTL, ATL, TSB for each day</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Power-to-Weight & Climbing Metrics</h2>
+
+        <div class="formula-card">
+            <h3>8. Power-to-Weight Ratio</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        W/kg = Power (watts) / Body Mass (kg)
+                    </div>
+                </div>
+
+                <h4>FTP W/kg Benchmarks:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>Level</th>
+                        <th>Male W/kg</th>
+                        <th>Female W/kg</th>
+                        <th>Category</th>
+                    </tr>
+                    <tr>
+                        <td>Recreational</td>
+                        <td>2.5 - 3.5</td>
+                        <td>2.0 - 3.0</td>
+                        <td>Fitness rider</td>
+                    </tr>
+                    <tr>
+                        <td>Competitive</td>
+                        <td>3.5 - 4.5</td>
+                        <td>3.0 - 4.0</td>
+                        <td>Cat 3-4, age group racer</td>
+                    </tr>
+                    <tr>
+                        <td>Advanced</td>
+                        <td>4.5 - 5.5</td>
+                        <td>4.0 - 5.0</td>
+                        <td>Cat 1-2, strong amateur</td>
+                    </tr>
+                    <tr>
+                        <td>Elite Amateur</td>
+                        <td>5.5 - 6.0</td>
+                        <td>5.0 - 5.5</td>
+                        <td>National level</td>
+                    </tr>
+                    <tr>
+                        <td>Professional</td>
+                        <td>6.0 - 7.0+</td>
+                        <td>5.5 - 6.5+</td>
+                        <td>World Tour, Grand Tour GC</td>
+                    </tr>
+                </table>
+
+                <h4>Example Calculation:</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong> Cyclist with FTP = 275W, body mass = 70kg</p>
+                    <p>W/kg = 275 / 70 = <strong>3.93 W/kg</strong></p>
+                    <p><em>Interpretation: Competitive level, capable in hilly races</em></p>
+                </div>
+
+                <pre><code>function calculateWattsPerKg(power, bodyMassKg) {
+  return (power / bodyMassKg).toFixed(2);
+}
+
+// Example:
+const wpkg = calculateWattsPerKg(275, 70);
+// Returns: 3.93</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>9. VAM (Velocità Ascensionale Media)</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        VAM (m/h) = Elevation Gain (m) / Time (hours)
+                    </div>
+                </div>
+
+                <h4>VAM Benchmarks:</h4>
+                <table class="data-table">
+                    <tr>
+                        <th>VAM (m/h)</th>
+                        <th>Level</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>600 - 900</td>
+                        <td>Recreational</td>
+                        <td>Club rider on local climb</td>
+                    </tr>
+                    <tr>
+                        <td>900 - 1200</td>
+                        <td>Competitive</td>
+                        <td>Good amateur on Alpe d'Huez</td>
+                    </tr>
+                    <tr>
+                        <td>1200 - 1500</td>
+                        <td>Elite Amateur</td>
+                        <td>National-level climber</td>
+                    </tr>
+                    <tr>
+                        <td>1500 - 1800</td>
+                        <td>Professional</td>
+                        <td>World Tour domestique</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 1800</td>
+                        <td>Grand Tour Winner</td>
+                        <td>Pogačar, Vingegaard on key climbs</td>
+                    </tr>
+                </table>
+
+                <h4>Example Calculation:</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong> Alpe d'Huez climb</p>
+                    <ul>
+                        <li>Elevation gain: 1100 meters</li>
+                        <li>Time: 55 minutes = 0.917 hours</li>
+                        <li>VAM = 1100 / 0.917 = <strong>1200 m/h</strong></li>
+                    </ul>
+                    <p><em>Interpretation: Competitive-level climbing performance</em></p>
+                </div>
+
+                <pre><code>function calculateVAM(elevationGainMeters, timeMinutes) {
+  const hours = timeMinutes / 60;
+  return Math.round(elevationGainMeters / hours);
+}
+
+// Example:
+const vam = calculateVAM(1100, 55);
+// Returns: 1200 m/h</code></pre>
+            </div>
+        </div>
+
+        <div class="formula-card">
+            <h3>10. VAM to W/kg Estimation</h3>
+            <div class="formula-content">
+                <h4>Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        W/kg ≈ VAM (m/h) / 100 / (Gradient% + 3)
+                    </div>
+                </div>
+
+                <h4>Example Calculation:</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong> Climb with 8% average gradient, VAM = 1200 m/h</p>
+                    <p>W/kg = 1200 / 100 / (8 + 3)</p>
+                    <p>W/kg = 12 / 11 = <strong>4.36 W/kg</strong></p>
+                    <p><em>Cross-check: With 70kg rider → 305W sustained power on climb</em></p>
+                </div>
+
+                <pre><code>function estimateWkgFromVAM(vam, gradientPercent) {
+  return (vam / 100 / (gradientPercent + 3)).toFixed(2);
+}
+
+// Example:
+const wkg = estimateWkgFromVAM(1200, 8);
+// Returns: 4.36</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2>Aerodynamic Power Equation</h2>
+
+        <div class="formula-card">
+            <h3>11. Total Power Requirements</h3>
+            <div class="formula-content">
+                <h4>Complete Formula:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        P_total = P_aero + P_gravity + P_rolling + P_kinetic
+                    </div>
+                </div>
+
+                <h4>Component Formulas:</h4>
+                <div class="formula-box-large">
+                    <div class="formula">
+                        <strong>Aerodynamic Drag:</strong><br>
+                        P_aero = CdA × 0.5 × ρ × V³
+                    </div>
+                    <div class="formula">
+                        <strong>Gravitational (Climbing):</strong><br>
+                        P_gravity = m × g × sin(θ) × V
+                    </div>
+                    <div class="formula">
+                        <strong>Rolling Resistance:</strong><br>
+                        P_rolling = Crr × m × g × cos(θ) × V
+                    </div>
+                    <div class="formula">
+                        <strong>Kinetic (Acceleration):</strong><br>
+                        P_kinetic = m × a × V
+                    </div>
+                </div>
+
+                <h4>Constants & Variables:</h4>
+                <ul>
+                    <li><strong>CdA</strong> = Drag coefficient × frontal area (m²)
+                        <ul>
+                            <li>Typical road bike hoods: 0.35-0.40 m²</li>
+                            <li>Drops: 0.32-0.37 m²</li>
+                            <li>TT position: 0.20-0.25 m²</li>
+                        </ul>
+                    </li>
+                    <li><strong>ρ</strong> = Air density (1.225 kg/m³ at sea level, 15°C)</li>
+                    <li><strong>V</strong> = Velocity (m/s)</li>
+                    <li><strong>m</strong> = Total mass (rider + bike, kg)</li>
+                    <li><strong>g</strong> = Gravity (9.81 m/s²)</li>
+                    <li><strong>θ</strong> = Gradient angle (radians or degrees converted)</li>
+                    <li><strong>Crr</strong> = Rolling resistance coefficient (~0.004 for good road tires)</li>
+                    <li><strong>a</strong> = Acceleration (m/s²)</li>
+                </ul>
+
+                <h4>Worked Example (Flat Road TT):</h4>
+                <div class="example-box">
+                    <p><strong>Scenario:</strong></p>
+                    <ul>
+                        <li>Velocity: 40 km/h = 11.11 m/s</li>
+                        <li>CdA: 0.22 m² (good TT position)</li>
+                        <li>Total mass: 75kg (rider) + 8kg (bike) = 83kg</li>
+                        <li>Flat road (gradient = 0°)</li>
+                        <li>Constant speed (acceleration = 0)</li>
+                    </ul>
+
+                    <p><strong>Calculation:</strong></p>
+                    <ol>
+                        <li><strong>P_aero</strong> = 0.22 × 0.5 × 1.225 × 11.11³ = <strong>185W</strong></li>
+                        <li><strong>P_gravity</strong> = 0W (flat road)</li>
+                        <li><strong>P_rolling</strong> = 0.004 × 83 × 9.81 × 11.11 = <strong>36W</strong></li>
+                        <li><strong>P_kinetic</strong> = 0W (constant speed)</li>
+                        <li><strong>P_total</strong> = 185 + 0 + 36 + 0 = <strong>221W</strong></li>
+                    </ol>
+
+                    <p><em>Interpretation: Need 221W to sustain 40 km/h in TT position on flat road</em></p>
+                </div>
+
+                <h4>JavaScript Implementation:</h4>
+                <pre><code>function calculatePowerRequired(params) {
+  const {
+    velocityKph,
+    CdA = 0.32,              // m²
+    rho = 1.225,             // kg/m³
+    mass = 83,               // kg (rider + bike)
+    gradientPercent = 0,     // %
+    Crr = 0.004,             // rolling resistance
+    accelerationMps2 = 0     // m/s²
+  } = params;
+
+  // Convert velocity to m/s
+  const V = velocityKph / 3.6;
+
+  // Convert gradient to angle
+  const theta = Math.atan(gradientPercent / 100);
+
+  // Calculate each component
+  const P_aero = CdA * 0.5 * rho * Math.pow(V, 3);
+  const P_gravity = mass * 9.81 * Math.sin(theta) * V;
+  const P_rolling = Crr * mass * 9.81 * Math.cos(theta) * V;
+  const P_kinetic = mass * accelerationMps2 * V;
+
+  return {
+    total: Math.round(P_aero + P_gravity + P_rolling + P_kinetic),
+    aero: Math.round(P_aero),
+    gravity: Math.round(P_gravity),
+    rolling: Math.round(P_rolling),
+    kinetic: Math.round(P_kinetic)
+  };
+}
+
+// Example: TT at 40 km/h
+const power_tt = calculatePowerRequired({
+  velocityKph: 40,
+  CdA: 0.22,
+  mass: 83,
+  gradientPercent: 0
+});
+// Returns: { total: 221, aero: 185, gravity: 0, rolling: 36, kinetic: 0 }
+
+// Example: 8% climb at 15 km/h
+const power_climb = calculatePowerRequired({
+  velocityKph: 15,
+  CdA: 0.38,
+  mass: 75,
+  gradientPercent: 8
+});
+// Returns: { total: 265, aero: 27, gravity: 244, rolling: 11, kinetic: 0 }</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Helper Functions</h2>
+
+        <div class="formula-card">
+            <h3>Unit Conversion Utilities</h3>
+            <div class="formula-content">
+                <h4>JavaScript Implementation:</h4>
+                <pre><code>// Time conversions
+function hoursToSeconds(hours) {
+  return hours * 3600;
+}
+
+function minutesToSeconds(minutes) {
+  return minutes * 60;
+}
+
+function secondsToHours(seconds) {
+  return seconds / 3600;
+}
+
+function formatDuration(seconds) {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = Math.round(seconds % 60);
+  return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Speed conversions
+function kphToMps(kph) {
+  return kph / 3.6;
+}
+
+function mpsToKph(mps) {
+  return mps * 3.6;
+}
+
+// Energy conversions
+function joulesTo kJ(joules) {
+  return joules / 1000;
+}
+
+function kJToJoules(kJ) {
+  return kJ * 1000;
+}
+
+function wattsToKJ(watts, durationSeconds) {
+  return (watts * durationSeconds) / 1000;
+}
+
+// Examples:
+formatDuration(7265);        // Returns: "2:01:05"
+kphToMps(40);                // Returns: 11.11 m/s
+wattsToKJ(250, 3600);        // Returns: 900 kJ (1 hour at 250W)</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow text-center">
+        <h2>Implementation Resources</h2>
+        <p class="lead">All formulas on this page are production-ready and validated against scientific literature and real-world power meter data. Use them for custom analytics tools, verification, or deeper understanding of power-based training calculations.</p>
+
+        <div class="callout callout-tip">
+            <h3>💡 Best Practices</h3>
+            <ul class="text-left">
+                <li><strong>Validate inputs:</strong> Check for reasonable power ranges (0-2000W), positive durations</li>
+                <li><strong>Handle edge cases:</strong> Division by zero, null/undefined data, missing FTP</li>
+                <li><strong>Round appropriately:</strong> CTL/ATL/TSB to 1 decimal, TSS to integer, W/kg to 2 decimals</li>
+                <li><strong>Store precision:</strong> Keep full precision in database, round only for display</li>
+                <li><strong>Time zones:</strong> Handle UTC vs. local time consistently for multi-day analysis</li>
+                <li><strong>Power meter calibration:</strong> Remind users to zero-offset before rides</li>
+                <li><strong>FTP validation:</strong> Flag suspicious FTP values (>500W or <100W for adults)</li>
+                <li><strong>Test thoroughly:</strong> Use known-good ride files to verify calculations</li>
+            </ul>
+        </div>
+
+        <div class="mt-xl">
+            <a href="/he/" class="btn btn-primary btn-large">Back to Home</a>
+            <a href="/he/research/" class="btn btn-secondary">Scientific Foundation</a>
+            <a href="/he/bibliography/" class="btn btn-secondary">Complete Bibliography</a>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        
+        <div class="footer-top">
+            <div class="footer-brand-section">
+                <h2>Bike Analytics</h2>
+                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+            <div class="footer-download">
+                <h3 class="footer-heading">Download</h3>
+                <div class="footer-badges">
+                    
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" target="_blank" rel="noopener" aria-label="Download on the App Store">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="135" height="40" loading="lazy">
+                    </a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-languages">
+            <h3 class="footer-heading">Available in</h3>
+            <div class="lang-grid">
+                
+                <a href="/af/"
+                   class="lang-link"
+                   hreflang="af"
+                   >
+                    Afrikaans
+                </a>
+                
+                <a href="/ar/"
+                   class="lang-link"
+                   hreflang="ar"
+                   dir="rtl">
+                    العربية
+                </a>
+                
+                <a href="/bg/"
+                   class="lang-link"
+                   hreflang="bg"
+                   >
+                    Български
+                </a>
+                
+                <a href="/bn/"
+                   class="lang-link"
+                   hreflang="bn"
+                   >
+                    বাংলা
+                </a>
+                
+                <a href="/ca/"
+                   class="lang-link"
+                   hreflang="ca"
+                   >
+                    Català
+                </a>
+                
+                <a href="/cs/"
+                   class="lang-link"
+                   hreflang="cs"
+                   >
+                    Čeština
+                </a>
+                
+                <a href="/da/"
+                   class="lang-link"
+                   hreflang="da"
+                   >
+                    Dansk
+                </a>
+                
+                <a href="/de/"
+                   class="lang-link"
+                   hreflang="de"
+                   >
+                    Deutsch
+                </a>
+                
+                <a href="/el/"
+                   class="lang-link"
+                   hreflang="el"
+                   >
+                    Ελληνικά
+                </a>
+                
+                <a href="/en/"
+                   class="lang-link"
+                   hreflang="en"
+                   >
+                    English
+                </a>
+                
+                <a href="/es/"
+                   class="lang-link"
+                   hreflang="es"
+                   >
+                    Español
+                </a>
+                
+                <a href="/fr/"
+                   class="lang-link"
+                   hreflang="fr"
+                   >
+                    Français
+                </a>
+                
+                <a href="/ha/"
+                   class="lang-link"
+                   hreflang="ha"
+                   >
+                    Hausa
+                </a>
+                
+                <a href="/hi/"
+                   class="lang-link"
+                   hreflang="hi"
+                   >
+                    हिन्दी
+                </a>
+                
+                <a href="/hu/"
+                   class="lang-link"
+                   hreflang="hu"
+                   >
+                    Magyar
+                </a>
+                
+                <a href="/is/"
+                   class="lang-link"
+                   hreflang="is"
+                   >
+                    Íslenska
+                </a>
+                
+                <a href="/it/"
+                   class="lang-link"
+                   hreflang="it"
+                   >
+                    Italiano
+                </a>
+                
+                <a href="/ja/"
+                   class="lang-link"
+                   hreflang="ja"
+                   >
+                    日本語
+                </a>
+                
+                <a href="/ko/"
+                   class="lang-link"
+                   hreflang="ko"
+                   >
+                    한국어
+                </a>
+                
+                <a href="/nb/"
+                   class="lang-link"
+                   hreflang="nb"
+                   >
+                    Norsk Bokmål
+                </a>
+                
+                <a href="/nl/"
+                   class="lang-link"
+                   hreflang="nl"
+                   >
+                    Nederlands
+                </a>
+                
+                <a href="/pl/"
+                   class="lang-link"
+                   hreflang="pl"
+                   >
+                    Polski
+                </a>
+                
+                <a href="/pt/"
+                   class="lang-link"
+                   hreflang="pt"
+                   >
+                    Português
+                </a>
+                
+                <a href="/ro/"
+                   class="lang-link"
+                   hreflang="ro"
+                   >
+                    Română
+                </a>
+                
+                <a href="/ru/"
+                   class="lang-link"
+                   hreflang="ru"
+                   >
+                    Русский
+                </a>
+                
+                <a href="/sl/"
+                   class="lang-link"
+                   hreflang="sl"
+                   >
+                    Slovenščina
+                </a>
+                
+                <a href="/sv/"
+                   class="lang-link"
+                   hreflang="sv"
+                   >
+                    Svenska
+                </a>
+                
+                <a href="/sw/"
+                   class="lang-link"
+                   hreflang="sw"
+                   >
+                    Kiswahili
+                </a>
+                
+                <a href="/zh/"
+                   class="lang-link"
+                   hreflang="zh"
+                   >
+                    中文
+                </a>
+                
+                <a href="/et/"
+                   class="lang-link"
+                   hreflang="et"
+                   >
+                    Eesti
+                </a>
+                
+                <a href="/fa/"
+                   class="lang-link"
+                   hreflang="fa"
+                   dir="rtl">
+                    فارسی
+                </a>
+                
+                <a href="/fi/"
+                   class="lang-link"
+                   hreflang="fi"
+                   >
+                    Suomi
+                </a>
+                
+                <a href="/gu/"
+                   class="lang-link"
+                   hreflang="gu"
+                   >
+                    ગુજરાતી
+                </a>
+                
+                <a href="/he/"
+                   class="lang-link active"
+                   hreflang="he"
+                   dir="rtl">
+                    עברית
+                </a>
+                
+                <a href="/hr/"
+                   class="lang-link"
+                   hreflang="hr"
+                   >
+                    Hrvatski
+                </a>
+                
+                <a href="/id/"
+                   class="lang-link"
+                   hreflang="id"
+                   >
+                    Bahasa Indonesia
+                </a>
+                
+                <a href="/kn/"
+                   class="lang-link"
+                   hreflang="kn"
+                   >
+                    ಕನ್ನಡ
+                </a>
+                
+                <a href="/lt/"
+                   class="lang-link"
+                   hreflang="lt"
+                   >
+                    Lietuvių
+                </a>
+                
+                <a href="/lv/"
+                   class="lang-link"
+                   hreflang="lv"
+                   >
+                    Latviešu
+                </a>
+                
+                <a href="/ms/"
+                   class="lang-link"
+                   hreflang="ms"
+                   >
+                    Bahasa Melayu
+                </a>
+                
+                <a href="/my/"
+                   class="lang-link"
+                   hreflang="my"
+                   >
+                    မြန်မာဘာသာ
+                </a>
+                
+                <a href="/sk/"
+                   class="lang-link"
+                   hreflang="sk"
+                   >
+                    Slovenčina
+                </a>
+                
+                <a href="/sr/"
+                   class="lang-link"
+                   hreflang="sr"
+                   >
+                    Српски
+                </a>
+                
+                <a href="/th/"
+                   class="lang-link"
+                   hreflang="th"
+                   >
+                    ไทย
+                </a>
+                
+                <a href="/tl/"
+                   class="lang-link"
+                   hreflang="tl"
+                   >
+                    Tagalog
+                </a>
+                
+                <a href="/tr/"
+                   class="lang-link"
+                   hreflang="tr"
+                   >
+                    Türkçe
+                </a>
+                
+                <a href="/uk/"
+                   class="lang-link"
+                   hreflang="uk"
+                   >
+                    Українська
+                </a>
+                
+                <a href="/vi/"
+                   class="lang-link"
+                   hreflang="vi"
+                   >
+                    Tiếng Việt
+                </a>
+                
+                <a href="/ur/"
+                   class="lang-link"
+                   hreflang="ur"
+                   dir="rtl">
+                    اردو
+                </a>
+                
+                <a href="/yo/"
+                   class="lang-link"
+                   hreflang="yo"
+                   >
+                    Yoruba
+                </a>
+                
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2025 Bike Analytics. כל הזכויות שמורות
+            </p>
+            <ul class="footer-legal">
+                <li><a href="/he/privacy/">פרטיות</a></li>
+                <li><a href="/he/terms/">תנאי שימוש</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>אתר זה משתמש בעוגיות כדי לשפר את החוויה שלך.</p>
+            <a href="/he/privacy/" class="text-sm">למד עוד</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">דחה</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">אשר</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>

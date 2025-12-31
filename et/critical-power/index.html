@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="et" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Critical Power ja W&#39; Mudel - Edasijõudnud Rattasõidu Analüütika</title>
+  <meta name="description" content="Mõista Critical Power (CP) ja W&#39; (W Prime) kontseptsioone rattasõidus. Edasijõudnud väsimuse modelleerimine, W&#39;bal jälgimine ja sooritusvõime optimeerimine.">
+  <meta name="author" content="Albert Arno">
+
+  
+  
+  <meta name="keywords" content="critical power rattasõit, W prime rattasõit, CP mudel, W prime bilanss, anaeroobne võimekus rattasõit">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/et/critical-power/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2025-12-23T14:30:00Z">
+  <meta property="article:author" content="Albert Arno">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/et/critical-power/">
+  <meta property="og:title" content="Critical Power ja W&#39; Mudel - Edasijõudnud Rattasõidu Analüütika">
+  <meta property="og:description" content="Mõista Critical Power (CP) ja W&#39; (W Prime) kontseptsioone rattasõidus. Edasijõudnud väsimuse modelleerimine, W&#39;bal jälgimine ja sooritusvõime optimeerimine.">
+  
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta property="og:locale" content="et_EE">
+  <meta property="og:site_name" content="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/et/critical-power/">
+  <meta name="twitter:title" content="Critical Power ja W&#39; Mudel - Edasijõudnud Rattasõidu Analüütika">
+  <meta name="twitter:description" content="Mõista Critical Power (CP) ja W&#39; (W Prime) kontseptsioone rattasõidus. Edasijõudnud väsimuse modelleerimine, W&#39;bal jälgimine ja sooritusvõime optimeerimine.">
+  
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/critical-power/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/critical-power/">
+  
+  <link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/critical-power/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/critical-power/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/critical-power/">
+  
+  <link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/critical-power/">
+  
+  <link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/critical-power/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/critical-power/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/critical-power/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/critical-power/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/critical-power/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/critical-power/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/critical-power/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/critical-power/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/critical-power/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/critical-power/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/critical-power/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/critical-power/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/critical-power/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/critical-power/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/critical-power/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/critical-power/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/critical-power/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/critical-power/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/critical-power/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/critical-power/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/critical-power/">
+  
+  <link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/critical-power/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/critical-power/">
+  
+  <link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/critical-power/">
+  
+  <link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/critical-power/">
+  
+  <link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/critical-power/">
+  
+  <link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/critical-power/">
+  
+  <link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/critical-power/">
+  
+  <link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/critical-power/">
+  
+  <link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/critical-power/">
+  
+  <link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/critical-power/">
+  
+  <link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/critical-power/">
+  
+  <link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/critical-power/">
+  
+  <link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/critical-power/">
+  
+  <link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/critical-power/">
+  
+  <link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/critical-power/">
+  
+  <link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/critical-power/">
+  
+  <link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/critical-power/">
+  
+  <link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/critical-power/">
+  
+  <link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/critical-power/">
+  
+  <link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/critical-power/">
+  
+  <link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/critical-power/">
+  
+  <link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/critical-power/">
+  
+  <link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/critical-power/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/critical-power/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0066CC">
+  <meta name="robots" content="index, follow">
+
+  
+  <style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="preload" href="/assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.min.css"></noscript>
+
+  
+  
+
+  
+  
+
+  
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Critical Power ja W&#39; Mudel - Edasijõudnud Rattasõidu Analüütika",
+      "description": "Mõista Critical Power (CP) ja W&#39; (W Prime) kontseptsioone rattasõidus. Edasijõudnud väsimuse modelleerimine, W&#39;bal jälgimine ja sooritusvõime optimeerimine.",
+      "author": {
+        "@type": "Person",
+        "name": "Albert Arno"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bike Analytics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike.analyticszone.app/assets/images/logo.png"
+        }
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-12-23",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bike.analyticszone.app/et/critical-power/"
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Jäta vahele ja mine sisu juurde</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/et/" class="site-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+                    <img src="/assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <ul>
+                    
+                    <li>
+                        
+                        <a href="/et/" 
+                            aria-current="">
+                            Avaleht
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <a href="/et/getting-started/" class="nav-label">Õpi</a>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/et/getting-started/" 
+                                    aria-current="">
+                                    Alustamine
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/ftp/" 
+                                    aria-current="">
+                                    FTP
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/critical-power/" class="active"
+                                    aria-current="page">
+                                    Kriitiline võimsus
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/training-zones/" 
+                                    aria-current="">
+                                    Treeningtsoonid
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/training-load/" 
+                                    aria-current="">
+                                    Treeningkoormus
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/tss-calculator/" 
+                                    aria-current="">
+                                    TSS kalkulaator
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <a href="/et/research/" class="nav-label">Teadus</a>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/et/research/" 
+                                    aria-current="">
+                                    Teadustöö
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/formulas/" 
+                                    aria-current="">
+                                    Valemid
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/power-metrics/" 
+                                    aria-current="">
+                                    Võimsusnäitajad
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/efficiency/" 
+                                    aria-current="">
+                                    Efektiivsus
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/pedaling-mechanics/" 
+                                    aria-current="">
+                                    Pedaalimehaanika
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/aerodynamics/" 
+                                    aria-current="">
+                                    Aerodünaamika
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/climbing-performance/" 
+                                    aria-current="">
+                                    Tõusuvõimekus
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/bibliography/" 
+                                    aria-current="">
+                                    Bibliograafia
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li class="has-submenu">
+                        
+                        
+                        <a href="/et/road-cycling/" class="nav-label">Valdkonnad</a>
+                        
+                        <ul class="submenu">
+                            
+                            <li>
+                                <a href="/et/road-cycling/" 
+                                    aria-current="">
+                                    Maanteerattasõit
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/mountain-biking/" 
+                                    aria-current="">
+                                    Maastikurattasõit
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/road-vs-mtb/" 
+                                    aria-current="">
+                                    Maantee vs MTB
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/et/comparisons/" 
+                                    aria-current="">
+                                    Võrdlused
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/et/contact/" 
+                            aria-current="">
+                            Kontakt
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                        aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                    <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                </div>
+
+                
+                <select class="language-selector" id="language-select" aria-label="Vali keel">
+                    
+                    <option value="af" >
+                        Afrikaans
+                    </option>
+                    
+                    <option value="ar" >
+                        العربية
+                    </option>
+                    
+                    <option value="bg" >
+                        Български
+                    </option>
+                    
+                    <option value="bn" >
+                        বাংলা
+                    </option>
+                    
+                    <option value="ca" >
+                        Català
+                    </option>
+                    
+                    <option value="cs" >
+                        Čeština
+                    </option>
+                    
+                    <option value="da" >
+                        Dansk
+                    </option>
+                    
+                    <option value="de" >
+                        Deutsch
+                    </option>
+                    
+                    <option value="el" >
+                        Ελληνικά
+                    </option>
+                    
+                    <option value="en" >
+                        English
+                    </option>
+                    
+                    <option value="es" >
+                        Español
+                    </option>
+                    
+                    <option value="et" selected>
+                        Eesti
+                    </option>
+                    
+                    <option value="fa" >
+                        فارسی
+                    </option>
+                    
+                    <option value="fi" >
+                        Suomi
+                    </option>
+                    
+                    <option value="fr" >
+                        Français
+                    </option>
+                    
+                    <option value="gu" >
+                        ગુજરાતી
+                    </option>
+                    
+                    <option value="ha" >
+                        Hausa
+                    </option>
+                    
+                    <option value="he" >
+                        עברית
+                    </option>
+                    
+                    <option value="hi" >
+                        हिन्दी
+                    </option>
+                    
+                    <option value="hr" >
+                        Hrvatski
+                    </option>
+                    
+                    <option value="hu" >
+                        Magyar
+                    </option>
+                    
+                    <option value="id" >
+                        Bahasa Indonesia
+                    </option>
+                    
+                    <option value="is" >
+                        Íslenska
+                    </option>
+                    
+                    <option value="it" >
+                        Italiano
+                    </option>
+                    
+                    <option value="ja" >
+                        日本語
+                    </option>
+                    
+                    <option value="kn" >
+                        ಕನ್ನಡ
+                    </option>
+                    
+                    <option value="ko" >
+                        한국어
+                    </option>
+                    
+                    <option value="lt" >
+                        Lietuvių
+                    </option>
+                    
+                    <option value="lv" >
+                        Latviešu
+                    </option>
+                    
+                    <option value="ms" >
+                        Bahasa Melayu
+                    </option>
+                    
+                    <option value="my" >
+                        မြန်မာဘာသာ
+                    </option>
+                    
+                    <option value="nb" >
+                        Norsk Bokmål
+                    </option>
+                    
+                    <option value="nl" >
+                        Nederlands
+                    </option>
+                    
+                    <option value="pl" >
+                        Polski
+                    </option>
+                    
+                    <option value="pt" >
+                        Português
+                    </option>
+                    
+                    <option value="ro" >
+                        Română
+                    </option>
+                    
+                    <option value="ru" >
+                        Русский
+                    </option>
+                    
+                    <option value="sk" >
+                        Slovenčina
+                    </option>
+                    
+                    <option value="sl" >
+                        Slovenščina
+                    </option>
+                    
+                    <option value="sr" >
+                        Српски
+                    </option>
+                    
+                    <option value="sv" >
+                        Svenska
+                    </option>
+                    
+                    <option value="sw" >
+                        Kiswahili
+                    </option>
+                    
+                    <option value="th" >
+                        ไทย
+                    </option>
+                    
+                    <option value="tl" >
+                        Tagalog
+                    </option>
+                    
+                    <option value="tr" >
+                        Türkçe
+                    </option>
+                    
+                    <option value="uk" >
+                        Українська
+                    </option>
+                    
+                    <option value="ur" >
+                        اردو
+                    </option>
+                    
+                    <option value="vi" >
+                        Tiếng Việt
+                    </option>
+                    
+                    <option value="yo" >
+                        Yoruba
+                    </option>
+                    
+                    <option value="zh" >
+                        中文
+                    </option>
+                    
+                </select>
+
+                
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                
+                
+                <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="header-download-btn" target="_blank" rel="noopener"
+                    aria-label="Download on App Store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <span class="download-text">Download</span>
+                </a>
+                
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menüü lüliti"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+        <ol>
+            
+            <li>
+                
+                <a href="/et/">Avaleht</a>
+                
+            </li>
+            
+            <li>
+                
+                <a href="/et/getting-started/">Õpi</a>
+                
+            </li>
+            
+            <li>
+                
+                <span aria-current="page">Kriitiline võimsus</span>
+                
+            </li>
+            
+        </ol>
+    </div>
+</nav>
+
+
+  
+  <main id="main-content" class="main-content">
+    <section class="hero hero-small">
+    <div class="container">
+        <h1>Kriitiline Võimsus ja W' - Täiustatud Rattasõidu Sooritusmudel</h1>
+        <p class="lead">Omanda Kriitiline Võimsus (CP) ja W Prim (W') paremaks tempovalikuks, väsimuse ennustamiseks ja
+            võistlusstrateegiaks. Kõige teaduslikumalt põhjendatud mudel rattasõidu soorituseks.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <div class="callout callout-success mb-xl">
+            <h2>🎯 Põhipunktid</h2>
+            <ul class="mb-0">
+                <li><strong>Kriitiline Võimsus (CP)</strong> on maksimaalne jätkusuutlik võimsus pikema aja jooksul –
+                    teaduslikult täpsem kui FTP</li>
+                <li><strong>W' (W Prim)</strong> on sinu anaeroobne töövõime CP kohal, mõõdetuna kilodžaulides</li>
+                <li><strong>W' Bilanss</strong> jälgib anaeroobse võimekuse kulumist ja taastumist reaalajas sõidu ajal
+                </li>
+                <li><strong>CP ≈ FTP + 5-10W</strong> praktikas, kuid CP tuletatakse matemaatiliselt mitmest pingutusest
+                </li>
+                <li><strong>Kriitilise tähtsusega maastikusõidus (MTB) ja vahelduva intensiivsusega
+                        pingutustes</strong>, kus tempovalik ja sööstude haldamine on olulised</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-info mb-xl">
+            <h2>Mis on Kriitiline Võimsus?</h2>
+            <p><strong>Kriitiline Võimsus (CP) on kõrgeim ainevahetuse tase, mida saab hoida ilma väsimuseta</strong>
+                pikema aja jooksul. See esindab piiri jätkusuutliku aeroobse ainevahetuse ja anaeroobset panust nõudva
+                jätkusuutmatu pingutuse vahel. Erinevalt FTP-st (üksik 1-tunnine hinnang), tuletatakse CP
+                matemaatiliselt mitmest maksimaalsest pingutusest erineva kestusega, muutes selle robustsemaks ja
+                teaduslikult valideerituks.</p>
+        </div>
+
+        <h2 class="mt-2xl">Kriitilise Võimsuse Teadus</h2>
+
+        <p class="mb-md">Kriitilise Võimsuse teooria tekkis spordifüsioloogia uuringutest 1960ndatel ja kohandati
+            rattasõidule 1990ndatel. Mudel põhineb <strong>hüperboolsel võimsuse-kestuse seosel</strong>:</p>
+
+        <div class="formula-box mb-xl">
+            <h3>Võimsuse-Kestuse Seos</h3>
+            <p><strong>t = W' / (P - CP)</strong></p>
+            <p class="mt-sm">Kus:</p>
+            <ul>
+                <li><strong>t</strong> = aeg kurnatuseni</li>
+                <li><strong>P</strong> = võimsusväljund</li>
+                <li><strong>CP</strong> = kriitiline võimsus (vatti)</li>
+                <li><strong>W'</strong> = anaeroobne töövõime (kilodžaulid)</li>
+            </ul>
+        </div>
+
+        <p class="mb-xl"><strong>Mida see tähendab:</strong> Igasugusel võimsusel üle CP on sul piiratud hulk tööd (W'),
+            mida saad teha enne kurnatust. CP tasemel suudad teoreetiliselt jätkata lõputult. Allpool CP-d ei kasuta sa
+            kunagi W'-d ja suudad pingutust hoida väga pikka aega.</p>
+
+        <div class="callout callout-tip">
+            <h3>📚 Uuringute vundament</h3>
+            <p>Kriitiline Võimsus on toetatud aastakümnete pikkuse eelretsenseeritud teadustööga:</p>
+            <ul class="mb-0">
+                <li><strong>Jones et al. (2019):</strong> "Critical Power: Theory and Applications" - põhjalik ülevaade
+                    ajakirjas Journal of Applied Physiology</li>
+                <li><strong>Poole et al. (2016):</strong> "Critical Power: An Important Fatigue Threshold" - valideerib
+                    CP kui füsioloogilise läve</li>
+                <li><strong>Vanhatalo et al. (2011):</strong> Demonstreerib, et CP ühtib maksimaalse laktaadi
+                    püsiseisundiga</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="mb-xl text-center">Kriitiline Võimsus vs FTP: Peamised Erinevused</h2>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">Funktsionaalne Lävivõimsus (FTP)</h3>
+                <div class="card-content">
+                    <p><strong>Definitsioon:</strong> Maksimaalne võimsus, mida suudetakse hoida umbes 1 tund.</p>
+                    <p><strong>Testimine:</strong> Üksik 20-minutiline või 60-minutiline pingutus.</p>
+                    <p><strong>Arvutamine:</strong> FTP = 95% 20-min võimsusest (või 100% 60-min võimsusest).</p>
+                    <p><strong>Plussid:</strong></p>
+                    <ul>
+                        <li>Lihtne testida ja mõista</li>
+                        <li>Nõuab ühte pingutust</li>
+                        <li>Laialdaselt kasutatav tööstusstandard</li>
+                        <li>Integreeritud TrainingPeaksi, Zwifti jne</li>
+                    </ul>
+                    <p><strong>Miinused:</strong></p>
+                    <ul>
+                        <li>Ühe punkti hinnang (vähem täpne)</li>
+                        <li>Vaimselt nõudlik 20-60 min pingutus</li>
+                        <li>Tempovaliku vead mõjutavad täpsust</li>
+                        <li>Puudub anaeroobse võimekuse mõõdik</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Kriitiline Võimsus (CP)</h3>
+                <div class="card-content">
+                    <p><strong>Definitsioon:</strong> Maksimaalne jätkusuutlik võimsus teoreetiliselt lõpmatu kestusega.
+                    </p>
+                    <p><strong>Testimine:</strong> Mitu maksimaalset pingutust (3-7 min, 12 min, 20 min tüüpiliselt).
+                    </p>
+                    <p><strong>Arvutamine:</strong> Matemaatiline kõvera sobitamine mitmest andmepunktist.</p>
+                    <p><strong>Plussid:</strong></p>
+                    <ul>
+                        <li>Teaduslikult robustne (mitu pingutust)</li>
+                        <li>Sisaldab W' (anaeroobne võimekus)</li>
+                        <li>Parem täpsus kui üksik FTP test</li>
+                        <li>Võimaldab W' Bilansi jälgimist</li>
+                    </ul>
+                    <p><strong>Miinused:</strong></p>
+                    <ul>
+                        <li>Nõuab 3-5 eraldi maksimaalset pingutust</li>
+                        <li>Keerulisem arvutada</li>
+                        <li>Vähem laialdaselt mõistetud</li>
+                        <li>Testimisprotokoll on nõudlikum</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-xl">
+            <h3>🔍 Praktikas: CP ≈ FTP + 5-10W</h3>
+            <p>Hästiteenitud ratturite puhul on Kriitiline Võimsus tavaliselt <strong>5-10 vatti kõrgem kui
+                    FTP</strong>. Näide:</p>
+            <ul>
+                <li><strong>FTP:</strong> 250W (20-min testist)</li>
+                <li><strong>CP:</strong> 257W (3-min, 12-min, 20-min testidest)</li>
+            </ul>
+            <p class="mb-0 mt-md">CP esindab teoreetilist lõpmatu kestuse läve, samas kui FTP on praktiline 1-tunnise
+                võimsuse hinnang. Mõlemad on kasulikud – FTP lihtsuse, CP täpsuse ja W' jälgimise jaoks.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Mis on W' (W Prim)?</h2>
+
+        <p class="mb-md"><strong>W' (hääldatakse "W Prim") on piiratud hulk tööd, mida suudad teha üle Kriitilise
+                Võimsuse.</strong> Mõtle sellest kui oma "anaeroobsest akust" – piiratud energiavarust, mis tühjeneb,
+            kui sõidad üle CP, ja taastub aeglaselt, kui sõidad alla CP.</p>
+
+        <div class="formula-box mb-xl">
+            <h3>W' Definitsioon</h3>
+            <p><strong>W' = (P - CP) × t</strong></p>
+            <p class="mt-sm">Kus:</p>
+            <ul>
+                <li><strong>W'</strong> = anaeroobne töövõime (kilodžaulid)</li>
+                <li><strong>P</strong> = võimsusväljund (vatti)</li>
+                <li><strong>CP</strong> = kriitiline võimsus (vatti)</li>
+                <li><strong>t</strong> = aeg kurnatuseni (sekundid)</li>
+            </ul>
+            <p class="mt-md"><strong>Näide:</strong> Kui suudad hoida 350W 5 minutit ja su CP on 250W:<br>
+                W' = (350 - 250) × 300 = 30,000 džauli = <strong>30 kJ</strong></p>
+        </div>
+
+        <h3>Tüüpilised W' Väärtused</h3>
+
+        <div class="zones-table-container mb-xl">
+            <table class="zones-table">
+                <thead>
+                    <tr>
+                        <th>Ratturi Tase</th>
+                        <th>W' Vahemik (kJ)</th>
+                        <th>Mida see tähendab</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Harrastaja</strong></td>
+                        <td>10-15 kJ</td>
+                        <td>Piiratud sööstuvõime, lühemad rünnakud</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Võistlev Asjaarmastaja</strong></td>
+                        <td>15-20 kJ</td>
+                        <td>Mõõdukas anaeroobne võimekus, tüüpiline vahemik</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eliit Maantee</strong></td>
+                        <td>20-25 kJ</td>
+                        <td>Kõrge sööstuvõime rünnakuteks ja sprintideks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eliit MTB/CX</strong></td>
+                        <td>18-23 kJ</td>
+                        <td>Optimeeritud korduvateks sööstudeks</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-success">
+            <h3>💡 W' mõistmine reaalses sõidus</h3>
+            <p><strong>W' = 20 kJ näide:</strong></p>
+            <ul class="mb-0">
+                <li>1 minut @ 350W (100W üle CP = 250W) = 6 kJ kulutatud → 14 kJ järel</li>
+                <li>2 minutit @ 300W (50W üle CP) = 6 kJ kulutatud → 8 kJ järel</li>
+                <li>30 sekundit @ 450W (200W üle CP) = 6 kJ kulutatud → 2 kJ järel</li>
+                <li>Kui W' tühjeneb nullini → oled "küpse", pead taastumiseks laskma võimsuse alla CP</li>
+            </ul>
+        </div>
+
+        <h2 class="mt-3xl">Kuidas Arvutada Oma CP ja W'</h2>
+
+        <p class="mb-md">Oma Kriitilise Võimsuse ja W' määramiseks vajad mitut maksimaalset pingutust erineva kestusega.
+            Standardprotokoll kasutab <strong>3-5 eraldistarti</strong>:</p>
+
+        <h3>Standardne CP Testimisprotokoll</h3>
+
+        <div class="protocol-timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">Test 1</div>
+                <div class="timeline-content">
+                    <h4>3-Minutiline Maksimaalne Pingutus</h4>
+                    <p>Pärast põhjalikku soojendust tee täie jõuga 3-minutiline pingutus. Salvesta keskmine võimsus (nt
+                        <strong>330W</strong>). Puhka 30-60 minutit enne järgmist testi (või testi eraldi päeval).</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">Test 2</div>
+                <div class="timeline-content">
+                    <h4>12-Minutiline Maksimaalne Pingutus</h4>
+                    <p>Tee 12-minutiline eraldistart maksimaalsel jätkusuutlikul võimsusel. Salvesta keskmine võimsus
+                        (nt <strong>275W</strong>). Puhka täielikult enne viimast testi.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">Test 3</div>
+                <div class="timeline-content">
+                    <h4>20-Minutiline Maksimaalne Pingutus</h4>
+                    <p>Tee 20-minutiline FTP-stiilis pingutus. Salvesta keskmine võimsus (nt <strong>260W</strong>). See
+                        on sinu pikima kestusega test.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">Arvuta</div>
+                <div class="timeline-content">
+                    <h4>Matemaatiline Kõvera Sobitamine</h4>
+                    <p>Kanna võimsuse vs aja andmed graafikule ja sobitada hüperboolsele kõverale. Bike Analytics teeb
+                        seda automaatselt:</p>
+                    <ul>
+                        <li><strong>CP:</strong> Võimsuse-kestuse kõvera asümptoot (nt 250W)</li>
+                        <li><strong>W':</strong> Kõveruse konstant (nt 18 kJ)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout callout-warning mt-xl">
+            <h3>⚠️ Testimise Parimad Praktikad</h3>
+            <ul class="mb-0">
+                <li><strong>Järjepidevad tingimused:</strong> Kõik testid samas kohas, sama käiguvahetuse ja varustusega
+                </li>
+                <li><strong>Täielikult puhanud:</strong> Ei rasket treeningut 24-48h enne iga testi</li>
+                <li><strong>Õige tempovalik:</strong> Iga pingutus peab olema selle kestuse jaoks tõeliselt maksimaalne
+                </li>
+                <li><strong>Piisav vahe:</strong> 24-48 tundi testide vahel, kui mitte samal päeval</li>
+                <li><strong>Kalibreeritud võimsusmõõtja:</strong> Nulli nihe (zero-offset) enne iga testi</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-tip mt-xl">
+            <h3>💡 Alternatiiv: Kasuta Olemasolevaid Sõiduandmeid</h3>
+            <p>Kui sul on võimsusandmeid hiljutistest võistlustest või rasketest sõitudest, saab Bike Analytics hinnata
+                CP-d ja W'-d sinu <strong>võimsuse kestuskõvera</strong> (Power Duration Curve) põhjal:</p>
+            <ul class="mb-0">
+                <li>Parim 3-minuti võimsus viimasest 90 päevast</li>
+                <li>Parim 5-minuti võimsus</li>
+                <li>Parim 12-minuti võimsus</li>
+                <li>Parim 20-minuti võimsus</li>
+            </ul>
+            <p class="mt-md">See "ajaloolise parima" meetod on vähem täpne kui spetsiaalsed testid, kuid annab mõistliku
+                algse hinnangu.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="mb-xl text-center">W' Bilanss: Reaalajas Väsimuse Jälgimine</h2>
+
+        <div class="container-narrow">
+            <p class="mb-xl text-center"><strong>W' Bilanss (W'bal) jälgib sinu anaeroobse võimekuse kulumist ja
+                    taastumist reaalajas sõitude ajal.</strong> See on CP mudeli kõige võimsam rakendus tempovalikuks ja
+                võistlusstrateegiaks.</p>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">Kuidas W'bal töötab</h3>
+                <div class="card-content">
+                    <p><strong>Kulumisfaas (Üle CP):</strong></p>
+                    <ul>
+                        <li>Sõites üle CP, kulub W' lineaarselt</li>
+                        <li>Kiirus = (Praegune Võimsus - CP)</li>
+                        <li>Näide: 50W üle CP = 50 džauli/sekundis kulu</li>
+                    </ul>
+                    <p class="mt-md"><strong>Taastumisfaas (Alla CP):</strong></p>
+                    <ul>
+                        <li>Sõites alla CP, taastub W' eksponentsiaalselt</li>
+                        <li>Taastumiskiirus sõltub sellest, kui palju alla CP oled</li>
+                        <li>Madalam võimsus = kiirem taastumine</li>
+                        <li>Ajakoefitsient τ ≈ 377 sekundit (Skiba mudel)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">W'bal Tõlgendamine</h3>
+                <div class="card-content">
+                    <p><strong>W'bal = 100%:</strong> Täielikult taastunud, valmis sööstudeks</p>
+                    <p><strong>W'bal = 75%:</strong> Veel tugev, suudad rünnata</p>
+                    <p><strong>W'bal = 50%:</strong> Mõõdukas väsimus, ole ettevaatlik</p>
+                    <p><strong>W'bal = 25%:</strong> Kõrge väsimus, piiratud sööstuvõime</p>
+                    <p><strong>W'bal = 0%:</strong> Täiesti kurnatud, pead sõitma alla CP</p>
+                    <p class="mt-md"><strong>Võtmetähtsusega teadmine:</strong> Isegi lühikesed taastumised alla CP
+                        taastavad W'-d. 30-sekundiline taastumine 150W juures (100W alla CP) võib taastada 2-3 kJ W'-d.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-xl">
+            <h3>🚴 Näide: MTB Võistluse W'bal Haldamine</h3>
+            <p><strong>Stsenaarium:</strong> 90-minutiline maastikukross, CP = 250W, W' = 20 kJ</p>
+            <ul>
+                <li><strong>Ring 1 (0-15 min):</strong> Konservatiivne tempo, W'bal püsib 80-100%</li>
+                <li><strong>Ring 2 (15-30 min):</strong> Raske tõus (350W 90s) → W'bal langeb 55%-ni</li>
+                <li><strong>Taastumine (30-35 min):</strong> Kerge laskumine (150W) → W'bal taastub 70%-ni</li>
+                <li><strong>Ring 3 (35-50 min):</strong> Tehniline osa sööstudega → W'bal kõigub 60-75%</li>
+                <li><strong>Ring 4 (50-65 min):</strong> Rünnak tõusul (380W 60s) → W'bal langeb 40%-ni</li>
+                <li><strong>Viimane ring (65-90 min):</strong> Halda W'bal-i hoolikalt, säästa lõpusprindiks</li>
+            </ul>
+            <p class="mb-0 mt-md"><strong>Tulemus:</strong> Jälgides W'bal-i, teab rattur täpselt, millal on sööstud
+                võimalikud ja millal on vaja taastumist. Ei mingit "tunde järgi" oletamist.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>CP ja W' Praktilised Rakendused</h2>
+
+        <h3>1. Pikkade Tõusude Tempovalik</h3>
+        <p class="mb-md">Kasuta CP-d jätkusuutliku tõusuvõimsuse määramiseks. Kui tõusu kestus on 30+ minutit, peaks
+            eesmärkvõimsus olema ≤ CP. Veidi üle CP minek on okei, kuid jälgi W'bal-i, et mitte enne tippu "ära
+            kukkuda".</p>
+        <div class="example-box mb-xl">
+            <p><strong>Näide: 40-Minutiline Tõus</strong></p>
+            <ul class="mb-0">
+                <li><strong>CP = 250W:</strong> Jätkusuutlik eesmärkvõimsus</li>
+                <li><strong>260W (10W üle CP):</strong> Kerge W' kulu, kuid jätkusuutlik 40 min</li>
+                <li><strong>280W (30W üle CP):</strong> Liiga kõrge, W' tühjeneb täielikult ~11 minutiga</li>
+            </ul>
+        </div>
+
+        <h3>2. MTB ja Cyclocross Võistlusstrateegia</h3>
+        <p class="mb-md">Maastikusõit hõlmab pidevaid võimsussööste üle CP. Kasuta W'bal-i "tikkude põletamise"
+            haldamiseks – iga sööst kulutab W'-d ja taastumisperioodid peavad olema piisavad mahtu taastamiseks.</p>
+        <div class="example-box mb-xl">
+            <p><strong>MTB Sööstude Haldamine:</strong></p>
+            <ul class="mb-0">
+                <li><strong>Enne rünnakut:</strong> Kontrolli W'bal ≥ 60% (piisavalt varu)</li>
+                <li><strong>Sööstul ajal:</strong> Aktsepteeri W' kulu, kuid tea hinda</li>
+                <li><strong>Pärast sööstu:</strong> Lase võimsus alla CP, et taastada W' enne järgmist pingutust</li>
+                <li><strong>Võistluse lõppfaas:</strong> Kui W'bal < 30%, väldi suuri sööste – võid "õhku lennata" </li>
+            </ul>
+        </div>
+
+        <h3>3. Kriteeriumi ja Maanteesõidu Taktika</h3>
+        <p class="mb-md">Kriteeriumid nõuavad korduvaid kiirendusi ja rünnakuid. W'bal aitab teada, millal suudad
+            rünnakutele vastata ja millal pead laskma minekul minna.</p>
+        <div class="example-box mb-xl">
+            <p><strong>Kriteeriumi Rünnaku Otsus:</strong></p>
+            <ul class="mb-0">
+                <li><strong>W'bal = 85%:</strong> Mine kaasa – sul on varu</li>
+                <li><strong>W'bal = 40%:</strong> Riskantne – võid jälitades "ära kukkuda"</li>
+                <li><strong>W'bal = 15%:</strong> Püsi pundis, taasta W' lõpusprindiks</li>
+            </ul>
+        </div>
+
+        <h3>4. Intervalltreeningu Disain</h3>
+        <p class="mb-md">Kasuta CP-d ja W'-d intervallide täpseks struktureerimiseks. VO₂max intervallide puhul peaks
+            võimsus olema CP + (W' / intervalli kestus).</p>
+        <div class="example-box mb-xl">
+            <p><strong>Näide: 5-Minuti VO₂max Intervallid</strong></p>
+            <ul class="mb-0">
+                <li><strong>CP = 250W, W' = 20 kJ</strong></li>
+                <li><strong>Eesmärkvõimsus:</strong> 250W + (20,000J / 300s) = 250W + 67W = <strong>317W</strong></li>
+                <li><strong>See tühjendab W' täielikult 5 minutiga</strong></li>
+                <li><strong>Taastumine:</strong> 5-10 min alla CP, et taastada W'</li>
+            </ul>
+        </div>
+
+        <h3>5. Eraldistardi Tempovalik</h3>
+        <p class="mb-md">Eraldistartidel, mis on pikemad kui 30 minutit, sõida veidi alla CP, et vältida W' tühjenemist.
+            Säästa W' lõpuspurdiks.</p>
+        <div class="example-box mb-xl">
+            <p><strong>40K TT Tempovalik:</strong></p>
+            <ul class="mb-0">
+                <li><strong>Esimesed 35K:</strong> 95-98% CP-st (säästa W')</li>
+                <li><strong>Viimased 5K:</strong> Tõsta järk-järgult CP + 10-20W (kasuta W')</li>
+                <li><strong>Viimane 1K:</strong> Tühjenda W' täielikult (sprint lõpuni)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Kriitiline Võimsus ja W': Korduma Kippuvad Küsimused</h2>
+
+        <div class="faq-item">
+            <h3>Kas CP on parem kui FTP?</h3>
+            <p><strong>CP on teaduslikult robustsem</strong>, kuna see on tuletatud mitmest pingutusest, mitte ühest
+                testist. Siiski on FTP lihtsam ja laialdasemalt mõistetav. Enamiku ratturite jaoks on FTP piisav. Kasuta
+                CP-d, kui soovid täpsust, W' jälgimist või võistluse tempovaliku mudeleid. Praktikas CP ≈ FTP + 5-10W.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kui kaua võtab aega W' täielik taastumine?</h3>
+            <p><strong>Taastumine on eksponentsiaalne, mitte lineaarne.</strong> 100W allpool CP-d taastub W' ~50% 6
+                minutiga, 75% 12 minutiga, 90% 20 minutiga. Täielik taastumine (99%+) võtab 30-40 minutit väga madalal
+                võimsusel. Mida kaugemal allpool CP-d sõidad, seda kiiremini W' taastub. Täielik puhkus (0W) EI OLE
+                optimaalne – kerge kerimine (~100-150W) kiirendab taastumist.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kas ma saan treenida W' suurendamist?</h3>
+            <p><strong>Jah – W' on treenitav anaeroobsete intervallidega.</strong> VO₂max intervallid (3-8 min @
+                110-120% CP) ja korduvad sööstud (30-90s @ 150%+ CP) suurendavad W'-d. Maanteesprinteritel ja MTB
+                sõitjatel on tavaliselt kõrgem W' kui vastupidavussõitjatel. Treeningu fookus: 1-2 sessiooni nädalas
+                kõrge intensiivsusega intervalle, mis tühjendavad W' täielikult, millele järgneb piisav taastumine.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kas W' väheneb sõidu edenedes?</h3>
+            <p><strong>Jah – W' mahutavus väheneb kogunenud väsimusega.</strong> Sõidu alguses võib sul olla 20 kJ
+                saadaval. Pärast 2-3 tundi rasket sõitu võib efektiivne W' langeda 12-15 kJ-ni. Seetõttu tunduvad
+                hilised rünnakud raskemad – sinu anaeroobne reserv on kahjustatud. Bike Analytics suudab modelleerida
+                seda W' vähenemist väsimusfaktorite abil.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kui tihti peaksin CP-d ja W'-d uuesti testima?</h3>
+            <p><strong>Iga 8-12 nädala tagant</strong> treeningprogressiooni ajal. CP kasvab aeglasemalt kui FTP (see on
+                stabiilsem). W' võib oluliselt muutuda suunatud anaeroobse treeninguga. Testi uuesti pärast suuri
+                treeningblokke, haigust või vigastust. CP/W' on lühiajaliste vormikõikumiste suhtes resistentsemad kui
+                FTP.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kas ma saan CP-d kasutada sisetreeningul?</h3>
+            <p><strong>Absoluutselt – CP on ideaalne sisetreeninguks.</strong> Nutikad treenerid pakuvad stabiilset
+                võimsust, muutes CP testimise väga täpseks. Zwift, TrainerRoad ja teised platvormid toetavad CP-põhiseid
+                treeninguid. W'bal jälgimine töötab suurepäraselt siseruumides, kus võimsus on järjepidev. Paljud
+                treenerid eelistavad CP-d struktureeritud sisetreeninguks.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Mis on Skiba W' bilansi mudel?</h3>
+            <p><strong>Dr Philip Skiba 2012. aasta mudel jälgib matemaatiliselt W' kulumist ja taastumist.</strong> See
+                kasutab diferentsiaalvõrrandeid ajakonstandiga τ ≈ 377 sekundit taastumiskineetika jaoks. See mudel on
+                implementeeritud WKO5-s, Golden Cheetah's ja Bike Analyticsis. See on kuldstandard reaalajas W'bal
+                arvutamiseks sõitude ajal. Uuring: Skiba et al. (2012, 2014, 2021) ajakirjas Medicine & Science in
+                Sports & Exercise.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kas CP ja W' suudavad ennustada võistlustulemusi?</h3>
+            <p><strong>Jah – suure täpsusega pingutusteks 3-60 minutit.</strong> CP mudel suudab ennustada kurnatuseni
+                jõudmise aega mis tahes antud võimsusel. Näide: Kui CP = 250W ja W' = 20 kJ, suudad hoida 300W täpselt
+                6.67 minutit (20,000J / 50W = 400s). Pikemate pingutuste puhul (>60 min) hindab CP jätkusuutlikku
+                võimsust veidi üle, kuna lisanduvad täiendavad väsimusfaktorid.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kuidas kõrgus merepinnast mõjutab CP-d ja W'-d?</h3>
+            <p><strong>CP langeb ~1% iga 300m kohta üle 1500m kõrguse.</strong> W' on vähem mõjutatud, kuna anaeroobne
+                võimekus ei sõltu hapnikust. 2500m kõrgusel eelda, et CP langeb 3-4%, kuid W' jääb sarnaseks. See
+                tähendab, et kõrgustes langeb sinu jätkusuutlik võimsus, kuid sööstuvõime (suhtes uue CP-ga) säilib.
+                Täpsete treeningtsoonide jaoks testi CP-d kõrgustes uuesti.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kas peaksin kasutama CP-d Tsoon 4 lävetreeninguks?</h3>
+            <p><strong>Jah – CP defineerib Tsoon 4 läve täpselt.</strong> Läveintervallid peaksid olema 95-105% CP-st.
+                Erinevalt FTP-st (hinnatud ühest testist), pakub CP matemaatiliselt tuletatud läve. Pikkade
+                tempopingutuste jaoks (2×20 min) sõida CP tasemel. Lühemate intervallide jaoks (5×5 min) sõida CP +
+                3-5%. Bike Analytics arvutab <a href="/et/training-zones/">treeningtsoonid CP-st
+                    automaatselt</a>.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Teaduslikud Viited</h2>
+
+        <div class="reference-list">
+            <div class="reference-item">
+                <h3>Jones, A.M., Burnley, M., Black, M.I., Poole, D.C., & Vanhatalo, A. (2019)</h3>
+                <p><strong>Critical Power: Theory and Applications</strong></p>
+                <p class="text-secondary">Journal of Applied Physiology, 126(6), 1905-1915.</p>
+                <p>Põhjalik ülevaade kristilise võimsuse teooriast, füsioloogilistest alustest ja praktilistest
+                    rakendustest sportlastele ja treeneritele.</p>
+            </div>
+
+            <div class="reference-item">
+                <h4>Skiba, P.F., Chidnok, W., Vanhatalo, A., & Jones, A.M. (2012)</h4>
+                <p><strong>Modeling the Expenditure and Reconstitution of Work Capacity Above Critical Power</strong>
+                </p>
+                <p class="text-secondary">Medicine and Science in Sports and Exercise, 44(8), 1526-1532.</p>
+                <p>Tutvustab W' Bilansi mudelit eksponentsiaalse taastumiskineetikaga. Vundament reaalajas W'bal
+                    jälgimisele.</p>
+            </div>
+
+            <div class="reference-item">
+                <h4>Skiba, P.F., & Clarke, D.C. (2021)</h4>
+                <p><strong>The W′ Balance: Mathematical and Methodological Considerations</strong></p>
+                <p class="text-secondary">International Journal of Sports Physiology and Performance, 16(11), 1561-1572.
+                </p>
+                <p>Uuendatud ülevaade W' Bilansi arvutusmeetoditest, valideerimisuuringutest ja praktilistest
+                    rakenduskaalutlustest.</p>
+            </div>
+
+            <div class="reference-item">
+                <h4>Poole, D.C., Burnley, M., Vanhatalo, A., Rossiter, H.B., & Jones, A.M. (2016)</h4>
+                <p><strong>Critical Power: An Important Fatigue Threshold in Exercise Physiology</strong></p>
+                <p class="text-secondary">Medicine and Science in Sports and Exercise, 48(11), 2320-2334.</p>
+                <p>Valideerib kriitilise võimsuse kui füsioloogilise läve, mis eraldab raske ja väga raske koormuse
+                    tsoonid.</p>
+            </div>
+
+            <div class="reference-item">
+                <h4>Clark, I.E., Vanhatalo, A., Thompson, C., et al. (2021)</h4>
+                <p><strong>A Comparative Analysis of Critical Power Models in Elite Road Cyclists</strong></p>
+                <p class="text-secondary">European Journal of Applied Physiology, 121, 3027-3037.</p>
+                <p>Võrdleb erinevaid CP arvutusmeetodeid eliitratturitel. Näitab, et CP ühtib respiratoorse
+                    kompensatsioonipunktiga.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Seotud Ressursid</h2>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">FTP Testimine</h3>
+                <div class="card-content">
+                    <p>Õpi standardset 20-minutilist FTP testi protokolli ja kuidas FTP suhestub Kriitilise Võimsusega.
+                    </p>
+                    <a href="/et/ftp/" class="btn btn-secondary btn-small mt-md">FTP Juhend →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Treeningtsoonid</h3>
+                <div class="card-content">
+                    <p>Mõista 7-tsooni võimsuspõhist treeningsüsteemi, mis on tuletatud CP-st või FTP-st.</p>
+                    <a href="/et/training-zones/" class="btn btn-secondary btn-small mt-md">Treeningtsoonid
+                        →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Treeningkoormus</h3>
+                <div class="card-content">
+                    <p>Õpi, kuidas CP mõjutab TSS-i arvutamist ja üldist treeningstressi haldamist.</p>
+                    <a href="/et/training-load/" class="btn btn-secondary btn-small mt-md">TSS & PMC →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-xl text-center">
+            <p class="mb-md"><strong>Kas oled valmis CP-d ja W'bal-i jälgima?</strong></p>
+            <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" class="btn btn-primary btn-large" target="_blank"
+                rel="noopener">Laadi alla Bike Analytics tasuta</a>
+            <p class="mt-sm text-secondary">Täiustatud CP ja W' Bilansi jälgimine sisaldub</p>
+        </div>
+    </div>
+</section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        
+        <div class="footer-top">
+            <div class="footer-brand-section">
+                <h2>Bike Analytics</h2>
+                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+            </div>
+            <div class="footer-download">
+                <h3 class="footer-heading">Download</h3>
+                <div class="footer-badges">
+                    
+                    <a href="https://apps.apple.com/app/bikeanalytics/id6755187319" target="_blank" rel="noopener" aria-label="Download on the App Store">
+                        <img src="/assets/images/badge-app-store.svg" alt="Download on the App Store" width="135" height="40" loading="lazy">
+                    </a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-languages">
+            <h3 class="footer-heading">Available in</h3>
+            <div class="lang-grid">
+                
+                <a href="/af/"
+                   class="lang-link"
+                   hreflang="af"
+                   >
+                    Afrikaans
+                </a>
+                
+                <a href="/ar/"
+                   class="lang-link"
+                   hreflang="ar"
+                   dir="rtl">
+                    العربية
+                </a>
+                
+                <a href="/bg/"
+                   class="lang-link"
+                   hreflang="bg"
+                   >
+                    Български
+                </a>
+                
+                <a href="/bn/"
+                   class="lang-link"
+                   hreflang="bn"
+                   >
+                    বাংলা
+                </a>
+                
+                <a href="/ca/"
+                   class="lang-link"
+                   hreflang="ca"
+                   >
+                    Català
+                </a>
+                
+                <a href="/cs/"
+                   class="lang-link"
+                   hreflang="cs"
+                   >
+                    Čeština
+                </a>
+                
+                <a href="/da/"
+                   class="lang-link"
+                   hreflang="da"
+                   >
+                    Dansk
+                </a>
+                
+                <a href="/de/"
+                   class="lang-link"
+                   hreflang="de"
+                   >
+                    Deutsch
+                </a>
+                
+                <a href="/el/"
+                   class="lang-link"
+                   hreflang="el"
+                   >
+                    Ελληνικά
+                </a>
+                
+                <a href="/en/"
+                   class="lang-link"
+                   hreflang="en"
+                   >
+                    English
+                </a>
+                
+                <a href="/es/"
+                   class="lang-link"
+                   hreflang="es"
+                   >
+                    Español
+                </a>
+                
+                <a href="/fr/"
+                   class="lang-link"
+                   hreflang="fr"
+                   >
+                    Français
+                </a>
+                
+                <a href="/ha/"
+                   class="lang-link"
+                   hreflang="ha"
+                   >
+                    Hausa
+                </a>
+                
+                <a href="/hi/"
+                   class="lang-link"
+                   hreflang="hi"
+                   >
+                    हिन्दी
+                </a>
+                
+                <a href="/hu/"
+                   class="lang-link"
+                   hreflang="hu"
+                   >
+                    Magyar
+                </a>
+                
+                <a href="/is/"
+                   class="lang-link"
+                   hreflang="is"
+                   >
+                    Íslenska
+                </a>
+                
+                <a href="/it/"
+                   class="lang-link"
+                   hreflang="it"
+                   >
+                    Italiano
+                </a>
+                
+                <a href="/ja/"
+                   class="lang-link"
+                   hreflang="ja"
+                   >
+                    日本語
+                </a>
+                
+                <a href="/ko/"
+                   class="lang-link"
+                   hreflang="ko"
+                   >
+                    한국어
+                </a>
+                
+                <a href="/nb/"
+                   class="lang-link"
+                   hreflang="nb"
+                   >
+                    Norsk Bokmål
+                </a>
+                
+                <a href="/nl/"
+                   class="lang-link"
+                   hreflang="nl"
+                   >
+                    Nederlands
+                </a>
+                
+                <a href="/pl/"
+                   class="lang-link"
+                   hreflang="pl"
+                   >
+                    Polski
+                </a>
+                
+                <a href="/pt/"
+                   class="lang-link"
+                   hreflang="pt"
+                   >
+                    Português
+                </a>
+                
+                <a href="/ro/"
+                   class="lang-link"
+                   hreflang="ro"
+                   >
+                    Română
+                </a>
+                
+                <a href="/ru/"
+                   class="lang-link"
+                   hreflang="ru"
+                   >
+                    Русский
+                </a>
+                
+                <a href="/sl/"
+                   class="lang-link"
+                   hreflang="sl"
+                   >
+                    Slovenščina
+                </a>
+                
+                <a href="/sv/"
+                   class="lang-link"
+                   hreflang="sv"
+                   >
+                    Svenska
+                </a>
+                
+                <a href="/sw/"
+                   class="lang-link"
+                   hreflang="sw"
+                   >
+                    Kiswahili
+                </a>
+                
+                <a href="/zh/"
+                   class="lang-link"
+                   hreflang="zh"
+                   >
+                    中文
+                </a>
+                
+                <a href="/et/"
+                   class="lang-link active"
+                   hreflang="et"
+                   >
+                    Eesti
+                </a>
+                
+                <a href="/fa/"
+                   class="lang-link"
+                   hreflang="fa"
+                   dir="rtl">
+                    فارسی
+                </a>
+                
+                <a href="/fi/"
+                   class="lang-link"
+                   hreflang="fi"
+                   >
+                    Suomi
+                </a>
+                
+                <a href="/gu/"
+                   class="lang-link"
+                   hreflang="gu"
+                   >
+                    ગુજરાતી
+                </a>
+                
+                <a href="/he/"
+                   class="lang-link"
+                   hreflang="he"
+                   dir="rtl">
+                    עברית
+                </a>
+                
+                <a href="/hr/"
+                   class="lang-link"
+                   hreflang="hr"
+                   >
+                    Hrvatski
+                </a>
+                
+                <a href="/id/"
+                   class="lang-link"
+                   hreflang="id"
+                   >
+                    Bahasa Indonesia
+                </a>
+                
+                <a href="/kn/"
+                   class="lang-link"
+                   hreflang="kn"
+                   >
+                    ಕನ್ನಡ
+                </a>
+                
+                <a href="/lt/"
+                   class="lang-link"
+                   hreflang="lt"
+                   >
+                    Lietuvių
+                </a>
+                
+                <a href="/lv/"
+                   class="lang-link"
+                   hreflang="lv"
+                   >
+                    Latviešu
+                </a>
+                
+                <a href="/ms/"
+                   class="lang-link"
+                   hreflang="ms"
+                   >
+                    Bahasa Melayu
+                </a>
+                
+                <a href="/my/"
+                   class="lang-link"
+                   hreflang="my"
+                   >
+                    မြန်မာဘာသာ
+                </a>
+                
+                <a href="/sk/"
+                   class="lang-link"
+                   hreflang="sk"
+                   >
+                    Slovenčina
+                </a>
+                
+                <a href="/sr/"
+                   class="lang-link"
+                   hreflang="sr"
+                   >
+                    Српски
+                </a>
+                
+                <a href="/th/"
+                   class="lang-link"
+                   hreflang="th"
+                   >
+                    ไทย
+                </a>
+                
+                <a href="/tl/"
+                   class="lang-link"
+                   hreflang="tl"
+                   >
+                    Tagalog
+                </a>
+                
+                <a href="/tr/"
+                   class="lang-link"
+                   hreflang="tr"
+                   >
+                    Türkçe
+                </a>
+                
+                <a href="/uk/"
+                   class="lang-link"
+                   hreflang="uk"
+                   >
+                    Українська
+                </a>
+                
+                <a href="/vi/"
+                   class="lang-link"
+                   hreflang="vi"
+                   >
+                    Tiếng Việt
+                </a>
+                
+                <a href="/ur/"
+                   class="lang-link"
+                   hreflang="ur"
+                   dir="rtl">
+                    اردو
+                </a>
+                
+                <a href="/yo/"
+                   class="lang-link"
+                   hreflang="yo"
+                   >
+                    Yoruba
+                </a>
+                
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2025 Bike Analytics. Kõik õigused kaitstud
+            </p>
+            <ul class="footer-legal">
+                <li><a href="/et/privacy/">Privaatsus</a></li>
+                <li><a href="/et/terms/">Tingimused</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>See veebisait kasutab küpsiseid kogemuse parandamiseks.</p>
+            <a href="/et/privacy/" class="text-sm">Loe lähemalt</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Keeldun</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Nõustun</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="/assets/js/core.min.js" defer></script>
+  <script src="/assets/js/search.min.js" defer></script>
+
+  
+  
+  <script src="/assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+</body>
+
+</html>
