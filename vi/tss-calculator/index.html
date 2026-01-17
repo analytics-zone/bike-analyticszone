@@ -1045,591 +1045,419 @@ img[width][height] {
   <main id="main-content" class="main-content">
     <section class="page-hero">
     <div class="container">
-        <h1>Free TSS Calculator - Training Stress Score for Cycling</h1>
-        <p class="lead">Calculate Training Stress Score for your cycling workouts using power, duration, and FTP</p>
+        <h1>Máy tính Điểm Căng thẳng Tập luyện (TSS)</h1>
+        <p class="lead">Định lượng Khối lượng Tập luyện của Bạn một cách Chính xác</p>
     </div>
 </section>
 
 <section class="section">
     <div class="container container-narrow">
-        <div class="callout callout-info mb-xl">
-            <h2>What is Training Stress Score (TSS)?</h2>
-            <p><strong>Training Stress Score (TSS)</strong> quantifies the training load of a cycling workout by combining intensity and duration based on your power output. Developed by Dr. Andrew Coggan, TSS uses your Functional Threshold Power (FTP) as the reference point. A 1-hour workout at FTP = 100 TSS.</p>
-        </div>
+        <p class="lead text-center mb-xl">Sử dụng máy tính này để tính toán TSS, Công suất Chuẩn hóa và Hệ số Cường độ
+            cho các chuyến đi của bạn.</p>
 
-        <h2 class="mt-3xl">Free TSS Calculator</h2>
-        <p class="lead mb-xl">Calculate training stress for any cycling workout using power data.</p>
-
-        <div class="css-calculator">
-            <form id="tssCalculatorForm">
-                <div class="calculator-inputs">
-                    <div class="form-group">
-                        <label for="ftp" class="form-label">Your FTP (Watts)</label>
-                        <input
-                            type="number"
-                            id="ftp"
-                            class="form-input"
-                            placeholder="e.g., 250"
-                            min="50"
-                            max="600"
-                            aria-required="true"
-                            aria-describedby="ftp-help"
-                        />
-                        <small id="ftp-help" class="form-help">Your Functional Threshold Power in watts</small>
-                        <div class="form-error" id="ftp-error"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="duration" class="form-label">Ride Duration (minutes)</label>
-                        <input
-                            type="number"
-                            id="duration"
-                            class="form-input"
-                            placeholder="e.g., 120"
-                            min="1"
-                            max="720"
-                            aria-required="true"
-                            aria-describedby="duration-help"
-                        />
-                        <small id="duration-help" class="form-help">Total ride time in minutes (1-720)</small>
-                        <div class="form-error" id="duration-error"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="normalizedPower" class="form-label">Normalized Power (Watts)</label>
-                        <input
-                            type="number"
-                            id="normalizedPower"
-                            class="form-input"
-                            placeholder="e.g., 200"
-                            min="10"
-                            max="800"
-                            aria-required="true"
-                            aria-describedby="np-help"
-                        />
-                        <small id="np-help" class="form-help">NP from your ride data (not average power)</small>
-                        <div class="form-error" id="np-error"></div>
-                    </div>
-
-                    <div class="calculator-buttons">
-                        <button type="submit" class="btn btn-primary" id="calculateTssBtn">Calculate TSS</button>
-                        <button type="reset" class="btn btn-ghost" id="resetTssBtn">Clear</button>
+        <!-- TSS Calculator Tool Mockup/Placeholder -->
+        <div class="calculator-container mb-2xl">
+            <div class="calculator-card">
+                <div class="calc-input-group">
+                    <label for="ftp-input">Công suất Ngưỡng Chức năng (FTP)</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="ftp-input" value="250" min="50" max="600">
+                        <span class="unit">Watts</span>
                     </div>
                 </div>
-            </form>
 
-            <div class="calculator-results hidden" id="tssResults" aria-live="polite">
-                <h3>Your Training Stress Score</h3>
-                <div class="results-summary">
+                <div class="calc-input-group">
+                    <label for="duration-input">Thời lượng Chuyến đi</label>
+                    <div class="duration-inputs">
+                        <div class="input-with-label">
+                            <input type="number" id="hours" value="1" min="0" max="24">
+                            <span>Giờ</span>
+                        </div>
+                        <div class="input-with-label">
+                            <input type="number" id="minutes" value="30" min="0" max="59">
+                            <span>Phút</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calc-input-group">
+                    <label for="np-input">Công suất Chuẩn hóa (NP)</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="np-input" value="200" min="50" max="1000">
+                        <span class="unit">Watts</span>
+                    </div>
+                </div>
+
+                <div class="calculator-results">
                     <div class="result-item">
-                        <div class="result-label">TSS</div>
-                        <div class="css-result-value" id="tssValue">--</div>
+                        <span class="result-label">TSS Dự kiến:</span>
+                        <span class="result-value" id="tss-result">96.0</span>
                     </div>
                     <div class="result-item">
-                        <div class="result-label">Intensity Factor (IF)</div>
-                        <div class="css-result-value" id="intensityFactor">--</div>
+                        <span class="result-label">Hệ số Cường độ (IF):</span>
+                        <span class="result-value" id="if-result">0.80</span>
                     </div>
                 </div>
 
-                <div class="zones-result">
-                    <h4>Workout Difficulty</h4>
-                    <p class="mb-md text-secondary" id="tssInterpretation">
-                        <!-- Filled by JavaScript -->
-                    </p>
-                </div>
+                <button class="btn btn-primary btn-full mt-lg">Tính toán Lại</button>
             </div>
         </div>
 
-        <h2 class="mt-3xl">How TSS is Calculated</h2>
-
-        <div class="formula-box">
-            <h3>TSS Formula</h3>
-            <div class="formula">
-                TSS = (seconds × NP × IF) / (FTP × 3600) × 100
-            </div>
-            <div class="formula-explanation">
-                <p>Where:</p>
-                <ul>
-                    <li><strong>NP (Normalized Power)</strong> = Physiological "cost" of the ride in watts</li>
-                    <li><strong>IF (Intensity Factor)</strong> = NP / FTP (intensity relative to threshold)</li>
-                    <li><strong>Duration</strong> = Total ride time in seconds</li>
-                    <li><strong>FTP</strong> = Your Functional Threshold Power in watts</li>
-                </ul>
-                <p class="mt-md"><em>Simplified: TSS = Duration (hours) × IF² × 100</em></p>
-            </div>
-        </div>
-
-        <h2 class="mt-xl">Worked Examples</h2>
-
-        <div class="grid grid-2 mb-xl">
-            <div class="example-box">
-                <h3>Example 1: Easy Endurance Ride</h3>
-                <h4>Rider Data:</h4>
-                <ul>
-                    <li>FTP: <strong>250W</strong></li>
-                    <li>Duration: <strong>120 minutes (7200s)</strong></li>
-                    <li>Normalized Power: <strong>150W</strong></li>
-                </ul>
-
-                <h4>Step 1: Calculate Intensity Factor</h4>
-                <div class="calculation">
-                    IF = NP / FTP<br>
-                    IF = 150W / 250W<br>
-                    IF = <strong>0.60</strong>
-                </div>
-
-                <h4>Step 2: Calculate TSS</h4>
-                <div class="calculation">
-                    TSS = (7200 × 150 × 0.60) / (250 × 3600) × 100<br>
-                    TSS = (648,000) / (900,000) × 100<br>
-                    TSS = <strong>72 TSS</strong>
-                </div>
-
-                <p class="mt-md"><strong>Interpretation:</strong> Easy endurance ride at 60% intensity—perfect for aerobic base building and recovery.</p>
-            </div>
-
-            <div class="example-box">
-                <h3>Example 2: Threshold Intervals</h3>
-                <h4>Rider Data:</h4>
-                <ul>
-                    <li>FTP: <strong>250W</strong></li>
-                    <li>Duration: <strong>90 minutes (5400s)</strong></li>
-                    <li>Normalized Power: <strong>235W</strong></li>
-                </ul>
-
-                <h4>Step 1: Calculate Intensity Factor</h4>
-                <div class="calculation">
-                    IF = NP / FTP<br>
-                    IF = 235W / 250W<br>
-                    IF = <strong>0.94</strong>
-                </div>
-
-                <h4>Step 2: Calculate TSS</h4>
-                <div class="calculation">
-                    TSS = (5400 × 235 × 0.94) / (250 × 3600) × 100<br>
-                    TSS = (1,192,860) / (900,000) × 100<br>
-                    TSS = <strong>133 TSS</strong>
-                </div>
-
-                <p class="mt-md"><strong>Interpretation:</strong> Hard threshold session at 94% intensity—significant training stimulus for FTP improvement.</p>
-            </div>
-
-            <div class="example-box">
-                <h3>Example 3: Hard Group Ride</h3>
-                <h4>Rider Data:</h4>
-                <ul>
-                    <li>FTP: <strong>250W</strong></li>
-                    <li>Duration: <strong>180 minutes (10800s)</strong></li>
-                    <li>Normalized Power: <strong>210W</strong></li>
-                </ul>
-
-                <h4>Step 1: Calculate Intensity Factor</h4>
-                <div class="calculation">
-                    IF = NP / FTP<br>
-                    IF = 210W / 250W<br>
-                    IF = <strong>0.84</strong>
-                </div>
-
-                <h4>Step 2: Calculate TSS</h4>
-                <div class="calculation">
-                    TSS = (10800 × 210 × 0.84) / (250 × 3600) × 100<br>
-                    TSS = (1,905,120) / (900,000) × 100<br>
-                    TSS = <strong>212 TSS</strong>
-                </div>
-
-                <p class="mt-md"><strong>Interpretation:</strong> Long hard ride at 84% intensity—high training load requiring 1-2 days recovery.</p>
-            </div>
-
-            <div class="example-box">
-                <h3>Example 4: VO₂max Intervals</h3>
-                <h4>Rider Data:</h4>
-                <ul>
-                    <li>FTP: <strong>250W</strong></li>
-                    <li>Duration: <strong>75 minutes (4500s)</strong></li>
-                    <li>Normalized Power: <strong>270W</strong></li>
-                </ul>
-
-                <h4>Step 1: Calculate Intensity Factor</h4>
-                <div class="calculation">
-                    IF = NP / FTP<br>
-                    IF = 270W / 250W<br>
-                    IF = <strong>1.08</strong>
-                </div>
-
-                <h4>Step 2: Calculate TSS</h4>
-                <div class="calculation">
-                    TSS = (4500 × 270 × 1.08) / (250 × 3600) × 100<br>
-                    TSS = (1,312,200) / (900,000) × 100<br>
-                    TSS = <strong>146 TSS</strong>
-                </div>
-
-                <p class="mt-md"><strong>Interpretation:</strong> Very hard VO₂max session above threshold—high training stimulus despite shorter duration.</p>
-            </div>
-        </div>
-
-        <h2 class="mt-3xl">TSS Guidelines by Workout Type</h2>
-
-        <div class="zones-table-container">
-            <table class="zones-table">
-                <thead>
-                    <tr>
-                        <th>Workout Type</th>
-                        <th>TSS Range</th>
-                        <th>Intensity Factor</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Recovery Ride</strong></td>
-                        <td>20-50 TSS</td>
-                        <td>IF &lt; 0.65</td>
-                        <td>Easy spinning, 30-60 minutes</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Easy Endurance</strong></td>
-                        <td>50-100 TSS</td>
-                        <td>IF 0.65-0.75</td>
-                        <td>Conversational pace, 1-2 hours</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Moderate Endurance</strong></td>
-                        <td>100-150 TSS</td>
-                        <td>IF 0.75-0.85</td>
-                        <td>Steady riding, 2-3 hours</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tempo Ride</strong></td>
-                        <td>150-200 TSS</td>
-                        <td>IF 0.85-0.95</td>
-                        <td>Sweet spot, tempo work, 2-3 hours</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Threshold Workout</strong></td>
-                        <td>200-300 TSS</td>
-                        <td>IF 0.95-1.05</td>
-                        <td>FTP intervals, race sim, 2-4 hours</td>
-                    </tr>
-                    <tr>
-                        <td><strong>VO₂max Intervals</strong></td>
-                        <td>150-250 TSS</td>
-                        <td>IF 1.05-1.15</td>
-                        <td>Hard intervals, 1-2 hours high intensity</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Race/Hard Event</strong></td>
-                        <td>200-400 TSS</td>
-                        <td>IF 0.90-1.05</td>
-                        <td>Criteriums, road races, 2-5 hours</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h2 class="mt-3xl">Weekly TSS Targets by Cyclist Level</h2>
-
-        <div class="grid grid-2 mb-xl">
-            <div class="card">
-                <h3 class="card-title">Beginner Cyclists</h3>
-                <div class="card-content">
-                    <p class="mb-sm"><strong>Weekly TSS:</strong> 200-400</p>
-                    <p>3-4 rides per week, 50-100 TSS each. Focus on building aerobic base and bike handling skills.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Recreational Cyclists</h3>
-                <div class="card-content">
-                    <p class="mb-sm"><strong>Weekly TSS:</strong> 400-600</p>
-                    <p>4-5 rides per week, 80-120 TSS each. Mix of endurance and some quality sessions.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Competitive Amateurs</h3>
-                <div class="card-content">
-                    <p class="mb-sm"><strong>Weekly TSS:</strong> 600-900</p>
-                    <p>5-7 rides per week, 85-130 TSS each. Structured training with periodization and racing.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Elite / Professional</h3>
-                <div class="card-content">
-                    <p class="mb-sm"><strong>Weekly TSS:</strong> 900-1500+</p>
-                    <p>10-15+ sessions per week. High volume professional training load. Post-Grand Tour CTL: 150-170.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="callout callout-warning">
-            <h3>⚠️ Important Notes About TSS</h3>
-            <ul>
-                <li><strong>Requires accurate FTP:</strong> Your FTP must be current (tested within 4-6 weeks) for accurate TSS.</li>
-                <li><strong>Use Normalized Power, not Average Power:</strong> NP accounts for variability and physiological cost.</li>
-                <li><strong>Indoor vs Outdoor:</strong> Indoor TSS may feel harder due to no coasting or descents.</li>
-                <li><strong>Individual variation:</strong> Same TSS feels different for different riders. Adjust based on your recovery.</li>
-                <li><strong>Ramp rate matters:</strong> Increase weekly TSS gradually—3-8 CTL points per week is sustainable.</li>
+        <div class="callout callout-success mb-xl">
+            <h2>Kiến thức Trọng tâm về TSS</h2>
+            <ul class="key-points">
+                <li><strong>Định nghĩa:</strong> TSS định lượng mức độ căng thẳng sinh lý của một buổi tập dựa trên thời
+                    gian và cường độ.</li>
+                <li><strong>Điểm mốc:</strong> 1 giờ đạp xe ở chính xác mức <a href="/vi/ftp/">FTP</a> của bạn =
+                    100 TSS.</li>
+                <li><strong>Mục tiêu:</strong> Sử dụng TSS để theo dõi <a href="/vi/training-load/">thể lực
+                        (CTL), mệt mỏi (ATL) và phong độ (TSB)</a>.</li>
+                <li><strong>Giá trị Điển hình:</strong> Chuyến đi phục hồi nhẹ: 30-50 TSS | Chặng đua đường trường 3
+                    giờ: 200-300 TSS | Chặng đua Epic MTB: 400+ TSS.</li>
             </ul>
         </div>
 
-        <h2 class="mt-3xl">Understanding Normalized Power (NP)</h2>
+        <p><strong>Điểm Căng thẳng Tập luyện (TSS)</strong>, được phát triển bởi Tiến sĩ Andrew Coggan, đã trở thành
+            tiêu chuẩn vàng để đo lường khối lượng tập luyện trong đạp xe. Không giống như việc chỉ đo quãng đường hoặc
+            thời gian, TSS xem xét mức độ khó thực sự của chuyến đi đối với cơ thể bạn bằng cách tham chiếu nỗ lực đó
+            với <a href="/vi/ftp/">Công suất Ngưỡng Chức năng (FTP)</a> của bạn.</p>
 
-        <p>Normalized Power is more accurate than Average Power for calculating TSS because it accounts for the physiological cost of power variability:</p>
-
-        <div class="example-box mb-lg">
-            <h3>Why NP Matters: Two Rides Compared</h3>
-            <div class="grid grid-2">
-                <div>
-                    <h4>Ride A: Steady Tempo</h4>
-                    <ul>
-                        <li>Duration: 60 minutes</li>
-                        <li>Average Power: 200W</li>
-                        <li>Normalized Power: 202W</li>
-                        <li>Variability Index: 1.01</li>
-                        <li>TSS: 65</li>
-                    </ul>
-                    <p><em>Steady, consistent effort—low physiological cost</em></p>
-                </div>
-                <div>
-                    <h5>Ride B: Hard Group Ride</h5>
-                    <ul>
-                        <li>Duration: 60 minutes</li>
-                        <li>Average Power: 200W</li>
-                        <li>Normalized Power: 240W</li>
-                        <li>Variability Index: 1.20</li>
-                        <li>TSS: 92</li>
-                    </ul>
-                    <p><em>Variable with surges—much higher physiological cost</em></p>
-                </div>
-            </div>
-            <p class="mt-md"><strong>Key insight:</strong> Both rides have 200W average, but Ride B is 42% harder (92 vs 65 TSS) due to power variability. NP captures this difference.</p>
-        </div>
-
-        <div class="callout callout-tip">
-            <h3>💡 How to Get Normalized Power</h3>
-            <p>Most cycling computers and apps calculate NP automatically:</p>
+        <div class="callout callout-primary mt-xl">
+            <h3>📱 Bike Analytics Tự động hóa Mọi hoạt động Theo dõi TSS</h3>
+            <p>Mặc dù hướng dẫn này giải thích các công thức và cung cấp máy tính thủ công, nhưng <strong>Bike Analytics
+                    sẽ tự động tính toán TSS cho mọi chuyến đi</strong> ngay khi bạn tải dữ liệu lên—đảm bảo tính nhất
+                quán hoàn hảo trên tất cả các thiết bị và nền tảng.</p>
+            <p><strong>Ưu điểm của việc tự động hóa:</strong></p>
             <ul>
-                <li><strong>Garmin/Wahoo/Hammerhead:</strong> Shows NP in ride summary</li>
-                <li><strong>TrainingPeaks/Strava/Intervals.icu:</strong> Calculates NP from uploaded rides</li>
-                <li><strong>Golden Cheetah/WKO5:</strong> Advanced NP analysis tools</li>
+                <li>Loại bỏ sai sót trong tính toán thủ công</li>
+                <li>Tự động điều chỉnh TSS khi FTP của bạn thay đổi</li>
+                <li>Tích hợp TSS vào Biểu đồ Quản lý Hiệu suất cá nhân</li>
+                <li>Tính toán TSS ngay cả đối với các chuyến đi không có thiết bị đo công suất (sử dụng nhịp tim)</li>
             </ul>
-            <p>If you only have average power, estimate: NP ≈ Average Power × 1.03-1.05 for steady rides, × 1.10-1.15 for variable rides.</p>
-        </div>
-
-        <h2 class="mt-3xl">Why TSS Matters: CTL, ATL, TSB</h2>
-
-        <p class="mb-md">Training Stress Score is the foundation for the Performance Management Chart:</p>
-
-        <ul class="mb-xl">
-            <li><strong>CTL (Chronic Training Load):</strong> Your fitness level - 42-day exponentially weighted average of daily TSS</li>
-            <li><strong>ATL (Acute Training Load):</strong> Your fatigue - 7-day exponentially weighted average of daily TSS</li>
-            <li><strong>TSB (Training Stress Balance):</strong> Your form - TSB = CTL - ATL (positive = fresh, negative = fatigued)</li>
-            <li><strong>Periodization:</strong> Plan training phases (base, build, peak, taper) using target CTL progressions</li>
-            <li><strong>Race Timing:</strong> Taper to achieve TSB of +10 to +25 on race day for peak performance</li>
-        </ul>
-
-        <div class="callout callout-tip">
-            <h3>Pro Tip: Track Your Performance Management Chart</h3>
-            <p>Log daily TSS in TrainingPeaks, Intervals.icu, or a spreadsheet. Monitor your CTL (42-day average) and ATL (7-day average). Target steady CTL growth of 3-8 points per week during base building. Reduce TSS 7-14 days before races to let TSB rise to positive values for peak performance.</p>
-            <p><a href="/vi/training-load/">Learn more about CTL, ATL, and TSB →</a></p>
-        </div>
-
-        <h2 class="mt-3xl">Frequently Asked Questions</h2>
-
-        <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">What if I don't have a power meter?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>TSS requires power data (FTP and Normalized Power). Without a power meter, you can use heart rate-based alternatives like HRSS (Heart Rate Stress Score) or use perceived exertion estimates, but these are less accurate. Power meters are the gold standard for TSS calculation and training load management in cycling.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">How accurate is TSS?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>TSS is highly accurate when based on current FTP and properly calculated Normalized Power. Studies show TSS reliably predicts training load and recovery needs. Accuracy depends on: recent FTP test (within 4-6 weeks), correct NP calculation, and power meter accuracy (most are ±1-2%).</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">Can I compare TSS between road and MTB?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>Yes, but with caveats. Road cycling TSS is more predictable with steady power profiles (VI 1.02-1.05). MTB TSS is highly variable (VI 1.10-1.20+) with frequent bursts above threshold. Same TSS from MTB may feel harder due to technical demands. Focus on trend analysis rather than absolute comparisons between disciplines.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">What's a good TSS for one workout?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>It depends on training goals: Recovery rides: 20-50 TSS, Easy endurance: 50-100 TSS, Moderate rides: 100-150 TSS, Hard workouts: 150-250 TSS, Very hard sessions/races: 200-400+ TSS. Most training rides fall between 50-150 TSS. Quality intervals generate 100-200 TSS. Racing and long events: 200-400+ TSS.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">How much TSS should I do per week?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>Weekly TSS targets by level: Beginners: 200-400 TSS/week, Recreational: 400-600 TSS/week, Competitive amateur: 600-900 TSS/week, Elite/Professional: 900-1500+ TSS/week. Start conservatively and increase by 3-8 CTL points per week. Your sustainable weekly TSS depends on training history, available time, and recovery ability.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">Should I use TSS for indoor training?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>Absolutely. TSS is ideal for indoor training because power is consistent and there are no environmental variables. Indoor TSS directly contributes to your CTL/ATL/TSB. However, indoor rides may feel harder than outdoor for the same TSS due to no coasting, descents, or wind-assisted sections.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">What's the difference between TSS and kilojoules?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>Kilojoules measure total work done (energy expenditure)—same for everyone at the same power. TSS measures training stress relative to YOUR FTP. Example: 200W for 1 hour = 720 kJ for everyone. But if your FTP is 200W, TSS = 100. If your FTP is 300W, TSS = 44. TSS is individualized; kJ is absolute.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">Do I need to know my FTP?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>Yes, FTP is essential for TSS calculation. Without knowing your FTP, you cannot calculate Intensity Factor or TSS. Test your FTP using a 20-minute or 8-minute test, or use Ramp Test protocols. Retest every 4-6 weeks to keep TSS calculations accurate as your fitness improves. Learn more: <a href="/vi/ftp/">FTP Testing Guide</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="mt-3xl">Related Resources</h2>
-
-        <div class="grid grid-3">
-            <div class="card">
-                <h3 class="card-title">FTP Testing</h3>
-                <div class="card-content">
-                    <p>Need your FTP? Learn how to test Functional Threshold Power accurately.</p>
-                    <a href="/vi/ftp/" class="btn btn-secondary btn-small mt-md">FTP Guide →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Training Load Guide</h3>
-                <div class="card-content">
-                    <p>Learn about CTL, ATL, TSB and Performance Management Chart metrics.</p>
-                    <a href="/vi/training-load/" class="btn btn-secondary btn-small mt-md">Training Load →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Power Metrics</h3>
-                <div class="card-content">
-                    <p>Understand Normalized Power, Intensity Factor, and Variability Index.</p>
-                    <a href="/vi/power-metrics/" class="btn btn-secondary btn-small mt-md">Power Metrics →</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-xl text-center">
-            <p class="mb-md"><strong>Want automatic TSS tracking with CTL/ATL/TSB charts?</strong></p>
-            <a href="/vi/" class="btn btn-primary btn-large">Learn About Bike Analytics</a>
+            <p><a href="/vi/" class="btn btn-accent btn-small">Tải Bike Analytics Miễn phí →</a></p>
         </div>
     </div>
 </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('tssCalculatorForm');
-    const ftpInput = document.getElementById('ftp');
-    const durationInput = document.getElementById('duration');
-    const npInput = document.getElementById('normalizedPower');
-    const results = document.getElementById('tssResults');
-    const tssValue = document.getElementById('tssValue');
-    const intensityFactor = document.getElementById('intensityFactor');
-    const interpretation = document.getElementById('tssInterpretation');
+<section class="section section-gray">
+    <div class="container container-narrow">
+        <h2>Công thức TSS: Khoa học đằng sau con số</h2>
+        <p class="lead">TSS được tính bằng cách sử dụng ba biến số chính: thời gian, Công suất Chuẩn hóa và FTP của bạn.
+        </p>
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+        <div class="formula-box">
+            <h3>Công thức TSS Đầy đủ</h3>
+            <div class="formula">
+                TSS = (s × NP × IF) / (FTP × 3600) × 100
+            </div>
+            <div class="formula-explanation">
+                <p>Trong đó:</p>
+                <ul>
+                    <li><strong>s</strong> = Thời lượng chuyến đi tính bằng giây</li>
+                    <li><strong>NP</strong> = <a href="/vi/power-metrics/">Công suất Chuẩn hóa</a> (watts)</li>
+                    <li><strong>IF</strong> = Hệ số Cường độ (NP / FTP)</li>
+                    <li><strong>FTP</strong> = Công suất Ngưỡng Chức năng (watts)</li>
+                </ul>
+            </div>
 
-        // Clear previous errors
-        document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+            <h3 class="mt-lg">Công thức Rút gọn (Được sử dụng bởi máy tính này):</h3>
+            <div class="formula">
+                TSS = (IF)² × thời lượng (giờ) × 100
+            </div>
+            <p class="text-secondary mt-sm">Công thức rút gọn này cho kết quả tương đương và dễ tính toán thủ công hơn.
+            </p>
+        </div>
 
-        // Get values
-        const ftp = parseFloat(ftpInput.value);
-        const duration = parseFloat(durationInput.value);
-        const np = parseFloat(npInput.value);
+        <div class="callout callout-info mt-xl">
+            <h3>Tại sao Công thức lại có Bình phương?</h3>
+            <p>Việc nâng <strong>Hệ số Cường độ (IF)</strong> lên bình phương là rất quan trọng vì căng thẳng sinh lý
+                không tăng theo đường thẳng với cường độ. Đạp xe ở mức nỗ lực gấp đôi không chỉ gây căng thẳng gấp đôi
+                cho cơ thể; thực tế nó gây căng thẳng gấp bốn lần (2²). Điều này phản ánh chính xác chi phí trao đổi
+                chất tăng vọt khi bạn di chuyển từ các vùng hiếu khí lên các vùng kỵ khí.</p>
+        </div>
+    </div>
+</section>
 
-        // Validation
-        let hasError = false;
+<section class="section">
+    <div class="container container-narrow">
+        <h2>Hiểu về các Thành phần: IF và NP</h2>
 
-        if (!ftp || ftp < 50 || ftp > 600) {
-            document.getElementById('ftp-error').textContent = 'Please enter FTP between 50-600W';
-            hasError = true;
-        }
+        <div class="grid grid-2 mt-lg">
+            <div class="comparison-card">
+                <h3><a href="/vi/power-metrics/">Công suất Chuẩn hóa (NP)</a></h3>
+                <p>Công suất trung bình (Average Power) thường đánh giá thấp cái giá sinh lý của chuyến đi khi cường độ
+                    thay đổi thường xuyên (như trong đua xe hoặc đạp xe địa hình). NP sử dụng một thuật toán tính đến
+                    các phản ứng sinh lý đối với các đợt bứt tốc đột ngột, mang lại một "chi phí thực tế" của nỗ lực đó.
+                </p>
+                <div class="callout callout-tip mt-md">
+                    <strong>Ví dụ:</strong> Một chuyến đi có công suất trung bình 200W nhưng biến động nhiều có thể có
+                    NP là 230W. TSS của bạn sẽ dựa trên con số 230W cao hơn này.
+                </div>
+            </div>
 
-        if (!duration || duration < 1 || duration > 720) {
-            document.getElementById('duration-error').textContent = 'Please enter duration between 1-720 minutes';
-            hasError = true;
-        }
+            <div class="comparison-card">
+                <h3>Hệ số Cường độ (IF)</h3>
+                <p>IF đơn giản là tỷ lệ giữa Công suất Chuẩn hóa của bạn so với FTP của bạn (NP / FTP). Nó cho biết
+                    chuyến đi đó "nặng" như thế nào so với khả năng tối đa của bạn.</p>
+                <ul>
+                    <li><strong>IF < 0.75:</strong> Chuyến đi phục hồi hoặc bền bỉ nhẹ</li>
+                    <li><strong>IF 0.75-0.85:</strong> Buổi tập bền bỉ tích cực</li>
+                    <li><strong>IF 0.85-0.95:</strong> Bài tập Tempo hoặc Ngưỡng</li>
+                    <li><strong>IF 0.95-1.05:</strong> Chặng đua tính giờ 1 giờ hoặc bài tập cường độ cao</li>
+                    <li><strong>IF > 1.05:</strong> Thường là các cuộc đua ngắn, cường độ rất cao hoặc các tiêu chí bứt
+                        tốc</li>
+                </ul>
+            </div>
+        </div>
 
-        if (!np || np < 10 || np > 800) {
-            document.getElementById('np-error').textContent = 'Please enter Normalized Power between 10-800W';
-            hasError = true;
-        }
+        <div class="callout callout-warning mt-xl">
+            <h3>⚠️ Lưu ý về FTP</h3>
+            <p>Bởi vì FTP nằm trong mẫu số của cả IF và TSS, nên một giá trị FTP không chính xác sẽ làm sai lệch toàn bộ
+                dữ liệu khối lượng tập luyện của bạn. Nếu FTP của bạn được thiết lập quá thấp, TSS sẽ bị phóng đại một
+                cách sai lầm. Hãy đảm bảo bạn <a href="/vi/ftp/">kiểm tra FTP định kỳ</a> mỗi 6-8 tuần.</p>
+        </div>
+    </div>
+</section>
 
-        if (hasError) {
-            results.classList.add('hidden');
-            return;
-        }
+<section class="section section-gray">
+    <div class="container container-narrow">
+        <h2>Phân loại TSS: Chuyến đi của bạn nặng đến mức nào?</h2>
+        <p class="lead">Hiểu được ý nghĩa của các giá trị TSS khác nhau giúp bạn lập kế hoạch phục hồi và tránh tập
+            luyện quá sức.</p>
 
-        // Calculate TSS
-        const durationSeconds = duration * 60;
-        const durationHours = duration / 60;
-        const IF = np / ftp;
-        const tss = (durationSeconds * np * IF) / (ftp * 3600) * 100;
+        <div class="tss-levels">
+            <div class="tss-level-item">
+                <div class="tss-range">
+                    < 50 TSS</div>
+                        <div class="tss-category">Rất Thấp / Phục hồi</div>
+                        <p>Thường là các buổi đạp xe phục hồi tích cực hoặc di chuyển nhẹ nhàng. Gây ra rất ít sự mệt
+                            mỏi; cơ thể bạn sẽ cảm thấy sung sức hơn vào ngày hôm sau.</p>
+                </div>
 
-        // Display results
-        tssValue.textContent = Math.round(tss);
-        intensityFactor.textContent = IF.toFixed(3);
+                <div class="tss-level-item">
+                    <div class="tss-range">50 - 150 TSS</div>
+                    <div class="tss-category">Trung bình</div>
+                    <p>Các buổi tập bền bỉ điển hình từ 1-2 giờ. Gây ra sự mệt mỏi dư thừa ở mức độ vừa phải; bạn có thể
+                        cảm thấy hơi đuối nhưng sẽ phục hồi hoàn toàn sau một đêm ngủ ngon.</p>
+                </div>
 
-        // Interpretation
-        let interpretText = '';
-        if (tss < 50) {
-            interpretText = 'Easy recovery ride - Low training stress, minimal recovery needed.';
-        } else if (tss < 100) {
-            interpretText = 'Easy endurance ride - Moderate training load, good for aerobic base building.';
-        } else if (tss < 150) {
-            interpretText = 'Moderate endurance ride - Solid training stimulus, 1 day recovery recommended.';
-        } else if (tss < 200) {
-            interpretText = 'Tempo/Sweet spot workout - Hard training load, 1-2 days recovery needed.';
-        } else if (tss < 300) {
-            interpretText = 'Threshold workout or long hard ride - Very hard training load, 2-3 days recovery required.';
-        } else {
-            interpretText = 'Extreme workout or race effort - Extreme training stress, 3+ days recovery essential.';
-        }
+                <div class="tss-level-item">
+                    <div class="tss-range">150 - 300 TSS</div>
+                    <div class="tss-category">Cao</div>
+                    <p>Các chuyến đi nhóm dài, bài tập ngưỡng nặng hoặc đường trường đua. Sự mệt mỏi dư thừa có khả năng
+                        còn tồn tại sau 24 giờ. Cần một ngày phục hồi hoặc đạp xe rất nhẹ sau đó.</p>
+                </div>
 
-        interpretation.textContent = interpretText;
+                <div class="tss-level-item">
+                    <div class="tss-range">300 - 450 TSS</div>
+                    <div class="tss-category">Rất Cao / Khắc nghiệt</div>
+                    <p>Các chặng đua đường trường dài hoặc các sự kiện đạp xe cả ngày (century rides). Gây ra sự mệt mỏi
+                        sâu sắc có thể kéo dài nhiều ngày. Cơ thể bạn có thể suy giảm hiệu suất trong 48-72 giờ tới.</p>
+                </div>
 
-        // Show results
-        results.classList.remove('hidden');
-        results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
+                <div class="tss-level-item">
+                    <div class="tss-range">> 450 TSS</div>
+                    <div class="tss-category">Epic / Cực độ</div>
+                    <p>Các cuộc đua siêu bền kéo dài nhiều ngày hoặc các chuyến thám hiểm cực độ. Sự mệt mỏi có thể kéo
+                        dài ít nhất 1 tuần. Nguy cơ tập luyện quá sức cao nếu không có kế hoạch phục hồi bài bản.</p>
+                </div>
+            </div>
+        </div>
+</section>
 
-    form.addEventListener('reset', function() {
-        results.classList.add('hidden');
-        document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
-    });
-});
-</script>
+<section class="section section-alt">
+    <div class="container container-narrow">
+        <h2>Sử dụng TSS để Quản lý Hiệu suất</h2>
+        <p class="lead">TSS chỉ là khởi đầu. Bằng cách theo dõi TSS tích lũy theo thời gian, bạn có thể mô hình hóa thể
+            lực và sự mệt mỏi của mình.</p>
+
+        <div class="grid grid-3 mt-lg">
+            <div class="metric-card">
+                <h3>CTL</h3>
+                <div class="metric-label">Mức Tải Tập luyện Mãn tính</div>
+                <div class="metric-alias">"Thể lực"</div>
+                <p>Trung bình TSS của bạn trong 42 ngày qua. Cho biết khả năng chịu đựng khối lượng tập luyện của bạn.
+                </p>
+            </div>
+            <div class="metric-card">
+                <h3>ATL</h3>
+                <div class="metric-label">Mức Tải Tập luyện Cấp tính</div>
+                <div class="metric-alias">"Mệt mỏi"</div>
+                <p>Trung bình TSS của bạn trong 7 ngày qua. Cho biết mức độ căng thẳng mà bạn đã phải chịu trong thời
+                    gian gần đây.</p>
+            </div>
+            <div class="metric-card">
+                <h3>TSB</h3>
+                <div class="metric-label">Cân bằng Căng thẳng Tập luyện</div>
+                <div class="metric-alias">"Phong độ"</div>
+                <p><strong>CTL trừ đi ATL</strong>. Cho biết bạn đã phục hồi tốt như thế nào và sẵn sàng cho một nỗ lực
+                    tối đa hay chưa.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-success mt-xl">
+            <h3>🎯 Tìm kiếm "Điểm Vàng"</h3>
+            <p>Phần lớn việc tối ưu hóa hiệu suất là giữ <strong>TSB (Phong độ)</strong> ở mức phù hợp tại đúng thời
+                điểm:</p>
+            <ul>
+                <li><strong>Để Tập luyện:</strong> Duy trì TSB trong khoảng -10 đến -30 (bạn đang mệt mỏi một cách hiệu
+                    quả để xây dựng thể lực).</li>
+                <li><strong>Để Đua:</strong> Giảm khối lượng tập luyện (taper) để đưa TSB về mức dương +5 đến +15 vào
+                    ngày đua (bạn đang sung sức và đã phục hồi).</li>
+                <li><strong>Để Tránh Chấn thương:</strong> Tránh để TSB giảm xuống dưới -30 trong thời gian dài.</li>
+            </ul>
+            <p><a href="/vi/training-load/">Tìm hiểu thêm về cách quản lý CTL, ATL và TSB →</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="container container-narrow">
+        <h2>Xác thực Khoa học của TSS</h2>
+
+        <div class="research-highlight">
+            <h3>Coggan (2003) - Giới thiệu về Training Stress Score</h3>
+            <p>Tiến sĩ Andrew Coggan đã giới thiệu TSS như một phương pháp vượt trội so với các hệ thống dựa trên nhịp
+                tim truyền thống của Banister (TRIMP), vốn thường đánh giá không đúng các nỗ lực cường độ cao:</p>
+
+            <ul class="research-findings">
+                <li><strong>Mô hình hóa chính xác:</strong> Việc sử dụng lũy thừa bậc 4 trong NP (vốn được dùng để tính
+                    TSS) phản ánh chính xác các phản ứng sinh lý (sản sinh lactate) hơn là các mô hình tuyến tính.</li>
+                <li><strong>Tính nhất quán cao:</strong> TSS cung cấp một "đơn vị căng thẳng" có thể so sánh được giữa
+                    các bài tập khác nhau (ví dụ: bứt tốc ngắn so với đạp xe bền lâu).</li>
+                <li><strong>Tương quan thực tế:</strong> CTL (dựa trên TSS) có mối tương quan mạnh mẽ (r = 0.82) với
+                    hiệu suất đua thực tế.</li>
+            </ul>
+        </div>
+
+        <div class="research-highlight mt-lg">
+            <h3>Wallace et al. (2014) - So sánh TSS và TRIMP trong Đua xe Chuyên nghiệp</h3>
+            <p>Nghiên cứu trên các vận động viên chuyên nghiệp cho thấy TSS là công cụ dự đoán tốt nhất về sự thay đổi
+                trong VO₂max và công suất ngưỡng lactate:</p>
+
+            <ul class="research-findings">
+                <li><strong>Độ nhạy cao:</strong> TSS phát hiện các thay đổi nhỏ trong khối lượng tập luyện mà hệ thống
+                    dựa trên nhịp tim thường bỏ lỡ do hiện tượng trễ nhịp tim.</li>
+                <li><strong>Quản lý quá tải:</strong> TSB (phái sinh từ TSS) dự báo chính xác các giai đoạn suy giảm
+                    miễn dịch do tập luyện quá sức.</li>
+            </ul>
+
+            <div class="citation">
+                <p><strong>Nguồn:</strong> Wallace, L.K., et al. (2014). "The Relationship Between Internal and External
+                    Training Load Models During an 8-Week Training Period" <em>International Journal of Sports
+                        Physiology and Performance</em>.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-science mt-lg">
+            <h3>🔬 Tại sao TSS lại Chính xác</h3>
+            <p>TSS thành công vì nó kết hợp cả <strong>Khối lượng bài tập (Tải ngoại lực - Công suất)</strong> và
+                <strong>Tải trọng sinh lý (Tải nội lực)</strong> vào một chỉ số duy nhất. Bằng cách sử dụng FTP làm mẫu
+                số, nó tự động bình thường hóa dữ liệu dựa trên khả năng hiện tại của cá nhân. Điều này có nghĩa là "100
+                TSS" có ý nghĩa sinh lý tương tự đối với một nhà vô địch Tour de France và một người đạp xe giải trí,
+                mặc dù mức công suất tuyệt đối của họ khác nhau rất xa.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container-narrow">
+        <h2 class="mt-3xl text-center">Các câu hỏi thường gặp về TSS</h2>
+
+        <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">TSS trong đạp xe là gì?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>TSS (Điểm Căng thẳng Tập luyện) là một chỉ số định lượng khối lượng tập luyện bằng cách kết
+                            hợp thời lượng chuyến đi và cường độ nỗ lực so với <a href="/vi/ftp/">Công suất
+                                Ngưỡng Chức năng (FTP)</a> của bạn. 100 TSS tương đương với nỗ lực hết mình trong một
+                            giờ ở mức FTP. Nó cho phép bạn so sánh chính xác mức độ "nặng" của các buổi tập khác nhau.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Làm cách nào để tính TSS cho chuyến đi của tôi?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Công thức cơ bản nhất là: <strong>TSS = (Hệ số Cường độ)² × Thời lượng (giờ) × 100</strong>.
+                            Trong đó Hệ số Cường độ (IF) = Công suất Chuẩn hóa / FTP. Nếu bạn không muốn tính toán thủ
+                            công, Bike Analytics sẽ tự động làm việc này cho bạn ngay khi có dữ liệu công suất hoặc nhịp
+                            tim.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Một chuyến đi "tốt" nên có bao nhiêu TSS?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Không có một con số "tốt" cố định; nó phụ thuộc vào mục tiêu và mức độ thể lực hiện tại của
+                            bạn. Tuy nhiên, một buổi tập chất lượng thường nằm trong khoảng 70-150 TSS. Các chuyến đi
+                            cuối tuần dài có thể đạt 200-300 TSS. Quan trọng nhất là TSS tích lũy hàng tuần của bạn phải
+                            tăng dần (progressive overload) để cải thiện thể lực và giảm xuống (taper) để phục hồi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Tôi có thể đạt được bao nhiêu TSS trong một tuần?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Hầu hết những người đạp xe giải trí và thi đấu phong trào duy trì ổn định trong khoảng
+                            300-700 TSS mỗi tuần. Các vận động viên chuyên nghiệp có thể đạt tới 1000-1500 TSS/tuần
+                            trong các trại tập luyện cường độ cao. Một quy tắc an toàn là không nên tăng TSS hàng tuần
+                            của bạn quá 10% so với trung bình của 4 tuần trước đó để tránh chấn thương và kiệt sức.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">TSS có giống với lượng calo tiêu thụ không?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Không. Calo đo lường năng lượng tiêu hao về mặt vật lý, trong khi TSS đo lường sự căng thẳng
+                            sinh lý đối với các cơ quan và hệ thống trong cơ thể. Một chuyến đi nước rút cực ngắn, cường
+                            độ rất cao có thể tạo ra TSS cao nhưng calo thấp, vì nó gây mệt mỏi hệ thần kinh sâu sắc mặc
+                            dù thời gian hoạt động ngắn.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Làm cách nào để tính TSS nếu tôi không có thiết bị đo công suất?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">
+                        <p>Bạn có thể sử dụng <strong>hrTSS (Heart Rate TSS)</strong>. Bike Analytics sẽ ước tính TSS
+                            dựa trên nhịp tim của bạn và thời gian ở các vùng nhịp tim khác nhau. Mặc dù hrTSS không
+                            phản ánh được các nỗ lực bứt tốc cực ngắn (dưới 30 giây) do hiện tượng trễ nhịp tim, nhưng
+                            nó cực kỳ chính xác cho các buổi đạp xe bền vững và tập luyện đường dài.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout mt-lg">
+            <h3>Các bước Tiếp theo để Tối ưu hóa Tập luyện</h3>
+            <ul>
+                <li><a href="/vi/training-load/">Tìm hiểu cách sử dụng TSS để theo dõi CTL, ATL và TSB</a> (Thể
+                    lực, Mệt mỏi và Phong độ).</li>
+                <li><a href="/vi/ftp/">Đảm bảo FTP của bạn chính xác</a> để dữ liệu TSS của bạn có ý nghĩa.</li>
+                <li><a href="/vi/training-zones/">Khám phá các Vùng Tập luyện Công suất</a> để biết cách tạo ra
+                    TSS hiệu quả nhất.</li>
+                <li><a href="/vi/">Tải Bike Analytics</a> để tự động hóa toàn bộ việc theo dõi khối lượng tập
+                    luyện của bạn.</li>
+            </ul>
+        </div>
+
+        <div class="mt-xl text-center">
+            <a href="/vi/training-load/" class="btn btn-primary">Tìm hiểu về Quản lý Hiệu suất →</a>
+            <a href="/vi/ftp/" class="btn btn-secondary">Kiểm tra FTP của Bạn →</a>
+        </div>
+    </div>
+</section>
   </main>
 
   

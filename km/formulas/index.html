@@ -1046,7 +1046,7 @@ img[width][height] {
     <section class="page-hero">
 <div class="container">
 <h1>រូបមន្តថាមពលជិះកង់</h1>
-<p class="lead">មូលដ្ឋានគ្រឹះគណិតវិទ្យានៃ Bike Analytics Metrics</p>
+<p class="lead">មូលដ្ឋានគ្រឹះគណិតវិទ្យានៃម៉ែត្រវិភាគកង់</p>
 </div>
 </section>
 <section class="section">
@@ -1054,13 +1054,13 @@ img[width][height] {
 <h2>ការណែនាំអំពីការអនុវត្ត</h2>
 <p class="lead">ទំព័រនេះផ្តល់នូវរូបមន្តចម្លងបិទភ្ជាប់ និងវិធីសាស្ត្រគណនាជាជំហានៗសម្រាប់រង្វាស់ Bike Analytics ទាំងអស់។ ប្រើវាសម្រាប់ការអនុវត្តផ្ទាល់ខ្លួន ការផ្ទៀងផ្ទាត់ ឬការយល់ដឹងកាន់តែស៊ីជម្រៅអំពីការបណ្តុះបណ្តាលផ្អែកលើថាមពល។</p>
 <div class="callout callout-warning">
-<h3>⚠️ កំណត់ចំណាំការអនុវត្ត</h3>
+<h3>⚠️ កំណត់ចំណាំនៃការអនុវត្ត</h3>
 <ul>
 <li>តម្លៃថាមពលទាំងអស់គិតជាវ៉ាត់ (W) ពេលវេលាគិតជាវិនាទី លុះត្រាតែបានបញ្ជាក់</li>
-<li>FTP និង CP គឺ​ជា​កម្រិត​កំណត់​លក្ខណៈ​បុគ្គល—មិន​មាន​តម្លៃ​សកល</li>
-<li>តែងតែធ្វើឱ្យធាតុចូលមានសុពលភាពសម្រាប់ជួរសមហេតុផល (0-2000W ធម្មតា)</li>
-<li>ដោះស្រាយករណីគែម (ចែកដោយសូន្យ អំណាចអវិជ្ជមាន)</li>
-<li>ទិន្នន័យថាមពលទាមទារចន្លោះពេលថត 1 វិនាទីសម្រាប់ភាពត្រឹមត្រូវ</li>
+<li>FTP and CP are individual-specific thresholds—no universal values</li>
+<li>Always validate inputs for reasonable ranges (0-2000W typical)</li>
+<li>Handle edge cases (division by zero, negative power)</li>
+<li>ទិន្នន័យថាមពលត្រូវការចន្លោះពេលថត 1 វិនាទីសម្រាប់ភាពត្រឹមត្រូវ</li>
 </ul>
 </div>
 </div>
@@ -1069,7 +1069,7 @@ img[width][height] {
 <div class="container">
 <h2>រង្វាស់នៃការអនុវត្តស្នូល</h2>
 <div class="formula-card">
-<h3>1. Training Stress Score (TSS)</h3>
+<h3>1. ពិន្ទុស្ត្រេសបណ្តុះបណ្តាល (TSS)</h3>
 <div class="formula-content">
 <h4>រូបមន្ត៖</h4>
 <div class="formula-box-large">
@@ -1080,15 +1080,15 @@ img[width][height] {
 <div class="example-box">
 <p><strong>សេណារីយ៉ូ៖</strong>ជិះ 2 ម៉ោង NP = 235W, FTP = 250W</p>
 <ol>
-<li>គណនា IF៖ IF=235/250=0.94</li>
+<li>Calculate IF: IF = 235 / 250 = 0.94</li>
 <li>Duration in seconds: 2 hours × 3600 = 7200 seconds</li>
-<li>TSS= (7200 × 235 × 0.94) / (250 × 3600) × 100</li>
+<li>TSS = (7200 × 235 × 0.94) / (250 × 3600) × 100</li>
 <li>TSS= 1,590,720 / 900,000 × 100 =<strong>176.7 TSS</strong></li>
 </ol>
 <p><em>ការបកស្រាយ៖ ជិះហ្វឹកហាត់ខ្លាំង (&gt;150 TSS) រំពឹងថានឹងជាសះស្បើយពី 2 ទៅ 3 ថ្ងៃ</em></p>
 </div>
 <h4>ការអនុវត្ត JavaScript៖</h4>
-<pre><code>មុខងារគណនាTSS(រយៈពេលវិនាទី, normalizedPower, ftp) {
+<pre><code>function calculateTSS(durationSeconds, normalizedPower, ftp) {
   const intensityFactor = normalizedPower / ftp;
   const tss = (durationSeconds * normalizedPower * intensityFactor) / (ftp * 3600) * 100;
   ត្រឡប់ Math.round(tss);
@@ -1102,23 +1102,23 @@ const tss = គណនាTSS(7200, 235, 250);
 <div class="formula-card">
 <h3>2. ថាមពលធម្មតា (NP)</h3>
 <div class="formula-content">
-<h4>ក្បួនដោះស្រាយ (ជាមធ្យមរំកិល 30 វិនាទី):</h4>
+<h4>ក្បួនដោះស្រាយ (ជាមធ្យមរំកិល 30 វិនាទី)៖</h4>
 <div class="formula-box-large">
-<div class="formula">1. គណនាថាមពលមធ្យមវិលជុំ 30 វិនាទីសម្រាប់ការជិះទាំងមូល</div>
+<div class="formula">1. គណនាថាមពលរំកិលជាមធ្យម 30 វិនាទីសម្រាប់ការជិះទាំងមូល</div>
 <div class="formula">2. បង្កើនតម្លៃ 30 វិនាទីនីមួយៗទៅថាមពលទី 4</div>
 <div class="formula">3. យកជាមធ្យមនៃតម្លៃ ^4 ទាំងអស់នេះ</div>
-<div class="formula">4. យកឫសទី 4 នៃមធ្យមភាគនោះ</div>
+<div class="formula">4. យកឫសទី 4 នៃមធ្យមភាគនោះ។</div>
 <div class="formula">NP = ⁴√(ជាមធ្យមនៃ [30s_avg^4])</div>
 </div>
 <h4>ហេតុអ្វីបានជាអំណាចទី 4?</h4>
-<p>ទំនាក់ទំនង quartic (អំណាចទី 4) ឆ្លុះបញ្ចាំងពីការចំណាយខាងសរីរវិទ្យាដែលមិនមែនជាលីនេអ៊ែរនៃកិច្ចខិតខំប្រឹងប្រែងអថេរ។ ការជិះដែលមានការកើនឡើង និងការងើបឡើងវិញចំណាយថាមពលច្រើនជាងថាមពលថេរនៅមធ្យមដូចគ្នា។</p>
+<p>The quartic (4th power) relationship reflects the non-linear physiological cost of variable efforts. A ride with surges and recoveries costs more energy than steady power at the same average.</p>
 <div class="example-box">
 <p><strong>ឧទាហរណ៍៖</strong></p>
 <ul>
-<li>ជិះថេរៈ 200W រយៈពេល 1 ម៉ោង → NP = 200W, មធ្យម = 200W</li>
-<li>ការជិះអថេរ៖ ឆ្លាស់គ្នា 300W/100W → មធ្យម = 200W, NP = 225W</li>
+<li>Steady ride: 200W for 1 hour → NP = 200W, Average = 200W</li>
+<li>Variable ride: Alternating 300W/100W → Average = 200W, NP = 225W</li>
 </ul>
-<p><em>ថាមពលមធ្យមដូចគ្នា ប៉ុន្តែការជិះអថេរមាន NP ខ្ពស់ជាង 12% ដោយសារតម្លៃសរីរវិទ្យានៃការកើនឡើង</em></p>
+<p><em>Same average power, but variable ride has 12% higher NP due to physiological cost of surges</em></p>
 </div>
 <h4>ការអនុវត្ត JavaScript៖</h4>
 <pre><code>មុខងារគណនាNormalizedPower(powerData) {
@@ -1157,45 +1157,45 @@ const np = គណនាNormalizedPower(powerData);
 <div class="formula-box-large">
 <div class="formula">IF = NP / FTP</div>
 </div>
-<h4>ជួរការបកស្រាយ៖</h4>
+<h4>ជួរបកស្រាយ៖</h4>
 <table class="data-table">
 <tr>
 <th>IF ជួរ</th>
 <th>កម្រិតនៃការខិតខំប្រឹងប្រែង</th>
-<th>ឧទាហរណ៍ការហាត់ប្រាណ</th>
+<th>ឧទាហរណ៍លំហាត់</th>
 </tr>
 <tr>
 <td>&lt; 0.75</td>
 <td>ការងើបឡើងវិញ / ងាយស្រួល</td>
-<td>ជិះស្តារឡើងវិញសកម្ម តំបន់ 1-2</td>
+<td>Active recovery ride, Zone 1-2</td>
 </tr>
 <tr>
 <td>0.75 - 0.85</td>
-<td>ស៊ូទ្រាំ</td>
-<td>ជិះ​យូរ​មិន​ឈប់​, មូលដ្ឋាន​អេ​រ៉ូ​ប៊ី​ក</td>
+<td>ការស៊ូទ្រាំ</td>
+<td>ការ​ជិះ​ស្ថិ​ត​យូរ​, មូលដ្ឋាន​អេ​រ៉ូ​ប៊ី​</td>
 </tr>
 <tr>
 <td>0.85 - 0.95</td>
 <td>Tempo</td>
-<td>Sweet spot training, tempo intervals</td>
+<td>ការបណ្តុះបណ្តាលកន្លែងផ្អែម ចន្លោះពេល</td>
 </tr>
 <tr>
 <td>0.95 - 1.05</td>
 <td>កម្រិត</td>
-<td>FTP ចន្លោះពេល ការព្យាយាមសាកល្បងពេលវេលា</td>
+<td>FTP ចន្លោះពេល ការប្រឹងប្រែងសាកល្បងពេលវេលា</td>
 </tr>
 <tr>
 <td>1.05 - 1.15</td>
 <td>VO₂max</td>
-<td>ចន្លោះពេល 5 នាទី ការប្រណាំងលក្ខណៈវិនិច្ឆ័យ</td>
+<td>ចន្លោះពេល 5 នាទី ការប្រណាំងតាមលក្ខណៈវិនិច្ឆ័យ</td>
 </tr>
 <tr>
 <td>&gt; 1.15</td>
-<td>អាអេរ៉ូប៊ីក</td>
-<td>រត់ខ្លី វាយប្រហារ MTB ផ្ទុះ</td>
+<td>អាណាអេរ៉ូប៊ីក</td>
+<td>ការរត់ខ្លី ការវាយប្រហារ ការផ្ទុះ MTB</td>
 </tr>
 </table>
-<h4>ឧទាហរណ៍ការគណនា៖</h4>
+<h4>ការគណនាឧទាហរណ៍៖</h4>
 <div class="example-box">
 <p><strong>សេណារីយ៉ូ៖</strong>NP = 235W, FTP = 250W</p>
 <p>IF = 235 / 250 =<strong>0.94</strong></p>
@@ -1207,7 +1207,7 @@ const np = គណនាNormalizedPower(powerData);
 
 // ឧទាហរណ៍៖
 const if_value = គណនាIF(235, 250);
-// ត្រឡប់៖ 0.94</code></pre>
+// ត្រឡប់: 0.94</code></pre>
 </div>
 </div>
 <div class="formula-card">
@@ -1217,55 +1217,55 @@ const if_value = គណនាIF(235, 250);
 <div class="formula-box-large">
 <div class="formula">VI = NP / ថាមពលមធ្យម</div>
 </div>
-<h4>បកស្រាយដោយ ព្រះវិន័យបិដកៈ</h4>
+<h4>បកស្រាយ​ដោយ​វិន័យៈ</h4>
 <table class="data-table">
 <tr>
 <th>វិន័យ</th>
-<th>និស្ស័យ VI</th>
+<th>ធម្មតា VI</th>
 <th>អត្ថន័យ</th>
 </tr>
 <tr>
-<td>ផ្លូវ TT / ការខិតខំប្រឹងប្រែងថេរ</td>
+<td>ផ្លូវ TT / កិច្ចខិតខំប្រឹងប្រែងស្ថិរភាព</td>
 <td>1.00 - 1.05</td>
 <td>ថាមពលជាប់លាប់ខ្លាំង ល្បឿនល្អបំផុត</td>
 </tr>
 <tr>
-<td>ការប្រណាំងលើផ្លូវ</td>
+<td>ការប្រណាំងផ្លូវ</td>
 <td>1.05 - 1.10</td>
 <td>ការកើនឡើងខ្លះ ជាទូទៅមានស្ថិរភាព</td>
 </tr>
 <tr>
-<td>លក្ខណៈវិនិច្ឆ័យ</td>
+<td>Criterium</td>
 <td>1.10 - 1.20</td>
 <td>ការបង្កើនល្បឿន និងការវាយប្រហារញឹកញាប់</td>
 </tr>
 <tr>
-<td>Mountain Bike XC</td>
+<td>កង់ភ្នំ XC</td>
 <td>1.15 - 1.30+</td>
 <td>អថេរខ្ពស់ ការកើនឡើងថេរ</td>
 </tr>
 </table>
-<h4>ឧទាហរណ៍ការគណនា៖</h4>
+<h4>ការគណនាឧទាហរណ៍៖</h4>
 <div class="example-box">
-<p><strong>ការប្រណាំងលើផ្លូវ៖</strong>NP = 240W, ថាមពលជាមធ្យម = 230W</p>
-<p>VI = 240 / 230 =<strong>១.០៤</strong>(ល្បឿនថេរ)</p>
+<p><strong>ការប្រណាំងផ្លូវ៖</strong>NP = 240W, ថាមពលជាមធ្យម = 230W</p>
+<p>VI = 240/230 =<strong>1.04</strong>(ល្បឿនថេរ)</p>
 <p><strong>ការប្រណាំង MTB៖</strong>NP = 285W, ថាមពលជាមធ្យម = 235W</p>
-<p>VI = 285 / 235 =<strong>១.២១</strong>(អថេរខ្លាំង ខំប្រឹងផ្ទុះ)</p>
+<p>VI = 285/235 =<strong>១.២១</strong>(ប្រែប្រួលខ្លាំង ការប្រឹងប្រែងផ្ទុះឡើង)</p>
 </div>
-<pre><code>មុខងារគណនាVI(normalizedPower, averagePower) {
-  ត្រឡប់ (normalizedPower / averagePower).toFixed(2);
+<pre><code>function calculateVI(normalizedPower, averagePower) {
+  return (normalizedPower / averagePower).toFixed(2);
 }
 
 // ឧទាហរណ៍៖
 const vi_road = គណនាVI(240, 230);  // ត្រឡប់: 1.04
-const vi_mtb = គណនាVI(285, 235);   // ត្រឡប់៖ 1.21</code></pre>
+const vi_mtb = គណនាVI(285, 235);   // ត្រឡប់: 1.21</code></pre>
 </div>
 </div>
 </div>
 </section>
 <section class="section">
 <div class="container">
-<h2>ថាមពលសំខាន់ &amp; W' (សមត្ថភាពអាណាអេរ៉ូប៊ីក)</h2>
+<h2>ថាមពលសំខាន់ &amp; W' (សមត្ថភាព Anaerobic)</h2>
 <div class="formula-card">
 <h3>5. អំណាចសំខាន់ (CP) - គំរូលីនេអ៊ែរ</h3>
 <div class="formula-content">
@@ -1275,40 +1275,40 @@ const vi_mtb = គណនាVI(285, 235);   // ត្រឡប់៖ 1.21</code><
 <div class="formula">រៀបចំឡើងវិញ៖ ថាមពល × ពេលវេលា = CP × ពេលវេលា + W'</div>
 </div>
 <h4>ការគណនាពីការខិតខំប្រឹងប្រែងច្រើន៖</h4>
-<p>តម្រូវ​ឱ្យ​មាន​ការ​ខិត​ខំ​អតិបរមា 2-4 នៅ​ក្នុង​រយៈពេល​ផ្សេង​គ្នា (ឧ. 3, 5, 12, 20 នាទី)</p>
+<p>តម្រូវ​ឱ្យ​មាន​ការ​ខិត​ខំ​អតិបរមា 2-4 នៅ​ក្នុង​រយៈ​ពេល​ផ្សេង​គ្នា (ឧ. 3, 5, 12, 20 នាទី)</p>
 <div class="example-box">
 <p><strong>ឧទាហរណ៍ទិន្នន័យ៖</strong></p>
 <table class="data-table">
 <tr>
 <th>រយៈពេល</th>
-<th>អំណាច (W)</th>
+<th>ថាមពល (W)</th>
 <th>ការងារសរុប (kJ)</th>
 </tr>
 <tr>
-<td>3 នាទី (180s)</td>
+<td>3 នាទី (180 វិនាទី)</td>
 <td>400W</td>
 <td>72 kJ</td>
 </tr>
 <tr>
-<td>5 នាទី (300s)</td>
-<td>365W</td>
+<td>5 នាទី (300 វិ)</td>
+<td>365 វ៉</td>
 <td>109.5 kJ</td>
 </tr>
 <tr>
-<td>12 នាទី (720s)</td>
+<td>12 នាទី (720 វិ)</td>
 <td>310W</td>
 <td>223.2 kJ</td>
 </tr>
 <tr>
-<td>20 នាទី (1200s)</td>
-<td>285W</td>
+<td>20 នាទី (1200 វិនាទី)</td>
+<td>285 វ៉</td>
 <td>342 kJ</td>
 </tr>
 </table>
-<p>ការប្រើប្រាស់តំរែតំរង់លីនេអ៊ែរ (ការងារ = CP × ពេលវេលា + W'):</p>
+<p>Using linear regression (Work = CP × Time + W'):</p>
 <ul>
 <li><strong>CP = 270W</strong>(ជម្រាលនៃបន្ទាត់តំរែតំរង់)</li>
-<li><strong>W' = 18.5 kJ</strong>(y-intercept)</li>
+<li><strong>W ' = 18.5 kJ</strong>(y-ស្ទាក់ចាប់)</li>
 </ul>
 </div>
 <h4>ការអនុវត្ត JavaScript៖</h4>
@@ -1318,7 +1318,7 @@ const vi_mtb = គណនាVI(285, 235);   // ត្រឡប់៖ 1.21</code><
   const times = efforts.map(e =&gt; e.duration);
   const work = efforts.map(e =&gt; e.power * e.duration / 1000); // kJ
 
-  // តំរែតំរង់លីនេអ៊ែរ៖ ការងារ = CP * ពេលវេលា + W'
+  // តំរែតំរង់លីនេអ៊ែរ៖ ការងារ = CP * ពេលវេលា + W '
   const n = efforts.length;
   const sumT = times.reduce((a, b) =&gt; a + b, 0);
   const sumW = work.reduce((a, b) =&gt; a + b, 0);
@@ -1347,7 +1347,7 @@ const លទ្ធផល = គណនាCP_Linear(កិច្ចខិតខំ�
 </div>
 </div>
 <div class="formula-card">
-<h3>6. W' តុល្យភាព (W'bal) - គំរូសមីការឌីផេរ៉ង់ស្យែល</h3>
+<h3>6. W' Balance (W'bal) - Differential Equation Model</h3>
 <div class="formula-content">
 <h4>រូបមន្ត៖</h4>
 <div class="formula-box-large">
@@ -1357,68 +1357,68 @@ const លទ្ធផល = គណនាCP_Linear(កិច្ចខិតខំ�
 <strong>ការងើបឡើងវិញ (នៅពេល P &lt; CP):</strong><br/>W'rec(t) = W' × (1 - e^(-t/τ))</div>
 <div class="formula">ដែល τ = 546 × e^(-0.01 × ΔCP) + 316<br/>និង ΔCP = (CP - P(t))</div>
 </div>
-<h4>ឧទាហរណ៍ជាក់ស្តែង៖</h4>
+<h4>ឧទាហរណ៍នៃពិភពលោកពិត៖</h4>
 <div class="example-box">
-<p><strong>លក្ខណៈពិសេសរបស់អ្នកជិះកង់៖</strong>CP=270W, W'=18.5 kJ</p>
-<p><strong>សេណារីយ៉ូទី១ - ការវាយប្រហារខ្លាំង៖</strong></p>
+<p><strong>លក្ខណៈពិសេសរបស់អ្នកជិះកង់៖</strong>CP = 270W, W' = 18.5 kJ</p>
+<p><strong>សេណារីយ៉ូទី 1 - ការវាយប្រហារខ្លាំង៖</strong></p>
 <ul>
 <li>អ្នកជិះឡើងដល់ 400W រយៈពេល 30 វិនាទី</li>
-<li>W' ការចំណាយ៖ (400 - 270) × 30 = 3,900 J = 3.9 kJ</li>
-<li>W'bal នៅសល់៖ 18.5 - 3.9 =<strong>14.6 kJ</strong></li>
+<li>W' ចំណាយ៖ (400 - 270) × 30 = 3,900 J = 3.9 kJ</li>
+<li>W'bal នៅសល់: 18.5 - 3.9 =<strong>14.6 kJ</strong></li>
 </ul>
 <p><strong>សេណារីយ៉ូទី 2 - ការងើបឡើងវិញ៖</strong></p>
 <ul>
-<li>បន្ទាប់ពីការវាយប្រហារ ទម្លាក់ទៅ 200W (70W ខាងក្រោម CP) រយៈពេល 2 នាទី</li>
+<li>បន្ទាប់ពីការវាយប្រហារ ទម្លាក់ទៅ 200W (70W ក្រោម CP) រយៈពេល 2 នាទី។</li>
 <li>ΔCP = 270 - 200 = 70W</li>
 <li>τ = 546 × e^(-0.01 × 70) + 316 = 588 វិនាទី</li>
-<li>ការងើបឡើងវិញក្នុង 120s: 18.5 × (1 - e^(-120/588)) =<strong>3.5 kJ បានរកឃើញវិញ</strong></li>
-<li>ថ្មី W'bal: 14.6 + 3.5 =<strong>18.1 kJ</strong></li>
+<li>ការងើបឡើងវិញក្នុង 120s: 18.5 × (1 - e^(-120/588)) =<strong>3.5 kJ បានជាសះស្បើយ</strong></li>
+<li>W'bal ថ្មី: 14.6 + 3.5 =<strong>18.1 kJ</strong></li>
 </ul>
 </div>
 <h4>ការអនុវត្ត JavaScript៖</h4>
-<pre><code>មុខងារគណនាWbalance(powerData, CP, Wprime) {
-  // powerData = អារេនៃ {ពេលវេលា: វិនាទី, ថាមពល: វ៉ាត់}
-  អនុញ្ញាតឱ្យ wbal = Wprime * 1000; // បំប្លែងទៅជាជូល។
+<pre><code>function calculateWbalance(powerData, CP, Wprime) {
+  // powerData = array of {time: seconds, power: watts}
+  let wbal = Wprime * 1000; // Convert to joules
   const wbalHistory = [];
 
-  សម្រាប់ (អនុញ្ញាតឱ្យ i = 1; i &lt; powerData.length; i++) {
+  for (let i = 1; i &lt; powerData.length; i++) {
     const dt = powerData[i].time - powerData[i-1].time;
     const power = powerData[i].power;
 
-    ប្រសិនបើ (ថាមពល &gt; CP) {
-      // ការចំណាយខាងលើ CP
-      const expenditure = (អំណាច - CP) * dt;
-      wbal -= ចំណាយ;
-    } ផ្សេងទៀត {
-      // ការងើបឡើងវិញខាងក្រោម CP
-      const deltaCP = CP - ថាមពល;
+    if (power &gt; CP) {
+      // Expenditure above CP
+      const expenditure = (power - CP) * dt;
+      wbal -= expenditure;
+    } else {
+      // Recovery below CP
+      const deltaCP = CP - power;
       const tau = 546 * Math.exp(-0.01 * deltaCP) + 316;
-      ការងើបឡើងវិញ const = (Wprime * 1000 - wbal) * (1 - Math.exp(-dt / tau));
-      wbal += ការងើបឡើងវិញ;
+      const recovery = (Wprime * 1000 - wbal) * (1 - Math.exp(-dt / tau));
+      wbal += recovery;
     }
 
-    // ត្រូវប្រាកដថា W'bal មិនលើសពីអតិបរមា ឬអវិជ្ជមាន
+    // Ensure W'bal doesn't exceed max or go negative
     wbal = Math.max(0, Math.min(wbal, Wprime * 1000));
 
     wbalHistory.push({
-      ពេលវេលា៖ powerData[i].time,
+      time: powerData[i].time,
       wbal: wbal / 1000, // kJ
-      ភាគរយ៖ (wbal / (Wprime * 1000)) * 100
+      percent: (wbal / (Wprime * 1000)) * 100
     });
   }
 
-  ត្រឡប់ wbalHistory;
+  return wbalHistory;
 }
 
-// ឧទាហរណ៍ការប្រើប្រាស់៖
+// Example usage:
 const powerData = [
-  {ពេលវេលា៖ 0, ថាមពល៖ 200},
-  {ពេលវេលា៖ ១, ថាមពល៖ ២១០},
-  // ... ទិន្នន័យជិះនៅសល់
+  {time: 0, power: 200},
+  {time: 1, power: 210},
+  // ... rest of ride data
 ];
 
-const wbalHistory = គណនាWbalance(powerData, 270, 18.5);
-// ត្រឡប់អារេនៃតម្លៃ W'bal តាមពេលវេលា</code></pre>
+const wbalHistory = calculateWbalance(powerData, 270, 18.5);
+// Returns array of W'bal values over time</code></pre>
 </div>
 </div>
 </div>
@@ -1435,13 +1435,13 @@ const wbalHistory = គណនាWbalance(powerData, 270, 18.5);
 <div class="formula">ATL_today = ATL_yesterday + (TSS_today - ATL_yesterday) / 7</div>
 <div class="formula">TSB_today = CTL_yesterday - ATL_yesterday</div>
 </div>
-<h4>និយមន័យម៉ែត្រ៖</h4>
+<h4>និយមន័យ​ម៉ែត្រ៖</h4>
 <ul>
-<li><strong>CTL (ផ្ទុកការបណ្តុះបណ្តាលរ៉ាំរ៉ៃ):</strong>ទម្ងន់មធ្យមភាគអិចស្ប៉ូណង់ស្យែល 42 ថ្ងៃ - តំណាងឱ្យសម្បទា</li>
-<li><strong>ATL (ផ្ទុកការបណ្តុះបណ្តាលស្រួចស្រាវ):</strong>ទម្ងន់មធ្យមភាគអិចស្ប៉ូណង់ស្យែល 7 ថ្ងៃ - តំណាងឱ្យភាពអស់កម្លាំង</li>
-<li><strong>TSB (Training Stress Balance):</strong>ទម្រង់ = សម្បទា - អស់កម្លាំង</li>
+<li><strong>CTL (ផ្ទុកការបណ្តុះបណ្តាលរ៉ាំរ៉ៃ)៖</strong>ទម្ងន់មធ្យមអិចស្ប៉ូណង់ស្យែល 42 ថ្ងៃ - តំណាងឱ្យកាយសម្បទា</li>
+<li><strong>ATL (ផ្ទុកការបណ្តុះបណ្តាលស្រួចស្រាវ)៖</strong>ទម្ងន់មធ្យមភាគអិចស្ប៉ូណង់ស្យែល 7 ថ្ងៃ - តំណាងឱ្យភាពអស់កម្លាំង</li>
+<li><strong>TSB (សមតុល្យស្ត្រេសនៃការបណ្តុះបណ្តាល)៖</strong>ទម្រង់ = សម្បទា - អស់កម្លាំង</li>
 </ul>
-<h4>ឧទាហរណ៍ដែលបានធ្វើការ (ប្លុកបណ្តុះបណ្តាល 7 ថ្ងៃ):</h4>
+<h4>ឧទាហរណ៍ដែលបានធ្វើការ (ប្លុកបណ្តុះបណ្តាលរយៈពេល 7 ថ្ងៃ)៖</h4>
 <div class="example-box">
 <table class="data-table">
 <tr>
@@ -1453,15 +1453,15 @@ const wbalHistory = គណនាWbalance(powerData, 270, 18.5);
 <th>ស្ថានភាព</th>
 </tr>
 <tr>
-<td>ម៉ន</td>
-<td>100</td>
-<td>៧៥.០</td>
-<td>៨០.០</td>
+<td>ច័ន្ទ</td>
+<td>១០០</td>
+<td>75.0</td>
+<td>80.0</td>
 <td>-5.0</td>
 <td>ការបណ្តុះបណ្តាល</td>
 </tr>
 <tr>
-<td>អង្គារ</td>
+<td>Tue</td>
 <td>៥០</td>
 <td>៧៤.៤</td>
 <td>៧៥.៧</td>
@@ -1472,9 +1472,9 @@ const wbalHistory = គណនាWbalance(powerData, 270, 18.5);
 <td>ថ្ងៃពុធ</td>
 <td>១២០</td>
 <td>៧៥.៥</td>
-<td>៨២.០</td>
+<td>82.0</td>
 <td>-៦.៥</td>
-<td>ការហ្វឹកហាត់រឹង</td>
+<td>ការបណ្តុះបណ្តាលរឹង</td>
 </tr>
 <tr>
 <td>ធូ</td>
@@ -1486,22 +1486,22 @@ const wbalHistory = គណនាWbalance(powerData, 270, 18.5);
 </tr>
 <tr>
 <td>សុក្រ</td>
-<td>80</td>
+<td>៨០</td>
 <td>៧៣.៨</td>
 <td>៧១.៧</td>
 <td>+2.1</td>
-<td>ល្មម</td>
+<td>មធ្យម</td>
 </tr>
 <tr>
 <td>សៅរ៍</td>
 <td>១៥០</td>
 <td>៧៥.៦</td>
 <td>៨២.៩</td>
-<td>-7.3</td>
+<td>-៧.៣</td>
 <td>ជិះយូរ</td>
 </tr>
 <tr>
-<td>ស៊ុន</td>
+<td>ព្រះអាទិត្យ</td>
 <td>៤០</td>
 <td>៧៤.៨</td>
 <td>៧៦.៨</td>
@@ -1519,28 +1519,28 @@ const wbalHistory = គណនាWbalance(powerData, 270, 18.5);
 </tr>
 <tr>
 <td>&lt; -30</td>
-<td>ហានិភ័យខ្ពស់</td>
-<td>Overtraining warning - កាត់បន្ថយបន្ទុក</td>
+<td>ហានិភ័យខ្ពស់។</td>
+<td>ការព្រមានអំពីការឆ្លងកាត់ - កាត់បន្ថយបន្ទុក</td>
 </tr>
 <tr>
-<td>-30 ដល់ -10</td>
-<td>Training Hard</td>
+<td>-30 ទៅ -10</td>
+<td>ការហ្វឹកហាត់រឹង</td>
 <td>ការកសាងសម្បទា, តាមដានការងើបឡើងវិញ</td>
 </tr>
 <tr>
 <td>-10 ដល់ +5</td>
 <td>ល្អបំផុត</td>
-<td>តំបន់ហ្វឹកហាត់ធម្មតា</td>
+<td>តំបន់បណ្តុះបណ្តាលធម្មតា។</td>
 </tr>
 <tr>
 <td>+5 ដល់ +15</td>
-<td>ត្រៀមប្រណាំង</td>
-<td>ទម្រង់កំពូល - ប្រណាំងចុងសប្តាហ៍នេះ</td>
+<td>ការប្រណាំងរួចរាល់</td>
+<td>ទម្រង់កំពូល - ការប្រណាំងនៅចុងសប្តាហ៍នេះ។</td>
 </tr>
 <tr>
 <td>&gt; +25</td>
-<td>ឃាត់</td>
-<td>បាត់បង់សម្បទា - បង្កើនបន្ទុក</td>
+<td>ការឃាត់ឃាំង</td>
+<td>ការបាត់បង់សម្បទា - បង្កើនការផ្ទុក</td>
 </tr>
 </table>
 <h4>ការអនុវត្ត JavaScript៖</h4>
@@ -1556,7 +1556,7 @@ const wbalHistory = គណនាWbalance(powerData, 270, 18.5);
     // ធ្វើបច្ចុប្បន្នភាព ATL (រយៈពេល 7 ថ្ងៃថេរ)
     atl = atl + (workout.tss - atl) / 7;
 
-    // គណនា TSB (ម្សិលមិញ CTL - ថ្ងៃនេះ ATL សម្រាប់ការគណនាតាមបែបប្រពៃណី)
+    // Calculate TSB (yesterday's CTL - today's ATL for traditional calculation)
     // សម្រាប់ភាពសាមញ្ញនៅទីនេះដោយប្រើតម្លៃបច្ចុប្បន្ន
     const tsb = ctl - atl;
 
@@ -1590,7 +1590,7 @@ const wbalHistory = គណនាWbalance(powerData, 270, 18.5);
 ];
 
 const pmc = គណនាPMC(ការហាត់ប្រាណ);
-// ត្រឡប់អារេជាមួយ CTL, ATL, TSB សម្រាប់មួយថ្ងៃៗ</code></pre>
+// Returns array with CTL, ATL, TSB for each day</code></pre>
 </div>
 </div>
 </div>
@@ -1599,7 +1599,7 @@ const pmc = គណនាPMC(ការហាត់ប្រាណ);
 <div class="container">
 <h2>សូចនាករថាមពលទៅទម្ងន់ និងការឡើងភ្នំ</h2>
 <div class="formula-card">
-<h3>8. Power-to-Weight Ratio</h3>
+<h3>8. សមាមាត្រថាមពលទៅទម្ងន់</h3>
 <div class="formula-content">
 <h4>រូបមន្ត៖</h4>
 <div class="formula-box-large">
@@ -1609,13 +1609,13 @@ const pmc = គណនាPMC(ការហាត់ប្រាណ);
 <table class="data-table">
 <tr>
 <th>កម្រិត</th>
-<th>ប្រុស W/kg</th>
+<th>បុរស W/kg</th>
 <th>ស្រី W/kg</th>
 <th>ប្រភេទ</th>
 </tr>
 <tr>
 <td>កំសាន្ត</td>
-<td>២.៥ - ៣.៥</td>
+<td>2.5 - 3.5</td>
 <td>2.0 - 3.0</td>
 <td>អ្នកជិះហាត់ប្រាណ</td>
 </tr>
@@ -1623,16 +1623,16 @@ const pmc = គណនាPMC(ការហាត់ប្រាណ);
 <td>ប្រកួតប្រជែង</td>
 <td>៣.៥ - ៤.៥</td>
 <td>3.0 - 4.0</td>
-<td>ឆ្មា 3-4 អ្នកប្រណាំងក្រុមអាយុ</td>
+<td>Cat 3-4, age group racer</td>
 </tr>
 <tr>
 <td>កម្រិតខ្ពស់</td>
 <td>៤.៥ - ៥.៥</td>
-<td>៤.០ - ៥.០</td>
-<td>ឆ្មា 1-2, អ្នកក្លាហានខ្លាំង</td>
+<td>4.0 - 5.0</td>
+<td>ឆ្មា 1-2, អ្នកស្ម័គ្រចិត្តខ្លាំង</td>
 </tr>
 <tr>
-<td>ឥស្សរជនស្ម័គ្រចិត្ត</td>
+<td>វរជន ស្ម័គ្រចិត្ត</td>
 <td>5.5 - 6.0</td>
 <td>5.0 - 5.5</td>
 <td>ថ្នាក់ជាតិ</td>
@@ -1641,13 +1641,13 @@ const pmc = គណនាPMC(ការហាត់ប្រាណ);
 <td>វិជ្ជាជីវៈ</td>
 <td>6.0 - 7.0+</td>
 <td>5.5 - 6.5+</td>
-<td>World Tour, Grand Tour GC</td>
+<td>ដំណើរទេសចរណ៍ពិភពលោក Grand Tour GC</td>
 </tr>
 </table>
-<h4>ឧទាហរណ៍ការគណនា៖</h4>
+<h4>ការគណនាឧទាហរណ៍៖</h4>
 <div class="example-box">
-<p><strong>សេណារីយ៉ូ៖</strong>អ្នកជិះកង់ FTP=275W, ទម្ងន់ខ្លួន=70kg</p>
-<p>W/kg = 275/70 =<strong>3.93 W/kg</strong></p>
+<p><strong>សេណារីយ៉ូ៖</strong> Cyclist with FTP = 275W, body mass = 70kg</p>
+<p>W/kg = 275/70 =<strong>3.93 វ៉ / គីឡូក្រាម</strong></p>
 <p><em>ការបកស្រាយ៖ កម្រិតប្រកួតប្រជែង មានសមត្ថភាពក្នុងការប្រណាំងភ្នំ</em></p>
 </div>
 <pre><code>មុខងារគណនាWattsPerKg(ថាមពល, bodyMassKg) {
@@ -1666,7 +1666,7 @@ const wpkg = គណនាWattsPerKg(275, 70);
 <div class="formula-box-large">
 <div class="formula">VAM (m/h) = ការកើនឡើង (m) / ម៉ោង (ម៉ោង)</div>
 </div>
-<h4>VAM ស្តង់ដារ៖</h4>
+<h4>VAM Benchmarks៖</h4>
 <table class="data-table">
 <tr>
 <th>VAM (m/h)</th>
@@ -1676,65 +1676,65 @@ const wpkg = គណនាWattsPerKg(275, 70);
 <tr>
 <td>៦០០ - ៩០០</td>
 <td>កំសាន្ត</td>
-<td>អ្នកជិះក្លឹបឡើងភ្នំក្នុងស្រុក</td>
+<td>អ្នកជិះក្លឹបលើការឡើងភ្នំក្នុងស្រុក</td>
 </tr>
 <tr>
-<td>៩០០ - ១២០០</td>
+<td>900 - 1200</td>
 <td>ប្រកួតប្រជែង</td>
 <td>អ្នកស្ម័គ្រចិត្តល្អនៅលើ Alpe d'Huez</td>
 </tr>
 <tr>
-<td>១២០០ - ១៥០០</td>
-<td>ឥស្សរជនស្ម័គ្រចិត្ត</td>
+<td>1200 - 1500</td>
+<td>វរជន ស្ម័គ្រចិត្ត</td>
 <td>អ្នកឡើងភ្នំថ្នាក់ជាតិ</td>
 </tr>
 <tr>
 <td>1500 - 1800</td>
 <td>វិជ្ជាជីវៈ</td>
-<td>ដំណើរកំសាន្តជុំវិញពិភពលោក</td>
+<td>ដំណើរកំសាន្តពិភពលោកក្នុងស្រុក</td>
 </tr>
 <tr>
-<td>&gt; ១៨០០</td>
-<td>Grand Tour Winner</td>
-<td>Pogačar, Vingegaard នៅលើការឡើងគន្លឹះ</td>
+<td>&gt; 1800</td>
+<td>អ្នកឈ្នះរង្វាន់ធំ</td>
+<td>Pogačar, Vingegaard នៅលើការឡើងសំខាន់ៗ</td>
 </tr>
 </table>
-<h4>ឧទាហរណ៍ការគណនា៖</h4>
+<h4>ការគណនាឧទាហរណ៍៖</h4>
 <div class="example-box">
 <p><strong>សេណារីយ៉ូ៖</strong>ឡើងភ្នំ Alpe d'Huez</p>
 <ul>
 <li>ការកើនឡើងកម្ពស់: 1100 ម៉ែត្រ</li>
-<li>ពេលវេលា៖ 55 នាទី = 0.917 ម៉ោង</li>
-<li>VAM= 1100 / 0.917 =<strong>1200 m/h</strong></li>
+<li>ពេលវេលា: 55 នាទី = 0.917 ម៉ោង។</li>
+<li>VAM = 1100 / 0.917 =<strong>1200 ម៉ែត / ម៉ោង។</strong></li>
 </ul>
 <p><em>ការបកស្រាយ៖ ការឡើងកម្រិតប្រកួតប្រជែង</em></p>
 </div>
 <pre><code>មុខងារគណនាVAM(elevationGainMeters, timeminutes) {
-  ម៉ោង const = timeminutes / 60;
+  ម៉ោង const = ម៉ោង / 60;
   ត្រឡប់ Math.round(elevationGainMeters / ម៉ោង);
 }
 
 // ឧទាហរណ៍៖
 const vam = គណនាVAM(1100, 55);
-// ត្រឡប់៖ 1200 m/h</code></pre>
+// ត្រឡប់: 1200 m/h</code></pre>
 </div>
 </div>
 <div class="formula-card">
-<h3>10. VAM ទៅ W/kg ការប៉ាន់ស្មាន</h3>
+<h3>10. ការប៉ាន់ស្មាន VAM ទៅ W/kg</h3>
 <div class="formula-content">
 <h4>រូបមន្ត៖</h4>
 <div class="formula-box-large">
 <div class="formula">W/kg ≈ VAM (m/h) / 100 / (ជម្រាល% + 3)</div>
 </div>
-<h4>ឧទាហរណ៍ការគណនា៖</h4>
+<h4>ការគណនាឧទាហរណ៍៖</h4>
 <div class="example-box">
-<p><strong>សេណារីយ៉ូ៖</strong>ឡើងជាមួយនឹងជម្រាលមធ្យម 8%, VAM = 1200 m/h</p>
-<p>W/kg = 1200 / 100 / (8 + 3)</p>
-<p>W/kg = 12/11 =<strong>4.36 W/kg</strong></p>
-<p><em>ការត្រួតពិនិត្យឆ្លងកាត់៖ ជាមួយនឹងអ្នកជិះ 70kg → 305W ទ្រទ្រង់ការឡើងភ្នំ</em></p>
+<p><strong>សេណារីយ៉ូ៖</strong>ឡើងជាមួយនឹងជម្រាលមធ្យម 8% VAM = 1200 m/h</p>
+<p>W / គីឡូក្រាម = 1200 / 100 / (8 + 3)</p>
+<p>W/kg = 12/11 =<strong>4.36 វ៉ / គីឡូក្រាម</strong></p>
+<p><em>ការត្រួតពិនិត្យឆ្លងកាត់៖ ជាមួយនឹងអ្នកជិះ 70 គីឡូក្រាម → ថាមពល 305W ទ្រទ្រង់នៅពេលឡើង</em></p>
 </div>
-<pre><code>មុខងារប៉ាន់ស្មានWkgFromVAM(vam, gradientPercent) {
-  ត្រឡប់ (vam / 100 / (gradientPercent + 3)).toFixed(2);
+<pre><code>function estimateWkgFromVAM(vam, gradientPercent) {
+  return (vam / 100 / (gradientPercent + 3)).toFixed(2);
 }
 
 // ឧទាហរណ៍៖
@@ -1746,7 +1746,7 @@ const wkg = ប៉ាន់ស្មានWkgFromVAM(1200, 8);
 </section>
 <section class="section section-alt">
 <div class="container">
-<h2>សមីការថាមពលខ្យល់អាកាស</h2>
+<h2>សមីការថាមពលអាកាស</h2>
 <div class="formula-card">
 <h3>11. តម្រូវការថាមពលសរុប</h3>
 <div class="formula-content">
@@ -1757,49 +1757,49 @@ const wkg = ប៉ាន់ស្មានWkgFromVAM(1200, 8);
 <h4>រូបមន្តសមាសធាតុ៖</h4>
 <div class="formula-box-large">
 <div class="formula">
-<strong>Aerodynamic Drag៖</strong><br/>P_aero = CdA × 0.5 × ρ × V³</div>
+<strong>ការអូសតាមអាកាស៖</strong><br/>P_aero = CdA × 0.5 × ρ × V³</div>
 <div class="formula">
-<strong>ទំនាញ (ឡើង)៖</strong><br/>P_gravity = m × g × sin(θ) × V</div>
+<strong>ទំនាញ (ឡើងភ្នំ)៖</strong><br/>P_gravity = m × g × sin(θ) × V</div>
 <div class="formula">
-<strong>Rolling Resistance:</strong><br/>P_rolling = Crr × m × g × cos (θ) × V</div>
+<strong>ភាពធន់នឹងការរំកិល៖</strong><br/>P_rolling = Crr × m × g × cos (θ) × V</div>
 <div class="formula">
-<strong>Kinetic (ការបង្កើនល្បឿន):</strong><br/>P_kinetic = m × a × V</div>
+<strong>Kinetic (ការបង្កើនល្បឿន)៖</strong><br/>P_kinetic = m × a × V</div>
 </div>
-<h4>ថេរ &amp; អថេរ៖</h4>
+<h4>អថេរ និងអថេរ៖</h4>
 <ul>
-<li><strong>CdA</strong>= មេគុណអូស × ផ្ទៃខាងមុខ (m²)<ul>
-<li>សំបកកង់ផ្លូវធម្មតា៖ 0.35-0.40 m²</li>
-<li>ទម្លាក់: 0.32-0.37 m²</li>
+<li><strong>ស៊ីឌីអេ</strong>= មេគុណអូស × ផ្ទៃខាងមុខ (m²)<ul>
+<li>ក្រណាត់កង់ផ្លូវធម្មតា៖ 0.35-0.40 m²</li>
+<li>ធ្លាក់ចុះ: 0.32-0.37 m²</li>
 <li>ទីតាំង TT: 0.20-0.25 m²</li>
 </ul>
 </li>
 <li><strong>ρ</strong>= ដង់ស៊ីតេខ្យល់ (1.225 គីឡូក្រាម/m³ នៅកម្រិតទឹកសមុទ្រ 15°C)</li>
-<li><strong>វី</strong>= ល្បឿន (m/s)</li>
-<li><strong>m</strong>= ម៉ាសសរុប (អ្នកជិះ + កង់, គីឡូក្រាម)</li>
-<li><strong>g</strong>= ទំនាញផែនដី (9.81 m/s²)</li>
+<li><strong>វ</strong>= ល្បឿន (m/s)</li>
+<li><strong>ម</strong>= ម៉ាសសរុប (អ្នកជិះ + កង់, គីឡូក្រាម)</li>
+<li><strong>g</strong>= ទំនាញ (9.81 m/s²)</li>
 <li><strong>θ</strong>= មុំជម្រាល (រ៉ាដ្យង់ ឬដឺក្រេបំប្លែង)</li>
-<li><strong>Crr</strong>= មេគុណធន់នឹងរំកិល (~0.004 សម្រាប់សំបកកង់ផ្លូវល្អ)</li>
+<li><strong>Cr</strong>= មេគុណធន់នឹងរំកិល (~0.004 សម្រាប់សំបកកង់ផ្លូវល្អ)</li>
 <li><strong>ក</strong>= ការបង្កើនល្បឿន (m/s²)</li>
 </ul>
-<h4>ឧទាហរណ៍ការងារ (ផ្លូវផ្ទះល្វែង TT):</h4>
+<h4>ឧទាហរណ៍ការងារ (ផ្លូវផ្ទះល្វែង TT)៖</h4>
 <div class="example-box">
 <p><strong>សេណារីយ៉ូ៖</strong></p>
 <ul>
-<li>ល្បឿន៖ 40 គីឡូម៉ែត្រ/ម៉ោង = 11.11 m/s</li>
+<li>ល្បឿន: 40 គីឡូម៉ែត្រ / ម៉ោង = 11.11 m / s</li>
 <li>CdA: 0.22 m² (ទីតាំង TT ល្អ)</li>
-<li>ទំងន់សរុប : 75kg (អ្នកជិះ) + 8kg (កង់) = 83kg</li>
-<li>ផ្លូវផ្ទះល្វែង (ជម្រាល = 0°)</li>
-<li>ល្បឿនថេរ (ការបង្កើនល្បឿន = 0)</li>
+<li>ទម្ងន់សរុប៖ ៧៥ គីឡូក្រាម (អ្នកជិះ) + ៨ គីឡូក្រាម (កង់) = ៨៣ គីឡូក្រាម</li>
+<li>ផ្លូវរាបស្មើ (ជម្រាល = 0°)</li>
+<li>Constant speed (acceleration = 0)</li>
 </ul>
 <p><strong>ការគណនា៖</strong></p>
 <ol>
-<li><strong>P_aero</strong>= 0.22 × 0.5 × 1.225 × 11.11³ =<strong>185W</strong></li>
-<li><strong>P_gravity</strong>= 0W (ផ្លូវផ្ទះល្វែង)</li>
-<li><strong>P_rolling</strong>= 0.004 × 83 × 9.81 × 11.11 =<strong>36W</strong></li>
+<li><strong>P_aero</strong>= 0.22 × 0.5 × 1.225 × 11.11³ =<strong>185 វ៉</strong></li>
+<li><strong>P_ទំនាញ</strong>= 0W (ផ្លូវផ្ទះល្វែង)</li>
+<li><strong>P_rolling</strong>= 0.004 × 83 × 9.81 × 11.11 =<strong>៣៦ វ៉</strong></li>
 <li><strong>P_kinetic</strong>= 0W (ល្បឿនថេរ)</li>
-<li><strong>P_total</strong>= 185 + 0 + 36 + 0 =<strong>221W</strong></li>
+<li><strong>P_សរុប</strong>= 185 + 0 + 36 + 0 =<strong>221 វ៉</strong></li>
 </ol>
-<p><em>ការបកស្រាយ៖ ត្រូវការថាមពល 221W ដើម្បីទ្រទ្រង់ 40 គីឡូម៉ែត្រក្នុងមួយម៉ោង នៅក្នុងទីតាំង TT នៅលើផ្លូវរាបស្មើ</em></p>
+<p><em>ការបកស្រាយ៖ ត្រូវការ 221W ដើម្បីទ្រទ្រង់ 40 គីឡូម៉ែត្រក្នុងមួយម៉ោង នៅក្នុងទីតាំង TT នៅលើផ្លូវរាបស្មើ</em></p>
 </div>
 <h4>ការអនុវត្ត JavaScript៖</h4>
 <pre><code>មុខងារគណនាថាមពលដែលត្រូវការ (ប៉ារ៉ាម៉ែត្រ) {
@@ -1841,7 +1841,7 @@ const power_tt = គណនាថាមពលដែលត្រូវការ({
   ម៉ាស៖ ៨៣,
   gradient ភាគរយ៖ 0
 });
-// ត្រឡប់៖ { សរុប៖ ២២១, អាកាស៖ ១៨៥, ទំនាញ៖ ០, រំកិល៖ ៣៦, គីណេទិក៖ ០ }
+// ត្រឡប់៖ { សរុប៖ ២២១, អេរ៉ូ៖ ១៨៥, ទំនាញ៖ ០, វិល៖ ៣៦, គីណេទិក៖ ០ }
 
 // ឧទាហរណ៍៖ ៨% ឡើងក្នុងល្បឿន ១៥ គីឡូម៉ែត្រក្នុងមួយម៉ោង
 const power_climb = គណនាថាមពលដែលត្រូវការ({
@@ -1914,23 +1914,23 @@ wattsToKJ (250, 3600);        // ត្រឡប់: 900 kJ (1 ម៉ោងន�
 </section>
 <section class="section section-alt">
 <div class="container container-narrow text-center">
-<h2>ធនធានអនុវត្ត</h2>
+<h2>ធនធាននៃការអនុវត្ត</h2>
 <p class="lead">រូបមន្តទាំងអស់នៅលើទំព័រនេះគឺផលិតរួចរាល់ និងមានសុពលភាពប្រឆាំងនឹងអក្សរសិល្ប៍វិទ្យាសាស្ត្រ និងទិន្នន័យម៉ែត្រថាមពលពិភពលោកពិត។ ប្រើពួកវាសម្រាប់ឧបករណ៍វិភាគផ្ទាល់ខ្លួន ការផ្ទៀងផ្ទាត់ ឬការយល់ដឹងកាន់តែស៊ីជម្រៅអំពីការគណនាការបណ្តុះបណ្តាលផ្អែកលើថាមពល។</p>
 <div class="callout callout-tip">
 <h3>💡 ការអនុវត្តល្អបំផុត</h3>
 <ul class="text-left">
-<li><strong>ធ្វើឱ្យធាតុចូលមានសុពលភាព៖</strong>ពិនិត្យមើលជួរថាមពលដែលសមហេតុផល (0-2000W) រយៈពេលវិជ្ជមាន</li>
+<li><strong>ធ្វើឱ្យមានសុពលភាពធាតុចូល៖</strong>ពិនិត្យមើលជួរថាមពលដែលសមហេតុផល (0-2000W) រយៈពេលវិជ្ជមាន</li>
 <li><strong>ដោះស្រាយករណីគែម៖</strong>ការបែងចែកដោយសូន្យ ទិន្នន័យទុកជាមោឃៈ បាត់ FTP</li>
-<li><strong>មូលសមគួរ៖</strong>CTL/ATL/TSB ទៅ 1 ទសភាគ TSS ទៅចំនួនគត់ W/kg ទៅ 2 ទសភាគ</li>
-<li><strong>ភាពជាក់លាក់នៃហាង៖</strong>រក្សាភាពជាក់លាក់ពេញលេញនៅក្នុងមូលដ្ឋានទិន្នន័យ មូលសម្រាប់តែការបង្ហាញ</li>
-<li><strong>តំបន់ពេលវេលា៖</strong>ដោះស្រាយ UTC ទល់នឹងម៉ោងក្នុងស្រុកជាប់លាប់សម្រាប់ការវិភាគច្រើនថ្ងៃ</li>
-<li><strong>ការក្រិតម៉ែត្រថាមពល៖</strong>រំលឹកអ្នកប្រើប្រាស់ឱ្យសូន្យអុហ្វសិតមុនពេលជិះ</li>
-<li><strong>FTP សុពលភាព៖</strong>ដាក់ទង់តម្លៃ FTP គួរឱ្យសង្ស័យ (&gt;500W ឬ &lt;100W សម្រាប់មនុស្សពេញវ័យ)</li>
-<li><strong>សាកល្បងហ្មត់ចត់៖</strong>ប្រើឯកសារជិះដែលស្គាល់ល្អ ដើម្បីផ្ទៀងផ្ទាត់ការគណនា</li>
+<li><strong>ជុំដោយសមរម្យ៖</strong>CTL/ATL/TSB ទៅ 1 ទសភាគ TSS ទៅចំនួនគត់ W/kg ទៅ 2 ទសភាគ</li>
+<li><strong>ភាពជាក់លាក់នៃហាង៖</strong>រក្សាភាពជាក់លាក់ពេញលេញនៅក្នុងមូលដ្ឋានទិន្នន័យ មូលសម្រាប់តែការបង្ហាញប៉ុណ្ណោះ។</li>
+<li><strong>តំបន់ពេលវេលា៖</strong>ដោះស្រាយ UTC ធៀបនឹងម៉ោងក្នុងស្រុកជាប់លាប់សម្រាប់ការវិភាគច្រើនថ្ងៃ</li>
+<li><strong>ការក្រិតតាមខ្នាតម៉ែត្រថាមពល៖</strong>រំលឹកអ្នកប្រើប្រាស់ឱ្យសូន្យអុហ្វសិតមុនពេលជិះ</li>
+<li><strong>FTP សុពលភាព៖</strong>ដាក់ទង់តម្លៃ FTP គួរឱ្យសង្ស័យ (&gt; 500W ឬ &lt;100W សម្រាប់មនុស្សពេញវ័យ)</li>
+<li><strong>សាកល្បងយ៉ាងហ្មត់ចត់៖</strong>ប្រើឯកសារជិះដែលស្គាល់ល្អ ដើម្បីផ្ទៀងផ្ទាត់ការគណនា</li>
 </ul>
 </div>
 <div class="mt-xl">
-<a class="btn btn-primary btn-large" href="/km/">ត្រឡប់ទៅផ្ទះ</a>
+<a class="btn btn-primary btn-large" href="/km/">ត្រឡប់ទៅផ្ទះវិញ។</a>
 <a class="btn btn-secondary" href="/km/research/">មូលនិធិវិទ្យាសាស្ត្រ</a>
 <a class="btn btn-secondary" href="/km/bibliography/">បំពេញគន្ថនិទ្ទេស</a>
 </div>

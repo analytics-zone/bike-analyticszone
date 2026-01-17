@@ -1045,24 +1045,27 @@ img[width][height] {
   <main id="main-content" class="main-content">
     <section class="page-hero">
     <div class="container">
-        <h1>Cycling Power Formulas</h1>
-        <p class="lead">Mathematical Foundation of Bike Analytics Metrics</p>
+        <h1>Các công thức Công suất Đạp xe</h1>
+        <p class="lead">Nền tảng toán học của các chỉ số trong Bike Analytics</p>
     </div>
 </section>
 
 <section class="section">
     <div class="container container-narrow">
-        <h2>Implementation Guide</h2>
-        <p class="lead">This page provides copy-paste formulas and step-by-step calculation methods for all Bike Analytics metrics. Use these for custom implementations, verification, or deeper understanding of power-based training.</p>
+        <h2>Hướng dẫn triển khai</h2>
+        <p class="lead">Trang này cung cấp các công thức có thể sao chép và các phương pháp tính toán từng bước cho tất
+            cả các chỉ số của Bike Analytics. Hãy sử dụng chúng cho các lần triển khai tùy chỉnh, xác minh hoặc để hiểu
+            sâu hơn về việc tập luyện dựa trên công suất.</p>
 
         <div class="callout callout-warning">
-            <h3>⚠️ Implementation Notes</h3>
+            <h3>⚠️ Lưu ý khi triển khai</h3>
             <ul>
-                <li>All power values in watts (W), time in seconds unless specified</li>
-                <li>FTP and CP are individual-specific thresholds—no universal values</li>
-                <li>Always validate inputs for reasonable ranges (0-2000W typical)</li>
-                <li>Handle edge cases (division by zero, negative power)</li>
-                <li>Power data requires 1-second recording intervals for accuracy</li>
+                <li>Tất cả các giá trị công suất tính bằng watt (W), thời gian tính bằng giây trừ khi có quy định khác
+                </li>
+                <li>FTP và CP là các ngưỡng đặc thù của từng cá nhân—không có giá trị chung cho tất cả</li>
+                <li>Luôn xác thực dữ liệu đầu vào trong phạm vi hợp lý (thường là 0-2000W)</li>
+                <li>Xử lý các trường hợp ngoại lệ (chia cho không, công suất âm)</li>
+                <li>Dữ liệu công suất yêu cầu khoảng thời gian ghi 1 giây để đảm bảo độ chính xác</li>
             </ul>
         </div>
     </div>
@@ -1070,85 +1073,88 @@ img[width][height] {
 
 <section class="section section-alt">
     <div class="container">
-        <h2>Core Performance Metrics</h2>
+        <h2>Các chỉ số Hiệu suất Cốt lõi</h2>
 
         <div class="formula-card">
-            <h3>1. Training Stress Score (TSS)</h3>
+            <h3>1. Điểm Căng thẳng Tập luyện (TSS)</h3>
             <div class="formula-content">
-                <h4>Formula:</h4>
+                <h4>Công thức:</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        TSS = (duration_seconds × NP × IF) / (FTP × 3600) × 100
+                        TSS = (thời_gian_giây × NP × IF) / (FTP × 3600) × 100
                     </div>
                     <div class="formula">
-                        where IF = NP / FTP
+                        trong đó IF = NP / FTP
                     </div>
                 </div>
 
-                <h4>Worked Example:</h4>
+                <h4>Ví dụ cụ thể:</h4>
                 <div class="example-box">
-                    <p><strong>Scenario:</strong> 2-hour ride, NP = 235W, FTP = 250W</p>
+                    <p><strong>Kịch bản:</strong> Chuyến đạp 2 giờ, NP = 235W, FTP = 250W</p>
                     <ol>
-                        <li>Calculate IF: IF = 235 / 250 = 0.94</li>
-                        <li>Duration in seconds: 2 hours × 3600 = 7200 seconds</li>
-                        <li>TSS = (7200 × 235 × 0.94) / (250 × 3600) × 100</li>
-                        <li>TSS = 1,590,720 / 900,000 × 100 = <strong>176.7 TSS</strong></li>
+                        <li>Tính IF: IF = 235 / 250 = 0,94</li>
+                        <li>Thời gian tính bằng giây: 2 giờ × 3600 = 7200 giây</li>
+                        <li>TSS = (7200 × 235 × 0,94) / (250 × 3600) × 100</li>
+                        <li>TSS = 1.590.720 / 900.000 × 100 = <strong>176,7 TSS</strong></li>
                     </ol>
-                    <p><em>Interpretation: Hard training ride (>150 TSS), expect 2-3 days recovery</em></p>
+                    <p><em>Giải mã: Buổi tập nặng (>150 TSS), dự kiến cần 2-3 ngày phục hồi</em></p>
                 </div>
 
-                <h4>JavaScript Implementation:</h4>
+                <h4>Triển khai JavaScript:</h4>
                 <pre><code>function calculateTSS(durationSeconds, normalizedPower, ftp) {
   const intensityFactor = normalizedPower / ftp;
   const tss = (durationSeconds * normalizedPower * intensityFactor) / (ftp * 3600) * 100;
   return Math.round(tss);
 }
 
-// Example usage:
+// Ví dụ sử dụng:
 const tss = calculateTSS(7200, 235, 250);
-// Returns: 177</code></pre>
+// Trả về: 177</code></pre>
             </div>
         </div>
 
         <div class="formula-card">
-            <h3>2. Normalized Power (NP)</h3>
+            <h3>2. Công suất Chuẩn hóa (NP)</h3>
             <div class="formula-content">
-                <h4>Algorithm (30-second rolling average):</h4>
+                <h4>Thuật toán (Trung bình trượt 30 giây):</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        1. Calculate 30-second rolling average power for entire ride
+                        1. Tính trung bình trượt công suất 30 giây cho toàn bộ chuyến đạp
                     </div>
                     <div class="formula">
-                        2. Raise each 30-sec value to the 4th power
+                        2. Lũy thừa 4 từng giá trị trung bình 30 giây đó
                     </div>
                     <div class="formula">
-                        3. Take average of all these ^4 values
+                        3. Tính trung bình cộng của tất cả các giá trị lũy thừa 4 này
                     </div>
                     <div class="formula">
-                        4. Take 4th root of that average
+                        4. Khai căn bậc 4 của giá trị trung bình đó
                     </div>
                     <div class="formula">
-                        NP = ⁴√(average of [30s_avg^4])
+                        NP = ⁴√(trung bình của [30s_avg^4])
                     </div>
                 </div>
 
-                <h4>Why the 4th Power?</h4>
-                <p>The quartic (4th power) relationship reflects the non-linear physiological cost of variable efforts. A ride with surges and recoveries costs more energy than steady power at the same average.</p>
+                <h4>Tại sao lại dùng Lũy thừa 4?</h4>
+                <p>Mối quan hệ bậc bốn (lũy thừa 4) phản ánh sự tiêu tốn sinh lý không tuyến tính của các nỗ lực biến
+                    thiên. Một chuyến đạp có các đợt bứt tốc và hồi phục sẽ tiêu tốn nhiều năng lượng hơn so với việc
+                    đạp ở mức công suất ổn định với cùng mức trung bình.</p>
 
                 <div class="example-box">
-                    <p><strong>Example:</strong></p>
+                    <p><strong>Ví dụ:</strong></p>
                     <ul>
-                        <li>Steady ride: 200W for 1 hour → NP = 200W, Average = 200W</li>
-                        <li>Variable ride: Alternating 300W/100W → Average = 200W, NP = 225W</li>
+                        <li>Đạp ổn định: 200W trong 1 giờ → NP = 200W, Trung bình = 200W</li>
+                        <li>Đạp biến thiên: Luân phiên 300W/100W → Trung bình = 200W, NP = 225W</li>
                     </ul>
-                    <p><em>Same average power, but variable ride has 12% higher NP due to physiological cost of surges</em></p>
+                    <p><em>Cùng mức công suất trung bình, nhưng chuyến đạp biến thiên có NP cao hơn 12% do tiêu tốn sinh
+                            lý từ các đợt bứt tốc</em></p>
                 </div>
 
-                <h4>JavaScript Implementation:</h4>
+                <h4>Triển khai JavaScript:</h4>
                 <pre><code>function calculateNormalizedPower(powerData) {
-  // powerData is array of 1-second power values
-
-  // Step 1: Calculate 30-second rolling averages
+  // powerData là mảng các giá trị công suất từng giây
+  
+  // Bước 1: Tính trung bình trượt 30 giây
   const rollingAvgs = [];
   for (let i = 29; i < powerData.length; i++) {
     const window = powerData.slice(i - 29, i + 1);
@@ -1156,146 +1162,146 @@ const tss = calculateTSS(7200, 235, 250);
     rollingAvgs.push(avg);
   }
 
-  // Step 2: Raise to 4th power
+  // Bước 2: Lũy thừa 4
   const powered = rollingAvgs.map(p => Math.pow(p, 4));
 
-  // Step 3: Average of 4th powers
+  // Bước 3: Trung bình của các lũy thừa 4
   const avgPowered = powered.reduce((sum, p) => sum + p, 0) / powered.length;
 
-  // Step 4: Take 4th root
+  // Bước 4: Khai căn bậc 4
   const np = Math.pow(avgPowered, 0.25);
 
   return Math.round(np);
 }
 
-// Example usage:
-const powerData = [/* 1-second power array */];
+// Ví dụ sử dụng:
+const powerData = [/* mảng công suất từng giây */];
 const np = calculateNormalizedPower(powerData);
-// Returns: NP in watts</code></pre>
+// Trả về: NP tính bằng watts</code></pre>
             </div>
         </div>
 
         <div class="formula-card">
-            <h3>3. Intensity Factor (IF)</h3>
+            <h3>3. Hệ số Cường độ (IF)</h3>
             <div class="formula-content">
-                <h4>Formula:</h4>
+                <h4>Công thức:</h4>
                 <div class="formula-box-large">
                     <div class="formula">
                         IF = NP / FTP
                     </div>
                 </div>
 
-                <h4>Interpretation Ranges:</h4>
+                <h4>Các phạm vi giải mã:</h4>
                 <table class="data-table">
                     <tr>
-                        <th>IF Range</th>
-                        <th>Effort Level</th>
-                        <th>Example Workout</th>
+                        <th>Phạm vi IF</th>
+                        <th>Mức độ nỗ lực</th>
+                        <th>Ví dụ buổi tập</th>
                     </tr>
                     <tr>
-                        <td>&lt; 0.75</td>
-                        <td>Recovery / Easy</td>
-                        <td>Active recovery ride, Zone 1-2</td>
+                        <td>&lt; 0,75</td>
+                        <td>Phục hồi / Nhẹ nhàng</td>
+                        <td>Đạp phục hồi chủ động, Vùng 1-2</td>
                     </tr>
                     <tr>
-                        <td>0.75 - 0.85</td>
-                        <td>Endurance</td>
-                        <td>Long steady ride, aerobic base</td>
+                        <td>0,75 - 0,85</td>
+                        <td>Sức bền</td>
+                        <td>Đạp ổn định thời gian dài, nền tảng hiếu khí</td>
                     </tr>
                     <tr>
-                        <td>0.85 - 0.95</td>
+                        <td>0,85 - 0,95</td>
                         <td>Tempo</td>
-                        <td>Sweet spot training, tempo intervals</td>
+                        <td>Tập luyện Sweet spot, các quãng tập tempo</td>
                     </tr>
                     <tr>
-                        <td>0.95 - 1.05</td>
-                        <td>Threshold</td>
-                        <td>FTP intervals, time trial effort</td>
+                        <td>0,95 - 1,05</td>
+                        <td>Ngưỡng (Threshold)</td>
+                        <td>Các quãng tập FTP, nỗ lực đua tính giờ</td>
                     </tr>
                     <tr>
-                        <td>1.05 - 1.15</td>
+                        <td>1,05 - 1,15</td>
                         <td>VO₂max</td>
-                        <td>5-minute intervals, criterium race</td>
+                        <td>Các quãng tập 5 phút, đua criterium</td>
                     </tr>
                     <tr>
-                        <td>&gt; 1.15</td>
-                        <td>Anaerobic</td>
-                        <td>Short sprints, attacks, MTB bursts</td>
+                        <td>&gt; 1,15</td>
+                        <td>Kỵ khí (Anaerobic)</td>
+                        <td>Nước rút ngắn, tấn công, bứt tốc MTB</td>
                     </tr>
                 </table>
 
-                <h4>Example Calculation:</h4>
+                <h4>Ví dụ tính toán:</h4>
                 <div class="example-box">
-                    <p><strong>Scenario:</strong> NP = 235W, FTP = 250W</p>
-                    <p>IF = 235 / 250 = <strong>0.94</strong></p>
-                    <p><em>Interpretation: High tempo / sub-threshold effort, sustainable for 2-3 hours</em></p>
+                    <p><strong>Kịch bản:</strong> NP = 235W, FTP = 250W</p>
+                    <p>IF = 235 / 250 = <strong>0,94</strong></p>
+                    <p><em>Giải mã: Nỗ lực tempo cao / cận ngưỡng, có thể duy trì trong 2-3 giờ</em></p>
                 </div>
 
                 <pre><code>function calculateIF(normalizedPower, ftp) {
   return (normalizedPower / ftp).toFixed(2);
 }
 
-// Example:
+// Ví dụ:
 const if_value = calculateIF(235, 250);
-// Returns: 0.94</code></pre>
+// Trả về: 0.94</code></pre>
             </div>
         </div>
 
         <div class="formula-card">
-            <h3>4. Variability Index (VI)</h3>
+            <h3>4. Chỉ số Biến thiên (VI)</h3>
             <div class="formula-content">
-                <h4>Formula:</h4>
+                <h4>Công thức:</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        VI = NP / Average Power
+                        VI = NP / Công suất Trung bình
                     </div>
                 </div>
 
-                <h4>Interpretation by Discipline:</h4>
+                <h4>Giải mã theo bộ môn:</h4>
                 <table class="data-table">
                     <tr>
-                        <th>Discipline</th>
-                        <th>Typical VI</th>
-                        <th>Meaning</th>
+                        <th>Bộ môn</th>
+                        <th>VI điển hình</th>
+                        <th>Ý nghĩa</th>
                     </tr>
                     <tr>
-                        <td>Road TT / Steady Effort</td>
-                        <td>1.00 - 1.05</td>
-                        <td>Very consistent power, optimal pacing</td>
+                        <td>Đua TT đường trường / Nỗ lực ổn định</td>
+                        <td>1,00 - 1,05</td>
+                        <td>Công suất rất nhất quán, phân phối lực tối ưu</td>
                     </tr>
                     <tr>
-                        <td>Road Racing</td>
-                        <td>1.05 - 1.10</td>
-                        <td>Some surges, generally steady</td>
+                        <td>Đua đường trường (Road)</td>
+                        <td>1,05 - 1,10</td>
+                        <td>Có một số đợt bứt tốc, nhìn chung là ổn định</td>
                     </tr>
                     <tr>
-                        <td>Criterium</td>
-                        <td>1.10 - 1.20</td>
-                        <td>Frequent accelerations and attacks</td>
+                        <td>Đua Criterium</td>
+                        <td>1,10 - 1,20</td>
+                        <td>Tăng tốc và tấn công thường xuyên</td>
                     </tr>
                     <tr>
                         <td>Mountain Bike XC</td>
-                        <td>1.15 - 1.30+</td>
-                        <td>Highly variable, constant surges</td>
+                        <td>1,15 - 1,30+</td>
+                        <td>Biến thiên rất cao, bứt tốc liên tục</td>
                     </tr>
                 </table>
 
-                <h4>Example Calculation:</h4>
+                <h4>Ví dụ tính toán:</h4>
                 <div class="example-box">
-                    <p><strong>Road Race:</strong> NP = 240W, Avg Power = 230W</p>
-                    <p>VI = 240 / 230 = <strong>1.04</strong> (steady pacing)</p>
+                    <p><strong>Đua đường trường:</strong> NP = 240W, Công suất TB = 230W</p>
+                    <p>VI = 240 / 230 = <strong>1,04</strong> (phân phối lực ổn định)</p>
 
-                    <p><strong>MTB Race:</strong> NP = 285W, Avg Power = 235W</p>
-                    <p>VI = 285 / 235 = <strong>1.21</strong> (very variable, burst efforts)</p>
+                    <p><strong>Đua MTB:</strong> NP = 285W, Công suất TB = 235W</p>
+                    <p>VI = 285 / 235 = <strong>1,21</strong> (biến thiên rất lớn, nỗ lực bùng nổ)</p>
                 </div>
 
                 <pre><code>function calculateVI(normalizedPower, averagePower) {
   return (normalizedPower / averagePower).toFixed(2);
 }
 
-// Example:
-const vi_road = calculateVI(240, 230);  // Returns: 1.04
-const vi_mtb = calculateVI(285, 235);   // Returns: 1.21</code></pre>
+// Ví dụ:
+const vi_road = calculateVI(240, 230);  // Trả về: 1.04
+const vi_mtb = calculateVI(285, 235);   // Trả về: 1.21</code></pre>
             </div>
         </div>
     </div>
@@ -1303,69 +1309,69 @@ const vi_mtb = calculateVI(285, 235);   // Returns: 1.21</code></pre>
 
 <section class="section">
     <div class="container">
-        <h2>Critical Power & W' (Anaerobic Capacity)</h2>
+        <h2>Công suất Tới hạn & W' (Khả năng kỵ khí)</h2>
 
         <div class="formula-card">
-            <h3>5. Critical Power (CP) - Linear Model</h3>
+            <h3>5. Công suất Tới hạn (CP) - Mô hình Tuyến tính</h3>
             <div class="formula-content">
-                <h4>Formula:</h4>
+                <h4>Công thức:</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        Time = W' / (Power - CP)
+                        Thời gian = W' / (Công suất - CP)
                     </div>
                     <div class="formula">
-                        Rearranged: Power × Time = CP × Time + W'
+                        Sắp xếp lại: Công suất × Thời gian = CP × Thời gian + W'
                     </div>
                 </div>
 
-                <h4>Calculation from Multiple Efforts:</h4>
-                <p>Requires 2-4 maximal efforts at different durations (e.g., 3, 5, 12, 20 minutes)</p>
+                <h4>Tính toán từ nhiều nỗ lực:</h4>
+                <p>Yêu cầu 2-4 nỗ lực tối đa ở các khoảng thời gian khác nhau (ví dụ: 3, 5, 12, 20 phút)</p>
 
                 <div class="example-box">
-                    <p><strong>Example Data:</strong></p>
+                    <p><strong>Dữ liệu ví dụ:</strong></p>
                     <table class="data-table">
                         <tr>
-                            <th>Duration</th>
-                            <th>Power (W)</th>
-                            <th>Total Work (kJ)</th>
+                            <th>Thời gian</th>
+                            <th>Công suất (W)</th>
+                            <th>Tổng công thực hiện (kJ)</th>
                         </tr>
                         <tr>
-                            <td>3 min (180s)</td>
+                            <td>3 phút (180s)</td>
                             <td>400W</td>
                             <td>72 kJ</td>
                         </tr>
                         <tr>
-                            <td>5 min (300s)</td>
+                            <td>5 phút (300s)</td>
                             <td>365W</td>
-                            <td>109.5 kJ</td>
+                            <td>109,5 kJ</td>
                         </tr>
                         <tr>
-                            <td>12 min (720s)</td>
+                            <td>12 phút (720s)</td>
                             <td>310W</td>
-                            <td>223.2 kJ</td>
+                            <td>223,2 kJ</td>
                         </tr>
                         <tr>
-                            <td>20 min (1200s)</td>
+                            <td>20 phút (1200s)</td>
                             <td>285W</td>
                             <td>342 kJ</td>
                         </tr>
                     </table>
 
-                    <p>Using linear regression (Work = CP × Time + W'):</p>
+                    <p>Sử dụng hồi quy tuyến tính (Tổng công = CP × Thời gian + W'):</p>
                     <ul>
-                        <li><strong>CP = 270W</strong> (slope of regression line)</li>
-                        <li><strong>W' = 18.5 kJ</strong> (y-intercept)</li>
+                        <li><strong>CP = 270W</strong> (độ dốc của đường hồi quy)</li>
+                        <li><strong>W' = 18,5 kJ</strong> (giao điểm trục tung)</li>
                     </ul>
                 </div>
 
-                <h4>JavaScript Implementation:</h4>
+                <h4>Triển khai JavaScript:</h4>
                 <pre><code>function calculateCP_Linear(efforts) {
   // efforts = [{duration: seconds, power: watts}, ...]
 
   const times = efforts.map(e => e.duration);
   const work = efforts.map(e => e.power * e.duration / 1000); // kJ
 
-  // Linear regression: work = CP * time + W'
+  // Hồi quy tuyến tính: work = CP * time + W'
   const n = efforts.length;
   const sumT = times.reduce((a, b) => a + b, 0);
   const sumW = work.reduce((a, b) => a + b, 0);
@@ -1381,7 +1387,7 @@ const vi_mtb = calculateVI(285, 235);   // Returns: 1.21</code></pre>
   };
 }
 
-// Example usage:
+// Ví dụ sử dụng:
 const efforts = [
   {duration: 180, power: 400},
   {duration: 300, power: 365},
@@ -1390,54 +1396,54 @@ const efforts = [
 ];
 
 const result = calculateCP_Linear(efforts);
-// Returns: { CP: 270.0, Wprime: 18.5 }</code></pre>
+// Trả về: { CP: 270.0, Wprime: 18.5 }</code></pre>
             </div>
         </div>
 
         <div class="formula-card">
-            <h3>6. W' Balance (W'bal) - Differential Equation Model</h3>
+            <h3>6. Cân bằng W' (W'bal) - Mô hình Phương trình Vi phân</h3>
             <div class="formula-content">
-                <h4>Formulas:</h4>
+                <h4>Công thức:</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        <strong>Expenditure (when P > CP):</strong><br>
+                        <strong>Tiêu tốn (khi P > CP):</strong><br>
                         W'exp(t) = ∫(P(t) - CP) dt
                     </div>
                     <div class="formula">
-                        <strong>Recovery (when P < CP):</strong><br>
-                        W'rec(t) = W' × (1 - e^(-t/τ))
+                        <strong>Hồi phục (khi P < CP):</strong><br>
+                                W'rec(t) = W' × (1 - e^(-t/τ))
                     </div>
                     <div class="formula">
-                        where τ = 546 × e^(-0.01 × ΔCP) + 316<br>
-                        and ΔCP = (CP - P(t))
+                        trong đó τ = 546 × e^(-0,01 × ΔCP) + 316<br>
+                        và ΔCP = (CP - P(t))
                     </div>
                 </div>
 
-                <h4>Real-World Example:</h4>
+                <h4>Ví dụ thực tế:</h4>
                 <div class="example-box">
-                    <p><strong>Cyclist specs:</strong> CP = 270W, W' = 18.5 kJ</p>
+                    <p><strong>Thông số người đạp:</strong> CP = 270W, W' = 18,5 kJ</p>
 
-                    <p><strong>Scenario 1 - Hard Attack:</strong></p>
+                    <p><strong>Kịch bản 1 - Tấn công mạnh:</strong></p>
                     <ul>
-                        <li>Rider surges to 400W for 30 seconds</li>
-                        <li>W' expenditure: (400 - 270) × 30 = 3,900 J = 3.9 kJ</li>
-                        <li>W'bal remaining: 18.5 - 3.9 = <strong>14.6 kJ</strong></li>
+                        <li>Người đạp bứt tốc lên 400W trong 30 giây</li>
+                        <li>W' tiêu tốn: (400 - 270) × 30 = 3.900 J = 3,9 kJ</li>
+                        <li>W'bal còn lại: 18,5 - 3,9 = <strong>14,6 kJ</strong></li>
                     </ul>
 
-                    <p><strong>Scenario 2 - Recovery:</strong></p>
+                    <p><strong>Kịch bản 2 - Hồi phục:</strong></p>
                     <ul>
-                        <li>After attack, drops to 200W (70W below CP) for 2 minutes</li>
+                        <li>Sau khi tấn công, hạ xuống 200W (thấp hơn CP 70W) trong 2 phút</li>
                         <li>ΔCP = 270 - 200 = 70W</li>
-                        <li>τ = 546 × e^(-0.01 × 70) + 316 = 588 seconds</li>
-                        <li>Recovery in 120s: 18.5 × (1 - e^(-120/588)) = <strong>3.5 kJ recovered</strong></li>
-                        <li>New W'bal: 14.6 + 3.5 = <strong>18.1 kJ</strong></li>
+                        <li>τ = 546 × e^(-0,01 × 70) + 316 = 588 giây</li>
+                        <li>Hồi phục trong 120s: 18,5 × (1 - e^(-120/588)) = <strong>3,5 kJ được hồi phục</strong></li>
+                        <li>W'bal mới: 14,6 + 3,5 = <strong>18,1 kJ</strong></li>
                     </ul>
                 </div>
 
-                <h4>JavaScript Implementation:</h4>
+                <h4>Triển khai JavaScript:</h4>
                 <pre><code>function calculateWbalance(powerData, CP, Wprime) {
-  // powerData = array of {time: seconds, power: watts}
-  let wbal = Wprime * 1000; // Convert to joules
+  // powerData = mảng các {time: seconds, power: watts}
+  let wbal = Wprime * 1000; // Đổi sang joules
   const wbalHistory = [];
 
   for (let i = 1; i < powerData.length; i++) {
@@ -1445,18 +1451,18 @@ const result = calculateCP_Linear(efforts);
     const power = powerData[i].power;
 
     if (power > CP) {
-      // Expenditure above CP
+      // Tiêu tốn trên mức CP
       const expenditure = (power - CP) * dt;
       wbal -= expenditure;
     } else {
-      // Recovery below CP
+      // Hồi phục dưới mức CP
       const deltaCP = CP - power;
       const tau = 546 * Math.exp(-0.01 * deltaCP) + 316;
       const recovery = (Wprime * 1000 - wbal) * (1 - Math.exp(-dt / tau));
       wbal += recovery;
     }
 
-    // Ensure W'bal doesn't exceed max or go negative
+    // Đảm bảo W'bal không vượt quá mức tối đa hoặc âm
     wbal = Math.max(0, Math.min(wbal, Wprime * 1000));
 
     wbalHistory.push({
@@ -1469,15 +1475,15 @@ const result = calculateCP_Linear(efforts);
   return wbalHistory;
 }
 
-// Example usage:
+// Ví dụ sử dụng:
 const powerData = [
   {time: 0, power: 200},
   {time: 1, power: 210},
-  // ... rest of ride data
+  // ... dữ liệu còn lại
 ];
 
 const wbalHistory = calculateWbalance(powerData, 270, 18.5);
-// Returns array of W'bal values over time</code></pre>
+// Trả về mảng các giá trị W'bal theo thời gian</code></pre>
             </div>
         </div>
     </div>
@@ -1485,150 +1491,152 @@ const wbalHistory = calculateWbalance(powerData, 270, 18.5);
 
 <section class="section section-alt">
     <div class="container">
-        <h2>Performance Management Chart (PMC)</h2>
+        <h2>Biểu đồ Quản lý Hiệu suất (PMC)</h2>
 
         <div class="formula-card">
-            <h3>7. CTL, ATL, TSB Calculations</h3>
+            <h3>7. Tính toán CTL, ATL, TSB</h3>
             <div class="formula-content">
-                <h4>Formulas (Exponentially Weighted Moving Averages):</h4>
+                <h4>Công thức (Trung bình trượt lũy thừa):</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        CTL_today = CTL_yesterday + (TSS_today - CTL_yesterday) / 42
+                        CTL_hôm_nay = CTL_hôm_qua + (TSS_hôm_nay - CTL_hôm_qua) / 42
                     </div>
                     <div class="formula">
-                        ATL_today = ATL_yesterday + (TSS_today - ATL_yesterday) / 7
+                        ATL_hôm_nay = ATL_hôm_qua + (TSS_hôm_nay - ATL_hôm_qua) / 7
                     </div>
                     <div class="formula">
-                        TSB_today = CTL_yesterday - ATL_yesterday
+                        TSB_hôm_nay = CTL_hôm_qua - ATL_hôm_qua
                     </div>
                 </div>
 
-                <h4>Metric Definitions:</h4>
+                <h4>Định nghĩa các chỉ số:</h4>
                 <ul>
-                    <li><strong>CTL (Chronic Training Load):</strong> 42-day exponentially weighted average - represents fitness</li>
-                    <li><strong>ATL (Acute Training Load):</strong> 7-day exponentially weighted average - represents fatigue</li>
-                    <li><strong>TSB (Training Stress Balance):</strong> Form = Fitness - Fatigue</li>
+                    <li><strong>CTL (Chronic Training Load):</strong> Trung bình trượt lũy thừa 42 ngày - đại diện cho
+                        Thể lực (Fitness)</li>
+                    <li><strong>ATL (Acute Training Load):</strong> Trung bình trượt lũy thừa 7 ngày - đại diện cho Sự
+                        mệt mỏi (Fatigue)</li>
+                    <li><strong>TSB (Training Stress Balance):</strong> Phong độ (Form) = Thể lực - Sự mệt mỏi</li>
                 </ul>
 
-                <h4>Worked Example (7-Day Training Block):</h4>
+                <h4>Ví dụ cụ thể (Khối tập luyện 7 ngày):</h4>
                 <div class="example-box">
                     <table class="data-table">
                         <tr>
-                            <th>Day</th>
+                            <th>Ngày</th>
                             <th>TSS</th>
                             <th>CTL</th>
                             <th>ATL</th>
                             <th>TSB</th>
-                            <th>Status</th>
+                            <th>Trạng thái</th>
                         </tr>
                         <tr>
-                            <td>Mon</td>
+                            <td>Thứ 2</td>
                             <td>100</td>
-                            <td>75.0</td>
-                            <td>80.0</td>
-                            <td>-5.0</td>
-                            <td>Training</td>
+                            <td>75,0</td>
+                            <td>80,0</td>
+                            <td>-5,0</td>
+                            <td>Tập luyện</td>
                         </tr>
                         <tr>
-                            <td>Tue</td>
+                            <td>Thứ 3</td>
                             <td>50</td>
-                            <td>74.4</td>
-                            <td>75.7</td>
-                            <td>-1.3</td>
-                            <td>Recovery</td>
+                            <td>74,4</td>
+                            <td>75,7</td>
+                            <td>-1,3</td>
+                            <td>Phục hồi</td>
                         </tr>
                         <tr>
-                            <td>Wed</td>
+                            <td>Thứ 4</td>
                             <td>120</td>
-                            <td>75.5</td>
-                            <td>82.0</td>
-                            <td>-6.5</td>
-                            <td>Hard Training</td>
+                            <td>75,5</td>
+                            <td>82,0</td>
+                            <td>-6,5</td>
+                            <td>Tập nặng</td>
                         </tr>
                         <tr>
-                            <td>Thu</td>
+                            <td>Thứ 5</td>
                             <td>0</td>
-                            <td>73.7</td>
-                            <td>70.3</td>
-                            <td>+3.4</td>
-                            <td>Rest Day</td>
+                            <td>73,7</td>
+                            <td>70,3</td>
+                            <td>+3,4</td>
+                            <td>Ngày nghỉ</td>
                         </tr>
                         <tr>
-                            <td>Fri</td>
+                            <td>Thứ 6</td>
                             <td>80</td>
-                            <td>73.8</td>
-                            <td>71.7</td>
-                            <td>+2.1</td>
-                            <td>Moderate</td>
+                            <td>73,8</td>
+                            <td>71,7</td>
+                            <td>+2,1</td>
+                            <td>Vừa phải</td>
                         </tr>
                         <tr>
-                            <td>Sat</td>
+                            <td>Thứ 7</td>
                             <td>150</td>
-                            <td>75.6</td>
-                            <td>82.9</td>
-                            <td>-7.3</td>
-                            <td>Long Ride</td>
+                            <td>75,6</td>
+                            <td>82,9</td>
+                            <td>-7,3</td>
+                            <td>Đạp dài</td>
                         </tr>
                         <tr>
-                            <td>Sun</td>
+                            <td>Chủ Nhật</td>
                             <td>40</td>
-                            <td>74.8</td>
-                            <td>76.8</td>
-                            <td>-2.0</td>
-                            <td>Recovery</td>
+                            <td>74,8</td>
+                            <td>76,8</td>
+                            <td>-2,0</td>
+                            <td>Phục hồi</td>
                         </tr>
                     </table>
                 </div>
 
-                <h4>TSB Interpretation:</h4>
+                <h4>Giải mã TSB:</h4>
                 <table class="data-table">
                     <tr>
-                        <th>TSB Range</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Phạm vi TSB</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
                     </tr>
                     <tr>
                         <td>&lt; -30</td>
-                        <td>High Risk</td>
-                        <td>Overtraining warning - reduce load</td>
+                        <td>Rủi ro cao</td>
+                        <td>Cảnh báo tập quá sức - giảm khối lượng</td>
                     </tr>
                     <tr>
-                        <td>-30 to -10</td>
-                        <td>Training Hard</td>
-                        <td>Building fitness, monitor recovery</td>
+                        <td>-30 đến -10</td>
+                        <td>Tập luyện tích cực</td>
+                        <td>Đang xây dựng thể lực, theo dõi phục hồi</td>
                     </tr>
                     <tr>
-                        <td>-10 to +5</td>
-                        <td>Optimal</td>
-                        <td>Normal training zone</td>
+                        <td>-10 đến +5</td>
+                        <td>Tối ưu</td>
+                        <td>Vùng tập luyện bình thường</td>
                     </tr>
                     <tr>
-                        <td>+5 to +15</td>
-                        <td>Race Ready</td>
-                        <td>Peak form - race this weekend</td>
+                        <td>+5 đến +15</td>
+                        <td>Sẵn sàng thi đấu</td>
+                        <td>Phong độ đỉnh cao - thi đấu vào cuối tuần này</td>
                     </tr>
                     <tr>
                         <td>&gt; +25</td>
-                        <td>Detraining</td>
-                        <td>Loss of fitness - increase load</td>
+                        <td>Sụt giảm thể lực</td>
+                        <td>Mất thể lực - nên tăng khối lượng tập</td>
                     </tr>
                 </table>
 
-                <h4>JavaScript Implementation:</h4>
+                <h4>Triển khai JavaScript:</h4>
                 <pre><code>function calculatePMC(workouts) {
   // workouts = [{date: "YYYY-MM-DD", tss: number}, ...]
   let ctl = 0, atl = 0;
   const results = [];
 
   workouts.forEach(workout => {
-    // Update CTL (42-day time constant)
+    // Cập nhật CTL (hằng số thời gian 42 ngày)
     ctl = ctl + (workout.tss - ctl) / 42;
 
-    // Update ATL (7-day time constant)
+    // Cập nhật ATL (hằng số thời gian 7 ngày)
     atl = atl + (workout.tss - atl) / 7;
 
-    // Calculate TSB (yesterday's CTL - today's ATL for traditional calculation)
-    // For simplicity here using current values
+    // Tính TSB (CTL hôm qua - ATL hôm nay cho cách tính truyền thống)
+    // Để đơn giản ở đây dùng các giá trị hiện tại
     const tsb = ctl - atl;
 
     results.push({
@@ -1652,16 +1660,16 @@ function getTSBStatus(tsb) {
   return "Detraining";
 }
 
-// Example usage:
+// Ví dụ:
 const workouts = [
   {date: "2025-01-01", tss: 100},
   {date: "2025-01-02", tss: 50},
   {date: "2025-01-03", tss: 120},
-  // ... more workouts
+  // ... thêm các buổi tập
 ];
 
 const pmc = calculatePMC(workouts);
-// Returns array with CTL, ATL, TSB for each day</code></pre>
+// Trả về mảng với các thông số CTL, ATL, TSB cho mỗi ngày</code></pre>
             </div>
         </div>
     </div>
@@ -1669,128 +1677,128 @@ const pmc = calculatePMC(workouts);
 
 <section class="section">
     <div class="container">
-        <h2>Power-to-Weight & Climbing Metrics</h2>
+        <h2>Công suất trên Trọng lượng & Các chỉ số Leo núi</h2>
 
         <div class="formula-card">
-            <h3>8. Power-to-Weight Ratio</h3>
+            <h3>8. Tỷ lệ Công suất trên Trọng lượng</h3>
             <div class="formula-content">
-                <h4>Formula:</h4>
+                <h4>Công thức:</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        W/kg = Power (watts) / Body Mass (kg)
+                        W/kg = Công suất (watts) / Trọng lượng cơ thể (kg)
                     </div>
                 </div>
 
-                <h4>FTP W/kg Benchmarks:</h4>
+                <h4>Các mức chuẩn FTP W/kg:</h4>
                 <table class="data-table">
                     <tr>
-                        <th>Level</th>
-                        <th>Male W/kg</th>
-                        <th>Female W/kg</th>
-                        <th>Category</th>
+                        <th>Cấp độ</th>
+                        <th>Nam (W/kg)</th>
+                        <th>Nữ (W/kg)</th>
+                        <th>Phân loại</th>
                     </tr>
                     <tr>
-                        <td>Recreational</td>
-                        <td>2.5 - 3.5</td>
-                        <td>2.0 - 3.0</td>
-                        <td>Fitness rider</td>
+                        <td>Giải trí</td>
+                        <td>2,5 - 3,5</td>
+                        <td>2,0 - 3,0</td>
+                        <td>Đạp xe thể dục</td>
                     </tr>
                     <tr>
-                        <td>Competitive</td>
-                        <td>3.5 - 4.5</td>
-                        <td>3.0 - 4.0</td>
-                        <td>Cat 3-4, age group racer</td>
+                        <td>Có tính cạnh tranh</td>
+                        <td>3,5 - 4,5</td>
+                        <td>3,0 - 4,0</td>
+                        <td>Hệ phong trào, Cat 3-4</td>
                     </tr>
                     <tr>
-                        <td>Advanced</td>
-                        <td>4.5 - 5.5</td>
-                        <td>4.0 - 5.0</td>
-                        <td>Cat 1-2, strong amateur</td>
+                        <td>Nâng cao</td>
+                        <td>4,5 - 5,5</td>
+                        <td>4,0 - 5,0</td>
+                        <td>Hệ phong trào mạnh, Cat 1-2</td>
                     </tr>
                     <tr>
-                        <td>Elite Amateur</td>
-                        <td>5.5 - 6.0</td>
-                        <td>5.0 - 5.5</td>
-                        <td>National level</td>
+                        <td>Nghiệp dư ưu tú</td>
+                        <td>5,5 - 6,0</td>
+                        <td>5,0 - 5,5</td>
+                        <td>Cấp đội tuyển quốc gia</td>
                     </tr>
                     <tr>
-                        <td>Professional</td>
-                        <td>6.0 - 7.0+</td>
-                        <td>5.5 - 6.5+</td>
+                        <td>Chuyên nghiệp</td>
+                        <td>6,0 - 7,0+</td>
+                        <td>5,5 - 6,5+</td>
                         <td>World Tour, Grand Tour GC</td>
                     </tr>
                 </table>
 
-                <h4>Example Calculation:</h4>
+                <h4>Ví dụ tính toán:</h4>
                 <div class="example-box">
-                    <p><strong>Scenario:</strong> Cyclist with FTP = 275W, body mass = 70kg</p>
-                    <p>W/kg = 275 / 70 = <strong>3.93 W/kg</strong></p>
-                    <p><em>Interpretation: Competitive level, capable in hilly races</em></p>
+                    <p><strong>Kịch bản:</strong> Người đạp có FTP = 275W, nặng 70kg</p>
+                    <p>W/kg = 275 / 70 = <strong>3,93 W/kg</strong></p>
+                    <p><em>Giải mã: Cấp độ thi đấu tốt, có khả năng đua ở các chặng đồi núi</em></p>
                 </div>
 
                 <pre><code>function calculateWattsPerKg(power, bodyMassKg) {
   return (power / bodyMassKg).toFixed(2);
 }
 
-// Example:
+// Ví dụ:
 const wpkg = calculateWattsPerKg(275, 70);
-// Returns: 3.93</code></pre>
+// Trả về: 3.93</code></pre>
             </div>
         </div>
 
         <div class="formula-card">
             <h3>9. VAM (Velocità Ascensionale Media)</h3>
             <div class="formula-content">
-                <h4>Formula:</h4>
+                <h4>Công thức:</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        VAM (m/h) = Elevation Gain (m) / Time (hours)
+                        VAM (m/h) = Độ cao leo được (m) / Thời gian (giờ)
                     </div>
                 </div>
 
-                <h4>VAM Benchmarks:</h4>
+                <h4>Các mức chuẩn VAM:</h4>
                 <table class="data-table">
                     <tr>
                         <th>VAM (m/h)</th>
-                        <th>Level</th>
-                        <th>Example</th>
+                        <th>Cấp độ</th>
+                        <th>Ví dụ</th>
                     </tr>
                     <tr>
                         <td>600 - 900</td>
-                        <td>Recreational</td>
-                        <td>Club rider on local climb</td>
+                        <td>Giải trí</td>
+                        <td>Người đạp CLB trên các con dốc địa phương</td>
                     </tr>
                     <tr>
                         <td>900 - 1200</td>
-                        <td>Competitive</td>
-                        <td>Good amateur on Alpe d'Huez</td>
+                        <td>Có tính cạnh tranh</td>
+                        <td>Người nghiệp dư khá trên Alpe d'Huez</td>
                     </tr>
                     <tr>
                         <td>1200 - 1500</td>
-                        <td>Elite Amateur</td>
-                        <td>National-level climber</td>
+                        <td>Nghiệp dư ưu tú</td>
+                        <td>Người chuyên leo núi cấp quốc gia</td>
                     </tr>
                     <tr>
                         <td>1500 - 1800</td>
-                        <td>Professional</td>
-                        <td>World Tour domestique</td>
+                        <td>Chuyên nghiệp</td>
+                        <td>VĐV hỗ trợ (domestique) World Tour</td>
                     </tr>
                     <tr>
                         <td>&gt; 1800</td>
-                        <td>Grand Tour Winner</td>
-                        <td>Pogačar, Vingegaard on key climbs</td>
+                        <td>Vô địch Grand Tour</td>
+                        <td>Pogačar, Vingegaard ở các con dốc quan trọng</td>
                     </tr>
                 </table>
 
-                <h4>Example Calculation:</h4>
+                <h4>Ví dụ tính toán:</h4>
                 <div class="example-box">
-                    <p><strong>Scenario:</strong> Alpe d'Huez climb</p>
+                    <p><strong>Kịch bản:</strong> Leo con dốc Alpe d'Huez</p>
                     <ul>
-                        <li>Elevation gain: 1100 meters</li>
-                        <li>Time: 55 minutes = 0.917 hours</li>
-                        <li>VAM = 1100 / 0.917 = <strong>1200 m/h</strong></li>
+                        <li>Độ cao leo được: 1100 mét</li>
+                        <li>Thời gian: 55 phút = 0,917 giờ</li>
+                        <li>VAM = 1100 / 0,917 = <strong>1200 m/h</strong></li>
                     </ul>
-                    <p><em>Interpretation: Competitive-level climbing performance</em></p>
+                    <p><em>Giải mã: Hiệu suất leo núi mức độ thi đấu tốt</em></p>
                 </div>
 
                 <pre><code>function calculateVAM(elevationGainMeters, timeMinutes) {
@@ -1798,37 +1806,37 @@ const wpkg = calculateWattsPerKg(275, 70);
   return Math.round(elevationGainMeters / hours);
 }
 
-// Example:
+// Ví dụ:
 const vam = calculateVAM(1100, 55);
-// Returns: 1200 m/h</code></pre>
+// Trả về: 1200 m/h</code></pre>
             </div>
         </div>
 
         <div class="formula-card">
-            <h3>10. VAM to W/kg Estimation</h3>
+            <h3>10. Ước tính W/kg từ VAM</h3>
             <div class="formula-content">
-                <h4>Formula:</h4>
+                <h4>Công thức:</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        W/kg ≈ VAM (m/h) / 100 / (Gradient% + 3)
+                        W/kg ≈ VAM (m/h) / 100 / (Độ dốc% + 3)
                     </div>
                 </div>
 
-                <h4>Example Calculation:</h4>
+                <h4>Ví dụ tính toán:</h4>
                 <div class="example-box">
-                    <p><strong>Scenario:</strong> Climb with 8% average gradient, VAM = 1200 m/h</p>
+                    <p><strong>Kịch bản:</strong> Leo dốc với độ dốc TB 8%, VAM = 1200 m/h</p>
                     <p>W/kg = 1200 / 100 / (8 + 3)</p>
-                    <p>W/kg = 12 / 11 = <strong>4.36 W/kg</strong></p>
-                    <p><em>Cross-check: With 70kg rider → 305W sustained power on climb</em></p>
+                    <p>W/kg = 12 / 11 = <strong>4,36 W/kg</strong></p>
+                    <p><em>Đối chiếu: Với người đạp nặng 70kg → công suất duy trì ~305W khi leo dốc</em></p>
                 </div>
 
                 <pre><code>function estimateWkgFromVAM(vam, gradientPercent) {
   return (vam / 100 / (gradientPercent + 3)).toFixed(2);
 }
 
-// Example:
+// Ví dụ:
 const wkg = estimateWkgFromVAM(1200, 8);
-// Returns: 4.36</code></pre>
+// Trả về: 4.36</code></pre>
             </div>
         </div>
     </div>
@@ -1836,98 +1844,98 @@ const wkg = estimateWkgFromVAM(1200, 8);
 
 <section class="section section-alt">
     <div class="container">
-        <h2>Aerodynamic Power Equation</h2>
+        <h2>Phương trình Công suất Khí động học</h2>
 
         <div class="formula-card">
-            <h3>11. Total Power Requirements</h3>
+            <h3>11. Yêu cầu Công suất Tổng thể</h3>
             <div class="formula-content">
-                <h4>Complete Formula:</h4>
+                <h4>Công thức đầy đủ:</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        P_total = P_aero + P_gravity + P_rolling + P_kinetic
+                        P_tổng = P_khí_động_học + P_trọng_lực + P_lực_cản_lăn + P_động_năng
                     </div>
                 </div>
 
-                <h4>Component Formulas:</h4>
+                <h4>Các công thức thành phần:</h4>
                 <div class="formula-box-large">
                     <div class="formula">
-                        <strong>Aerodynamic Drag:</strong><br>
-                        P_aero = CdA × 0.5 × ρ × V³
+                        <strong>Lực cản khí động học:</strong><br>
+                        P_aero = CdA × 0,5 × ρ × V³
                     </div>
                     <div class="formula">
-                        <strong>Gravitational (Climbing):</strong><br>
+                        <strong>Trọng lực (khi leo dốc):</strong><br>
                         P_gravity = m × g × sin(θ) × V
                     </div>
                     <div class="formula">
-                        <strong>Rolling Resistance:</strong><br>
+                        <strong>Lực cản lăn:</strong><br>
                         P_rolling = Crr × m × g × cos(θ) × V
                     </div>
                     <div class="formula">
-                        <strong>Kinetic (Acceleration):</strong><br>
+                        <strong>Động năng (khi gia tốc):</strong><br>
                         P_kinetic = m × a × V
                     </div>
                 </div>
 
-                <h4>Constants & Variables:</h4>
+                <h4>Các hằng số & Biến số:</h4>
                 <ul>
-                    <li><strong>CdA</strong> = Drag coefficient × frontal area (m²)
+                    <li><strong>CdA</strong> = Hệ số lực cản × diện tích mặt trước (m²)
                         <ul>
-                            <li>Typical road bike hoods: 0.35-0.40 m²</li>
-                            <li>Drops: 0.32-0.37 m²</li>
-                            <li>TT position: 0.20-0.25 m²</li>
+                            <li>Tay trên hoods (xe road): 0,35-0,40 m²</li>
+                            <li>Tay dưới drops: 0,32-0,37 m²</li>
+                            <li>Tư thế TT: 0,20-0,25 m²</li>
                         </ul>
                     </li>
-                    <li><strong>ρ</strong> = Air density (1.225 kg/m³ at sea level, 15°C)</li>
-                    <li><strong>V</strong> = Velocity (m/s)</li>
-                    <li><strong>m</strong> = Total mass (rider + bike, kg)</li>
-                    <li><strong>g</strong> = Gravity (9.81 m/s²)</li>
-                    <li><strong>θ</strong> = Gradient angle (radians or degrees converted)</li>
-                    <li><strong>Crr</strong> = Rolling resistance coefficient (~0.004 for good road tires)</li>
-                    <li><strong>a</strong> = Acceleration (m/s²)</li>
+                    <li><strong>ρ</strong> = Mật độ không khí (1,225 kg/m³ ở mực nước biển, 15°C)</li>
+                    <li><strong>V</strong> = Vận tốc (m/s)</li>
+                    <li><strong>m</strong> = Tổng khối lượng (người + xe, kg)</li>
+                    <li><strong>g</strong> = Gia tốc trọng trường (9,81 m/s²)</li>
+                    <li><strong>θ</strong> = Góc dốc (đổi từ độ hoặc radian)</li>
+                    <li><strong>Crr</strong> = Hệ số lực cản lăn (~0,004 cho lốp road tốt)</li>
+                    <li><strong>a</strong> = Gia tốc (m/s²)</li>
                 </ul>
 
-                <h4>Worked Example (Flat Road TT):</h4>
+                <h4>Ví dụ cụ thể (Đua TT đường bằng):</h4>
                 <div class="example-box">
-                    <p><strong>Scenario:</strong></p>
+                    <p><strong>Kịch bản:</strong></p>
                     <ul>
-                        <li>Velocity: 40 km/h = 11.11 m/s</li>
-                        <li>CdA: 0.22 m² (good TT position)</li>
-                        <li>Total mass: 75kg (rider) + 8kg (bike) = 83kg</li>
-                        <li>Flat road (gradient = 0°)</li>
-                        <li>Constant speed (acceleration = 0)</li>
+                        <li>Vận tốc: 40 km/h = 11,11 m/s</li>
+                        <li>CdA: 0,22 m² (tư thế TT tốt)</li>
+                        <li>Tổng khối lượng: 75kg (người) + 8kg (xe) = 83kg</li>
+                        <li>Đường bằng (độ dốc = 0°)</li>
+                        <li>Tốc độ ổn định (gia tốc = 0)</li>
                     </ul>
 
-                    <p><strong>Calculation:</strong></p>
+                    <p><strong>Tính toán:</strong></p>
                     <ol>
-                        <li><strong>P_aero</strong> = 0.22 × 0.5 × 1.225 × 11.11³ = <strong>185W</strong></li>
-                        <li><strong>P_gravity</strong> = 0W (flat road)</li>
-                        <li><strong>P_rolling</strong> = 0.004 × 83 × 9.81 × 11.11 = <strong>36W</strong></li>
-                        <li><strong>P_kinetic</strong> = 0W (constant speed)</li>
-                        <li><strong>P_total</strong> = 185 + 0 + 36 + 0 = <strong>221W</strong></li>
+                        <li><strong>P_aero</strong> = 0,22 × 0,5 × 1,225 × 11,11³ = <strong>185W</strong></li>
+                        <li><strong>P_gravity</strong> = 0W (đường bằng)</li>
+                        <li><strong>P_rolling</strong> = 0,004 × 83 × 9,81 × 11,11 = <strong>36W</strong></li>
+                        <li><strong>P_kinetic</strong> = 0W (tốc độ ổn định)</li>
+                        <li><strong>P_tổng</strong> = 185 + 0 + 36 + 0 = <strong>221W</strong></li>
                     </ol>
 
-                    <p><em>Interpretation: Need 221W to sustain 40 km/h in TT position on flat road</em></p>
+                    <p><em>Giải mã: Cần duy trì 221W để giữ tốc độ 40 km/h ở tư thế TT trên đường bằng</em></p>
                 </div>
 
-                <h4>JavaScript Implementation:</h4>
+                <h4>Triển khai JavaScript:</h4>
                 <pre><code>function calculatePowerRequired(params) {
   const {
     velocityKph,
     CdA = 0.32,              // m²
     rho = 1.225,             // kg/m³
-    mass = 83,               // kg (rider + bike)
+    mass = 83,               // kg (người + xe)
     gradientPercent = 0,     // %
-    Crr = 0.004,             // rolling resistance
+    Crr = 0.004,             // lực cản lăn
     accelerationMps2 = 0     // m/s²
   } = params;
 
-  // Convert velocity to m/s
+  // Đổi vận tốc sang m/s
   const V = velocityKph / 3.6;
 
-  // Convert gradient to angle
+  // Đổi độ dốc sang góc
   const theta = Math.atan(gradientPercent / 100);
 
-  // Calculate each component
+  // Tính từng thành phần
   const P_aero = CdA * 0.5 * rho * Math.pow(V, 3);
   const P_gravity = mass * 9.81 * Math.sin(theta) * V;
   const P_rolling = Crr * mass * 9.81 * Math.cos(theta) * V;
@@ -1942,23 +1950,23 @@ const wkg = estimateWkgFromVAM(1200, 8);
   };
 }
 
-// Example: TT at 40 km/h
+// Ví dụ: Đua TT ở 40 km/h
 const power_tt = calculatePowerRequired({
   velocityKph: 40,
   CdA: 0.22,
   mass: 83,
   gradientPercent: 0
 });
-// Returns: { total: 221, aero: 185, gravity: 0, rolling: 36, kinetic: 0 }
+// Trả về: { total: 221, aero: 185, gravity: 0, rolling: 36, kinetic: 0 }
 
-// Example: 8% climb at 15 km/h
+// Ví dụ: Leo dốc 8% ở tốc độ 15 km/h
 const power_climb = calculatePowerRequired({
   velocityKph: 15,
   CdA: 0.38,
   mass: 75,
   gradientPercent: 8
 });
-// Returns: { total: 265, aero: 27, gravity: 244, rolling: 11, kinetic: 0 }</code></pre>
+// Trả về: { total: 265, aero: 27, gravity: 244, rolling: 11, kinetic: 0 }</code></pre>
             </div>
         </div>
     </div>
@@ -1966,13 +1974,13 @@ const power_climb = calculatePowerRequired({
 
 <section class="section">
     <div class="container container-narrow">
-        <h2>Helper Functions</h2>
+        <h2>Các hàm hỗ trợ</h2>
 
         <div class="formula-card">
-            <h3>Unit Conversion Utilities</h3>
+            <h3>Các tiện ích chuyển đổi đơn vị</h3>
             <div class="formula-content">
-                <h4>JavaScript Implementation:</h4>
-                <pre><code>// Time conversions
+                <h4>Triển khai JavaScript:</h4>
+                <pre><code>// Chuyển đổi thời gian
 function hoursToSeconds(hours) {
   return hours * 3600;
 }
@@ -1992,7 +2000,7 @@ function formatDuration(seconds) {
   return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
-// Speed conversions
+// Chuyển đổi tốc độ
 function kphToMps(kph) {
   return kph / 3.6;
 }
@@ -2001,8 +2009,8 @@ function mpsToKph(mps) {
   return mps * 3.6;
 }
 
-// Energy conversions
-function joulesTo kJ(joules) {
+// Chuyển đổi năng lượng
+function joulesToKJ(joules) {
   return joules / 1000;
 }
 
@@ -2014,10 +2022,10 @@ function wattsToKJ(watts, durationSeconds) {
   return (watts * durationSeconds) / 1000;
 }
 
-// Examples:
-formatDuration(7265);        // Returns: "2:01:05"
-kphToMps(40);                // Returns: 11.11 m/s
-wattsToKJ(250, 3600);        // Returns: 900 kJ (1 hour at 250W)</code></pre>
+// Ví dụ:
+formatDuration(7265);        // Trả về: "2:01:05"
+kphToMps(40);                // Trả về: 11.11 m/s
+wattsToKJ(250, 3600);        // Trả về: 900 kJ (1 giờ tại 250W)</code></pre>
             </div>
         </div>
     </div>
@@ -2025,27 +2033,35 @@ wattsToKJ(250, 3600);        // Returns: 900 kJ (1 hour at 250W)</code></pre>
 
 <section class="section section-alt">
     <div class="container container-narrow text-center">
-        <h2>Implementation Resources</h2>
-        <p class="lead">All formulas on this page are production-ready and validated against scientific literature and real-world power meter data. Use them for custom analytics tools, verification, or deeper understanding of power-based training calculations.</p>
+        <h2>Tài nguyên triển khai</h2>
+        <p class="lead">Tất cả các công thức trên trang này đều đã sẵn sàng để đưa vào sản xuất và được xác thực dựa
+            trên các tài liệu khoa học cũng như dữ liệu thực tế từ thiết bị đo công suất. Hãy sử dụng chúng cho các công
+            cụ phân tích tùy chỉnh, xác minh hoặc để hiểu sâu hơn về tính toán trong tập luyện dựa trên công suất.</p>
 
         <div class="callout callout-tip">
-            <h3>💡 Best Practices</h3>
+            <h3>💡 Các quy tắc tốt nhất (Best Practices)</h3>
             <ul class="text-left">
-                <li><strong>Validate inputs:</strong> Check for reasonable power ranges (0-2000W), positive durations</li>
-                <li><strong>Handle edge cases:</strong> Division by zero, null/undefined data, missing FTP</li>
-                <li><strong>Round appropriately:</strong> CTL/ATL/TSB to 1 decimal, TSS to integer, W/kg to 2 decimals</li>
-                <li><strong>Store precision:</strong> Keep full precision in database, round only for display</li>
-                <li><strong>Time zones:</strong> Handle UTC vs. local time consistently for multi-day analysis</li>
-                <li><strong>Power meter calibration:</strong> Remind users to zero-offset before rides</li>
-                <li><strong>FTP validation:</strong> Flag suspicious FTP values (>500W or <100W for adults)</li>
-                <li><strong>Test thoroughly:</strong> Use known-good ride files to verify calculations</li>
+                <li><strong>Xác thực đầu vào:</strong> Kiểm tra các phạm vi công suất hợp lý (0-2000W), thời gian dương
+                </li>
+                <li><strong>Xử lý ngoại lệ:</strong> Lỗi chia cho không, dữ liệu null/undefined, thiếu FTP</li>
+                <li><strong>Làm tròn phù hợp:</strong> CTL/ATL/TSB lấy 1 chữ số thập phân, TSS lấy số nguyên, W/kg lấy 2
+                    chữ số thập phân</li>
+                <li><strong>Lưu trữ với độ chính xác cao:</strong> Giữ nguyên các chữ số thập phân trong cơ sở dữ liệu,
+                    chỉ làm tròn khi hiển thị</li>
+                <li><strong>Múi giờ:</strong> Xử lý nhất quán giữa giờ UTC và giờ địa phương khi phân tích dữ liệu nhiều
+                    ngày</li>
+                <li><strong>Hiệu chuẩn thiết bị:</strong> Nhắc nhở người dùng thực hiện zero-offset trước khi đạp</li>
+                <li><strong>Xác thực FTP:</strong> Cảnh báo các giá trị FTP bất thường (>500W hoặc <100W đối với người
+                        lớn)</li>
+                <li><strong>Kiểm tra kỹ lưỡng:</strong> Sử dụng các tệp tin đạp xe đã biết kết quả đúng để xác minh các
+                    phép tính</li>
             </ul>
         </div>
 
         <div class="mt-xl">
-            <a href="/vi/" class="btn btn-primary btn-large">Back to Home</a>
-            <a href="/vi/research/" class="btn btn-secondary">Scientific Foundation</a>
-            <a href="/vi/bibliography/" class="btn btn-secondary">Complete Bibliography</a>
+            <a href="/vi/" class="btn btn-primary btn-large">Quay lại Trang chủ</a>
+            <a href="/vi/research/" class="btn btn-secondary">Nền tảng Khoa học</a>
+            <a href="/vi/bibliography/" class="btn btn-secondary">Thư mục Tài liệu Tham khảo</a>
         </div>
     </div>
 </section>
