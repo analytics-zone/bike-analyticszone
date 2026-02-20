@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="vi" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>Road Cycling vs Mountain Biking - Power Profile Differences</title>
-  <meta name="description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="road vs MTB, cycling power profiles, variability index, road MTB differences">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/vi/road-vs-mtb/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-13T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/vi/road-vs-mtb/">
-  <meta property="og:title" content="Road Cycling vs Mountain Biking - Power Profile Differences">
-  <meta property="og:description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="vi_VN">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/vi/road-vs-mtb/">
-  <meta name="twitter:title" content="Road Cycling vs Mountain Biking - Power Profile Differences">
-  <meta name="twitter:description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/road-vs-mtb/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="vi" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>Road Cycling vs Mountain Biking - Power Profile Differences</title><meta name="description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="road vs MTB, cycling power profiles, variability index, road MTB differences"><link rel="canonical" href="https://bike.analyticszone.app/vi/road-vs-mtb/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-01-13T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/vi/road-vs-mtb/"><meta property="og:title" content="Road Cycling vs Mountain Biking - Power Profile Differences"><meta property="og:description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/vi/road-vs-mtb/"><meta name="twitter:title" content="Road Cycling vs Mountain Biking - Power Profile Differences"><meta name="twitter:description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/road-vs-mtb/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/road-vs-mtb/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/road-vs-mtb/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/road-vs-mtb/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/road-vs-mtb/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/road-vs-mtb/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/road-vs-mtb/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/road-vs-mtb/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/road-vs-mtb/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/road-vs-mtb/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/road-vs-mtb/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/road-vs-mtb/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/road-vs-mtb/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/road-vs-mtb/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/road-vs-mtb/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/road-vs-mtb/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/road-vs-mtb/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/road-vs-mtb/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/road-vs-mtb/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/road-vs-mtb/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/road-vs-mtb/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/road-vs-mtb/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/road-vs-mtb/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/road-vs-mtb/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/road-vs-mtb/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/road-vs-mtb/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/road-vs-mtb/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/road-vs-mtb/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/road-vs-mtb/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/road-vs-mtb/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/road-vs-mtb/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/road-vs-mtb/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/road-vs-mtb/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/road-vs-mtb/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/road-vs-mtb/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/road-vs-mtb/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/road-vs-mtb/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/road-vs-mtb/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/road-vs-mtb/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/road-vs-mtb/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/road-vs-mtb/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/road-vs-mtb/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/road-vs-mtb/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/road-vs-mtb/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/road-vs-mtb/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/road-vs-mtb/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/road-vs-mtb/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/road-vs-mtb/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/road-vs-mtb/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/road-vs-mtb/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/road-vs-mtb/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/road-vs-mtb/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/road-vs-mtb/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/road-vs-mtb/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/road-vs-mtb/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/road-vs-mtb/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "vi"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.",
   "url": "https://bike.analyticszone.app/vi/road-vs-mtb/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -653,17 +435,7 @@ img[width][height] {
     "@id": "https://bike.analyticszone.app/vi/road-vs-mtb/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1498 +449,428 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">Chuyển đến nội dung</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/vi/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/vi/" 
+  </script></head><body><a href="#main-content" class="skip-link">Chuyển đến nội dung</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/vi/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/vi/" 
                                 aria-current="">
                                 Trang chủ
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/vi/getting-started/" class="nav-label">Học tập</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/vi/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/vi/getting-started/" class="nav-label">Học tập</a><ul class="submenu"><li><a href="/vi/getting-started/" 
                                         aria-current="">
                                         Bắt đầu
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/ftp/" 
+                                    </a></li><li><a href="/vi/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/critical-power/" 
+                                    </a></li><li><a href="/vi/critical-power/" 
                                         aria-current="">
                                         Công suất tới hạn
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/training-zones/" 
+                                    </a></li><li><a href="/vi/training-zones/" 
                                         aria-current="">
                                         Vùng luyện tập
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/training-load/" 
+                                    </a></li><li><a href="/vi/training-load/" 
                                         aria-current="">
                                         Khối lượng luyện tập
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/tss-calculator/" 
+                                    </a></li><li><a href="/vi/tss-calculator/" 
                                         aria-current="">
                                         Máy tính TSS
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/vi/research/" class="nav-label">Khoa học</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/vi/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/vi/research/" class="nav-label">Khoa học</a><ul class="submenu"><li><a href="/vi/research/" 
                                         aria-current="">
                                         Nghiên cứu
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/formulas/" 
+                                    </a></li><li><a href="/vi/formulas/" 
                                         aria-current="">
                                         Công thức
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/power-metrics/" 
+                                    </a></li><li><a href="/vi/power-metrics/" 
                                         aria-current="">
                                         Chỉ số công suất
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/efficiency/" 
+                                    </a></li><li><a href="/vi/efficiency/" 
                                         aria-current="">
                                         Hiệu quả
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/pedaling-mechanics/" 
+                                    </a></li><li><a href="/vi/pedaling-mechanics/" 
                                         aria-current="">
                                         Cơ chế đạp xe
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/aerodynamics/" 
+                                    </a></li><li><a href="/vi/aerodynamics/" 
                                         aria-current="">
                                         Khí động học
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/climbing-performance/" 
+                                    </a></li><li><a href="/vi/climbing-performance/" 
                                         aria-current="">
                                         Hiệu suất leo dốc
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/bibliography/" 
+                                    </a></li><li><a href="/vi/bibliography/" 
                                         aria-current="">
                                         Thư mục tài liệu
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/vi/road-cycling/" class="nav-label">Bộ môn</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/vi/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/vi/road-cycling/" class="nav-label">Bộ môn</a><ul class="submenu"><li><a href="/vi/road-cycling/" 
                                         aria-current="">
                                         Đua xe đạp đường trường
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/mountain-biking/" 
+                                    </a></li><li><a href="/vi/mountain-biking/" 
                                         aria-current="">
                                         Xe đạp leo núi
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/road-vs-mtb/" class="active" 
+                                    </a></li><li><a href="/vi/road-vs-mtb/" class="active" 
                                         aria-current="page">
                                         Đường trường vs MTB
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/comparisons/" 
+                                    </a></li><li><a href="/vi/comparisons/" 
                                         aria-current="">
                                         So sánh nền tảng
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/vi/contact/" 
+                                    </a></li></ul></li><li><a href="/vi/contact/" 
                                 aria-current="">
                                 Liên hệ
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="Chọn ngôn ngữ">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="Chọn ngôn ngữ"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" selected>
+                        </option><option value="vi" selected>
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="Bật/tắt menu"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/vi/">Trang chủ</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/vi/road-cycling/">Bộ môn</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">Đường trường vs MTB</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-    <!-- Road vs MTB Cycling Analytics - Bike Analytics -->
-
-<section class="page-hero">
-    <div class="container">
-        <h1>Đạp xe Đường trường vs Địa hình (MTB) - Tại sao Hồ sơ Công suất lại hoàn toàn khác biệt</h1>
-        <p class="lead">Hầu hết các nền tảng phân tích đạp xe đều coi mọi loại hình đạp xe là như nhau. Đó là một sai
-            lầm. Đường trường và Địa hình (MTB) đòi hỏi các phương pháp phân tích hoàn toàn khác nhau.</p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <div class="callout callout-warning mb-xl">
-            <h2>🚨 Vấn đề Cốt lõi của các Ứng dụng Phân tích Đạp xe Chung chung</h2>
-            <p>TrainingPeaks, Strava, WKO5 và các ứng dụng khác thường áp dụng <strong>các giả định của đạp xe đường
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="Bật/tắt menu"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/vi/">Trang chủ</a></li><li><a href="/vi/road-cycling/">Bộ môn</a></li><li><span aria-current="page">Đường trường vs MTB</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>Đạp xe Đường trường vs Địa hình (MTB) - Tại sao Hồ sơ Công suất lại hoàn toàn khác biệt</h1><p class="lead">Hầu hết các nền tảng phân tích đạp xe đều coi mọi loại hình đạp xe là như nhau. Đó là một sai
+            lầm. Đường trường và Địa hình (MTB) đòi hỏi các phương pháp phân tích hoàn toàn khác nhau.</p></div></section><section class="section"><div class="container container-narrow"><div class="callout callout-warning mb-xl"><h2>🚨 Vấn đề Cốt lõi của các Ứng dụng Phân tích Đạp xe Chung chung</h2><p>TrainingPeaks, Strava, WKO5 và các ứng dụng khác thường áp dụng <strong>các giả định của đạp xe đường
                     trường</strong> vào dữ liệu đạp xe địa hình (MTB). Họ mong đợi mức công suất mượt mà, nỗ lực ổn định
                 và độ biến thiên thấp. Khi họ thấy những đợt bùng nổ mạnh mẽ và độ biến thiên cao của MTB, họ thường gắn
-                thẻ đó là "phân phối sức kém" hoặc "thiếu hiệu quả".</p>
-            <p class="mt-md mb-0"><strong>Thực tế:</strong> Độ biến thiên cao là điều tối ưu cho MTB. Độ biến thiên thấp
+                thẻ đó là "phân phối sức kém" hoặc "thiếu hiệu quả".</p><p class="mt-md mb-0"><strong>Thực tế:</strong> Độ biến thiên cao là điều tối ưu cho MTB. Độ biến thiên thấp
                 trên các cung đường mòn có nghĩa là bạn đang không đẩy đủ lực khi leo dốc hoặc bạn đang đạp khi xuống
-                dốc (lãng phí năng lượng). <strong>Bike Analytics hiểu rõ sự khác biệt này.</strong></p>
-        </div>
-
-        <h2>So sánh Chi tiết: Đường trường vs Địa hình (MTB)</h2>
-
-        <div class="comparison-table-container">
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Chỉ số</th>
-                        <th>Đạp xe Đường trường</th>
-                        <th>Đạp xe Địa hình (MTB)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Chỉ số Biến thiên (VI)</strong></td>
-                        <td>1,02-1,05</td>
-                        <td class="highlight">1,10-1,20+</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Độ mượt Công suất</strong></td>
-                        <td>Ổn định, nhất quán</td>
-                        <td class="highlight">Biến động mạnh, bùng nổ</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Chênh lệch Trung bình vs NP</strong></td>
-                        <td>5-10W</td>
-                        <td class="highlight">30-50W</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hệ thống Năng lượng Chính</strong></td>
-                        <td>Hiếu khí (Z2-Z4)</td>
-                        <td class="highlight">Hỗn hợp hiếu khí/kỵ khí</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Mô hình Sử dụng W'</strong></td>
-                        <td>Cạn kiệt tối thiểu</td>
-                        <td class="highlight">Chu kỳ cạn kiệt/phục hồi liên tục</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Mô hình Phân tích Tốt nhất</strong></td>
-                        <td>Các vùng dựa trên FTP</td>
-                        <td class="highlight">Cân bằng CP & W'</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Thời gian Nỗ lực điển hình</strong></td>
-                        <td>20-60+ phút ổn định</td>
-                        <td class="highlight">30 giây-10 phút biến động</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Thời gian Thả trôi (%)</strong></td>
-                        <td>5-10%</td>
-                        <td class="highlight">20-40%</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tác động của Kỹ năng</strong></td>
-                        <td>Thấp (10-20% hiệu suất)</td>
-                        <td class="highlight">Rất cao (40-50% hiệu suất)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tầm quan trọng Khí động học</strong></td>
-                        <td class="highlight">Thiết yếu (80% lực cản >25 km/h)</td>
-                        <td>Tối thiểu (tư thế thẳng lưng là bắt buộc)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Vị trí đặt Thiết bị đo Công suất</strong></td>
-                        <td>Bất kỳ (vị trí đạp ổn định)</td>
-                        <td class="highlight">Ưu tiên bàn đạp hoặc nhện đùi đĩa</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Vòng chân (RPM)</strong></td>
-                        <td>85-95 điển hình</td>
-                        <td class="highlight">65-75 điển hình</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Nhịp tim Khớp với Công suất?</strong></td>
-                        <td class="highlight">Có (tương quan ổn định)</td>
-                        <td>Không (Nhịp tim vẫn cao khi thả trôi 0W)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h2>Tại sao những Khác biệt này lại Quan trọng đối với Phân tích</h2>
-
-        <div class="feature-list">
-            <div class="feature-item">
-                <h3>1. Thách thức trong việc Kiểm tra FTP</h3>
-                <div class="grid grid-2 mt-md">
-                    <div>
-                        <h4>Đạp xe Đường trường</h4>
-                        <ul>
-                            <li>Kiểm tra FTP 20 phút hoạt động hoàn hảo (dễ đạt trạng thái ổn định)</li>
-                            <li>Dễ dàng tìm đường bằng hoặc sử dụng smart trainer</li>
-                            <li>Đạp ở mức nỗ lực tối đa có thể duy trì trong 20 phút</li>
-                            <li>FTP = 95% công suất trung bình trong 20 phút</li>
-                            <li>Khả năng tái lập cao (biến động ±3W giữa các lần kiểm tra)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Đạp xe Địa hình (MTB)</h4>
-                        <ul>
-                            <li>Kiểm tra 20 phút <strong>thường phóng đại ngưỡng</strong> (khó duy trì công suất ổn định
-                                trên đường mòn)</li>
-                            <li>Địa hình liên tục ngắt quãng các nỗ lực ổn định</li>
-                            <li>FTP của MTB thường <strong>thấp hơn 5-10% so với FTP đường trường</strong></li>
-                            <li><strong>Giải pháp 1:</strong> Kiểm tra FTP trên đường nhựa, giảm 5-10% cho các vùng MTB
-                            </li>
-                            <li><strong>Giải pháp 2:</strong> Thay vào đó, sử dụng mô hình Công suất Tới hạn (CP)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="callout mt-md">
-                    <p><strong>Ví dụ thực tế:</strong> Người đạp có FTP đường trường là 280W. Trên MTB, công suất bền
+                dốc (lãng phí năng lượng). <strong>Bike Analytics hiểu rõ sự khác biệt này.</strong></p></div><h2>So sánh Chi tiết: Đường trường vs Địa hình (MTB)</h2><div class="comparison-table-container"><table class="comparison-table"><thead><tr><th>Chỉ số</th><th>Đạp xe Đường trường</th><th>Đạp xe Địa hình (MTB)</th></tr></thead><tbody><tr><td><strong>Chỉ số Biến thiên (VI)</strong></td><td>1,02-1,05</td><td class="highlight">1,10-1,20+</td></tr><tr><td><strong>Độ mượt Công suất</strong></td><td>Ổn định, nhất quán</td><td class="highlight">Biến động mạnh, bùng nổ</td></tr><tr><td><strong>Chênh lệch Trung bình vs NP</strong></td><td>5-10W</td><td class="highlight">30-50W</td></tr><tr><td><strong>Hệ thống Năng lượng Chính</strong></td><td>Hiếu khí (Z2-Z4)</td><td class="highlight">Hỗn hợp hiếu khí/kỵ khí</td></tr><tr><td><strong>Mô hình Sử dụng W'</strong></td><td>Cạn kiệt tối thiểu</td><td class="highlight">Chu kỳ cạn kiệt/phục hồi liên tục</td></tr><tr><td><strong>Mô hình Phân tích Tốt nhất</strong></td><td>Các vùng dựa trên FTP</td><td class="highlight">Cân bằng CP & W'</td></tr><tr><td><strong>Thời gian Nỗ lực điển hình</strong></td><td>20-60+ phút ổn định</td><td class="highlight">30 giây-10 phút biến động</td></tr><tr><td><strong>Thời gian Thả trôi (%)</strong></td><td>5-10%</td><td class="highlight">20-40%</td></tr><tr><td><strong>Tác động của Kỹ năng</strong></td><td>Thấp (10-20% hiệu suất)</td><td class="highlight">Rất cao (40-50% hiệu suất)</td></tr><tr><td><strong>Tầm quan trọng Khí động học</strong></td><td class="highlight">Thiết yếu (80% lực cản >25 km/h)</td><td>Tối thiểu (tư thế thẳng lưng là bắt buộc)</td></tr><tr><td><strong>Vị trí đặt Thiết bị đo Công suất</strong></td><td>Bất kỳ (vị trí đạp ổn định)</td><td class="highlight">Ưu tiên bàn đạp hoặc nhện đùi đĩa</td></tr><tr><td><strong>Vòng chân (RPM)</strong></td><td>85-95 điển hình</td><td class="highlight">65-75 điển hình</td></tr><tr><td><strong>Nhịp tim Khớp với Công suất?</strong></td><td class="highlight">Có (tương quan ổn định)</td><td>Không (Nhịp tim vẫn cao khi thả trôi 0W)</td></tr></tbody></table></div><h2>Tại sao những Khác biệt này lại Quan trọng đối với Phân tích</h2><div class="feature-list"><div class="feature-item"><h3>1. Thách thức trong việc Kiểm tra FTP</h3><div class="grid grid-2 mt-md"><div><h4>Đạp xe Đường trường</h4><ul><li>Kiểm tra FTP 20 phút hoạt động hoàn hảo (dễ đạt trạng thái ổn định)</li><li>Dễ dàng tìm đường bằng hoặc sử dụng smart trainer</li><li>Đạp ở mức nỗ lực tối đa có thể duy trì trong 20 phút</li><li>FTP = 95% công suất trung bình trong 20 phút</li><li>Khả năng tái lập cao (biến động ±3W giữa các lần kiểm tra)</li></ul></div><div><h4>Đạp xe Địa hình (MTB)</h4><ul><li>Kiểm tra 20 phút <strong>thường phóng đại ngưỡng</strong> (khó duy trì công suất ổn định
+                                trên đường mòn)</li><li>Địa hình liên tục ngắt quãng các nỗ lực ổn định</li><li>FTP của MTB thường <strong>thấp hơn 5-10% so với FTP đường trường</strong></li><li><strong>Giải pháp 1:</strong> Kiểm tra FTP trên đường nhựa, giảm 5-10% cho các vùng MTB
+                            </li><li><strong>Giải pháp 2:</strong> Thay vào đó, sử dụng mô hình Công suất Tới hạn (CP)</li></ul></div></div><div class="callout mt-md"><p><strong>Ví dụ thực tế:</strong> Người đạp có FTP đường trường là 280W. Trên MTB, công suất bền
                         vững giảm xuống còn 260W do vòng chân thấp hơn, thay đổi tư thế và các nỗ lực bị ngắt quãng. Sử
                         dụng 280W FTP cho các vùng tập luyện MTB sẽ khiến mọi bài tập nặng hơn 7% so với mức cần thiết.
-                    </p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <h3>2. Áp dụng các Vùng Tập luyện</h3>
-                <div class="grid grid-2 mt-md">
-                    <div>
-                        <h4>Đạp xe Đường trường</h4>
-                        <ul>
-                            <li>Ranh giới giữa các vùng hoạt động hoàn hảo</li>
-                            <li>Mục tiêu: "20 phút ở Vùng 4 (91-105% FTP)"</li>
-                            <li>Khả thi: Duy trì ổn định 95-100% FTP trong suốt 20 phút</li>
-                            <li>Kết quả: 19-20 phút ở Z4, <1 phút ở các vùng khác</li>
-                            <li>Kỷ luật về vùng tập luyện rất rõ ràng</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Đạp xe Địa hình (MTB)</h4>
-                        <ul>
-                            <li>Việc <strong>trộn lẫn các vùng tập là tất yếu và bình thường</strong></li>
-                            <li>Mục tiêu: "Chuyến đạp ngưỡng Z4"</li>
-                            <li>Thực tế: 40% thời gian ở Z4, 25% ở Z5-Z6 (đoạn dốc), 20% ở Z2-Z3 (phục hồi), 15% ở Z1
-                                (xuống dốc)</li>
-                            <li>Kết quả: Đạt được thông qua NP cao mặc dù công suất tức thời biến thiên</li>
-                            <li><strong>Chấp nhận sự biến thiên</strong> - đánh giá qua NP và tổng TSS</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="callout mt-md">
-                    <p><strong>Thông tin chính:</strong> Tập luyện MTB nhắm mục tiêu NP trong vùng mong muốn, không phải
+                    </p></div></div><div class="feature-item"><h3>2. Áp dụng các Vùng Tập luyện</h3><div class="grid grid-2 mt-md"><div><h4>Đạp xe Đường trường</h4><ul><li>Ranh giới giữa các vùng hoạt động hoàn hảo</li><li>Mục tiêu: "20 phút ở Vùng 4 (91-105% FTP)"</li><li>Khả thi: Duy trì ổn định 95-100% FTP trong suốt 20 phút</li><li>Kết quả: 19-20 phút ở Z4, <1 phút ở các vùng khác</li><li>Kỷ luật về vùng tập luyện rất rõ ràng</li></ul></div><div><h4>Đạp xe Địa hình (MTB)</h4><ul><li>Việc <strong>trộn lẫn các vùng tập là tất yếu và bình thường</strong></li><li>Mục tiêu: "Chuyến đạp ngưỡng Z4"</li><li>Thực tế: 40% thời gian ở Z4, 25% ở Z5-Z6 (đoạn dốc), 20% ở Z2-Z3 (phục hồi), 15% ở Z1
+                                (xuống dốc)</li><li>Kết quả: Đạt được thông qua NP cao mặc dù công suất tức thời biến thiên</li><li><strong>Chấp nhận sự biến thiên</strong> - đánh giá qua NP và tổng TSS</li></ul></div></div><div class="callout mt-md"><p><strong>Thông tin chính:</strong> Tập luyện MTB nhắm mục tiêu NP trong vùng mong muốn, không phải
                         công suất tức thời. Một chuyến đạp đường mòn cho thấy NP ở mức 85% FTP là một bài tập ngưỡng
-                        hiệu quả, ngay cả khi công suất tức thời dao động từ 50-150% FTP.</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <h3>3. Tính toán & Giải mã TSS</h3>
-                <div class="grid grid-2 mt-md">
-                    <div>
-                        <h4>Đạp xe Đường trường</h4>
-                        <ul>
-                            <li>TSS tích lũy có thể dự đoán: 100 TSS = 1 giờ tại mức FTP</li>
-                            <li>Ví dụ: 2 giờ ở mức 80% FTP = 128 TSS (rất nhất quán)</li>
-                            <li>TSS phản ánh chính xác căng thẳng sinh lý</li>
-                            <li>Việc so sánh TSS giữa các chuyến đạp là đáng tin cậy</li>
-                            <li>Nhu cầu phục hồi tỷ lệ thuận với TSS</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Đạp xe Địa hình (MTB)</h4>
-                        <ul>
-                            <li>Cùng một cung đường = TSS tương tự (tốt để theo dõi tiến độ)</li>
-                            <li>Ví dụ: Cùng một cung đường 2 giờ = 105 TSS mỗi lần</li>
-                            <li><strong>NP cao làm tăng chỉ số TSS</strong> - 100 TSS của MTB cảm thấy nặng hơn đường
-                                trường</li>
-                            <li>Căng thẳng về kỹ thuật không được nắm bắt bởi chỉ riêng TSS</li>
-                            <li><strong>Giải pháp:</strong> Điều chỉnh cách giải mã TSS hoặc cộng thêm 10-20% cho các
-                                cung đường kỹ thuật</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="callout callout-warning mt-md">
-                    <p><strong>⚠️ Cảnh báo:</strong> Đừng so sánh trực tiếp TSS giữa các bộ môn. Một chuyến đạp đường
+                        hiệu quả, ngay cả khi công suất tức thời dao động từ 50-150% FTP.</p></div></div><div class="feature-item"><h3>3. Tính toán & Giải mã TSS</h3><div class="grid grid-2 mt-md"><div><h4>Đạp xe Đường trường</h4><ul><li>TSS tích lũy có thể dự đoán: 100 TSS = 1 giờ tại mức FTP</li><li>Ví dụ: 2 giờ ở mức 80% FTP = 128 TSS (rất nhất quán)</li><li>TSS phản ánh chính xác căng thẳng sinh lý</li><li>Việc so sánh TSS giữa các chuyến đạp là đáng tin cậy</li><li>Nhu cầu phục hồi tỷ lệ thuận với TSS</li></ul></div><div><h4>Đạp xe Địa hình (MTB)</h4><ul><li>Cùng một cung đường = TSS tương tự (tốt để theo dõi tiến độ)</li><li>Ví dụ: Cùng một cung đường 2 giờ = 105 TSS mỗi lần</li><li><strong>NP cao làm tăng chỉ số TSS</strong> - 100 TSS của MTB cảm thấy nặng hơn đường
+                                trường</li><li>Căng thẳng về kỹ thuật không được nắm bắt bởi chỉ riêng TSS</li><li><strong>Giải pháp:</strong> Điều chỉnh cách giải mã TSS hoặc cộng thêm 10-20% cho các
+                                cung đường kỹ thuật</li></ul></div></div><div class="callout callout-warning mt-md"><p><strong>⚠️ Cảnh báo:</strong> Đừng so sánh trực tiếp TSS giữa các bộ môn. Một chuyến đạp đường
                         trường 150 TSS không bằng một chuyến đạp địa hình kỹ thuật 150 TSS về mức độ mệt mỏi tạo ra.
                         Công suất biến thiên và nhu cầu kỹ thuật của MTB tạo ra căng thẳng bổ sung mà TSS dựa trên công
-                        suất không phản ánh hết.</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <h3>4. Chiến thuật Phân phối sức</h3>
-                <div class="grid grid-2 mt-md">
-                    <div>
-                        <h4>Đạp xe Đường trường</h4>
-                        <ul>
-                            <li><strong>Công suất đều (iso-power) là tối ưu</strong></li>
-                            <li>Đua tính giờ: Duy trì 95-100% FTP trong toàn bộ thời gian</li>
-                            <li>Giảm thiểu việc cạn kiệt W' (để dành cho nước rút/tấn công)</li>
-                            <li>Sự biến thiên là thiếu hiệu quả (lãng phí năng lượng)</li>
-                            <li>Mục tiêu: VI < 1,05 cho đua tính giờ</li>
-                            <li>Công suất mượt mà = hiệu quả tốc độ</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Đạp xe Địa hình (MTB)</h4>
-                        <ul>
-                            <li><strong>Công suất biến thiên là tối ưu</strong> - bứt tốc khi cần thiết</li>
-                            <li>Đoạn dốc gắt: Đẩy lên 130-150% FTP trong 10-30 giây</li>
-                            <li>Sử dụng W' một cách chiến thuật, phục hồi ở đoạn bằng/xuống dốc</li>
-                            <li>Quản lý cân bằng W' là chiến thuật đua xe</li>
-                            <li>Kỳ vọng: VI từ 1,10-1,20 (VI thấp = chưa đẩy đủ lực)</li>
-                            <li>Địa hình quyết định công suất, không phải kế hoạch phân phối sức</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="callout mt-md">
-                    <p><strong>Ví dụ thực tế:</strong> Một đoạn leo MTB với độ dốc trung bình 5% nhưng có các đoạn gắt
+                        suất không phản ánh hết.</p></div></div><div class="feature-item"><h3>4. Chiến thuật Phân phối sức</h3><div class="grid grid-2 mt-md"><div><h4>Đạp xe Đường trường</h4><ul><li><strong>Công suất đều (iso-power) là tối ưu</strong></li><li>Đua tính giờ: Duy trì 95-100% FTP trong toàn bộ thời gian</li><li>Giảm thiểu việc cạn kiệt W' (để dành cho nước rút/tấn công)</li><li>Sự biến thiên là thiếu hiệu quả (lãng phí năng lượng)</li><li>Mục tiêu: VI < 1,05 cho đua tính giờ</li><li>Công suất mượt mà = hiệu quả tốc độ</li></ul></div><div><h4>Đạp xe Địa hình (MTB)</h4><ul><li><strong>Công suất biến thiên là tối ưu</strong> - bứt tốc khi cần thiết</li><li>Đoạn dốc gắt: Đẩy lên 130-150% FTP trong 10-30 giây</li><li>Sử dụng W' một cách chiến thuật, phục hồi ở đoạn bằng/xuống dốc</li><li>Quản lý cân bằng W' là chiến thuật đua xe</li><li>Kỳ vọng: VI từ 1,10-1,20 (VI thấp = chưa đẩy đủ lực)</li><li>Địa hình quyết định công suất, không phải kế hoạch phân phối sức</li></ul></div></div><div class="callout mt-md"><p><strong>Ví dụ thực tế:</strong> Một đoạn leo MTB với độ dốc trung bình 5% nhưng có các đoạn gắt
                         8-12%. Phân phối sức thông minh: Bứt tốc lên 140% FTP ở đoạn dốc 12% (20-30 giây), phục hồi về
                         70% FTP ở đoạn dốc 5%. Kết quả: Thời gian nhanh hơn so với việc giữ đều 95% FTP suốt cả đoạn
-                        leo.</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <h3>5. Tối ưu hóa Trang thiết bị & Thiết lập</h3>
-                <div class="grid grid-2 mt-md">
-                    <div>
-                        <h4>Đạp xe Đường trường</h4>
-                        <ul>
-                            <li><strong>Mọi thứ đều hướng tới khí động học</strong> - bánh xe, mũ, tư thế, quần áo</li>
-                            <li>Tư thế khí động học tích cực giúp tiết kiệm 30-50W ở tốc độ 40 km/h</li>
-                            <li>Giảm CdA là trọng tâm hàng đầu ở tốc độ cao</li>
-                            <li>Bánh xe vành cao (50-80mm)</li>
-                            <li>Tối ưu hóa tư thế quan trọng hơn giảm trọng lượng</li>
-                            <li>Mọi vị trí đặt thiết bị đo công suất đều hiệu quả</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Đạp xe Địa hình (MTB)</h4>
-                        <ul>
-                            <li><strong>Sự thoải mái/kiểm soát > Khí động học</strong></li>
-                            <li>Tư thế thẳng lưng là bắt buộc (tầm nhìn, khả năng điều khiển xe)</li>
-                            <li>Lợi ích khí động học không đáng kể ở tốc độ MTB (<25 km/h khi leo)</li>
-                            <li>Bánh xe tiêu chuẩn (độ bền > khí động học)</li>
-                            <li>Giảm trọng lượng cực kỳ quan trọng (trọng tâm leo dốc)</li>
-                            <li>Đo công suất: Ưu tiên ở bàn đạp hoặc nhện đùi đĩa (được bảo vệ khỏi va đập)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="callout mt-md">
-                    <p><strong>Phân tích chi phí-lợi ích:</strong> Giảm 100g trên xe đường trường mang lại lợi ích tối
+                        leo.</p></div></div><div class="feature-item"><h3>5. Tối ưu hóa Trang thiết bị & Thiết lập</h3><div class="grid grid-2 mt-md"><div><h4>Đạp xe Đường trường</h4><ul><li><strong>Mọi thứ đều hướng tới khí động học</strong> - bánh xe, mũ, tư thế, quần áo</li><li>Tư thế khí động học tích cực giúp tiết kiệm 30-50W ở tốc độ 40 km/h</li><li>Giảm CdA là trọng tâm hàng đầu ở tốc độ cao</li><li>Bánh xe vành cao (50-80mm)</li><li>Tối ưu hóa tư thế quan trọng hơn giảm trọng lượng</li><li>Mọi vị trí đặt thiết bị đo công suất đều hiệu quả</li></ul></div><div><h4>Đạp xe Địa hình (MTB)</h4><ul><li><strong>Sự thoải mái/kiểm soát > Khí động học</strong></li><li>Tư thế thẳng lưng là bắt buộc (tầm nhìn, khả năng điều khiển xe)</li><li>Lợi ích khí động học không đáng kể ở tốc độ MTB (<25 km/h khi leo)</li><li>Bánh xe tiêu chuẩn (độ bền > khí động học)</li><li>Giảm trọng lượng cực kỳ quan trọng (trọng tâm leo dốc)</li><li>Đo công suất: Ưu tiên ở bàn đạp hoặc nhện đùi đĩa (được bảo vệ khỏi va đập)</li></ul></div></div><div class="callout mt-md"><p><strong>Phân tích chi phí-lợi ích:</strong> Giảm 100g trên xe đường trường mang lại lợi ích tối
                         thiểu. Giảm 100g trên xe MTB có thể cảm nhận rõ ràng ở các đoạn leo kỹ thuật. Ngược lại, bộ bánh
                         aero 25 triệu VNĐ giúp tiết kiệm 15W trên đường trường nhưng không tiết kiệm được watt nào trên
-                        đường mòn MTB.</p>
-                </div>
-            </div>
-        </div>
-
-        <h2>Dữ liệu thực tế: Tệp tin công suất Đường trường vs Địa hình</h2>
-
-        <div class="grid grid-2 mb-xl">
-            <div class="card">
-                <h3 class="card-title">Ví dụ Đua Đường trường</h3>
-                <div class="card-content">
-                    <p><strong>Thời gian:</strong> 2 giờ 15 phút</p>
-                    <p><strong>Khoảng cách:</strong> 85 km</p>
-                    <p><strong>Công suất Trung bình:</strong> 205W</p>
-                    <p><strong>Công suất Chuẩn hóa:</strong> 215W (NP)</p>
-                    <p><strong>Chỉ số Biến thiên:</strong> 1,05 (rất mượt)</p>
-                    <p><strong>Hệ số Cường độ:</strong> 0,77 (vừa phải)</p>
-                    <p><strong>TSS:</strong> 145</p>
-                    <p><strong>Thời gian thả trôi:</strong> 8% (chỉ khi xuống dốc)</p>
-                    <p><strong>Đợt bứt tốc >120% FTP:</strong> 12 (tấn công, nước rút)</p>
-                    <hr class="my-md">
-                    <p class="text-sm"><strong>Giải mã:</strong> Nỗ lực sức bền ổn định với các đợt tấn công thỉnh
+                        đường mòn MTB.</p></div></div></div><h2>Dữ liệu thực tế: Tệp tin công suất Đường trường vs Địa hình</h2><div class="grid grid-2 mb-xl"><div class="card"><h3 class="card-title">Ví dụ Đua Đường trường</h3><div class="card-content"><p><strong>Thời gian:</strong> 2 giờ 15 phút</p><p><strong>Khoảng cách:</strong> 85 km</p><p><strong>Công suất Trung bình:</strong> 205W</p><p><strong>Công suất Chuẩn hóa:</strong> 215W (NP)</p><p><strong>Chỉ số Biến thiên:</strong> 1,05 (rất mượt)</p><p><strong>Hệ số Cường độ:</strong> 0,77 (vừa phải)</p><p><strong>TSS:</strong> 145</p><p><strong>Thời gian thả trôi:</strong> 8% (chỉ khi xuống dốc)</p><p><strong>Đợt bứt tốc >120% FTP:</strong> 12 (tấn công, nước rút)</p><hr class="my-md"><p class="text-sm"><strong>Giải mã:</strong> Nỗ lực sức bền ổn định với các đợt tấn công thỉnh
                         thoảng. VI thấp cho thấy việc phân phối công suất mượt mà. Công suất trung bình và NP rất gần
-                        nhau (chỉ chênh lệch 10W). Điển hình cho đua đường trường trong nhóm đông.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Ví dụ Đua XC MTB</h3>
-                <div class="card-content">
-                    <p><strong>Thời gian:</strong> 1 giờ 45 phút</p>
-                    <p><strong>Khoảng cách:</strong> 32 km</p>
-                    <p><strong>Công suất Trung bình:</strong> 185W</p>
-                    <p><strong>Công suất Chuẩn hóa:</strong> 235W (NP)</p>
-                    <p><strong>Chỉ số Biến thiên:</strong> 1,27 (biến động rất mạnh)</p>
-                    <p><strong>Hệ số Cường độ:</strong> 0,90 (nỗ lực nặng)</p>
-                    <p><strong>TSS:</strong> 165</p>
-                    <p><strong>Thời gian thả trôi:</strong> 35% (xuống dốc, đoạn kỹ thuật)</p>
-                    <p><strong>Đợt bứt tốc >120% FTP:</strong> 94 (liên tục bùng nổ)</p>
-                    <hr class="my-md">
-                    <p class="text-sm"><strong>Giải mã:</strong> Công suất trung bình thấp hơn nhưng NP cao hơn nhiều
+                        nhau (chỉ chênh lệch 10W). Điển hình cho đua đường trường trong nhóm đông.</p></div></div><div class="card"><h3 class="card-title">Ví dụ Đua XC MTB</h3><div class="card-content"><p><strong>Thời gian:</strong> 1 giờ 45 phút</p><p><strong>Khoảng cách:</strong> 32 km</p><p><strong>Công suất Trung bình:</strong> 185W</p><p><strong>Công suất Chuẩn hóa:</strong> 235W (NP)</p><p><strong>Chỉ số Biến thiên:</strong> 1,27 (biến động rất mạnh)</p><p><strong>Hệ số Cường độ:</strong> 0,90 (nỗ lực nặng)</p><p><strong>TSS:</strong> 165</p><p><strong>Thời gian thả trôi:</strong> 35% (xuống dốc, đoạn kỹ thuật)</p><p><strong>Đợt bứt tốc >120% FTP:</strong> 94 (liên tục bùng nổ)</p><hr class="my-md"><p class="text-sm"><strong>Giải mã:</strong> Công suất trung bình thấp hơn nhưng NP cao hơn nhiều
                         (+50W!). VI cao phản ánh mô hình nỗ lực bùng nổ. Khoảng cách ngắn hơn nhưng TSS cao hơn đua
                         đường trường. Gần 100 đợt bứt tốc - điều bình thường trong đua XC, không phải do phân phối sức
-                        kém.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="callout callout-info mb-xl">
-            <h3>🔍 Quan sát Quan trọng</h3>
-            <p>Cuộc đua MTB có <strong>công suất trung bình thấp hơn nhưng TSS cao hơn</strong> so với cuộc đua đường
+                        kém.</p></div></div></div><div class="callout callout-info mb-xl"><h3>🔍 Quan sát Quan trọng</h3><p>Cuộc đua MTB có <strong>công suất trung bình thấp hơn nhưng TSS cao hơn</strong> so với cuộc đua đường
                 trường dài hơn. Tại sao? Công suất Chuẩn hóa (235W so với 215W) đã tính đến cái giá sinh lý của các nỗ
                 lực biến thiên. 94 đợt bứt tốc trên ngưỡng đó tạo ra căng thẳng trao đổi chất mà công suất trung bình
-                không nắm bắt được.</p>
-            <p class="mt-md mb-0"><strong>Bài học rút ra:</strong> Đừng bao giờ đánh giá nỗ lực MTB qua công suất trung
+                không nắm bắt được.</p><p class="mt-md mb-0"><strong>Bài học rút ra:</strong> Đừng bao giờ đánh giá nỗ lực MTB qua công suất trung
                 bình. Luôn luôn kiểm tra NP và VI. Một người đạp đường trường nhìn vào dữ liệu MTB có thể nghĩ "chỉ
-                trung bình 185W, đạp nhẹ nhàng" - nhưng NP 235W ở mức IF 0,90 thực tế là một nỗ lực ngưỡng rất nặng.</p>
-        </div>
-
-        <h2>Bike Analytics Giải quyết Vấn đề này như thế nào</h2>
-
-        <div class="feature-list">
-            <div class="feature-item">
-                <h3>✅ Theo dõi FTP riêng theo từng Bộ môn</h3>
-                <p>Bike Analytics duy trì <strong>các giá trị FTP riêng biệt cho đường trường và MTB</strong>. Bạn có
+                trung bình 185W, đạp nhẹ nhàng" - nhưng NP 235W ở mức IF 0,90 thực tế là một nỗ lực ngưỡng rất nặng.</p></div><h2>Bike Analytics Giải quyết Vấn đề này như thế nào</h2><div class="feature-list"><div class="feature-item"><h3>✅ Theo dõi FTP riêng theo từng Bộ môn</h3><p>Bike Analytics duy trì <strong>các giá trị FTP riêng biệt cho đường trường và MTB</strong>. Bạn có
                     thể đặt FTP đường trường 280W và MTB 260W một cách độc lập. Các vùng tập luyện sẽ tự động tính toán
-                    chính xác cho từng bộ môn.</p>
-                <p><strong>Tại sao điều này quan trọng:</strong> Các ứng dụng thông thường sử dụng một mức FTP duy nhất,
+                    chính xác cho từng bộ môn.</p><p><strong>Tại sao điều này quan trọng:</strong> Các ứng dụng thông thường sử dụng một mức FTP duy nhất,
                     khiến các bài tập MTB trở nên quá nặng hoặc bài tập đường trường trở nên quá nhẹ. Bike Analytics tôn
-                    trọng thực tế là công suất bền vững khác nhau giữa các bộ môn.</p>
-            </div>
-
-            <div class="feature-item">
-                <h3>✅ Tự động Phát hiện Bộ môn</h3>
-                <p>Bike Analytics phân tích Chỉ số Biến thiên (VI) để tự động phát hiện loại hình đạp xe:</p>
-                <ul>
-                    <li><strong>VI < 1,08:</strong> Được phân loại là Đường trường (áp dụng làm mượt công suất 30 giây,
-                                FTP đường trường)</li>
-                    <li><strong>VI ≥ 1,08:</strong> Được phân loại là MTB (áp dụng làm mượt công suất 3-5 giây, FTP MTB)
-                    </li>
-                </ul>
-                <p>Không cần gắn thẻ thủ công. Ứng dụng tự động nhận diện các nỗ lực bùng nổ của MTB so với các nỗ lực
-                    mượt mà của đường trường.</p>
-            </div>
-
-            <div class="feature-item">
-                <h3>✅ Ưu tiên CP & W'bal cho Phân tích MTB</h3>
-                <p>Bike Analytics cung cấp mô hình <strong>Công suất Tới hạn (CP) và Cân bằng W Prime</strong>, điều này
-                    ưu việt hơn FTP đối với MTB:</p>
-                <ul>
-                    <li><strong>CP:</strong> Phản ánh chính xác hơn công suất bền vững cho các nỗ lực biến thiên</li>
-                    <li><strong>Cân bằng W':</strong> Theo dõi việc cạn kiệt/phục hồi khả năng kỵ khí trong thời gian
-                        thực</li>
-                    <li>Dự đoán tốt hơn hiệu suất đua MTB so với các vùng dựa trên FTP</li>
-                </ul>
-                <a href="/vi/critical-power/" class="btn btn-secondary btn-small mt-sm">Tìm hiểu về CP/W' →</a>
-            </div>
-
-            <div class="feature-item">
-                <h3>✅ Giải mã TSS Khác biệt theo Bộ môn</h3>
-                <p>Bike Analytics điều chỉnh cách giải mã TSS dựa trên loại hình đạp xe:</p>
-                <ul>
-                    <li><strong>TSS Đường trường:</strong> Tính toán tiêu chuẩn, tương quan trực tiếp với sự mệt mỏi
-                    </li>
-                    <li><strong>TSS MTB:</strong> Được đánh dấu với ghi chú rằng căng thẳng kỹ thuật sẽ cộng thêm 10-20%
-                        tải trọng hiệu dụng</li>
-                    <li>Các khuyến nghị phục hồi tính đến sự khác biệt giữa các bộ môn</li>
-                </ul>
-            </div>
-
-            <div class="feature-item">
-                <h3>✅ Theo dõi Hiệu suất theo từng Cung đường mòn</h3>
-                <p>Đối với người đạp địa hình, Bike Analytics theo dõi hiệu suất trên các cung đường cụ thể theo thời
-                    gian:</p>
-                <ul>
-                    <li>So sánh cùng một cung đường qua nhiều chuyến đạp</li>
-                    <li>Theo dõi sự cải thiện công suất trên các lộ trình quen thuộc</li>
-                    <li>Xác định các phân đoạn nhanh nhất với sự phân bổ công suất tối ưu</li>
-                    <li>Giám sát sự tiến bộ về kỹ thuật (hiệu quả công suất trên các đoạn kỹ thuật)</li>
-                </ul>
-            </div>
-        </div>
-
-        <h2>Các Câu hỏi Thường gặp: Phân tích Đường trường vs Địa hình (MTB)</h2>
-
-        <div class="faq-item">
-            <h3>Tôi có nên kiểm tra FTP riêng cho đường trường và MTB không?</h3>
-            <p><strong>Có, lý tưởng nhất là như vậy.</strong> FTP của MTB điển hình thấp hơn 5-10% so với FTP đường
+                    trọng thực tế là công suất bền vững khác nhau giữa các bộ môn.</p></div><div class="feature-item"><h3>✅ Tự động Phát hiện Bộ môn</h3><p>Bike Analytics phân tích Chỉ số Biến thiên (VI) để tự động phát hiện loại hình đạp xe:</p><ul><li><strong>VI < 1,08:</strong> Được phân loại là Đường trường (áp dụng làm mượt công suất 30 giây,
+                                FTP đường trường)</li><li><strong>VI ≥ 1,08:</strong> Được phân loại là MTB (áp dụng làm mượt công suất 3-5 giây, FTP MTB)
+                    </li></ul><p>Không cần gắn thẻ thủ công. Ứng dụng tự động nhận diện các nỗ lực bùng nổ của MTB so với các nỗ lực
+                    mượt mà của đường trường.</p></div><div class="feature-item"><h3>✅ Ưu tiên CP & W'bal cho Phân tích MTB</h3><p>Bike Analytics cung cấp mô hình <strong>Công suất Tới hạn (CP) và Cân bằng W Prime</strong>, điều này
+                    ưu việt hơn FTP đối với MTB:</p><ul><li><strong>CP:</strong> Phản ánh chính xác hơn công suất bền vững cho các nỗ lực biến thiên</li><li><strong>Cân bằng W':</strong> Theo dõi việc cạn kiệt/phục hồi khả năng kỵ khí trong thời gian
+                        thực</li><li>Dự đoán tốt hơn hiệu suất đua MTB so với các vùng dựa trên FTP</li></ul><a href="/vi/critical-power/" class="btn btn-secondary btn-small mt-sm">Tìm hiểu về CP/W' →</a></div><div class="feature-item"><h3>✅ Giải mã TSS Khác biệt theo Bộ môn</h3><p>Bike Analytics điều chỉnh cách giải mã TSS dựa trên loại hình đạp xe:</p><ul><li><strong>TSS Đường trường:</strong> Tính toán tiêu chuẩn, tương quan trực tiếp với sự mệt mỏi
+                    </li><li><strong>TSS MTB:</strong> Được đánh dấu với ghi chú rằng căng thẳng kỹ thuật sẽ cộng thêm 10-20%
+                        tải trọng hiệu dụng</li><li>Các khuyến nghị phục hồi tính đến sự khác biệt giữa các bộ môn</li></ul></div><div class="feature-item"><h3>✅ Theo dõi Hiệu suất theo từng Cung đường mòn</h3><p>Đối với người đạp địa hình, Bike Analytics theo dõi hiệu suất trên các cung đường cụ thể theo thời
+                    gian:</p><ul><li>So sánh cùng một cung đường qua nhiều chuyến đạp</li><li>Theo dõi sự cải thiện công suất trên các lộ trình quen thuộc</li><li>Xác định các phân đoạn nhanh nhất với sự phân bổ công suất tối ưu</li><li>Giám sát sự tiến bộ về kỹ thuật (hiệu quả công suất trên các đoạn kỹ thuật)</li></ul></div></div><h2>Các Câu hỏi Thường gặp: Phân tích Đường trường vs Địa hình (MTB)</h2><div class="faq-item"><h3>Tôi có nên kiểm tra FTP riêng cho đường trường và MTB không?</h3><p><strong>Có, lý tưởng nhất là như vậy.</strong> FTP của MTB điển hình thấp hơn 5-10% so với FTP đường
                 trường do vòng chân thấp hơn, thay đổi tư thế và các nhu cầu về kỹ thuật. Kiểm tra cả hai sẽ mang lại
-                các vùng tập luyện chính xác nhất.</p>
-            <p><strong>Lựa chọn thay thế:</strong> Kiểm tra trên đường nhựa, giảm đi 7% cho các vùng tập MTB. Ví dụ: FTP
-                đường trường 280W → FTP MTB 260W.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Tôi có thể sử dụng các vùng tập đường trường cho các buổi tập MTB không?</h3>
-            <p><strong>Không nên dùng trực tiếp.</strong> Các vùng đường trường giả định công suất đầu ra mượt mà. Các
-                vùng MTB cần tính đến độ biến thiên. Nếu sử dụng vùng đường trường cho MTB:</p>
-            <ul>
-                <li>Hãy giảm FTP đi 5-10% trước</li>
-                <li>Chấp nhận việc trộn lẫn các vùng (nhắm mục tiêu NP trong vùng, không phải công suất tức thời)</li>
-                <li>Sử dụng cửa sổ làm mượt ngắn hơn (3-5 giây so với 30 giây)</li>
-            </ul>
-            <p><strong>Giải pháp tốt hơn:</strong> Sử dụng Bike Analytics với chức năng theo dõi bộ môn riêng biệt.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Tại sao công suất trung bình của MTB lại thấp hơn nhiều so với NP?</h3>
-            <p><strong>Điều này là bình thường!</strong> NP có thể cao hơn 30-50W so với công suất trung bình của MTB
-                do:</p>
-            <ul>
-                <li>Nhiều thời gian không đạp (thả trôi khi xuống dốc, đoạn kỹ thuật)</li>
-                <li>Các đợt bùng nổ công suất cao thường xuyên trên mức ngưỡng</li>
-                <li>Địa hình biến thiên tạo ra các đỉnh công suất</li>
-            </ul>
-            <p><strong>Luôn luôn đánh giá nỗ lực MTB qua NP, không phải công suất trung bình.</strong> Một chuyến đạp
-                cho thấy trung bình 185W nhưng NP 235W thực tế là một nỗ lực ngưỡng nặng.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>TSS có thể so sánh giữa đạp xe đường trường và địa hình không?</h3>
-            <p><strong>Không trực tiếp.</strong> 100 TSS của MTB điển hình cảm thấy nặng hơn 100 TSS của đường trường
-                vì:</p>
-            <ul>
-                <li>Căng thẳng về kỹ thuật (mệt mỏi tinh thần, điều khiển xe) không được ghi nhận trong TSS</li>
-                <li>Sự mệt mỏi toàn thân (vùng lõi, cánh tay, các cơ ổn định) so với chỉ đôi chân trên đường trường</li>
-                <li>VI cao tạo ra nhiều căng thẳng trao đổi chất hơn công suất mượt mà</li>
-            </ul>
-            <p><strong>Quy tắc ngón tay cái:</strong> Cộng thêm 10-20% vào TSS của MTB để có mức mệt mỏi tương đương.
-                100 TSS MTB ≈ 110-120 TSS đường trường về mặt phục hồi cần thiết.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Tại sao nhịp tim của tôi vẫn cao khi xuống dốc MTB mặc dù không đạp?</h3>
-            <p><strong>Căng thẳng về kỹ thuật và tâm lý.</strong> Trong khi xuống dốc:</p>
-            <ul>
-                <li>Sự tập trung cao độ làm tăng nhịp tim</li>
-                <li>Phản ứng sợ hãi kích hoạt hệ thần kinh giao cảm</li>
-                <li>Việc ổn định vùng lõi và cánh tay tạo ra nhu cầu trao đổi chất</li>
-                <li>Sự co cơ tĩnh (bóp phanh, ghì tay lái)</li>
-            </ul>
-            <p>Đây là lý do tại sao nhịp tim không khớp với công suất trong MTB như trên đường trường. <strong>Cả nhịp
-                    tim và công suất</strong> cùng nhau mới tạo ra bức tranh đầy đủ cho MTB.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Tôi có nên cố gắng giảm chỉ số VI trong các chuyến đạp MTB không?</h3>
-            <p><strong>Không!</strong> VI cao (1,10-1,20+) là điều tối ưu cho MTB. Cố gắng làm mượt công suất sẽ dẫn
-                đến:</p>
-            <ul>
-                <li>Thời gian chậm hơn (không bứt tốc khi leo, đạp khi xuống dốc)</li>
-                <li>Lãng phí năng lượng (đạp khi lẽ ra nên thả trôi)</li>
-                <li>Mất đà (không tấn công các đoạn dốc gắt đủ mạnh)</li>
-            </ul>
-            <p><strong>VI thấp trên MTB có nghĩa là bạn đang bỏ phí tốc độ.</strong> Hãy đón nhận sự biến thiên - đó là
-                điều làm nên tốc độ trong MTB.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>Lợi thế của Bike Analytics</h2>
-
-        <div class="callout callout-success mb-xl">
-            <h3>🎯 Tại sao Bike Analytics lại Khác biệt</h3>
-            <p>Chúng tôi là <strong>nền tảng phân tích đạp xe duy nhất</strong> thực sự hiểu rằng đường trường và MTB là
-                các môn thể thao khác nhau đòi hỏi các phương pháp phân tích khác nhau:</p>
-            <ul class="mt-md">
-                <li>✅ <strong>Tự động phát hiện bộ môn</strong> dựa trên VI - không cần gắn thẻ thủ công</li>
-                <li>✅ <strong>Theo dõi FTP riêng biệt</strong> cho đường trường và MTB</li>
-                <li>✅ <strong>Làm mượt công suất khác nhau</strong> (30 giây cho đường trường, 3-5 giây cho MTB)</li>
-                <li>✅ <strong>Ưu tiên CP & W'bal cho MTB</strong> (chính xác hơn FTP)</li>
-                <li>✅ <strong>Giải mã TSS được điều chỉnh</strong> theo từng bộ môn</li>
-                <li>✅ <strong>Theo dõi theo từng cung đường mòn</strong> cho hiệu suất MTB theo thời gian</li>
-            </ul>
-            <p class="mt-md mb-0">TrainingPeaks, Strava, WKO5? Họ coi mọi loại hình đạp xe là như nhau. <strong>Bike
-                    Analytics hiểu rõ hơn thế.</strong></p>
-        </div>
-
-        <h2>Các Chủ đề Liên quan</h2>
-        <div class="grid grid-3">
-            <div class="card">
-                <h3 class="card-title">Phân tích Đường trường</h3>
-                <div class="card-content">
-                    <p>Tìm hiểu sâu về hồ sơ công suất trạng thái ổn định, tối ưu hóa khí động học và tập luyện dựa trên
-                        FTP cho người đạp xe đường trường.</p>
-                    <a href="/vi/road-cycling/" class="btn btn-secondary btn-small mt-md">Tìm hiểu thêm →</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Phân tích Địa hình (MTB)</h3>
-                <div class="card-content">
-                    <p>Hướng dẫn đầy đủ về phân tích công suất biến thiên, theo dõi cân bằng W' và tập luyện tập trung
-                        vào bùng nổ cho các VĐV MTB.</p>
-                    <a href="/vi/mountain-biking/" class="btn btn-secondary btn-small mt-md">Khám phá MTB →</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Mô hình Công suất Tới hạn</h3>
-                <div class="card-content">
-                    <p>Tại sao CP và W' lại ưu việt hơn FTP cho phân tích MTB. Bao gồm theo dõi cân bằng W' và các ứng
-                        dụng trong chiến thuật đua xe.</p>
-                    <a href="/vi/critical-power/" class="btn btn-secondary btn-small mt-md">Tìm hiểu về CP/W'
-                        →</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <div class="mt-xl text-center">
-            <h2>Sở hữu Phân tích Hiểu rõ Bộ môn của Bạn</h2>
-            <p class="lead mb-lg">Dù bạn đạp đường trường, MTB hay cả hai - Bike Analytics phân tích dữ liệu công suất
-                của bạn một cách chính xác với những thấu hiểu đặc thù của từng bộ môn.</p>
-            <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="btn btn-primary btn-large" target="_blank" rel="noopener">Tải
-                Bike Analytics</a>
-            <p class="mt-md text-secondary">Dùng thử miễn phí 7 ngày • Tự động phát hiện bộ môn • Theo dõi FTP riêng
-                biệt</p>
-        </div>
-    </div>
-</section>
-    
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+                các vùng tập luyện chính xác nhất.</p><p><strong>Lựa chọn thay thế:</strong> Kiểm tra trên đường nhựa, giảm đi 7% cho các vùng tập MTB. Ví dụ: FTP
+                đường trường 280W → FTP MTB 260W.</p></div><div class="faq-item"><h3>Tôi có thể sử dụng các vùng tập đường trường cho các buổi tập MTB không?</h3><p><strong>Không nên dùng trực tiếp.</strong> Các vùng đường trường giả định công suất đầu ra mượt mà. Các
+                vùng MTB cần tính đến độ biến thiên. Nếu sử dụng vùng đường trường cho MTB:</p><ul><li>Hãy giảm FTP đi 5-10% trước</li><li>Chấp nhận việc trộn lẫn các vùng (nhắm mục tiêu NP trong vùng, không phải công suất tức thời)</li><li>Sử dụng cửa sổ làm mượt ngắn hơn (3-5 giây so với 30 giây)</li></ul><p><strong>Giải pháp tốt hơn:</strong> Sử dụng Bike Analytics với chức năng theo dõi bộ môn riêng biệt.</p></div><div class="faq-item"><h3>Tại sao công suất trung bình của MTB lại thấp hơn nhiều so với NP?</h3><p><strong>Điều này là bình thường!</strong> NP có thể cao hơn 30-50W so với công suất trung bình của MTB
+                do:</p><ul><li>Nhiều thời gian không đạp (thả trôi khi xuống dốc, đoạn kỹ thuật)</li><li>Các đợt bùng nổ công suất cao thường xuyên trên mức ngưỡng</li><li>Địa hình biến thiên tạo ra các đỉnh công suất</li></ul><p><strong>Luôn luôn đánh giá nỗ lực MTB qua NP, không phải công suất trung bình.</strong> Một chuyến đạp
+                cho thấy trung bình 185W nhưng NP 235W thực tế là một nỗ lực ngưỡng nặng.</p></div><div class="faq-item"><h3>TSS có thể so sánh giữa đạp xe đường trường và địa hình không?</h3><p><strong>Không trực tiếp.</strong> 100 TSS của MTB điển hình cảm thấy nặng hơn 100 TSS của đường trường
+                vì:</p><ul><li>Căng thẳng về kỹ thuật (mệt mỏi tinh thần, điều khiển xe) không được ghi nhận trong TSS</li><li>Sự mệt mỏi toàn thân (vùng lõi, cánh tay, các cơ ổn định) so với chỉ đôi chân trên đường trường</li><li>VI cao tạo ra nhiều căng thẳng trao đổi chất hơn công suất mượt mà</li></ul><p><strong>Quy tắc ngón tay cái:</strong> Cộng thêm 10-20% vào TSS của MTB để có mức mệt mỏi tương đương.
+                100 TSS MTB ≈ 110-120 TSS đường trường về mặt phục hồi cần thiết.</p></div><div class="faq-item"><h3>Tại sao nhịp tim của tôi vẫn cao khi xuống dốc MTB mặc dù không đạp?</h3><p><strong>Căng thẳng về kỹ thuật và tâm lý.</strong> Trong khi xuống dốc:</p><ul><li>Sự tập trung cao độ làm tăng nhịp tim</li><li>Phản ứng sợ hãi kích hoạt hệ thần kinh giao cảm</li><li>Việc ổn định vùng lõi và cánh tay tạo ra nhu cầu trao đổi chất</li><li>Sự co cơ tĩnh (bóp phanh, ghì tay lái)</li></ul><p>Đây là lý do tại sao nhịp tim không khớp với công suất trong MTB như trên đường trường. <strong>Cả nhịp
+                    tim và công suất</strong> cùng nhau mới tạo ra bức tranh đầy đủ cho MTB.</p></div><div class="faq-item"><h3>Tôi có nên cố gắng giảm chỉ số VI trong các chuyến đạp MTB không?</h3><p><strong>Không!</strong> VI cao (1,10-1,20+) là điều tối ưu cho MTB. Cố gắng làm mượt công suất sẽ dẫn
+                đến:</p><ul><li>Thời gian chậm hơn (không bứt tốc khi leo, đạp khi xuống dốc)</li><li>Lãng phí năng lượng (đạp khi lẽ ra nên thả trôi)</li><li>Mất đà (không tấn công các đoạn dốc gắt đủ mạnh)</li></ul><p><strong>VI thấp trên MTB có nghĩa là bạn đang bỏ phí tốc độ.</strong> Hãy đón nhận sự biến thiên - đó là
+                điều làm nên tốc độ trong MTB.</p></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Lợi thế của Bike Analytics</h2><div class="callout callout-success mb-xl"><h3>🎯 Tại sao Bike Analytics lại Khác biệt</h3><p>Chúng tôi là <strong>nền tảng phân tích đạp xe duy nhất</strong> thực sự hiểu rằng đường trường và MTB là
+                các môn thể thao khác nhau đòi hỏi các phương pháp phân tích khác nhau:</p><ul class="mt-md"><li>✅ <strong>Tự động phát hiện bộ môn</strong> dựa trên VI - không cần gắn thẻ thủ công</li><li>✅ <strong>Theo dõi FTP riêng biệt</strong> cho đường trường và MTB</li><li>✅ <strong>Làm mượt công suất khác nhau</strong> (30 giây cho đường trường, 3-5 giây cho MTB)</li><li>✅ <strong>Ưu tiên CP & W'bal cho MTB</strong> (chính xác hơn FTP)</li><li>✅ <strong>Giải mã TSS được điều chỉnh</strong> theo từng bộ môn</li><li>✅ <strong>Theo dõi theo từng cung đường mòn</strong> cho hiệu suất MTB theo thời gian</li></ul><p class="mt-md mb-0">TrainingPeaks, Strava, WKO5? Họ coi mọi loại hình đạp xe là như nhau. <strong>Bike
+                    Analytics hiểu rõ hơn thế.</strong></p></div><h2>Các Chủ đề Liên quan</h2><div class="grid grid-3"><div class="card"><h3 class="card-title">Phân tích Đường trường</h3><div class="card-content"><p>Tìm hiểu sâu về hồ sơ công suất trạng thái ổn định, tối ưu hóa khí động học và tập luyện dựa trên
+                        FTP cho người đạp xe đường trường.</p><a href="/vi/road-cycling/" class="btn btn-secondary btn-small mt-md">Tìm hiểu thêm →</a></div></div><div class="card"><h3 class="card-title">Phân tích Địa hình (MTB)</h3><div class="card-content"><p>Hướng dẫn đầy đủ về phân tích công suất biến thiên, theo dõi cân bằng W' và tập luyện tập trung
+                        vào bùng nổ cho các VĐV MTB.</p><a href="/vi/mountain-biking/" class="btn btn-secondary btn-small mt-md">Khám phá MTB →</a></div></div><div class="card"><h3 class="card-title">Mô hình Công suất Tới hạn</h3><div class="card-content"><p>Tại sao CP và W' lại ưu việt hơn FTP cho phân tích MTB. Bao gồm theo dõi cân bằng W' và các ứng
+                        dụng trong chiến thuật đua xe.</p><a href="/vi/critical-power/" class="btn btn-secondary btn-small mt-md">Tìm hiểu về CP/W'
+                        →</a></div></div></div></div></section><section class="section"><div class="container container-narrow"><div class="mt-xl text-center"><h2>Sở hữu Phân tích Hiểu rõ Bộ môn của Bạn</h2><p class="lead mb-lg">Dù bạn đạp đường trường, MTB hay cả hai - Bike Analytics phân tích dữ liệu công suất
+                của bạn một cách chính xác với những thấu hiểu đặc thù của từng bộ môn.</p><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="btn btn-primary btn-large" target="_blank" rel="noopener">Tải
+                Bike Analytics</a><p class="mt-md text-secondary">Dùng thử miễn phí 7 ngày • Tự động phát hiện bộ môn • Theo dõi FTP riêng
+                biệt</p></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link active"
+                </a><a href="/vi/" class="lang-link active"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. Bản quyền đã được bảo hộ
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/vi/privacy/">Quyền riêng tư</a></li>
-                <li><a href="/vi/terms/">Điều khoản</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>Trang web này sử dụng cookie để cải thiện trải nghiệm của bạn.</p>
-            <a href="/vi/privacy/" class="text-sm">Tìm hiểu thêm</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">Từ chối</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">Chấp nhận</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/vi/privacy/">Quyền riêng tư</a></li><li><a href="/vi/terms/">Điều khoản</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>Trang web này sử dụng cookie để cải thiện trải nghiệm của bạn.</p><a href="/vi/privacy/" class="text-sm">Tìm hiểu thêm</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">Từ chối</button><button id="cookie-accept" class="btn btn-primary btn-small">Chấp nhận</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

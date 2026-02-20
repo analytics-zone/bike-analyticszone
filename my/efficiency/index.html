@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="my" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>เครื่องคำนวณ SWOLF: วัดประสิทธิภาพการว่ายน้ำ | ต่ำกว่าดีกว่า</title>
-  <meta name="description" content="เครื่องคำนวณ SWOLF (Bike + Golf) วัดประสิทธิภาพการว่ายน้ำ คำนวณคะแนนของคุณ เปรียบเทียบมาตรฐานตามระดับ และใช้แบบฝึกหัดเพื่อปรับปรุง SWOLF ต่ำกว่า = ประสิทธิภาพดีกว่า">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="SWOLF, ประสิทธิภาพการว่ายน้ำ, ประสิทธิภาพจังหวะ, เศรษฐศาสตร์การว่ายน้ำ, เครื่องคำนวณ SWOLF">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/my/efficiency/">
-
-  
-  
-  <meta property="article:published_time" content="2025-10-12T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-14T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/my/efficiency/">
-  <meta property="og:title" content="เครื่องคำนวณ SWOLF: วัดประสิทธิภาพการว่ายน้ำ | ต่ำกว่าดีกว่า">
-  <meta property="og:description" content="เครื่องคำนวณ SWOLF (Bike + Golf) วัดประสิทธิภาพการว่ายน้ำ คำนวณคะแนนของคุณ เปรียบเทียบมาตรฐานตามระดับ และใช้แบบฝึกหัดเพื่อปรับปรุง SWOLF ต่ำกว่า = ประสิทธิภาพดีกว่า">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="my_MM">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/my/efficiency/">
-  <meta name="twitter:title" content="เครื่องคำนวณ SWOLF: วัดประสิทธิภาพการว่ายน้ำ | ต่ำกว่าดีกว่า">
-  <meta name="twitter:description" content="เครื่องคำนวณ SWOLF (Bike + Golf) วัดประสิทธิภาพการว่ายน้ำ คำนวณคะแนนของคุณ เปรียบเทียบมาตรฐานตามระดับ และใช้แบบฝึกหัดเพื่อปรับปรุง SWOLF ต่ำกว่า = ประสิทธิภาพดีกว่า">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/efficiency/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/efficiency/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/efficiency/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/efficiency/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/efficiency/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/efficiency/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/efficiency/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/efficiency/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/efficiency/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/efficiency/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/efficiency/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/efficiency/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/efficiency/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/efficiency/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/efficiency/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/efficiency/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/efficiency/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/efficiency/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/efficiency/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/efficiency/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/efficiency/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/efficiency/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/efficiency/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/efficiency/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/efficiency/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/efficiency/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/efficiency/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/efficiency/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/efficiency/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/efficiency/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/efficiency/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/efficiency/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/efficiency/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/efficiency/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/efficiency/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/efficiency/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/efficiency/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/efficiency/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/efficiency/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/efficiency/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/efficiency/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/efficiency/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/efficiency/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/efficiency/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/efficiency/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/efficiency/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/efficiency/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/efficiency/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/efficiency/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/efficiency/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/efficiency/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/efficiency/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/efficiency/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/efficiency/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/efficiency/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/efficiency/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="my" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>เครื่องคำนวณ SWOLF: วัดประสิทธิภาพการว่ายน้ำ | ต่ำกว่าดีกว่า</title><meta name="description" content="เครื่องคำนวณ SWOLF (Bike + Golf) วัดประสิทธิภาพการว่ายน้ำ คำนวณคะแนนของคุณ เปรียบเทียบมาตรฐานตามระดับ และใช้แบบฝึกหัดเพื่อปรับปรุง SWOLF ต่ำกว่า = ประสิทธิภาพดีกว่า"><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="SWOLF, ประสิทธิภาพการว่ายน้ำ, ประสิทธิภาพจังหวะ, เศรษฐศาสตร์การว่ายน้ำ, เครื่องคำนวณ SWOLF"><link rel="canonical" href="https://bike.analyticszone.app/my/efficiency/"><meta property="article:published_time" content="2025-10-12T10:00:00Z"><meta property="article:modified_time" content="2026-01-14T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/my/efficiency/"><meta property="og:title" content="เครื่องคำนวณ SWOLF: วัดประสิทธิภาพการว่ายน้ำ | ต่ำกว่าดีกว่า"><meta property="og:description" content="เครื่องคำนวณ SWOLF (Bike + Golf) วัดประสิทธิภาพการว่ายน้ำ คำนวณคะแนนของคุณ เปรียบเทียบมาตรฐานตามระดับ และใช้แบบฝึกหัดเพื่อปรับปรุง SWOLF ต่ำกว่า = ประสิทธิภาพดีกว่า"><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="my_MM"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/my/efficiency/"><meta name="twitter:title" content="เครื่องคำนวณ SWOLF: วัดประสิทธิภาพการว่ายน้ำ | ต่ำกว่าดีกว่า"><meta name="twitter:description" content="เครื่องคำนวณ SWOLF (Bike + Golf) วัดประสิทธิภาพการว่ายน้ำ คำนวณคะแนนของคุณ เปรียบเทียบมาตรฐานตามระดับ และใช้แบบฝึกหัดเพื่อปรับปรุง SWOLF ต่ำกว่า = ประสิทธิภาพดีกว่า"><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/efficiency/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/efficiency/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/efficiency/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/efficiency/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/efficiency/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/efficiency/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/efficiency/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/efficiency/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/efficiency/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/efficiency/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/efficiency/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/efficiency/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/efficiency/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/efficiency/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/efficiency/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/efficiency/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/efficiency/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/efficiency/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/efficiency/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/efficiency/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/efficiency/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/efficiency/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/efficiency/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/efficiency/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/efficiency/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/efficiency/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/efficiency/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/efficiency/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/efficiency/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/efficiency/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/efficiency/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/efficiency/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/efficiency/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/efficiency/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/efficiency/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/efficiency/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/efficiency/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/efficiency/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/efficiency/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/efficiency/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/efficiency/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/efficiency/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/efficiency/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/efficiency/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/efficiency/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/efficiency/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/efficiency/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/efficiency/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/efficiency/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/efficiency/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/efficiency/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/efficiency/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/efficiency/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/efficiency/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/efficiency/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/efficiency/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "my"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "เครื่องคำนวณ SWOLF (Bike + Golf) วัดประสิทธิภาพการว่ายน้ำ คำนวณคะแนนของคุณ เปรียบเทียบมาตรฐานตามระดับ และใช้แบบฝึกหัดเพื่อปรับปรุง SWOLF ต่ำกว่า = ประสิทธิภาพดีกว่า",
   "url": "https://bike.analyticszone.app/my/efficiency/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -653,17 +435,7 @@ img[width][height] {
     "@id": "https://bike.analyticszone.app/my/efficiency/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1610 +449,452 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">အဓိကအကြောင်းအရာသို့ သွားရန်</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/my/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/my/" 
+  </script></head><body><a href="#main-content" class="skip-link">အဓိကအကြောင်းအရာသို့ သွားရန်</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/my/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/my/" 
                                 aria-current="">
                                 ပင်မစာမျက်နှာ
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/my/getting-started/" class="nav-label">လေ့လာရန်</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/my/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/my/getting-started/" class="nav-label">လေ့လာရန်</a><ul class="submenu"><li><a href="/my/getting-started/" 
                                         aria-current="">
                                         စတင်အသုံးပြုခြင်း
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/ftp/" 
+                                    </a></li><li><a href="/my/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/critical-power/" 
+                                    </a></li><li><a href="/my/critical-power/" 
                                         aria-current="">
                                         အရေးပါသော စွမ်းအား
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/training-zones/" 
+                                    </a></li><li><a href="/my/training-zones/" 
                                         aria-current="">
                                         လေ့ကျင့်ရေးဇုန်များ
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/training-load/" 
+                                    </a></li><li><a href="/my/training-load/" 
                                         aria-current="">
                                         လေ့ကျင့်ရေးဝန်
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/tss-calculator/" 
+                                    </a></li><li><a href="/my/tss-calculator/" 
                                         aria-current="">
                                         TSS တွက်ချက်စက်
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/my/research/" class="nav-label">သိပ္ပံ</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/my/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/my/research/" class="nav-label">သိပ္ပံ</a><ul class="submenu"><li><a href="/my/research/" 
                                         aria-current="">
                                         သုတေသန
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/formulas/" 
+                                    </a></li><li><a href="/my/formulas/" 
                                         aria-current="">
                                         ပုံသေနည်းများ
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/power-metrics/" 
+                                    </a></li><li><a href="/my/power-metrics/" 
                                         aria-current="">
                                         စွမ်းအားတိုင်းတာမှုများ
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/efficiency/" class="active" 
+                                    </a></li><li><a href="/my/efficiency/" class="active" 
                                         aria-current="page">
                                         ထိရောက်မှု
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/pedaling-mechanics/" 
+                                    </a></li><li><a href="/my/pedaling-mechanics/" 
                                         aria-current="">
                                         နင်းခြေစနစ်
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/aerodynamics/" 
+                                    </a></li><li><a href="/my/aerodynamics/" 
                                         aria-current="">
                                         လေခွင်းအား
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/climbing-performance/" 
+                                    </a></li><li><a href="/my/climbing-performance/" 
                                         aria-current="">
                                         တောင်တက်စွမ်းဆောင်ရည်
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/bibliography/" 
+                                    </a></li><li><a href="/my/bibliography/" 
                                         aria-current="">
                                         ကျမ်းကိုးစာရင်း
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/my/road-cycling/" class="nav-label">ဘာသာရပ်များ</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/my/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/my/road-cycling/" class="nav-label">ဘာသာရပ်များ</a><ul class="submenu"><li><a href="/my/road-cycling/" 
                                         aria-current="">
                                         လမ်းပေါ်စက်ဘီးစီးခြင်း
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/mountain-biking/" 
+                                    </a></li><li><a href="/my/mountain-biking/" 
                                         aria-current="">
                                         တောင်တက်စက်ဘီးစီးခြင်း
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/road-vs-mtb/" 
+                                    </a></li><li><a href="/my/road-vs-mtb/" 
                                         aria-current="">
                                         လမ်းပေါ် vs တောင်တက်
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/comparisons/" 
+                                    </a></li><li><a href="/my/comparisons/" 
                                         aria-current="">
                                         ပလက်ဖောင်းများ နှိုင်းယှဉ်ချက်
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/my/contact/" 
+                                    </a></li></ul></li><li><a href="/my/contact/" 
                                 aria-current="">
                                 ဆက်သွယ်ရန်
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="ဘာသာစကား ရွေးချယ်ပါ">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="ဘာသာစကား ရွေးချယ်ပါ"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" selected>
+                        </option><option value="my" selected>
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="မီနူးကို ဖွင့်/ပိတ်ပါ"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/my/">ပင်မစာမျက်နှာ</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/my/research/">သိပ္ပံ</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">ထိရောက်မှု</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-    <section class="page-hero">
-    <div class="container">
-        <h1>စက်ဘီးစီး စွမ်းဆောင်ရည် (Efficiency) ဆိုင်ရာ တိုင်းတာမှုများ</h1>
-        <p class="lead">တိုးတက်ကောင်းမွန်သော စွမ်းဆောင်ရည်မှတစ်ဆင့် စွမ်းဆောင်ရည်ကို အကောင်းဆုံးဖြစ်အောင် လုပ်ဆောင်ပါ
-        </p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <div class="callout callout-success">
-            <h2>အဓိက အချက်များ: စက်ဘီးစီး စွမ်းဆောင်ရည်</h2>
-            <ul class="key-points">
-                <li><strong>စွမ်းဆောင်ရည် (Efficiency)</strong> ဆိုသည်မှာ စွမ်းအင် အသုံးပြုမှု နည်းနည်းဖြင့် အလုပ်
-                    ပိုမို ပြီးမြောက်ခြင်း ဖြစ်သည်</li>
-                <li><strong>ရှုထောင့် အများအပြား:</strong> Gross efficiency, aerodynamic efficiency, biomechanical
-                    efficiency, metabolic efficiency</li>
-                <li><strong>Elite စက်ဘီးသမားများသည် 22-25% gross efficiency</strong> ကို ရရှိကြပြီး အပန်းဖြေ
-                    စီးနင်းသူများမှာ 18-20% ဖြစ်သည်</li>
-                <li><strong>လေ့ကျင့်မှုသည် စွမ်းဆောင်ရည်ကို 3-8% တိုးတက်စေနိုင်သည်</strong> - ခွန်အား လေ့ကျင့်မှု၊
-                    နည်းစနစ်နှင့် metabolic လိုက်လျောညီထွေမှုများမှတစ်ဆင့်</li>
-                <li><strong>စွမ်းဆောင်ရည် အကျိုးအမြတ်များသည် စွမ်းဆောင်ရည် (Performance) သို့ တိုက်ရိုက်
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="မီနူးကို ဖွင့်/ပိတ်ပါ"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/my/">ပင်မစာမျက်နှာ</a></li><li><a href="/my/research/">သိပ္ပံ</a></li><li><span aria-current="page">ထိရောက်မှု</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>စက်ဘီးစီး စွမ်းဆောင်ရည် (Efficiency) ဆိုင်ရာ တိုင်းတာမှုများ</h1><p class="lead">တိုးတက်ကောင်းမွန်သော စွမ်းဆောင်ရည်မှတစ်ဆင့် စွမ်းဆောင်ရည်ကို အကောင်းဆုံးဖြစ်အောင် လုပ်ဆောင်ပါ
+        </p></div></section><section class="section"><div class="container container-narrow"><div class="callout callout-success"><h2>အဓိက အချက်များ: စက်ဘီးစီး စွမ်းဆောင်ရည်</h2><ul class="key-points"><li><strong>စွမ်းဆောင်ရည် (Efficiency)</strong> ဆိုသည်မှာ စွမ်းအင် အသုံးပြုမှု နည်းနည်းဖြင့် အလုပ်
+                    ပိုမို ပြီးမြောက်ခြင်း ဖြစ်သည်</li><li><strong>ရှုထောင့် အများအပြား:</strong> Gross efficiency, aerodynamic efficiency, biomechanical
+                    efficiency, metabolic efficiency</li><li><strong>Elite စက်ဘီးသမားများသည် 22-25% gross efficiency</strong> ကို ရရှိကြပြီး အပန်းဖြေ
+                    စီးနင်းသူများမှာ 18-20% ဖြစ်သည်</li><li><strong>လေ့ကျင့်မှုသည် စွမ်းဆောင်ရည်ကို 3-8% တိုးတက်စေနိုင်သည်</strong> - ခွန်အား လေ့ကျင့်မှု၊
+                    နည်းစနစ်နှင့် metabolic လိုက်လျောညီထွေမှုများမှတစ်ဆင့်</li><li><strong>စွမ်းဆောင်ရည် အကျိုးအမြတ်များသည် စွမ်းဆောင်ရည် (Performance) သို့ တိုက်ရိုက်
                         သက်ရောက်သည်</strong> - တူညီသော စွမ်းအားသည် ပိုမို လွယ်ကူသည်ဟု ခံစားရသည်၊ သို့မဟုတ် တူညီသော
-                    အားထုတ်မှုတွင် စွမ်းအား ပိုရသည်</li>
-            </ul>
-        </div>
-
-        <h2>စက်ဘီးစီး စွမ်းဆောင်ရည် ဆိုတာ ဘာလဲ?</h2>
-        <p class="lead">စက်ဘီးစီး စွမ်းဆောင်ရည်သည် သင် metabolic စွမ်းအင်ကို စက်မှု စွမ်းအား ထွက်ရှိမှုအဖြစ် ဘယ်လောက်
+                    အားထုတ်မှုတွင် စွမ်းအား ပိုရသည်</li></ul></div><h2>စက်ဘီးစီး စွမ်းဆောင်ရည် ဆိုတာ ဘာလဲ?</h2><p class="lead">စက်ဘီးစီး စွမ်းဆောင်ရည်သည် သင် metabolic စွမ်းအင်ကို စက်မှု စွမ်းအား ထွက်ရှိမှုအဖြစ် ဘယ်လောက်
             ထိရောက်စွာ ပြောင်းလဲပေးသလဲ ဆိုတာကို တိုင်းတာသည်။ တိုးတက်ကောင်းမွန်သော စွမ်းဆောင်ရည် ဆိုသည်မှာ အားထုတ်မှု
             လျော့နည်းပြီး ပိုမြန်မြန် စီးနင်းခြင်း၊ သို့မဟုတ် အောက်ဆီဂျင်နှင့် glycogen သုံးစွဲမှု လျော့နည်းပြီး တူညီသော
-            အမြန်နှုန်းကို ထိန်းထားခြင်း ဖြစ်သည်။</p>
-
-        <p><strong>စက်ဘီးစီး စွမ်းဆောင်ရည် တိုင်းတာမှုများ</strong> ကို နားလည်ခြင်းနှင့် အကောင်းဆုံးဖြစ်အောင်
+            အမြန်နှုန်းကို ထိန်းထားခြင်း ဖြစ်သည်။</p><p><strong>စက်ဘီးစီး စွမ်းဆောင်ရည် တိုင်းတာမှုများ</strong> ကို နားလည်ခြင်းနှင့် အကောင်းဆုံးဖြစ်အောင်
             လုပ်ဆောင်ခြင်းသည် သင့်အား တိုးတက်ရန် နေရာများကို ခွဲခြားသိမြင်စေခြင်း၊ လေ့ကျင့်မှု လိုက်လျောညီထွေမှုများကို
             စောင့်ကြည့်ခြင်း၊ နှင့် လေ့ကျင့်မှု ပမာဏကို ရိုးရှင်းစွာ တိုးမြှင့်ခြင်း မရှိဘဲ စွမ်းဆောင်ရည်
-            အကျိုးအမြတ်များကို အမြင့်ဆုံး ရရှိစေရန် ကူညီပေးသည်။</p>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="text-center mb-xl">စက်ဘီးစီး စွမ်းဆောင်ရည် အမျိုးအစားများ</h2>
-
-        <div class="grid grid-2">
-            <div class="efficiency-type">
-                <h3>၁။ Gross Efficiency (GE)</h3>
-                <div class="formula-box">
-                    <div class="formula">
+            အကျိုးအမြတ်များကို အမြင့်ဆုံး ရရှိစေရန် ကူညီပေးသည်။</p></div></section><section class="section section-alt"><div class="container"><h2 class="text-center mb-xl">စက်ဘီးစီး စွမ်းဆောင်ရည် အမျိုးအစားများ</h2><div class="grid grid-2"><div class="efficiency-type"><h3>၁။ Gross Efficiency (GE)</h3><div class="formula-box"><div class="formula">
                         GE = (စက်မှု အလုပ် ထွက်ရှိမှု / Metabolic စွမ်းအင် ထည့်သွင်းမှု) × 100%
-                    </div>
-                </div>
-
-                <div class="benchmarks">
-                    <h4>သာမန် တန်ဖိုးများ:</h4>
-                    <ul>
-                        <li><strong>အပန်းဖြေ စက်ဘီးသမားများ:</strong> 18-20%</li>
-                        <li><strong>လေ့ကျင့်ထားသော စက်ဘီးသမားများ:</strong> 20-22%</li>
-                        <li><strong>Elite စက်ဘီးသမားများ:</strong> 22-25%</li>
-                    </ul>
-                </div>
-
-                <p><strong>GE ကို ဘာတွေက ထိခိုက်စေသလဲ:</strong></p>
-                <ul>
-                    <li><strong>Cadence:</strong> တစ်ဦးချင်း အကောင်းဆုံး ရှိသည် (ပုံမှန်အားဖြင့် threshold တွင် 85-95
-                        RPM)</li>
-                    <li><strong>Position:</strong> Aerodynamic vs. စွမ်းအား-ထုတ်လုပ်မှု ကုန်သွယ်မှုများ</li>
-                    <li><strong>လေ့ကျင့်မှု အခြေအနေ:</strong> တသမတ်တည်း လေ့ကျင့်မှုဖြင့် တိုးတက်သည်</li>
-                    <li><strong>မောပန်းမှု:</strong> Glycogen ကုန်ဆုံးသည်နှင့်အမျှ လျော့ကျသည်</li>
-                    <li><strong>ကြွက်သား ဖိုင်ဘာ ဖွဲ့စည်းမှု:</strong> Type I fibers ရာခိုင်နှုန်း မြင့်မားခြင်း →
-                        ပိုမိုကောင်းမွန်သော စွမ်းဆောင်ရည်</li>
-                </ul>
-
-                <div class="callout callout-info">
-                    <p><strong>သုတေသန တွေ့ရှိချက်:</strong> Coyle et al. (1991) သည် gross efficiency သည် Type I
+                    </div></div><div class="benchmarks"><h4>သာမန် တန်ဖိုးများ:</h4><ul><li><strong>အပန်းဖြေ စက်ဘီးသမားများ:</strong> 18-20%</li><li><strong>လေ့ကျင့်ထားသော စက်ဘီးသမားများ:</strong> 20-22%</li><li><strong>Elite စက်ဘီးသမားများ:</strong> 22-25%</li></ul></div><p><strong>GE ကို ဘာတွေက ထိခိုက်စေသလဲ:</strong></p><ul><li><strong>Cadence:</strong> တစ်ဦးချင်း အကောင်းဆုံး ရှိသည် (ပုံမှန်အားဖြင့် threshold တွင် 85-95
+                        RPM)</li><li><strong>Position:</strong> Aerodynamic vs. စွမ်းအား-ထုတ်လုပ်မှု ကုန်သွယ်မှုများ</li><li><strong>လေ့ကျင့်မှု အခြေအနေ:</strong> တသမတ်တည်း လေ့ကျင့်မှုဖြင့် တိုးတက်သည်</li><li><strong>မောပန်းမှု:</strong> Glycogen ကုန်ဆုံးသည်နှင့်အမျှ လျော့ကျသည်</li><li><strong>ကြွက်သား ဖိုင်ဘာ ဖွဲ့စည်းမှု:</strong> Type I fibers ရာခိုင်နှုန်း မြင့်မားခြင်း →
+                        ပိုမိုကောင်းမွန်သော စွမ်းဆောင်ရည်</li></ul><div class="callout callout-info"><p><strong>သုတေသန တွေ့ရှိချက်:</strong> Coyle et al. (1991) သည် gross efficiency သည် Type I
                         (slow-twitch) ကြွက်သား ဖိုင်ဘာများ ရာခိုင်နှုန်းနှင့် ဆက်စပ်မှုရှိကြောင်း တွေ့ရှိခဲ့သည်။ Elite
                         စက်ဘီးသမားများသည် မလေ့ကျင့်ထားသော သူများတွင် 50-60% နှင့်ယှဉ်လျှင် 70-80% Type I ဖွဲ့စည်းမှု
-                        ရှိလေ့ရှိသည်။</p>
-                </div>
-            </div>
-
-            <div class="efficiency-type">
-                <h3>၂။ Delta Efficiency</h3>
-                <div class="formula-box">
-                    <div class="formula">
+                        ရှိလေ့ရှိသည်။</p></div></div><div class="efficiency-type"><h3>၂။ Delta Efficiency</h3><div class="formula-box"><div class="formula">
                         ΔE = ΔWork / ΔEnergy Expenditure
-                    </div>
-                </div>
-
-                <p><strong>GE ထက် အားသာချက်များ:</strong></p>
-                <ul>
-                    <li>အလုပ် နှုန်းထား ပြောင်းလဲမှုများကို ပိုမို တုံ့ပြန်နိုင်သည်</li>
-                    <li>အနားယူ metabolic နှုန်း သက်ရောက်မှုများကို ဖယ်ရှားသည်</li>
-                    <li>သုတေသန ဆက်တင်များတွင် ပိုမိုနှစ်သက်သော metric ဖြစ်သည်</li>
-                    <li>လေ့ကျင့်မှု လိုက်လျောညီထွေမှုများကို ခြေရာခံရန် ပိုကောင်းသည်</li>
-                </ul>
-
-                <p><strong>တွက်ချက်မှု နည်းလမ်း:</strong> သက်ဆိုင်ရာ metabolic တိုင်းတာမှုများ (အောက်ဆီဂျင် သုံးစွဲမှု)
+                    </div></div><p><strong>GE ထက် အားသာချက်များ:</strong></p><ul><li>အလုပ် နှုန်းထား ပြောင်းလဲမှုများကို ပိုမို တုံ့ပြန်နိုင်သည်</li><li>အနားယူ metabolic နှုန်း သက်ရောက်မှုများကို ဖယ်ရှားသည်</li><li>သုတေသန ဆက်တင်များတွင် ပိုမိုနှစ်သက်သော metric ဖြစ်သည်</li><li>လေ့ကျင့်မှု လိုက်လျောညီထွေမှုများကို ခြေရာခံရန် ပိုကောင်းသည်</li></ul><p><strong>တွက်ချက်မှု နည်းလမ်း:</strong> သက်ဆိုင်ရာ metabolic တိုင်းတာမှုများ (အောက်ဆီဂျင် သုံးစွဲမှု)
                     နှင့်အတူ အနည်းဆုံး steady-state စွမ်းအား ထွက်ရှိမှု နှစ်ခု လိုအပ်သည်။ ပုံမှန်အားဖြင့် gas analysis
-                    ကိရိယာဖြင့် ဓာတ်ခွဲခန်းတွင် တိုင်းတာသည်။</p>
-
-                <div class="example-box">
-                    <p><strong>ဥပမာ:</strong></p>
-                    <ul>
-                        <li>150W တွင်: 2.0 L O₂/မိနစ် သုံးစွဲသည်</li>
-                        <li>250W တွင်: 3.0 L O₂/မိနစ် သုံးစွဲသည်</li>
-                        <li>ΔWork = 100W, ΔEnergy = 1.0 L O₂/min = ~5 kcal/min</li>
-                        <li>Delta Efficiency = 100W / (5 kcal/min × 4.186 kJ/kcal × 1000 / 60) ≈ 29%</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2 class="text-center mb-xl">စက်ဘီးစီး စွမ်းဆောင်ရည်၏ အတိုင်းအတာများ</h2>
-
-        <div class="efficiency-dimension">
-            <h3>၃။ Aerodynamic Efficiency</h3>
-            <p class="lead">အမြန်နှုန်း >25 km/h တွင်၊ aerodynamic drag သည် စုစုပေါင်း ခုခံမှု၏ 70-90% ဖြစ်သည်။ CdA
+                    ကိရိယာဖြင့် ဓာတ်ခွဲခန်းတွင် တိုင်းတာသည်။</p><div class="example-box"><p><strong>ဥပမာ:</strong></p><ul><li>150W တွင်: 2.0 L O₂/မိနစ် သုံးစွဲသည်</li><li>250W တွင်: 3.0 L O₂/မိနစ် သုံးစွဲသည်</li><li>ΔWork = 100W, ΔEnergy = 1.0 L O₂/min = ~5 kcal/min</li><li>Delta Efficiency = 100W / (5 kcal/min × 4.186 kJ/kcal × 1000 / 60) ≈ 29%</li></ul></div></div></div></div></section><section class="section"><div class="container"><h2 class="text-center mb-xl">စက်ဘီးစီး စွမ်းဆောင်ရည်၏ အတိုင်းအတာများ</h2><div class="efficiency-dimension"><h3>၃။ Aerodynamic Efficiency</h3><p class="lead">အမြန်နှုန်း >25 km/h တွင်၊ aerodynamic drag သည် စုစုပေါင်း ခုခံမှု၏ 70-90% ဖြစ်သည်။ CdA
                 (drag coefficient × frontal area) ကို လျှော့ချခြင်းသည် ကြီးမားသော စွမ်းဆောင်ရည် အကျိုးအမြတ်များကို
-                ပေးသည်။</p>
-
-            <div class="grid grid-2">
-                <div>
-                    <h4>CdA တန်ဖိုးများ (Position အလိုက်):</h4>
-                    <table class="data-table">
-                        <tr>
-                            <th>Position</th>
-                            <th>CdA (m²)</th>
-                            <th>40 km/h တွင် စွမ်းအား သက်သာမှု</th>
-                        </tr>
-                        <tr>
-                            <td>Upright (hoods)</td>
-                            <td>0.35-0.40</td>
-                            <td>အခြေခံ</td>
-                        </tr>
-                        <tr>
-                            <td>Drops</td>
-                            <td>0.32-0.37</td>
-                            <td>~15W သက်သာသည်</td>
-                        </tr>
-                        <tr>
-                            <td>TT position</td>
-                            <td>0.20-0.25</td>
-                            <td>~60W သက်သာသည်</td>
-                        </tr>
-                        <tr>
-                            <td>Elite TT specialist</td>
-                            <td>0.185-0.200</td>
-                            <td>~80W သက်သာသည်</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div>
-                    <h4>စက်ကိရိယာ ROI (စွမ်းအား သက်သာမှု):</h4>
-                    <ul>
-                        <li><strong>Aero wheels:</strong> 5-15W @ 40 km/h</li>
-                        <li><strong>Aero helmet:</strong> 3-8W @ 40 km/h</li>
-                        <li><strong>Skinsuit vs. regular kit:</strong> 8-15W @ 40 km/h</li>
-                        <li><strong>Aero frame:</strong> 10-20W @ 40 km/h</li>
-                        <li><strong>Optimized position:</strong> 20-40W @ 40 km/h</li>
-                    </ul>
-                    <div class="callout callout-success">
-                        <p><strong>အကောင်းဆုံး ROI:</strong> Position optimization သည် အခမဲ့ဖြစ်ပြီး အကြီးမားဆုံး
+                ပေးသည်။</p><div class="grid grid-2"><div><h4>CdA တန်ဖိုးများ (Position အလိုက်):</h4><table class="data-table"><tr><th>Position</th><th>CdA (m²)</th><th>40 km/h တွင် စွမ်းအား သက်သာမှု</th></tr><tr><td>Upright (hoods)</td><td>0.35-0.40</td><td>အခြေခံ</td></tr><tr><td>Drops</td><td>0.32-0.37</td><td>~15W သက်သာသည်</td></tr><tr><td>TT position</td><td>0.20-0.25</td><td>~60W သက်သာသည်</td></tr><tr><td>Elite TT specialist</td><td>0.185-0.200</td><td>~80W သက်သာသည်</td></tr></table></div><div><h4>စက်ကိရိယာ ROI (စွမ်းအား သက်သာမှု):</h4><ul><li><strong>Aero wheels:</strong> 5-15W @ 40 km/h</li><li><strong>Aero helmet:</strong> 3-8W @ 40 km/h</li><li><strong>Skinsuit vs. regular kit:</strong> 8-15W @ 40 km/h</li><li><strong>Aero frame:</strong> 10-20W @ 40 km/h</li><li><strong>Optimized position:</strong> 20-40W @ 40 km/h</li></ul><div class="callout callout-success"><p><strong>အကောင်းဆုံး ROI:</strong> Position optimization သည် အခမဲ့ဖြစ်ပြီး အကြီးမားဆုံး
                             အကျိုးအမြတ်များကို ပေးသည်။ စွမ်းအား ထွက်ရှိမှုကို ထိန်းသိမ်းထားစဉ် CdA ကို လျှော့ချရန် bike
-                            fitter နှင့် လုပ်ဆောင်ပါ။</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="callout callout-info">
-                <p><strong>Blocken et al. (2017) သုတေသန:</strong> CdA တွင် 0.01 m² လျှော့ချမှုတိုင်းသည် 40 km/h တွင်
+                            fitter နှင့် လုပ်ဆောင်ပါ။</p></div></div></div><div class="callout callout-info"><p><strong>Blocken et al. (2017) သုတေသန:</strong> CdA တွင် 0.01 m² လျှော့ချမှုတိုင်းသည် 40 km/h တွင်
                     ခန့်မှန်းခြေ 10W သက်သာစေသည်။ ဤ ဆက်နွယ်မှုသည် cubic ဖြစ်သည် - အမြန်နှုန်း နှစ်ဆအတွက် လေ ခုခံမှုကို
-                    ကျော်လွှားရန် စွမ်းအား ၈ ဆ လိုအပ်သည်။</p>
-            </div>
-
-            <h4>Drafting အကျိုးကျေးဇူးများ:</h4>
-            <ul>
-                <li><strong>ဘီးနောက်ကပ်လိုက်ခြင်း (၃၀ စင်တီမီတာ):</strong> 27-35% စွမ်းအား လျှော့ချမှု</li>
-                <li><strong>Paceline တွင် (၁ မီတာ ကွာဟမှု):</strong> 15-20% စွမ်းအား လျှော့ချမှု</li>
-                <li><strong>Mid-peloton (စီးနင်းသူ ၅-၈):</strong> 35-45% စွမ်းအား လျှော့ချမှု</li>
-                <li><strong>တောင်တက် >7% gradient:</strong> 5-10% အကျိုးကျေးဇူး (aerodynamics အရေးပါမှု နည်းသည်)</li>
-            </ul>
-        </div>
-
-        <div class="efficiency-dimension">
-            <h3>၄။ Biomechanical Efficiency</h3>
-            <p class="lead">သင်သည် နင်းတံ တစ်ပတ်လုံးတွင် ခြေနင်းများသို့ အားကို ဘယ်လောက် ထိရောက်စွာ သက်ရောက်စေသလဲ
-                ဆိုသည်က mechanical efficiency ကို ဆုံးဖြတ်သည်။</p>
-
-            <div class="grid grid-2">
-                <div>
-                    <h4>အဓိက Biomechanical Metrics:</h4>
-
-                    <p><strong>Torque ထိရောက်မှု (TE):</strong></p>
-                    <ul>
-                        <li>နင်းတံ တစ်ပတ်အတွင်း positive vs. negative အား ရာခိုင်နှုန်း</li>
-                        <li>Range: 60-100% (မြင့်လေ ကောင်းလေ)</li>
-                        <li>Dual-sided power meter လိုအပ်သည်</li>
-                        <li>Elite စက်ဘီးသမားများ: 85-95% TE</li>
-                    </ul>
-
-                    <p><strong>နင်းတံ ချောမွေ့မှု (PS):</strong></p>
-                    <ul>
-                        <li>တစ်ပတ်လျှင် အမြင့်ဆုံး စွမ်းအားနှင့် ပျမ်းမျှ စွမ်းအား နှိုင်းယှဉ်ချက်</li>
-                        <li>Range: 10-40% (မြင့်လေ ပိုချောမွေ့လေ)</li>
-                        <li>မြင့်မားစွာ တစ်ဦးချင်းကွာခြားသည် - "စံပြ" တန်ဖိုး မရှိပါ</li>
-                        <li>ချောမွေ့မှု ≠ efficiency အမြဲတမ်းမဟုတ်ပါ</li>
-                    </ul>
-
-                    <p><strong>ဘယ်-ညာ ဟန်ချက်:</strong></p>
-                    <ul>
-                        <li>ပုံမှန် range: 48/52 မှ 52/48</li>
-                        <li>±5-7% သွေဖည်မှုများကို ပုံမှန်ဟု ယူဆသည်</li>
-                        <li>မောပန်းမှုက မညီမျှမှုကို တိုးစေသည်</li>
-                        <li>ဒဏ်ရာ ပြန်လည်ထူထောင်ရေးအတွက် အသုံးဝင်သည်</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4>နင်းခြင်း နည်းစနစ်ကို အကောင်းဆုံးဖြစ်အောင် လုပ်ဆောင်ခြင်း:</h4>
-
-                    <p><strong>သဘာဝအတိုင်းက အများအားဖြင့် အကောင်းဆုံးဖြစ်သည်:</strong> Patterson & Moreno (1990) ၏
+                    ကျော်လွှားရန် စွမ်းအား ၈ ဆ လိုအပ်သည်။</p></div><h4>Drafting အကျိုးကျေးဇူးများ:</h4><ul><li><strong>ဘီးနောက်ကပ်လိုက်ခြင်း (၃၀ စင်တီမီတာ):</strong> 27-35% စွမ်းအား လျှော့ချမှု</li><li><strong>Paceline တွင် (၁ မီတာ ကွာဟမှု):</strong> 15-20% စွမ်းအား လျှော့ချမှု</li><li><strong>Mid-peloton (စီးနင်းသူ ၅-၈):</strong> 35-45% စွမ်းအား လျှော့ချမှု</li><li><strong>တောင်တက် >7% gradient:</strong> 5-10% အကျိုးကျေးဇူး (aerodynamics အရေးပါမှု နည်းသည်)</li></ul></div><div class="efficiency-dimension"><h3>၄။ Biomechanical Efficiency</h3><p class="lead">သင်သည် နင်းတံ တစ်ပတ်လုံးတွင် ခြေနင်းများသို့ အားကို ဘယ်လောက် ထိရောက်စွာ သက်ရောက်စေသလဲ
+                ဆိုသည်က mechanical efficiency ကို ဆုံးဖြတ်သည်။</p><div class="grid grid-2"><div><h4>အဓိက Biomechanical Metrics:</h4><p><strong>Torque ထိရောက်မှု (TE):</strong></p><ul><li>နင်းတံ တစ်ပတ်အတွင်း positive vs. negative အား ရာခိုင်နှုန်း</li><li>Range: 60-100% (မြင့်လေ ကောင်းလေ)</li><li>Dual-sided power meter လိုအပ်သည်</li><li>Elite စက်ဘီးသမားများ: 85-95% TE</li></ul><p><strong>နင်းတံ ချောမွေ့မှု (PS):</strong></p><ul><li>တစ်ပတ်လျှင် အမြင့်ဆုံး စွမ်းအားနှင့် ပျမ်းမျှ စွမ်းအား နှိုင်းယှဉ်ချက်</li><li>Range: 10-40% (မြင့်လေ ပိုချောမွေ့လေ)</li><li>မြင့်မားစွာ တစ်ဦးချင်းကွာခြားသည် - "စံပြ" တန်ဖိုး မရှိပါ</li><li>ချောမွေ့မှု ≠ efficiency အမြဲတမ်းမဟုတ်ပါ</li></ul><p><strong>ဘယ်-ညာ ဟန်ချက်:</strong></p><ul><li>ပုံမှန် range: 48/52 မှ 52/48</li><li>±5-7% သွေဖည်မှုများကို ပုံမှန်ဟု ယူဆသည်</li><li>မောပန်းမှုက မညီမျှမှုကို တိုးစေသည်</li><li>ဒဏ်ရာ ပြန်လည်ထူထောင်ရေးအတွက် အသုံးဝင်သည်</li></ul></div><div><h4>နင်းခြင်း နည်းစနစ်ကို အကောင်းဆုံးဖြစ်အောင် လုပ်ဆောင်ခြင်း:</h4><p><strong>သဘာဝအတိုင်းက အများအားဖြင့် အကောင်းဆုံးဖြစ်သည်:</strong> Patterson & Moreno (1990) ၏
                         သုတေသနက elite စက်ဘီးသမားများသည် သဘာဝအတိုင်း ထိရောက်သော ပုံစံများကို ဖော်ဆောင်ကြောင်း ပြသသည်။
-                        သတိထားပြီး "ဆွဲတင်ရန်" ကြိုးစားခြင်းသည် ခြုံငုံ efficiency ကို လျော့ကျစေလေ့ရှိသည်။</p>
-
-                    <p><strong>တိုးတက်မှုအတွက် အာရုံစိုက်ရမည့် နေရာများ:</strong></p>
-                    <ol>
-                        <li><strong>အောက်သို့ဖိချခြင်း စွမ်းအား အဆင့် (90-180°):</strong>
-                            <ul>
-                                <li>Top dead center ကျော်လွန် 90-110° တွင် အမြင့်ဆုံး အားကို သက်ရောက်ပါ</li>
-                                <li>အနိမ့်ဆုံး အမှတ် (bottom of stroke) အထိ တွန်းပါ</li>
-                                <li>တင်ပါး (glutes) နှင့် ပေါင်နောက်ကြွက်သားများ (hamstrings) ကို သုံးပါ</li>
-                            </ul>
-                        </li>
-                        <li><strong>Negative work ကို လျှော့ချပါ:</strong>
-                            <ul>
-                                <li>အပေါ်တက်စဉ် အောက်သို့ ဖိခြင်းကို ရှောင်ကြဉ်ပါ</li>
-                                <li>ဆန့်ကျင်ဘက် ခြေထောက်ကို အလုပ်လုပ်ခိုင်းပါ</li>
-                                <li>အောက်ခြေတွင် "ရွှံ့ခြစ်" သလို စဉ်းစားပါ</li>
-                            </ul>
-                        </li>
-                        <li><strong>Cadence optimization:</strong>
-                            <ul>
-                                <li>Tempo/threshold: 85-95 RPM ပုံမှန်</li>
-                                <li>VO₂max intervals: 100-110 RPM</li>
-                                <li>မတ်စောက်သော တောင်တက်များ: 70-85 RPM လက်ခံနိုင်သည်</li>
-                                <li>တစ်ဦးချင်း ကွဲပြားမှု - သင့် အကောင်းဆုံးကို ရှာပါ</li>
-                            </ul>
-                        </li>
-                    </ol>
-
-                    <div class="callout callout-warning">
-                        <p><strong>စဉ်းစားလွန်းခြင်းကို ရှောင်ကြဉ်ပါ:</strong> နင်းတံကို သတိထားပြီး
+                        သတိထားပြီး "ဆွဲတင်ရန်" ကြိုးစားခြင်းသည် ခြုံငုံ efficiency ကို လျော့ကျစေလေ့ရှိသည်။</p><p><strong>တိုးတက်မှုအတွက် အာရုံစိုက်ရမည့် နေရာများ:</strong></p><ol><li><strong>အောက်သို့ဖိချခြင်း စွမ်းအား အဆင့် (90-180°):</strong><ul><li>Top dead center ကျော်လွန် 90-110° တွင် အမြင့်ဆုံး အားကို သက်ရောက်ပါ</li><li>အနိမ့်ဆုံး အမှတ် (bottom of stroke) အထိ တွန်းပါ</li><li>တင်ပါး (glutes) နှင့် ပေါင်နောက်ကြွက်သားများ (hamstrings) ကို သုံးပါ</li></ul></li><li><strong>Negative work ကို လျှော့ချပါ:</strong><ul><li>အပေါ်တက်စဉ် အောက်သို့ ဖိခြင်းကို ရှောင်ကြဉ်ပါ</li><li>ဆန့်ကျင်ဘက် ခြေထောက်ကို အလုပ်လုပ်ခိုင်းပါ</li><li>အောက်ခြေတွင် "ရွှံ့ခြစ်" သလို စဉ်းစားပါ</li></ul></li><li><strong>Cadence optimization:</strong><ul><li>Tempo/threshold: 85-95 RPM ပုံမှန်</li><li>VO₂max intervals: 100-110 RPM</li><li>မတ်စောက်သော တောင်တက်များ: 70-85 RPM လက်ခံနိုင်သည်</li><li>တစ်ဦးချင်း ကွဲပြားမှု - သင့် အကောင်းဆုံးကို ရှာပါ</li></ul></li></ol><div class="callout callout-warning"><p><strong>စဉ်းစားလွန်းခြင်းကို ရှောင်ကြဉ်ပါ:</strong> နင်းတံကို သတိထားပြီး
                             ပြုပြင်ပြောင်းလဲခြင်းသည် efficiency ကို လျော့ကျစေလေ့ရှိသည်။ လေ့ကျင့်မှု ပမာဏမှတစ်ဆင့် သင့်
-                            ခန္ဓာကိုယ်၏ သဘာဝ optimization ကို ယုံကြည်ပါ။</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="text-center mb-xl">Metabolic & Performance Efficiency</h2>
-
-        <div class="efficiency-dimension">
-            <h3>၅။ စွမ်းအား-နှင့်-ကိုယ်အလေးချိန် Efficiency</h3>
-            <p class="lead">တောင်တက်များတွင်၊ စွမ်းအား-နှင့်-ကိုယ်အလေးချိန် အချိုးသည် လွှမ်းမိုးသော စွမ်းဆောင်ရည်
+                            ခန္ဓာကိုယ်၏ သဘာဝ optimization ကို ယုံကြည်ပါ။</p></div></div></div></div></div></section><section class="section section-alt"><div class="container"><h2 class="text-center mb-xl">Metabolic & Performance Efficiency</h2><div class="efficiency-dimension"><h3>၅။ စွမ်းအား-နှင့်-ကိုယ်အလေးချိန် Efficiency</h3><p class="lead">တောင်တက်များတွင်၊ စွမ်းအား-နှင့်-ကိုယ်အလေးချိန် အချိုးသည် လွှမ်းမိုးသော စွမ်းဆောင်ရည်
                 အချက်ဖြစ်သည်။ Aerodynamics အရေးပါမှု နည်းသည်; efficiency သည် ကီလိုဂရမ် တစ်ခုလျှင် watts ကို အမြင့်ဆုံး
-                ရရှိခြင်း ဖြစ်သည်။</p>
-
-            <div class="grid grid-2">
-                <div>
-                    <h4>W/kg Optimization ဗျူဟာများ:</h4>
-                    <p><strong>စွမ်းအား တိုးမြှင့်ခြင်း (ပိုင်းဝေ):</strong></p>
-                    <ul>
-                        <li>FTP-အာရုံစိုက် လေ့ကျင့်မှု (sweet spot, threshold intervals)</li>
-                        <li>VO₂max ဖွံ့ဖြိုးတိုးတက်မှု (၃-၈ မိနစ် intervals)</li>
-                        <li>ခွန်အား လေ့ကျင့်မှု (compound lifts 2×/တစ်ပတ်)</li>
-                        <li>Neuromuscular power (sprint အလုပ်)</li>
-                    </ul>
-
-                    <p><strong>အလေးချိန် လျှော့ချခြင်း (ပိုင်းခြေ):</strong></p>
-                    <ul>
-                        <li><strong>ခန္ဓာကိုယ် အလေးချိန်:</strong> ရေရှည်တည်တံ့သော အဆီ လျှော့ချခြင်း (တစ်ပတ်လျှင် 0.5kg
-                            အများဆုံး)</li>
-                        <li><strong>ကြွက်သား ထုထည် ထိန်းသိမ်းခြင်း:</strong> အလေးချိန်အတွက် စွမ်းအားကို
-                            မစွန့်လွှတ်ပါနှင့်</li>
-                        <li><strong>စက်ဘီး အလေးချိန်:</strong> အနည်းငယ်သော အကျိုးအမြတ်များ (200-300g = တောင်တက်များတွင်
-                            ~0.3% တိုးတက်မှု)</li>
-                        <li><strong>ဦးစားပေး:</strong> ခန္ဓာကိုယ် ဖွဲ့စည်းမှု > စက်ကိရိယာ အလေးချိန်</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4>အရေးပါသော W/kg Thresholds:</h4>
-                    <p><strong>ရေရှည်တည်တံ့သော တောင်တက်ခြင်းအတွက် (မိနစ် ၂၀+):</strong></p>
-                    <ul>
-                        <li><strong>4.0 W/kg:</strong> တောင်ကုန်းထူထပ်သော ပြိုင်ပွဲများတွင် ယှဉ်ပြိုင်နိုင်သည်</li>
-                        <li><strong>4.5 W/kg:</strong> Elite amateur climber</li>
-                        <li><strong>5.0 W/kg:</strong> Semi-pro အဆင့်</li>
-                        <li><strong>5.5-6.5 W/kg:</strong> World Tour climbers</li>
-                        <li><strong>6.5+ W/kg:</strong> Grand Tour GC ပြိုင်ဘက်များ</li>
-                    </ul>
-
-                    <div class="callout callout-info">
-                        <p><strong>Lucia et al. (2004):</strong> Tour de France climbers များသည် အဓိက တောင်တက်
+                ရရှိခြင်း ဖြစ်သည်။</p><div class="grid grid-2"><div><h4>W/kg Optimization ဗျူဟာများ:</h4><p><strong>စွမ်းအား တိုးမြှင့်ခြင်း (ပိုင်းဝေ):</strong></p><ul><li>FTP-အာရုံစိုက် လေ့ကျင့်မှု (sweet spot, threshold intervals)</li><li>VO₂max ဖွံ့ဖြိုးတိုးတက်မှု (၃-၈ မိနစ် intervals)</li><li>ခွန်အား လေ့ကျင့်မှု (compound lifts 2×/တစ်ပတ်)</li><li>Neuromuscular power (sprint အလုပ်)</li></ul><p><strong>အလေးချိန် လျှော့ချခြင်း (ပိုင်းခြေ):</strong></p><ul><li><strong>ခန္ဓာကိုယ် အလေးချိန်:</strong> ရေရှည်တည်တံ့သော အဆီ လျှော့ချခြင်း (တစ်ပတ်လျှင် 0.5kg
+                            အများဆုံး)</li><li><strong>ကြွက်သား ထုထည် ထိန်းသိမ်းခြင်း:</strong> အလေးချိန်အတွက် စွမ်းအားကို
+                            မစွန့်လွှတ်ပါနှင့်</li><li><strong>စက်ဘီး အလေးချိန်:</strong> အနည်းငယ်သော အကျိုးအမြတ်များ (200-300g = တောင်တက်များတွင်
+                            ~0.3% တိုးတက်မှု)</li><li><strong>ဦးစားပေး:</strong> ခန္ဓာကိုယ် ဖွဲ့စည်းမှု > စက်ကိရိယာ အလေးချိန်</li></ul></div><div><h4>အရေးပါသော W/kg Thresholds:</h4><p><strong>ရေရှည်တည်တံ့သော တောင်တက်ခြင်းအတွက် (မိနစ် ၂၀+):</strong></p><ul><li><strong>4.0 W/kg:</strong> တောင်ကုန်းထူထပ်သော ပြိုင်ပွဲများတွင် ယှဉ်ပြိုင်နိုင်သည်</li><li><strong>4.5 W/kg:</strong> Elite amateur climber</li><li><strong>5.0 W/kg:</strong> Semi-pro အဆင့်</li><li><strong>5.5-6.5 W/kg:</strong> World Tour climbers</li><li><strong>6.5+ W/kg:</strong> Grand Tour GC ပြိုင်ဘက်များ</li></ul><div class="callout callout-info"><p><strong>Lucia et al. (2004):</strong> Tour de France climbers များသည် အဓိက တောင်တက်
                             အဆင့်များတွင် မိနစ် ၃၀-၄၀ ကြာ 6.0-6.5 W/kg ကို ထိန်းထားကြသည်။ ဤအဆင့်တွင် 1kg ပင် အရေးကြီးသည်
-                            - 70kg vs. 71kg = 6 W/kg တွင် 14W ကွာခြားမှု။</p>
-                    </div>
-
-                    <div class="example-box">
-                        <p><strong>ဥပမာ တွက်ချက်မှု:</strong></p>
-                        <p>လက်ရှိ: 275W FTP, 72kg = 3.82 W/kg</p>
-                        <p>ရွေးချယ်စရာ A: 290W FTP သို့ တိုးမြှင့် → 4.03 W/kg (+5.5% အကျိုးအမြတ်)</p>
-                        <p>ရွေးချယ်စရာ B: 70kg သို့ လျှော့ချ → 3.93 W/kg (+2.9% အကျိုးအမြတ်)</p>
-                        <p>ရွေးချယ်စရာ C: နှစ်ခုစလုံး (290W, 70kg) → 4.14 W/kg (+8.4% အကျိုးအမြတ်)</p>
-                        <p><em>လေ့ကျင့်မှု + ရေရှည်တည်တံ့သော ခန္ဓာကိုယ် ဖွဲ့စည်းမှု optimization = ပေါင်းစပ်
-                                အကျိုးကျေးဇူးများ</em></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="efficiency-dimension">
-            <h3>၆။ Metabolic Efficiency</h3>
-            <p class="lead">Substrate အသုံးပြုမှု (အဆီ vs. ကာဘိုဟိုက်ဒရိတ် ဓာတ်တိုးခြင်း) ကို အကောင်းဆုံးဖြစ်အောင်
+                            - 70kg vs. 71kg = 6 W/kg တွင် 14W ကွာခြားမှု။</p></div><div class="example-box"><p><strong>ဥပမာ တွက်ချက်မှု:</strong></p><p>လက်ရှိ: 275W FTP, 72kg = 3.82 W/kg</p><p>ရွေးချယ်စရာ A: 290W FTP သို့ တိုးမြှင့် → 4.03 W/kg (+5.5% အကျိုးအမြတ်)</p><p>ရွေးချယ်စရာ B: 70kg သို့ လျှော့ချ → 3.93 W/kg (+2.9% အကျိုးအမြတ်)</p><p>ရွေးချယ်စရာ C: နှစ်ခုစလုံး (290W, 70kg) → 4.14 W/kg (+8.4% အကျိုးအမြတ်)</p><p><em>လေ့ကျင့်မှု + ရေရှည်တည်တံ့သော ခန္ဓာကိုယ် ဖွဲ့စည်းမှု optimization = ပေါင်းစပ်
+                                အကျိုးကျေးဇူးများ</em></p></div></div></div></div><div class="efficiency-dimension"><h3>၆။ Metabolic Efficiency</h3><p class="lead">Substrate အသုံးပြုမှု (အဆီ vs. ကာဘိုဟိုက်ဒရိတ် ဓာတ်တိုးခြင်း) ကို အကောင်းဆုံးဖြစ်အောင်
                 လုပ်ဆောင်ခြင်းသည် ခံနိုင်ရည်ကို တိုးချဲ့ပေးပြီး ကန့်သတ်ထားသော glycogen သိုလှောင်မှုများကို
-                ထိန်းသိမ်းပေးသည်။</p>
-
-            <div class="grid grid-2">
-                <div>
-                    <h4>အဆီ vs. ကာဘိုဟိုက်ဒရိတ် ဓာတ်တိုးခြင်း:</h4>
-                    <p><strong>မတူညီသော ပြင်းထန်မှုများတွင်:</strong></p>
-                    <ul>
-                        <li><strong>Zone 1-2 (FTP ၏ 55-75%):</strong> 50-70% အဆီ၊ 30-50% carbs</li>
-                        <li><strong>Zone 3 (FTP ၏ 75-90%):</strong> 30-40% အဆီ၊ 60-70% carbs</li>
-                        <li><strong>Zone 4+ (FTP >90%):</strong> 10-20% အဆီ၊ 80-90% carbs</li>
-                    </ul>
-
-                    <p><strong>အဆီ ဓာတ်တိုးခြင်းကို တိုးတက်စေသော လေ့ကျင့်မှု လိုက်လျောညီထွေမှုများ:</strong></p>
-                    <ul>
-                        <li><strong>High volume Zone 2 လေ့ကျင့်မှု:</strong> ၆-၁၀ နာရီ/တစ်ပတ် အခြေခံ တည်ဆောက်ခြင်း</li>
-                        <li><strong>အစာမစားဘဲ မနက်ခင်း စီးနင်းမှုများ:</strong> ၆၀-၉၀ မိနစ် လွယ်ကူသော အရှိန်ဖြင့်</li>
-                        <li><strong>ရှည်လျားသော စီးနင်းမှုများ (၃-၅ နာရီ):</strong> Glycogen ကုန်ဆုံးစေခြင်း → အဆီ
-                            အင်ဇိုင်းများကို မြှင့်တင်ခြင်း</li>
-                        <li><strong>"train low" အချိန်ကာလအပိုင်းအခြား အစည်းအဝေးများ:</strong> မဟာဗျူဟာမြောက် glycogen
-                            လျှော့ချခြင်း</li>
-                    </ul>
-
-                    <div class="callout callout-success">
-                        <p><strong>80/20 စည်းမျဉ်း:</strong> Elite endurance ကစားသမားများသည် အဆီ ဓာတ်တိုး စွမ်းရည်ကို
+                ထိန်းသိမ်းပေးသည်။</p><div class="grid grid-2"><div><h4>အဆီ vs. ကာဘိုဟိုက်ဒရိတ် ဓာတ်တိုးခြင်း:</h4><p><strong>မတူညီသော ပြင်းထန်မှုများတွင်:</strong></p><ul><li><strong>Zone 1-2 (FTP ၏ 55-75%):</strong> 50-70% အဆီ၊ 30-50% carbs</li><li><strong>Zone 3 (FTP ၏ 75-90%):</strong> 30-40% အဆီ၊ 60-70% carbs</li><li><strong>Zone 4+ (FTP >90%):</strong> 10-20% အဆီ၊ 80-90% carbs</li></ul><p><strong>အဆီ ဓာတ်တိုးခြင်းကို တိုးတက်စေသော လေ့ကျင့်မှု လိုက်လျောညီထွေမှုများ:</strong></p><ul><li><strong>High volume Zone 2 လေ့ကျင့်မှု:</strong> ၆-၁၀ နာရီ/တစ်ပတ် အခြေခံ တည်ဆောက်ခြင်း</li><li><strong>အစာမစားဘဲ မနက်ခင်း စီးနင်းမှုများ:</strong> ၆၀-၉၀ မိနစ် လွယ်ကူသော အရှိန်ဖြင့်</li><li><strong>ရှည်လျားသော စီးနင်းမှုများ (၃-၅ နာရီ):</strong> Glycogen ကုန်ဆုံးစေခြင်း → အဆီ
+                            အင်ဇိုင်းများကို မြှင့်တင်ခြင်း</li><li><strong>"train low" အချိန်ကာလအပိုင်းအခြား အစည်းအဝေးများ:</strong> မဟာဗျူဟာမြောက် glycogen
+                            လျှော့ချခြင်း</li></ul><div class="callout callout-success"><p><strong>80/20 စည်းမျဉ်း:</strong> Elite endurance ကစားသမားများသည် အဆီ ဓာတ်တိုး စွမ်းရည်ကို
                             အမြင့်ဆုံး ရရှိရန် လေ့ကျင့်မှု ပမာဏ၏ ~80% ကို ပြင်းထန်မှု နည်းသော (Zone 1-2) တွင်
-                            အချိန်ကုန်ဆုံးကြပြီး၊ glycogen ကို 20% ပြင်းထန်မှု မြင့်မားသော အလုပ်အတွက် ချန်ထားကြသည်။</p>
-                    </div>
-                </div>
-
-                <div>
-                    <h4>Glycogen ချွေတာရေး မဟာဗျူဟာ:</h4>
-                    <p>ပိုမိုကောင်းမွန်သော အဆီ ဓာတ်တိုးခြင်း ဆိုသည်မှာ:</p>
-                    <ul>
-                        <li>မောပန်းမှု (hitting the wall) မဖြစ်မီ ပြိုင်ပွဲ အရှိန်ကို ပိုကြာရှည် ထိန်းထားနိုင်သည်</li>
-                        <li>ပြင်းထန်သော အားထုတ်မှုများ ကြားတွင် ပိုမိုမြန်ဆန်စွာ ပြန်လည်ကောင်းမွန်သည်</li>
-                        <li>ရှည်လျားသော ပွဲများ၏ နှောင်းပိုင်းတွင် စွမ်းအား ထုတ်လုပ်မှုကို ထိန်းထားနိုင်သည်</li>
-                        <li>စီးနင်းစဉ် ကာဘိုဟိုက်ဒရိတ် စားသုံးမှု လိုအပ်ချက် နည်းသည်</li>
-                    </ul>
-
-                    <div class="example-box">
-                        <p><strong>လက်တွေ့ ဥပမာ:</strong></p>
-                        <p><strong>မလေ့ကျင့်ထားသော စီးနင်းသူ:</strong></p>
-                        <ul>
-                            <li>Zone 2 တွင် 0.5g fat/မိနစ် သာ ဓာတ်တိုးနိုင်သည်</li>
-                            <li>အလယ်အလတ် အရှိန်တွင်ပင် glycogen ကို အကြီးအကျယ် မှီခိုရသည်</li>
-                            <li>၂-၃ နာရီ ကြာပြီးနောက် အားကုန် (Bonks) သည်</li>
-                        </ul>
-                        <p><strong>ကောင်းစွာ လေ့ကျင့်ထားသော စီးနင်းသူ:</strong></p>
-                        <ul>
-                            <li>Zone 2 တွင် 1.0-1.2g fat/မိနစ် ဓာတ်တိုးသည်</li>
-                            <li>Glycogen ကို surges နှင့် တောင်တက်များအတွက် ချွေတာသည်</li>
-                            <li>၄-၆ နာရီ သက်တောင့်သက်သာ ထိန်းထားနိုင်သည်</li>
-                        </ul>
-                    </div>
-
-                    <h4>Metabolic Efficiency ကို တိုင်းတာခြင်း:</h4>
-                    <ul>
-                        <li><strong>ဓာတ်ခွဲခန်း စမ်းသပ်မှု:</strong> RER (respiratory exchange ratio) နှင့်အတူ VO₂max
-                        </li>
-                        <li><strong>ကွင်းဆင်း ကိုယ်စားပြု:</strong> ကာဘိုဟိုက်ဒရိတ် နည်းပါးသော စီးနင်းမှုများတွင်
-                            စွမ်းအား ထိန်းထားနိုင်စွမ်း</li>
-                        <li><strong>ပြန်လည်ကောင်းမွန်မှု အမှတ်အသား:</strong> မနက်ခင်း နှလုံးခုန်နှုန်း ပြောင်းလဲမှု
-                            (HRV)</li>
-                        <li><strong>စွမ်းဆောင်ရည် Metric:</strong> ကြာရှည်ခံနိုင်မှု (ရှည်လျားသော အားထုတ်မှုများတွင်
-                            စွမ်းအား ကျဆင်းမှု)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2 class="text-center mb-xl">မောပန်းမှု ခံနိုင်ရည် & ကြာရှည်ခံနိုင်မှု</h2>
-
-        <div class="efficiency-dimension">
-            <h3>၇။ မောပန်းမှု အောက်မှ လှုပ်ရှားမှု စီးပွားရေး</h3>
-            <p class="lead">မောပန်းမှု စုဆောင်းလာသည်နှင့်အမျှ Efficiency ကျဆင်းလာသည်။ Biomechanical နှင့် metabolic
+                            အချိန်ကုန်ဆုံးကြပြီး၊ glycogen ကို 20% ပြင်းထန်မှု မြင့်မားသော အလုပ်အတွက် ချန်ထားကြသည်။</p></div></div><div><h4>Glycogen ချွေတာရေး မဟာဗျူဟာ:</h4><p>ပိုမိုကောင်းမွန်သော အဆီ ဓာတ်တိုးခြင်း ဆိုသည်မှာ:</p><ul><li>မောပန်းမှု (hitting the wall) မဖြစ်မီ ပြိုင်ပွဲ အရှိန်ကို ပိုကြာရှည် ထိန်းထားနိုင်သည်</li><li>ပြင်းထန်သော အားထုတ်မှုများ ကြားတွင် ပိုမိုမြန်ဆန်စွာ ပြန်လည်ကောင်းမွန်သည်</li><li>ရှည်လျားသော ပွဲများ၏ နှောင်းပိုင်းတွင် စွမ်းအား ထုတ်လုပ်မှုကို ထိန်းထားနိုင်သည်</li><li>စီးနင်းစဉ် ကာဘိုဟိုက်ဒရိတ် စားသုံးမှု လိုအပ်ချက် နည်းသည်</li></ul><div class="example-box"><p><strong>လက်တွေ့ ဥပမာ:</strong></p><p><strong>မလေ့ကျင့်ထားသော စီးနင်းသူ:</strong></p><ul><li>Zone 2 တွင် 0.5g fat/မိနစ် သာ ဓာတ်တိုးနိုင်သည်</li><li>အလယ်အလတ် အရှိန်တွင်ပင် glycogen ကို အကြီးအကျယ် မှီခိုရသည်</li><li>၂-၃ နာရီ ကြာပြီးနောက် အားကုန် (Bonks) သည်</li></ul><p><strong>ကောင်းစွာ လေ့ကျင့်ထားသော စီးနင်းသူ:</strong></p><ul><li>Zone 2 တွင် 1.0-1.2g fat/မိနစ် ဓာတ်တိုးသည်</li><li>Glycogen ကို surges နှင့် တောင်တက်များအတွက် ချွေတာသည်</li><li>၄-၆ နာရီ သက်တောင့်သက်သာ ထိန်းထားနိုင်သည်</li></ul></div><h4>Metabolic Efficiency ကို တိုင်းတာခြင်း:</h4><ul><li><strong>ဓာတ်ခွဲခန်း စမ်းသပ်မှု:</strong> RER (respiratory exchange ratio) နှင့်အတူ VO₂max
+                        </li><li><strong>ကွင်းဆင်း ကိုယ်စားပြု:</strong> ကာဘိုဟိုက်ဒရိတ် နည်းပါးသော စီးနင်းမှုများတွင်
+                            စွမ်းအား ထိန်းထားနိုင်စွမ်း</li><li><strong>ပြန်လည်ကောင်းမွန်မှု အမှတ်အသား:</strong> မနက်ခင်း နှလုံးခုန်နှုန်း ပြောင်းလဲမှု
+                            (HRV)</li><li><strong>စွမ်းဆောင်ရည် Metric:</strong> ကြာရှည်ခံနိုင်မှု (ရှည်လျားသော အားထုတ်မှုများတွင်
+                            စွမ်းအား ကျဆင်းမှု)</li></ul></div></div></div></div></section><section class="section"><div class="container"><h2 class="text-center mb-xl">မောပန်းမှု ခံနိုင်ရည် & ကြာရှည်ခံနိုင်မှု</h2><div class="efficiency-dimension"><h3>၇။ မောပန်းမှု အောက်မှ လှုပ်ရှားမှု စီးပွားရေး</h3><p class="lead">မောပန်းမှု စုဆောင်းလာသည်နှင့်အမျှ Efficiency ကျဆင်းလာသည်။ Biomechanical နှင့် metabolic
                 efficiency ကို စီးနင်းမှု နက်ရှိုင်းသော အပိုင်းထိ ထိန်းသိမ်းထားခြင်းက ကောင်းမွန်သော စက်ဘီးသမားနှင့်
-                ထူးချွန်သော စက်ဘီးသမားကို ခွဲခြားပေးသည်။</p>
-
-            <div class="grid grid-2">
-                <div>
-                    <h4>မောပန်းမှု ခံနိုင်ရည် အညွှန်းကိန်းများ:</h4>
-                    <p><strong>ကြာရှည်ခံနိုင်မှု (Durability):</strong> အချိန်ကာလ ကြာမြင့်စွာ မြင့်မားသော IF ကို
-                        ထိန်းထားနိုင်စွမ်း</p>
-                    <ul>
-                        <li><strong>ခိုင်မာသော ကြာရှည်ခံနိုင်မှု:</strong> ၄+ နာရီ အတွက် IF 0.85+</li>
-                        <li><strong>အလယ်အလတ် ကြာရှည်ခံနိုင်မှု:</strong> ၃ နာရီ ကြာပြီးနောက် IF 0.80 အောက် ကျဆင်း</li>
-                        <li><strong>ညံ့ဖျင်းသော ကြာရှည်ခံနိုင်မှု:</strong>
-                            <၂ နာရီတွင် သိသာထင်ရှားသော စွမ်းအား ကျဆင်းမှု</li>
-                    </ul>
-
-                    <p><strong>Functional Reserve Capacity (FRC):</strong></p>
-                    <ul>
-                        <li>Threshold အထက် ထပ်ခါတလဲလဲ အားထုတ်မှုများကို ထုတ်လုပ်နိုင်စွမ်း</li>
-                        <li>W' balance ကုန်ဆုံး/ပြန်လည်ကောင်းမွန်မှု နှုန်းများမှတစ်ဆင့် တိုင်းတာသည်</li>
-                        <li>MTB ပြိုင်ပွဲအတွက် အရေးကြီးသည် (ပြိုင်ပွဲ တစ်ခုလျှင် 88+ surges)</li>
-                        <li>Road racing အတွက် အရေးပါသည် (တိုက်ခိုက်မှုများ၊ sprints)</li>
-                    </ul>
-
-                    <p><strong>နည်းစနစ် ပျက်ယွင်းမှု လက္ခဏာများ:</strong></p>
-                    <ul>
-                        <li>တူညီသော စွမ်းအားတွင် နှလုံးခုန်နှုန်း မြင့်တက်လာခြင်း</li>
-                        <li>တိုးလာသော အားထုတ်မှု ခံစားချက်</li>
-                        <li>နင်းတံ ချောမွေ့မှု ကျဆင်းခြင်း</li>
-                        <li>Cadence ကျဆင်းခြင်း</li>
-                        <li>ဘယ်-ညာ မညီမျှမှု တိုးလာခြင်း</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4>မောပန်းမှု ခံနိုင်ရည် လေ့ကျင့်ခြင်း:</h4>
-                    <p><strong>တိုးတက်သော ဝန်ပိမှု ဗျူဟာများ:</strong></p>
-                    <ol>
-                        <li><strong>Volume တိုးတက်မှု:</strong>
-                            <ul>
-                                <li>ရှည်လျားသော စီးနင်းမှု ကြာချိန်ကို တဖြည်းဖြည်း တိုးချဲ့ပါ</li>
-                                <li>အပတ်စဉ် TSS ကို တစ်ပတ်လျှင် 5-10% တိုးမြှင့်ပါ</li>
-                                <li>ရက်များစွာ ကြာသော ပွဲများအတွက် ၁၅-၂၀ နာရီ သီတင်းပတ်များအထိ တည်ဆောက်ပါ</li>
-                            </ul>
-                        </li>
-                        <li><strong>မောပန်းမှု အောက်မှ ပြင်းထန်မှု:</strong>
-                            <ul>
-                                <li>ရှည်လျားသော စီးနင်းမှုများ၏ နှောင်းပိုင်းတွင် Threshold intervals</li>
-                                <li>ရက်ဆက် ပြင်းထန်သော နေ့များ</li>
-                                <li>ပုံစံတူ ပြိုင်ပွဲ အခြေအနေများ</li>
-                            </ul>
-                        </li>
-                        <li><strong>ခွန်အား ခံနိုင်ရည်:</strong>
-                            <ul>
-                                <li>ဂီယာကြီး အလုပ် (cadence နိမ့်၊ torque မြင့်)</li>
-                                <li>ကြွက်သား ခံနိုင်ရည် intervals (70-80 RPM တွင် ၁၀-၂၀ မိနစ်)</li>
-                                <li>တစ်နှစ်ပတ်လုံး Gym-အခြေခံ ခွန်အား ထိန်းသိမ်းခြင်း</li>
-                            </ul>
-                        </li>
-                    </ol>
-
-                    <div class="callout callout-info">
-                        <p><strong>သီးခြားဖြစ်မှု အရေးကြီးသည်:</strong> ၆-နာရီ gran fondos အတွက် ကြာရှည်ခံနိုင်မှုကို
+                ထူးချွန်သော စက်ဘီးသမားကို ခွဲခြားပေးသည်။</p><div class="grid grid-2"><div><h4>မောပန်းမှု ခံနိုင်ရည် အညွှန်းကိန်းများ:</h4><p><strong>ကြာရှည်ခံနိုင်မှု (Durability):</strong> အချိန်ကာလ ကြာမြင့်စွာ မြင့်မားသော IF ကို
+                        ထိန်းထားနိုင်စွမ်း</p><ul><li><strong>ခိုင်မာသော ကြာရှည်ခံနိုင်မှု:</strong> ၄+ နာရီ အတွက် IF 0.85+</li><li><strong>အလယ်အလတ် ကြာရှည်ခံနိုင်မှု:</strong> ၃ နာရီ ကြာပြီးနောက် IF 0.80 အောက် ကျဆင်း</li><li><strong>ညံ့ဖျင်းသော ကြာရှည်ခံနိုင်မှု:</strong><၂ နာရီတွင် သိသာထင်ရှားသော စွမ်းအား ကျဆင်းမှု</li></ul><p><strong>Functional Reserve Capacity (FRC):</strong></p><ul><li>Threshold အထက် ထပ်ခါတလဲလဲ အားထုတ်မှုများကို ထုတ်လုပ်နိုင်စွမ်း</li><li>W' balance ကုန်ဆုံး/ပြန်လည်ကောင်းမွန်မှု နှုန်းများမှတစ်ဆင့် တိုင်းတာသည်</li><li>MTB ပြိုင်ပွဲအတွက် အရေးကြီးသည် (ပြိုင်ပွဲ တစ်ခုလျှင် 88+ surges)</li><li>Road racing အတွက် အရေးပါသည် (တိုက်ခိုက်မှုများ၊ sprints)</li></ul><p><strong>နည်းစနစ် ပျက်ယွင်းမှု လက္ခဏာများ:</strong></p><ul><li>တူညီသော စွမ်းအားတွင် နှလုံးခုန်နှုန်း မြင့်တက်လာခြင်း</li><li>တိုးလာသော အားထုတ်မှု ခံစားချက်</li><li>နင်းတံ ချောမွေ့မှု ကျဆင်းခြင်း</li><li>Cadence ကျဆင်းခြင်း</li><li>ဘယ်-ညာ မညီမျှမှု တိုးလာခြင်း</li></ul></div><div><h4>မောပန်းမှု ခံနိုင်ရည် လေ့ကျင့်ခြင်း:</h4><p><strong>တိုးတက်သော ဝန်ပိမှု ဗျူဟာများ:</strong></p><ol><li><strong>Volume တိုးတက်မှု:</strong><ul><li>ရှည်လျားသော စီးနင်းမှု ကြာချိန်ကို တဖြည်းဖြည်း တိုးချဲ့ပါ</li><li>အပတ်စဉ် TSS ကို တစ်ပတ်လျှင် 5-10% တိုးမြှင့်ပါ</li><li>ရက်များစွာ ကြာသော ပွဲများအတွက် ၁၅-၂၀ နာရီ သီတင်းပတ်များအထိ တည်ဆောက်ပါ</li></ul></li><li><strong>မောပန်းမှု အောက်မှ ပြင်းထန်မှု:</strong><ul><li>ရှည်လျားသော စီးနင်းမှုများ၏ နှောင်းပိုင်းတွင် Threshold intervals</li><li>ရက်ဆက် ပြင်းထန်သော နေ့များ</li><li>ပုံစံတူ ပြိုင်ပွဲ အခြေအနေများ</li></ul></li><li><strong>ခွန်အား ခံနိုင်ရည်:</strong><ul><li>ဂီယာကြီး အလုပ် (cadence နိမ့်၊ torque မြင့်)</li><li>ကြွက်သား ခံနိုင်ရည် intervals (70-80 RPM တွင် ၁၀-၂၀ မိနစ်)</li><li>တစ်နှစ်ပတ်လုံး Gym-အခြေခံ ခွန်အား ထိန်းသိမ်းခြင်း</li></ul></li></ol><div class="callout callout-info"><p><strong>သီးခြားဖြစ်မှု အရေးကြီးသည်:</strong> ၆-နာရီ gran fondos အတွက် ကြာရှည်ခံနိုင်မှုကို
                             တိုးတက်စေရန်၊ သင်သည် ၄-၅ နာရီ စီးနင်းမှုများနှင့် လေ့ကျင့်ရမည်။ တိုတောင်း၊ ပြင်းထန်သော
-                            လေ့ကျင့်ခန်းများသည် ဤ စွမ်းဆောင်ရည် အမျိုးအစားကို ဖွံ့ဖြိုးစေမည် မဟုတ်ပါ။</p>
-                    </div>
-
-                    <p><strong>ပြန်လည်ကောင်းမွန်မှု optimization:</strong></p>
-                    <ul>
-                        <li>လုံလောက်သော အိပ်စက်ခြင်း (ပြင်းထန်သော လေ့ကျင့်မှုအတွက် ၈-၉ နာရီ)</li>
-                        <li>အာဟာရ အချိန်ကိုက်ခြင်း (စီးနင်းပြီး မိနစ် ၃၀ အတွင်း ပရိုတင်း + carbs)</li>
-                        <li>တက်ကြွသော ပြန်လည်ကောင်းမွန်ခြင်း (Zone 1 spinning)</li>
-                        <li>အချိန်ကာလအပိုင်းအခြား သတ်မှတ်ခြင်း (ပြင်းထန်သော သီတင်းပတ်များ + ပြန်လည်ကောင်းမွန်ရေး
-                            သီတင်းပတ်များ)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>စက်ဘီးစီး စွမ်းဆောင်ရည်ကို ဘယ်လို တိုးတက်စေမလဲ</h2>
-        <p class="lead">ရှုထောင့် အားလုံးတွင် စွမ်းဆောင်ရည် အကျိုးအမြတ်များအတွက် စနစ်ကျသော ချဉ်းကပ်မှု:</p>
-
-        <div class="improvement-strategy">
-            <div class="strategy-item">
-                <h3>၁။ Aerodynamics ကို အကောင်းဆုံးဖြစ်အောင် လုပ်ဆောင်ပါ (အကြီးမားဆုံး အကျိုးအမြတ်များ)</h3>
-                <p><strong>ROI: ပြိုင်ပွဲ အရှိန်တွင် 20-60W သက်သာမှု</strong></p>
-                <ul>
-                    <li><strong>Professional bike fit:</strong> စွမ်းအားကို ထိန်းသိမ်းထားစဉ် ပိုနိမ့်သော အနေအထား</li>
-                    <li><strong>TT position လေ့ကျင့်မှု:</strong> Time trial ဆိုလျှင် aero position ဖြင့် လေ့ကျင့်ပါ
-                    </li>
-                    <li><strong>စက်ကိရိယာ:</strong> Aero wheels, helmet, ကျပ်သော ဝတ်စုံ</li>
-                    <li><strong>CdA တိုင်းတာပါ:</strong> မြေပြန့် လမ်းကြောင်းများတွင် power meter + speed data ကို
-                        သုံးပါ</li>
-                    <li><strong>Drafting လေ့ကျင့်ပါ:</strong> ဘီးနောက်ကပ်လိုက်ခြင်းကို လုံခြုံစွာ ကျွမ်းကျင်အောင် လုပ်ပါ
-                    </li>
-                </ul>
-            </div>
-
-            <div class="strategy-item">
-                <h3>၂။ Aerobic အခြေခံ တည်ဆောက်ပါ (အခြေခံအုတ်မြစ်)</h3>
-                <p><strong>ROI: ၆-၁၂ လအတွင်း 3-5% GE တိုးတက်မှု</strong></p>
-                <ul>
-                    <li><strong>Volume:</strong> ၈-၁၅ နာရီ/တစ်ပတ် Zone 2 စီးနင်းမှု</li>
-                    <li><strong>ရှည်လျားသော စီးနင်းမှုများ:</strong> အပတ်စဉ် ၃-၅ နာရီ ခံနိုင်ရည် အားထုတ်မှုများ</li>
-                    <li><strong>တသမတ်တည်းရှိမှု:</strong> တစ်နှစ်ပတ်လုံး အခြေခံ ထိန်းသိမ်းခြင်း</li>
-                    <li><strong>တိုးတက်သော ဝန်ပိမှု:</strong> တစ်ပတ်လျှင် 5-10% volume တိုးမြှင့်ပါ</li>
-                </ul>
-            </div>
-
-            <div class="strategy-item">
-                <h3>၃။ ခွန်အား လေ့ကျင့်မှု (Neuromuscular Power)</h3>
-                <p><strong>ROI: အလေးချိန် မတက်ဘဲ 4-8% စွမ်းအား တိုးတက်မှု</strong></p>
-                <ul>
-                    <li><strong>Compound lifts:</strong> Squats, deadlifts, step-ups 2×/တစ်ပတ်</li>
-                    <li><strong>လေးလံသော ဝန်များ:</strong> Base phase တွင် 3-6 reps, 85-95% 1RM</li>
-                    <li><strong>ထိန်းသိမ်းခြင်း:</strong> ပြိုင်ပွဲ ရာသီအတွင်း 1×/တစ်ပတ်</li>
-                    <li><strong>လွှဲပြောင်း အလုပ်:</strong> ခြေတစ်ဖက် လေ့ကျင့်ခန်းများ၊ ပေါက်ကွဲအားပါသော
-                        လှုပ်ရှားမှုများ</li>
-                </ul>
-            </div>
-
-            <div class="strategy-item">
-                <h3>၄။ နည်းစနစ် မွမ်းမံခြင်း</h3>
-                <p><strong>ROI: 2-4% စွမ်းဆောင်ရည် အကျိုးအမြတ်</strong></p>
-                <ul>
-                    <li><strong>Cadence အလုပ်:</strong> စမ်းသပ်မှုမှတစ်ဆင့် တစ်ကိုယ်ရေ အကောင်းဆုံးကို ရှာဖွေပါ</li>
-                    <li><strong>နင်းခြင်း လေ့ကျင့်ခန်းများ:</strong> ခြေတစ်ဖက် လေ့ကျင့်ခန်းများ၊ high cadence အလုပ်</li>
-                    <li><strong>Video ခွဲခြမ်းစိတ်ဖြာခြင်း:</strong> အနေအထားနှင့် နင်းတံကို စစ်ဆေးပါ</li>
-                    <li><strong>နည်းပြလွန်ကဲခြင်းကို ရှောင်ကြဉ်ပါ:</strong> သဘာဝ optimization ကို ယုံကြည်ပါ</li>
-                </ul>
-            </div>
-
-            <div class="strategy-item">
-                <h3>၅။ ခန္ဓာကိုယ် ဖွဲ့စည်းမှုကို အကောင်းဆုံးဖြစ်အောင် လုပ်ဆောင်ပါ</h3>
-                <p><strong>ROI: 0.7kg အလေးချိန် ကျဆင်းမှုတိုင်းအတွက် 1% W/kg</strong></p>
-                <ul>
-                    <li><strong>ရေရှည်တည်တံ့သော လိုငွေ:</strong> 300-500 kcal/တစ်ရက် အများဆုံး</li>
-                    <li><strong>ပရိုတင်း ထိန်းသိမ်းပါ:</strong> 1.6-2.0 g/kg ခန္ဓာကိုယ် အလေးချိန်</li>
-                    <li><strong>မှန်ကန်သော အချိန်ကိုက်:</strong> Base/build phases, ပြိုင်ပွဲ ရာသီ မဟုတ်ပါ</li>
-                    <li><strong>စွမ်းအားကို စောင့်ကြည့်ပါ:</strong> အလေးချိန်အတွက် FTP ကို မစွန့်လွှတ်ပါနှင့်</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>မကြာခဏ မေးလေ့ရှိသော မေးခွန်းများ</h2>
-
-        <div class="faq-section">
-            <div class="faq-item">
-                <h3>စက်ဘီးစီး စွမ်းဆောင်ရည်ကို လေ့ကျင့်မှုမှတစ်ဆင့် တကယ် တိုးတက်စေနိုင်သလား?</h3>
-                <p>ဟုတ်ကဲ့။ စနစ်ကျသော လေ့ကျင့်မှုမှတစ်ဆင့် gross efficiency တွင် 3-8% တိုးတက်မှုများကို ရရှိနိုင်ကြောင်း
+                            လေ့ကျင့်ခန်းများသည် ဤ စွမ်းဆောင်ရည် အမျိုးအစားကို ဖွံ့ဖြိုးစေမည် မဟုတ်ပါ။</p></div><p><strong>ပြန်လည်ကောင်းမွန်မှု optimization:</strong></p><ul><li>လုံလောက်သော အိပ်စက်ခြင်း (ပြင်းထန်သော လေ့ကျင့်မှုအတွက် ၈-၉ နာရီ)</li><li>အာဟာရ အချိန်ကိုက်ခြင်း (စီးနင်းပြီး မိနစ် ၃၀ အတွင်း ပရိုတင်း + carbs)</li><li>တက်ကြွသော ပြန်လည်ကောင်းမွန်ခြင်း (Zone 1 spinning)</li><li>အချိန်ကာလအပိုင်းအခြား သတ်မှတ်ခြင်း (ပြင်းထန်သော သီတင်းပတ်များ + ပြန်လည်ကောင်းမွန်ရေး
+                            သီတင်းပတ်များ)</li></ul></div></div></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>စက်ဘီးစီး စွမ်းဆောင်ရည်ကို ဘယ်လို တိုးတက်စေမလဲ</h2><p class="lead">ရှုထောင့် အားလုံးတွင် စွမ်းဆောင်ရည် အကျိုးအမြတ်များအတွက် စနစ်ကျသော ချဉ်းကပ်မှု:</p><div class="improvement-strategy"><div class="strategy-item"><h3>၁။ Aerodynamics ကို အကောင်းဆုံးဖြစ်အောင် လုပ်ဆောင်ပါ (အကြီးမားဆုံး အကျိုးအမြတ်များ)</h3><p><strong>ROI: ပြိုင်ပွဲ အရှိန်တွင် 20-60W သက်သာမှု</strong></p><ul><li><strong>Professional bike fit:</strong> စွမ်းအားကို ထိန်းသိမ်းထားစဉ် ပိုနိမ့်သော အနေအထား</li><li><strong>TT position လေ့ကျင့်မှု:</strong> Time trial ဆိုလျှင် aero position ဖြင့် လေ့ကျင့်ပါ
+                    </li><li><strong>စက်ကိရိယာ:</strong> Aero wheels, helmet, ကျပ်သော ဝတ်စုံ</li><li><strong>CdA တိုင်းတာပါ:</strong> မြေပြန့် လမ်းကြောင်းများတွင် power meter + speed data ကို
+                        သုံးပါ</li><li><strong>Drafting လေ့ကျင့်ပါ:</strong> ဘီးနောက်ကပ်လိုက်ခြင်းကို လုံခြုံစွာ ကျွမ်းကျင်အောင် လုပ်ပါ
+                    </li></ul></div><div class="strategy-item"><h3>၂။ Aerobic အခြေခံ တည်ဆောက်ပါ (အခြေခံအုတ်မြစ်)</h3><p><strong>ROI: ၆-၁၂ လအတွင်း 3-5% GE တိုးတက်မှု</strong></p><ul><li><strong>Volume:</strong> ၈-၁၅ နာရီ/တစ်ပတ် Zone 2 စီးနင်းမှု</li><li><strong>ရှည်လျားသော စီးနင်းမှုများ:</strong> အပတ်စဉ် ၃-၅ နာရီ ခံနိုင်ရည် အားထုတ်မှုများ</li><li><strong>တသမတ်တည်းရှိမှု:</strong> တစ်နှစ်ပတ်လုံး အခြေခံ ထိန်းသိမ်းခြင်း</li><li><strong>တိုးတက်သော ဝန်ပိမှု:</strong> တစ်ပတ်လျှင် 5-10% volume တိုးမြှင့်ပါ</li></ul></div><div class="strategy-item"><h3>၃။ ခွန်အား လေ့ကျင့်မှု (Neuromuscular Power)</h3><p><strong>ROI: အလေးချိန် မတက်ဘဲ 4-8% စွမ်းအား တိုးတက်မှု</strong></p><ul><li><strong>Compound lifts:</strong> Squats, deadlifts, step-ups 2×/တစ်ပတ်</li><li><strong>လေးလံသော ဝန်များ:</strong> Base phase တွင် 3-6 reps, 85-95% 1RM</li><li><strong>ထိန်းသိမ်းခြင်း:</strong> ပြိုင်ပွဲ ရာသီအတွင်း 1×/တစ်ပတ်</li><li><strong>လွှဲပြောင်း အလုပ်:</strong> ခြေတစ်ဖက် လေ့ကျင့်ခန်းများ၊ ပေါက်ကွဲအားပါသော
+                        လှုပ်ရှားမှုများ</li></ul></div><div class="strategy-item"><h3>၄။ နည်းစနစ် မွမ်းမံခြင်း</h3><p><strong>ROI: 2-4% စွမ်းဆောင်ရည် အကျိုးအမြတ်</strong></p><ul><li><strong>Cadence အလုပ်:</strong> စမ်းသပ်မှုမှတစ်ဆင့် တစ်ကိုယ်ရေ အကောင်းဆုံးကို ရှာဖွေပါ</li><li><strong>နင်းခြင်း လေ့ကျင့်ခန်းများ:</strong> ခြေတစ်ဖက် လေ့ကျင့်ခန်းများ၊ high cadence အလုပ်</li><li><strong>Video ခွဲခြမ်းစိတ်ဖြာခြင်း:</strong> အနေအထားနှင့် နင်းတံကို စစ်ဆေးပါ</li><li><strong>နည်းပြလွန်ကဲခြင်းကို ရှောင်ကြဉ်ပါ:</strong> သဘာဝ optimization ကို ယုံကြည်ပါ</li></ul></div><div class="strategy-item"><h3>၅။ ခန္ဓာကိုယ် ဖွဲ့စည်းမှုကို အကောင်းဆုံးဖြစ်အောင် လုပ်ဆောင်ပါ</h3><p><strong>ROI: 0.7kg အလေးချိန် ကျဆင်းမှုတိုင်းအတွက် 1% W/kg</strong></p><ul><li><strong>ရေရှည်တည်တံ့သော လိုငွေ:</strong> 300-500 kcal/တစ်ရက် အများဆုံး</li><li><strong>ပရိုတင်း ထိန်းသိမ်းပါ:</strong> 1.6-2.0 g/kg ခန္ဓာကိုယ် အလေးချိန်</li><li><strong>မှန်ကန်သော အချိန်ကိုက်:</strong> Base/build phases, ပြိုင်ပွဲ ရာသီ မဟုတ်ပါ</li><li><strong>စွမ်းအားကို စောင့်ကြည့်ပါ:</strong> အလေးချိန်အတွက် FTP ကို မစွန့်လွှတ်ပါနှင့်</li></ul></div></div></div></section><section class="section"><div class="container container-narrow"><h2>မကြာခဏ မေးလေ့ရှိသော မေးခွန်းများ</h2><div class="faq-section"><div class="faq-item"><h3>စက်ဘီးစီး စွမ်းဆောင်ရည်ကို လေ့ကျင့်မှုမှတစ်ဆင့် တကယ် တိုးတက်စေနိုင်သလား?</h3><p>ဟုတ်ကဲ့။ စနစ်ကျသော လေ့ကျင့်မှုမှတစ်ဆင့် gross efficiency တွင် 3-8% တိုးတက်မှုများကို ရရှိနိုင်ကြောင်း
                     သုတေသနများက ပြသသည်။ Beattie et al. (2014) သည် plyometric လေ့ကျင့်မှုဖြင့် ၈ ပတ်အတွင်း 4.2%
                     efficiency အကျိုးအမြတ်များကို သရုပ်ပြခဲ့သည်။ ရေရှည် လေ့ကျင့်မှု (နှစ်များ) သည် Type I ကြွက်သား
-                    ဖိုင်ဘာများ၏ မြင့်မားသော ရာခိုင်နှုန်းကို ဖွံ့ဖြိုးစေပြီး၊ အခြေခံ efficiency ကို တိုးတက်စေသည်။</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>မြန်မြန်ဆန်ဆန် လုပ်နိုင်သော အကြီးမားဆုံး efficiency အကျိုးအမြတ်က ဘာလဲ?</h3>
-                <p>Aerodynamic optimization။ ပျော့ပြောင်းမှုနှင့် အူတိုင် (core) ခွန်အားကို တိုးတက်စေခြင်းဖြင့် သင့်
+                    ဖိုင်ဘာများ၏ မြင့်မားသော ရာခိုင်နှုန်းကို ဖွံ့ဖြိုးစေပြီး၊ အခြေခံ efficiency ကို တိုးတက်စေသည်။</p></div><div class="faq-item"><h3>မြန်မြန်ဆန်ဆန် လုပ်နိုင်သော အကြီးမားဆုံး efficiency အကျိုးအမြတ်က ဘာလဲ?</h3><p>Aerodynamic optimization။ ပျော့ပြောင်းမှုနှင့် အူတိုင် (core) ခွန်အားကို တိုးတက်စေခြင်းဖြင့် သင့်
                     အနေအထားကို နိမ့်စေသော professional bike fit သည် သီတင်းပတ်များအတွင်း ပြိုင်ပွဲ အရှိန်တွင် 20-40W
                     သက်သာစေနိုင်သည်။ စက်ကိရိယာ ပြောင်းလဲမှုများ (aero wheels, helmet) သည် နောက်ထပ် 10-20W ပေါင်းထည့်သည်။
-                    ၎င်းတို့သည် ကြံ့ခိုင်မှု တိုးတက်ရန် မလိုအပ်သော ချက်ချင်း အကျိုးအမြတ်များ ဖြစ်သည်။</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Cadence က efficiency ကို ဘယ်လောက် ထိခိုက်စေသလဲ?</h3>
-                <p>မြင့်မားစွာ တစ်ဦးချင်းကွာခြားသည်။ Elite စက်ဘီးသမားများသည် ၎င်းတို့၏ ဖိုင်ဘာ အမျိုးအစားအတွက် metabolic
+                    ၎င်းတို့သည် ကြံ့ခိုင်မှု တိုးတက်ရန် မလိုအပ်သော ချက်ချင်း အကျိုးအမြတ်များ ဖြစ်သည်။</p></div><div class="faq-item"><h3>Cadence က efficiency ကို ဘယ်လောက် ထိခိုက်စေသလဲ?</h3><p>မြင့်မားစွာ တစ်ဦးချင်းကွာခြားသည်။ Elite စက်ဘီးသမားများသည် ၎င်းတို့၏ ဖိုင်ဘာ အမျိုးအစားအတွက် metabolic
                     ကုန်ကျစရိတ် အနည်းဆုံးဖြစ်စေမည့် cadences များကို ကိုယ်တိုင် ရွေးချယ်ကြောင်း သုတေသနက ပြသသည်။ အထွေထွေ
                     လမ်းညွှန်ချက်များ: threshold တွင် 85-95 RPM၊ VO₂max အားထုတ်မှုများအတွက် 100-110 RPM။ သင့် သဘာဝ
-                    cadence မှ ±10 RPM စမ်းသပ်ခြင်းဖြင့် တစ်ကိုယ်ရေ အကောင်းဆုံးကို ခွဲခြားသိမြင်နိုင်သည်။</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>ပိုမြင့်မားသော နင်းတံ ချောမွေ့မှုသည် အမြဲတမ်း ပိုကောင်းသလား?</h3>
-                <p>အမြဲတမ်း မဟုတ်ပါ။ Pedal Smoothness (PS) သည် မြင့်မားစွာ တစ်ဦးချင်းကွာခြားပြီး efficiency နှင့်
+                    cadence မှ ±10 RPM စမ်းသပ်ခြင်းဖြင့် တစ်ကိုယ်ရေ အကောင်းဆုံးကို ခွဲခြားသိမြင်နိုင်သည်။</p></div><div class="faq-item"><h3>ပိုမြင့်မားသော နင်းတံ ချောမွေ့မှုသည် အမြဲတမ်း ပိုကောင်းသလား?</h3><p>အမြဲတမ်း မဟုတ်ပါ။ Pedal Smoothness (PS) သည် မြင့်မားစွာ တစ်ဦးချင်းကွာခြားပြီး efficiency နှင့်
                     အမြဲတမ်း ဆက်စပ်မှု မရှိပါ။ အလွန် ထိရောက်သော စက်ဘီးသမား အချို့သည် PS ရမှတ် နည်းပါးကြသည်။ သင့် သဘာဝ
                     နင်းတံကို "ချောမွေ့အောင်" ကြိုးစားခြင်းထက် ခြုံငုံ စွမ်းအား ထွက်ရှိမှုနှင့် gross efficiency ကို
-                    အာရုံစိုက်ပါ။</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>တောင်တက်အတွက် အလေးချိန် လျှော့ချခြင်း vs. စွမ်းအား တိုးမြှင့်ခြင်း ဘယ်ဟာ ပိုအရေးကြီးသလဲ?</h3>
-                <p>နှစ်ခုစလုံး အရေးကြီးသည်၊ သို့သော် ရေရှည်တည်တံ့သော ချဉ်းကပ်မှု ကွာခြားသည်။ စွမ်းအားကို
+                    အာရုံစိုက်ပါ။</p></div><div class="faq-item"><h3>တောင်တက်အတွက် အလေးချိန် လျှော့ချခြင်း vs. စွမ်းအား တိုးမြှင့်ခြင်း ဘယ်ဟာ ပိုအရေးကြီးသလဲ?</h3><p>နှစ်ခုစလုံး အရေးကြီးသည်၊ သို့သော် ရေရှည်တည်တံ့သော ချဉ်းကပ်မှု ကွာခြားသည်။ စွမ်းအားကို
                     ထိန်းသိမ်းထားစဉ် အဆီ 1kg လျှော့ချခြင်းသည် 70kg စီးနင်းသူအတွက် W/kg ကို ~1.4% တိုးတက်စေသည်။ FTP ကို
                     10W တိုးမြှင့်ခြင်းသည် W/kg ကို ~3.5% တိုးတက်စေသည်။ စံပြ: Base phase တွင် ခန္ဓာကိုယ် ဖွဲ့စည်းမှုကို
                     အကောင်းဆုံးဖြစ်အောင် လုပ်ဆောင်ပါ၊ build/race phases တွင် စွမ်းအားကို အာရုံစိုက်ပါ။ အလေးချိန်အတွက်
-                    စွမ်းအားကို ဘယ်တော့မှ မစွန့်လွှတ်ပါနှင့်။</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>ခွန်အား လေ့ကျင့်မှုက စက်ဘီးစီး စွမ်းဆောင်ရည်ကို ထိခိုက်စေသလား?</h3>
-                <p>မထိခိုက်ပါ - ၎င်းက တိုးတက်စေသည်။ 2×/တစ်ပတ် ခွန်အား လေ့ကျင့်မှုသည် ခံနိုင်ရည်ကို ထိခိုက်မှု မရှိဘဲ
+                    စွမ်းအားကို ဘယ်တော့မှ မစွန့်လွှတ်ပါနှင့်။</p></div><div class="faq-item"><h3>ခွန်အား လေ့ကျင့်မှုက စက်ဘီးစီး စွမ်းဆောင်ရည်ကို ထိခိုက်စေသလား?</h3><p>မထိခိုက်ပါ - ၎င်းက တိုးတက်စေသည်။ 2×/တစ်ပတ် ခွန်အား လေ့ကျင့်မှုသည် ခံနိုင်ရည်ကို ထိခိုက်မှု မရှိဘဲ
                     စွမ်းအား ထွက်ရှိမှုကို တိုးစေကြောင်း သုတေသနက တသမတ်တည်း ပြသသည်။ အဓိကမှာ အချိန်ကာလအပိုင်းအခြား
                     သတ်မှတ်ခြင်း ဖြစ်သည်: base phase တွင် လေးလံသော မခြင်း၊ ပြိုင်ပွဲ ကာလအတွင်း ထိန်းသိမ်းခြင်း
                     (1×/တစ်ပတ်)။ အလွန်အကျွံ ကြွက်သား ထုထည် တိုးလာမှုကို ရှောင်ကြဉ်ပါ - bodybuilding မဟုတ်ဘဲ
-                    neuromuscular power ကို အာရုံစိုက်ပါ။</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Metabolic efficiency တိုးတက်ဖို့ ဘယ်လောက် ကြာသလဲ?</h3>
-                <p>အဆီ ဓာတ်တိုး စွမ်းရည်သည် တသမတ်တည်း Zone 2 လေ့ကျင့်မှု ၆-၁၂ ပတ်အတွင်း တိုးတက်သည်။ Mitochondrial
+                    neuromuscular power ကို အာရုံစိုက်ပါ။</p></div><div class="faq-item"><h3>Metabolic efficiency တိုးတက်ဖို့ ဘယ်လောက် ကြာသလဲ?</h3><p>အဆီ ဓာတ်တိုး စွမ်းရည်သည် တသမတ်တည်း Zone 2 လေ့ကျင့်မှု ၆-၁၂ ပတ်အတွင်း တိုးတက်သည်။ Mitochondrial
                     သိပ်သည်းဆ တိုင်းတာနိုင်သော တိုးလာမှုများသည် ၄-၆ ပတ်တွင် ဖြစ်ပေါ်သည်။ Metabolic efficiency အပြည့်အဝ
                     optimization သည် လပေါင်းများစွာမှ နှစ်ပေါင်းများစွာ ခံနိုင်ရည် လေ့ကျင့်မှု လိုအပ်သည် - ၎င်းသည်
-                    တသမတ်တည်းလုပ်ဆောင်မှုနှင့်အတူ ပေါင်းစပ်လာသော ရေရှည် လိုက်လျောညီထွေမှု ဖြစ်သည်။</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow text-center">
-        <h2>Efficiency သည် လေ့ကျင့်၍ ရသည်</h2>
-        <p class="lead">စက်ဘီးစီး စွမ်းဆောင်ရည်သည် စနစ်ကျသော လေ့ကျင့်မှု၊ စက်ကိရိယာ optimization နှင့်
+                    တသမတ်တည်းလုပ်ဆောင်မှုနှင့်အတူ ပေါင်းစပ်လာသော ရေရှည် လိုက်လျောညီထွေမှု ဖြစ်သည်။</p></div></div></div></section><section class="section section-alt"><div class="container container-narrow text-center"><h2>Efficiency သည် လေ့ကျင့်၍ ရသည်</h2><p class="lead">စက်ဘီးစီး စွမ်းဆောင်ရည်သည် စနစ်ကျသော လေ့ကျင့်မှု၊ စက်ကိရိယာ optimization နှင့်
             နည်းပညာပိုင်းဆိုင်ရာ မွမ်းမံမှုတို့မှတစ်ဆင့် ရှုထောင့် အများအပြားတွင် တိုးတက်သည်။ ရရှိသော efficiency
             ရာခိုင်နှုန်းတိုင်းသည် ပိုမြန်သော အမြန်နှုန်းများ သို့မဟုတ် တူညီသော အရှိန်တွင် လျော့နည်းသော အားထုတ်မှုအဖြစ်
-            တိုက်ရိုက် ဘာသာပြန်ပါသည်။</p>
-
-        <p>အမြင့်ဆုံး ROI သည် aerodynamic optimization (ချက်ချင်း) နှင့် ရေရှည် အခြေခံ တည်ဆောက်ခြင်း (လများမှ နှစ်များ)
+            တိုက်ရိုက် ဘာသာပြန်ပါသည်။</p><p>အမြင့်ဆုံး ROI သည် aerodynamic optimization (ချက်ချင်း) နှင့် ရေရှည် အခြေခံ တည်ဆောက်ခြင်း (လများမှ နှစ်များ)
             မှ လာသည်။ ခွန်အား လေ့ကျင့်မှု၊ နည်းစနစ် အလုပ်နှင့် ခန္ဓာကိုယ် ဖွဲ့စည်းမှု optimization တို့သည်
-            မဟာဗျူဟာမြောက် အကောင်အထည်ဖော်သောအခါ ပေါင်းစပ် အကျိုးကျေးဇူးများကို ပေးသည်။</p>
-
-        <div class="mt-xl">
-            <a href="/my/getting-started/" class="btn btn-primary btn-large">စတင်ခြင်း လမ်းညွှန် →</a>
-            <a href="/my/formulas/" class="btn btn-secondary">နည်းပညာဆိုင်ရာ ဖော်မြူလာများ</a>
-            <a href="/my/research/" class="btn btn-secondary">သိပ္ပံနည်းကျ သုတေသန</a>
-        </div>
-    </div>
-</section>
-    
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+            မဟာဗျူဟာမြောက် အကောင်အထည်ဖော်သောအခါ ပေါင်းစပ် အကျိုးကျေးဇူးများကို ပေးသည်။</p><div class="mt-xl"><a href="/my/getting-started/" class="btn btn-primary btn-large">စတင်ခြင်း လမ်းညွှန် →</a><a href="/my/formulas/" class="btn btn-secondary">နည်းပညာဆိုင်ရာ ဖော်မြူလာများ</a><a href="/my/research/" class="btn btn-secondary">သိပ္ပံနည်းကျ သုတေသန</a></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link active"
+                </a><a href="/my/" class="lang-link active"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. မူပိုင်ခွင့်အားလုံးရှိသည်
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/my/privacy/">ကိုယ်ရေးကိုယ်တာ</a></li>
-                <li><a href="/my/terms/">စည်းကမ်းချက်များ</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>ဤဝဘ်ဆိုဒ်သည် သင့်အတွေ့အကြုံကို မြှင့်တင်ရန် ကွက်ကီးများကို အသုံးပြုပါသည်။</p>
-            <a href="/my/privacy/" class="text-sm">ပိုမိုလေ့လာရန်</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">ငြင်းပယ်သည်</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">လက်ခံသည်</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/my/privacy/">ကိုယ်ရေးကိုယ်တာ</a></li><li><a href="/my/terms/">စည်းကမ်းချက်များ</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>ဤဝဘ်ဆိုဒ်သည် သင့်အတွေ့အကြုံကို မြှင့်တင်ရန် ကွက်ကီးများကို အသုံးပြုပါသည်။</p><a href="/my/privacy/" class="text-sm">ပိုမိုလေ့လာရန်</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">ငြင်းပယ်သည်</button><button id="cookie-accept" class="btn btn-primary btn-small">လက်ခံသည်</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

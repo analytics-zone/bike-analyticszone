@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="th" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>ประสิทธิภาพการขึ้นเขา - VAM, W/kg, การวิเคราะห์ความลาดชัน</title>
-  <meta name="description" content="ก้าวสู่การเป็นผู้เชี่ยวชาญด้านเมตริกประสิทธิภาพการขึ้นเขา: VAM (ความเร็วในการไต่ระดับแนวดิ่ง), อัตราส่วนกำลังต่อน้ำหนัก (W/kg) และประสิทธิภาพที่ปรับตามความลาดชัน">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="VAM การปั่นจักรยาน, ประสิทธิภาพการขึ้นเขาการปั่นจักรยาน, กำลังต่อน้ำหนักการปั่นจักรยาน, การวิเคราะห์ความลาดชันการปั่นจักรยาน, ความเร็วในการไต่ระดับแนวดิ่ง">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/th/climbing-performance/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-20T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/th/climbing-performance/">
-  <meta property="og:title" content="ประสิทธิภาพการขึ้นเขา - VAM, W/kg, การวิเคราะห์ความลาดชัน">
-  <meta property="og:description" content="ก้าวสู่การเป็นผู้เชี่ยวชาญด้านเมตริกประสิทธิภาพการขึ้นเขา: VAM (ความเร็วในการไต่ระดับแนวดิ่ง), อัตราส่วนกำลังต่อน้ำหนัก (W/kg) และประสิทธิภาพที่ปรับตามความลาดชัน">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="th_TH">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/th/climbing-performance/">
-  <meta name="twitter:title" content="ประสิทธิภาพการขึ้นเขา - VAM, W/kg, การวิเคราะห์ความลาดชัน">
-  <meta name="twitter:description" content="ก้าวสู่การเป็นผู้เชี่ยวชาญด้านเมตริกประสิทธิภาพการขึ้นเขา: VAM (ความเร็วในการไต่ระดับแนวดิ่ง), อัตราส่วนกำลังต่อน้ำหนัก (W/kg) และประสิทธิภาพที่ปรับตามความลาดชัน">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/climbing-performance/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/climbing-performance/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/climbing-performance/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/climbing-performance/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/climbing-performance/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/climbing-performance/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/climbing-performance/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/climbing-performance/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/climbing-performance/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/climbing-performance/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/climbing-performance/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/climbing-performance/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/climbing-performance/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/climbing-performance/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/climbing-performance/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/climbing-performance/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/climbing-performance/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/climbing-performance/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/climbing-performance/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/climbing-performance/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/climbing-performance/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/climbing-performance/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/climbing-performance/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/climbing-performance/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/climbing-performance/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/climbing-performance/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/climbing-performance/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/climbing-performance/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/climbing-performance/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/climbing-performance/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/climbing-performance/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/climbing-performance/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/climbing-performance/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/climbing-performance/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/climbing-performance/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="th" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>ประสิทธิภาพการขึ้นเขา - VAM, W/kg, การวิเคราะห์ความลาดชัน</title><meta name="description" content="ก้าวสู่การเป็นผู้เชี่ยวชาญด้านเมตริกประสิทธิภาพการขึ้นเขา: VAM (ความเร็วในการไต่ระดับแนวดิ่ง), อัตราส่วนกำลังต่อน้ำหนัก (W/kg) และประสิทธิภาพที่ปรับตามความลาดชัน"><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="VAM การปั่นจักรยาน, ประสิทธิภาพการขึ้นเขาการปั่นจักรยาน, กำลังต่อน้ำหนักการปั่นจักรยาน, การวิเคราะห์ความลาดชันการปั่นจักรยาน, ความเร็วในการไต่ระดับแนวดิ่ง"><link rel="canonical" href="https://bike.analyticszone.app/th/climbing-performance/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-02-05T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/th/climbing-performance/"><meta property="og:title" content="ประสิทธิภาพการขึ้นเขา - VAM, W/kg, การวิเคราะห์ความลาดชัน"><meta property="og:description" content="ก้าวสู่การเป็นผู้เชี่ยวชาญด้านเมตริกประสิทธิภาพการขึ้นเขา: VAM (ความเร็วในการไต่ระดับแนวดิ่ง), อัตราส่วนกำลังต่อน้ำหนัก (W/kg) และประสิทธิภาพที่ปรับตามความลาดชัน"><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="th_TH"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/th/climbing-performance/"><meta name="twitter:title" content="ประสิทธิภาพการขึ้นเขา - VAM, W/kg, การวิเคราะห์ความลาดชัน"><meta name="twitter:description" content="ก้าวสู่การเป็นผู้เชี่ยวชาญด้านเมตริกประสิทธิภาพการขึ้นเขา: VAM (ความเร็วในการไต่ระดับแนวดิ่ง), อัตราส่วนกำลังต่อน้ำหนัก (W/kg) และประสิทธิภาพที่ปรับตามความลาดชัน"><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/climbing-performance/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/climbing-performance/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/climbing-performance/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/climbing-performance/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/climbing-performance/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/climbing-performance/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/climbing-performance/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/climbing-performance/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/climbing-performance/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/climbing-performance/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/climbing-performance/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/climbing-performance/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/climbing-performance/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/climbing-performance/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/climbing-performance/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/climbing-performance/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/climbing-performance/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/climbing-performance/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/climbing-performance/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/climbing-performance/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/climbing-performance/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/climbing-performance/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/climbing-performance/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/climbing-performance/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/climbing-performance/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/climbing-performance/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/climbing-performance/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/climbing-performance/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/climbing-performance/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/climbing-performance/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/climbing-performance/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/climbing-performance/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/climbing-performance/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/climbing-performance/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/climbing-performance/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/climbing-performance/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/climbing-performance/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/climbing-performance/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/climbing-performance/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/climbing-performance/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/climbing-performance/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/climbing-performance/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/climbing-performance/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/climbing-performance/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/climbing-performance/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/climbing-performance/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/climbing-performance/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/climbing-performance/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/climbing-performance/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/climbing-performance/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/climbing-performance/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/climbing-performance/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/climbing-performance/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/climbing-performance/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/climbing-performance/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/climbing-performance/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "th"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "ก้าวสู่การเป็นผู้เชี่ยวชาญด้านเมตริกประสิทธิภาพการขึ้นเขา: VAM (ความเร็วในการไต่ระดับแนวดิ่ง), อัตราส่วนกำลังต่อน้ำหนัก (W/kg) และประสิทธิภาพที่ปรับตามความลาดชัน",
   "url": "https://bike.analyticszone.app/th/climbing-performance/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -647,23 +429,13 @@ img[width][height] {
     }
   },
   "datePublished": "2025-01-15",
-  "dateModified": "2026-01-20",
+  "dateModified": "2026-02-05",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://bike.analyticszone.app/th/climbing-performance/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1408 +449,259 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหา</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/th/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/th/" 
+  </script></head><body><a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหา</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/th/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/th/" 
                                 aria-current="">
                                 หน้าแรก
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/th/getting-started/" class="nav-label">เรียนรู้</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/th/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/th/getting-started/" class="nav-label">เรียนรู้</a><ul class="submenu"><li><a href="/th/getting-started/" 
                                         aria-current="">
                                         เริ่มต้นใช้งาน
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/ftp/" 
+                                    </a></li><li><a href="/th/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/critical-power/" 
+                                    </a></li><li><a href="/th/critical-power/" 
                                         aria-current="">
                                         พลังงานวิกฤต
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/training-zones/" 
+                                    </a></li><li><a href="/th/training-zones/" 
                                         aria-current="">
                                         โซนการฝึก
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/training-load/" 
+                                    </a></li><li><a href="/th/training-load/" 
                                         aria-current="">
                                         ภาระการฝึก
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/tss-calculator/" 
+                                    </a></li><li><a href="/th/tss-calculator/" 
                                         aria-current="">
                                         เครื่องคำนวณ TSS
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/th/research/" class="nav-label">วิทยาศาสตร์</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/th/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/th/research/" class="nav-label">วิทยาศาสตร์</a><ul class="submenu"><li><a href="/th/research/" 
                                         aria-current="">
                                         การวิจัย
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/formulas/" 
+                                    </a></li><li><a href="/th/formulas/" 
                                         aria-current="">
                                         สูตร
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/power-metrics/" 
+                                    </a></li><li><a href="/th/power-metrics/" 
                                         aria-current="">
                                         เมทริกซ์พลังงาน
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/efficiency/" 
+                                    </a></li><li><a href="/th/efficiency/" 
                                         aria-current="">
                                         ประสิทธิภาพ
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/pedaling-mechanics/" 
+                                    </a></li><li><a href="/th/pedaling-mechanics/" 
                                         aria-current="">
                                         กลไกการปั่น
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/aerodynamics/" 
+                                    </a></li><li><a href="/th/aerodynamics/" 
                                         aria-current="">
                                         อากาศพลศาสตร์
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/climbing-performance/" class="active" 
+                                    </a></li><li><a href="/th/climbing-performance/" class="active" 
                                         aria-current="page">
                                         ประสิทธิภาพการขึ้นเขา
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/bibliography/" 
+                                    </a></li><li><a href="/th/bibliography/" 
                                         aria-current="">
                                         บรรณานุกรม
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/th/road-cycling/" class="nav-label">สาขาวิชา</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/th/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/th/road-cycling/" class="nav-label">สาขาวิชา</a><ul class="submenu"><li><a href="/th/road-cycling/" 
                                         aria-current="">
                                         การปั่นจักรยานเสือหมอบ
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/mountain-biking/" 
+                                    </a></li><li><a href="/th/mountain-biking/" 
                                         aria-current="">
                                         การปั่นจักรยานเสือภูเขา
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/road-vs-mtb/" 
+                                    </a></li><li><a href="/th/road-vs-mtb/" 
                                         aria-current="">
                                         ทางเรียบ vs เสือภูเขา
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/comparisons/" 
+                                    </a></li><li><a href="/th/comparisons/" 
                                         aria-current="">
                                         การเปรียบเทียบแพลตฟอร์ม
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/th/contact/" 
+                                    </a></li></ul></li><li><a href="/th/contact/" 
                                 aria-current="">
                                 ติดต่อ
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="เลือกภาษา">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="เลือกภาษา"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" selected>
+                        </option><option value="th" selected>
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="สลับเมนู"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/th/">หน้าแรก</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/th/research/">วิทยาศาสตร์</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">ประสิทธิภาพการขึ้นเขา</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-<article class="article-content">
-  <header class="article-header">
-    <h1>สมรรถนะการขึ้นเขา: VAM, W/kg และการวิเคราะห์ความชัน</h1>
-    <p class="article-meta">ทำความเข้าใจตัวชี้วัดที่กำหนดความเร็วในการขึ้นเขาและวิธีการพัฒนาให้ดียิ่งขึ้น</p>
-  </header>
-
-  <section id="climbing-fundamentals">
-    <h2>อะไรที่กำหนดความเป็นนักไต่เขาที่ดี?</h2>
-    <p>สมรรถนะการขึ้นเขาในการปั่นจักรยานนั้นขึ้นอยู่กับ <strong>อัตราส่วนกำลังต่อน้ำหนัก (Power-to-weight
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="สลับเมนู"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/th/">หน้าแรก</a></li><li><a href="/th/research/">วิทยาศาสตร์</a></li><li><span aria-current="page">ประสิทธิภาพการขึ้นเขา</span></li></ol></div></nav><main id="main-content" class="main-content"><article class="article-content"><header class="article-header"><h1>สมรรถนะการขึ้นเขา: VAM, W/kg และการวิเคราะห์ความชัน</h1><p class="article-meta">ทำความเข้าใจตัวชี้วัดที่กำหนดความเร็วในการขึ้นเขาและวิธีการพัฒนาให้ดียิ่งขึ้น</p></header><section id="climbing-fundamentals"><h2>อะไรที่กำหนดความเป็นนักไต่เขาที่ดี?</h2><p>สมรรถนะการขึ้นเขาในการปั่นจักรยานนั้นขึ้นอยู่กับ <strong>อัตราส่วนกำลังต่อน้ำหนัก (Power-to-weight
         ratio)</strong> เป็นหลัก แตกต่างจากการปั่นทางราบที่แอโรไดนามิกเป็นปัจจัยหลัก
       การขึ้นเชาคือการต่อสู้กับแรงโน้มถ่วง ยิ่งคุณมีน้ำหนักตัวน้อยลงเมื่อเทียบกับพละกำลังที่คุณสร้างได้
-      คุณก็จะขึ้นเขาได้เร็วขึ้นเท่านั้น</p>
-
-    <p>แต่น้ำหนักเพียงอย่างเดียวไม่ได้บอกเรื่องราวทั้งหมด มี 2 ตัวชี้วัดสำคัญที่เผยให้เห็นถึงความสามารถในการขึ้นเขา:</p>
-    <ul>
-      <li><strong>อัตราส่วนกำลังต่อน้ำหนัก (W/kg):</strong> ค่า FTP ของคุณหารด้วยน้ำหนักตัว</li>
-      <li><strong>VAM (Velocità Ascensionale Media):</strong> อัตราการไต่ความชันในแนวดิ่ง มีหน่วยเป็นเมตรต่อชั่วโมง</li>
-    </ul>
-
-    <div class="info-box">
-      <h3>การกระจายพลังงาน: ทางราบ vs. ทางชัน</h3>
-      <p><strong>ทางราบที่ความเร็ว 40 กม./ชม.:</strong></p>
-      <ul>
-        <li>แรงต้านอากาศ (Aerodynamic drag): 80-90%</li>
-        <li>แรงเสียดทานการหมุน (Rolling resistance): 8-12%</li>
-        <li>แรงโน้มถ่วง (Gravity): ~0%</li>
-      </ul>
-      <p><strong>ทางชัน 8% ที่ความเร็ว 15 กม./ชม.:</strong></p>
-      <ul>
-        <li>แรงโน้มถ่วง (Gravity): 75-85%</li>
-        <li>แรงเสียดทานการหมุน (Rolling resistance): 10-15%</li>
-        <li>แรงต้านอากาศ (Aerodynamic drag): 5-10%</li>
-      </ul>
-      <p><em>การขึ้นเขาทำให้สมการเปลี่ยนไปอย่างสิ้นเชิง อัตราส่วนกำลังต่อน้ำหนักจะกลายเป็นทุกสิ่ง</em></p>
-    </div>
-  </section>
-
-  <section id="power-to-weight">
-    <h2>อัตราส่วนกำลังต่อน้ำหนัก (W/kg): หัวใจสำคัญของนักไต่เขา</h2>
-    <p><strong>อัตราส่วนกำลังต่อน้ำหนัก</strong> คือค่ากำลังสูงสุดที่คุณรักษาระดับได้ (FTP)
-      หารด้วยน้ำหนักตัวเป็นกิโลกรัม นี่เป็นตัวพยากรณ์สมรรถนะการขึ้นเขาที่ดีที่สุดเพียงตัวเดียว</p>
-
-    <div class="formula-box">
-      <h3>สูตรการคำนวณ</h3>
-      <div class="formula">
+      คุณก็จะขึ้นเขาได้เร็วขึ้นเท่านั้น</p><p>แต่น้ำหนักเพียงอย่างเดียวไม่ได้บอกเรื่องราวทั้งหมด มี 2 ตัวชี้วัดสำคัญที่เผยให้เห็นถึงความสามารถในการขึ้นเขา:</p><ul><li><strong>อัตราส่วนกำลังต่อน้ำหนัก (W/kg):</strong> ค่า FTP ของคุณหารด้วยน้ำหนักตัว</li><li><strong>VAM (Velocità Ascensionale Media):</strong> อัตราการไต่ความชันในแนวดิ่ง มีหน่วยเป็นเมตรต่อชั่วโมง</li></ul><div class="info-box"><h3>การกระจายพลังงาน: ทางราบ vs. ทางชัน</h3><p><strong>ทางราบที่ความเร็ว 40 กม./ชม.:</strong></p><ul><li>แรงต้านอากาศ (Aerodynamic drag): 80-90%</li><li>แรงเสียดทานการหมุน (Rolling resistance): 8-12%</li><li>แรงโน้มถ่วง (Gravity): ~0%</li></ul><p><strong>ทางชัน 8% ที่ความเร็ว 15 กม./ชม.:</strong></p><ul><li>แรงโน้มถ่วง (Gravity): 75-85%</li><li>แรงเสียดทานการหมุน (Rolling resistance): 10-15%</li><li>แรงต้านอากาศ (Aerodynamic drag): 5-10%</li></ul><p><em>การขึ้นเขาทำให้สมการเปลี่ยนไปอย่างสิ้นเชิง อัตราส่วนกำลังต่อน้ำหนักจะกลายเป็นทุกสิ่ง</em></p></div></section><section id="power-to-weight"><h2>อัตราส่วนกำลังต่อน้ำหนัก (W/kg): หัวใจสำคัญของนักไต่เขา</h2><p><strong>อัตราส่วนกำลังต่อน้ำหนัก</strong> คือค่ากำลังสูงสุดที่คุณรักษาระดับได้ (FTP)
+      หารด้วยน้ำหนักตัวเป็นกิโลกรัม นี่เป็นตัวพยากรณ์สมรรถนะการขึ้นเขาที่ดีที่สุดเพียงตัวเดียว</p><div class="formula-box"><h3>สูตรการคำนวณ</h3><div class="formula">
         W/kg = FTP (วัตต์) / น้ำหนักตัว (กก.)
-      </div>
-      <div class="example-box mt-md">
-        <h4>ตัวอย่าง:</h4>
-        <p>นักปั่นที่มีค่า FTP 300 วัตต์ และน้ำหนักตัว 75 กก.:</p>
-        <div class="calculation">
-          W/kg = 300 / 75 = <strong>4.0 W/kg</strong>
-        </div>
-        <p>นักปั่นรายนี้จะมีความสามารถในการแข่งขันในระดับสมัครเล่น และแข็งแกร่งในการแข่งระดับท้องถิ่น</p>
-      </div>
-    </div>
-
-    <h3>หมวดหมู่ W/kg ตามระดับฝีมือ</h3>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>ระดับ</th>
-          <th>W/kg ที่ FTP</th>
-          <th>ความสามารถในการขึ้นเขา</th>
-          <th>ตัวอย่างผลงาน</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>ปั่นเพื่อสันทนาการ</strong></td>
-          <td>2.0-3.0</td>
-          <td>สามารถขึ้นเขาได้จนจบแต่ช้า</td>
-          <td>Alpe d'Huez ในเวลา 90+ นาที</td>
-        </tr>
-        <tr>
-          <td><strong>สมัครเล่นสายแข่ง</strong></td>
-          <td>3.0-4.0</td>
-          <td>แข่งขันได้ดีในระดับท้องถิ่น</td>
-          <td>Alpe d'Huez ในเวลา 60-70 นาที</td>
-        </tr>
-        <tr>
-          <td><strong>นักแข่ง Cat 1/2</strong></td>
-          <td>4.0-5.0</td>
-          <td>แข็งแกร่งในระดับภูมิภาค/ประเทศ</td>
-          <td>Alpe d'Huez ในเวลา 50-60 นาที</td>
-        </tr>
-        <tr>
-          <td><strong>สมัครเล่นระดับแนวหน้า</strong></td>
-          <td>5.0-5.5</td>
-          <td>มีโอกาสลุ้นแชมป์ระดับประเทศ</td>
-          <td>Alpe d'Huez ในเวลา 45-50 นาที</td>
-        </tr>
-        <tr>
-          <td><strong>โปรระดับในประเทศ</strong></td>
-          <td>5.5-6.0</td>
-          <td>นักไต่เขาอาชีพ</td>
-          <td>Alpe d'Huez ในเวลา 42-45 นาที</td>
-        </tr>
-        <tr>
-          <td><strong>นักไต่เขา World Tour</strong></td>
-          <td>6.0-6.5</td>
-          <td>ผู้ท้าชิงอันดับรวม Grand Tour</td>
-          <td>Alpe d'Huez ในเวลา 38-42 นาที</td>
-        </tr>
-        <tr>
-          <td><strong>หัวกะทิ World Tour</strong></td>
-          <td>6.5+</td>
-          <td>Pogačar, Vingegaard, Evenepoel</td>
-          <td>Alpe d'Huez ในเวลาต่ำกว่า 38 นาที</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>การลดน้ำหนัก vs. การเพิ่มพละกำลัง</h3>
-
-    <h4>พลังของการลดน้ำหนัก</h4>
-    <p>ทุกๆ 1 กก. ที่ลดลงจะช่วยเพิ่มอัตราส่วน W/kg <em>โดยไม่ต้อง</em> เพิ่มพละกำลัง:</p>
-
-    <div class="example-box">
-      <h4>ผลกระทบของการลดน้ำหนัก:</h4>
-      <p>นักปั่น: FTP 300 วัตต์, น้ำหนัก 75 กก. (4.0 W/kg)</p>
-      <ul>
-        <li><strong>ลด 2 กก. → เหลือ 73 กก.:</strong> 300 วัตต์ / 73 กก. = <strong>4.11 W/kg</strong> (+2.7%)</li>
-        <li><strong>ลด 5 กก. → เหลือ 70 กก.:</strong> 300 วัตต์ / 70 กก. = <strong>4.29 W/kg</strong> (+7.2%)</li>
-      </ul>
-      <p><strong>ผลต่อการขึ้นเขา:</strong> ในการปั่นขึ้น Alpe d'Huez (13.8 กม., ความชัน 8.1%) การลดน้ำหนัก 5 กก.
-        จะช่วยประหยัดเวลาได้ประมาณ 3 นาที โดยใช้พละกำลังเท่าเดิม!</p>
-    </div>
-
-    <h4>⚠️ ระวังการสูญเสียกล้ามเนื้อ</h4>
-    <p>การลดน้ำหนักที่หักโหมเกินไปอาจทำให้ค่า FTP ลดลงหากคุณสูญเสียมวลกล้ามเนื้อ:</p>
-    <ul>
-      <li><strong>การลดน้ำหนักที่ดี:</strong> ลดไขมัน รักษา FTP → W/kg พัฒนาดีขึ้น</li>
-      <li><strong>การลดน้ำหนักที่ไม่ดี:</strong> สูญเสียกล้ามเนื้อ FTP ตก 10-15% → W/kg อาจแย่ลง</li>
-    </ul>
-
-    <p><strong>แนวทางที่ปลอดภัย:</strong> ลดน้ำหนักอาทิตย์ละ 0.25-0.5 กก. ผ่านการคุมแคลอรีในระดับปานกลาง
-      พร้อมรักษาการบริโภคโปรตีน (1.6-2.2 กรัมต่อน้ำหนักตัว 1 กก.) และปริมาณการฝึกซ้อม</p>
-
-    <h4>การสร้างพละกำลังโดยไม่เพิ่มน้ำหนัก</h4>
-    <p>การเพิ่มค่า FTP ในขณะที่รักษาน้ำหนักตัวไว้ได้คือสภาวะในอุดมคติ:</p>
-
-    <div class="example-box">
-      <h4>ผลกระทบของการเพิ่มพละกำลัง:</h4>
-      <p>นักปั่น: FTP 300 วัตต์, น้ำหนัก 75 กก. (4.0 W/kg)</p>
-      <ul>
-        <li><strong>+20 วัตต์ FTP → 320 วัตต์:</strong> 320 วัตต์ / 75 กก. = <strong>4.27 W/kg</strong> (+6.7%)</li>
-        <li><strong>+30 วัตต์ FTP → 330 วัตต์:</strong> 330 วัตต์ / 75 กก. = <strong>4.40 W/kg</strong> (+10%)</li>
-      </ul>
-      <p><strong>ทำอย่างไร?</strong> การฝึกซ้อมที่มีโครงสร้างเป้าหมายไปที่ Threshold และ VO2max โดยใช้เวลาประมาณ 3-6
-        เดือนในการฝึกซ้อมอย่างสม่ำเสมอ</p>
-    </div>
-
-    <h3>น้ำหนักที่เหมาะสมที่สุดสำหรับการขึ้นเขา</h3>
-    <p>มีจุดหนึ่งที่มีการลดน้อยถอยลงของผลตอบแทน นักปั่นที่ตัวเบามาก (&lt;60 กก.) มักจะมี:</p>
-    <ul>
-      <li>กำลังสัมบูรณ์ (Absolute power) ต่ำกว่า (กดวัตต์สูงๆ ได้ยากกว่า)</li>
-      <li>เสียเปรียบในทางราบและเมื่อปั่นทวนลม</li>
-      <li>พละกำลังในการสปรินต์ด้อยกว่า</li>
-      <li>ร่างกายเปราะบางกว่า (บาดเจ็บและป่วยง่ายขึ้น)</li>
-    </ul>
-
-    <p><strong>จุดที่เหมาะสมสำหรับนักปั่นส่วนใหญ่:</strong> ไขมันในร่างกาย 10-15% สำหรับผู้ชาย และ 15-20% สำหรับผู้หญิง
+      </div><div class="example-box mt-md"><h4>ตัวอย่าง:</h4><p>นักปั่นที่มีค่า FTP 300 วัตต์ และน้ำหนักตัว 75 กก.:</p><div class="calculation">
+          W/kg = 300 / 75 = <strong>4.0 W/kg</strong></div><p>นักปั่นรายนี้จะมีความสามารถในการแข่งขันในระดับสมัครเล่น และแข็งแกร่งในการแข่งระดับท้องถิ่น</p></div></div><h3>หมวดหมู่ W/kg ตามระดับฝีมือ</h3><table class="data-table"><thead><tr><th>ระดับ</th><th>W/kg ที่ FTP</th><th>ความสามารถในการขึ้นเขา</th><th>ตัวอย่างผลงาน</th></tr></thead><tbody><tr><td><strong>ปั่นเพื่อสันทนาการ</strong></td><td>2.0-3.0</td><td>สามารถขึ้นเขาได้จนจบแต่ช้า</td><td>Alpe d'Huez ในเวลา 90+ นาที</td></tr><tr><td><strong>สมัครเล่นสายแข่ง</strong></td><td>3.0-4.0</td><td>แข่งขันได้ดีในระดับท้องถิ่น</td><td>Alpe d'Huez ในเวลา 60-70 นาที</td></tr><tr><td><strong>นักแข่ง Cat 1/2</strong></td><td>4.0-5.0</td><td>แข็งแกร่งในระดับภูมิภาค/ประเทศ</td><td>Alpe d'Huez ในเวลา 50-60 นาที</td></tr><tr><td><strong>สมัครเล่นระดับแนวหน้า</strong></td><td>5.0-5.5</td><td>มีโอกาสลุ้นแชมป์ระดับประเทศ</td><td>Alpe d'Huez ในเวลา 45-50 นาที</td></tr><tr><td><strong>โปรระดับในประเทศ</strong></td><td>5.5-6.0</td><td>นักไต่เขาอาชีพ</td><td>Alpe d'Huez ในเวลา 42-45 นาที</td></tr><tr><td><strong>นักไต่เขา World Tour</strong></td><td>6.0-6.5</td><td>ผู้ท้าชิงอันดับรวม Grand Tour</td><td>Alpe d'Huez ในเวลา 38-42 นาที</td></tr><tr><td><strong>หัวกะทิ World Tour</strong></td><td>6.5+</td><td>Pogačar, Vingegaard, Evenepoel</td><td>Alpe d'Huez ในเวลาต่ำกว่า 38 นาที</td></tr></tbody></table><h3>การลดน้ำหนัก vs. การเพิ่มพละกำลัง</h3><h4>พลังของการลดน้ำหนัก</h4><p>ทุกๆ 1 กก. ที่ลดลงจะช่วยเพิ่มอัตราส่วน W/kg <em>โดยไม่ต้อง</em> เพิ่มพละกำลัง:</p><div class="example-box"><h4>ผลกระทบของการลดน้ำหนัก:</h4><p>นักปั่น: FTP 300 วัตต์, น้ำหนัก 75 กก. (4.0 W/kg)</p><ul><li><strong>ลด 2 กก. → เหลือ 73 กก.:</strong> 300 วัตต์ / 73 กก. = <strong>4.11 W/kg</strong> (+2.7%)</li><li><strong>ลด 5 กก. → เหลือ 70 กก.:</strong> 300 วัตต์ / 70 กก. = <strong>4.29 W/kg</strong> (+7.2%)</li></ul><p><strong>ผลต่อการขึ้นเขา:</strong> ในการปั่นขึ้น Alpe d'Huez (13.8 กม., ความชัน 8.1%) การลดน้ำหนัก 5 กก.
+        จะช่วยประหยัดเวลาได้ประมาณ 3 นาที โดยใช้พละกำลังเท่าเดิม!</p></div><h4>⚠️ ระวังการสูญเสียกล้ามเนื้อ</h4><p>การลดน้ำหนักที่หักโหมเกินไปอาจทำให้ค่า FTP ลดลงหากคุณสูญเสียมวลกล้ามเนื้อ:</p><ul><li><strong>การลดน้ำหนักที่ดี:</strong> ลดไขมัน รักษา FTP → W/kg พัฒนาดีขึ้น</li><li><strong>การลดน้ำหนักที่ไม่ดี:</strong> สูญเสียกล้ามเนื้อ FTP ตก 10-15% → W/kg อาจแย่ลง</li></ul><p><strong>แนวทางที่ปลอดภัย:</strong> ลดน้ำหนักอาทิตย์ละ 0.25-0.5 กก. ผ่านการคุมแคลอรีในระดับปานกลาง
+      พร้อมรักษาการบริโภคโปรตีน (1.6-2.2 กรัมต่อน้ำหนักตัว 1 กก.) และปริมาณการฝึกซ้อม</p><h4>การสร้างพละกำลังโดยไม่เพิ่มน้ำหนัก</h4><p>การเพิ่มค่า FTP ในขณะที่รักษาน้ำหนักตัวไว้ได้คือสภาวะในอุดมคติ:</p><div class="example-box"><h4>ผลกระทบของการเพิ่มพละกำลัง:</h4><p>นักปั่น: FTP 300 วัตต์, น้ำหนัก 75 กก. (4.0 W/kg)</p><ul><li><strong>+20 วัตต์ FTP → 320 วัตต์:</strong> 320 วัตต์ / 75 กก. = <strong>4.27 W/kg</strong> (+6.7%)</li><li><strong>+30 วัตต์ FTP → 330 วัตต์:</strong> 330 วัตต์ / 75 กก. = <strong>4.40 W/kg</strong> (+10%)</li></ul><p><strong>ทำอย่างไร?</strong> การฝึกซ้อมที่มีโครงสร้างเป้าหมายไปที่ Threshold และ VO2max โดยใช้เวลาประมาณ 3-6
+        เดือนในการฝึกซ้อมอย่างสม่ำเสมอ</p></div><h3>น้ำหนักที่เหมาะสมที่สุดสำหรับการขึ้นเขา</h3><p>มีจุดหนึ่งที่มีการลดน้อยถอยลงของผลตอบแทน นักปั่นที่ตัวเบามาก (&lt;60 กก.) มักจะมี:</p><ul><li>กำลังสัมบูรณ์ (Absolute power) ต่ำกว่า (กดวัตต์สูงๆ ได้ยากกว่า)</li><li>เสียเปรียบในทางราบและเมื่อปั่นทวนลม</li><li>พละกำลังในการสปรินต์ด้อยกว่า</li><li>ร่างกายเปราะบางกว่า (บาดเจ็บและป่วยง่ายขึ้น)</li></ul><p><strong>จุดที่เหมาะสมสำหรับนักปั่นส่วนใหญ่:</strong> ไขมันในร่างกาย 10-15% สำหรับผู้ชาย และ 15-20% สำหรับผู้หญิง
       การลดไขมันช่วยพัฒนา W/kg แต่จะเริ่มส่งผลเสียถอนทุนคืนเมื่อต่ำกว่า ~8% (ผู้ชาย) หรือ 12% (ผู้หญิง)
-      เนื่องจากปัญหาสุขภาพและสมรรถนะ</p>
-  </section>
-
-  <section id="vam">
-    <h2>VAM (Velocità Ascensionale Media): อัตราการไต่เขาที่แท้จริง</h2>
-    <p><strong>VAM</strong> คือตัวชี้วัดว่าคุณสามารถไต่ความสูงในแนวดิ่งได้กี่เมตรต่อชั่วโมง แตกต่างจากความเร็ว (กม./ชม.)
-      ซึ่งจะเปลี่ยนแปลงอย่างมากตามความชัน VAM เป็นตัวชี้วัดสมรรถนะการไต่เขาที่ไม่ขึ้นกับความชัน</p>
-
-    <div class="formula-box">
-      <h3>สูตรการคำนวณ</h3>
-      <div class="formula">
+      เนื่องจากปัญหาสุขภาพและสมรรถนะ</p></section><section id="vam"><h2>VAM (Velocità Ascensionale Media): อัตราการไต่เขาที่แท้จริง</h2><p><strong>VAM</strong> คือตัวชี้วัดว่าคุณสามารถไต่ความสูงในแนวดิ่งได้กี่เมตรต่อชั่วโมง แตกต่างจากความเร็ว (กม./ชม.)
+      ซึ่งจะเปลี่ยนแปลงอย่างมากตามความชัน VAM เป็นตัวชี้วัดสมรรถนะการไต่เขาที่ไม่ขึ้นกับความชัน</p><div class="formula-box"><h3>สูตรการคำนวณ</h3><div class="formula">
         VAM (ม./ชม.) = ความสูงที่ไต่ได้ (เมตร) / เวลา (ชั่วโมง)
-      </div>
-      <div class="example-box mt-md">
-        <h4>ตัวอย่าง: Alpe d'Huez</h4>
-        <p>การไต่เขา: ไต่ความสูงได้ 1,100 เมตร ในเวลา 50 นาที (0.833 ชั่วโมง)</p>
-        <div class="calculation">
-          VAM = 1100 / 0.833 = <strong>1,320 ม./ชม.</strong>
-        </div>
-        <p>ค่า VAM ระดับนี้บ่งบอกถึงระดับสมัครเล่นแนวหน้า หรือนักปั่นอาชีพระดับเริ่มต้น</p>
-      </div>
-    </div>
-
-    <h3>เกณฑ์มาตรฐาน VAM ตามระดับความพยายาม</h3>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>VAM (ม./ชม.)</th>
-          <th>ระดับความพยายาม</th>
-          <th>ระยะเวลาโดยประมาณ</th>
-          <th>ตัวอย่าง</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>300-600</strong></td>
-          <td>ความทนทานเบาๆ (Easy endurance)</td>
-          <td>2-6 ชั่วโมง</td>
-          <td>การไต่เขายาวๆ เพื่อสร้างฐานร่างการ, การปั่นฟื้นฟู</td>
-        </tr>
-        <tr>
-          <td><strong>600-900</strong></td>
-          <td>เทมโปปานกลาง (Moderate tempo)</td>
-          <td>1-3 ชั่วโมง</td>
-          <td>ความเร็วในงานปั่นสปอร์ตทีฟ, การร่วมกลุ่มปั่นทั่วไป</td>
-        </tr>
-        <tr>
-          <td><strong>900-1200</strong></td>
-          <td>เทรชโฮลด์หนัก (Hard threshold)</td>
-          <td>30-90 นาที</td>
-          <td>การไต่เขาระดับ FTP, การจำลองสถานการณ์แข่ง</td>
-        </tr>
-        <tr>
-          <td><strong>1200-1500</strong></td>
-          <td>VO2max หนักมาก (Very hard VO2max)</td>
-          <td>10-30 นาที</td>
-          <td>เนินสั้นและชันที่ใช้ความพยายามเกือบสูงสุด</td>
-        </tr>
-        <tr>
-          <td><strong>1500-1800+</strong></td>
-          <td>ระดับการแข่งอาชีพ (Pro race pace)</td>
-          <td>20-60 นาที</td>
-          <td>นักปั่นลุ้นอันดับ GC ในการแข่ง World Tour บนเขาสำคัญ</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>ทำไม VAM ถึงไม่ขึ้นกับความชัน</h3>
-    <p>ความเร็ว (กม./ชม.) จะตกลงอย่างมากเมื่อความชันเพิ่มขึ้น แม้ว่าจะใช้พละกำลังคงที่ก็ตาม แต่ VAM
-      จะยังคงค่อนข้างคงที่:</p>
-
-    <div class="example-box">
-      <h4>นักปั่นที่ใช้กำลัง 300 วัตต์ (75 กก., 4.0 W/kg)</h4>
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>ความชัน</th>
-            <th>ความเร็ว (กม./ชม.)</th>
-            <th>VAM (ม./ชม.)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>5%</td>
-            <td>18.0</td>
-            <td>900</td>
-          </tr>
-          <tr>
-            <td>8%</td>
-            <td>15.0</td>
-            <td>1200</td>
-          </tr>
-          <tr>
-            <td>10%</td>
-            <td>12.5</td>
-            <td>1250</td>
-          </tr>
-          <tr>
-            <td>12%</td>
-            <td>10.5</td>
-            <td>1260</td>
-          </tr>
-        </tbody>
-      </table>
-      <p><strong>บทวิเคราะห์:</strong> ความเร็วตกลงถึง 42% เมื่อความชันเปลี่ยนจาก 5% เป็น 12% แต่ VAM กลับเพิ่มขึ้น 40%
+      </div><div class="example-box mt-md"><h4>ตัวอย่าง: Alpe d'Huez</h4><p>การไต่เขา: ไต่ความสูงได้ 1,100 เมตร ในเวลา 50 นาที (0.833 ชั่วโมง)</p><div class="calculation">
+          VAM = 1100 / 0.833 = <strong>1,320 ม./ชม.</strong></div><p>ค่า VAM ระดับนี้บ่งบอกถึงระดับสมัครเล่นแนวหน้า หรือนักปั่นอาชีพระดับเริ่มต้น</p></div></div><h3>เกณฑ์มาตรฐาน VAM ตามระดับความพยายาม</h3><table class="data-table"><thead><tr><th>VAM (ม./ชม.)</th><th>ระดับความพยายาม</th><th>ระยะเวลาโดยประมาณ</th><th>ตัวอย่าง</th></tr></thead><tbody><tr><td><strong>300-600</strong></td><td>ความทนทานเบาๆ (Easy endurance)</td><td>2-6 ชั่วโมง</td><td>การไต่เขายาวๆ เพื่อสร้างฐานร่างการ, การปั่นฟื้นฟู</td></tr><tr><td><strong>600-900</strong></td><td>เทมโปปานกลาง (Moderate tempo)</td><td>1-3 ชั่วโมง</td><td>ความเร็วในงานปั่นสปอร์ตทีฟ, การร่วมกลุ่มปั่นทั่วไป</td></tr><tr><td><strong>900-1200</strong></td><td>เทรชโฮลด์หนัก (Hard threshold)</td><td>30-90 นาที</td><td>การไต่เขาระดับ FTP, การจำลองสถานการณ์แข่ง</td></tr><tr><td><strong>1200-1500</strong></td><td>VO2max หนักมาก (Very hard VO2max)</td><td>10-30 นาที</td><td>เนินสั้นและชันที่ใช้ความพยายามเกือบสูงสุด</td></tr><tr><td><strong>1500-1800+</strong></td><td>ระดับการแข่งอาชีพ (Pro race pace)</td><td>20-60 นาที</td><td>นักปั่นลุ้นอันดับ GC ในการแข่ง World Tour บนเขาสำคัญ</td></tr></tbody></table><h3>ทำไม VAM ถึงไม่ขึ้นกับความชัน</h3><p>ความเร็ว (กม./ชม.) จะตกลงอย่างมากเมื่อความชันเพิ่มขึ้น แม้ว่าจะใช้พละกำลังคงที่ก็ตาม แต่ VAM
+      จะยังคงค่อนข้างคงที่:</p><div class="example-box"><h4>นักปั่นที่ใช้กำลัง 300 วัตต์ (75 กก., 4.0 W/kg)</h4><table class="comparison-table"><thead><tr><th>ความชัน</th><th>ความเร็ว (กม./ชม.)</th><th>VAM (ม./ชม.)</th></tr></thead><tbody><tr><td>5%</td><td>18.0</td><td>900</td></tr><tr><td>8%</td><td>15.0</td><td>1200</td></tr><tr><td>10%</td><td>12.5</td><td>1250</td></tr><tr><td>12%</td><td>10.5</td><td>1260</td></tr></tbody></table><p><strong>บทวิเคราะห์:</strong> ความเร็วตกลงถึง 42% เมื่อความชันเปลี่ยนจาก 5% เป็น 12% แต่ VAM กลับเพิ่มขึ้น 40%
         (เนื่องจากแรงต้านอากาศที่ลดลงที่ความเร็วต่ำบนเขาที่ชันกว่า) VAM จึงสะท้อนถึง <em>ระดับความพยายาม</em>
-        ในการไต่เขาได้สม่ำเสมอกว่าความเร็ว</p>
-    </div>
-
-    <h3>ปัจจัยที่ส่งผลต่อ VAM</h3>
-
-    <h4>1. อัตราส่วนกำลังต่อน้ำหนัก (ปัจจัยหลัก)</h4>
-    <p>ค่า W/kg ที่สูงขึ้นจะทำให้ค่า VAM สูงขึ้นโดยตรง นี่คือตัวขับเคลื่อนหลัก</p>
-
-    <h4>2. ความชัน (ปัจจัยรอง)</h4>
-    <p>VAM จะเพิ่มขึ้นโดยธรรมชาติเมื่อความชันมากขึ้นเนื่องจาก:</p>
-    <ul>
-      <li>แรงต้านอากาศลดลงที่ความเร็วในการไต่เขาที่ช้าลง</li>
-      <li>พละกำลังส่วนใหญ่ถูกใช้ไปในการยกตัว (สู้กับแรงโน้มถ่วง) มากกว่าการสู้กับลม</li>
-    </ul>
-
-    <p>อย่างไรก็ตาม ความชันที่มากเกินไป (12%+) อาจทำให้ VAM
-      ลดลงได้หากนักปั่นไม่สามารถรักษาระดับกำลังไว้ได้เนื่องจากความเมื่อยล้าของกล้ามเนื้อ</p>
-
-    <h4>3. ระดับความสูง (Altitude)</h4>
-    <p>ในพื้นที่สูง:</p>
-    <ul>
-      <li><strong>ความหนาแน่นของอากาศต่ำลง:</strong> แรงต้านอากาศลดลง → ช่วยให้ VAM สูงขึ้นเล็กน้อย (1-2%)</li>
-      <li><strong>ออกซิเจนน้อยลง:</strong> พละกำลังที่รักษาระดับได้ลดลง → ทำให้ VAM ต่ำลง (5-10% ที่ความสูง 2,000 ม.)
-      </li>
-    </ul>
-
-    <p>ผลกระทบสุทธิ: โดยปกติ VAM จะลดลงเมื่ออยู่ในพื้นที่สูงแม้จะได้ประโยชน์จากแรงต้านอากาศที่ลดลงก็ตาม</p>
-
-    <h4>4. ลม</h4>
-    <p>ลมต้านจะลดค่า VAM ส่วนลมส่งจะเพิ่มค่า VAM ลมต้านที่รุนแรงบนเขาชันสามารถลดค่า VAM ได้ถึง 10-20%</p>
-  </section>
-
-  <section id="vam-to-watts">
-    <h2>การประมาณค่า W/kg จาก VAM</h2>
-    <p>คุณสามารถประมาณค่าอัตราส่วนกำลังต่อน้ำหนักได้คร่าวๆ จากค่า VAM และความชัน โดยใช้สูตรจากการสังเกตดังนี้:</p>
-
-    <div class="formula-box">
-      <h3>การประมาณค่า W/kg จาก VAM</h3>
-      <div class="formula">
+        ในการไต่เขาได้สม่ำเสมอกว่าความเร็ว</p></div><h3>ปัจจัยที่ส่งผลต่อ VAM</h3><h4>1. อัตราส่วนกำลังต่อน้ำหนัก (ปัจจัยหลัก)</h4><p>ค่า W/kg ที่สูงขึ้นจะทำให้ค่า VAM สูงขึ้นโดยตรง นี่คือตัวขับเคลื่อนหลัก</p><h4>2. ความชัน (ปัจจัยรอง)</h4><p>VAM จะเพิ่มขึ้นโดยธรรมชาติเมื่อความชันมากขึ้นเนื่องจาก:</p><ul><li>แรงต้านอากาศลดลงที่ความเร็วในการไต่เขาที่ช้าลง</li><li>พละกำลังส่วนใหญ่ถูกใช้ไปในการยกตัว (สู้กับแรงโน้มถ่วง) มากกว่าการสู้กับลม</li></ul><p>อย่างไรก็ตาม ความชันที่มากเกินไป (12%+) อาจทำให้ VAM
+      ลดลงได้หากนักปั่นไม่สามารถรักษาระดับกำลังไว้ได้เนื่องจากความเมื่อยล้าของกล้ามเนื้อ</p><h4>3. ระดับความสูง (Altitude)</h4><p>ในพื้นที่สูง:</p><ul><li><strong>ความหนาแน่นของอากาศต่ำลง:</strong> แรงต้านอากาศลดลง → ช่วยให้ VAM สูงขึ้นเล็กน้อย (1-2%)</li><li><strong>ออกซิเจนน้อยลง:</strong> พละกำลังที่รักษาระดับได้ลดลง → ทำให้ VAM ต่ำลง (5-10% ที่ความสูง 2,000 ม.)
+      </li></ul><p>ผลกระทบสุทธิ: โดยปกติ VAM จะลดลงเมื่ออยู่ในพื้นที่สูงแม้จะได้ประโยชน์จากแรงต้านอากาศที่ลดลงก็ตาม</p><h4>4. ลม</h4><p>ลมต้านจะลดค่า VAM ส่วนลมส่งจะเพิ่มค่า VAM ลมต้านที่รุนแรงบนเขาชันสามารถลดค่า VAM ได้ถึง 10-20%</p></section><section id="vam-to-watts"><h2>การประมาณค่า W/kg จาก VAM</h2><p>คุณสามารถประมาณค่าอัตราส่วนกำลังต่อน้ำหนักได้คร่าวๆ จากค่า VAM และความชัน โดยใช้สูตรจากการสังเกตดังนี้:</p><div class="formula-box"><h3>การประมาณค่า W/kg จาก VAM</h3><div class="formula">
         W/kg ≈ VAM (ม./ชม.) / [100 × (ความชัน % + 3)]
-      </div>
-      <p class="formula-explanation">สูตรนี้คำนึงถึงความชัน, แรงเสียดทานการหมุน
-        และแรงต้านอากาศที่ความเร็วในการไต่เขาทั่วไป</p>
-    </div>
-
-    <div class="example-box">
-      <h4>ตัวอย่างที่ 1: Alpe d'Huez</h4>
-      <p><strong>ข้อมูลการไต่เขา:</strong> VAM 1,320 บนความชันเฉลี่ย 8%</p>
-      <div class="calculation">
+      </div><p class="formula-explanation">สูตรนี้คำนึงถึงความชัน, แรงเสียดทานการหมุน
+        และแรงต้านอากาศที่ความเร็วในการไต่เขาทั่วไป</p></div><div class="example-box"><h4>ตัวอย่างที่ 1: Alpe d'Huez</h4><p><strong>ข้อมูลการไต่เขา:</strong> VAM 1,320 บนความชันเฉลี่ย 8%</p><div class="calculation">
         W/kg ≈ 1320 / [100 × (8 + 3)]<br>
         W/kg ≈ 1320 / 1100<br>
-        W/kg ≈ <strong>4.36</strong>
-      </div>
-      <p>อยู่ในระดับสมัครเล่นแนวหน้า / นักแข่ง Cat 1</p>
-    </div>
-
-    <div class="example-box">
-      <h4>ตัวอย่างที่ 2: Col du Tourmalet</h4>
-      <p><strong>สมรรถนะระดับโปร:</strong> VAM 1,650 บนความชันเฉลี่ย 7.5%</p>
-      <div class="calculation">
+        W/kg ≈ <strong>4.36</strong></div><p>อยู่ในระดับสมัครเล่นแนวหน้า / นักแข่ง Cat 1</p></div><div class="example-box"><h4>ตัวอย่างที่ 2: Col du Tourmalet</h4><p><strong>สมรรถนะระดับโปร:</strong> VAM 1,650 บนความชันเฉลี่ย 7.5%</p><div class="calculation">
         W/kg ≈ 1650 / [100 × (7.5 + 3)]<br>
         W/kg ≈ 1650 / 1050<br>
-        W/kg ≈ <strong>5.71</strong>
-      </div>
-      <p>อยู่ในระดับนักไต่เขาอาชีพ World Tour</p>
-    </div>
-
-    <h3>หมายเหตุเรื่องความแม่นยำ</h3>
-    <ul>
-      <li><strong>แม่นยำที่สุด:</strong> ที่ความชัน 5-10%, ความเร็ว 15-25 กม./ชม.</li>
-      <li><strong>แม่นยำน้อยลง:</strong> ที่ความชันสูงมาก (>12%) หรือความชันน้อยมาก (<3%)< /li>
-      <li><strong>ปัจจัยที่ส่งผลกระทบ:</strong> ลม, การปั่นจี้ (ซึ่งจะลดค่า W/kg จริงที่ต้องใช้), น้ำหนักจักรยาน</li>
-    </ul>
-
-    <p>โปรดใช้สูตรนี้เป็นเพียงการประมาณการคร่าวๆ ไม่ใช่การวัดที่ถูกต้องสมบูรณ์
-      ข้อมูลจากพาวเวอร์มิเตอร์โดยตรงจะแม่นยำกว่าเสมอ</p>
-  </section>
-
-  <section id="gradient-effects">
-    <h2>ความชันส่งผลต่อความพละกำลังที่ต้องการอย่างไร</h2>
-    <p>ความชันมีผลแบบเอกซ์โพเนนเชียลต่อพละกำลังที่ต้องใช้ในการรักษาระดับความเร็ว
-      การเข้าใจเรื่องนี้จะช่วยให้คุณรักษาระดับความเร็ว (Pacing) ในการไต่เขาได้อย่างถูกต้อง</p>
-
-    <h3>พละกำลังที่ต้องการแยกตามความชัน</h3>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>ความชัน</th>
-          <th>ความเร็วที่ 3.5 W/kg</th>
-          <th>ความเร็วที่ 4.5 W/kg</th>
-          <th>ความเร็วที่ 5.5 W/kg</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>5%</strong></td>
-          <td>18.5 กม./ชม.</td>
-          <td>21.5 กม./ชม.</td>
-          <td>24.0 กม./ชม.</td>
-        </tr>
-        <tr>
-          <td><strong>7%</strong></td>
-          <td>16.0 กม./ชม.</td>
-          <td>18.5 กม./ชม.</td>
-          <td>21.0 กม./ชม.</td>
-        </tr>
-        <tr>
-          <td><strong>10%</strong></td>
-          <td>12.5 กม./ชม.</td>
-          <td>14.5 กม./ชม.</td>
-          <td>16.5 กม./ชม.</td>
-        </tr>
-        <tr>
-          <td><strong>15%</strong></td>
-          <td>8.5 กม./ชม.</td>
-          <td>10.0 กม./ชม.</td>
-          <td>11.5 กม./ชม.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p><em>*สมมติฐาน: นักปั่น 75 กก. + จักรยาน 8 กก., ระดับน้ำทะเล, ไม่มีลม, ผิวถนนเรียบ</em></p>
-
-    <h3>ทำไมแอโรไดนามิกจึงมีความสำคัญน้อยลงบนเขาชัน</h3>
-    <p>ที่ความเร็วในการไต่เขา (<20 กม./ชม.) แรงต้านอากาศจะกลายเป็นส่วนประกอบย่อยของแรงต้านรวมทั้งหมด:</p>
-
-        <ul>
-          <li><strong>ความชัน 5% ที่ความเร็ว 20 กม./ชม.:</strong> แรงต้านอากาศ ~15%, แรงเสียดทานการหมุน ~10%,
-            แรงโน้มถ่วง ~75%</li>
-          <li><strong>ความชัน 10% ที่ความเร็ว 12 กม./ชม.:</strong> แรงต้านอากาศ ~8%, แรงเสียดทานการหมุน ~12%,
-            แรงโน้มถ่วง ~80%</li>
-          <li><strong>ความชัน 15% ที่ความเร็ว 9 กม./ชม.:</strong> แรงต้านอากาศ ~5%, แรงเสียดทานการหมุน ~10%, แรงโน้มถ่วง
-            ~85%</li>
-        </ul>
-
-        <p><strong>นัยสำคัญในทางปฏิบัติ:</strong> บนเขาที่ชันมาก
+        W/kg ≈ <strong>5.71</strong></div><p>อยู่ในระดับนักไต่เขาอาชีพ World Tour</p></div><h3>หมายเหตุเรื่องความแม่นยำ</h3><ul><li><strong>แม่นยำที่สุด:</strong> ที่ความชัน 5-10%, ความเร็ว 15-25 กม./ชม.</li><li><strong>แม่นยำน้อยลง:</strong> ที่ความชันสูงมาก (>12%) หรือความชันน้อยมาก (<3%)< /li><li><strong>ปัจจัยที่ส่งผลกระทบ:</strong> ลม, การปั่นจี้ (ซึ่งจะลดค่า W/kg จริงที่ต้องใช้), น้ำหนักจักรยาน</li></ul><p>โปรดใช้สูตรนี้เป็นเพียงการประมาณการคร่าวๆ ไม่ใช่การวัดที่ถูกต้องสมบูรณ์
+      ข้อมูลจากพาวเวอร์มิเตอร์โดยตรงจะแม่นยำกว่าเสมอ</p></section><section id="gradient-effects"><h2>ความชันส่งผลต่อความพละกำลังที่ต้องการอย่างไร</h2><p>ความชันมีผลแบบเอกซ์โพเนนเชียลต่อพละกำลังที่ต้องใช้ในการรักษาระดับความเร็ว
+      การเข้าใจเรื่องนี้จะช่วยให้คุณรักษาระดับความเร็ว (Pacing) ในการไต่เขาได้อย่างถูกต้อง</p><h3>พละกำลังที่ต้องการแยกตามความชัน</h3><table class="data-table"><thead><tr><th>ความชัน</th><th>ความเร็วที่ 3.5 W/kg</th><th>ความเร็วที่ 4.5 W/kg</th><th>ความเร็วที่ 5.5 W/kg</th></tr></thead><tbody><tr><td><strong>5%</strong></td><td>18.5 กม./ชม.</td><td>21.5 กม./ชม.</td><td>24.0 กม./ชม.</td></tr><tr><td><strong>7%</strong></td><td>16.0 กม./ชม.</td><td>18.5 กม./ชม.</td><td>21.0 กม./ชม.</td></tr><tr><td><strong>10%</strong></td><td>12.5 กม./ชม.</td><td>14.5 กม./ชม.</td><td>16.5 กม./ชม.</td></tr><tr><td><strong>15%</strong></td><td>8.5 กม./ชม.</td><td>10.0 กม./ชม.</td><td>11.5 กม./ชม.</td></tr></tbody></table><p><em>*สมมติฐาน: นักปั่น 75 กก. + จักรยาน 8 กก., ระดับน้ำทะเล, ไม่มีลม, ผิวถนนเรียบ</em></p><h3>ทำไมแอโรไดนามิกจึงมีความสำคัญน้อยลงบนเขาชัน</h3><p>ที่ความเร็วในการไต่เขา (<20 กม./ชม.) แรงต้านอากาศจะกลายเป็นส่วนประกอบย่อยของแรงต้านรวมทั้งหมด:</p><ul><li><strong>ความชัน 5% ที่ความเร็ว 20 กม./ชม.:</strong> แรงต้านอากาศ ~15%, แรงเสียดทานการหมุน ~10%,
+            แรงโน้มถ่วง ~75%</li><li><strong>ความชัน 10% ที่ความเร็ว 12 กม./ชม.:</strong> แรงต้านอากาศ ~8%, แรงเสียดทานการหมุน ~12%,
+            แรงโน้มถ่วง ~80%</li><li><strong>ความชัน 15% ที่ความเร็ว 9 กม./ชม.:</strong> แรงต้านอากาศ ~5%, แรงเสียดทานการหมุน ~10%, แรงโน้มถ่วง
+            ~85%</li></ul><p><strong>นัยสำคัญในทางปฏิบัติ:</strong> บนเขาที่ชันมาก
           การนั่งตัวตรงเพื่อการหายใจที่ดีขึ้นและการส่งแรงที่ดีขึ้นจะให้ความเร็วที่มากกว่าการพยายามจัดท่าทางให้แอโร
-          ความสบายและการส่งพละกำลังสำคัญกว่าแอโรไดนามิก</p>
-
-        <div class="callout callout-tip">
-          <h3>💡 การคุมจังหวะบนเขาชัน</h3>
-          <p>บนความชันที่มากกว่า 10% ให้ระวังความต้องการสปริงตัวในช่วงเริ่มต้น พละกำลังที่ต้องการจะเพิ่มขึ้นแบบทวีคูณ
-            การเริ่มปั่นหนักเกินไปเพียง 5% ตั้งแต่ต้นอาจทำให้คุณหมดแรงได้อย่างรวดเร็วในภายหลัง</p>
-          <p><strong>กลยุทธ์ที่ดีกว่า:</strong> เริ่มต้นที่ 95% ของกำลังเป้าหมาย รักษาจังหวะให้คงที่
-            แล้วค่อยเพิ่มพละกำลังในช่วง 20-25% สุดท้ายหากยังรู้สึกแข็งแกร่ง</p>
-        </div>
-  </section>
-
-  <section id="pacing-strategies">
-    <h2>กลยุทธ์การคุมจังหวะ (Pacing) เพื่อการไต่เขาที่ดีที่สุด</h2>
-    <p>วิธีที่คุณกระจายพละกำลังบนเขาส่งผลอย่างมากต่อเวลาโดยรวม การปั่นด้วยกำลังคงที่เกือบจะเป็นวิธีที่เร็วที่สุดเสมอ</p>
-
-    <h3>การคุมจังหวะด้วยพละกำลังคงที่ (Even Power Pacing)</h3>
-    <p><strong>เป้าหมาย:</strong> รักษาการส่งพละกำลังให้คงที่ตลอดการไต่เขา ไม่ว่าความชันจะเปลี่ยนแปลงไปอย่างไรก็ตาม</p>
-
-    <p><strong>ทำไมถึงได้ผล:</strong></p>
-    <ul>
-      <li>หลีกเลี่ยงการใช้ W' (ความจุสำรองแบบไม่ใช้ออกซิเจน) จนหมดจากการเร่งกระชาก</li>
-      <li>เพิ่มระดับความพยายามที่รักษาไว้ได้ให้สูงสุด</li>
-      <li>ป้องกันความเหนื่อยล้าก่อนกำหนดที่จะส่งผลเสียทวีคูณในช่วงหลัง</li>
-    </ul>
-
-    <div class="example-box">
-      <h4>ตัวอย่าง: การไต่เขา 20 นาที</h4>
-      <p><strong>กลยุทธ์ A (ใช้กำลังไม่คงที่):</strong></p>
-      <ul>
-        <li>5 นาทีแรก: 320 วัตต์ (รู้สึกแข็งแกร่ง เลี้ยงกำลังสูงในช่วงชัน)</li>
-        <li>10 นาทีกลาง: 270 วัตต์ (เริ่มล้าจากการเร่งช่วงแรก)</li>
-        <li>5 นาทีสุดท้าย: 260 วัตต์ (พยายามประคองตัว)</li>
-        <li><strong>ค่าเฉลี่ย: 283 วัตต์</strong></li>
-      </ul>
-
-      <p><strong>กลยุทธ์ B (ใช้กำลังคงที่):</strong></p>
-      <ul>
-        <li>ตลอด 20 นาที: 290 วัตต์ (มั่นคง ควบคุมได้)</li>
-        <li><strong>ค่าเฉลี่ย: 290 วัตต์</strong></li>
-      </ul>
-
-      <p><strong>ผลลัพธ์:</strong> กลยุทธ์ B จะเร็วกว่า 2.5% แม้ว่าจะรู้สึก "สบายกว่า" ในช่วงแรก การใช้กำลังคงที่ =
-        การขึ้นเขาที่เร็วกว่า</p>
-    </div>
-
-    <h3>การใช้การเปลี่ยนความชันให้เป็นประโยชน์</h3>
-
-    <h4>กลยุทธ์ในช่วงชันน้อย</h4>
-    <p>เมื่อความชันลดลง (เช่น จาก 9% → 5%) คุณมี 2 ทางเลือก:</p>
-    <ol>
-      <li><strong>รักษาพละกำลังให้คงที่:</strong> ความเร็วจะเพิ่มขึ้น ทำให้คุณทำเวลาได้ดีกว่าแผน
-        (แนะนำสำหรับการไต่เขายาวๆ)</li>
-      <li><strong>ลดพละกำลังลงเล็กน้อย:</strong> เพื่อให้ร่างกายได้พักฟื้นช่วงสั้นๆ
-        ในขณะที่ยังคงเคลื่อนที่ไปข้างหน้าอย่างรวดเร็ว</li>
-    </ol>
-
-    <h4>กลยุทธ์ในช่วงชันมาก</h4>
-    <p>เมื่อความชันเพิ่มขึ้น (เช่น จาก 5% → 10%) สิ่งที่ควรหลีกเลี่ยง:</p>
-    <ul>
-      <li>❌ เร่งกระชากเพื่อให้ "พ้นช่วงชันไปเร็วๆ" → จะทำให้ใช้ W' จนหมดและหมดแรงในภายหลัง</li>
-      <li>✅ รักษาพละกำลังเป้าหมายไว้คงที่ → ความเร็วจะตกลงตามธรรมชาติ แต่ระดับความพยายามยังคงอยู่ในเกณฑ์ที่รักษาไว้ได้
-      </li>
-    </ul>
-
-    <h3>การยืนปั่น vs. การนั่งปั่น</h3>
-
-    <h4>การนั่งปั่น (ท่ามาตรฐาน)</h4>
-    <p><strong>ข้อดี:</strong></p>
-    <ul>
-      <li>แอโรไดนามิกดีกว่า</li>
-      <li>อัตราการเต้นของหัวใจต่ำกว่า (~5-10 bpm)</li>
-      <li>รักษาไว้ได้นานต่อเนื่อง</li>
-    </ul>
-
-    <p><strong>ข้อเสีย:</strong></p>
-    <ul>
-      <li>อาจรู้สึก "อึดอัด" ในช่วงที่ชันมากๆ</li>
-      <li>กล้ามเนื้อแฮมสตริง/ก้น อาจล้าจากการไต่เขายาวๆ</li>
-    </ul>
-
-    <h4>การยืนปั่น (เชิงกลยุทธ์)</h4>
-    <p><strong>ข้อดี:</strong></p>
-    <ul>
-      <li>ใช้กล้ามเนื้อกลุ่มอื่นร่วมด้วย (หน้าขา, น่อง, แกนกลางลำตัว)</li>
-      <li>ช่วยให้ร่างกายได้ยืดเส้นยืดสาย เลือดไหลเวียนได้ดีขึ้น</li>
-      <li>สามารถสร้างพละกำลังชั่วขณะได้สูงกว่า (จังหวะเข้าทำ, เนินชันสั้นๆ)</li>
-    </ul>
-
-    <p><strong>ข้อเสีย:</strong></p>
-    <ul>
-      <li>ต้องการพละกำลังสูงกว่า 5-10 วัตต์ เพื่อรักษาความเร็วเดิม (เนื่องจากไม่แอโร)</li>
-      <li>อัตราการเต้นของหัวใจสูงขึ้น</li>
-      <li>รักษาไว้ได้ไม่นาน</li>
-    </ul>
-
-    <p><strong>แนวทางปฏิบัติที่ดีที่สุด:</strong> นั่งปั่นเป็นส่วนใหญ่ของการไต่เขา ยืนปั่นสั้นๆ (15-30 วินาที) ทุกๆ 3-5
-      นาที เพื่อ:</p>
-    <ul>
-      <li>ลดแรงกดทับที่กระดูกรองนั่ง</li>
-      <li>ยืดกล้ามเนื้อสะโพกและหลังส่วนล่าง</li>
-      <li>ใช้งานกลุ่มกล้ามเนื้อใหม่ๆ ที่ยังไม่ล้า</li>
-    </ul>
-
-    <div class="callout callout-warning">
-      <h3>⚠️ ข้อผิดพลาดที่พบบ่อยในการคุมจังหวะ</h3>
-      <ul>
-        <li><strong>เริ่มต้นหนักเกินไป:</strong> ช่วงแรกของเขาปั่นที่ 110% ของพละกำลังที่รักษาได้ →
-          รับประกันว่าหมดแรงแน่นอน</li>
-        <li><strong>เร่งส่งในช่วงชัน:</strong> แม้จะรู้สึกว่าจำเป็น แต่จะทำลาย W' เร็วกว่าประโยชน์ที่ได้รับ</li>
-        <li><strong>ยืนปั่นมากเกินไป:</strong> การใช้พลังงานเพิ่มขึ้น 5-10 วัตต์ จะสะสมเป็นความเมื่อยล้าในการไต่เขา
-          30-60 นาที</li>
-        <li><strong>ละเลยการเปลี่ยนแปลงความชัน:</strong> ให้รักษาพละกำลังเป้าหมาย ไม่ใช่รักษาความเร็วเป้าหมาย</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="training-for-climbing">
-    <h2>การฝึกซ้อมเพื่อพัฒนาการไต่เขา</h2>
-    <p>การพัฒนาการไต่เขามาจาก 3 ด้านหลัก: การเพิ่มค่า FTP, การลดน้ำหนักส่วนเกิน
-      และการสร้างความทนทานของกล้ามเนื้อที่เฉพาะเจาะจง</p>
-
-    <h3>1. การสร้างฐานแอโรบิก (Zone 2)</h3>
-    <p>การปั่นยาวๆ อย่างมั่นคงที่ 60-70% ของ FTP จะช่วยพัฒนา:</p>
-    <ul>
-      <li>ความหนาแน่นของไมโทคอนเดรีย (Mitochondrial density)</li>
-      <li>เครือข่ายหลอดเลือดฝอย (Capillary network)</li>
-      <li>การสลายไขมัน (ช่วยประหยัดไกลโคเจนในการไต่เขายาวๆ)</li>
-    </ul>
-
-    <p><strong>เป้าหมายปริมาณการซ้อม:</strong> 70-80% ของเวลาฝึกซ้อมรายสัปดาห์ควรอยู่ใน Zone 2
-      สำหรับนักปั่นสายเน้นความทนทาน ดูเพิ่มเติมที่ <a href="/th/training-zones/">คู่มือโซนการฝึกซ้อม</a></p>
-
-    <h3>2. การฝึกช่วงเทรชโฮลด์ (Threshold Intervals - Zone 4)</h3>
-    <p>สร้าง FTP ด้วยการออกแรงระดับเทรชโฮลด์อย่างต่อเนื่อง:</p>
-
-    <div class="workout-box">
-      <h4>ตัวอย่างการซ้อม Threshold</h4>
-      <p><strong>3 × 12 นาที @ 95-100% ของ FTP (พัก 5 นาที)</strong></p>
-      <p>ควรฝึกบนเขาเมื่อเป็นไปได้เพื่อจำลองสถานการณ์จริง เน้นการใช้พละกำลังให้คงที่ตลอดช่วงการฝึก</p>
-      <p><strong>ความถี่:</strong> 1-2 ครั้งต่อสัปดาห์ในช่วงสร้างกล้ามเนื้อ (Build phase)</p>
-    </div>
-
-    <h3>3. การฝึกซ้ำระดับ VO2max (Zone 5)</h3>
-    <p>การฝึกช่วงสั้นและหนักเพื่อขยายเพดานแอโรบิกของคุณ:</p>
-
-    <div class="workout-box">
-      <h4>ตัวอย่างการซ้อม VO2max</h4>
-      <p><strong>5 × 4 นาที @ 110-120% ของ FTP (พัก 4 นาที)</strong></p>
-      <p>การฝึกนี้จะรู้สึกเหนื่อยมาก—แต่หัวใจสำคัญคือการขยายขีดจำกัด การฝึก VO2max เป็นกุญแจสำคัญในการยกชิพ FTP
-        ในระยะยาว</p>
-      <p><strong>ความถี่:</strong> 1 ครั้งต่อสัปดาห์ในช่วงสร้างหรือช่วงพีค (Build/Peak phase)</p>
-    </div>
-
-    <h3>4. การไต่เขายาว (จำลองการแข่งขัน)</h3>
-    <p>ฝึกฝนการคุมจังหวะบนการไต่เขาที่ยาวต่อเนื่อง:</p>
-
-    <div class="workout-box">
-      <h4>ตัวอย่างการไต่เขายาว</h4>
-      <p><strong>2 × 30-40 นาที @ FTP บนเขาที่ชันปานกลาง (พัก 15 นาที)</strong></p>
-      <p>เป้าหมาย: เรียนรู้การคุมจังหวะให้คงที่, จัดการเรื่องโภชนาการ,
-        และรักษาความรู้สึกสบายในท่าทางการไต่เขาเป็นระยะเวลานาน</p>
-      <p><strong>ความถี่:</strong> 1 ครั้งต่อสัปดาห์ในช่วงเตรียมตัวเฉพาะเจาะจง</p>
-    </div>
-
-    <h3>5. การจัดการน้ำหนักตัว</h3>
-    <p>ลดไขมันส่วนเกินส่วนเกินอย่างมีกลยุทธ์:</p>
-    <ul>
-      <li><strong>เป้าหมาย:</strong> สูงสุดไม่เกิน 0.25-0.5 กก. ต่อสัปดาห์</li>
-      <li><strong>วิธีการ:</strong> ปรับลดแคลอรีสะสม 300-500 แคลอรีต่อวัน</li>
-      <li><strong>โปรตีน:</strong> รักษาพิกัด 1.6-2.2 กรัม/น้ำหนักตัว 1 กก. เพื่อรักษามาลกล้ามเนื้อ</li>
-      <li><strong>ช่วงเวลา:</strong> ควรลดน้ำหนักในช่วงพื้นฐาน (Base) หรือช่วงสร้าง (Build)
-        ไม่ควรทำในช่วงแข่งขันหรือช่วงพีค</li>
-    </ul>
-
-    <p><strong>คำเตือน:</strong> อย่าพยายามทำให้ตัวผอมแห้งจนเกินไป สมรรถนะจะเริ่มคงที่หรือตกลงเมื่อไขมันในร่างกายต่ำกว่า
-      ~8% (ผู้ชาย) หรือ ~12% (ผู้หญิง)</p>
-
-    <div class="callout callout-science">
-      <h3>🔬 กรอบเวลาการปรับตัวจากการฝึกซ้อม</h3>
-      <ul>
-        <li><strong>4-8 สัปดาห์:</strong> ระบบประสาทและกล้ามเนื้อพัฒนาขี้น, คุมจังหวะได้ดีขึ้น</li>
-        <li><strong>8-12 สัปดาห์:</strong> ระดับแลคเตทเทรชโฮลด์สูงขึ้น, FTP เพิ่มขึ้น 5-10%</li>
-        <li><strong>12-16 สัปดาห์:</strong> ความจุแอโรบิก (VO2max) พัฒนาขึ้น</li>
-        <li><strong>16-24 สัปดาห์:</strong> การปรับตัวของไมโทคอนเดรียขนานใหญ่, ความประหยัดในการไต่เขาดีขึ้น</li>
-      </ul>
-      <p>การฝึกซ้อมอย่างสม่ำเสมอเกิน 6 เดือนขึ้นไป = ผลลัพธ์ที่ยิ่งใหญ่ที่สุด ไม่มีทางลัดในเรื่องนี้</p>
-    </div>
-  </section>
-
-  <section id="famous-climbs">
-    <h2>การไต่เขาระดับตำนาน: การวิเคราะห์สมรรถนะ</h2>
-    <p>การวิเคราะห์ผลงานของโปรบนภูเขาที่เป็นไอคอนเผยให้เห็นว่า W/kg ในทางปฏิบัตินั้นเป็นอย่างไร</p>
-
-    <h3>Alpe d'Huez</h3>
-    <ul>
-      <li><strong>ระยะทาง:</strong> 13.8 กม.</li>
-      <li><strong>ความสูงที่ไต่ได้:</strong> 1100 เมตร</li>
-      <li><strong>ความชันเฉลี่ย:</strong> 8.1%</li>
-      <li><strong>21 โค้งหักศอก</strong></li>
-    </ul>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>นักปั่น / ระดับ</th>
-          <th>เวลา</th>
-          <th>W/kg โดยประมาณ</th>
-          <th>VAM</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Marco Pantani (สถิติปี 1997)</strong></td>
-          <td>37:35</td>
-          <td>~6.7</td>
-          <td>~1750</td>
-        </tr>
-        <tr>
-          <td><strong>ผู้ชนะ World Tour</strong></td>
-          <td>39-42 นาที</td>
-          <td>6.0-6.3</td>
-          <td>1570-1690</td>
-        </tr>
-        <tr>
-          <td><strong>ผู้ท้าชิง GC World Tour</strong></td>
-          <td>42-45 นาที</td>
-          <td>5.5-6.0</td>
-          <td>1470-1570</td>
-        </tr>
-        <tr>
-          <td><strong>มือสมัครเล่นชั้นนำ</strong></td>
-          <td>50-55 นาที</td>
-          <td>4.5-5.0</td>
-          <td>1200-1320</td>
-        </tr>
-        <tr>
-          <td><strong>มือสมัครเล่นที่แข็งแกร่ง</strong></td>
-          <td>60-70 นาที</td>
-          <td>3.5-4.0</td>
-          <td>940-1100</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Mont Ventoux</h3>
-    <ul>
-      <li><strong>ระยะทาง:</strong> 21.5 กม. (จาก Bédoin)</li>
-      <li><strong>ความสูงที่ไต่ได้:</strong> 1600 เมตร</li>
-      <li><strong>ความชันเฉลี่ย:</strong> 7.5%</li>
-      <li><strong>6 กม. สุดท้าย:</strong> เปิดโล่ง มักมีลมแรง</li>
-    </ul>
-
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>นักปั่น / ระดับ</th>
-          <th>เวลา</th>
-          <th>W/kg โดยประมาณ</th>
-          <th>VAM</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Iban Mayo (สถิติปี 2004)</strong></td>
-          <td>55:51</td>
-          <td>~6.6</td>
-          <td>~1720</td>
-        </tr>
-        <tr>
-          <td><strong>นักปั่น GC World Tour</strong></td>
-          <td>58-62 นาที</td>
-          <td>6.0-6.2</td>
-          <td>1550-1655</td>
-        </tr>
-        <tr>
-          <td><strong>มือสมัครเล่นชั้นนำ</strong></td>
-          <td>70-80 นาที</td>
-          <td>4.8-5.2</td>
-          <td>1200-1370</td>
-        </tr>
-        <tr>
-          <td><strong>มือสมัครเล่นที่แข็งแกร่ง</strong></td>
-          <td>90-100 นาที</td>
-          <td>3.8-4.2</td>
-          <td>960-1065</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Col du Tourmalet</h3>
-    <ul>
-      <li><strong>ระยะทาง:</strong> 18.8 กม. (จาก Luz-Saint-Sauveur)</li>
-      <li><strong>ความสูงที่ไต่ได้:</strong> 1400 เมตร</li>
-      <li><strong>ความชันเฉลี่ย:</strong> 7.5%</li>
-      <li><strong>ช่องเขาลาดยางที่สูงที่สุดในเทือกเขาพีเรนีส</strong> (ความสูง 2115 เมตร)</li>
-    </ul>
-
-    <p><strong>ผลงานระดับโปร:</strong> 50-55 นาที (~6.0-6.3 W/kg, 1530-1680 VAM)
-      ความสูงมีผลต่อเวลาเหล่านี้—อากาศที่เบาบางลงทำให้พละกำลังลดลงประมาณ 5-8%</p>
-
-    <div class="callout callout-tip">
-      <h3>💡 การใช้เกณฑ์มาตรฐานการไต่เขา</h3>
-      <p>ค้นหาเขาเป้าหมายของคุณ (ในท้องถิ่นหรือที่มีชื่อเสียง) ทดสอบตัวคุณเองที่ระดับความพยายามสูงสุดที่รักษาได้
-        เปรียบเทียบเวลาของคุณกับเกณฑ์มาตรฐานเพื่อประมาณระดับ W/kg ปัจจุบันของคุณ:</p>
-      <ol>
-        <li>บันทึกเวลาที่ใช้, ความสูงที่ไต่ได้, ความชัน</li>
-        <li>คำนวณ VAM: (ความสูงที่ไต่ได้ / เวลาเป็นชั่วโมง)</li>
-        <li>ประมาณค่า W/kg: VAM / [100 × (ความชัน% + 3)]</li>
-        <li>เปรียบเทียบกับเกณฑ์มาตรฐานข้างต้น</li>
-      </ol>
-      <p>ทดสอบซ้ำทุก 8-12 สัปดาห์เพื่อติดตามความก้าวหน้า!</p>
-    </div>
-  </section>
-
-  <section id="faq">
-    <h2>คำถามที่พบบ่อย (เพิ่มเติม)</h2>
-
-    <div class="faq-item">
-      <h3>อะไรสำคัญกว่าสำหรับการขึ้นเขา: การลดน้ำหนักหรือการเพิ่มพละกำลัง?</h3>
-      <p>ทั้งคู่ช่วยปรับปรุง W/kg แต่บริบทมีความสำคัญ หากคุณมีไขมันส่วนเกิน (>15% สำหรับชาย, >22% สำหรับหญิง) การลดไขมัน
+          ความสบายและการส่งพละกำลังสำคัญกว่าแอโรไดนามิก</p><div class="callout callout-tip"><h3>💡 การคุมจังหวะบนเขาชัน</h3><p>บนความชันที่มากกว่า 10% ให้ระวังความต้องการสปริงตัวในช่วงเริ่มต้น พละกำลังที่ต้องการจะเพิ่มขึ้นแบบทวีคูณ
+            การเริ่มปั่นหนักเกินไปเพียง 5% ตั้งแต่ต้นอาจทำให้คุณหมดแรงได้อย่างรวดเร็วในภายหลัง</p><p><strong>กลยุทธ์ที่ดีกว่า:</strong> เริ่มต้นที่ 95% ของกำลังเป้าหมาย รักษาจังหวะให้คงที่
+            แล้วค่อยเพิ่มพละกำลังในช่วง 20-25% สุดท้ายหากยังรู้สึกแข็งแกร่ง</p></div></section><section id="pacing-strategies"><h2>กลยุทธ์การคุมจังหวะ (Pacing) เพื่อการไต่เขาที่ดีที่สุด</h2><p>วิธีที่คุณกระจายพละกำลังบนเขาส่งผลอย่างมากต่อเวลาโดยรวม การปั่นด้วยกำลังคงที่เกือบจะเป็นวิธีที่เร็วที่สุดเสมอ</p><h3>การคุมจังหวะด้วยพละกำลังคงที่ (Even Power Pacing)</h3><p><strong>เป้าหมาย:</strong> รักษาการส่งพละกำลังให้คงที่ตลอดการไต่เขา ไม่ว่าความชันจะเปลี่ยนแปลงไปอย่างไรก็ตาม</p><p><strong>ทำไมถึงได้ผล:</strong></p><ul><li>หลีกเลี่ยงการใช้ W' (ความจุสำรองแบบไม่ใช้ออกซิเจน) จนหมดจากการเร่งกระชาก</li><li>เพิ่มระดับความพยายามที่รักษาไว้ได้ให้สูงสุด</li><li>ป้องกันความเหนื่อยล้าก่อนกำหนดที่จะส่งผลเสียทวีคูณในช่วงหลัง</li></ul><div class="example-box"><h4>ตัวอย่าง: การไต่เขา 20 นาที</h4><p><strong>กลยุทธ์ A (ใช้กำลังไม่คงที่):</strong></p><ul><li>5 นาทีแรก: 320 วัตต์ (รู้สึกแข็งแกร่ง เลี้ยงกำลังสูงในช่วงชัน)</li><li>10 นาทีกลาง: 270 วัตต์ (เริ่มล้าจากการเร่งช่วงแรก)</li><li>5 นาทีสุดท้าย: 260 วัตต์ (พยายามประคองตัว)</li><li><strong>ค่าเฉลี่ย: 283 วัตต์</strong></li></ul><p><strong>กลยุทธ์ B (ใช้กำลังคงที่):</strong></p><ul><li>ตลอด 20 นาที: 290 วัตต์ (มั่นคง ควบคุมได้)</li><li><strong>ค่าเฉลี่ย: 290 วัตต์</strong></li></ul><p><strong>ผลลัพธ์:</strong> กลยุทธ์ B จะเร็วกว่า 2.5% แม้ว่าจะรู้สึก "สบายกว่า" ในช่วงแรก การใช้กำลังคงที่ =
+        การขึ้นเขาที่เร็วกว่า</p></div><h3>การใช้การเปลี่ยนความชันให้เป็นประโยชน์</h3><h4>กลยุทธ์ในช่วงชันน้อย</h4><p>เมื่อความชันลดลง (เช่น จาก 9% → 5%) คุณมี 2 ทางเลือก:</p><ol><li><strong>รักษาพละกำลังให้คงที่:</strong> ความเร็วจะเพิ่มขึ้น ทำให้คุณทำเวลาได้ดีกว่าแผน
+        (แนะนำสำหรับการไต่เขายาวๆ)</li><li><strong>ลดพละกำลังลงเล็กน้อย:</strong> เพื่อให้ร่างกายได้พักฟื้นช่วงสั้นๆ
+        ในขณะที่ยังคงเคลื่อนที่ไปข้างหน้าอย่างรวดเร็ว</li></ol><h4>กลยุทธ์ในช่วงชันมาก</h4><p>เมื่อความชันเพิ่มขึ้น (เช่น จาก 5% → 10%) สิ่งที่ควรหลีกเลี่ยง:</p><ul><li>❌ เร่งกระชากเพื่อให้ "พ้นช่วงชันไปเร็วๆ" → จะทำให้ใช้ W' จนหมดและหมดแรงในภายหลัง</li><li>✅ รักษาพละกำลังเป้าหมายไว้คงที่ → ความเร็วจะตกลงตามธรรมชาติ แต่ระดับความพยายามยังคงอยู่ในเกณฑ์ที่รักษาไว้ได้
+      </li></ul><h3>การยืนปั่น vs. การนั่งปั่น</h3><h4>การนั่งปั่น (ท่ามาตรฐาน)</h4><p><strong>ข้อดี:</strong></p><ul><li>แอโรไดนามิกดีกว่า</li><li>อัตราการเต้นของหัวใจต่ำกว่า (~5-10 bpm)</li><li>รักษาไว้ได้นานต่อเนื่อง</li></ul><p><strong>ข้อเสีย:</strong></p><ul><li>อาจรู้สึก "อึดอัด" ในช่วงที่ชันมากๆ</li><li>กล้ามเนื้อแฮมสตริง/ก้น อาจล้าจากการไต่เขายาวๆ</li></ul><h4>การยืนปั่น (เชิงกลยุทธ์)</h4><p><strong>ข้อดี:</strong></p><ul><li>ใช้กล้ามเนื้อกลุ่มอื่นร่วมด้วย (หน้าขา, น่อง, แกนกลางลำตัว)</li><li>ช่วยให้ร่างกายได้ยืดเส้นยืดสาย เลือดไหลเวียนได้ดีขึ้น</li><li>สามารถสร้างพละกำลังชั่วขณะได้สูงกว่า (จังหวะเข้าทำ, เนินชันสั้นๆ)</li></ul><p><strong>ข้อเสีย:</strong></p><ul><li>ต้องการพละกำลังสูงกว่า 5-10 วัตต์ เพื่อรักษาความเร็วเดิม (เนื่องจากไม่แอโร)</li><li>อัตราการเต้นของหัวใจสูงขึ้น</li><li>รักษาไว้ได้ไม่นาน</li></ul><p><strong>แนวทางปฏิบัติที่ดีที่สุด:</strong> นั่งปั่นเป็นส่วนใหญ่ของการไต่เขา ยืนปั่นสั้นๆ (15-30 วินาที) ทุกๆ 3-5
+      นาที เพื่อ:</p><ul><li>ลดแรงกดทับที่กระดูกรองนั่ง</li><li>ยืดกล้ามเนื้อสะโพกและหลังส่วนล่าง</li><li>ใช้งานกลุ่มกล้ามเนื้อใหม่ๆ ที่ยังไม่ล้า</li></ul><div class="callout callout-warning"><h3>⚠️ ข้อผิดพลาดที่พบบ่อยในการคุมจังหวะ</h3><ul><li><strong>เริ่มต้นหนักเกินไป:</strong> ช่วงแรกของเขาปั่นที่ 110% ของพละกำลังที่รักษาได้ →
+          รับประกันว่าหมดแรงแน่นอน</li><li><strong>เร่งส่งในช่วงชัน:</strong> แม้จะรู้สึกว่าจำเป็น แต่จะทำลาย W' เร็วกว่าประโยชน์ที่ได้รับ</li><li><strong>ยืนปั่นมากเกินไป:</strong> การใช้พลังงานเพิ่มขึ้น 5-10 วัตต์ จะสะสมเป็นความเมื่อยล้าในการไต่เขา
+          30-60 นาที</li><li><strong>ละเลยการเปลี่ยนแปลงความชัน:</strong> ให้รักษาพละกำลังเป้าหมาย ไม่ใช่รักษาความเร็วเป้าหมาย</li></ul></div></section><section id="training-for-climbing"><h2>การฝึกซ้อมเพื่อพัฒนาการไต่เขา</h2><p>การพัฒนาการไต่เขามาจาก 3 ด้านหลัก: การเพิ่มค่า FTP, การลดน้ำหนักส่วนเกิน
+      และการสร้างความทนทานของกล้ามเนื้อที่เฉพาะเจาะจง</p><h3>1. การสร้างฐานแอโรบิก (Zone 2)</h3><p>การปั่นยาวๆ อย่างมั่นคงที่ 60-70% ของ FTP จะช่วยพัฒนา:</p><ul><li>ความหนาแน่นของไมโทคอนเดรีย (Mitochondrial density)</li><li>เครือข่ายหลอดเลือดฝอย (Capillary network)</li><li>การสลายไขมัน (ช่วยประหยัดไกลโคเจนในการไต่เขายาวๆ)</li></ul><p><strong>เป้าหมายปริมาณการซ้อม:</strong> 70-80% ของเวลาฝึกซ้อมรายสัปดาห์ควรอยู่ใน Zone 2
+      สำหรับนักปั่นสายเน้นความทนทาน ดูเพิ่มเติมที่ <a href="/th/training-zones/">คู่มือโซนการฝึกซ้อม</a></p><h3>2. การฝึกช่วงเทรชโฮลด์ (Threshold Intervals - Zone 4)</h3><p>สร้าง FTP ด้วยการออกแรงระดับเทรชโฮลด์อย่างต่อเนื่อง:</p><div class="workout-box"><h4>ตัวอย่างการซ้อม Threshold</h4><p><strong>3 × 12 นาที @ 95-100% ของ FTP (พัก 5 นาที)</strong></p><p>ควรฝึกบนเขาเมื่อเป็นไปได้เพื่อจำลองสถานการณ์จริง เน้นการใช้พละกำลังให้คงที่ตลอดช่วงการฝึก</p><p><strong>ความถี่:</strong> 1-2 ครั้งต่อสัปดาห์ในช่วงสร้างกล้ามเนื้อ (Build phase)</p></div><h3>3. การฝึกซ้ำระดับ VO2max (Zone 5)</h3><p>การฝึกช่วงสั้นและหนักเพื่อขยายเพดานแอโรบิกของคุณ:</p><div class="workout-box"><h4>ตัวอย่างการซ้อม VO2max</h4><p><strong>5 × 4 นาที @ 110-120% ของ FTP (พัก 4 นาที)</strong></p><p>การฝึกนี้จะรู้สึกเหนื่อยมาก—แต่หัวใจสำคัญคือการขยายขีดจำกัด การฝึก VO2max เป็นกุญแจสำคัญในการยกชิพ FTP
+        ในระยะยาว</p><p><strong>ความถี่:</strong> 1 ครั้งต่อสัปดาห์ในช่วงสร้างหรือช่วงพีค (Build/Peak phase)</p></div><h3>4. การไต่เขายาว (จำลองการแข่งขัน)</h3><p>ฝึกฝนการคุมจังหวะบนการไต่เขาที่ยาวต่อเนื่อง:</p><div class="workout-box"><h4>ตัวอย่างการไต่เขายาว</h4><p><strong>2 × 30-40 นาที @ FTP บนเขาที่ชันปานกลาง (พัก 15 นาที)</strong></p><p>เป้าหมาย: เรียนรู้การคุมจังหวะให้คงที่, จัดการเรื่องโภชนาการ,
+        และรักษาความรู้สึกสบายในท่าทางการไต่เขาเป็นระยะเวลานาน</p><p><strong>ความถี่:</strong> 1 ครั้งต่อสัปดาห์ในช่วงเตรียมตัวเฉพาะเจาะจง</p></div><h3>5. การจัดการน้ำหนักตัว</h3><p>ลดไขมันส่วนเกินส่วนเกินอย่างมีกลยุทธ์:</p><ul><li><strong>เป้าหมาย:</strong> สูงสุดไม่เกิน 0.25-0.5 กก. ต่อสัปดาห์</li><li><strong>วิธีการ:</strong> ปรับลดแคลอรีสะสม 300-500 แคลอรีต่อวัน</li><li><strong>โปรตีน:</strong> รักษาพิกัด 1.6-2.2 กรัม/น้ำหนักตัว 1 กก. เพื่อรักษามาลกล้ามเนื้อ</li><li><strong>ช่วงเวลา:</strong> ควรลดน้ำหนักในช่วงพื้นฐาน (Base) หรือช่วงสร้าง (Build)
+        ไม่ควรทำในช่วงแข่งขันหรือช่วงพีค</li></ul><p><strong>คำเตือน:</strong> อย่าพยายามทำให้ตัวผอมแห้งจนเกินไป สมรรถนะจะเริ่มคงที่หรือตกลงเมื่อไขมันในร่างกายต่ำกว่า
+      ~8% (ผู้ชาย) หรือ ~12% (ผู้หญิง)</p><div class="callout callout-science"><h3>🔬 กรอบเวลาการปรับตัวจากการฝึกซ้อม</h3><ul><li><strong>4-8 สัปดาห์:</strong> ระบบประสาทและกล้ามเนื้อพัฒนาขี้น, คุมจังหวะได้ดีขึ้น</li><li><strong>8-12 สัปดาห์:</strong> ระดับแลคเตทเทรชโฮลด์สูงขึ้น, FTP เพิ่มขึ้น 5-10%</li><li><strong>12-16 สัปดาห์:</strong> ความจุแอโรบิก (VO2max) พัฒนาขึ้น</li><li><strong>16-24 สัปดาห์:</strong> การปรับตัวของไมโทคอนเดรียขนานใหญ่, ความประหยัดในการไต่เขาดีขึ้น</li></ul><p>การฝึกซ้อมอย่างสม่ำเสมอเกิน 6 เดือนขึ้นไป = ผลลัพธ์ที่ยิ่งใหญ่ที่สุด ไม่มีทางลัดในเรื่องนี้</p></div></section><section id="famous-climbs"><h2>การไต่เขาระดับตำนาน: การวิเคราะห์สมรรถนะ</h2><p>การวิเคราะห์ผลงานของโปรบนภูเขาที่เป็นไอคอนเผยให้เห็นว่า W/kg ในทางปฏิบัตินั้นเป็นอย่างไร</p><h3>Alpe d'Huez</h3><ul><li><strong>ระยะทาง:</strong> 13.8 กม.</li><li><strong>ความสูงที่ไต่ได้:</strong> 1100 เมตร</li><li><strong>ความชันเฉลี่ย:</strong> 8.1%</li><li><strong>21 โค้งหักศอก</strong></li></ul><table class="data-table"><thead><tr><th>นักปั่น / ระดับ</th><th>เวลา</th><th>W/kg โดยประมาณ</th><th>VAM</th></tr></thead><tbody><tr><td><strong>Marco Pantani (สถิติปี 1997)</strong></td><td>37:35</td><td>~6.7</td><td>~1750</td></tr><tr><td><strong>ผู้ชนะ World Tour</strong></td><td>39-42 นาที</td><td>6.0-6.3</td><td>1570-1690</td></tr><tr><td><strong>ผู้ท้าชิง GC World Tour</strong></td><td>42-45 นาที</td><td>5.5-6.0</td><td>1470-1570</td></tr><tr><td><strong>มือสมัครเล่นชั้นนำ</strong></td><td>50-55 นาที</td><td>4.5-5.0</td><td>1200-1320</td></tr><tr><td><strong>มือสมัครเล่นที่แข็งแกร่ง</strong></td><td>60-70 นาที</td><td>3.5-4.0</td><td>940-1100</td></tr></tbody></table><h3>Mont Ventoux</h3><ul><li><strong>ระยะทาง:</strong> 21.5 กม. (จาก Bédoin)</li><li><strong>ความสูงที่ไต่ได้:</strong> 1600 เมตร</li><li><strong>ความชันเฉลี่ย:</strong> 7.5%</li><li><strong>6 กม. สุดท้าย:</strong> เปิดโล่ง มักมีลมแรง</li></ul><table class="data-table"><thead><tr><th>นักปั่น / ระดับ</th><th>เวลา</th><th>W/kg โดยประมาณ</th><th>VAM</th></tr></thead><tbody><tr><td><strong>Iban Mayo (สถิติปี 2004)</strong></td><td>55:51</td><td>~6.6</td><td>~1720</td></tr><tr><td><strong>นักปั่น GC World Tour</strong></td><td>58-62 นาที</td><td>6.0-6.2</td><td>1550-1655</td></tr><tr><td><strong>มือสมัครเล่นชั้นนำ</strong></td><td>70-80 นาที</td><td>4.8-5.2</td><td>1200-1370</td></tr><tr><td><strong>มือสมัครเล่นที่แข็งแกร่ง</strong></td><td>90-100 นาที</td><td>3.8-4.2</td><td>960-1065</td></tr></tbody></table><h3>Col du Tourmalet</h3><ul><li><strong>ระยะทาง:</strong> 18.8 กม. (จาก Luz-Saint-Sauveur)</li><li><strong>ความสูงที่ไต่ได้:</strong> 1400 เมตร</li><li><strong>ความชันเฉลี่ย:</strong> 7.5%</li><li><strong>ช่องเขาลาดยางที่สูงที่สุดในเทือกเขาพีเรนีส</strong> (ความสูง 2115 เมตร)</li></ul><p><strong>ผลงานระดับโปร:</strong> 50-55 นาที (~6.0-6.3 W/kg, 1530-1680 VAM)
+      ความสูงมีผลต่อเวลาเหล่านี้—อากาศที่เบาบางลงทำให้พละกำลังลดลงประมาณ 5-8%</p><div class="callout callout-tip"><h3>💡 การใช้เกณฑ์มาตรฐานการไต่เขา</h3><p>ค้นหาเขาเป้าหมายของคุณ (ในท้องถิ่นหรือที่มีชื่อเสียง) ทดสอบตัวคุณเองที่ระดับความพยายามสูงสุดที่รักษาได้
+        เปรียบเทียบเวลาของคุณกับเกณฑ์มาตรฐานเพื่อประมาณระดับ W/kg ปัจจุบันของคุณ:</p><ol><li>บันทึกเวลาที่ใช้, ความสูงที่ไต่ได้, ความชัน</li><li>คำนวณ VAM: (ความสูงที่ไต่ได้ / เวลาเป็นชั่วโมง)</li><li>ประมาณค่า W/kg: VAM / [100 × (ความชัน% + 3)]</li><li>เปรียบเทียบกับเกณฑ์มาตรฐานข้างต้น</li></ol><p>ทดสอบซ้ำทุก 8-12 สัปดาห์เพื่อติดตามความก้าวหน้า!</p></div></section><section id="faq"><h2>คำถามที่พบบ่อย (เพิ่มเติม)</h2><div class="faq-item"><h3>อะไรสำคัญกว่าสำหรับการขึ้นเขา: การลดน้ำหนักหรือการเพิ่มพละกำลัง?</h3><p>ทั้งคู่ช่วยปรับปรุง W/kg แต่บริบทมีความสำคัญ หากคุณมีไขมันส่วนเกิน (>15% สำหรับชาย, >22% สำหรับหญิง) การลดไขมัน
         2-5 กก. ในขณะที่รักษาพละกำลังคือหนทางที่เร็วที่สุดในการพัฒนา หากรูปร่างผอมเพรียวอยู่แล้ว ให้เน้นสร้าง FTP
-        ผ่านการฝึกซ้อมแบบมีโครงสร้าง การสูญเสียกล้ามเนื้อเพื่อไล่ตามน้ำหนักเป็นผลเสีย</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>ระดับความสูงส่งผลต่อสมรรถนะการขึ้นเขาอย่างไร?</h3>
-      <p>ที่ความสูง 2,000 ม. คาดว่าพละกำลังที่รักษาได้จะลดลง ~5-8% เนื่องจากออกซิเจนต่ำลง อย่างไรก็ตาม
+        ผ่านการฝึกซ้อมแบบมีโครงสร้าง การสูญเสียกล้ามเนื้อเพื่อไล่ตามน้ำหนักเป็นผลเสีย</p></div><div class="faq-item"><h3>ระดับความสูงส่งผลต่อสมรรถนะการขึ้นเขาอย่างไร?</h3><p>ที่ความสูง 2,000 ม. คาดว่าพละกำลังที่รักษาได้จะลดลง ~5-8% เนื่องจากออกซิเจนต่ำลง อย่างไรก็ตาม
         อากาศที่เบาบางจะช่วยลดแรงต้านอากาศเล็กน้อย (~2%) ผลลัพธ์สุทธิ: การขึ้นเขาช้าลงที่ความสูง การปรับตัว (7-14 วัน)
-        จะช่วยฟื้นฟูสมรรถนะได้บางส่วน</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>ควรยืนหรือนั่งเมื่อขึ้นเขา?</h3>
-      <p>นั่งเป็นส่วนใหญ่ (มีประสิทธิภาพมากกว่า, ใช้แรงน้อยกว่า) ยืนช่วงสั้นๆ ทุก 3-5 นาที (15-30 วินาที)
+        จะช่วยฟื้นฟูสมรรถนะได้บางส่วน</p></div><div class="faq-item"><h3>ควรยืนหรือนั่งเมื่อขึ้นเขา?</h3><p>นั่งเป็นส่วนใหญ่ (มีประสิทธิภาพมากกว่า, ใช้แรงน้อยกว่า) ยืนช่วงสั้นๆ ทุก 3-5 นาที (15-30 วินาที)
         เพื่อยืดเส้นยืดสาย, ลดแรงกดทับ, และใช้กล้ามเนื้อที่แตกต่างกัน การยืนต่อเนื่องจะใช้พลังงานเพิ่มขึ้น 5-10 วัตต์
-        และไม่สามารถทำได้นานในระยะยาว</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>W/kg ที่ดีสำหรับการแข่งสมัครเล่นคือเท่าไหร่?</h3>
-      <p>3.5-4.0 W/kg สามารถแข่งขันได้ในระดับท้องถิ่น 4.0-4.5 W/kg สามารถชนะการแข่งท้องถิ่นและทำอันดับดีในระดับภูมิภาค
+        และไม่สามารถทำได้นานในระยะยาว</p></div><div class="faq-item"><h3>W/kg ที่ดีสำหรับการแข่งสมัครเล่นคือเท่าไหร่?</h3><p>3.5-4.0 W/kg สามารถแข่งขันได้ในระดับท้องถิ่น 4.0-4.5 W/kg สามารถชนะการแข่งท้องถิ่นและทำอันดับดีในระดับภูมิภาค
         4.5-5.0 W/kg คือระดับ Cat 1/2 สูงกว่า 5.0 W/kg เข้าสู่เขตแดนของมือสมัครเล่นชั้นนำ / กึ่งอาชีพ บริบท: นี่คือค่า
-        FTP ที่รักษาได้เป็นเวลา 20-60 นาที</p>
-    </div>
-    <section id="climbing-faq">
-      <h2>คำถามที่พบบ่อย (FAQ)</h2>
-
-      <div class="faq-item">
-        <h3>จักรยานที่เบากว่ามักจะเร็วกว่าเสมอไปหรือไม่?</h3>
-        <p>บนเขาที่ชันมาก (>8%) น้ำหนักมีความสำคัญที่สุด จักรยานที่เบากว่า 1 กก. จะช่วยประหยัดเวลาได้ประมาณ 1
+        FTP ที่รักษาได้เป็นเวลา 20-60 นาที</p></div><section id="climbing-faq"><h2>คำถามที่พบบ่อย (FAQ)</h2><div class="faq-item"><h3>จักรยานที่เบากว่ามักจะเร็วกว่าเสมอไปหรือไม่?</h3><p>บนเขาที่ชันมาก (>8%) น้ำหนักมีความสำคัญที่สุด จักรยานที่เบากว่า 1 กก. จะช่วยประหยัดเวลาได้ประมาณ 1
           วินาทีต่อการไต่ความสูงทุกๆ 20 เมตร อย่างไรก็ตาม ในการไต่เขาแบบสลับทางราบหรือความชันน้อย
-          แอโรไดนามิกของจักรยานอาจมีความสำคัญมากกว่าน้ำหนักเล็กน้อย</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>ควรทดสอบค่า W/kg บ่อยแค่ไหน?</h3>
-        <p>แนะนำให้ทดสอบทุก 8-12 สัปดาห์ หรือหลังจากจบช่วงการฝึกซ้อม (Block) สำคัญๆ
-          เพื่อวัดความก้าวหน้าและปรับโซนการฝึกซ้อมของคุณ</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>ความยาวขาจานส่งผลต่อการไต่เขาหรือไม่?</h3>
-        <p>งานวิจัยส่วนใหญ่พบว่าพละกำลังสูงสุดไม่เปลี่ยนแปลงตามความยาวขาจาน (165 มม. ถึง 175 มม.) อย่างไรก็ตาม
-          ขาจานที่สั้นกว่าอาจช่วยให้รักษารอบขาได้ง่ายขึ้นเมื่อปั่นในท่าทางที่ก้มต่ำ (Aggressive) บนทางชัน</p>
-      </div>
-    </section>
-
-    <section id="practical-resources" class="resources-section">
-      <h2>แหล่งข้อมูลที่เป็นประโยชน์สำหรับการไต่เขา</h2>
-      <div class="resource-grid">
-        <a href="#vam-to-watts" class="resource-card">
-          <h3>เครื่องคำนวณความเร็วในการไต่เขา</h3>
-          <p>ประมาณเวลาในการไต่เขาตามพละกำลังและน้ำหนักของคุณ</p>
-        </a>
-        <a href="#vam" class="resource-card">
-          <h3>เครื่องมือประมาณค่า VAM</h3>
-          <p>คำนวณอัตราการไต่ความสูงของคุณจากข้อมูลการปั่นจริง</p>
-        </a>
-        <a href="/th/training-zones/" class="resource-card">
-          <h3>คู่มือการคุมจังหวะตามความชัน</h3>
-          <p>ปรับพละกำลังเป้าหมายของคุณตามความชันของภูเขา</p>
-        </a>
-      </div>
-    </section>
-
-    <footer class="content-footer">
-      <div class="footer-note">
-        <p><strong>การวิเคราะห์ข้อมูลอย่างต่อเนื่อง:</strong> สมรรถนะการไต่เขาเป็นทักษะที่ต้องใช้เวลาในการพัฒนา
+          แอโรไดนามิกของจักรยานอาจมีความสำคัญมากกว่าน้ำหนักเล็กน้อย</p></div><div class="faq-item"><h3>ควรทดสอบค่า W/kg บ่อยแค่ไหน?</h3><p>แนะนำให้ทดสอบทุก 8-12 สัปดาห์ หรือหลังจากจบช่วงการฝึกซ้อม (Block) สำคัญๆ
+          เพื่อวัดความก้าวหน้าและปรับโซนการฝึกซ้อมของคุณ</p></div><div class="faq-item"><h3>ความยาวขาจานส่งผลต่อการไต่เขาหรือไม่?</h3><p>งานวิจัยส่วนใหญ่พบว่าพละกำลังสูงสุดไม่เปลี่ยนแปลงตามความยาวขาจาน (165 มม. ถึง 175 มม.) อย่างไรก็ตาม
+          ขาจานที่สั้นกว่าอาจช่วยให้รักษารอบขาได้ง่ายขึ้นเมื่อปั่นในท่าทางที่ก้มต่ำ (Aggressive) บนทางชัน</p></div></section><section id="practical-resources" class="resources-section"><h2>แหล่งข้อมูลที่เป็นประโยชน์สำหรับการไต่เขา</h2><div class="resource-grid"><a href="#vam-to-watts" class="resource-card"><h3>เครื่องคำนวณความเร็วในการไต่เขา</h3><p>ประมาณเวลาในการไต่เขาตามพละกำลังและน้ำหนักของคุณ</p></a><a href="#vam" class="resource-card"><h3>เครื่องมือประมาณค่า VAM</h3><p>คำนวณอัตราการไต่ความสูงของคุณจากข้อมูลการปั่นจริง</p></a><a href="/th/training-zones/" class="resource-card"><h3>คู่มือการคุมจังหวะตามความชัน</h3><p>ปรับพละกำลังเป้าหมายของคุณตามความชันของภูเขา</p></a></div></section><footer class="content-footer"><div class="footer-note"><p><strong>การวิเคราะห์ข้อมูลอย่างต่อเนื่อง:</strong> สมรรถนะการไต่เขาเป็นทักษะที่ต้องใช้เวลาในการพัฒนา
           การติดตามค่า VAM และ W/kg อย่างสม่ำเสมอจะช่วยให้คุณเห็นแนวโน้มการพัฒนาที่ชัดเจนกว่าการดูเพียงสถิติจากทริปเดียว
-        </p>
-      </div>
-      <nav class="article-nav">
-        <a href="/th/about/" class="nav-link">เกี่ยวกับ AnalyticsZone</a>
-        <a href="/th/bibliography/" class="nav-link">วิทยาศาสตร์และงานวิจัย</a>
-      </nav>
-    </footer>
-</article>
-
-<script type="application/ld+json">
+        </p></div><nav class="article-nav"><a href="/th/about/" class="nav-link">เกี่ยวกับ AnalyticsZone</a><a href="/th/bibliography/" class="nav-link">วิทยาศาสตร์และงานวิจัย</a></nav></footer></article><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -2099,9 +722,7 @@ img[width][height] {
   "datePublished": "2025-01-27",
   "dateModified": "2025-01-27"
 }
-</script>
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -2132,371 +753,177 @@ img[width][height] {
     }
   ]
 }
-</script>
-
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+</script></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link active"
+                </a><a href="/th/" class="lang-link active"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. สงวนลิขสิทธิ์ทั้งหมด
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/th/privacy/">ความเป็นส่วนตัว</a></li>
-                <li><a href="/th/terms/">ข้อกำหนด</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>เว็บไซต์นี้ใช้คุกกี้เพื่อปรับปรุงประสบการณ์ของคุณ</p>
-            <a href="/th/privacy/" class="text-sm">เรียนรู้เพิ่มเติม</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">ปฏิเสธ</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">ยอมรับ</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/th/privacy/">ความเป็นส่วนตัว</a></li><li><a href="/th/terms/">ข้อกำหนด</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>เว็บไซต์นี้ใช้คุกกี้เพื่อปรับปรุงประสบการณ์ของคุณ</p><a href="/th/privacy/" class="text-sm">เรียนรู้เพิ่มเติม</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">ปฏิเสธ</button><button id="cookie-accept" class="btn btn-primary btn-small">ยอมรับ</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="ko" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>페달링 역학: 최적의 페달 스트로크 만들기 - Bike Analytics - Cycling Analytics App |...</title>
-  <meta name="description" content="케이던스, 좌우 밸런스, 토크 유효성 및 페달 부드러움 해설 파워(W)는 사이클링 퍼포먼스의 한 단면일 뿐입니다. 그 파워를 어떻게 만들어내느냐, 즉 페달링 역학은 효율성, 피로 저항력, 그리고 부상 위험을 결정합니다. 같은 250W를 내는 두 라이더라도 케이던스와 페달 스트로크 품질에 따라...">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="pedaling mechanics, cycling cadence, pedal stroke analysis, torque effectiveness, pedal smoothness">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/ko/pedaling-mechanics/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-04T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/ko/pedaling-mechanics/">
-  <meta property="og:title" content="페달링 역학: 최적의 페달 스트로크 만들기 - Bike Analytics - Cycling Analytics App |...">
-  <meta property="og:description" content="케이던스, 좌우 밸런스, 토크 유효성 및 페달 부드러움 해설 파워(W)는 사이클링 퍼포먼스의 한 단면일 뿐입니다. 그 파워를 어떻게 만들어내느냐, 즉 페달링 역학은 효율성, 피로 저항력, 그리고 부상 위험을 결정합니다. 같은 250W를 내는 두 라이더라도 케이던스와 페달 스트로크 품질에 따라...">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="ko_KR">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/ko/pedaling-mechanics/">
-  <meta name="twitter:title" content="페달링 역학: 최적의 페달 스트로크 만들기 - Bike Analytics - Cycling Analytics App |...">
-  <meta name="twitter:description" content="케이던스, 좌우 밸런스, 토크 유효성 및 페달 부드러움 해설 파워(W)는 사이클링 퍼포먼스의 한 단면일 뿐입니다. 그 파워를 어떻게 만들어내느냐, 즉 페달링 역학은 효율성, 피로 저항력, 그리고 부상 위험을 결정합니다. 같은 250W를 내는 두 라이더라도 케이던스와 페달 스트로크 품질에 따라...">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/pedaling-mechanics/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/pedaling-mechanics/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="ko" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>페달링 역학: 최적의 페달 스트로크 만들기 - Bike Analytics - Cycling Analytics App |...</title><meta name="description" content="케이던스, 좌우 밸런스, 토크 유효성 및 페달 부드러움 해설 파워(W)는 사이클링 퍼포먼스의 한 단면일 뿐입니다. 그 파워를 어떻게 만들어내느냐, 즉 페달링 역학은 효율성, 피로 저항력, 그리고 부상 위험을 결정합니다. 같은 250W를 내는 두 라이더라도 케이던스와 페달 스트로크 품질에 따라..."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="pedaling mechanics, cycling cadence, pedal stroke analysis, torque effectiveness, pedal smoothness"><link rel="canonical" href="https://bike.analyticszone.app/ko/pedaling-mechanics/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-01-04T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/ko/pedaling-mechanics/"><meta property="og:title" content="페달링 역학: 최적의 페달 스트로크 만들기 - Bike Analytics - Cycling Analytics App |..."><meta property="og:description" content="케이던스, 좌우 밸런스, 토크 유효성 및 페달 부드러움 해설 파워(W)는 사이클링 퍼포먼스의 한 단면일 뿐입니다. 그 파워를 어떻게 만들어내느냐, 즉 페달링 역학은 효율성, 피로 저항력, 그리고 부상 위험을 결정합니다. 같은 250W를 내는 두 라이더라도 케이던스와 페달 스트로크 품질에 따라..."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/ko/pedaling-mechanics/"><meta name="twitter:title" content="페달링 역학: 최적의 페달 스트로크 만들기 - Bike Analytics - Cycling Analytics App |..."><meta name="twitter:description" content="케이던스, 좌우 밸런스, 토크 유효성 및 페달 부드러움 해설 파워(W)는 사이클링 퍼포먼스의 한 단면일 뿐입니다. 그 파워를 어떻게 만들어내느냐, 즉 페달링 역학은 효율성, 피로 저항력, 그리고 부상 위험을 결정합니다. 같은 250W를 내는 두 라이더라도 케이던스와 페달 스트로크 품질에 따라..."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/pedaling-mechanics/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/pedaling-mechanics/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/pedaling-mechanics/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/pedaling-mechanics/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/pedaling-mechanics/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/pedaling-mechanics/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/pedaling-mechanics/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/pedaling-mechanics/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/pedaling-mechanics/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/pedaling-mechanics/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/pedaling-mechanics/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/pedaling-mechanics/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/pedaling-mechanics/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/pedaling-mechanics/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/pedaling-mechanics/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/pedaling-mechanics/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/pedaling-mechanics/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/pedaling-mechanics/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/pedaling-mechanics/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/pedaling-mechanics/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/pedaling-mechanics/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/pedaling-mechanics/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/pedaling-mechanics/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/pedaling-mechanics/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/pedaling-mechanics/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/pedaling-mechanics/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/pedaling-mechanics/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/pedaling-mechanics/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/pedaling-mechanics/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/pedaling-mechanics/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/pedaling-mechanics/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/pedaling-mechanics/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/pedaling-mechanics/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/pedaling-mechanics/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/pedaling-mechanics/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/pedaling-mechanics/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/pedaling-mechanics/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/pedaling-mechanics/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/pedaling-mechanics/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/pedaling-mechanics/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/pedaling-mechanics/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/pedaling-mechanics/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/pedaling-mechanics/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/pedaling-mechanics/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/pedaling-mechanics/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/pedaling-mechanics/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/pedaling-mechanics/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/pedaling-mechanics/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/pedaling-mechanics/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/pedaling-mechanics/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/pedaling-mechanics/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/pedaling-mechanics/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/pedaling-mechanics/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/pedaling-mechanics/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/pedaling-mechanics/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/pedaling-mechanics/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "ko"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "케이던스, 좌우 밸런스, 토크 유효성 및 페달 부드러움 해설 파워(W)는 사이클링 퍼포먼스의 한 단면일 뿐입니다. 그 파워를 어떻게 만들어내느냐, 즉 페달링 역학은 효율성, 피로 저항력, 그리고 부상 위험을 결정합니다. 같은 250W를 내는 두 라이더라도 케이던스와 페달 스트로크 품질에 따라...",
   "url": "https://bike.analyticszone.app/ko/pedaling-mechanics/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -653,17 +435,7 @@ img[width][height] {
     "@id": "https://bike.analyticszone.app/ko/pedaling-mechanics/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1175 +449,372 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">콘텐츠로 건너뛰기</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/ko/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/ko/" 
+  </script></head><body><a href="#main-content" class="skip-link">콘텐츠로 건너뛰기</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/ko/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/ko/" 
                                 aria-current="">
                                 홈
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ko/getting-started/" class="nav-label">학습</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ko/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/ko/getting-started/" class="nav-label">학습</a><ul class="submenu"><li><a href="/ko/getting-started/" 
                                         aria-current="">
                                         시작하기
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/ftp/" 
+                                    </a></li><li><a href="/ko/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/critical-power/" 
+                                    </a></li><li><a href="/ko/critical-power/" 
                                         aria-current="">
                                         크리티컬 파워
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/training-zones/" 
+                                    </a></li><li><a href="/ko/training-zones/" 
                                         aria-current="">
                                         훈련 존
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/training-load/" 
+                                    </a></li><li><a href="/ko/training-load/" 
                                         aria-current="">
                                         훈련 부하
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/tss-calculator/" 
+                                    </a></li><li><a href="/ko/tss-calculator/" 
                                         aria-current="">
                                         TSS 계산기
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ko/research/" class="nav-label">과학</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ko/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/ko/research/" class="nav-label">과학</a><ul class="submenu"><li><a href="/ko/research/" 
                                         aria-current="">
                                         연구
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/formulas/" 
+                                    </a></li><li><a href="/ko/formulas/" 
                                         aria-current="">
                                         공식
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/power-metrics/" 
+                                    </a></li><li><a href="/ko/power-metrics/" 
                                         aria-current="">
                                         파워 지표
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/efficiency/" 
+                                    </a></li><li><a href="/ko/efficiency/" 
                                         aria-current="">
                                         효율성
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/pedaling-mechanics/" class="active" 
+                                    </a></li><li><a href="/ko/pedaling-mechanics/" class="active" 
                                         aria-current="page">
                                         페달링 메카닉
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/aerodynamics/" 
+                                    </a></li><li><a href="/ko/aerodynamics/" 
                                         aria-current="">
                                         에어로다이내믹스
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/climbing-performance/" 
+                                    </a></li><li><a href="/ko/climbing-performance/" 
                                         aria-current="">
                                         클라이밍 퍼포먼스
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/bibliography/" 
+                                    </a></li><li><a href="/ko/bibliography/" 
                                         aria-current="">
                                         참고문헌
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ko/road-cycling/" class="nav-label">분야</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ko/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/ko/road-cycling/" class="nav-label">분야</a><ul class="submenu"><li><a href="/ko/road-cycling/" 
                                         aria-current="">
                                         로드 사이클링
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/mountain-biking/" 
+                                    </a></li><li><a href="/ko/mountain-biking/" 
                                         aria-current="">
                                         산악자전거
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/road-vs-mtb/" 
+                                    </a></li><li><a href="/ko/road-vs-mtb/" 
                                         aria-current="">
                                         로드 vs MTB
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/comparisons/" 
+                                    </a></li><li><a href="/ko/comparisons/" 
                                         aria-current="">
                                         플랫폼 비교
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/ko/contact/" 
+                                    </a></li></ul></li><li><a href="/ko/contact/" 
                                 aria-current="">
                                 문의
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="언어 선택">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="언어 선택"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" selected>
+                        </option><option value="ko" selected>
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="메뉴 토글"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/ko/">홈</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/ko/research/">과학</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">페달링 메카닉</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-    <section class="page-hero">
-    <div class="container">
-        <h1>페달링 역학: 최적의 페달 스트로크 만들기</h1>
-        <p class="lead">케이던스, 좌우 밸런스, 토크 유효성 및 페달 부드러움 해설</p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>왜 페달링 역학이 중요한가요?</h2>
-        <p>파워(W)는 사이클링 퍼포먼스의 한 단면일 뿐입니다. 그 파워를 <em>어떻게</em> 만들어내느냐, 즉 페달링 역학은 효율성, 피로 저항력, 그리고 부상 위험을 결정합니다. 같은 250W를 내는
-            두 라이더라도 케이던스와 페달 스트로크 품질에 따라 신체가 느끼는 부담은 천차만별입니다.</p>
-
-        <p>최신 파워미터는 단순한 와트 수치 그 이상을 측정합니다. <strong>좌우 밸런스</strong>, <strong>토크 유효성(TE)</strong>, <strong>페달
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="메뉴 토글"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/ko/">홈</a></li><li><a href="/ko/research/">과학</a></li><li><span aria-current="page">페달링 메카닉</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>페달링 역학: 최적의 페달 스트로크 만들기</h1><p class="lead">케이던스, 좌우 밸런스, 토크 유효성 및 페달 부드러움 해설</p></div></section><section class="section"><div class="container container-narrow"><h2>왜 페달링 역학이 중요한가요?</h2><p>파워(W)는 사이클링 퍼포먼스의 한 단면일 뿐입니다. 그 파워를 <em>어떻게</em> 만들어내느냐, 즉 페달링 역학은 효율성, 피로 저항력, 그리고 부상 위험을 결정합니다. 같은 250W를 내는
+            두 라이더라도 케이던스와 페달 스트로크 품질에 따라 신체가 느끼는 부담은 천차만별입니다.</p><p>최신 파워미터는 단순한 와트 수치 그 이상을 측정합니다. <strong>좌우 밸런스</strong>, <strong>토크 유효성(TE)</strong>, <strong>페달
                 부드러움(PS)</strong>과 같은 지표들은 여러분의 퍼포먼스를 제한하는 비효율적인 움직임이나 비대칭성을 찾아내 줍니다. 이러한 지표를 이해하면 더 효율적이고 지속 가능한 페달링을
-            완성할 수 있습니다.</p>
-
-        <div class="info-box">
-            <h3>핵심 페달링 지표:</h3>
-            <ul>
-                <li><strong>케이던스 (Cadence):</strong> 분당 페달 회전수 (RPM)</li>
-                <li><strong>좌우 밸런스 (L/R Balance):</strong> 양쪽 다리의 파워 분배 비율 (%)</li>
-                <li><strong>토크 유효성 (TE):</strong> 페달 스트로크 중 추진력에 기여한 비율</li>
-                <li><strong>페달 부드러움 (PS):</strong> 페달링 중 평균 파워와 최대 파워의 비율</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="mb-xl text-center">케이던스 최적화: 나만의 리듬 찾기</h2>
-        <p class="text-center mb-xl"><strong>케이던스</strong>는 사이클링 기술에서 가장 기본적이면서도 논쟁이 많은 주제 중 하나입니다.</p>
-
-        <div class="table-responsive">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>주행 상황</th>
-                        <th>일반적인 케이던스 (RPM)</th>
-                        <th>특징</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>로드 사이클링 (평지)</strong></td>
-                        <td>85 - 95 RPM</td>
-                        <td>근육과 심혈관계 부하의 가장 이상적인 균형</td>
-                    </tr>
-                    <tr>
-                        <td><strong>오르막 (중간 경사)</strong></td>
-                        <td>70 - 85 RPM</td>
-                        <td>부하가 늘어남에 따라 자연스럽게 회전수 감소</td>
-                    </tr>
-                    <tr>
-                        <td><strong>급경사 (8% 이상)</strong></td>
-                        <td>60 - 75 RPM</td>
-                        <td>높은 토크가 필요하며 근육 부담이 커짐</td>
-                    </tr>
-                    <tr>
-                        <td><strong>스프린트 / 가속</strong></td>
-                        <td>110 - 130+ RPM</td>
-                        <td>단시간에 최대 파워를 뽑아내기 위한 고회전</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="grid grid-2 mt-xl">
-            <div class="card">
-                <h3>⬇️ 낮은 케이던스 (65-75 RPM)</h3>
-                <ul>
-                    <li><strong>토크 중심:</strong> 한 번 밟을 때 강한 힘을 사용</li>
-                    <li>근육(대퇴사두근, 둔근) 자극과 피로도가 높음</li>
-                    <li>상대적으로 심박수와 호흡 부담은 적음</li>
-                    <li>단시간의 강력한 파워에 유리</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>⬆️ 높은 케이던스 (95-105 RPM)</h3>
-                <ul>
-                    <li><strong>회전 중심:</strong> 가벼운 힘으로 빠르게 회전</li>
-                    <li>근육의 피로도를 줄이고 심혈관계 자극이 높음</li>
-                    <li>장거리 endurance 라이딩에 유리</li>
-                    <li>다리의 데미지를 최소화하여 지속성 향상</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>좌우 파워 밸런스 (L/R Balance)</h2>
-        <p>이 지표는 양쪽 다리가 파워를 얼마나 균등하게 나누어 내는지를 보여줍니다. (예: 52/48은 왼쪽 다리가 전체 파워의 52%를 담당함을 의미)</p>
-
-        <div class="callout callout-info">
-            <h3>어느 정도가 정상인가요?</h3>
-            <p><strong>48/52 ~ 52/48 비율</strong>은 매우 우수한 밸런스로 간주됩니다. 완벽한 50/50은 거의 불가능하며, 약 2~4% 내외의 차이는 신체적
-                우세성(Dominance)에 따른 자연스러운 현상입니다.</p>
-        </div>
-
-        <h3>불균형의 원인과 대처</h3>
-        <ul>
-            <li><strong>피로 축적:</strong> 라이딩 후반부로 갈수록 더 잘 쓰는 다리가 힘을 더 쓰게 되면서 불균형이 커질 수 있습니다.</li>
-            <li><strong>부상 이력:</strong> 과거의 부상으로 인해 한쪽 근력이 약화한 경우입니다. 보강 운동을 통해 근력을 회복해야 합니다.</li>
-            <li><strong>바이크 피팅:</strong> 안장 높이나 클릿 위치가 비대칭일 때 발생할 수 있으므로, 지속해서 55/45 이상의 불균형이 나타난다면 피팅을 점검하세요.</li>
-        </ul>
-    </div>
-</section>
-
-<section class="section section-gray">
-    <div class="container container-narrow">
-        <h2>토크 유효성(TE)과 페달 부드러움(PS)</h2>
-        <p>상급 라이더가 되기 위해서는 파워를 내는 '순간'뿐만 아니라, 페달이 돌아가는 360도 전 구간의 효율성을 높여야 합니다.</p>
-
-        <div class="grid grid-2">
-            <div>
-                <h3>토크 유효성 (Torque Effectiveness)</h3>
-                <p>페달을 누르는 힘(정토크) 대비 방해가 되는 힘(부토크)을 뺀 비율입니다. 반대쪽 다리가 올라올 때 무게를 죽이지 않고 가볍게 들어주면 TE 수치가 높아지며, 일반적인 동호인은
-                    80~90% 수준을 유지합니다.</p>
-            </div>
-            <div>
-                <h4>페달 부드러움 (Pedal Smoothness)</h4>
-                <p>페달 스트로크 중 가장 강하게 밟는 지점과 그렇지 않은 지점의 차이가 적을수록(즉, 원형에 가까운 페달링일수록) 수치가 높게 나옵니다. 보통 20~40% 사이의 값을 나타냅니다.
-                </p>
-            </div>
-        </div>
-
-        <div class="callout callout-tip mt-lg">
-            <h3>💡 페달링 효율을 높이는 훈련</h3>
-            <p><strong>외발 페달링(Single-leg drill):</strong> 평롤러나 실내 트레이너에서 한쪽 발을 빼고 다른 한 발로만 페달링 해보세요. 페달이 툭툭 끊기지 않고 매끄럽게
-                돌아가도록 집중하면 사점(Dead spot)을 없애는 데 큰 도움이 됩니다.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>클릿 페달 vs 평페달</h2>
-        <p>신발과 페달을 고정하는 클릿 페달은 효율성 측면에서 확실한 이점이 있습니다.</p>
-
-        <div class="grid grid-2">
-            <div class="card">
-                <h3>🔒 클릿 페달 (Clipless)</h3>
-                <ul>
-                    <li><strong>1-3% 정도의 효율 향상:</strong> 업스트로크 시 끌어당기는 힘 활용 가능</li>
-                    <li>발이 최적의 위치에 고정되어 일관된 파워 전달</li>
-                    <li>고속 케이던스 및 댄싱 시 안정성 확보</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>👟 평페달 (Platform)</h3>
-                <ul>
-                    <li>별도의 전용 신발이 필요 없어 편리함</li>
-                    <li>기술적 지형이나 비상 상황에서 발을 떼기 쉬움(안전)</li>
-                    <li>초보자가 라이딩의 즐거움을 느끼기에 적절함</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>자주 묻는 질문 (FAQ)</h2>
-
-        <div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">가장 이상적인 케이던스는 몇인가요?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>정답은 없습니다. 하지만 많은 연구에 따르면 효율적인 범위는 분당 85~95회(RPM)입니다. 본인이 편안하게 느끼는 케이던스가 자신의 엔진 특성에 맞는 최적일
-                            가능성이 큽니다.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">좌우 밸런스 차이가 많이 나는데 걱정해야 하나요?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>54:46 정도까지는 일반적인 수준입니다. 하지만 차이가 10% 이상 벌어지고 통증이 동반된다면 피팅 전문가를 찾아 체형 불균형이나 자세 문제인지를 확인해보는 것이
-                            좋습니다.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">페달링 효율을 높이는 가장 간단한 방법은?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>단순히 강하게 밟는 것보다 '원을 그리며 돌린다'는 이미지를 가지세요. 신발에 묻은 진흙을 바닥에 쓸어낸다는 느낌으로 페달의 하단부(6시 방향)를 지나치는 연습이
-                            효과적입니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow text-center">
-        <h2>품격 있는 페달링을 향하여</h2>
-        <p class="lead">단순한 와트 수치 경쟁에서 벗어나, 자신의 움직임을 더 우아하고 효율적으로 다듬어보세요. Bike Analytics의 정밀 분석 도구가 여러분의 페달링을 완성해 드립니다.
-        </p>
-        <div class="mt-xl">
-            <a href="/ko/power-metrics/" class="btn btn-secondary">고급 파워 지표 알아보기</a>
-            <a href="/ko/climbing-performance/" class="btn btn-primary">업힐 퍼포먼스 가이드 →</a>
-        </div>
-    </div>
-</section>
-    
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+            완성할 수 있습니다.</p><div class="info-box"><h3>핵심 페달링 지표:</h3><ul><li><strong>케이던스 (Cadence):</strong> 분당 페달 회전수 (RPM)</li><li><strong>좌우 밸런스 (L/R Balance):</strong> 양쪽 다리의 파워 분배 비율 (%)</li><li><strong>토크 유효성 (TE):</strong> 페달 스트로크 중 추진력에 기여한 비율</li><li><strong>페달 부드러움 (PS):</strong> 페달링 중 평균 파워와 최대 파워의 비율</li></ul></div></div></section><section class="section section-alt"><div class="container"><h2 class="mb-xl text-center">케이던스 최적화: 나만의 리듬 찾기</h2><p class="text-center mb-xl"><strong>케이던스</strong>는 사이클링 기술에서 가장 기본적이면서도 논쟁이 많은 주제 중 하나입니다.</p><div class="table-responsive"><table class="data-table"><thead><tr><th>주행 상황</th><th>일반적인 케이던스 (RPM)</th><th>특징</th></tr></thead><tbody><tr><td><strong>로드 사이클링 (평지)</strong></td><td>85 - 95 RPM</td><td>근육과 심혈관계 부하의 가장 이상적인 균형</td></tr><tr><td><strong>오르막 (중간 경사)</strong></td><td>70 - 85 RPM</td><td>부하가 늘어남에 따라 자연스럽게 회전수 감소</td></tr><tr><td><strong>급경사 (8% 이상)</strong></td><td>60 - 75 RPM</td><td>높은 토크가 필요하며 근육 부담이 커짐</td></tr><tr><td><strong>스프린트 / 가속</strong></td><td>110 - 130+ RPM</td><td>단시간에 최대 파워를 뽑아내기 위한 고회전</td></tr></tbody></table></div><div class="grid grid-2 mt-xl"><div class="card"><h3>⬇️ 낮은 케이던스 (65-75 RPM)</h3><ul><li><strong>토크 중심:</strong> 한 번 밟을 때 강한 힘을 사용</li><li>근육(대퇴사두근, 둔근) 자극과 피로도가 높음</li><li>상대적으로 심박수와 호흡 부담은 적음</li><li>단시간의 강력한 파워에 유리</li></ul></div><div class="card"><h3>⬆️ 높은 케이던스 (95-105 RPM)</h3><ul><li><strong>회전 중심:</strong> 가벼운 힘으로 빠르게 회전</li><li>근육의 피로도를 줄이고 심혈관계 자극이 높음</li><li>장거리 endurance 라이딩에 유리</li><li>다리의 데미지를 최소화하여 지속성 향상</li></ul></div></div></div></section><section class="section"><div class="container container-narrow"><h2>좌우 파워 밸런스 (L/R Balance)</h2><p>이 지표는 양쪽 다리가 파워를 얼마나 균등하게 나누어 내는지를 보여줍니다. (예: 52/48은 왼쪽 다리가 전체 파워의 52%를 담당함을 의미)</p><div class="callout callout-info"><h3>어느 정도가 정상인가요?</h3><p><strong>48/52 ~ 52/48 비율</strong>은 매우 우수한 밸런스로 간주됩니다. 완벽한 50/50은 거의 불가능하며, 약 2~4% 내외의 차이는 신체적
+                우세성(Dominance)에 따른 자연스러운 현상입니다.</p></div><h3>불균형의 원인과 대처</h3><ul><li><strong>피로 축적:</strong> 라이딩 후반부로 갈수록 더 잘 쓰는 다리가 힘을 더 쓰게 되면서 불균형이 커질 수 있습니다.</li><li><strong>부상 이력:</strong> 과거의 부상으로 인해 한쪽 근력이 약화한 경우입니다. 보강 운동을 통해 근력을 회복해야 합니다.</li><li><strong>바이크 피팅:</strong> 안장 높이나 클릿 위치가 비대칭일 때 발생할 수 있으므로, 지속해서 55/45 이상의 불균형이 나타난다면 피팅을 점검하세요.</li></ul></div></section><section class="section section-gray"><div class="container container-narrow"><h2>토크 유효성(TE)과 페달 부드러움(PS)</h2><p>상급 라이더가 되기 위해서는 파워를 내는 '순간'뿐만 아니라, 페달이 돌아가는 360도 전 구간의 효율성을 높여야 합니다.</p><div class="grid grid-2"><div><h3>토크 유효성 (Torque Effectiveness)</h3><p>페달을 누르는 힘(정토크) 대비 방해가 되는 힘(부토크)을 뺀 비율입니다. 반대쪽 다리가 올라올 때 무게를 죽이지 않고 가볍게 들어주면 TE 수치가 높아지며, 일반적인 동호인은
+                    80~90% 수준을 유지합니다.</p></div><div><h4>페달 부드러움 (Pedal Smoothness)</h4><p>페달 스트로크 중 가장 강하게 밟는 지점과 그렇지 않은 지점의 차이가 적을수록(즉, 원형에 가까운 페달링일수록) 수치가 높게 나옵니다. 보통 20~40% 사이의 값을 나타냅니다.
+                </p></div></div><div class="callout callout-tip mt-lg"><h3>💡 페달링 효율을 높이는 훈련</h3><p><strong>외발 페달링(Single-leg drill):</strong> 평롤러나 실내 트레이너에서 한쪽 발을 빼고 다른 한 발로만 페달링 해보세요. 페달이 툭툭 끊기지 않고 매끄럽게
+                돌아가도록 집중하면 사점(Dead spot)을 없애는 데 큰 도움이 됩니다.</p></div></div></section><section class="section"><div class="container container-narrow"><h2>클릿 페달 vs 평페달</h2><p>신발과 페달을 고정하는 클릿 페달은 효율성 측면에서 확실한 이점이 있습니다.</p><div class="grid grid-2"><div class="card"><h3>🔒 클릿 페달 (Clipless)</h3><ul><li><strong>1-3% 정도의 효율 향상:</strong> 업스트로크 시 끌어당기는 힘 활용 가능</li><li>발이 최적의 위치에 고정되어 일관된 파워 전달</li><li>고속 케이던스 및 댄싱 시 안정성 확보</li></ul></div><div class="card"><h3>👟 평페달 (Platform)</h3><ul><li>별도의 전용 신발이 필요 없어 편리함</li><li>기술적 지형이나 비상 상황에서 발을 떼기 쉬움(안전)</li><li>초보자가 라이딩의 즐거움을 느끼기에 적절함</li></ul></div></div></div></section><section class="section"><div class="container container-narrow"><h2>자주 묻는 질문 (FAQ)</h2><div class="faq-container" itemscope itemtype="https://schema.org/FAQPage"><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">가장 이상적인 케이던스는 몇인가요?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>정답은 없습니다. 하지만 많은 연구에 따르면 효율적인 범위는 분당 85~95회(RPM)입니다. 본인이 편안하게 느끼는 케이던스가 자신의 엔진 특성에 맞는 최적일
+                            가능성이 큽니다.</p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">좌우 밸런스 차이가 많이 나는데 걱정해야 하나요?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>54:46 정도까지는 일반적인 수준입니다. 하지만 차이가 10% 이상 벌어지고 통증이 동반된다면 피팅 전문가를 찾아 체형 불균형이나 자세 문제인지를 확인해보는 것이
+                            좋습니다.</p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">페달링 효율을 높이는 가장 간단한 방법은?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>단순히 강하게 밟는 것보다 '원을 그리며 돌린다'는 이미지를 가지세요. 신발에 묻은 진흙을 바닥에 쓸어낸다는 느낌으로 페달의 하단부(6시 방향)를 지나치는 연습이
+                            효과적입니다.</p></div></div></div></div></div></section><section class="section"><div class="container container-narrow text-center"><h2>품격 있는 페달링을 향하여</h2><p class="lead">단순한 와트 수치 경쟁에서 벗어나, 자신의 움직임을 더 우아하고 효율적으로 다듬어보세요. Bike Analytics의 정밀 분석 도구가 여러분의 페달링을 완성해 드립니다.
+        </p><div class="mt-xl"><a href="/ko/power-metrics/" class="btn btn-secondary">고급 파워 지표 알아보기</a><a href="/ko/climbing-performance/" class="btn btn-primary">업힐 퍼포먼스 가이드 →</a></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link active"
+                </a><a href="/ko/" class="lang-link active"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. 모든 권리 보유
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/ko/privacy/">개인정보 보호정책</a></li>
-                <li><a href="/ko/terms/">이용 약관</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>이 웹사이트는 사용자 경험을 개선하기 위해 쿠키를 사용합니다.</p>
-            <a href="/ko/privacy/" class="text-sm">자세히 알아보기</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">거절</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">동의</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/ko/privacy/">개인정보 보호정책</a></li><li><a href="/ko/terms/">이용 약관</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>이 웹사이트는 사용자 경험을 개선하기 위해 쿠키를 사용합니다.</p><a href="/ko/privacy/" class="text-sm">자세히 알아보기</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">거절</button><button id="cookie-accept" class="btn btn-primary btn-small">동의</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

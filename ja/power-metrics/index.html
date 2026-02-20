@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="ja" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>Cycling Power Metrics Guide - NP, IF, VI, W&#39;bal Explained</title>
-  <meta name="description" content="Complete guide to cycling power metrics: Normalized Power (NP), Intensity Factor (IF), Variability Index (VI), and W&#39; Balance explained.">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="normalized power, intensity factor, variability index, W prime balance, cycling power metrics">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/ja/power-metrics/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2025-12-23T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/ja/power-metrics/">
-  <meta property="og:title" content="Cycling Power Metrics Guide - NP, IF, VI, W&#39;bal Explained">
-  <meta property="og:description" content="Complete guide to cycling power metrics: Normalized Power (NP), Intensity Factor (IF), Variability Index (VI), and W&#39; Balance explained.">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="ja_JP">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/ja/power-metrics/">
-  <meta name="twitter:title" content="Cycling Power Metrics Guide - NP, IF, VI, W&#39;bal Explained">
-  <meta name="twitter:description" content="Complete guide to cycling power metrics: Normalized Power (NP), Intensity Factor (IF), Variability Index (VI), and W&#39; Balance explained.">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/power-metrics/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/power-metrics/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/power-metrics/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/power-metrics/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/power-metrics/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/power-metrics/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/power-metrics/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/power-metrics/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/power-metrics/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/power-metrics/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/power-metrics/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/power-metrics/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/power-metrics/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/power-metrics/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/power-metrics/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/power-metrics/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/power-metrics/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/power-metrics/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/power-metrics/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/power-metrics/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/power-metrics/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/power-metrics/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/power-metrics/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/power-metrics/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/power-metrics/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/power-metrics/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/power-metrics/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/power-metrics/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/power-metrics/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/power-metrics/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/power-metrics/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/power-metrics/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/power-metrics/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/power-metrics/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/power-metrics/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/power-metrics/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/power-metrics/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/power-metrics/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/power-metrics/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/power-metrics/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/power-metrics/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/power-metrics/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/power-metrics/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/power-metrics/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/power-metrics/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/power-metrics/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/power-metrics/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/power-metrics/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/power-metrics/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/power-metrics/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/power-metrics/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/power-metrics/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/power-metrics/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/power-metrics/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/power-metrics/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/power-metrics/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="ja" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>Cycling Power Metrics Guide - NP, IF, VI, W&#39;bal Explained</title><meta name="description" content="Complete guide to cycling power metrics: Normalized Power (NP), Intensity Factor (IF), Variability Index (VI), and W&#39; Balance explained."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="normalized power, intensity factor, variability index, W prime balance, cycling power metrics"><link rel="canonical" href="https://bike.analyticszone.app/ja/power-metrics/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-02-05T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/ja/power-metrics/"><meta property="og:title" content="Cycling Power Metrics Guide - NP, IF, VI, W&#39;bal Explained"><meta property="og:description" content="Complete guide to cycling power metrics: Normalized Power (NP), Intensity Factor (IF), Variability Index (VI), and W&#39; Balance explained."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="ja_JP"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/ja/power-metrics/"><meta name="twitter:title" content="Cycling Power Metrics Guide - NP, IF, VI, W&#39;bal Explained"><meta name="twitter:description" content="Complete guide to cycling power metrics: Normalized Power (NP), Intensity Factor (IF), Variability Index (VI), and W&#39; Balance explained."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/power-metrics/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/power-metrics/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/power-metrics/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/power-metrics/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/power-metrics/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/power-metrics/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/power-metrics/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/power-metrics/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/power-metrics/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/power-metrics/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/power-metrics/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/power-metrics/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/power-metrics/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/power-metrics/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/power-metrics/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/power-metrics/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/power-metrics/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/power-metrics/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/power-metrics/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/power-metrics/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/power-metrics/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/power-metrics/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/power-metrics/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/power-metrics/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/power-metrics/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/power-metrics/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/power-metrics/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/power-metrics/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/power-metrics/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/power-metrics/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/power-metrics/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/power-metrics/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/power-metrics/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/power-metrics/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/power-metrics/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/power-metrics/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/power-metrics/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/power-metrics/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/power-metrics/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/power-metrics/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/power-metrics/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/power-metrics/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/power-metrics/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/power-metrics/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/power-metrics/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/power-metrics/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/power-metrics/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/power-metrics/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/power-metrics/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/power-metrics/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/power-metrics/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/power-metrics/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/power-metrics/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/power-metrics/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/power-metrics/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/power-metrics/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "ja"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "Complete guide to cycling power metrics: Normalized Power (NP), Intensity Factor (IF), Variability Index (VI), and W&#39; Balance explained.",
   "url": "https://bike.analyticszone.app/ja/power-metrics/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -647,23 +429,13 @@ img[width][height] {
     }
   },
   "datePublished": "2025-01-15",
-  "dateModified": "2025-12-23",
+  "dateModified": "2026-02-05",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://bike.analyticszone.app/ja/power-metrics/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1184 +449,225 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">Skip to content</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/ja/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/ja/" 
+  </script></head><body><a href="#main-content" class="skip-link">Skip to content</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/ja/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/ja/" 
                                 aria-current="">
                                 Home
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ja/getting-started/" class="nav-label">Learn</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ja/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/ja/getting-started/" class="nav-label">Learn</a><ul class="submenu"><li><a href="/ja/getting-started/" 
                                         aria-current="">
                                         Getting Started
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/ftp/" 
+                                    </a></li><li><a href="/ja/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/critical-power/" 
+                                    </a></li><li><a href="/ja/critical-power/" 
                                         aria-current="">
                                         Critical Power
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/training-zones/" 
+                                    </a></li><li><a href="/ja/training-zones/" 
                                         aria-current="">
                                         Training Zones
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/training-load/" 
+                                    </a></li><li><a href="/ja/training-load/" 
                                         aria-current="">
                                         Training Load
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/tss-calculator/" 
+                                    </a></li><li><a href="/ja/tss-calculator/" 
                                         aria-current="">
                                         TSS Calculator
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ja/research/" class="nav-label">Science</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ja/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/ja/research/" class="nav-label">Science</a><ul class="submenu"><li><a href="/ja/research/" 
                                         aria-current="">
                                         Research
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/formulas/" 
+                                    </a></li><li><a href="/ja/formulas/" 
                                         aria-current="">
                                         Formulas
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/power-metrics/" class="active" 
+                                    </a></li><li><a href="/ja/power-metrics/" class="active" 
                                         aria-current="page">
                                         Power Metrics
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/efficiency/" 
+                                    </a></li><li><a href="/ja/efficiency/" 
                                         aria-current="">
                                         Efficiency
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/pedaling-mechanics/" 
+                                    </a></li><li><a href="/ja/pedaling-mechanics/" 
                                         aria-current="">
                                         Pedaling Mechanics
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/aerodynamics/" 
+                                    </a></li><li><a href="/ja/aerodynamics/" 
                                         aria-current="">
                                         Aerodynamics
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/climbing-performance/" 
+                                    </a></li><li><a href="/ja/climbing-performance/" 
                                         aria-current="">
                                         Climbing Performance
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/bibliography/" 
+                                    </a></li><li><a href="/ja/bibliography/" 
                                         aria-current="">
                                         Bibliography
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ja/road-cycling/" class="nav-label">Disciplines</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ja/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/ja/road-cycling/" class="nav-label">Disciplines</a><ul class="submenu"><li><a href="/ja/road-cycling/" 
                                         aria-current="">
                                         Road Cycling
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/mountain-biking/" 
+                                    </a></li><li><a href="/ja/mountain-biking/" 
                                         aria-current="">
                                         Mountain Biking
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/road-vs-mtb/" 
+                                    </a></li><li><a href="/ja/road-vs-mtb/" 
                                         aria-current="">
                                         Road vs MTB
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ja/comparisons/" 
+                                    </a></li><li><a href="/ja/comparisons/" 
                                         aria-current="">
                                         Platform Comparisons
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/ja/contact/" 
+                                    </a></li></ul></li><li><a href="/ja/contact/" 
                                 aria-current="">
                                 Contact
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="Select language">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="Select language"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" selected>
+                        </option><option value="ja" selected>
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/ja/">Home</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/ja/research/">Science</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">Power Metrics</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-<article class="article-content">
-    <header class="article-header">
-        <h1>サイクリングパワー指標の解説：NP, IF, VI, W'bal</h1>
-        <p class="article-meta">よりスマートなトレーニングとレースのための高度なパワー指標を理解する</p>
-    </header>
-
-    <section id="why-power-metrics">
-        <h2>平均パワーを超えて：なぜ高度な指標が重要なのか</h2>
-        <p>平均パワーは鈍い道具です。同じ平均パワーの2つのライドでも、エフォートがどれだけ変動したかによって、生理学的コストは大きく異なる可能性があります。1時間一定の250Wは、150Wと400Wの間を行き来して平均250Wになるのとでは、全く異なる感覚です。
-        </p>
-
-        <p>ここで高度なパワー指標の出番です。<strong>標準化パワー (NP)</strong>、<strong>強度係数 (IF)</strong>、<strong>変動指数
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/ja/">Home</a></li><li><a href="/ja/research/">Science</a></li><li><span aria-current="page">Power Metrics</span></li></ol></div></nav><main id="main-content" class="main-content"><article class="article-content"><header class="article-header"><h1>サイクリングパワー指標の解説：NP, IF, VI, W'bal</h1><p class="article-meta">よりスマートなトレーニングとレースのための高度なパワー指標を理解する</p></header><section id="why-power-metrics"><h2>平均パワーを超えて：なぜ高度な指標が重要なのか</h2><p>平均パワーは鈍い道具です。同じ平均パワーの2つのライドでも、エフォートがどれだけ変動したかによって、生理学的コストは大きく異なる可能性があります。1時間一定の250Wは、150Wと400Wの間を行き来して平均250Wになるのとでは、全く異なる感覚です。
+        </p><p>ここで高度なパワー指標の出番です。<strong>標準化パワー (NP)</strong>、<strong>強度係数 (IF)</strong>、<strong>変動指数
                 (VI)</strong>、そして<strong>W' Balance (W'bal)</strong>
-            は、効果的にトレーニングし、レースのペース配分を正しく行い、エフォートの真のコストを理解するために必要な、ニュアンスのある理解を提供します。</p>
-
-        <div class="info-box">
-            <h3>クイック比較：ロード vs MTB</h3>
-            <ul>
-                <li><strong>ロードクライミング (10分):</strong> 平均246W, NP 246W, VI = 1.00</li>
-                <li><strong>MTBクライミング (10分):</strong> 平均220W, NP 265W, VI = 1.20</li>
-                <li><strong>結果:</strong> 平均パワーが<em>低い</em>MTBのエフォートの方が、生理学的には実際には<em>きつい</em></li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="normalized-power">
-        <h2>標準化パワー (NP): 可変エフォートの真のコスト</h2>
-        <p><strong>標準化パワー (NP)</strong>
-            は、パワー出力と疲労の非線形関係を考慮することで、ライドの生理学的「コスト」を推定します。閾値を超える高強度のエフォートは、定常状態のライディングと比較して不釣り合いに疲労を増加させます。</p>
-
-        <h3>NPの背後にあるアルゴリズム</h3>
-        <p>NPは、ハードなエフォートを強調する加重計算を使用します：</p>
-        <ol>
-            <li><strong>30秒移動平均:</strong> 秒単位のノイズを平滑化</li>
-            <li><strong>4乗する:</strong> 高強度のエフォートを増幅 (200W⁴ 対 300W⁴ は巨大な差)</li>
-            <li><strong>4乗値の平均を取る:</strong> 加重されたエフォートの平均を見つける</li>
-            <li><strong>4乗根を取る:</strong> ワットに戻す</li>
-        </ol>
-
-        <div class="formula-box">
-            <h4>簡略化された計算式</h4>
-            <div class="formula">
+            は、効果的にトレーニングし、レースのペース配分を正しく行い、エフォートの真のコストを理解するために必要な、ニュアンスのある理解を提供します。</p><div class="info-box"><h3>クイック比較：ロード vs MTB</h3><ul><li><strong>ロードクライミング (10分):</strong> 平均246W, NP 246W, VI = 1.00</li><li><strong>MTBクライミング (10分):</strong> 平均220W, NP 265W, VI = 1.20</li><li><strong>結果:</strong> 平均パワーが<em>低い</em>MTBのエフォートの方が、生理学的には実際には<em>きつい</em></li></ul></div></section><section id="normalized-power"><h2>標準化パワー (NP): 可変エフォートの真のコスト</h2><p><strong>標準化パワー (NP)</strong>
+            は、パワー出力と疲労の非線形関係を考慮することで、ライドの生理学的「コスト」を推定します。閾値を超える高強度のエフォートは、定常状態のライディングと比較して不釣り合いに疲労を増加させます。</p><h3>NPの背後にあるアルゴリズム</h3><p>NPは、ハードなエフォートを強調する加重計算を使用します：</p><ol><li><strong>30秒移動平均:</strong> 秒単位のノイズを平滑化</li><li><strong>4乗する:</strong> 高強度のエフォートを増幅 (200W⁴ 対 300W⁴ は巨大な差)</li><li><strong>4乗値の平均を取る:</strong> 加重されたエフォートの平均を見つける</li><li><strong>4乗根を取る:</strong> ワットに戻す</li></ol><div class="formula-box"><h4>簡略化された計算式</h4><div class="formula">
                 NP = ⁴√( [30秒移動平均パワー]⁴ の平均 )
-            </div>
-            <p class="formula-explanation">4乗の加重は、400Wまでの10秒間のサージが、200Wで20秒間走るよりもはるかに体に「コスト」がかかることを意味します。</p>
-        </div>
-
-        <h3>NPが最も重要な場合</h3>
-
-        <h4>🚵 マウンテンバイク</h4>
-        <p>MTBレースは可変パワーによって定義されます。典型的なXCレースには、FTPを超える5-25秒のサージが80回以上含まれます。平均パワーは真のエフォートを過小評価します。</p>
-
-        <p><strong>XCレースの例:</strong></p>
-        <ul>
-            <li>平均パワー: 245W</li>
-            <li>標準化パワー: 285W</li>
-            <li>VI: 1.16 (非常に変動的)</li>
-            <li><strong>解釈:</strong> レースは245Wではなく、一定の285Wで走ったように感じられました</li>
-        </ul>
-
-        <h4>🏁 クリテリウムとサーキットレース</h4>
-        <p>クリテリウムは、コーナーからの絶え間ない加速、アタック、位置取りのエフォートを特徴とします。サージと回復のパターンは、平均パワーに対して高いNPを生み出します。</p>
-
-        <p><strong>クリテリウムの例:</strong></p>
-        <ul>
-            <li>平均パワー: 220W</li>
-            <li>標準化パワー: 265W</li>
-            <li>VI: 1.20</li>
-            <li>60分間で300Wを超える加速が88回</li>
-        </ul>
-
-        <h4>🚴 サージのあるグループライド</h4>
-        <p>アタックやブリッジのエフォートを伴うアグレッシブなグループライドは、巡航ペースが適度に感じられても高いNPを生み出します。</p>
-
-        <h3>NPが役に立たない場合</h3>
-        <p>タイムトライアル、一定の登り、ソロのテンポライドは、平均パワーとほぼ等しいNPを生み出します (VI = 1.00-1.03)。これらの場合、平均パワーで十分です。</p>
-
-        <div class="callout callout-science">
-            <h3>🔬 研究の基礎</h3>
-            <p>Andrew
+            </div><p class="formula-explanation">4乗の加重は、400Wまでの10秒間のサージが、200Wで20秒間走るよりもはるかに体に「コスト」がかかることを意味します。</p></div><h3>NPが最も重要な場合</h3><h4>🚵 マウンテンバイク</h4><p>MTBレースは可変パワーによって定義されます。典型的なXCレースには、FTPを超える5-25秒のサージが80回以上含まれます。平均パワーは真のエフォートを過小評価します。</p><p><strong>XCレースの例:</strong></p><ul><li>平均パワー: 245W</li><li>標準化パワー: 285W</li><li>VI: 1.16 (非常に変動的)</li><li><strong>解釈:</strong> レースは245Wではなく、一定の285Wで走ったように感じられました</li></ul><h4>🏁 クリテリウムとサーキットレース</h4><p>クリテリウムは、コーナーからの絶え間ない加速、アタック、位置取りのエフォートを特徴とします。サージと回復のパターンは、平均パワーに対して高いNPを生み出します。</p><p><strong>クリテリウムの例:</strong></p><ul><li>平均パワー: 220W</li><li>標準化パワー: 265W</li><li>VI: 1.20</li><li>60分間で300Wを超える加速が88回</li></ul><h4>🚴 サージのあるグループライド</h4><p>アタックやブリッジのエフォートを伴うアグレッシブなグループライドは、巡航ペースが適度に感じられても高いNPを生み出します。</p><h3>NPが役に立たない場合</h3><p>タイムトライアル、一定の登り、ソロのテンポライドは、平均パワーとほぼ等しいNPを生み出します (VI = 1.00-1.03)。これらの場合、平均パワーで十分です。</p><div class="callout callout-science"><h3>🔬 研究の基礎</h3><p>Andrew
                 Coggan博士は、ATP枯渇、グリコーゲン利用、乳酸蓄積、および心血管ストレスが強度とともに（線形ではなく）指数関数的に増加することを示す生理学的研究に基づいて、標準化パワーを開発しました。4乗の関係はこの非線形疲労反応を近似します。
-            </p>
-            <p><strong>出典:</strong> Allen, H., & Coggan, A.R. (2019). <em>Training and Racing with a Power Meter</em>
-                (3rd Edition). VeloPress.</p>
-        </div>
-    </section>
-    <section id="intensity-factor">
-        <h2>強度係数 (IF): 相対的なエフォートの定量化</h2>
-        <p><strong>強度係数 (IF)</strong> は、<a href="/ja/ftp/">機能的作業閾値パワー (FTP)</a>
-            に対してライドがどれだけきつかったかを表します。これは標準化パワーとFTPの比率です。</p>
-
-        <div class="formula-box">
-            <h3>計算式</h3>
-            <div class="formula">
+            </p><p><strong>出典:</strong> Allen, H., & Coggan, A.R. (2019). <em>Training and Racing with a Power Meter</em>
+                (3rd Edition). VeloPress.</p></div></section><section id="intensity-factor"><h2>強度係数 (IF): 相対的なエフォートの定量化</h2><p><strong>強度係数 (IF)</strong> は、<a href="/ja/ftp/">機能的作業閾値パワー (FTP)</a>
+            に対してライドがどれだけきつかったかを表します。これは標準化パワーとFTPの比率です。</p><div class="formula-box"><h3>計算式</h3><div class="formula">
                 IF = 標準化パワー (NP) / FTP
-            </div>
-            <div class="example-box mt-md">
-                <h4>例:</h4>
-                <p>FTPが300Wのライダーが、NP 255Wでライドを完了した場合:</p>
-                <div class="calculation">
-                    IF = 255 / 300 = <strong>0.85</strong>
-                </div>
-                <p>これは<strong>中程度～ハード</strong>なエフォートを表します。</p>
-            </div>
-        </div>
-
-        <h3>強度係数の解釈</h3>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>IF 範囲</th>
-                    <th>エフォートレベル</th>
-                    <th>ワークアウト例</th>
-                    <th>持続可能時間</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>&lt; 0.65</strong></td>
-                    <td>イージー/回復</td>
-                    <td>リカバリースピン、イージーグループライド</td>
-                    <td>3-6時間以上</td>
-                </tr>
-                <tr>
-                    <td><strong>0.65-0.75</strong></td>
-                    <td>エンデュランス/中程度</td>
-                    <td>長い定常ライド、ベーストレーニング</td>
-                    <td>2-5時間</td>
-                </tr>
-                <tr>
-                    <td><strong>0.75-0.85</strong></td>
-                    <td>テンポ/中程度～ハード</td>
-                    <td>テンポインターバル、スポルティーフペース</td>
-                    <td>1-3時間</td>
-                </tr>
-                <tr>
-                    <td><strong>0.85-0.95</strong></td>
-                    <td>閾値/ハード</td>
-                    <td>スイートスポット、閾値インターバル</td>
-                    <td>40-90分</td>
-                </tr>
-                <tr>
-                    <td><strong>0.95-1.05</strong></td>
-                    <td>FTP/非常にハード</td>
-                    <td>FTPテスト、40km TT</td>
-                    <td>30-60分</td>
-                </tr>
-                <tr>
-                    <td><strong>1.05-1.15</strong></td>
-                    <td>VO2max/極めてハード</td>
-                    <td>VO2maxインターバル、クリテリウム</td>
-                    <td>10-30分</td>
-                </tr>
-                <tr>
-                    <td><strong>&gt; 1.15</strong></td>
-                    <td>アナエロビック/最大</td>
-                    <td>ショートTT、トラックパシュート</td>
-                    <td>&lt; 10分</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>トレーニングへのIFの活用</h3>
-
-        <h4>セッション設計</h4>
-        <p>目標IFはワークアウト強度の処方に役立ちます：</p>
-        <ul>
-            <li><strong>イージーデイ:</strong> IF &lt; 0.65 で回復を確実にします</li>
-            <li><strong>テンポセッション:</strong> IF 0.80-0.85 で有酸素能力を構築します</li>
-            <li><strong>閾値ワーク:</strong> IF 0.90-1.00 でFTPを向上させます</li>
-        </ul>
-
-        <h4>レース分析</h4>
-        <p>レース後のIFは、ペース配分が適切だったかどうかを明らかにします：</p>
-        <ul>
-            <li><strong>IFが高すぎる:</strong> スタートが速すぎて、最後に失速した</li>
-            <li><strong>IFが適切:</strong> 均等なエフォート、強力なフィニッシュ</li>
-            <li><strong>IFが低すぎる:</strong> 力を温存しすぎて、エネルギーが残っていた</li>
-        </ul>
-
-        <h3>TSS計算におけるIF</h3>
-        <p>IFは、強度と時間を組み合わせて総トレーニング負荷を定量化する<a href="/ja/training-zones/">トレーニングストレススコア (TSS)</a>の重要な要素です。</p>
-
-        <div class="formula-box">
-            <h4>TSS 計算式</h4>
-            <div class="formula">
+            </div><div class="example-box mt-md"><h4>例:</h4><p>FTPが300Wのライダーが、NP 255Wでライドを完了した場合:</p><div class="calculation">
+                    IF = 255 / 300 = <strong>0.85</strong></div><p>これは<strong>中程度～ハード</strong>なエフォートを表します。</p></div></div><h3>強度係数の解釈</h3><table class="comparison-table"><thead><tr><th>IF 範囲</th><th>エフォートレベル</th><th>ワークアウト例</th><th>持続可能時間</th></tr></thead><tbody><tr><td><strong>&lt; 0.65</strong></td><td>イージー/回復</td><td>リカバリースピン、イージーグループライド</td><td>3-6時間以上</td></tr><tr><td><strong>0.65-0.75</strong></td><td>エンデュランス/中程度</td><td>長い定常ライド、ベーストレーニング</td><td>2-5時間</td></tr><tr><td><strong>0.75-0.85</strong></td><td>テンポ/中程度～ハード</td><td>テンポインターバル、スポルティーフペース</td><td>1-3時間</td></tr><tr><td><strong>0.85-0.95</strong></td><td>閾値/ハード</td><td>スイートスポット、閾値インターバル</td><td>40-90分</td></tr><tr><td><strong>0.95-1.05</strong></td><td>FTP/非常にハード</td><td>FTPテスト、40km TT</td><td>30-60分</td></tr><tr><td><strong>1.05-1.15</strong></td><td>VO2max/極めてハード</td><td>VO2maxインターバル、クリテリウム</td><td>10-30分</td></tr><tr><td><strong>&gt; 1.15</strong></td><td>アナエロビック/最大</td><td>ショートTT、トラックパシュート</td><td>&lt; 10分</td></tr></tbody></table><h3>トレーニングへのIFの活用</h3><h4>セッション設計</h4><p>目標IFはワークアウト強度の処方に役立ちます：</p><ul><li><strong>イージーデイ:</strong> IF &lt; 0.65 で回復を確実にします</li><li><strong>テンポセッション:</strong> IF 0.80-0.85 で有酸素能力を構築します</li><li><strong>閾値ワーク:</strong> IF 0.90-1.00 でFTPを向上させます</li></ul><h4>レース分析</h4><p>レース後のIFは、ペース配分が適切だったかどうかを明らかにします：</p><ul><li><strong>IFが高すぎる:</strong> スタートが速すぎて、最後に失速した</li><li><strong>IFが適切:</strong> 均等なエフォート、強力なフィニッシュ</li><li><strong>IFが低すぎる:</strong> 力を温存しすぎて、エネルギーが残っていた</li></ul><h3>TSS計算におけるIF</h3><p>IFは、強度と時間を組み合わせて総トレーニング負荷を定量化する<a href="/ja/training-zones/">トレーニングストレススコア (TSS)</a>の重要な要素です。</p><div class="formula-box"><h4>TSS 計算式</h4><div class="formula">
                 TSS = (IF)² × 時間 (時間) × 100
-            </div>
-            <p class="formula-explanation">IFは2乗されるため、強度はトレーニングストレスに指数関数的な影響を与えます。</p>
-        </div>
-    </section>
-
-    <section id="variability-index">
-        <h2>変動指数 (VI): 安定性指標</h2>
-        <p><strong>変動指数 (VI)</strong> は、ライド中のパワー出力がどれだけ変動したかを測定します。これは標準化パワーと平均パワーの比率です。</p>
-
-        <div class="formula-box">
-            <h3>計算式</h3>
-            <div class="formula">
+            </div><p class="formula-explanation">IFは2乗されるため、強度はトレーニングストレスに指数関数的な影響を与えます。</p></div></section><section id="variability-index"><h2>変動指数 (VI): 安定性指標</h2><p><strong>変動指数 (VI)</strong> は、ライド中のパワー出力がどれだけ変動したかを測定します。これは標準化パワーと平均パワーの比率です。</p><div class="formula-box"><h3>計算式</h3><div class="formula">
                 VI = 標準化パワー (NP) / 平均パワー
-            </div>
-            <div class="example-box mt-md">
-                <h4>例:</h4>
-                <p>NP 270W、平均パワー 250W のライド:</p>
-                <div class="calculation">
-                    VI = 270 / 250 = <strong>1.08</strong>
-                </div>
-                <p>中程度に変動のあるエフォート（サージのあるグループライドに典型的）。</p>
-            </div>
-        </div>
-
-        <h3>種目別VIベンチマーク</h3>
-
-        <h4>🚴 ロードサイクリング</h4>
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>ライドタイプ</th>
-                    <th>典型的なVI</th>
-                    <th>特徴</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>タイムトライアル</strong></td>
-                    <td>1.00-1.02</td>
-                    <td>完全に安定的、最適なペーシング</td>
-                </tr>
-                <tr>
-                    <td><strong>ソロクライム</strong></td>
-                    <td>1.02-1.05</td>
-                    <td>安定したエフォート、最小限の変動</td>
-                </tr>
-                <tr>
-                    <td><strong>ロードレース</strong></td>
-                    <td>1.05-1.10</td>
-                    <td>いくつかのアタック、位置取りエフォート</td>
-                </tr>
-                <tr>
-                    <td><strong>クリテリウム</strong></td>
-                    <td>1.15-1.25</td>
-                    <td>絶え間ない加速、非常に変動的</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h4>🚵 マウンテンバイク</h4>
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>ライドタイプ</th>
-                    <th>典型的なVI</th>
-                    <th>特徴</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>XC レース</strong></td>
-                    <td>1.10-1.20+</td>
-                    <td>1レースで88回以上のサージ、非常に変動的</td>
-                </tr>
-                <tr>
-                    <td><strong>トレイルライド</strong></td>
-                    <td>1.08-1.15</td>
-                    <td>テクニカルセクション、登り、下り</td>
-                </tr>
-                <tr>
-                    <td><strong>エンデューロ</strong></td>
-                    <td>1.15-1.30+</td>
-                    <td>短い爆発的なエフォート、間の回復</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>なぜ高いVIが重要なのか</h3>
-
-        <h4>アナエロビックストレスの増加</h4>
-        <p>高いVIは、閾値を超える頻繁なエフォートを示し、W'（無酸素容量）を繰り返し枯渇させます。これは、同じ平均パワーで一定に走るよりもはるかに疲労します。</p>
-
-        <h4>グリコーゲン枯渇</h4>
-        <p>変動のあるエフォートは、同じ平均パワーの定常エフォートよりも多くのグリコーゲンを消費します。VIの高いライドは、より頻繁な補給を必要とします。</p>
-
-        <h4>神経筋疲労</h4>
-        <p>繰り返しの加速とハードなエフォートは、心血管負荷が予測する以上の神経筋疲労を生み出します。</p>
-
-        <h3>種目を区別するためのVIの使用</h3>
-        <p>VIは、ロードサイクリングとマウンテンバイクを区別する主要な指標です：</p>
-
-        <div class="comparison-box">
-            <div class="comparison-item">
-                <h4>🚴 ロードサイクリスト</h4>
-                <p><strong>VI: 1.02-1.05</strong></p>
-                <p>安定したパワー、最小限のサージ。FTPと閾値での持続パワーに焦点を当てます。</p>
-            </div>
-            <div class="comparison-item">
-                <h4>🚵 マウンテンバイカー</h4>
-                <p><strong>VI: 1.10-1.20+</strong></p>
-                <p>バーストパワー、頻繁なサージ。反復性とW'管理に焦点を当てます。</p>
-            </div>
-        </div>
-
-        <div class="callout callout-warning">
-            <h3>⚠️ ペーシングへの影響</h3>
-            <p>ペーシングが重要なレース（ロードレース、TT、マラソンMTB）では、VI &lt; 1.05
-                を目指します。すべてのサージは一定のライディングよりもコストがかかり、スタート時の高いVIは最後での失速を意味します。</p>
-            <p><strong>例外:</strong> クリテリウムとテクニカルMTBレースは本質的に高いVIを必要とします。この要求のために具体的にトレーニングしてください。</p>
-        </div>
-    </section>
-    <section id="w-balance">
-        <h2>W' Balance (W'bal): あなたのアナエロビックバッテリー</h2>
-        <p><strong>W' Balance (W'bal)</strong> は、ライド中の残りの無酸素容量をリアルタイムで追跡します。これは、<a
+            </div><div class="example-box mt-md"><h4>例:</h4><p>NP 270W、平均パワー 250W のライド:</p><div class="calculation">
+                    VI = 270 / 250 = <strong>1.08</strong></div><p>中程度に変動のあるエフォート（サージのあるグループライドに典型的）。</p></div></div><h3>種目別VIベンチマーク</h3><h4>🚴 ロードサイクリング</h4><table class="data-table"><thead><tr><th>ライドタイプ</th><th>典型的なVI</th><th>特徴</th></tr></thead><tbody><tr><td><strong>タイムトライアル</strong></td><td>1.00-1.02</td><td>完全に安定的、最適なペーシング</td></tr><tr><td><strong>ソロクライム</strong></td><td>1.02-1.05</td><td>安定したエフォート、最小限の変動</td></tr><tr><td><strong>ロードレース</strong></td><td>1.05-1.10</td><td>いくつかのアタック、位置取りエフォート</td></tr><tr><td><strong>クリテリウム</strong></td><td>1.15-1.25</td><td>絶え間ない加速、非常に変動的</td></tr></tbody></table><h4>🚵 マウンテンバイク</h4><table class="data-table"><thead><tr><th>ライドタイプ</th><th>典型的なVI</th><th>特徴</th></tr></thead><tbody><tr><td><strong>XC レース</strong></td><td>1.10-1.20+</td><td>1レースで88回以上のサージ、非常に変動的</td></tr><tr><td><strong>トレイルライド</strong></td><td>1.08-1.15</td><td>テクニカルセクション、登り、下り</td></tr><tr><td><strong>エンデューロ</strong></td><td>1.15-1.30+</td><td>短い爆発的なエフォート、間の回復</td></tr></tbody></table><h3>なぜ高いVIが重要なのか</h3><h4>アナエロビックストレスの増加</h4><p>高いVIは、閾値を超える頻繁なエフォートを示し、W'（無酸素容量）を繰り返し枯渇させます。これは、同じ平均パワーで一定に走るよりもはるかに疲労します。</p><h4>グリコーゲン枯渇</h4><p>変動のあるエフォートは、同じ平均パワーの定常エフォートよりも多くのグリコーゲンを消費します。VIの高いライドは、より頻繁な補給を必要とします。</p><h4>神経筋疲労</h4><p>繰り返しの加速とハードなエフォートは、心血管負荷が予測する以上の神経筋疲労を生み出します。</p><h3>種目を区別するためのVIの使用</h3><p>VIは、ロードサイクリングとマウンテンバイクを区別する主要な指標です：</p><div class="comparison-box"><div class="comparison-item"><h4>🚴 ロードサイクリスト</h4><p><strong>VI: 1.02-1.05</strong></p><p>安定したパワー、最小限のサージ。FTPと閾値での持続パワーに焦点を当てます。</p></div><div class="comparison-item"><h4>🚵 マウンテンバイカー</h4><p><strong>VI: 1.10-1.20+</strong></p><p>バーストパワー、頻繁なサージ。反復性とW'管理に焦点を当てます。</p></div></div><div class="callout callout-warning"><h3>⚠️ ペーシングへの影響</h3><p>ペーシングが重要なレース（ロードレース、TT、マラソンMTB）では、VI &lt; 1.05
+                を目指します。すべてのサージは一定のライディングよりもコストがかかり、スタート時の高いVIは最後での失速を意味します。</p><p><strong>例外:</strong> クリテリウムとテクニカルMTBレースは本質的に高いVIを必要とします。この要求のために具体的にトレーニングしてください。</p></div></section><section id="w-balance"><h2>W' Balance (W'bal): あなたのアナエロビックバッテリー</h2><p><strong>W' Balance (W'bal)</strong> は、ライド中の残りの無酸素容量をリアルタイムで追跡します。これは、<a
                 href="/ja/critical-power/">クリティカルパワー (CP)</a> を超えるエフォートのためにどれだけのエネルギーが残っているかを示すバッテリーゲージのようなものです。
-        </p>
-
-        <h3>W'とCPの理解</h3>
-        <p><strong>クリティカルパワー (CP)</strong> は、長時間持続できる最大パワーであり、有酸素代謝と無酸素代謝の境界です。FTPに似ていますが、より科学的に堅牢です。</p>
-
-        <p><strong>W' (Wプライム)</strong> は、CPを超える仕事のための有限の容量であり、キロジュール (kJ) で測定されます。典型的な値は15-25 kJの範囲です。</p>
-
-        <div class="info-box">
-            <h3>CPとW'の例え</h3>
-            <p><strong>CP = 持続可能なペース</strong> (平坦な道路を無限に走るようなもの)<br>
-                <strong>W' = サージ用バッテリー</strong> (限られた時間しか使用できないブーストボタン)
-            </p>
-            <p>CPを超えて走ると、W'を消費します。CP未満で走ると、W'は回復しますが、回復は消費よりも遅いです。</p>
-        </div>
-
-        <h3>W'balの仕組み</h3>
-
-        <h4>CPを超える枯渇</h4>
-        <p>CPを超えて走る毎秒、CPをどれだけ超えているかに比例してW'を「消費」します：</p>
-        <ul>
-            <li>CPが280Wのとき300Wのエフォート → 20 J/sでW'を消費</li>
-            <li>CPが280Wのとき350Wのエフォート → 70 J/sでW'を消費 (はるかに速い！)</li>
-        </ul>
-
-        <h4>CP未満での回復</h4>
-        <p>CP未満で走ると、W'は指数関数的に回復し、時定数は約300-500秒です（疲労レベルに依存）。</p>
-
-        <div class="formula-box">
-            <h4>簡略化されたW' Balanceの方程式</h4>
-            <div class="formula">
-                <strong>消耗:</strong> W'bal は (Power - CP) / 秒 で減少<br>
-                <strong>回復:</strong> W'bal はW'maxに向かって指数関数的に回復
-            </div>
-            <p class="formula-explanation">実際のモデル (Skiba, Bartram) はより複雑で、回復率に対する疲労の影響を考慮しています。</p>
-        </div>
-
-        <h3>実世界の例：MTBレース</h3>
-
-        <div class="example-box">
-            <h4>シナリオ: テクニカルな登りを含むXC MTBレース</h4>
-            <p><strong>ライダープロフィール:</strong></p>
-            <ul>
-                <li>CP: 280W</li>
-                <li>W': 18,000 J (18 kJ)</li>
-            </ul>
-
-            <p><strong>レースセグメント:</strong></p>
-            <ol>
-                <li><strong>スタートサージ (20秒 @ 400W):</strong>
-                    <ul>
-                        <li>W' 消費: (400-280) × 20 = 2,400 J</li>
-                        <li>W'bal: 18,000 → 15,600 J (残り87%)</li>
-                    </ul>
-                </li>
-                <li><strong>回復ペダリング (60秒 @ 220W):</strong>
-                    <ul>
-                        <li>W' 部分的回復: ~1,800 J</li>
-                        <li>W'bal: 15,600 → 17,400 J (残り97%)</li>
-                    </ul>
-                </li>
-                <li><strong>テクニカルな登り (5分 @ 平均320W, 6回のサージで380W):</strong>
-                    <ul>
-                        <li>持続的なCP超えのエフォート + サージによる大幅なW'枯渇</li>
-                        <li>W'bal: 17,400 → 4,200 J (残り23%) </li>
-                    </ul>
-                </li>
-                <li><strong>下りでの回復 (3分 @ 150W):</strong>
-                    <ul>
-                        <li>W' 回復: ~6,000 J</li>
-                        <li>W'bal: 4,200 → 10,200 J (残り57%)</li>
-                    </ul>
-                </li>
-            </ol>
-
-            <p><strong>分析:</strong> ライダーは別のハードなエフォートに耐えることができますが、W'balを20%未満に枯渇させないようにすべきです。そうしないと、アタックに反応できなくなります。</p>
-        </div>
-
-        <h3>レース戦略へのW'balの活用</h3>
-
-        <h4>ペーシング戦略</h4>
-        <ul>
-            <li><strong>登りでW'balを監視する:</strong> 頂上でアタックに反応できないほど深く使いすぎないでください</li>
-            <li><strong>回復期間を最大化する:</strong> 下りや平坦なセクションで軽くペダルを漕ぎ、W'を再充電します</li>
-            <li><strong>最後のエフォートを計画する:</strong> スプリントや最後の登りのためにW'がどれだけ残っているかを知っておいてください</li>
-        </ul>
-
-        <h4>トレーニングへの応用</h4>
-        <ul>
-            <li><strong>インターバル設計:</strong> W'を繰り返し枯渇/回復させるようにインターバルを構成します (反復性を構築)</li>
-            <li><strong>レースシミュレーション:</strong> レース固有のシナリオでW'balを管理する練習をします</li>
-            <li><strong>弱点の特定:</strong> 低いW' = より多くのアナエロビック容量ワークが必要</li>
-        </ul>
-
-        <div class="callout callout-tip">
-            <h3>💡 MTB固有のW'balトレーニング</h3>
-            <p><strong>バーストインターバル:</strong> 2分間のテンポ (90% FTP) + 15秒間のサージ (150% FTP)、6-8回繰り返し</p>
-            <p>これはXCレースの要求をシミュレートします：持続的なテンポと繰り返しのサージ。CPとW'回復率の両方を鍛えます。</p>
-            <p><strong>関連:</strong> <a href="/ja/critical-power/">クリティカルパワーとW'</a>の計算方法を学ぶ</p>
-        </div>
-
-        <div class="callout callout-science">
-            <h3>🔬 研究の基礎</h3>
-            <p>W'balモデリングは、クリティカルパワーの概念 (Monod & Scherrer, 1965) に由来し、W'再構築のためのPhilip
-                Skibaの2012年モデルによって改良されました。最近の研究は、可変強度運動における疲労困憊までの時間の予測因子としてW'balを検証しています。</p>
-            <p><strong>出典:</strong></p>
-            <ul>
-                <li>Skiba, P.F., et al. (2012). <em>Modeling the Expenditure and Reconstitution of W'.</em> Medicine &
-                    Science in Sports & Exercise.</li>
-                <li>Jones, A.M., et al. (2019). <em>Critical Power: Theory and Applications.</em> Journal of Applied
-                    Physiology, 126(6), 1905-1915.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="comparison-table">
-        <h2>パワー指標の比較</h2>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>指標</th>
-                    <th>測定するもの</th>
-                    <th>計算式</th>
-                    <th>最適な使用例</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>平均パワー</strong></td>
-                    <td>平均出力</td>
-                    <td>ワットの合計 / 秒</td>
-                    <td>定常エフォート (TT, ソロクライム)</td>
-                </tr>
-                <tr>
-                    <td><strong>標準化パワー (NP)</strong></td>
-                    <td>生理学的コスト (加重)</td>
-                    <td>⁴√( [30秒平均]⁴ の平均 )</td>
-                    <td>可変エフォート (クリテリウム, MTB, グループライド)</td>
-                </tr>
-                <tr>
-                    <td><strong>強度係数 (IF)</strong></td>
-                    <td>FTPに対する相対的エフォート</td>
-                    <td>NP / FTP</td>
-                    <td>セッション強度処方</td>
-                </tr>
-                <tr>
-                    <td><strong>変動指数 (VI)</strong></td>
-                    <td>パワーの安定性</td>
-                    <td>NP / 平均パワー</td>
-                    <td>ペーシング分析, 種目比較</td>
-                </tr>
-                <tr>
-                    <td><strong>W' Balance (W'bal)</strong></td>
-                    <td>残りのアナエロビック容量</td>
-                    <td>複雑 (Skibaモデル)</td>
-                    <td>リアルタイムレース戦略, インターバル設計</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <section id="practical-examples">
-        <h2>種目別の実践例</h2>
-
-        <div class="discipline-example">
-            <h3>🚴 ロードタイムトライアル (40km)</h3>
-            <ul>
-                <li><strong>平均パワー:</strong> 320W</li>
-                <li><strong>NP:</strong> 325W</li>
-                <li><strong>IF:</strong> 0.98 (FTP = 332W)</li>
-                <li><strong>VI:</strong> 1.02</li>
-                <li><strong>W'bal:</strong> 最小限の枯渇 (CP付近を維持)</li>
-            </ul>
-            <p><strong>分析:</strong> 完璧にペース配分されたTT。VIが1.0に近い = 最適な安定性。IF 0.98 = 最大持続可能エフォート。</p>
-        </div>
-
-        <div class="discipline-example">
-            <h3>🏁 クリテリウム (60分)</h3>
-            <ul>
-                <li><strong>平均パワー:</strong> 225W</li>
-                <li><strong>NP:</strong> 275W</li>
-                <li><strong>IF:</strong> 0.83 (FTP = 332W)</li>
-                <li><strong>VI:</strong> 1.22</li>
-                <li><strong>W'bal:</strong> 繰り返しの枯渇/回復 (300W超えのサージ88回)</li>
-            </ul>
-            <p><strong>分析:</strong> 高いVIはサージと回復のパターンを明らかにします。NPが平均より50W高いことは真のコストを示しています。W'balの管理が重要でした。</p>
-        </div>
-
-        <div class="discipline-example">
-            <h3>🚵 XC MTB レース (90分)</h3>
-            <ul>
-                <li><strong>平均パワー:</strong> 245W</li>
-                <li><strong>NP:</strong> 285W</li>
-                <li><strong>IF:</strong> 0.86 (FTP = 332W)</li>
-                <li><strong>VI:</strong> 1.16</li>
-                <li><strong>W'bal:</strong> 非常に変動的、複数の深い枯渇</li>
-            </ul>
-            <p><strong>分析:</strong> 平均パワーはエフォートを40W過小評価しています。MTBに典型的な高いVI。テクニカルな登りでのW'bal枯渇は、下りでの賢い回復を必要としました。</p>
-        </div>
-
-        <div class="discipline-example">
-            <h3>🏔️ 登りを含むグランフォンド (5時間)</h3>
-            <ul>
-                <li><strong>平均パワー:</strong> 195W</li>
-                <li><strong>NP:</strong> 215W</li>
-                <li><strong>IF:</strong> 0.65 (FTP = 332W)</li>
-                <li><strong>VI:</strong> 1.10</li>
-                <li><strong>W'bal:</strong> 登りで枯渇、下りで回復</li>
-            </ul>
-            <p><strong>分析:</strong> IFは5時間持続可能な中程度。VI 1.10は登りでのサージによるもの。この期間では適切な補給が重要です。</p>
-        </div>
-    </section>
-
-    <section id="faq">
-        <h2>よくある質問</h2>
-
-        <div class="faq-item">
-            <h3>なぜNPは常に平均パワーよりも高いのですか？</h3>
-            <p>NPは高強度のエフォートをより重く評価します。なぜなら、それらは不釣り合いな疲労を生み出すからです。4乗計算は平均を超えるサージを増幅し、NP ≥
-                平均パワーとなります。完全に一定のエフォートの場合、NPは平均パワーと等しくなります (VI = 1.0)。</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>さまざまなワークアウトでの「良い」強度係数とは何ですか？</h3>
-            <p><strong>回復:</strong> IF &lt; 0.65 | <strong>エンデュランス:</strong> IF 0.65-0.75 | <strong>テンポ:</strong> IF
+        </p><h3>W'とCPの理解</h3><p><strong>クリティカルパワー (CP)</strong> は、長時間持続できる最大パワーであり、有酸素代謝と無酸素代謝の境界です。FTPに似ていますが、より科学的に堅牢です。</p><p><strong>W' (Wプライム)</strong> は、CPを超える仕事のための有限の容量であり、キロジュール (kJ) で測定されます。典型的な値は15-25 kJの範囲です。</p><div class="info-box"><h3>CPとW'の例え</h3><p><strong>CP = 持続可能なペース</strong> (平坦な道路を無限に走るようなもの)<br><strong>W' = サージ用バッテリー</strong> (限られた時間しか使用できないブーストボタン)
+            </p><p>CPを超えて走ると、W'を消費します。CP未満で走ると、W'は回復しますが、回復は消費よりも遅いです。</p></div><h3>W'balの仕組み</h3><h4>CPを超える枯渇</h4><p>CPを超えて走る毎秒、CPをどれだけ超えているかに比例してW'を「消費」します：</p><ul><li>CPが280Wのとき300Wのエフォート → 20 J/sでW'を消費</li><li>CPが280Wのとき350Wのエフォート → 70 J/sでW'を消費 (はるかに速い！)</li></ul><h4>CP未満での回復</h4><p>CP未満で走ると、W'は指数関数的に回復し、時定数は約300-500秒です（疲労レベルに依存）。</p><div class="formula-box"><h4>簡略化されたW' Balanceの方程式</h4><div class="formula"><strong>消耗:</strong> W'bal は (Power - CP) / 秒 で減少<br><strong>回復:</strong> W'bal はW'maxに向かって指数関数的に回復
+            </div><p class="formula-explanation">実際のモデル (Skiba, Bartram) はより複雑で、回復率に対する疲労の影響を考慮しています。</p></div><h3>実世界の例：MTBレース</h3><div class="example-box"><h4>シナリオ: テクニカルな登りを含むXC MTBレース</h4><p><strong>ライダープロフィール:</strong></p><ul><li>CP: 280W</li><li>W': 18,000 J (18 kJ)</li></ul><p><strong>レースセグメント:</strong></p><ol><li><strong>スタートサージ (20秒 @ 400W):</strong><ul><li>W' 消費: (400-280) × 20 = 2,400 J</li><li>W'bal: 18,000 → 15,600 J (残り87%)</li></ul></li><li><strong>回復ペダリング (60秒 @ 220W):</strong><ul><li>W' 部分的回復: ~1,800 J</li><li>W'bal: 15,600 → 17,400 J (残り97%)</li></ul></li><li><strong>テクニカルな登り (5分 @ 平均320W, 6回のサージで380W):</strong><ul><li>持続的なCP超えのエフォート + サージによる大幅なW'枯渇</li><li>W'bal: 17,400 → 4,200 J (残り23%) </li></ul></li><li><strong>下りでの回復 (3分 @ 150W):</strong><ul><li>W' 回復: ~6,000 J</li><li>W'bal: 4,200 → 10,200 J (残り57%)</li></ul></li></ol><p><strong>分析:</strong> ライダーは別のハードなエフォートに耐えることができますが、W'balを20%未満に枯渇させないようにすべきです。そうしないと、アタックに反応できなくなります。</p></div><h3>レース戦略へのW'balの活用</h3><h4>ペーシング戦略</h4><ul><li><strong>登りでW'balを監視する:</strong> 頂上でアタックに反応できないほど深く使いすぎないでください</li><li><strong>回復期間を最大化する:</strong> 下りや平坦なセクションで軽くペダルを漕ぎ、W'を再充電します</li><li><strong>最後のエフォートを計画する:</strong> スプリントや最後の登りのためにW'がどれだけ残っているかを知っておいてください</li></ul><h4>トレーニングへの応用</h4><ul><li><strong>インターバル設計:</strong> W'を繰り返し枯渇/回復させるようにインターバルを構成します (反復性を構築)</li><li><strong>レースシミュレーション:</strong> レース固有のシナリオでW'balを管理する練習をします</li><li><strong>弱点の特定:</strong> 低いW' = より多くのアナエロビック容量ワークが必要</li></ul><div class="callout callout-tip"><h3>💡 MTB固有のW'balトレーニング</h3><p><strong>バーストインターバル:</strong> 2分間のテンポ (90% FTP) + 15秒間のサージ (150% FTP)、6-8回繰り返し</p><p>これはXCレースの要求をシミュレートします：持続的なテンポと繰り返しのサージ。CPとW'回復率の両方を鍛えます。</p><p><strong>関連:</strong><a href="/ja/critical-power/">クリティカルパワーとW'</a>の計算方法を学ぶ</p></div><div class="callout callout-science"><h3>🔬 研究の基礎</h3><p>W'balモデリングは、クリティカルパワーの概念 (Monod & Scherrer, 1965) に由来し、W'再構築のためのPhilip
+                Skibaの2012年モデルによって改良されました。最近の研究は、可変強度運動における疲労困憊までの時間の予測因子としてW'balを検証しています。</p><p><strong>出典:</strong></p><ul><li>Skiba, P.F., et al. (2012). <em>Modeling the Expenditure and Reconstitution of W'.</em> Medicine &
+                    Science in Sports & Exercise.</li><li>Jones, A.M., et al. (2019). <em>Critical Power: Theory and Applications.</em> Journal of Applied
+                    Physiology, 126(6), 1905-1915.</li></ul></div></section><section id="comparison-table"><h2>パワー指標の比較</h2><table class="comparison-table"><thead><tr><th>指標</th><th>測定するもの</th><th>計算式</th><th>最適な使用例</th></tr></thead><tbody><tr><td><strong>平均パワー</strong></td><td>平均出力</td><td>ワットの合計 / 秒</td><td>定常エフォート (TT, ソロクライム)</td></tr><tr><td><strong>標準化パワー (NP)</strong></td><td>生理学的コスト (加重)</td><td>⁴√( [30秒平均]⁴ の平均 )</td><td>可変エフォート (クリテリウム, MTB, グループライド)</td></tr><tr><td><strong>強度係数 (IF)</strong></td><td>FTPに対する相対的エフォート</td><td>NP / FTP</td><td>セッション強度処方</td></tr><tr><td><strong>変動指数 (VI)</strong></td><td>パワーの安定性</td><td>NP / 平均パワー</td><td>ペーシング分析, 種目比較</td></tr><tr><td><strong>W' Balance (W'bal)</strong></td><td>残りのアナエロビック容量</td><td>複雑 (Skibaモデル)</td><td>リアルタイムレース戦略, インターバル設計</td></tr></tbody></table></section><section id="practical-examples"><h2>種目別の実践例</h2><div class="discipline-example"><h3>🚴 ロードタイムトライアル (40km)</h3><ul><li><strong>平均パワー:</strong> 320W</li><li><strong>NP:</strong> 325W</li><li><strong>IF:</strong> 0.98 (FTP = 332W)</li><li><strong>VI:</strong> 1.02</li><li><strong>W'bal:</strong> 最小限の枯渇 (CP付近を維持)</li></ul><p><strong>分析:</strong> 完璧にペース配分されたTT。VIが1.0に近い = 最適な安定性。IF 0.98 = 最大持続可能エフォート。</p></div><div class="discipline-example"><h3>🏁 クリテリウム (60分)</h3><ul><li><strong>平均パワー:</strong> 225W</li><li><strong>NP:</strong> 275W</li><li><strong>IF:</strong> 0.83 (FTP = 332W)</li><li><strong>VI:</strong> 1.22</li><li><strong>W'bal:</strong> 繰り返しの枯渇/回復 (300W超えのサージ88回)</li></ul><p><strong>分析:</strong> 高いVIはサージと回復のパターンを明らかにします。NPが平均より50W高いことは真のコストを示しています。W'balの管理が重要でした。</p></div><div class="discipline-example"><h3>🚵 XC MTB レース (90分)</h3><ul><li><strong>平均パワー:</strong> 245W</li><li><strong>NP:</strong> 285W</li><li><strong>IF:</strong> 0.86 (FTP = 332W)</li><li><strong>VI:</strong> 1.16</li><li><strong>W'bal:</strong> 非常に変動的、複数の深い枯渇</li></ul><p><strong>分析:</strong> 平均パワーはエフォートを40W過小評価しています。MTBに典型的な高いVI。テクニカルな登りでのW'bal枯渇は、下りでの賢い回復を必要としました。</p></div><div class="discipline-example"><h3>🏔️ 登りを含むグランフォンド (5時間)</h3><ul><li><strong>平均パワー:</strong> 195W</li><li><strong>NP:</strong> 215W</li><li><strong>IF:</strong> 0.65 (FTP = 332W)</li><li><strong>VI:</strong> 1.10</li><li><strong>W'bal:</strong> 登りで枯渇、下りで回復</li></ul><p><strong>分析:</strong> IFは5時間持続可能な中程度。VI 1.10は登りでのサージによるもの。この期間では適切な補給が重要です。</p></div></section><section id="faq"><h2>よくある質問</h2><div class="faq-item"><h3>なぜNPは常に平均パワーよりも高いのですか？</h3><p>NPは高強度のエフォートをより重く評価します。なぜなら、それらは不釣り合いな疲労を生み出すからです。4乗計算は平均を超えるサージを増幅し、NP ≥
+                平均パワーとなります。完全に一定のエフォートの場合、NPは平均パワーと等しくなります (VI = 1.0)。</p></div><div class="faq-item"><h3>さまざまなワークアウトでの「良い」強度係数とは何ですか？</h3><p><strong>回復:</strong> IF &lt; 0.65 | <strong>エンデュランス:</strong> IF 0.65-0.75 | <strong>テンポ:</strong> IF
                 0.75-0.85 | <strong>閾値:</strong> IF 0.85-0.95 | <strong>FTPテスト:</strong> IF
-                0.95-1.05。IFが高いほどきついセッションですが、持続可能性は時間に依存します。</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>すべてのライドで低いVIを目指すべきですか？</h3>
-            <p>いいえ。タイムトライアルやソロクライムは、最適なペーシングのために低いVI (1.00-1.03) の恩恵を受けます。しかし、クリテリウム、MTBレース、グループライドは必然的に高いVI (1.10-1.25)
-                になります。目標イベントに合ったVIプロファイルでトレーニングしてください。</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>W'balはFTPとどう違いますか？</h3>
-            <p>FTP（またはCP）は<em>レート</em>であり、ワット単位の持続可能なパワーです。W'は<em>容量</em>であり、FTPを超えるエフォートのために利用可能な総エネルギーで、キロジュール単位で測定されます。FTP
-                = 継続的に運転できる速度、W' = その速度を超えるバースト用のニトロタンクのサイズ、と考えてください。</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>トレーニングでW'を改善できますか？</h3>
-            <p>はい。高強度インターバル（VO2max、アナエロビック）は、8-12週間でW'を10-20%増加させます。スプリントトレーニング、坂道リピート、およびショートインターバル（120-150%
-                FTPで30秒-3分）は、特にW'の開発をターゲットにしています。</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>クリティカルパワーは必要ですか、それともFTPで十分ですか？</h3>
-            <p>基本的なトレーニングには、FTPで十分です。しかし、MTB、クリテリウム、または可変強度のイベントに参加する場合、CPとW'をモデル化することは、ペーシング戦略やいつアタックできるかを理解するために大きな利点をもたらします。CPはFTPよりも科学的に堅牢です。
-            </p>
-        </div>
-
-        <div class="faq-item">
-            <h3>なぜMTBはロードサイクリングよりもVIが高いのですか？</h3>
-            <p>MTBの地形は可変パワーを要求します：障害物を越える加速、テクニカルセクションでのサージ、下りでの回復。ロードサイクリング（特にソロ）は一定のパワーを許容します。この根本的な違いは、MTBライダーには持続的な閾値パワーだけでなく、反復性とW'管理という異なるトレーニングが必要であることを意味します。
-            </p>
-        </div>
-    </section>
-
-    <section id="related-resources">
-        <h2>関連リソース</h2>
-        <ul>
-            <li><a href="/ja/ftp/">機能的作業閾値パワー (FTP) ガイド</a></li>
-            <li><a href="/ja/critical-power/">クリティカルパワーと W' の解説</a></li>
-            <li><a href="/ja/training-zones/">パワーに基づくトレーニングゾーン</a></li>
-            <li><a href="/ja/pedaling-mechanics/">ペダリングメカニクスと効率</a></li>
-            <li><a href="/ja/getting-started/">パワーベーストレーニングの始め方</a></li>
-        </ul>
-    </section>
-</article>
-
-<script type="application/ld+json">
+                0.95-1.05。IFが高いほどきついセッションですが、持続可能性は時間に依存します。</p></div><div class="faq-item"><h3>すべてのライドで低いVIを目指すべきですか？</h3><p>いいえ。タイムトライアルやソロクライムは、最適なペーシングのために低いVI (1.00-1.03) の恩恵を受けます。しかし、クリテリウム、MTBレース、グループライドは必然的に高いVI (1.10-1.25)
+                になります。目標イベントに合ったVIプロファイルでトレーニングしてください。</p></div><div class="faq-item"><h3>W'balはFTPとどう違いますか？</h3><p>FTP（またはCP）は<em>レート</em>であり、ワット単位の持続可能なパワーです。W'は<em>容量</em>であり、FTPを超えるエフォートのために利用可能な総エネルギーで、キロジュール単位で測定されます。FTP
+                = 継続的に運転できる速度、W' = その速度を超えるバースト用のニトロタンクのサイズ、と考えてください。</p></div><div class="faq-item"><h3>トレーニングでW'を改善できますか？</h3><p>はい。高強度インターバル（VO2max、アナエロビック）は、8-12週間でW'を10-20%増加させます。スプリントトレーニング、坂道リピート、およびショートインターバル（120-150%
+                FTPで30秒-3分）は、特にW'の開発をターゲットにしています。</p></div><div class="faq-item"><h3>クリティカルパワーは必要ですか、それともFTPで十分ですか？</h3><p>基本的なトレーニングには、FTPで十分です。しかし、MTB、クリテリウム、または可変強度のイベントに参加する場合、CPとW'をモデル化することは、ペーシング戦略やいつアタックできるかを理解するために大きな利点をもたらします。CPはFTPよりも科学的に堅牢です。
+            </p></div><div class="faq-item"><h3>なぜMTBはロードサイクリングよりもVIが高いのですか？</h3><p>MTBの地形は可変パワーを要求します：障害物を越える加速、テクニカルセクションでのサージ、下りでの回復。ロードサイクリング（特にソロ）は一定のパワーを許容します。この根本的な違いは、MTBライダーには持続的な閾値パワーだけでなく、反復性とW'管理という異なるトレーニングが必要であることを意味します。
+            </p></div></section><section id="related-resources"><h2>関連リソース</h2><ul><li><a href="/ja/ftp/">機能的作業閾値パワー (FTP) ガイド</a></li><li><a href="/ja/critical-power/">クリティカルパワーと W' の解説</a></li><li><a href="/ja/training-zones/">パワーに基づくトレーニングゾーン</a></li><li><a href="/ja/pedaling-mechanics/">ペダリングメカニクスと効率</a></li><li><a href="/ja/getting-started/">パワーベーストレーニングの始め方</a></li></ul></section></article><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -1875,9 +688,7 @@ img[width][height] {
   "datePublished": "2025-01-27",
   "dateModified": "2025-01-27"
 }
-</script>
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -1916,371 +727,177 @@ img[width][height] {
     }
   ]
 }
-</script>
-
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+</script></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link active"
+                </a><a href="/ja/" class="lang-link active"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. All rights reserved
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/ja/privacy/">Privacy</a></li>
-                <li><a href="/ja/terms/">Terms</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>This website uses cookies to improve your experience.</p>
-            <a href="/ja/privacy/" class="text-sm">Learn more</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/ja/privacy/">Privacy</a></li><li><a href="/ja/terms/">Terms</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>This website uses cookies to improve your experience.</p><a href="/ja/privacy/" class="text-sm">Learn more</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button><button id="cookie-accept" class="btn btn-primary btn-small">Accept</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

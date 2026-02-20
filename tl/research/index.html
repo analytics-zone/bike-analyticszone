@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="tl" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>Pananaliksik sa Performance sa Cycling - Siyentipikong Batayan</title>
-  <meta name="description" content="Pananaliksik sa likod ng Bike Analytics: mga FTP study, Critical Power model, TSS validation, at siyensya ng power-based training.">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="cycling research, FTP research, critical power research, cycling science">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/tl/research/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-15T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/tl/research/">
-  <meta property="og:title" content="Pananaliksik sa Performance sa Cycling - Siyentipikong Batayan">
-  <meta property="og:description" content="Pananaliksik sa likod ng Bike Analytics: mga FTP study, Critical Power model, TSS validation, at siyensya ng power-based training.">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="tl_PH">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/tl/research/">
-  <meta name="twitter:title" content="Pananaliksik sa Performance sa Cycling - Siyentipikong Batayan">
-  <meta name="twitter:description" content="Pananaliksik sa likod ng Bike Analytics: mga FTP study, Critical Power model, TSS validation, at siyensya ng power-based training.">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/research/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/research/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/research/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/research/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/research/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/research/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/research/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/research/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/research/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/research/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/research/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/research/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/research/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/research/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/research/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/research/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/research/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/research/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/research/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/research/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/research/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/research/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/research/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/research/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/research/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/research/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/research/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/research/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/research/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/research/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/research/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/research/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/research/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/research/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/research/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/research/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/research/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/research/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/research/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/research/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/research/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/research/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/research/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/research/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/research/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/research/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/research/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/research/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/research/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/research/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/research/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/research/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/research/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/research/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/research/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/research/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="tl" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>Pananaliksik sa Performance sa Cycling - Siyentipikong Batayan</title><meta name="description" content="Pananaliksik sa likod ng Bike Analytics: mga FTP study, Critical Power model, TSS validation, at siyensya ng power-based training."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="cycling research, FTP research, critical power research, cycling science"><link rel="canonical" href="https://bike.analyticszone.app/tl/research/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-01-15T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/tl/research/"><meta property="og:title" content="Pananaliksik sa Performance sa Cycling - Siyentipikong Batayan"><meta property="og:description" content="Pananaliksik sa likod ng Bike Analytics: mga FTP study, Critical Power model, TSS validation, at siyensya ng power-based training."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="tl_PH"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/tl/research/"><meta name="twitter:title" content="Pananaliksik sa Performance sa Cycling - Siyentipikong Batayan"><meta name="twitter:description" content="Pananaliksik sa likod ng Bike Analytics: mga FTP study, Critical Power model, TSS validation, at siyensya ng power-based training."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/research/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/research/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/research/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/research/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/research/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/research/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/research/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/research/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/research/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/research/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/research/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/research/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/research/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/research/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/research/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/research/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/research/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/research/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/research/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/research/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/research/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/research/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/research/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/research/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/research/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/research/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/research/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/research/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/research/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/research/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/research/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/research/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/research/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/research/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/research/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/research/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/research/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/research/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/research/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/research/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/research/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/research/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/research/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/research/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/research/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/research/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/research/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/research/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/research/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/research/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/research/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/research/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/research/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/research/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/research/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/research/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "tl"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "Pananaliksik sa likod ng Bike Analytics: mga FTP study, Critical Power model, TSS validation, at siyensya ng power-based training.",
   "url": "https://bike.analyticszone.app/tl/research/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -653,17 +435,7 @@ img[width][height] {
     "@id": "https://bike.analyticszone.app/tl/research/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1567 +449,456 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">Lumaktaw sa nilalaman</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/tl/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/tl/" 
+  </script></head><body><a href="#main-content" class="skip-link">Lumaktaw sa nilalaman</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/tl/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/tl/" 
                                 aria-current="">
                                 Home
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/tl/getting-started/" class="nav-label">Matuto</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/tl/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/tl/getting-started/" class="nav-label">Matuto</a><ul class="submenu"><li><a href="/tl/getting-started/" 
                                         aria-current="">
                                         Pagsisimula
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/ftp/" 
+                                    </a></li><li><a href="/tl/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/critical-power/" 
+                                    </a></li><li><a href="/tl/critical-power/" 
                                         aria-current="">
                                         Kritikal na Lakas
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/training-zones/" 
+                                    </a></li><li><a href="/tl/training-zones/" 
                                         aria-current="">
                                         Sona ng Pagsasanay
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/training-load/" 
+                                    </a></li><li><a href="/tl/training-load/" 
                                         aria-current="">
                                         Load ng Pagsasanay
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/tss-calculator/" 
+                                    </a></li><li><a href="/tl/tss-calculator/" 
                                         aria-current="">
                                         Kalkulator ng TSS
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/tl/research/" class="nav-label">Agham</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/tl/research/" class="active" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/tl/research/" class="nav-label">Agham</a><ul class="submenu"><li><a href="/tl/research/" class="active" 
                                         aria-current="page">
                                         Pananaliksik
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/formulas/" 
+                                    </a></li><li><a href="/tl/formulas/" 
                                         aria-current="">
                                         Pormula
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/power-metrics/" 
+                                    </a></li><li><a href="/tl/power-metrics/" 
                                         aria-current="">
                                         Sukatan ng Lakas
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/efficiency/" 
+                                    </a></li><li><a href="/tl/efficiency/" 
                                         aria-current="">
                                         Kahusayan
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/pedaling-mechanics/" 
+                                    </a></li><li><a href="/tl/pedaling-mechanics/" 
                                         aria-current="">
                                         Mekanismo ng Pagpedal
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/aerodynamics/" 
+                                    </a></li><li><a href="/tl/aerodynamics/" 
                                         aria-current="">
                                         Aero-dinamika
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/climbing-performance/" 
+                                    </a></li><li><a href="/tl/climbing-performance/" 
                                         aria-current="">
                                         Pagganap sa Pag-akyat
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/bibliography/" 
+                                    </a></li><li><a href="/tl/bibliography/" 
                                         aria-current="">
                                         Bibliograpiya
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/tl/road-cycling/" class="nav-label">Disiplina</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/tl/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/tl/road-cycling/" class="nav-label">Disiplina</a><ul class="submenu"><li><a href="/tl/road-cycling/" 
                                         aria-current="">
                                         Road Cycling
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/mountain-biking/" 
+                                    </a></li><li><a href="/tl/mountain-biking/" 
                                         aria-current="">
                                         Mountain Biking
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/road-vs-mtb/" 
+                                    </a></li><li><a href="/tl/road-vs-mtb/" 
                                         aria-current="">
                                         Kalsada vs MTB
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/tl/comparisons/" 
+                                    </a></li><li><a href="/tl/comparisons/" 
                                         aria-current="">
                                         Paghahambing ng Platform
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/tl/contact/" 
+                                    </a></li></ul></li><li><a href="/tl/contact/" 
                                 aria-current="">
                                 Makipag-ugnayan
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="Pumili ng wika">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="Pumili ng wika"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" selected>
+                        </option><option value="tl" selected>
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="I-toggle ang menu"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/tl/">Home</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/tl/research/">Agham</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">Pananaliksik</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-    <section class="page-hero">
-    <div class="container">
-        <h1>Ang Pananaliksik sa Likod ng Bike Analytics</h1>
-        <p class="lead">Pagsusuri sa Performance ng Cycling Base sa Siyensya</p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>Approach na Base sa Ebidensya sa Analytics ng Cycling</h2>
-        <p class="lead">Ang bawat metric, formula, at kalkulasyon sa Bike Analytics ay nakabatay sa mga dekada ng
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="I-toggle ang menu"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/tl/">Home</a></li><li><a href="/tl/research/">Agham</a></li><li><span aria-current="page">Pananaliksik</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>Ang Pananaliksik sa Likod ng Bike Analytics</h1><p class="lead">Pagsusuri sa Performance ng Cycling Base sa Siyensya</p></div></section><section class="section"><div class="container container-narrow"><h2>Approach na Base sa Ebidensya sa Analytics ng Cycling</h2><p class="lead">Ang bawat metric, formula, at kalkulasyon sa Bike Analytics ay nakabatay sa mga dekada ng
             peer-reviewed na siyentipikong pananaliksik. Dinodokumento ng pahinang ito ang mga pangunahing pag-aaral na
-            nagpapatunay sa aming analytical framework para sa parehong road cycling at mountain biking.</p>
-
-        <div class="callout callout-info">
-            <h3>🔬 Siyentipikong Katumpakan sa Performance ng Cycling</h3>
-            <p>Ang modernong cycling analytics ay nagmula sa mga simpleng bilis at pagsubaybay sa distansya patungo sa
-                mga sopistikadong power-based training system na sinusuportahan ng malawak na pananaliksik sa:</p>
-            <ul>
-                <li><strong>Physiology ng Ehersisyo</strong> - Critical Power, FTP, mga lactate threshold, VO₂max</li>
-                <li><strong>Biomechanics</strong> - Efficiency sa pagpadyak, pag-optimize ng cadence, power output</li>
-                <li><strong>Siyensya sa Sports</strong> - Pagsukat ng training load (TSS, CTL/ATL), periodization</li>
-                <li><strong>Aerodynamics</strong> - Pagsukat ng CdA, mga benepisyo ng drafting, pag-optimize ng posisyon
-                </li>
-                <li><strong>Engineering</strong> - Pagpapatunay sa power meter, katumpakan ng sensor, data modeling</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="text-center mb-xl">Mga Pangunahing Larangan ng Pananaliksik</h2>
-
-        <div class="research-area">
-            <h3>1. Functional Threshold Power (FTP)</h3>
-            <p class="lead">Ang FTP ay kumakatawan sa pinakamataas na power na kayang panatilihin ng isang siklista sa
+            nagpapatunay sa aming analytical framework para sa parehong road cycling at mountain biking.</p><div class="callout callout-info"><h3>🔬 Siyentipikong Katumpakan sa Performance ng Cycling</h3><p>Ang modernong cycling analytics ay nagmula sa mga simpleng bilis at pagsubaybay sa distansya patungo sa
+                mga sopistikadong power-based training system na sinusuportahan ng malawak na pananaliksik sa:</p><ul><li><strong>Physiology ng Ehersisyo</strong> - Critical Power, FTP, mga lactate threshold, VO₂max</li><li><strong>Biomechanics</strong> - Efficiency sa pagpadyak, pag-optimize ng cadence, power output</li><li><strong>Siyensya sa Sports</strong> - Pagsukat ng training load (TSS, CTL/ATL), periodization</li><li><strong>Aerodynamics</strong> - Pagsukat ng CdA, mga benepisyo ng drafting, pag-optimize ng posisyon
+                </li><li><strong>Engineering</strong> - Pagpapatunay sa power meter, katumpakan ng sensor, data modeling</li></ul></div></div></section><section class="section section-alt"><div class="container"><h2 class="text-center mb-xl">Mga Pangunahing Larangan ng Pananaliksik</h2><div class="research-area"><h3>1. Functional Threshold Power (FTP)</h3><p class="lead">Ang FTP ay kumakatawan sa pinakamataas na power na kayang panatilihin ng isang siklista sa
                 isang quasi-steady state sa loob ng humigit-kumulang isang oras. Nagsisilbi itong pundasyon ng mga
-                power-based training zone.</p>
-
-            <div class="research-paper">
-                <h4>Allen & Coggan (2010, 2019) - Training and Racing with a Power Meter</h4>
-                <div class="paper-meta">
-                    <strong>Publication:</strong> VeloPress (3rd Edition, 2019)<br>
-                    <strong>Kahalagahan:</strong> Pangunahing teksto na tumutukoy sa modernong power-based training
-                </div>
-                <div class="findings">
-                    <h5>Mga Pangunahing Kontribusyon:</h5>
-                    <ul>
-                        <li><strong>20-minutong FTP test protocol</strong> - FTP = 95% ng 20-minutong max power</li>
-                        <li><strong>Normalized Power (NP)</strong> - Isinasaalang-alang ang pagbabago sa effort</li>
-                        <li><strong>Training Stress Score (TSS)</strong> - Sumusukat sa training load</li>
-                        <li><strong>Intensity Factor (IF)</strong> - Sumusukat sa relative intensity</li>
-                        <li><strong>Power profiling</strong> - Framework para matukoy ang mga kalakasan/kahinaan</li>
-                        <li><strong>Quadrant analysis</strong> - Mga insight sa pedal force vs. velocity</li>
-                    </ul>
-                </div>
-                <div class="significance">
-                    <p><strong>Epekto:</strong> Isinalin sa 12 wika. Itinatag ang power-based training bilang gold
+                power-based training zone.</p><div class="research-paper"><h4>Allen & Coggan (2010, 2019) - Training and Racing with a Power Meter</h4><div class="paper-meta"><strong>Publication:</strong> VeloPress (3rd Edition, 2019)<br><strong>Kahalagahan:</strong> Pangunahing teksto na tumutukoy sa modernong power-based training
+                </div><div class="findings"><h5>Mga Pangunahing Kontribusyon:</h5><ul><li><strong>20-minutong FTP test protocol</strong> - FTP = 95% ng 20-minutong max power</li><li><strong>Normalized Power (NP)</strong> - Isinasaalang-alang ang pagbabago sa effort</li><li><strong>Training Stress Score (TSS)</strong> - Sumusukat sa training load</li><li><strong>Intensity Factor (IF)</strong> - Sumusukat sa relative intensity</li><li><strong>Power profiling</strong> - Framework para matukoy ang mga kalakasan/kahinaan</li><li><strong>Quadrant analysis</strong> - Mga insight sa pedal force vs. velocity</li></ul></div><div class="significance"><p><strong>Epekto:</strong> Isinalin sa 12 wika. Itinatag ang power-based training bilang gold
                         standard sa propesyonal na cycling. Ipinakilala ang mga metric na ginagamit na ngayon sa buong
-                        mundo sa TrainingPeaks, Zwift, at lahat ng malalaking platform.</p>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>MacInnis et al. (2019) - FTP Test Reliability and Reproducibility</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> International Journal of Exercise Science, PMC6886609<br>
-                    <strong>Pag-aaral:</strong> Pag-aaral sa pagpapatunay para sa mga atletang may mataas na pagsasanay
+                        mundo sa TrainingPeaks, Zwift, at lahat ng malalaking platform.</p></div></div><div class="research-paper"><h4>MacInnis et al. (2019) - FTP Test Reliability and Reproducibility</h4><div class="paper-meta"><strong>Journal:</strong> International Journal of Exercise Science, PMC6886609<br><strong>Pag-aaral:</strong> Pag-aaral sa pagpapatunay para sa mga atletang may mataas na pagsasanay
                     (highly-trained)
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li><strong>Mataas na reliability:</strong> ICC = 0.98, r² = 0.96 test-retest correlation</li>
-                        <li><strong>Napakahusay na repeatability:</strong> +13 hanggang -17W variance, mean bias -2W
-                        </li>
-                        <li><strong>Kagalingan sa pagtukoy:</strong> Natutukoy ang sustainable na 1-hour power sa 89% ng
-                            mga atleta</li>
-                        <li><strong>Mababang error margin:</strong> Karaniwang error ng pagsukat = 2.3%</li>
-                    </ul>
-                </div>
-                <div class="significance">
-                    <p><strong>Epekto:</strong> Siyentipikong pinatunayan ang FTP bilang isang maaasahan at madaling
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li><strong>Mataas na reliability:</strong> ICC = 0.98, r² = 0.96 test-retest correlation</li><li><strong>Napakahusay na repeatability:</strong> +13 hanggang -17W variance, mean bias -2W
+                        </li><li><strong>Kagalingan sa pagtukoy:</strong> Natutukoy ang sustainable na 1-hour power sa 89% ng
+                            mga atleta</li><li><strong>Mababang error margin:</strong> Karaniwang error ng pagsukat = 2.3%</li></ul></div><div class="significance"><p><strong>Epekto:</strong> Siyentipikong pinatunayan ang FTP bilang isang maaasahan at madaling
                         makuha na metric na hindi nangangailangan ng laboratory testing. Kinumpirma ang katumpakan ng
-                        20-minutong test protocol para sa mga sanay na siklista.</p>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Gavin et al. (2012) - FTP Testing Protocol Effectiveness</h4>
-                <div class="paper-meta">
-                    <strong>Focus:</strong> Pagsusuri sa iba't ibang paraan ng FTP testing
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li>Ang 20-minutong test protocol ay nagpapakita ng mataas na ugnayan sa lab-measured na lactate
-                            threshold</li>
-                        <li>Ang ramp test at 8-minutong test ay napatunayan din ngunit may magkakaibang katangian</li>
-                        <li>Ang indibidwal na pagkakaiba ay nangangailangan ng personal na pagpapatunay sa paglipas ng
-                            panahon</li>
-                        <li>Ang mga field test ay nagbibigay ng praktikal na alternatibo sa mamahaling lab testing</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="research-area">
-            <h3>2. Modelo ng Critical Power</h3>
-            <p class="lead">Ang Critical Power (CP) ay kumakatawan sa hangganan sa pagitan ng heavy at severe na mga
+                        20-minutong test protocol para sa mga sanay na siklista.</p></div></div><div class="research-paper"><h4>Gavin et al. (2012) - FTP Testing Protocol Effectiveness</h4><div class="paper-meta"><strong>Focus:</strong> Pagsusuri sa iba't ibang paraan ng FTP testing
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li>Ang 20-minutong test protocol ay nagpapakita ng mataas na ugnayan sa lab-measured na lactate
+                            threshold</li><li>Ang ramp test at 8-minutong test ay napatunayan din ngunit may magkakaibang katangian</li><li>Ang indibidwal na pagkakaiba ay nangangailangan ng personal na pagpapatunay sa paglipas ng
+                            panahon</li><li>Ang mga field test ay nagbibigay ng praktikal na alternatibo sa mamahaling lab testing</li></ul></div></div></div><div class="research-area"><h3>2. Modelo ng Critical Power</h3><p class="lead">Ang Critical Power (CP) ay kumakatawan sa hangganan sa pagitan ng heavy at severe na mga
                 exercise domain—ang maximum metabolic steady state na kayang panatilihin nang walang progresibong
-                pagkapagod.</p>
-
-            <div class="research-paper">
-                <h4>Monod & Scherrer (1965) - Original Critical Power Concept</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> Journal de Physiologie<br>
-                    <strong>Kahalagahan:</strong> Pangunahing akda na nagtatag ng CP theory
-                </div>
-                <div class="findings">
-                    <h5>Pangunahing Konsepto:</h5>
-                    <ul>
-                        <li>Hyperbolic na ugnayan sa pagitan ng power at oras hanggang sa mapagod (time to exhaustion)
-                        </li>
-                        <li>Critical Power bilang asymptote - pinakamataas na sustainable power nang walang hanggan</li>
-                        <li>W' (W-prime) bilang limitadong anaerobic work capacity sa itaas ng CP</li>
-                        <li>Linear na ugnayan: Work = CP × Oras + W'</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Jones et al. (2019) - Critical Power: Theory and Applications</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> Journal of Applied Physiology, 126(6), 1905-1915<br>
-                    <strong>Pag-aaral:</strong> Komprehensibong pagsusuri ng mahigit 50 taon ng pananaliksik sa CP
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li>Ang CP ay kumakatawan sa maximal metabolic steady state - hangganan sa pagitan ng
-                            aerobic/anaerobic dominance</li>
-                        <li><strong>Ang CP ay karaniwang 72-77% ng 1-minutong maximum power</strong></li>
-                        <li><strong>Ang CP ay pumapatak sa ±5W ng FTP</strong> para sa karamihan ng mga siklista</li>
-                        <li>Ang W' ay nasa saklaw na 6-25 kJ (karaniwan: 15-20 kJ) depende sa status ng pagsasanay</li>
-                        <li>Ang CP ay mas matatag physiologically kaysa sa FTP sa iba't ibang test protocol</li>
-                    </ul>
-                </div>
-                <div class="significance">
-                    <p><strong>Epekto:</strong> Itinatag ang CP bilang siyentipikong higit na mahusay kaysa sa FTP para
+                pagkapagod.</p><div class="research-paper"><h4>Monod & Scherrer (1965) - Original Critical Power Concept</h4><div class="paper-meta"><strong>Journal:</strong> Journal de Physiologie<br><strong>Kahalagahan:</strong> Pangunahing akda na nagtatag ng CP theory
+                </div><div class="findings"><h5>Pangunahing Konsepto:</h5><ul><li>Hyperbolic na ugnayan sa pagitan ng power at oras hanggang sa mapagod (time to exhaustion)
+                        </li><li>Critical Power bilang asymptote - pinakamataas na sustainable power nang walang hanggan</li><li>W' (W-prime) bilang limitadong anaerobic work capacity sa itaas ng CP</li><li>Linear na ugnayan: Work = CP × Oras + W'</li></ul></div></div><div class="research-paper"><h4>Jones et al. (2019) - Critical Power: Theory and Applications</h4><div class="paper-meta"><strong>Journal:</strong> Journal of Applied Physiology, 126(6), 1905-1915<br><strong>Pag-aaral:</strong> Komprehensibong pagsusuri ng mahigit 50 taon ng pananaliksik sa CP
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li>Ang CP ay kumakatawan sa maximal metabolic steady state - hangganan sa pagitan ng
+                            aerobic/anaerobic dominance</li><li><strong>Ang CP ay karaniwang 72-77% ng 1-minutong maximum power</strong></li><li><strong>Ang CP ay pumapatak sa ±5W ng FTP</strong> para sa karamihan ng mga siklista</li><li>Ang W' ay nasa saklaw na 6-25 kJ (karaniwan: 15-20 kJ) depende sa status ng pagsasanay</li><li>Ang CP ay mas matatag physiologically kaysa sa FTP sa iba't ibang test protocol</li></ul></div><div class="significance"><p><strong>Epekto:</strong> Itinatag ang CP bilang siyentipikong higit na mahusay kaysa sa FTP para
                         sa pagtukoy ng threshold. Nagbigay ng framework para sa pag-unawa sa limitadong work capacity sa
-                        itaas ng threshold.</p>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Skiba et al. (2014, 2015) - W' Balance Modeling</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> Medicine and Science in Sports and Exercise<br>
-                    <strong>Inobasyon:</strong> Real-time na pagsubaybay sa pag-ubos at pagbawi ng W'
-                </div>
-                <div class="findings">
-                    <h5>Mga Pangunahing Kontribusyon:</h5>
-                    <ul>
-                        <li><strong>W'bal model:</strong> Real-time na pagsubaybay sa status ng anaerobic battery</li>
-                        <li><strong>Expenditure rate:</strong> W'exp = ∫(Power - CP) kapag ang P > CP</li>
-                        <li><strong>Recovery kinetics:</strong> Exponential na pagbawi na may time constant na τ = 546 ×
-                            e^(-0.01×ΔCP) + 316</li>
-                        <li><strong>Kritikal para sa MTB:</strong> Mahalaga sa pamamahala ng mga tuloy-tuloy na surge at
-                            attack</li>
-                        <li><strong>Estratehiya sa karera:</strong> I-optimize ang mga attack at pamahalaan ang mga
-                            sprint finish</li>
-                    </ul>
-                </div>
-                <div class="significance">
-                    <p><strong>Epekto:</strong> Binago ang paraan kung paano pinamamahalaan ng mga siklista ang mga
+                        itaas ng threshold.</p></div></div><div class="research-paper"><h4>Skiba et al. (2014, 2015) - W' Balance Modeling</h4><div class="paper-meta"><strong>Journal:</strong> Medicine and Science in Sports and Exercise<br><strong>Inobasyon:</strong> Real-time na pagsubaybay sa pag-ubos at pagbawi ng W'
+                </div><div class="findings"><h5>Mga Pangunahing Kontribusyon:</h5><ul><li><strong>W'bal model:</strong> Real-time na pagsubaybay sa status ng anaerobic battery</li><li><strong>Expenditure rate:</strong> W'exp = ∫(Power - CP) kapag ang P > CP</li><li><strong>Recovery kinetics:</strong> Exponential na pagbawi na may time constant na τ = 546 ×
+                            e^(-0.01×ΔCP) + 316</li><li><strong>Kritikal para sa MTB:</strong> Mahalaga sa pamamahala ng mga tuloy-tuloy na surge at
+                            attack</li><li><strong>Estratehiya sa karera:</strong> I-optimize ang mga attack at pamahalaan ang mga
+                            sprint finish</li></ul></div><div class="significance"><p><strong>Epekto:</strong> Binago ang paraan kung paano pinamamahalaan ng mga siklista ang mga
                         effort sa itaas ng threshold. Partikular na krusyal para sa mountain biking na may 88+ na surge
                         bawat 2-oras na karera. Ipinapatupad na ngayon sa WKO5, Golden Cheetah, at mga advanced cycling
-                        computer.</p>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Poole et al. (2016) - CP as Fatigue Threshold</h4>
-                <div class="paper-meta">
-                    <strong>Focus:</strong> Physiological na batayan ng Critical Power
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li>Ang CP ay kumakatawan sa hangganan sa pagitan ng sustainable at unsustainable na ehersisyo
-                        </li>
-                        <li>Sa ibaba ng CP: Maaaring maabot ang metabolic steady state, nagiging stable ang lactate</li>
-                        <li>Sa itaas ng CP: Progresibong pag-iipon ng mga metabolic byproduct → hindi maiiwasang
-                            pagkapagod</li>
-                        <li>Ang CP training ay nagpapabuti sa parehong aerobic capacity at threshold power</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="research-area">
-            <h3>3. Training Stress Score at Pamamahala ng Performance</h3>
-            <p class="lead">Ang pagsukat sa training load sa pamamagitan ng TSS at pamamahala sa balanse ng
+                        computer.</p></div></div><div class="research-paper"><h4>Poole et al. (2016) - CP as Fatigue Threshold</h4><div class="paper-meta"><strong>Focus:</strong> Physiological na batayan ng Critical Power
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li>Ang CP ay kumakatawan sa hangganan sa pagitan ng sustainable at unsustainable na ehersisyo
+                        </li><li>Sa ibaba ng CP: Maaaring maabot ang metabolic steady state, nagiging stable ang lactate</li><li>Sa itaas ng CP: Progresibong pag-iipon ng mga metabolic byproduct → hindi maiiwasang
+                            pagkapagod</li><li>Ang CP training ay nagpapabuti sa parehong aerobic capacity at threshold power</li></ul></div></div></div><div class="research-area"><h3>3. Training Stress Score at Pamamahala ng Performance</h3><p class="lead">Ang pagsukat sa training load sa pamamagitan ng TSS at pamamahala sa balanse ng
                 chronic/acute load ay nagbibigay-daan para sa mas mahusay na periodization at pamamahala ng pagkapagod.
-            </p>
-
-            <div class="research-paper">
-                <h4>Coggan (2003) - TSS Development</h4>
-                <div class="paper-meta">
-                    <strong>Publication:</strong> Introduction sa Training and Racing with a Power Meter<br>
-                    <strong>Kahalagahan:</strong> Lumikha ng industry-standard na metric para sa training load
-                </div>
-                <div class="findings">
-                    <h5>Formula at Aplikasyon ng TSS:</h5>
-                    <ul>
-                        <li><strong>TSS = (duration × NP × IF) / (FTP × 3600) × 100</strong></li>
-                        <li>100 TSS = 1 oras sa FTP (Intensity Factor = 1.0)</li>
-                        <li>Isinasaalang-alang ang parehong tagal at intensity sa isang metric</li>
-                        <li>Nagbibigay-daan sa paghahambing sa iba't ibang uri ng workout</li>
-                        <li>Pundasyon para sa CTL/ATL/TSB performance management system</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Banister et al. (1975, 1991) - Impulse-Response Model</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> Australian Journal of Sports Medicine (1975)<br>
-                    <strong>Kahalagahan:</strong> Teoretikal na pundasyon para sa fitness-fatigue paradigm
-                </div>
-                <div class="findings">
-                    <h5>Mga Pangunahing Kontribusyon:</h5>
-                    <ul>
-                        <li><strong>Fitness-fatigue model:</strong> Performance = Fitness - Fatigue</li>
-                        <li><strong>Exponentially weighted moving averages:</strong> CTL (42-day constant), ATL (7-day
-                            constant)</li>
-                        <li><strong>Training Stress Balance (TSB):</strong> TSB = CTL_kahapon - ATL_kahapon</li>
-                        <li>Mathematical framework para sa periodization at tapering</li>
-                        <li><strong>Teoretikal na batayan para sa TSS/CTL/ATL metrics</strong> na ginagamit sa
-                            TrainingPeaks</li>
-                    </ul>
-                </div>
-                <div class="significance">
-                    <p><strong>Epekto:</strong> Nagbigay ng siyentipikong pundasyon para sa quantitative training load
+            </p><div class="research-paper"><h4>Coggan (2003) - TSS Development</h4><div class="paper-meta"><strong>Publication:</strong> Introduction sa Training and Racing with a Power Meter<br><strong>Kahalagahan:</strong> Lumikha ng industry-standard na metric para sa training load
+                </div><div class="findings"><h5>Formula at Aplikasyon ng TSS:</h5><ul><li><strong>TSS = (duration × NP × IF) / (FTP × 3600) × 100</strong></li><li>100 TSS = 1 oras sa FTP (Intensity Factor = 1.0)</li><li>Isinasaalang-alang ang parehong tagal at intensity sa isang metric</li><li>Nagbibigay-daan sa paghahambing sa iba't ibang uri ng workout</li><li>Pundasyon para sa CTL/ATL/TSB performance management system</li></ul></div></div><div class="research-paper"><h4>Banister et al. (1975, 1991) - Impulse-Response Model</h4><div class="paper-meta"><strong>Journal:</strong> Australian Journal of Sports Medicine (1975)<br><strong>Kahalagahan:</strong> Teoretikal na pundasyon para sa fitness-fatigue paradigm
+                </div><div class="findings"><h5>Mga Pangunahing Kontribusyon:</h5><ul><li><strong>Fitness-fatigue model:</strong> Performance = Fitness - Fatigue</li><li><strong>Exponentially weighted moving averages:</strong> CTL (42-day constant), ATL (7-day
+                            constant)</li><li><strong>Training Stress Balance (TSB):</strong> TSB = CTL_kahapon - ATL_kahapon</li><li>Mathematical framework para sa periodization at tapering</li><li><strong>Teoretikal na batayan para sa TSS/CTL/ATL metrics</strong> na ginagamit sa
+                            TrainingPeaks</li></ul></div><div class="significance"><p><strong>Epekto:</strong> Nagbigay ng siyentipikong pundasyon para sa quantitative training load
                         management. Binago ang periodization mula sining patungong siyensya na may kumpas ng matematika.
-                    </p>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Busso (2003) - Modeling Training Adaptation</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> Medicine and Science in Sports and Exercise<br>
-                    <strong>Focus:</strong> Dose-response na ugnayan sa pagsasanay
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li>Ang mga adaptasyon sa pagsasanay ay sumusunod sa mga mahuhulaang pattern ng matematika</li>
-                        <li>Ang indibidwal na pagkakaiba sa tugon ay nangangailangan ng personal na pagmomodelo</li>
-                        <li>Ang pinaka-mainam na training load ay nagbabalanse sa stimulus at recovery</li>
-                        <li>Ang mga ramp rate na >12 CTL/linggo ay may kaugnayan sa panganib ng injury</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2 class="text-center mb-xl">Aerodynamics at Pagmomodelo ng Power</h2>
-
-        <div class="research-area">
-            <h3>4. Aerodynamic Drag at CdA</h3>
-            <p class="lead">Sa mga bilis na >25 km/h, ang aerodynamic drag ay nagiging 70-90% ng kabuuang resistensya.
+                    </p></div></div><div class="research-paper"><h4>Busso (2003) - Modeling Training Adaptation</h4><div class="paper-meta"><strong>Journal:</strong> Medicine and Science in Sports and Exercise<br><strong>Focus:</strong> Dose-response na ugnayan sa pagsasanay
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li>Ang mga adaptasyon sa pagsasanay ay sumusunod sa mga mahuhulaang pattern ng matematika</li><li>Ang indibidwal na pagkakaiba sa tugon ay nangangailangan ng personal na pagmomodelo</li><li>Ang pinaka-mainam na training load ay nagbabalanse sa stimulus at recovery</li><li>Ang mga ramp rate na >12 CTL/linggo ay may kaugnayan sa panganib ng injury</li></ul></div></div></div></div></section><section class="section"><div class="container"><h2 class="text-center mb-xl">Aerodynamics at Pagmomodelo ng Power</h2><div class="research-area"><h3>4. Aerodynamic Drag at CdA</h3><p class="lead">Sa mga bilis na >25 km/h, ang aerodynamic drag ay nagiging 70-90% ng kabuuang resistensya.
                 Ang pag-unawa at pag-optimize sa CdA (drag coefficient × frontal area) ay kritikal para sa performance
-                sa road cycling.</p>
-
-            <div class="research-paper">
-                <h4>Blocken et al. (2013, 2017) - Cycling Aerodynamics Research</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> Sports Engineering, 20, 81-94<br>
-                    <strong>Method:</strong> Computational Fluid Dynamics (CFD) studies
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li><strong>Mga Saklaw ng CdA:</strong>
-                            <ul>
-                                <li>Upright hoods position: 0.35-0.40 m²</li>
-                                <li>Drops position: 0.32-0.37 m²</li>
-                                <li>Time trial position: 0.20-0.25 m²</li>
-                                <li>Elite TT specialists: 0.185-0.200 m²</li>
-                            </ul>
-                        </li>
-                        <li><strong>Pagtitipid sa Power:</strong> Bawat 0.01 m² na pagbawas sa CdA ay nakakatipid ng
-                            ~10W sa 40 km/h</li>
-                        <li><strong>Mga Benepisyo ng Drafting:</strong> 27-50% na pagbawas sa power kapag sumusunod sa
-                            gulong</li>
-                        <li><strong>Posisyon sa Peloton:</strong> Ang mga rider sa pang-5 hanggang ika-8 na posisyon ay
-                            nakakakuha ng maximum na benepisyo + kaligtasan</li>
-                        <li>Ang distansya ng drafting ay kritikal: Maximum na benepisyo sa loob ng 30cm, nababawasan
-                            lumampas sa 1m</li>
-                    </ul>
-                </div>
-                <div class="significance">
-                    <p><strong>Epekto:</strong> Sinukat ang mga aerodynamic na benepisyo ng mga pagbabago sa posisyon at
+                sa road cycling.</p><div class="research-paper"><h4>Blocken et al. (2013, 2017) - Cycling Aerodynamics Research</h4><div class="paper-meta"><strong>Journal:</strong> Sports Engineering, 20, 81-94<br><strong>Method:</strong> Computational Fluid Dynamics (CFD) studies
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li><strong>Mga Saklaw ng CdA:</strong><ul><li>Upright hoods position: 0.35-0.40 m²</li><li>Drops position: 0.32-0.37 m²</li><li>Time trial position: 0.20-0.25 m²</li><li>Elite TT specialists: 0.185-0.200 m²</li></ul></li><li><strong>Pagtitipid sa Power:</strong> Bawat 0.01 m² na pagbawas sa CdA ay nakakatipid ng
+                            ~10W sa 40 km/h</li><li><strong>Mga Benepisyo ng Drafting:</strong> 27-50% na pagbawas sa power kapag sumusunod sa
+                            gulong</li><li><strong>Posisyon sa Peloton:</strong> Ang mga rider sa pang-5 hanggang ika-8 na posisyon ay
+                            nakakakuha ng maximum na benepisyo + kaligtasan</li><li>Ang distansya ng drafting ay kritikal: Maximum na benepisyo sa loob ng 30cm, nababawasan
+                            lumampas sa 1m</li></ul></div><div class="significance"><p><strong>Epekto:</strong> Sinukat ang mga aerodynamic na benepisyo ng mga pagbabago sa posisyon at
                         drafting. Pinatunayan ang field-measurable na CdA bilang target para sa pag-optimize.
-                        Ipinaliwanag kung bakit ang mga time trialist ay seryosong nakatutok sa posisyon.</p>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Martin et al. (2006) - Power Model Validation</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> Journal of Applied Biomechanics<br>
-                    <strong>Focus:</strong> Matematikal na modelo para sa mga pangangailangan ng power sa cycling
-                </div>
-                <div class="findings">
-                    <h5>Mga Bahagi ng Power Equation:</h5>
-                    <ul>
-                        <li><strong>P_total = P_aero + P_gravity + P_rolling + P_kinetic</strong></li>
-                        <li><strong>P_aero = CdA × 0.5 × ρ × V³</strong> (cubic na ugnayan sa bilis)</li>
-                        <li><strong>P_gravity = m × g × sin(θ) × V</strong> (power sa pag-ahon)</li>
-                        <li><strong>P_rolling = Crr × m × g × cos(θ) × V</strong> (rolling resistance)</li>
-                        <li>Napatunayan laban sa real-world na datos ng power meter nang may mataas na katumpakan</li>
-                        <li>Nagbibigay-daan para sa predictive modeling ng mga pangangailangan sa power para sa mga ruta
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Debraux et al. (2011) - Aerodynamic Drag Measurement</h4>
-                <div class="paper-meta">
-                    <strong>Focus:</strong> Mga paraan para sa pagsususuri ng cycling aerodynamics
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li>Ang field testing gamit ang mga power meter ay nagbibigay ng praktikal na pagsukat ng CdA
-                        </li>
-                        <li>Ang wind tunnel testing ay nananatiling gold standard ngunit mahal at mahirap puntahan</li>
-                        <li>Ang pag-optimize ng posisyon ay maaaring mapabuti ang CdA nang 5-15%</li>
-                        <li>Ang mga nakuha sa equipment (aero wheels, helmet, skinsuit) ay nagsasama-sama para sa 3-5%
-                            kabuuang paghusay</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="text-center mb-xl">Biomechanics sa Pagpadyak at Cadence</h2>
-
-        <div class="research-area">
-            <h3>5. Efficiency sa Pagpadyak at Pag-optimize ng Cadence</h3>
-            <p class="lead">Ang pinaka-mainam na cadence at teknika sa pagpadyak ay nagpapalaki sa power output habang
-                binabawasan ang paggamit ng enerhiya at panganib ng injury.</p>
-
-            <div class="research-paper">
-                <h4>Lucia et al. (2001) - Physiology of Professional Road Cycling</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> Sports Medicine<br>
-                    <strong>Pag-aaral:</strong> Pagsusuri sa mga elite na propesyonal na siklista
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li><strong>Mga Saklaw ng Mainam na Cadence:</strong>
-                            <ul>
-                                <li>Tempo/threshold: 85-95 RPM</li>
-                                <li>VO₂max intervals: 100-110 RPM</li>
-                                <li>Matatarik na ahon: 70-85 RPM</li>
-                            </ul>
-                        </li>
-                        <li>Ang mga elite na siklista ay natural na pumipili ng cadence na nagpapababa sa paggamit ng
-                            enerhiya</li>
-                        <li>Ang mas mataas na cadence ay nagbabawas ng puwersa sa kalamnan bawat pedal stroke</li>
-                        <li>Ang indibidwal na pag-optimize ay nag-iiba depende sa fiber type composition</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Coyle et al. (1991) - Cycling Efficiency and Muscle Fiber Type</h4>
-                <div class="paper-meta">
-                    <strong>Focus:</strong> Ugnayan sa pagitan ng efficiency at physiology
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li>Ang cycling efficiency ay may kaugnayan sa porsyento ng Type I muscle fibers</li>
-                        <li>Ang gross efficiency ay nasa saklaw na 18-25% (elite: 22-25%)</li>
-                        <li>Ang bilis ng pagpadyak ay nakaaapekto sa efficiency—mayroong indibidwal na optimal</li>
-                        <li>Ang pagsasanay ay nagpapabuti sa parehong metabolic at mechanical efficiency</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Patterson & Moreno (1990) - Pedal Forces Analysis</h4>
-                <div class="paper-meta">
-                    <strong>Focus:</strong> Biomechanical na pagsusuri ng mga puwersa sa pagpadyak
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li>Ang epektibong puwersa sa pedal ay nag-iiba sa buong pedal stroke cycle</li>
-                        <li>Ang peak force ay nangyayari sa 90-110° paglagpas sa top dead center</li>
-                        <li>Ang mga bihasang siklista ay nagpapababa sa negative work sa panahon ng upstroke</li>
-                        <li>Ang mga metric na Torque Effectiveness at Pedal Smoothness ay sumusukat sa efficiency</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2 class="text-center mb-xl">Performance sa Pag-ahon</h2>
-
-        <div class="research-area">
-            <h3>6. Power-to-Weight at VAM</h3>
-            <p class="lead">Sa mga pag-ahon, ang ratio ng power-to-weight ang nagiging pangunahing basehan ng
+                        Ipinaliwanag kung bakit ang mga time trialist ay seryosong nakatutok sa posisyon.</p></div></div><div class="research-paper"><h4>Martin et al. (2006) - Power Model Validation</h4><div class="paper-meta"><strong>Journal:</strong> Journal of Applied Biomechanics<br><strong>Focus:</strong> Matematikal na modelo para sa mga pangangailangan ng power sa cycling
+                </div><div class="findings"><h5>Mga Bahagi ng Power Equation:</h5><ul><li><strong>P_total = P_aero + P_gravity + P_rolling + P_kinetic</strong></li><li><strong>P_aero = CdA × 0.5 × ρ × V³</strong> (cubic na ugnayan sa bilis)</li><li><strong>P_gravity = m × g × sin(θ) × V</strong> (power sa pag-ahon)</li><li><strong>P_rolling = Crr × m × g × cos(θ) × V</strong> (rolling resistance)</li><li>Napatunayan laban sa real-world na datos ng power meter nang may mataas na katumpakan</li><li>Nagbibigay-daan para sa predictive modeling ng mga pangangailangan sa power para sa mga ruta
+                        </li></ul></div></div><div class="research-paper"><h4>Debraux et al. (2011) - Aerodynamic Drag Measurement</h4><div class="paper-meta"><strong>Focus:</strong> Mga paraan para sa pagsususuri ng cycling aerodynamics
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li>Ang field testing gamit ang mga power meter ay nagbibigay ng praktikal na pagsukat ng CdA
+                        </li><li>Ang wind tunnel testing ay nananatiling gold standard ngunit mahal at mahirap puntahan</li><li>Ang pag-optimize ng posisyon ay maaaring mapabuti ang CdA nang 5-15%</li><li>Ang mga nakuha sa equipment (aero wheels, helmet, skinsuit) ay nagsasama-sama para sa 3-5%
+                            kabuuang paghusay</li></ul></div></div></div></div></section><section class="section section-alt"><div class="container"><h2 class="text-center mb-xl">Biomechanics sa Pagpadyak at Cadence</h2><div class="research-area"><h3>5. Efficiency sa Pagpadyak at Pag-optimize ng Cadence</h3><p class="lead">Ang pinaka-mainam na cadence at teknika sa pagpadyak ay nagpapalaki sa power output habang
+                binabawasan ang paggamit ng enerhiya at panganib ng injury.</p><div class="research-paper"><h4>Lucia et al. (2001) - Physiology of Professional Road Cycling</h4><div class="paper-meta"><strong>Journal:</strong> Sports Medicine<br><strong>Pag-aaral:</strong> Pagsusuri sa mga elite na propesyonal na siklista
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li><strong>Mga Saklaw ng Mainam na Cadence:</strong><ul><li>Tempo/threshold: 85-95 RPM</li><li>VO₂max intervals: 100-110 RPM</li><li>Matatarik na ahon: 70-85 RPM</li></ul></li><li>Ang mga elite na siklista ay natural na pumipili ng cadence na nagpapababa sa paggamit ng
+                            enerhiya</li><li>Ang mas mataas na cadence ay nagbabawas ng puwersa sa kalamnan bawat pedal stroke</li><li>Ang indibidwal na pag-optimize ay nag-iiba depende sa fiber type composition</li></ul></div></div><div class="research-paper"><h4>Coyle et al. (1991) - Cycling Efficiency and Muscle Fiber Type</h4><div class="paper-meta"><strong>Focus:</strong> Ugnayan sa pagitan ng efficiency at physiology
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li>Ang cycling efficiency ay may kaugnayan sa porsyento ng Type I muscle fibers</li><li>Ang gross efficiency ay nasa saklaw na 18-25% (elite: 22-25%)</li><li>Ang bilis ng pagpadyak ay nakaaapekto sa efficiency—mayroong indibidwal na optimal</li><li>Ang pagsasanay ay nagpapabuti sa parehong metabolic at mechanical efficiency</li></ul></div></div><div class="research-paper"><h4>Patterson & Moreno (1990) - Pedal Forces Analysis</h4><div class="paper-meta"><strong>Focus:</strong> Biomechanical na pagsusuri ng mga puwersa sa pagpadyak
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li>Ang epektibong puwersa sa pedal ay nag-iiba sa buong pedal stroke cycle</li><li>Ang peak force ay nangyayari sa 90-110° paglagpas sa top dead center</li><li>Ang mga bihasang siklista ay nagpapababa sa negative work sa panahon ng upstroke</li><li>Ang mga metric na Torque Effectiveness at Pedal Smoothness ay sumusukat sa efficiency</li></ul></div></div></div></div></section><section class="section"><div class="container"><h2 class="text-center mb-xl">Performance sa Pag-ahon</h2><div class="research-area"><h3>6. Power-to-Weight at VAM</h3><p class="lead">Sa mga pag-ahon, ang ratio ng power-to-weight ang nagiging pangunahing basehan ng
                 performance. Ang VAM (Velocità Ascensionale Media) ay nagbibigay ng praktikal na pagsusuri sa pag-ahon.
-            </p>
-
-            <div class="research-paper">
-                <h4>Padilla et al. (1999) - Level vs. Uphill Cycling Efficiency</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> European Journal of Applied Physiology<br>
-                    <strong>Pag-aaral:</strong> Pagsusuri sa pag-ahon ng propesyonal na siklista
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li>Ang performance sa pag-ahon ay tinutukoy pangunahin ng W/kg sa threshold</li>
-                        <li>Ang aerodynamics ay nagiging bale-wala sa matatarik na ahon (>7%)</li>
-                        <li>Ang gross efficiency ay bahagyang mas mababa sa paakyat kumpara sa patag</li>
-                        <li>Ang mga pagbabago sa posisyon ng katawan ay nakaaapekto sa power output at ginhawa</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Swain (1997) - Climbing Performance Modeling</h4>
-                <div class="paper-meta">
-                    <strong>Journal:</strong> Journal of Sports Sciences<br>
-                    <strong>Focus:</strong> Matematikal na pag-optimize ng estratehiya sa pacing
-                </div>
-                <div class="findings">
-                    <h5>Mga Pangunahing Kontribusyon:</h5>
-                    <ul>
-                        <li>Power equation para sa pag-ahon: P = (m × g × V × sin(gradient)) + rolling + aero</li>
-                        <li>Kalkulasyon ng VAM: (elevation gain / oras) nagpapahiwatig ng W/kg</li>
-                        <li><strong>Mga Benchmark ng VAM:</strong>
-                            <ul>
-                                <li>Siklista sa club: 700-900 m/h</li>
-                                <li>Mga kalahok sa paligsahan: 1000-1200 m/h</li>
-                                <li>Elite na amateurs: 1300-1500 m/h</li>
-                                <li>Mga nanalo sa World Tour: >1500 m/h</li>
-                            </ul>
-                        </li>
-                        <li>Formula sa pagtatantiya: W/kg ≈ VAM / (200 + 10 × gradient%)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="research-paper">
-                <h4>Lucia et al. (2004) - Physiological Profile of Tour Climbers</h4>
-                <div class="paper-meta">
-                    <strong>Pag-aaral:</strong> Pagsusuri sa mga mountain specialist sa Grand Tour
-                </div>
-                <div class="findings">
-                    <h5>Key Findings:</h5>
-                    <ul>
-                        <li><strong>W/kg sa threshold:</strong>
-                            <ul>
-                                <li>Competitive na mga siklista: 4.0+ W/kg</li>
-                                <li>Elite na amateurs: 4.5+ W/kg</li>
-                                <li>Semi-pros: 5.0+ W/kg</li>
-                                <li>World Tour: 5.5-6.5 W/kg</li>
-                            </ul>
-                        </li>
-                        <li>Kritikal ang mababang timbang ng katawan—kahit 1kg ay mahalaga sa elite level</li>
-                        <li>Ang VO₂max na >75 ml/kg/min ay karaniwan sa mga elite na climber</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>Kung Paano Ipinapatupad ng Bike Analytics ang Pananaliksik</h2>
-
-        <div class="callout callout-success">
-            <h3>Mula sa Lab Patungo sa Real-World Application</h3>
-            <p>Isinasalin ng Bike Analytics ang mga dekada ng pananaliksik sa mga praktikal at nagagamit na metric:</p>
-            <ul>
-                <li><strong>FTP Testing:</strong> Ipinapatupad ang napatunayang 20-minutong protocol (MacInnis 2019) na
-                    may opsyonal na ramp test</li>
-                <li><strong>Training Load:</strong> Ginagamit ang TSS formula ni Coggan kasama ang CTL/ATL framework ni
-                    Banister</li>
-                <li><strong>Critical Power:</strong> Kinakalkula ang CP at W' mula sa mga effort na may iba't ibang
-                    tagal (Jones 2019)</li>
-                <li><strong>W'bal Tracking:</strong> Real-time na pagsubaybay sa anaerobic capacity gamit ang
-                    differential equation model ni Skiba</li>
-                <li><strong>Aerodynamics:</strong> Pagtatantiya ng field-measurable na CdA mula sa datos ng power/bilis
-                    (Martin 2006)</li>
-                <li><strong>Climbing Analysis:</strong> Kalkulasyon ng VAM at W/kg benchmarking (Lucia 2004, Swain 1997)
-                </li>
-                <li><strong>MTB-Specific:</strong> Burst detection, pamamahala ng W' para sa mga paiba-ibang power
-                    profile</li>
-            </ul>
-        </div>
-
-        <div class="methodology">
-            <h3>Pagpapatunay at Patuloy na Pananaliksik</h3>
-            <p>Ang Bike Analytics ay nakatuon sa:</p>
-            <ul>
-                <li>Regular na pagsusuri ng mga bagong literatura sa pananaliksik</li>
-                <li>Pag-update sa mga algorithm habang ang mga bagong metodolohiya ay napapatunayan</li>
-                <li>Transparent na dokumentasyon ng mga paraan ng pagkalkula</li>
-                <li>Edukasyon para sa user sa tamang interpretasyon ng bawat metric</li>
-                <li>Integrasyon ng mga umuusbong na teknolohiya (dual-sided power, advanced na biomechanics)</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>Mga Madalas Itanong</h2>
-
-        <div class="faq-section">
-            <div class="faq-item">
-                <h3>Bakit mas mahusay ang power-based training kaysa sa heart rate?</h3>
-                <p>Ang power ay tumutugon nang mabilis sa mga pagbabago sa effort, habang ang heart rate ay nahuhuli
+            </p><div class="research-paper"><h4>Padilla et al. (1999) - Level vs. Uphill Cycling Efficiency</h4><div class="paper-meta"><strong>Journal:</strong> European Journal of Applied Physiology<br><strong>Pag-aaral:</strong> Pagsusuri sa pag-ahon ng propesyonal na siklista
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li>Ang performance sa pag-ahon ay tinutukoy pangunahin ng W/kg sa threshold</li><li>Ang aerodynamics ay nagiging bale-wala sa matatarik na ahon (>7%)</li><li>Ang gross efficiency ay bahagyang mas mababa sa paakyat kumpara sa patag</li><li>Ang mga pagbabago sa posisyon ng katawan ay nakaaapekto sa power output at ginhawa</li></ul></div></div><div class="research-paper"><h4>Swain (1997) - Climbing Performance Modeling</h4><div class="paper-meta"><strong>Journal:</strong> Journal of Sports Sciences<br><strong>Focus:</strong> Matematikal na pag-optimize ng estratehiya sa pacing
+                </div><div class="findings"><h5>Mga Pangunahing Kontribusyon:</h5><ul><li>Power equation para sa pag-ahon: P = (m × g × V × sin(gradient)) + rolling + aero</li><li>Kalkulasyon ng VAM: (elevation gain / oras) nagpapahiwatig ng W/kg</li><li><strong>Mga Benchmark ng VAM:</strong><ul><li>Siklista sa club: 700-900 m/h</li><li>Mga kalahok sa paligsahan: 1000-1200 m/h</li><li>Elite na amateurs: 1300-1500 m/h</li><li>Mga nanalo sa World Tour: >1500 m/h</li></ul></li><li>Formula sa pagtatantiya: W/kg ≈ VAM / (200 + 10 × gradient%)</li></ul></div></div><div class="research-paper"><h4>Lucia et al. (2004) - Physiological Profile of Tour Climbers</h4><div class="paper-meta"><strong>Pag-aaral:</strong> Pagsusuri sa mga mountain specialist sa Grand Tour
+                </div><div class="findings"><h5>Key Findings:</h5><ul><li><strong>W/kg sa threshold:</strong><ul><li>Competitive na mga siklista: 4.0+ W/kg</li><li>Elite na amateurs: 4.5+ W/kg</li><li>Semi-pros: 5.0+ W/kg</li><li>World Tour: 5.5-6.5 W/kg</li></ul></li><li>Kritikal ang mababang timbang ng katawan—kahit 1kg ay mahalaga sa elite level</li><li>Ang VO₂max na >75 ml/kg/min ay karaniwan sa mga elite na climber</li></ul></div></div></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Kung Paano Ipinapatupad ng Bike Analytics ang Pananaliksik</h2><div class="callout callout-success"><h3>Mula sa Lab Patungo sa Real-World Application</h3><p>Isinasalin ng Bike Analytics ang mga dekada ng pananaliksik sa mga praktikal at nagagamit na metric:</p><ul><li><strong>FTP Testing:</strong> Ipinapatupad ang napatunayang 20-minutong protocol (MacInnis 2019) na
+                    may opsyonal na ramp test</li><li><strong>Training Load:</strong> Ginagamit ang TSS formula ni Coggan kasama ang CTL/ATL framework ni
+                    Banister</li><li><strong>Critical Power:</strong> Kinakalkula ang CP at W' mula sa mga effort na may iba't ibang
+                    tagal (Jones 2019)</li><li><strong>W'bal Tracking:</strong> Real-time na pagsubaybay sa anaerobic capacity gamit ang
+                    differential equation model ni Skiba</li><li><strong>Aerodynamics:</strong> Pagtatantiya ng field-measurable na CdA mula sa datos ng power/bilis
+                    (Martin 2006)</li><li><strong>Climbing Analysis:</strong> Kalkulasyon ng VAM at W/kg benchmarking (Lucia 2004, Swain 1997)
+                </li><li><strong>MTB-Specific:</strong> Burst detection, pamamahala ng W' para sa mga paiba-ibang power
+                    profile</li></ul></div><div class="methodology"><h3>Pagpapatunay at Patuloy na Pananaliksik</h3><p>Ang Bike Analytics ay nakatuon sa:</p><ul><li>Regular na pagsusuri ng mga bagong literatura sa pananaliksik</li><li>Pag-update sa mga algorithm habang ang mga bagong metodolohiya ay napapatunayan</li><li>Transparent na dokumentasyon ng mga paraan ng pagkalkula</li><li>Edukasyon para sa user sa tamang interpretasyon ng bawat metric</li><li>Integrasyon ng mga umuusbong na teknolohiya (dual-sided power, advanced na biomechanics)</li></ul></div></div></section><section class="section"><div class="container container-narrow"><h2>Mga Madalas Itanong</h2><div class="faq-section"><div class="faq-item"><h3>Bakit mas mahusay ang power-based training kaysa sa heart rate?</h3><p>Ang power ay tumutugon nang mabilis sa mga pagbabago sa effort, habang ang heart rate ay nahuhuli
                     nang 30-60 segundo. Ang power ay hindi naaapektuhan ng init, caffeine, stress, o pagkapagod gaya ng
                     HR. Ang pananaliksik nina Allen & Coggan ay nagtatag sa power bilang pinaka-direktang basehan ng
-                    aktwal na trabahong ginawa.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Gaano katumpak ang mga power meter?</h3>
-                <p>Sinubukan nina Maier et al. (2017) ang 54 na power meter mula sa 9 na manufacturer laban sa isang
+                    aktwal na trabahong ginawa.</p></div><div class="faq-item"><h3>Gaano katumpak ang mga power meter?</h3><p>Sinubukan nina Maier et al. (2017) ang 54 na power meter mula sa 9 na manufacturer laban sa isang
                     gold-standard na modelo. Ang mean deviation ay -0.9 ± 3.2%, kung saan karamihan sa mga unit ay nasa
                     loob ng ±2-3%. Ang mga modernong power meter (Quarq, PowerTap, Stages, Favero) ay nakakatugon sa
-                    ±1-2% na pamantayan sa katumpakan kapag maayos na na-calibrate.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Alin ang mas mahusay, FTP o Critical Power?</h3>
-                <p>Ipinakita nina Jones et al. (2019) na ang CP ay mas physiologically matatag at pumapatak sa ±5W ng
+                    ±1-2% na pamantayan sa katumpakan kapag maayos na na-calibrate.</p></div><div class="faq-item"><h3>Alin ang mas mahusay, FTP o Critical Power?</h3><p>Ipinakita nina Jones et al. (2019) na ang CP ay mas physiologically matatag at pumapatak sa ±5W ng
                     FTP para sa karamihan ng mga siklista. Gayunpaman, ang nag-iisang 20-minutong test ng FTP ay mas
                     praktikal. Sinusuportahan ng Bike Analytics ang pareho—gumamit ng FTP para sa pagiging simple o CP
-                    para sa katumpakan.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Paano naihahambing ang TSS sa ibang mga paraan ng training load?</h3>
-                <p>Ang TSS (Coggan 2003) ay isinasaalang-alang ang parehong intensity at tagal sa isang metric gamit ang
+                    para sa katumpakan.</p></div><div class="faq-item"><h3>Paano naihahambing ang TSS sa ibang mga paraan ng training load?</h3><p>Ang TSS (Coggan 2003) ay isinasaalang-alang ang parehong intensity at tagal sa isang metric gamit ang
                     cubic power relationship. Malaki ang ugnayan nito sa session-RPE at lab-measured na physiological
-                    stress, kaya naging gold standard ito para sa pagsukat ng load na partikular sa cycling.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Bakit ang mountain biking ay nangangailangan ng ibang mga metric kaysa sa road?</h3>
-                <p>Ipinapakita ng pananaliksik na ang MTB ay may 88+ na power surge na >125% FTP bawat 2-oras na karera
+                    stress, kaya naging gold standard ito para sa pagsukat ng load na partikular sa cycling.</p></div><div class="faq-item"><h3>Bakit ang mountain biking ay nangangailangan ng ibang mga metric kaysa sa road?</h3><p>Ipinapakita ng pananaliksik na ang MTB ay may 88+ na power surge na >125% FTP bawat 2-oras na karera
                     (mga XCO study). Ang "bursty" na power profile na ito ay nangangailangan ng pagsubaybay sa W'bal at
                     interval-focused na training, habang ang road cycling ay nagbibigay-diin sa sustained power at
-                    aerodynamics.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow text-center">
-        <h2>Siyensya ang Nagpapatakbo sa Performance</h2>
-        <p class="lead">Ang Bike Analytics ay nakatayo sa pundasyon ng mga dekada ng mahigpit na siyentipikong
+                    aerodynamics.</p></div></div></div></section><section class="section section-alt"><div class="container container-narrow text-center"><h2>Siyensya ang Nagpapatakbo sa Performance</h2><p class="lead">Ang Bike Analytics ay nakatayo sa pundasyon ng mga dekada ng mahigpit na siyentipikong
             pananaliksik. Ang bawat formula, metric, at kalkulasyon ay napatunayan sa pamamagitan ng mga peer-reviewed
-            na pag-aaral na inilathala sa mga nangungunang journal ng exercise physiology at biomechanics.</p>
-
-        <p>Ang approach na ito na base sa ebidensya ay nagsisiguro na ang mga insight na iyong makukuha ay hindi lang
+            na pag-aaral na inilathala sa mga nangungunang journal ng exercise physiology at biomechanics.</p><p>Ang approach na ito na base sa ebidensya ay nagsisiguro na ang mga insight na iyong makukuha ay hindi lang
             basta mga numero—sila ay mga siyentipikong indikasyon ng physiological adaptation, biomechanical efficiency,
-            at pag-unlad ng performance.</p>
-
-        <div class="mt-xl">
-            <a href="/tl/bibliography/" class="btn btn-primary btn-large">Tingnan ang Kumpletong Bibliography
-                →</a>
-            <a href="/tl/formulas/" class="btn btn-secondary">Mga Teknikal na Formula</a>
-        </div>
-    </div>
-</section>
-    
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+            at pag-unlad ng performance.</p><div class="mt-xl"><a href="/tl/bibliography/" class="btn btn-primary btn-large">Tingnan ang Kumpletong Bibliography
+                →</a><a href="/tl/formulas/" class="btn btn-secondary">Mga Teknikal na Formula</a></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link active"
+                </a><a href="/tl/" class="lang-link active"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. Nakareserba ang lahat ng karapatan
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/tl/privacy/">Privacy</a></li>
-                <li><a href="/tl/terms/">Kasunduan</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>Gumagamit ang website na ito ng cookies upang mapabuti ang iyong karanasan.</p>
-            <a href="/tl/privacy/" class="text-sm">Dagdagan ang nalalaman</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">Tanggihan</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">Tanggapin</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/tl/privacy/">Privacy</a></li><li><a href="/tl/terms/">Kasunduan</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>Gumagamit ang website na ito ng cookies upang mapabuti ang iyong karanasan.</p><a href="/tl/privacy/" class="text-sm">Dagdagan ang nalalaman</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">Tanggihan</button><button id="cookie-accept" class="btn btn-primary btn-small">Tanggapin</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

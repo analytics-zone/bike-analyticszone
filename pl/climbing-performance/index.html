@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="pl" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>Wydajność na podjazdach - VAM, W/kg, analiza nachylenia</title>
-  <meta name="description" content="Opanuj metryki wydajności na podjazdach: VAM (pionowa prędkość wznoszenia), stosunek mocy do masy (W/kg) i wydajność korygowana o nachylenie.">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="VAM kolarstwo, wydajność na podjazdach kolarstwo, moc do masy kolarstwo, analiza nachylenia kolarstwo, metry pionowe wznoszenia">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/pl/climbing-performance/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2025-12-23T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/pl/climbing-performance/">
-  <meta property="og:title" content="Wydajność na podjazdach - VAM, W/kg, analiza nachylenia">
-  <meta property="og:description" content="Opanuj metryki wydajności na podjazdach: VAM (pionowa prędkość wznoszenia), stosunek mocy do masy (W/kg) i wydajność korygowana o nachylenie.">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="pl_PL">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/pl/climbing-performance/">
-  <meta name="twitter:title" content="Wydajność na podjazdach - VAM, W/kg, analiza nachylenia">
-  <meta name="twitter:description" content="Opanuj metryki wydajności na podjazdach: VAM (pionowa prędkość wznoszenia), stosunek mocy do masy (W/kg) i wydajność korygowana o nachylenie.">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/climbing-performance/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/climbing-performance/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/climbing-performance/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/climbing-performance/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/climbing-performance/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/climbing-performance/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/climbing-performance/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/climbing-performance/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/climbing-performance/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/climbing-performance/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/climbing-performance/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/climbing-performance/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/climbing-performance/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/climbing-performance/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/climbing-performance/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/climbing-performance/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/climbing-performance/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/climbing-performance/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/climbing-performance/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/climbing-performance/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/climbing-performance/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/climbing-performance/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/climbing-performance/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/climbing-performance/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/climbing-performance/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/climbing-performance/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/climbing-performance/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/climbing-performance/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/climbing-performance/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/climbing-performance/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/climbing-performance/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/climbing-performance/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/climbing-performance/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/climbing-performance/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/climbing-performance/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="pl" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>Wydajność na podjazdach - VAM, W/kg, analiza nachylenia</title><meta name="description" content="Opanuj metryki wydajności na podjazdach: VAM (pionowa prędkość wznoszenia), stosunek mocy do masy (W/kg) i wydajność korygowana o nachylenie."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="VAM kolarstwo, wydajność na podjazdach kolarstwo, moc do masy kolarstwo, analiza nachylenia kolarstwo, metry pionowe wznoszenia"><link rel="canonical" href="https://bike.analyticszone.app/pl/climbing-performance/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-02-05T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/pl/climbing-performance/"><meta property="og:title" content="Wydajność na podjazdach - VAM, W/kg, analiza nachylenia"><meta property="og:description" content="Opanuj metryki wydajności na podjazdach: VAM (pionowa prędkość wznoszenia), stosunek mocy do masy (W/kg) i wydajność korygowana o nachylenie."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="pl_PL"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/pl/climbing-performance/"><meta name="twitter:title" content="Wydajność na podjazdach - VAM, W/kg, analiza nachylenia"><meta name="twitter:description" content="Opanuj metryki wydajności na podjazdach: VAM (pionowa prędkość wznoszenia), stosunek mocy do masy (W/kg) i wydajność korygowana o nachylenie."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/climbing-performance/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/climbing-performance/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/climbing-performance/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/climbing-performance/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/climbing-performance/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/climbing-performance/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/climbing-performance/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/climbing-performance/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/climbing-performance/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/climbing-performance/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/climbing-performance/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/climbing-performance/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/climbing-performance/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/climbing-performance/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/climbing-performance/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/climbing-performance/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/climbing-performance/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/climbing-performance/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/climbing-performance/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/climbing-performance/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/climbing-performance/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/climbing-performance/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/climbing-performance/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/climbing-performance/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/climbing-performance/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/climbing-performance/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/climbing-performance/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/climbing-performance/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/climbing-performance/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/climbing-performance/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/climbing-performance/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/climbing-performance/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/climbing-performance/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/climbing-performance/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/climbing-performance/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/climbing-performance/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/climbing-performance/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/climbing-performance/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/climbing-performance/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/climbing-performance/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/climbing-performance/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/climbing-performance/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/climbing-performance/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/climbing-performance/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/climbing-performance/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/climbing-performance/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/climbing-performance/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/climbing-performance/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/climbing-performance/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/climbing-performance/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/climbing-performance/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/climbing-performance/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/climbing-performance/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/climbing-performance/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/climbing-performance/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/climbing-performance/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "pl"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "Opanuj metryki wydajności na podjazdach: VAM (pionowa prędkość wznoszenia), stosunek mocy do masy (W/kg) i wydajność korygowana o nachylenie.",
   "url": "https://bike.analyticszone.app/pl/climbing-performance/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -647,23 +429,13 @@ img[width][height] {
     }
   },
   "datePublished": "2025-01-15",
-  "dateModified": "2025-12-23",
+  "dateModified": "2026-02-05",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://bike.analyticszone.app/pl/climbing-performance/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1391 +449,261 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">Przejdź do treści</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/pl/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/pl/" 
+  </script></head><body><a href="#main-content" class="skip-link">Przejdź do treści</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/pl/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/pl/" 
                                 aria-current="">
                                 Strona główna
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/pl/getting-started/" class="nav-label">Wiedza</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/pl/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/pl/getting-started/" class="nav-label">Wiedza</a><ul class="submenu"><li><a href="/pl/getting-started/" 
                                         aria-current="">
                                         Pierwsze kroki
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/ftp/" 
+                                    </a></li><li><a href="/pl/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/critical-power/" 
+                                    </a></li><li><a href="/pl/critical-power/" 
                                         aria-current="">
                                         Moc krytyczna
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/training-zones/" 
+                                    </a></li><li><a href="/pl/training-zones/" 
                                         aria-current="">
                                         Strefy treningowe
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/training-load/" 
+                                    </a></li><li><a href="/pl/training-load/" 
                                         aria-current="">
                                         Obciążenie treningowe
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/tss-calculator/" 
+                                    </a></li><li><a href="/pl/tss-calculator/" 
                                         aria-current="">
                                         Kalkulator TSS
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/pl/research/" class="nav-label">Nauka</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/pl/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/pl/research/" class="nav-label">Nauka</a><ul class="submenu"><li><a href="/pl/research/" 
                                         aria-current="">
                                         Badania
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/formulas/" 
+                                    </a></li><li><a href="/pl/formulas/" 
                                         aria-current="">
                                         Wzory
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/power-metrics/" 
+                                    </a></li><li><a href="/pl/power-metrics/" 
                                         aria-current="">
                                         Metryki mocy
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/efficiency/" 
+                                    </a></li><li><a href="/pl/efficiency/" 
                                         aria-current="">
                                         Efektywność
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/pedaling-mechanics/" 
+                                    </a></li><li><a href="/pl/pedaling-mechanics/" 
                                         aria-current="">
                                         Mechanika pedałowania
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/aerodynamics/" 
+                                    </a></li><li><a href="/pl/aerodynamics/" 
                                         aria-current="">
                                         Aerodynamika
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/climbing-performance/" class="active" 
+                                    </a></li><li><a href="/pl/climbing-performance/" class="active" 
                                         aria-current="page">
                                         Wydajność na podjazdach
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/bibliography/" 
+                                    </a></li><li><a href="/pl/bibliography/" 
                                         aria-current="">
                                         Bibliografia
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/pl/road-cycling/" class="nav-label">Dyscypliny</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/pl/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/pl/road-cycling/" class="nav-label">Dyscypliny</a><ul class="submenu"><li><a href="/pl/road-cycling/" 
                                         aria-current="">
                                         Kolarstwo szosowe
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/mountain-biking/" 
+                                    </a></li><li><a href="/pl/mountain-biking/" 
                                         aria-current="">
                                         Kolarstwo górskie
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/road-vs-mtb/" 
+                                    </a></li><li><a href="/pl/road-vs-mtb/" 
                                         aria-current="">
                                         Szosa vs MTB
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/pl/comparisons/" 
+                                    </a></li><li><a href="/pl/comparisons/" 
                                         aria-current="">
                                         Porównanie platform
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/pl/contact/" 
+                                    </a></li></ul></li><li><a href="/pl/contact/" 
                                 aria-current="">
                                 Kontakt
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="Wybierz język">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="Wybierz język"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" selected>
+                        </option><option value="pl" selected>
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="Przełącz menu"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/pl/">Strona główna</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/pl/research/">Nauka</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">Wydajność na podjazdach</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-<article class="article-content">
-    <header class="article-header">
-        <h1>Podjazdy: Wyniki i Analiza: VAM, W/kg, Analiza Nachylenia</h1>
-        <p class="article-meta">Zrozumienie parametrów, które określają prędkość na podjazdach i jak je poprawić</p>
-    </header>
-
-    <section id="climbing-fundamentals">
-        <h2>Co czyni kogoś dobrym góralem?</h2>
-        <p>Wyniki na podjazdach w kolarstwie zależą fundamentalnie od <strong>stosunku mocy do masy</strong>. W
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="Przełącz menu"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/pl/">Strona główna</a></li><li><a href="/pl/research/">Nauka</a></li><li><span aria-current="page">Wydajność na podjazdach</span></li></ol></div></nav><main id="main-content" class="main-content"><article class="article-content"><header class="article-header"><h1>Podjazdy: Wyniki i Analiza: VAM, W/kg, Analiza Nachylenia</h1><p class="article-meta">Zrozumienie parametrów, które określają prędkość na podjazdach i jak je poprawić</p></header><section id="climbing-fundamentals"><h2>Co czyni kogoś dobrym góralem?</h2><p>Wyniki na podjazdach w kolarstwie zależą fundamentalnie od <strong>stosunku mocy do masy</strong>. W
             przeciwieństwie do jazdy po płaskim, gdzie dominuje aerodynamika, podjazdy to walka z grawitacją. Im lżejszy
-            jesteś w stosunku do mocy, którą generujesz, tym szybciej będziesz wjeżdżać pod górę.</p>
-
-        <p>Jednak sama waga to nie wszystko. Dwa kluczowe parametry określają Twoje zdolności wspinaczkowe:</p>
-        <ul>
-            <li><strong>Stosunek mocy do masy (W/kg):</strong> Twoje FTP podzielone przez masę ciała</li>
-            <li><strong>VAM (Velocità Ascensionale Media):</strong> Średnia prędkość wznoszenia w pionie, wyrażona w
-                metrach na godzinę</li>
-        </ul>
-
-        <div class="info-box">
-            <h3>Rozkład mocy: Płasko vs. Podjazd</h3>
-            <p><strong>Płaska droga przy 40 km/h:</strong></p>
-            <ul>
-                <li>Opór aerodynamiczny: 80-90%</li>
-                <li>Opory toczenia: 8-12%</li>
-                <li>Grawitacja: ~0%</li>
-            </ul>
-            <p><strong>Podjazd 8% przy 15 km/h:</strong></p>
-            <ul>
-                <li>Grawitacja: 75-85%</li>
-                <li>Opory toczenia: 10-15%</li>
-                <li>Opór aerodynamiczny: 5-10%</li>
-            </ul>
-            <p><em>Jazda pod górę odwraca równanie — stosunek mocy do masy staje się najważniejszy.</em></p>
-        </div>
-    </section>
-
-    <section id="power-to-weight">
-        <h2>Stosunek mocy do masy (W/kg): Waluta górala</h2>
-        <p><strong>Stosunek mocy do masy</strong> to Twoja Funkcjonalna Moc Progowa (FTP) podzielona przez masę ciała w
-            kilogramach. Jest to pojedynczy, najlepszy wskaźnik wyników na podjazdach.</p>
-
-        <div class="formula-box">
-            <h3>Wzór</h3>
-            <div class="formula">
+            jesteś w stosunku do mocy, którą generujesz, tym szybciej będziesz wjeżdżać pod górę.</p><p>Jednak sama waga to nie wszystko. Dwa kluczowe parametry określają Twoje zdolności wspinaczkowe:</p><ul><li><strong>Stosunek mocy do masy (W/kg):</strong> Twoje FTP podzielone przez masę ciała</li><li><strong>VAM (Velocità Ascensionale Media):</strong> Średnia prędkość wznoszenia w pionie, wyrażona w
+                metrach na godzinę</li></ul><div class="info-box"><h3>Rozkład mocy: Płasko vs. Podjazd</h3><p><strong>Płaska droga przy 40 km/h:</strong></p><ul><li>Opór aerodynamiczny: 80-90%</li><li>Opory toczenia: 8-12%</li><li>Grawitacja: ~0%</li></ul><p><strong>Podjazd 8% przy 15 km/h:</strong></p><ul><li>Grawitacja: 75-85%</li><li>Opory toczenia: 10-15%</li><li>Opór aerodynamiczny: 5-10%</li></ul><p><em>Jazda pod górę odwraca równanie — stosunek mocy do masy staje się najważniejszy.</em></p></div></section><section id="power-to-weight"><h2>Stosunek mocy do masy (W/kg): Waluta górala</h2><p><strong>Stosunek mocy do masy</strong> to Twoja Funkcjonalna Moc Progowa (FTP) podzielona przez masę ciała w
+            kilogramach. Jest to pojedynczy, najlepszy wskaźnik wyników na podjazdach.</p><div class="formula-box"><h3>Wzór</h3><div class="formula">
                 W/kg = FTP (waty) / Masa ciała (kg)
-            </div>
-            <div class="example-box mt-md">
-                <h4>Przykład:</h4>
-                <p>Kolarz z FTP 300W i masą ciała 75kg:</p>
-                <div class="calculation">
-                    W/kg = 300 / 75 = <strong>4,0 W/kg</strong>
-                </div>
-                <p>Taki zawodnik byłby konkurencyjny na poziomie amatorskim, silny w lokalnych wyścigach.</p>
-            </div>
-        </div>
-
-        <h3>Kategorie W/kg według poziomu zaawansowania</h3>
-
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Kategoria</th>
-                    <th>W/kg na poziomie FTP</th>
-                    <th>Zdolności wspinaczkowe</th>
-                    <th>Przykładowy wynik</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Rekreacyjny</strong></td>
-                    <td>2,0-3,0</td>
-                    <td>Potrafi pokonać podjazdy, ale powoli</td>
-                    <td>Alpe d'Huez w 90+ minut</td>
-                </tr>
-                <tr>
-                    <td><strong>Amator (konkurencyjny)</strong></td>
-                    <td>3,0-4,0</td>
-                    <td>Konkurencyjny w lokalnych wyścigach</td>
-                    <td>Alpe d'Huez w 60-70 minut</td>
-                </tr>
-                <tr>
-                    <td><strong>Zawodnik Cat 1/2</strong></td>
-                    <td>4,0-5,0</td>
-                    <td>Bardzo silny poziom regionalny/krajowy</td>
-                    <td>Alpe d'Huez w 50-60 minut</td>
-                </tr>
-                <tr>
-                    <td><strong>Elita amatorów</strong></td>
-                    <td>5,0-5,5</td>
-                    <td>Potencjał na mistrza kraju</td>
-                    <td>Alpe d'Huez w 45-50 minut</td>
-                </tr>
-                <tr>
-                    <td><strong>Pro krajowy</strong></td>
-                    <td>5,5-6,0</td>
-                    <td>Zawodowy góral</td>
-                    <td>Alpe d'Huez w 42-45 minut</td>
-                </tr>
-                <tr>
-                    <td><strong>World Tour (lider)</strong></td>
-                    <td>6,0-6,5</td>
-                    <td>Pretendent do GC w Grand Tourach</td>
-                    <td>Alpe d'Huez w 38-42 minuty</td>
-                </tr>
-                <tr>
-                    <td><strong>Ścisła elita World Tour</strong></td>
-                    <td>6,5+</td>
-                    <td>Pogačar, Vingegaard, Evenepoel</td>
-                    <td>Alpe d'Huez w &lt;38 minut</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>Kompromis: Utrata wagi vs. Wzrost mocy</h3>
-
-        <h4>Potęga utraty wagi</h4>
-        <p>Każdy stracony kilogram poprawia stosunek W/kg <em>bez</em> konieczności wzrostu mocy:</p>
-
-        <div class="example-box">
-            <h4>Wpływ utraty wagi:</h4>
-            <p>Kolarz: 300W FTP, 75kg (4,0 W/kg)</p>
-            <ul>
-                <li><strong>Utrata 2kg → 73kg:</strong> 300W / 73kg = <strong>4,11 W/kg</strong> (+2,7%)</li>
-                <li><strong>Utrata 5kg → 70kg:</strong> 300W / 70kg = <strong>4,29 W/kg</strong> (+7,2%)</li>
-            </ul>
-            <p><strong>Wpływ na podjazd:</strong> Na Alpe d'Huez (13,8km, 8,1%), utrata 5kg oszczędza ~3 minuty przy tej
-                samej mocy!</p>
-        </div>
-
-        <h4>⚠️ Nie trać mięśni</h4>
-        <p>Agresywna utrata wagi może drastycznie obniżyć FTP, jeśli stracisz masę mięśniową:</p>
-        <ul>
-            <li><strong>Zdrowa utrata wagi:</strong> Tracisz tłuszcz, utrzymujesz FTP → W/kg poprawia się</li>
-            <li><strong>Niezdrowa utrata wagi:</strong> Tracisz mięśnie, FTP spada o 10-15% → W/kg może się pogorszyć
-            </li>
-        </ul>
-
-        <p><strong>Bezpieczne podejście:</strong> Chudnij 0,25-0,5 kg na tydzień dzięki umiarkowanemu deficytowi
-            kalorycznemu, utrzymując wysokie spożycie białka (1,6-2,2 g na kg masy ciała) i objętość treningową.</p>
-
-        <h4>Budowanie mocy bez przybierania na wadze</h4>
-        <p>Zwiększenie FTP przy zachowaniu wagi jest idealne:</p>
-
-        <div class="example-box">
-            <h4>Wpływ wzrostu mocy:</h4>
-            <p>Kolarz: 300W FTP, 75kg (4,0 W/kg)</p>
-            <ul>
-                <li><strong>+20W FTP → 320W:</strong> 320W / 75kg = <strong>4,27 W/kg</strong> (+6,7%)</li>
-                <li><strong>+30W FTP → 330W:</strong> 330W / 75kg = <strong>4,40 W/kg</strong> (+10%)</li>
-            </ul>
-            <p><strong>Jak?</strong> Strukturyzowany trening ukierunkowany na próg i VO2max. Zajmuje to zazwyczaj 3-6
-                miesięcy systematycznej pracy.</p>
-        </div>
-
-        <h3>Optymalna waga dla kolarza</h3>
-        <p>Istnieje punkt, w którym dalsza redukcja wagi staje się nieefektywna. Bardzo lekcy zawodnicy (&lt;60kg)
-            często mają:</p>
-        <ul>
-            <li>Niższą moc absolutną (trudniej utrzymać wysokie waty)</li>
-            <li>Niekorzyść na płaskim i przy czołowym wietrze</li>
-            <li>Słabszą moc sprinterską</li>
-            <li>Większą podatność na kontuzje i choroby</li>
-        </ul>
-
-        <p><strong>Złoty środek dla większości:</strong> 10-15% tkanki tłuszczowej u mężczyzn, 15-20% u kobiet. Niższa
+            </div><div class="example-box mt-md"><h4>Przykład:</h4><p>Kolarz z FTP 300W i masą ciała 75kg:</p><div class="calculation">
+                    W/kg = 300 / 75 = <strong>4,0 W/kg</strong></div><p>Taki zawodnik byłby konkurencyjny na poziomie amatorskim, silny w lokalnych wyścigach.</p></div></div><h3>Kategorie W/kg według poziomu zaawansowania</h3><table class="data-table"><thead><tr><th>Kategoria</th><th>W/kg na poziomie FTP</th><th>Zdolności wspinaczkowe</th><th>Przykładowy wynik</th></tr></thead><tbody><tr><td><strong>Rekreacyjny</strong></td><td>2,0-3,0</td><td>Potrafi pokonać podjazdy, ale powoli</td><td>Alpe d'Huez w 90+ minut</td></tr><tr><td><strong>Amator (konkurencyjny)</strong></td><td>3,0-4,0</td><td>Konkurencyjny w lokalnych wyścigach</td><td>Alpe d'Huez w 60-70 minut</td></tr><tr><td><strong>Zawodnik Cat 1/2</strong></td><td>4,0-5,0</td><td>Bardzo silny poziom regionalny/krajowy</td><td>Alpe d'Huez w 50-60 minut</td></tr><tr><td><strong>Elita amatorów</strong></td><td>5,0-5,5</td><td>Potencjał na mistrza kraju</td><td>Alpe d'Huez w 45-50 minut</td></tr><tr><td><strong>Pro krajowy</strong></td><td>5,5-6,0</td><td>Zawodowy góral</td><td>Alpe d'Huez w 42-45 minut</td></tr><tr><td><strong>World Tour (lider)</strong></td><td>6,0-6,5</td><td>Pretendent do GC w Grand Tourach</td><td>Alpe d'Huez w 38-42 minuty</td></tr><tr><td><strong>Ścisła elita World Tour</strong></td><td>6,5+</td><td>Pogačar, Vingegaard, Evenepoel</td><td>Alpe d'Huez w &lt;38 minut</td></tr></tbody></table><h3>Kompromis: Utrata wagi vs. Wzrost mocy</h3><h4>Potęga utraty wagi</h4><p>Każdy stracony kilogram poprawia stosunek W/kg <em>bez</em> konieczności wzrostu mocy:</p><div class="example-box"><h4>Wpływ utraty wagi:</h4><p>Kolarz: 300W FTP, 75kg (4,0 W/kg)</p><ul><li><strong>Utrata 2kg → 73kg:</strong> 300W / 73kg = <strong>4,11 W/kg</strong> (+2,7%)</li><li><strong>Utrata 5kg → 70kg:</strong> 300W / 70kg = <strong>4,29 W/kg</strong> (+7,2%)</li></ul><p><strong>Wpływ na podjazd:</strong> Na Alpe d'Huez (13,8km, 8,1%), utrata 5kg oszczędza ~3 minuty przy tej
+                samej mocy!</p></div><h4>⚠️ Nie trać mięśni</h4><p>Agresywna utrata wagi może drastycznie obniżyć FTP, jeśli stracisz masę mięśniową:</p><ul><li><strong>Zdrowa utrata wagi:</strong> Tracisz tłuszcz, utrzymujesz FTP → W/kg poprawia się</li><li><strong>Niezdrowa utrata wagi:</strong> Tracisz mięśnie, FTP spada o 10-15% → W/kg może się pogorszyć
+            </li></ul><p><strong>Bezpieczne podejście:</strong> Chudnij 0,25-0,5 kg na tydzień dzięki umiarkowanemu deficytowi
+            kalorycznemu, utrzymując wysokie spożycie białka (1,6-2,2 g na kg masy ciała) i objętość treningową.</p><h4>Budowanie mocy bez przybierania na wadze</h4><p>Zwiększenie FTP przy zachowaniu wagi jest idealne:</p><div class="example-box"><h4>Wpływ wzrostu mocy:</h4><p>Kolarz: 300W FTP, 75kg (4,0 W/kg)</p><ul><li><strong>+20W FTP → 320W:</strong> 320W / 75kg = <strong>4,27 W/kg</strong> (+6,7%)</li><li><strong>+30W FTP → 330W:</strong> 330W / 75kg = <strong>4,40 W/kg</strong> (+10%)</li></ul><p><strong>Jak?</strong> Strukturyzowany trening ukierunkowany na próg i VO2max. Zajmuje to zazwyczaj 3-6
+                miesięcy systematycznej pracy.</p></div><h3>Optymalna waga dla kolarza</h3><p>Istnieje punkt, w którym dalsza redukcja wagi staje się nieefektywna. Bardzo lekcy zawodnicy (&lt;60kg)
+            często mają:</p><ul><li>Niższą moc absolutną (trudniej utrzymać wysokie waty)</li><li>Niekorzyść na płaskim i przy czołowym wietrze</li><li>Słabszą moc sprinterską</li><li>Większą podatność na kontuzje i choroby</li></ul><p><strong>Złoty środek dla większości:</strong> 10-15% tkanki tłuszczowej u mężczyzn, 15-20% u kobiet. Niższa
             zawartość tłuszczu poprawia W/kg, ale staje się kontrproduktywna poniżej ~8% (mężczyźni) lub 12% (kobiety)
-            ze względu na zdrowie i spadek wydolności.</p>
-    </section>
-
-    <section id="vam">
-        <h2>VAM (Velocità Ascensionale Media): Czyste tempo wznoszenia</h2>
-        <p><strong>VAM</strong> mierzy, ile metrów w pionie pokonujesz w ciągu godziny. W przeciwieństwie do prędkości
+            ze względu na zdrowie i spadek wydolności.</p></section><section id="vam"><h2>VAM (Velocità Ascensionale Media): Czyste tempo wznoszenia</h2><p><strong>VAM</strong> mierzy, ile metrów w pionie pokonujesz w ciągu godziny. W przeciwieństwie do prędkości
             poziomej (km/h), która drastycznie zmienia się wraz z nachyleniem, VAM dostarcza wskaźnik wydajności na
-            podjeździe, który jest w dużej mierze niezależny od nachylenia.</p>
-
-        <div class="formula-box">
-            <h3>Wzór</h3>
-            <div class="formula">
+            podjeździe, który jest w dużej mierze niezależny od nachylenia.</p><div class="formula-box"><h3>Wzór</h3><div class="formula">
                 VAM (m/h) = Przewyższenie (metry) / Czas (godziny)
-            </div>
-            <div class="example-box mt-md">
-                <h4>Przykład: Alpe d'Huez</h4>
-                <p>Podjazd: 1100m przewyższenia w 50 minut (0,833 godziny)</p>
-                <div class="calculation">
-                    VAM = 1100 / 0,833 = <strong>1320 m/h</strong>
-                </div>
-                <p>Taki VAM wskazuje na wynik elity amatorów / początkującego zawodowca.</p>
-            </div>
-        </div>
-
-        <h3>Standardowe wartości VAM według wysiłku</h3>
-
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>VAM (m/h)</th>
-                    <th>Poziom wysiłku</th>
-                    <th>Typowy czas trwania</th>
-                    <th>Przykład</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>300-600</strong></td>
-                    <td>Spokojna wytrzymałość</td>
-                    <td>2-6 godzin</td>
-                    <td>Długie podjazdy budujące bazę, regeneracja</td>
-                </tr>
-                <tr>
-                    <td><strong>600-900</strong></td>
-                    <td>Umiarkowane tempo</td>
-                    <td>1-3 godziny</td>
-                    <td>Tempo sportowe, średnie jazdy grupowe</td>
-                </tr>
-                <tr>
-                    <td><strong>900-1200</strong></td>
-                    <td>Mocny próg (Threshold)</td>
-                    <td>30-90 minut</td>
-                    <td>Podjazdy na poziomie FTP, symulacja wyścigu</td>
-                </tr>
-                <tr>
-                    <td><strong>1200-1500</strong></td>
-                    <td>Bardzo mocne VO2max</td>
-                    <td>10-30 minut</td>
-                    <td>Krótkie, strome ścianki blisko maksa</td>
-                </tr>
-                <tr>
-                    <td><strong>1500-1800+</strong></td>
-                    <td>Tempo wyścigu Pro</td>
-                    <td>20-60 minut</td>
-                    <td>Liderzy World Tour na kluczowych przełęczach</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>Dlaczego VAM jest (prawie) niezależny od nachylenia?</h3>
-        <p>Prędkość (km/h) spada drastycznie przy wzroście nachylenia, nawet przy stałej mocy. VAM pozostaje stosunkowo
-            stabilny:</p>
-
-        <div class="example-box">
-            <h4>Kolarz przy 300W (75kg, 4,0 W/kg)</h4>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Nachylenie</th>
-                        <th>Prędkość (km/h)</th>
-                        <th>VAM (m/h)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>5%</td>
-                        <td>18,0</td>
-                        <td>900</td>
-                    </tr>
-                    <tr>
-                        <td>8%</td>
-                        <td>15,0</td>
-                        <td>1200</td>
-                    </tr>
-                    <tr>
-                        <td>10%</td>
-                        <td>12,5</td>
-                        <td>1250</td>
-                    </tr>
-                    <tr>
-                        <td>12%</td>
-                        <td>10,5</td>
-                        <td>1260</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><strong>Analiza:</strong> Prędkość spada o 42% przy przejściu z 5% na 12% nachylenia, ale VAM wzrasta o
+            </div><div class="example-box mt-md"><h4>Przykład: Alpe d'Huez</h4><p>Podjazd: 1100m przewyższenia w 50 minut (0,833 godziny)</p><div class="calculation">
+                    VAM = 1100 / 0,833 = <strong>1320 m/h</strong></div><p>Taki VAM wskazuje na wynik elity amatorów / początkującego zawodowca.</p></div></div><h3>Standardowe wartości VAM według wysiłku</h3><table class="data-table"><thead><tr><th>VAM (m/h)</th><th>Poziom wysiłku</th><th>Typowy czas trwania</th><th>Przykład</th></tr></thead><tbody><tr><td><strong>300-600</strong></td><td>Spokojna wytrzymałość</td><td>2-6 godzin</td><td>Długie podjazdy budujące bazę, regeneracja</td></tr><tr><td><strong>600-900</strong></td><td>Umiarkowane tempo</td><td>1-3 godziny</td><td>Tempo sportowe, średnie jazdy grupowe</td></tr><tr><td><strong>900-1200</strong></td><td>Mocny próg (Threshold)</td><td>30-90 minut</td><td>Podjazdy na poziomie FTP, symulacja wyścigu</td></tr><tr><td><strong>1200-1500</strong></td><td>Bardzo mocne VO2max</td><td>10-30 minut</td><td>Krótkie, strome ścianki blisko maksa</td></tr><tr><td><strong>1500-1800+</strong></td><td>Tempo wyścigu Pro</td><td>20-60 minut</td><td>Liderzy World Tour na kluczowych przełęczach</td></tr></tbody></table><h3>Dlaczego VAM jest (prawie) niezależny od nachylenia?</h3><p>Prędkość (km/h) spada drastycznie przy wzroście nachylenia, nawet przy stałej mocy. VAM pozostaje stosunkowo
+            stabilny:</p><div class="example-box"><h4>Kolarz przy 300W (75kg, 4,0 W/kg)</h4><table class="comparison-table"><thead><tr><th>Nachylenie</th><th>Prędkość (km/h)</th><th>VAM (m/h)</th></tr></thead><tbody><tr><td>5%</td><td>18,0</td><td>900</td></tr><tr><td>8%</td><td>15,0</td><td>1200</td></tr><tr><td>10%</td><td>12,5</td><td>1250</td></tr><tr><td>12%</td><td>10,5</td><td>1260</td></tr></tbody></table><p><strong>Analiza:</strong> Prędkość spada o 42% przy przejściu z 5% na 12% nachylenia, ale VAM wzrasta o
                 40% (ze względu na mniejszy opór powietrza przy niższych prędkościach na bardziej stromych odcinkach).
-                VAM lepiej odzwierciedla wkładany <em>wysiłek</em> niż km/h.</p>
-        </div>
-
-        <h3>Czynniki wpływające na VAM</h3>
-
-        <h4>1. Stosunek mocy do masy (Główny)</h4>
-        <p>Wyższe W/kg bezpośrednio przekłada się na wyższy VAM. To najważniejszy motor wyników.</p>
-
-        <h4>2. Nachylenie (Drugorzędny)</h4>
-        <p>VAM naturalnie wzrasta na stromszych odcinkach ponieważ:</p>
-        <ul>
-            <li>Opór aero jest mniejszy przy niższej prędkości podjazdu</li>
-            <li>Więcej mocy idzie w "windowanie" ciała (grawitację) niż w pchanie powietrza</li>
-        </ul>
-
-        <p>Jednak bardzo sztywne nachylenia (12%+) mogą obniżyć VAM, jeśli zawodnik nie jest w stanie utrzymać mocy z
-            powodu zmęczenia mięśniowego.</p>
-
-        <h4>3. Wysokość nad poziomem morza</h4>
-        <p>W wysokich górach:</p>
-        <ul>
-            <li><strong>Niższa gęstość powietrza:</strong> Mniejszy opór aero → nieco wyższy VAM (1-2%)</li>
-            <li><strong>Mniej tlenu:</strong> Niższa moc możliwa do utrzymania → niższy VAM (spadek o 5-10% na 2000m)
-            </li>
-        </ul>
-
-        <p>Efekt netto: VAM zazwyczaj spada na wysokości, mimo korzyści aerodynamicznych.</p>
-
-        <h4>4. Wiatr</h4>
-        <p>Wiatr czołowy obniża VAM, wiatr w plecy go podnosi. Silny wiatr czołowy na stromym podjeździe może obniżyć
-            VAM o 10-20%.</p>
-    </section>
-
-    <section id="vam-to-watts">
-        <h2>Szacowanie W/kg na podstawie VAM</h2>
-        <p>Możesz w przybliżeniu obliczyć stosunek mocy do masy, znając VAM i nachylenie, korzystając z poniższego wzoru
-            empirycznego:</p>
-
-        <div class="formula-box">
-            <h3>Szacowanie W/kg z VAM</h3>
-            <div class="formula">
+                VAM lepiej odzwierciedla wkładany <em>wysiłek</em> niż km/h.</p></div><h3>Czynniki wpływające na VAM</h3><h4>1. Stosunek mocy do masy (Główny)</h4><p>Wyższe W/kg bezpośrednio przekłada się na wyższy VAM. To najważniejszy motor wyników.</p><h4>2. Nachylenie (Drugorzędny)</h4><p>VAM naturalnie wzrasta na stromszych odcinkach ponieważ:</p><ul><li>Opór aero jest mniejszy przy niższej prędkości podjazdu</li><li>Więcej mocy idzie w "windowanie" ciała (grawitację) niż w pchanie powietrza</li></ul><p>Jednak bardzo sztywne nachylenia (12%+) mogą obniżyć VAM, jeśli zawodnik nie jest w stanie utrzymać mocy z
+            powodu zmęczenia mięśniowego.</p><h4>3. Wysokość nad poziomem morza</h4><p>W wysokich górach:</p><ul><li><strong>Niższa gęstość powietrza:</strong> Mniejszy opór aero → nieco wyższy VAM (1-2%)</li><li><strong>Mniej tlenu:</strong> Niższa moc możliwa do utrzymania → niższy VAM (spadek o 5-10% na 2000m)
+            </li></ul><p>Efekt netto: VAM zazwyczaj spada na wysokości, mimo korzyści aerodynamicznych.</p><h4>4. Wiatr</h4><p>Wiatr czołowy obniża VAM, wiatr w plecy go podnosi. Silny wiatr czołowy na stromym podjeździe może obniżyć
+            VAM o 10-20%.</p></section><section id="vam-to-watts"><h2>Szacowanie W/kg na podstawie VAM</h2><p>Możesz w przybliżeniu obliczyć stosunek mocy do masy, znając VAM i nachylenie, korzystając z poniższego wzoru
+            empirycznego:</p><div class="formula-box"><h3>Szacowanie W/kg z VAM</h3><div class="formula">
                 W/kg ≈ VAM (m/h) / [100 × (Nachylenie % + 3)]
-            </div>
-            <p class="formula-explanation">Wzór ten uwzględnia nachylenie, opory toczenia i opór aerodynamiczny przy
-                typowych prędkościach podjazdu.</p>
-        </div>
-
-        <div class="example-box">
-            <h4>Przykład 1: Alpe d'Huez</h4>
-            <p><strong>Dane z podjazdu:</strong> 1320 VAM przy średnim nachyleniu 8%</p>
-            <div class="calculation">
+            </div><p class="formula-explanation">Wzór ten uwzględnia nachylenie, opory toczenia i opór aerodynamiczny przy
+                typowych prędkościach podjazdu.</p></div><div class="example-box"><h4>Przykład 1: Alpe d'Huez</h4><p><strong>Dane z podjazdu:</strong> 1320 VAM przy średnim nachyleniu 8%</p><div class="calculation">
                 W/kg ≈ 1320 / [100 × (8 + 3)]<br>
                 W/kg ≈ 1320 / 1100<br>
-                W/kg ≈ <strong>4,36</strong>
-            </div>
-            <p>Poziom elity amatorów / wyścigi Cat 1.</p>
-        </div>
-
-        <div class="example-box">
-            <h4>Przykład 2: Col du Tourmalet</h4>
-            <p><strong>Wynik zawodowca:</strong> 1650 VAM przy średnim nachyleniu 7,5%</p>
-            <div class="calculation">
+                W/kg ≈ <strong>4,36</strong></div><p>Poziom elity amatorów / wyścigi Cat 1.</p></div><div class="example-box"><h4>Przykład 2: Col du Tourmalet</h4><p><strong>Wynik zawodowca:</strong> 1650 VAM przy średnim nachyleniu 7,5%</p><div class="calculation">
                 W/kg ≈ 1650 / [100 × (7,5 + 3)]<br>
                 W/kg ≈ 1650 / 1050<br>
-                W/kg ≈ <strong>5,71</strong>
-            </div>
-            <p>Poziom zawodowego górnika World Tour.</p>
-        </div>
-
-        <h3>Uwagi o dokładności</h3>
-        <ul>
-            <li><strong>Największa dokładność:</strong> Nachylenia 5-10%, prędkości 15-25 km/h</li>
-            <li><strong>Mniejsza dokładność:</strong> Bardzo sztywne (&gt;12%) lub bardzo łagodne (&lt;3%) podjazdy</li>
-            <li><strong>Wpływy zewnętrzne:</strong> Wiatr, jazda w cieniu (zmniejsza realnie potrzebne W/kg), waga
-                roweru</li>
-        </ul>
-
-        <p>Używaj tego wzoru jako przybliżonego szacunku, nie jako bezwzględnej prawdy. Dane z miernika mocy są zawsze
-            dokładniejsze.</p>
-    </section>
-
-    <section id="gradient-effects">
-        <h2>Jak nachylenie wpływa na zapotrzebowanie na moc</h2>
-        <p>Nachylenie ma wykładniczy wpływ na moc potrzebną do utrzymania danej prędkości. Zrozumienie tego pomaga
-            poprawnie rozłożyć siły.</p>
-
-        <h3>Moc wymagana w zależności od nachylenia</h3>
-
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Nachylenie</th>
-                    <th>Prędkość @ 3,5 W/kg</th>
-                    <th>Prędkość @ 4,5 W/kg</th>
-                    <th>Prędkość @ 5,5 W/kg</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>5%</strong></td>
-                    <td>18,5 km/h</td>
-                    <td>21,5 km/h</td>
-                    <td>24,0 km/h</td>
-                </tr>
-                <tr>
-                    <td><strong>7%</strong></td>
-                    <td>16,0 km/h</td>
-                    <td>18,5 km/h</td>
-                    <td>21,0 km/h</td>
-                </tr>
-                <tr>
-                    <td><strong>10%</strong></td>
-                    <td>12,5 km/h</td>
-                    <td>14,5 km/h</td>
-                    <td>16,5 km/h</td>
-                </tr>
-                <tr>
-                    <td><strong>15%</strong></td>
-                    <td>8,5 km/h</td>
-                    <td>10,0 km/h</td>
-                    <td>11,5 km/h</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p><em>Założenia: Kolarz 75kg + rower 8kg, poziom morza, brak wiatru, gładka nawierzchnia</em></p>
-
-        <h3>Dlaczego aerodynamika traci na znaczeniu na starych ściankach</h3>
-        <p>Przy prędkościach podjazdu (&lt;20 km/h), opór aerodynamiczny staje się marginalnym elementem całkowitego
-            oporu:</p>
-
-        <ul>
-            <li><strong>5% nachylenia przy 20 km/h:</strong> ~15% aero, ~10% toczenie, ~75% grawitacja</li>
-            <li><strong>10% nachylenia przy 12 km/h:</strong> ~8% aero, ~12% toczenie, ~80% grawitacja</li>
-            <li><strong>15% nachylenia przy 9 km/h:</strong> ~5% aero, ~10% toczenie, ~85% grawitacja</li>
-        </ul>
-
-        <p><strong>Praktyczny wniosek:</strong> Na bardzo stromych podjazdach siedzenie prosto dla lepszego oddechu i
-            wyższej mocy jest szybsze niż próba bycia aero. Komfort i generowane waty > aerodynamika.</p>
-
-        <div class="callout callout-tip">
-            <h3>💡 Rozgrywanie "ścianek"</h3>
-            <p>Na nachyleniach >10% powstrzymaj chęć mocnego "ataku" na samym początku. Zapotrzebowanie na moc rośnie
-                wykładniczo — zaczęcie o 5% za mocno zagwarantuje "odcięcie" prądu później.</p>
-            <p><strong>Lepsza strategia:</strong> Zacznij na 95% docelowej mocy, złap rytm, a potem zwiększ wysiłek w
-                ostatnich 20-25% podjazdu, jeśli czujesz się na siłach.</p>
-        </div>
-    </section>
-
-    <section id="pacing-strategies">
-        <h2>Strategie rozłożenia sił dla optymalnego wspinania</h2>
-        <p>Sposób, w jaki rozkładasz moc na podjeździe, drastycznie wpływa na końcowy czas. Równomierna moc jest prawie
-            zawsze najszybsza.</p>
-
-        <h3>Strategia równomiernej mocy (Iso-Power)</h3>
-        <p><strong>Cel:</strong> Utrzymanie stałej mocy przez cały podjazd, niezależnie od zmian nachylenia.</p>
-
-        <p><strong>Dlaczego to działa:</strong></p>
-        <ul>
-            <li>Unikasz wypalania W' (pojemności beztlenowej) przy skokach mocy</li>
-            <li>Maksymalizujesz zrównoważony wysiłek</li>
-            <li>Zapobiegasz wczesnemu zmęczeniu, które mści się w końcówce</li>
-        </ul>
-
-        <div class="example-box">
-            <h4>Przykład: 20-minutowy podjazd</h4>
-            <p><strong>Strategia A (Zmienna moc):</strong></p>
-            <ul>
-                <li>Pierwsze 5 min: 320W (czujesz się mocny, atakujesz sztywny fragment)</li>
-                <li>Środkowe 10 min: 270W (zmęczenie po ataku)</li>
-                <li>Ostatnie 5 min: 260W (puchnięcie w końcówce)</li>
-                <li><strong>Średnia: 283W</strong></li>
-            </ul>
-
-            <p><strong>Strategia B (Równomierna moc):</strong></p>
-            <ul>
-                <li>Całe 20 min: 290W (stabilnie, pod kontrolą)</li>
-                <li><strong>Średnia: 290W</strong></li>
-            </ul>
-
-            <p><strong>Wynik:</strong> Strategia B jest o 2,5% szybsza, mimo że na początku wydaje się "łatwiejsza".
-                Równomierna moc = szybszy wjazd.</p>
-        </div>
-
-        <h3>Mądre wykorzystanie zmian nachylenia</h3>
-
-        <h4>Strategia na wypłaszczenia</h4>
-        <p>Gdy nachylenie maleje (np. z 9% na 5%), masz dwie opcje:</p>
-        <ol>
-            <li><strong>Utrzymaj moc:</strong> Prędkość gwałtownie wzrośnie, wypracujesz przewagę (zalecane na długich
-                podjazdach)</li>
-            <li><strong>Nieco obniż moc:</strong> Pozwól na krótką regenerację przy zachowaniu dobrego tempa</li>
-        </ol>
-
-        <h4>Strategia na "ścianki"</h4>
-        <p>Gdy nachylenie rośnie (np. z 5% na 10%), unikaj:</p>
-        <ul>
-            <li>❌ Przyspieszania, by "mieć to już za sobą" → Wypalasz W', spowodujesz spadek tempa</li>
-            <li>✅ Utrzymaj docelową moc → Prędkość spadnie naturalnie, ale wysiłek pozostanie zrównoważony</li>
-        </ul>
-
-        <h3>Na stojąc czy na siedząco?</h3>
-
-        <h4>Siedzenie (Domyślne)</h4>
-        <p><strong>Plusy:</strong></p>
-        <ul>
-            <li>Bardziej aerodynamiczne</li>
-            <li>Niższe tętno (~5-10 uderzeń na minutę mniej)</li>
-            <li>Możliwe do utrzymania przez bardzo długi czas</li>
-        </ul>
-
-        <p><strong>Minusy:</strong></p>
-        <ul>
-            <li>Może brakować momentu obrotowego na bardzo sztywnych fragmentach</li>
-            <li>Mięśnie dwugłowe i pośladki mogą się szybciej nużyć przy monotonii</li>
-        </ul>
-
-        <h4>Stanie (Strategiczne)</h4>
-        <p><strong>Plusy:</strong></p>
-        <ul>
-            <li>Angażuje inne grupy mięśni (czworogłowe, łydki, plecy)</li>
-            <li>Pozwala odbarczyć pewne partie, poprawia krążenie</li>
-            <li>Generuje wyższą moc chwilową (ataki, strome przewyższenia)</li>
-        </ul>
-
-        <p><strong>Minusy:</strong></p>
-        <ul>
-            <li>Wymaga o 5-10W więcej mocy przy tej samej prędkości (mniejsza aero)</li>
-            <li>Wyższe tętno</li>
-            <li>Brak możliwości długotrwałego utrzymania</li>
-        </ul>
-
-        <p><strong>Dobra praktyka:</strong> Siedź przez większość podjazdu. Wstawaj na chwilę (15-30 sekund) co 3-5
-            minut, aby:</p>
-        <ul>
-            <li>Odbarczyć krocze i kości kulszowe</li>
-            <li>Rozciągnąć zginacze bioder i dolny odcinek pleców</li>
-            <li>Zaangażować "świeże" włókna mięśniowe</li>
-        </ul>
-
-        <div class="callout callout-warning">
-            <h3>⚠️ Powszechne błędy w rozkładaniu sił</h3>
-            <ul>
-                <li><strong>Zbyt mocny start:</strong> Pierwsze 20% podjazdu na 110% możliwości → gwarantowane
-                    puchnięcie</li>
-                <li><strong>Atakowanie sztywnych odcinków:</strong> Wydaje się skuteczne, ale wypala W' szybciej niż
-                    daje korzyść czasową</li>
-                <li><strong>Zbyt częste stanie:</strong> Kara 5-10W sumuje się na 30-60 minutowym podjeździe</li>
-                <li><strong>Ignorowanie zmian nachylenia:</strong> Trzymaj docelową moc, a nie prędkość</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="training-for-climbing">
-        <h2>Trening pod podjazdy</h2>
-        <p>Poprawa wspinania pochodzi z trzech obszarów: zwiększenia FTP, racjonalnej redukcji wagi i budowania
-            specyficznej wytrzymałości siłowej.</p>
-
-        <h3>1. Budowa bazy tlenowej (Strefa 2)</h3>
-        <p>Długie, spokojne jazdy na 60-70% FTP rozwijają:</p>
-        <ul>
-            <li>Gęstość mitochondriów</li>
-            <li>Sieć naczyń włosowatych</li>
-            <li>Utlenianie tłuszczów (oszczędza glikogen na długich podjazdach)</li>
-        </ul>
-
-        <p><strong>Cel objętościowy:</strong> 70-80% tygodniowego czasu treningu w Strefie 2. Zobacz <a
-                href="/pl/training-zones/">Przewodnik po strefach treningowych</a>.</p>
-
-        <h3>2. Interwały progowe (Strefa 4)</h3>
-        <p>Buduj FTP poprzez długie wysiłki na progu:</p>
-
-        <div class="workout-box">
-            <h4>Przykładowy trening progowy</h4>
-            <p><strong>3 × 12 minut @ 95-100% FTP (5 min przerwy)</strong></p>
-            <p>Wykonuj najlepiej na podjeździe, aby symulować warunki wyścigowe. Skup się na równej mocy przez cały
-                interwał.</p>
-            <p><strong>Częstotliwość:</strong> 1-2× w tygodniu w fazie budowania</p>
-        </div>
-
-        <h3>3. Powtórzenia VO2max (Strefa 5)</h3>
-        <p>Krótkie, bardzo mocne interwały podnoszą "sufit" tlenowy:</p>
-
-        <div class="workout-box">
-            <h4>Przykładowy trening VO2max</h4>
-            <p><strong>5 × 4 minuty @ 110-120% FTP (4 min przerwy)</strong></p>
-            <p>To ma boleć — o to w tym chodzi. Praca nad VO2max jest kluczowa do przesuwania FTP w górę.</p>
-            <p><strong>Częstotliwość:</strong> 1× w tygodniu w fazie specjalistycznej</p>
-        </div>
-
-        <h3>4. Długie podjazdy (Symulacja wyścigu)</h3>
-        <p>Ćwicz rozkład sił na realnych przełęczach:</p>
-
-        <div class="workout-box">
-            <h4>Trening długiego wspinania</h4>
-            <p><strong>2 × 30-40 minut @ FTP na umiarkowanym podjeździe (15 min przerwy)</strong></p>
-            <p>Cel: Nauka równego tempa, zarządzanie żywieniem i nawadnianiem, komfort w pozycji podjazdowej przez długi
-                czas.</p>
-            <p><strong>Częstotliwość:</strong> 1× w tygodniu przed docelowym startem</p>
-        </div>
-
-        <h3>5. Zarządzanie wagą</h3>
-        <p>Redukuj tkankę tłuszczową w sposób strategiczny:</p>
-        <ul>
-            <li><strong>Tempo:</strong> Maksymalnie 0,25-0,5 kg na tydzień</li>
-            <li><strong>Metoda:</strong> Deficyt 300-500 kcal dziennie</li>
-            <li><strong>Białko:</strong> Utrzymuj 1,6-2,2g/kg, by chronić mięśnie</li>
-            <li><strong>Okres:</strong> Chudnij w fazie bazy/budowania, a nie bezpośrednio przed wyścigiem</li>
-        </ul>
-
-        <p><strong>Ostrzeżenie:</strong> Nie dąż do ekstremalnej chudości. Wydajność często spada poniżej ~8% tłuszczu u
-            mężczyzn i ~12% u kobiet.</p>
-
-        <div class="callout callout-science">
-            <h3>🔬 Oś czasu adaptacji treningowej</h3>
-            <ul>
-                <li><strong>4-8 tygodni:</strong> Poprawa nerwowo-mięśniowa, lepsze rozkładanie sił</li>
-                <li><strong>8-12 tygodni:</strong> Wzrost progu mleczanowego, FTP rośnie o 5-10%</li>
-                <li><strong>12-16 tygodni:</strong> Poprawa wydolności tlenowej (VO2max)</li>
-                <li><strong>16-24 tygodnie:</strong> Głębsze adaptacje mitochondrialne, lepsza ekonomia wspinania</li>
-            </ul>
-            <p>Systematyczny trening przez 6+ miesięcy daje największe zyski. Nie ma dróg na skróty.</p>
-        </div>
-    </section>
-
-    <section id="famous-climbs">
-        <h2>Słynne podjazdy: Analiza wyników</h2>
-        <p>Analiza wyników zawodowców na kultowych przełęczach pokazuje, jak W/kg wygląda w praktyce.</p>
-
-        <h3>Alpe d'Huez</h3>
-        <ul>
-            <li><strong>Dystans:</strong> 13,8 km</li>
-            <li><strong>Przewyższenie:</strong> 1100 m</li>
-            <li><strong>Średnie nachylenie:</strong> 8,1%</li>
-            <li><strong>21 ponumerowanych zakrętów</strong></li>
-        </ul>
-
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Kolarz / Poziom</th>
-                    <th>Czas</th>
-                    <th>Szacowane W/kg</th>
-                    <th>VAM</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Marco Pantani (rekord 1997)</strong></td>
-                    <td>37:35</td>
-                    <td>~6,7</td>
-                    <td>~1750</td>
-                </tr>
-                <tr>
-                    <td><strong>Zwycięzca etapu World Tour</strong></td>
-                    <td>39-42 min</td>
-                    <td>6,0-6,3</td>
-                    <td>1570-1690</td>
-                </tr>
-                <tr>
-                    <td><strong>Lider GC World Tour</strong></td>
-                    <td>42-45 min</td>
-                    <td>5,5-6,0</td>
-                    <td>1470-1570</td>
-                </tr>
-                <tr>
-                    <td><strong>Elita amatorów</strong></td>
-                    <td>50-55 min</td>
-                    <td>4,5-5,0</td>
-                    <td>1200-1320</td>
-                </tr>
-                <tr>
-                    <td><strong>Mocny amator</strong></td>
-                    <td>60-70 min</td>
-                    <td>3,5-4,0</td>
-                    <td>940-1100</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>Mont Ventoux</h3>
-        <ul>
-            <li><strong>Dystans:</strong> 21,5 km (z Bédoin)</li>
-            <li><strong>Przewyższenie:</strong> 1600 m</li>
-            <li><strong>Średnie nachylenie:</strong> 7,5%</li>
-            <li><strong>Ostatnie 6 km:</strong> Odsłonięty teren, często silny wiatr</li>
-        </ul>
-
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Kolarz / Poziom</th>
-                    <th>Czas</th>
-                    <th>Szacowane W/kg</th>
-                    <th>VAM</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Iban Mayo (rekord 2004)</strong></td>
-                    <td>55:51</td>
-                    <td>~6,6</td>
-                    <td>~1720</td>
-                </tr>
-                <tr>
-                    <td><strong>Lider GC World Tour</strong></td>
-                    <td>58-62 min</td>
-                    <td>6,0-6,2</td>
-                    <td>1550-1655</td>
-                </tr>
-                <tr>
-                    <td><strong>Elita amatorów</strong></td>
-                    <td>70-80 min</td>
-                    <td>4,8-5,2</td>
-                    <td>1200-1370</td>
-                </tr>
-                <tr>
-                    <td><strong>Mocny amator</strong></td>
-                    <td>90-100 min</td>
-                    <td>3,8-4,2</td>
-                    <td>960-1065</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>Col du Tourmalet</h3>
-        <ul>
-            <li><strong>Dystans:</strong> 18,8 km (z Luz-Saint-Sauveur)</li>
-            <li><strong>Przewyższenie:</strong> 1400 m</li>
-            <li><strong>Średnie nachylenie:</strong> 7,5%</li>
-            <li><strong>Najwyższy asfalt w Pirenejach</strong> (2115 m n.p.m.)</li>
-        </ul>
-
-        <p><strong>Wyniki Pro:</strong> 50-55 minut (~6,0-6,3 W/kg, 1530-1680 VAM). Wysokość wpływa na te czasy —
-            rzadsze powietrze obniża generowaną moc o ok. 5-8%.</p>
-
-        <div class="callout callout-tip">
-            <h3>💡 Korzystanie z punktów odniesienia</h3>
-            <p>Znajdź docelowy podjazd (lokalny lub słynny). Wykonaj test przy maksymalnym zrównoważonym wysiłku.
-                Porównaj swój czas z tabelami, aby określić aktualny poziom W/kg:</p>
-            <ol>
-                <li>Zapisz czas wjazdu, przewyższenie i nachylenie</li>
-                <li>Oblicz VAM: (przewyższenie / czas w godzinach)</li>
-                <li>Oszacuj W/kg: VAM / [100 × (nachylenie % + 3)]</li>
-                <li>Porównaj z powyższymi wynikami</li>
-            </ol>
-            <p>Powtarzaj test co 8-12 tygodni, by śledzić postępy!</p>
-        </div>
-    </section>
-
-    <section id="faq">
-        <h2>Często Zadawane Pytania</h2>
-
-        <div class="faq-item">
-            <h3>Co jest ważniejsze: utrata wagi czy wzrost mocy?</h3>
-            <p>Oba czynniki poprawiają W/kg, ale kontekst jest kluczowy. Jeśli masz nadmiar tkanki tłuszczowej (>15% u
+                W/kg ≈ <strong>5,71</strong></div><p>Poziom zawodowego górnika World Tour.</p></div><h3>Uwagi o dokładności</h3><ul><li><strong>Największa dokładność:</strong> Nachylenia 5-10%, prędkości 15-25 km/h</li><li><strong>Mniejsza dokładność:</strong> Bardzo sztywne (&gt;12%) lub bardzo łagodne (&lt;3%) podjazdy</li><li><strong>Wpływy zewnętrzne:</strong> Wiatr, jazda w cieniu (zmniejsza realnie potrzebne W/kg), waga
+                roweru</li></ul><p>Używaj tego wzoru jako przybliżonego szacunku, nie jako bezwzględnej prawdy. Dane z miernika mocy są zawsze
+            dokładniejsze.</p></section><section id="gradient-effects"><h2>Jak nachylenie wpływa na zapotrzebowanie na moc</h2><p>Nachylenie ma wykładniczy wpływ na moc potrzebną do utrzymania danej prędkości. Zrozumienie tego pomaga
+            poprawnie rozłożyć siły.</p><h3>Moc wymagana w zależności od nachylenia</h3><table class="data-table"><thead><tr><th>Nachylenie</th><th>Prędkość @ 3,5 W/kg</th><th>Prędkość @ 4,5 W/kg</th><th>Prędkość @ 5,5 W/kg</th></tr></thead><tbody><tr><td><strong>5%</strong></td><td>18,5 km/h</td><td>21,5 km/h</td><td>24,0 km/h</td></tr><tr><td><strong>7%</strong></td><td>16,0 km/h</td><td>18,5 km/h</td><td>21,0 km/h</td></tr><tr><td><strong>10%</strong></td><td>12,5 km/h</td><td>14,5 km/h</td><td>16,5 km/h</td></tr><tr><td><strong>15%</strong></td><td>8,5 km/h</td><td>10,0 km/h</td><td>11,5 km/h</td></tr></tbody></table><p><em>Założenia: Kolarz 75kg + rower 8kg, poziom morza, brak wiatru, gładka nawierzchnia</em></p><h3>Dlaczego aerodynamika traci na znaczeniu na starych ściankach</h3><p>Przy prędkościach podjazdu (&lt;20 km/h), opór aerodynamiczny staje się marginalnym elementem całkowitego
+            oporu:</p><ul><li><strong>5% nachylenia przy 20 km/h:</strong> ~15% aero, ~10% toczenie, ~75% grawitacja</li><li><strong>10% nachylenia przy 12 km/h:</strong> ~8% aero, ~12% toczenie, ~80% grawitacja</li><li><strong>15% nachylenia przy 9 km/h:</strong> ~5% aero, ~10% toczenie, ~85% grawitacja</li></ul><p><strong>Praktyczny wniosek:</strong> Na bardzo stromych podjazdach siedzenie prosto dla lepszego oddechu i
+            wyższej mocy jest szybsze niż próba bycia aero. Komfort i generowane waty > aerodynamika.</p><div class="callout callout-tip"><h3>💡 Rozgrywanie "ścianek"</h3><p>Na nachyleniach >10% powstrzymaj chęć mocnego "ataku" na samym początku. Zapotrzebowanie na moc rośnie
+                wykładniczo — zaczęcie o 5% za mocno zagwarantuje "odcięcie" prądu później.</p><p><strong>Lepsza strategia:</strong> Zacznij na 95% docelowej mocy, złap rytm, a potem zwiększ wysiłek w
+                ostatnich 20-25% podjazdu, jeśli czujesz się na siłach.</p></div></section><section id="pacing-strategies"><h2>Strategie rozłożenia sił dla optymalnego wspinania</h2><p>Sposób, w jaki rozkładasz moc na podjeździe, drastycznie wpływa na końcowy czas. Równomierna moc jest prawie
+            zawsze najszybsza.</p><h3>Strategia równomiernej mocy (Iso-Power)</h3><p><strong>Cel:</strong> Utrzymanie stałej mocy przez cały podjazd, niezależnie od zmian nachylenia.</p><p><strong>Dlaczego to działa:</strong></p><ul><li>Unikasz wypalania W' (pojemności beztlenowej) przy skokach mocy</li><li>Maksymalizujesz zrównoważony wysiłek</li><li>Zapobiegasz wczesnemu zmęczeniu, które mści się w końcówce</li></ul><div class="example-box"><h4>Przykład: 20-minutowy podjazd</h4><p><strong>Strategia A (Zmienna moc):</strong></p><ul><li>Pierwsze 5 min: 320W (czujesz się mocny, atakujesz sztywny fragment)</li><li>Środkowe 10 min: 270W (zmęczenie po ataku)</li><li>Ostatnie 5 min: 260W (puchnięcie w końcówce)</li><li><strong>Średnia: 283W</strong></li></ul><p><strong>Strategia B (Równomierna moc):</strong></p><ul><li>Całe 20 min: 290W (stabilnie, pod kontrolą)</li><li><strong>Średnia: 290W</strong></li></ul><p><strong>Wynik:</strong> Strategia B jest o 2,5% szybsza, mimo że na początku wydaje się "łatwiejsza".
+                Równomierna moc = szybszy wjazd.</p></div><h3>Mądre wykorzystanie zmian nachylenia</h3><h4>Strategia na wypłaszczenia</h4><p>Gdy nachylenie maleje (np. z 9% na 5%), masz dwie opcje:</p><ol><li><strong>Utrzymaj moc:</strong> Prędkość gwałtownie wzrośnie, wypracujesz przewagę (zalecane na długich
+                podjazdach)</li><li><strong>Nieco obniż moc:</strong> Pozwól na krótką regenerację przy zachowaniu dobrego tempa</li></ol><h4>Strategia na "ścianki"</h4><p>Gdy nachylenie rośnie (np. z 5% na 10%), unikaj:</p><ul><li>❌ Przyspieszania, by "mieć to już za sobą" → Wypalasz W', spowodujesz spadek tempa</li><li>✅ Utrzymaj docelową moc → Prędkość spadnie naturalnie, ale wysiłek pozostanie zrównoważony</li></ul><h3>Na stojąc czy na siedząco?</h3><h4>Siedzenie (Domyślne)</h4><p><strong>Plusy:</strong></p><ul><li>Bardziej aerodynamiczne</li><li>Niższe tętno (~5-10 uderzeń na minutę mniej)</li><li>Możliwe do utrzymania przez bardzo długi czas</li></ul><p><strong>Minusy:</strong></p><ul><li>Może brakować momentu obrotowego na bardzo sztywnych fragmentach</li><li>Mięśnie dwugłowe i pośladki mogą się szybciej nużyć przy monotonii</li></ul><h4>Stanie (Strategiczne)</h4><p><strong>Plusy:</strong></p><ul><li>Angażuje inne grupy mięśni (czworogłowe, łydki, plecy)</li><li>Pozwala odbarczyć pewne partie, poprawia krążenie</li><li>Generuje wyższą moc chwilową (ataki, strome przewyższenia)</li></ul><p><strong>Minusy:</strong></p><ul><li>Wymaga o 5-10W więcej mocy przy tej samej prędkości (mniejsza aero)</li><li>Wyższe tętno</li><li>Brak możliwości długotrwałego utrzymania</li></ul><p><strong>Dobra praktyka:</strong> Siedź przez większość podjazdu. Wstawaj na chwilę (15-30 sekund) co 3-5
+            minut, aby:</p><ul><li>Odbarczyć krocze i kości kulszowe</li><li>Rozciągnąć zginacze bioder i dolny odcinek pleców</li><li>Zaangażować "świeże" włókna mięśniowe</li></ul><div class="callout callout-warning"><h3>⚠️ Powszechne błędy w rozkładaniu sił</h3><ul><li><strong>Zbyt mocny start:</strong> Pierwsze 20% podjazdu na 110% możliwości → gwarantowane
+                    puchnięcie</li><li><strong>Atakowanie sztywnych odcinków:</strong> Wydaje się skuteczne, ale wypala W' szybciej niż
+                    daje korzyść czasową</li><li><strong>Zbyt częste stanie:</strong> Kara 5-10W sumuje się na 30-60 minutowym podjeździe</li><li><strong>Ignorowanie zmian nachylenia:</strong> Trzymaj docelową moc, a nie prędkość</li></ul></div></section><section id="training-for-climbing"><h2>Trening pod podjazdy</h2><p>Poprawa wspinania pochodzi z trzech obszarów: zwiększenia FTP, racjonalnej redukcji wagi i budowania
+            specyficznej wytrzymałości siłowej.</p><h3>1. Budowa bazy tlenowej (Strefa 2)</h3><p>Długie, spokojne jazdy na 60-70% FTP rozwijają:</p><ul><li>Gęstość mitochondriów</li><li>Sieć naczyń włosowatych</li><li>Utlenianie tłuszczów (oszczędza glikogen na długich podjazdach)</li></ul><p><strong>Cel objętościowy:</strong> 70-80% tygodniowego czasu treningu w Strefie 2. Zobacz <a
+                href="/pl/training-zones/">Przewodnik po strefach treningowych</a>.</p><h3>2. Interwały progowe (Strefa 4)</h3><p>Buduj FTP poprzez długie wysiłki na progu:</p><div class="workout-box"><h4>Przykładowy trening progowy</h4><p><strong>3 × 12 minut @ 95-100% FTP (5 min przerwy)</strong></p><p>Wykonuj najlepiej na podjeździe, aby symulować warunki wyścigowe. Skup się na równej mocy przez cały
+                interwał.</p><p><strong>Częstotliwość:</strong> 1-2× w tygodniu w fazie budowania</p></div><h3>3. Powtórzenia VO2max (Strefa 5)</h3><p>Krótkie, bardzo mocne interwały podnoszą "sufit" tlenowy:</p><div class="workout-box"><h4>Przykładowy trening VO2max</h4><p><strong>5 × 4 minuty @ 110-120% FTP (4 min przerwy)</strong></p><p>To ma boleć — o to w tym chodzi. Praca nad VO2max jest kluczowa do przesuwania FTP w górę.</p><p><strong>Częstotliwość:</strong> 1× w tygodniu w fazie specjalistycznej</p></div><h3>4. Długie podjazdy (Symulacja wyścigu)</h3><p>Ćwicz rozkład sił na realnych przełęczach:</p><div class="workout-box"><h4>Trening długiego wspinania</h4><p><strong>2 × 30-40 minut @ FTP na umiarkowanym podjeździe (15 min przerwy)</strong></p><p>Cel: Nauka równego tempa, zarządzanie żywieniem i nawadnianiem, komfort w pozycji podjazdowej przez długi
+                czas.</p><p><strong>Częstotliwość:</strong> 1× w tygodniu przed docelowym startem</p></div><h3>5. Zarządzanie wagą</h3><p>Redukuj tkankę tłuszczową w sposób strategiczny:</p><ul><li><strong>Tempo:</strong> Maksymalnie 0,25-0,5 kg na tydzień</li><li><strong>Metoda:</strong> Deficyt 300-500 kcal dziennie</li><li><strong>Białko:</strong> Utrzymuj 1,6-2,2g/kg, by chronić mięśnie</li><li><strong>Okres:</strong> Chudnij w fazie bazy/budowania, a nie bezpośrednio przed wyścigiem</li></ul><p><strong>Ostrzeżenie:</strong> Nie dąż do ekstremalnej chudości. Wydajność często spada poniżej ~8% tłuszczu u
+            mężczyzn i ~12% u kobiet.</p><div class="callout callout-science"><h3>🔬 Oś czasu adaptacji treningowej</h3><ul><li><strong>4-8 tygodni:</strong> Poprawa nerwowo-mięśniowa, lepsze rozkładanie sił</li><li><strong>8-12 tygodni:</strong> Wzrost progu mleczanowego, FTP rośnie o 5-10%</li><li><strong>12-16 tygodni:</strong> Poprawa wydolności tlenowej (VO2max)</li><li><strong>16-24 tygodnie:</strong> Głębsze adaptacje mitochondrialne, lepsza ekonomia wspinania</li></ul><p>Systematyczny trening przez 6+ miesięcy daje największe zyski. Nie ma dróg na skróty.</p></div></section><section id="famous-climbs"><h2>Słynne podjazdy: Analiza wyników</h2><p>Analiza wyników zawodowców na kultowych przełęczach pokazuje, jak W/kg wygląda w praktyce.</p><h3>Alpe d'Huez</h3><ul><li><strong>Dystans:</strong> 13,8 km</li><li><strong>Przewyższenie:</strong> 1100 m</li><li><strong>Średnie nachylenie:</strong> 8,1%</li><li><strong>21 ponumerowanych zakrętów</strong></li></ul><table class="data-table"><thead><tr><th>Kolarz / Poziom</th><th>Czas</th><th>Szacowane W/kg</th><th>VAM</th></tr></thead><tbody><tr><td><strong>Marco Pantani (rekord 1997)</strong></td><td>37:35</td><td>~6,7</td><td>~1750</td></tr><tr><td><strong>Zwycięzca etapu World Tour</strong></td><td>39-42 min</td><td>6,0-6,3</td><td>1570-1690</td></tr><tr><td><strong>Lider GC World Tour</strong></td><td>42-45 min</td><td>5,5-6,0</td><td>1470-1570</td></tr><tr><td><strong>Elita amatorów</strong></td><td>50-55 min</td><td>4,5-5,0</td><td>1200-1320</td></tr><tr><td><strong>Mocny amator</strong></td><td>60-70 min</td><td>3,5-4,0</td><td>940-1100</td></tr></tbody></table><h3>Mont Ventoux</h3><ul><li><strong>Dystans:</strong> 21,5 km (z Bédoin)</li><li><strong>Przewyższenie:</strong> 1600 m</li><li><strong>Średnie nachylenie:</strong> 7,5%</li><li><strong>Ostatnie 6 km:</strong> Odsłonięty teren, często silny wiatr</li></ul><table class="data-table"><thead><tr><th>Kolarz / Poziom</th><th>Czas</th><th>Szacowane W/kg</th><th>VAM</th></tr></thead><tbody><tr><td><strong>Iban Mayo (rekord 2004)</strong></td><td>55:51</td><td>~6,6</td><td>~1720</td></tr><tr><td><strong>Lider GC World Tour</strong></td><td>58-62 min</td><td>6,0-6,2</td><td>1550-1655</td></tr><tr><td><strong>Elita amatorów</strong></td><td>70-80 min</td><td>4,8-5,2</td><td>1200-1370</td></tr><tr><td><strong>Mocny amator</strong></td><td>90-100 min</td><td>3,8-4,2</td><td>960-1065</td></tr></tbody></table><h3>Col du Tourmalet</h3><ul><li><strong>Dystans:</strong> 18,8 km (z Luz-Saint-Sauveur)</li><li><strong>Przewyższenie:</strong> 1400 m</li><li><strong>Średnie nachylenie:</strong> 7,5%</li><li><strong>Najwyższy asfalt w Pirenejach</strong> (2115 m n.p.m.)</li></ul><p><strong>Wyniki Pro:</strong> 50-55 minut (~6,0-6,3 W/kg, 1530-1680 VAM). Wysokość wpływa na te czasy —
+            rzadsze powietrze obniża generowaną moc o ok. 5-8%.</p><div class="callout callout-tip"><h3>💡 Korzystanie z punktów odniesienia</h3><p>Znajdź docelowy podjazd (lokalny lub słynny). Wykonaj test przy maksymalnym zrównoważonym wysiłku.
+                Porównaj swój czas z tabelami, aby określić aktualny poziom W/kg:</p><ol><li>Zapisz czas wjazdu, przewyższenie i nachylenie</li><li>Oblicz VAM: (przewyższenie / czas w godzinach)</li><li>Oszacuj W/kg: VAM / [100 × (nachylenie % + 3)]</li><li>Porównaj z powyższymi wynikami</li></ol><p>Powtarzaj test co 8-12 tygodni, by śledzić postępy!</p></div></section><section id="faq"><h2>Często Zadawane Pytania</h2><div class="faq-item"><h3>Co jest ważniejsze: utrata wagi czy wzrost mocy?</h3><p>Oba czynniki poprawiają W/kg, ale kontekst jest kluczowy. Jeśli masz nadmiar tkanki tłuszczowej (>15% u
                 mężczyzn, >22% u kobiet), utrata 2-5 kg tłuszczu przy utrzymaniu mocy jest najszybszą drogą do poprawy.
                 Jeśli już jesteś bardzo szczupły, skup się na budowaniu FTP. Tracenie mięśni, by być lżejszym, jest
-                zawsze kontrproduktywne.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Jak wysokość nad poziomem morza wpływa na wyniki?</h3>
-            <p>Na wysokości 2000m oczekuj ok. 5-8% spadku mocy progowej ze względu na mniejszą ilość tlenu. Z drugiej
+                zawsze kontrproduktywne.</p></div><div class="faq-item"><h3>Jak wysokość nad poziomem morza wpływa na wyniki?</h3><p>Na wysokości 2000m oczekuj ok. 5-8% spadku mocy progowej ze względu na mniejszą ilość tlenu. Z drugiej
                 strony, rzadsze powietrze obniża opór aero o ok. 2%. Efekt netto: wjazdy na wysokości są wolniejsze.
-                Aklimatyzacja (7-14 dni) częściowo przywraca wydolność.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Czy na podjeździe lepiej stać czy siedzieć?</h3>
-            <p>Siedź przez większość czasu (jest to bardziej ekonomiczne). Wstawaj na krótko co kilka minut (15-30
+                Aklimatyzacja (7-14 dni) częściowo przywraca wydolność.</p></div><div class="faq-item"><h3>Czy na podjeździe lepiej stać czy siedzieć?</h3><p>Siedź przez większość czasu (jest to bardziej ekonomiczne). Wstawaj na krótko co kilka minut (15-30
                 sekund), by rozciągnąć ciało i zaangażować inne mięśnie. Ciągła jazda na stojąco kosztuje dodatkowe
-                5-10W i nie jest efektywna na długich przełęczach.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Jakie W/kg jest dobre dla amatora?</h3>
-            <p>3,5-4,0 W/kg pozwala na konkurencyjną jazdę lokalnie. 4,0-4,5 W/kg to poziom pozwalający wygrywać lokalne
+                5-10W i nie jest efektywna na długich przełęczach.</p></div><div class="faq-item"><h3>Jakie W/kg jest dobre dla amatora?</h3><p>3,5-4,0 W/kg pozwala na konkurencyjną jazdę lokalnie. 4,0-4,5 W/kg to poziom pozwalający wygrywać lokalne
                 wyścigi. 4,5-5,0 W/kg to poziom Cat 1/2. Powyżej 5,0 W/kg wchodzisz w sferę elity amatorskiej /
-                półzawodowej. Uwaga: to wartości FTP utrzymywane przez 20-60 minut.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Jak poprawnie rozłożyć siły na długim podjeździe?</h3>
-            <p>Równomierna moc (Iso-power) jest najszybsza. Zacznij na 95% celu, złap rytm, trzymaj stałe waty
+                półzawodowej. Uwaga: to wartości FTP utrzymywane przez 20-60 minut.</p></div><div class="faq-item"><h3>Jak poprawnie rozłożyć siły na długim podjeździe?</h3><p>Równomierna moc (Iso-power) jest najszybsza. Zacznij na 95% celu, złap rytm, trzymaj stałe waty
                 niezależnie od zmian nachylenia. Unikaj gwałtownych skoków na "ściankach" — to wypala energię. Zwiększ
-                intensywność dopiero w ostatnich 20-25% czasu wspinaczki, jeśli czujesz moc.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Czy trzymanie koła (drafting) pomaga na podjeździe?</h3>
-            <p>Tak, zwłaszcza na umiarkowanych nachyleniach (5-8%) przy prędkościach powyżej 18 km/h. Badania pokazują
+                intensywność dopiero w ostatnich 20-25% czasu wspinaczki, jeśli czujesz moc.</p></div><div class="faq-item"><h3>Czy trzymanie koła (drafting) pomaga na podjeździe?</h3><p>Tak, zwłaszcza na umiarkowanych nachyleniach (5-8%) przy prędkościach powyżej 18 km/h. Badania pokazują
                 7% oszczędności mocy przy 21 km/h na nachyleniu 7,5%. Na bardzo stromych podjazdach podjazdach (10%+)
-                przy małych prędkościach (&lt;15 km/h) zysk z draftingu jest minimalny (~2%).</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Jak długo zajmuje znacząca poprawa W/kg?</h3>
-            <p>Przy rzetelnym treningu: wzrost FTP o 5-10% w 12-16 tygodni jest realny dla większości kolarzy. Połączone
+                przy małych prędkościach (&lt;15 km/h) zysk z draftingu jest minimalny (~2%).</p></div><div class="faq-item"><h3>Jak długo zajmuje znacząca poprawa W/kg?</h3><p>Przy rzetelnym treningu: wzrost FTP o 5-10% w 12-16 tygodni jest realny dla większości kolarzy. Połączone
                 ze strategiczną utratą 2-4kg wagi daje poprawę W/kg o 10-20% w ciągu 4-6 miesięcy. Dalsze zyski są
-                możliwe, ale wymagają coraz większej precyzji w treningu.</p>
-        </div>
-    </section>
-
-    <section id="related-resources">
-        <h2>Powiązane zasoby</h2>
-        <ul>
-            <li><a href="/pl/ftp/">Testowanie Funkcjonalnej Mocy Progowej (FTP)</a></li>
-            <li><a href="/pl/power-metrics/">Zaawansowane parametry mocy (NP, IF, VI, W'bal)</a></li>
-            <li><a href="/pl/training-zones/">Strefy treningowe w przygotowaniu pod góry</a></li>
-            <li><a href="/pl/aerodynamics/">Aerodynamika: Kiedy ma znaczenie vs. góry</a></li>
-            <li><a href="/pl/getting-started/">Pierwsze kroki z Bike Analytics</a></li>
-        </ul>
-    </section>
-</article>
-
-<script type="application/ld+json">
+                możliwe, ale wymagają coraz większej precyzji w treningu.</p></div></section><section id="related-resources"><h2>Powiązane zasoby</h2><ul><li><a href="/pl/ftp/">Testowanie Funkcjonalnej Mocy Progowej (FTP)</a></li><li><a href="/pl/power-metrics/">Zaawansowane parametry mocy (NP, IF, VI, W'bal)</a></li><li><a href="/pl/training-zones/">Strefy treningowe w przygotowaniu pod góry</a></li><li><a href="/pl/aerodynamics/">Aerodynamika: Kiedy ma znaczenie vs. góry</a></li><li><a href="/pl/getting-started/">Pierwsze kroki z Bike Analytics</a></li></ul></section></article><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -2082,9 +724,7 @@ img[width][height] {
   "datePublished": "2025-01-27",
   "dateModified": "2025-01-27"
 }
-</script>
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -2115,371 +755,177 @@ img[width][height] {
     }
   ]
 }
-</script>
-
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+</script></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link active"
+                </a><a href="/pl/" class="lang-link active"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. Wszelkie prawa zastrzeżone
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/pl/privacy/">Prywatność</a></li>
-                <li><a href="/pl/terms/">Regulamin</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>Ta strona używa plików cookie, aby poprawić komfort użytkowania.</p>
-            <a href="/pl/privacy/" class="text-sm">Dowiedz się więcej</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">Odrzuć</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">Akceptuj</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/pl/privacy/">Prywatność</a></li><li><a href="/pl/terms/">Regulamin</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>Ta strona używa plików cookie, aby poprawić komfort użytkowania.</p><a href="/pl/privacy/" class="text-sm">Dowiedz się więcej</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">Odrzuć</button><button id="cookie-accept" class="btn btn-primary btn-small">Akceptuj</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="th" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>สูตรกำลังการปั่นจักรยาน - รากฐานทางคณิตศาสตร์</title>
-  <meta name="description" content="สูตรกำลังการปั่นจักรยานที่สมบูรณ์: การคำนวณ TSS, อัลกอริทึม NP, สูตร IF, สมการโมเดล CP และการติดตาม W&#39;bal">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="สูตรกำลังการปั่นจักรยาน, สูตร TSS, สูตรกำลังปกติ, สูตรกำลังวิกฤต">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/th/formulas/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-14T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/th/formulas/">
-  <meta property="og:title" content="สูตรกำลังการปั่นจักรยาน - รากฐานทางคณิตศาสตร์">
-  <meta property="og:description" content="สูตรกำลังการปั่นจักรยานที่สมบูรณ์: การคำนวณ TSS, อัลกอริทึม NP, สูตร IF, สมการโมเดล CP และการติดตาม W&#39;bal">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="th_TH">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/th/formulas/">
-  <meta name="twitter:title" content="สูตรกำลังการปั่นจักรยาน - รากฐานทางคณิตศาสตร์">
-  <meta name="twitter:description" content="สูตรกำลังการปั่นจักรยานที่สมบูรณ์: การคำนวณ TSS, อัลกอริทึม NP, สูตร IF, สมการโมเดล CP และการติดตาม W&#39;bal">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/formulas/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/formulas/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/formulas/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/formulas/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/formulas/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/formulas/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/formulas/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/formulas/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/formulas/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/formulas/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/formulas/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/formulas/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/formulas/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/formulas/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/formulas/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/formulas/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/formulas/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/formulas/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/formulas/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/formulas/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/formulas/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/formulas/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/formulas/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/formulas/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/formulas/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/formulas/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/formulas/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/formulas/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/formulas/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/formulas/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/formulas/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/formulas/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/formulas/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/formulas/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/formulas/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/formulas/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/formulas/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/formulas/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/formulas/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/formulas/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/formulas/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/formulas/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/formulas/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/formulas/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/formulas/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/formulas/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/formulas/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/formulas/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/formulas/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/formulas/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/formulas/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/formulas/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/formulas/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/formulas/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/formulas/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/formulas/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="th" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>สูตรกำลังการปั่นจักรยาน - รากฐานทางคณิตศาสตร์</title><meta name="description" content="สูตรกำลังการปั่นจักรยานที่สมบูรณ์: การคำนวณ TSS, อัลกอริทึม NP, สูตร IF, สมการโมเดล CP และการติดตาม W&#39;bal"><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="สูตรกำลังการปั่นจักรยาน, สูตร TSS, สูตรกำลังปกติ, สูตรกำลังวิกฤต"><link rel="canonical" href="https://bike.analyticszone.app/th/formulas/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-02-20T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/th/formulas/"><meta property="og:title" content="สูตรกำลังการปั่นจักรยาน - รากฐานทางคณิตศาสตร์"><meta property="og:description" content="สูตรกำลังการปั่นจักรยานที่สมบูรณ์: การคำนวณ TSS, อัลกอริทึม NP, สูตร IF, สมการโมเดล CP และการติดตาม W&#39;bal"><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="th_TH"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/th/formulas/"><meta name="twitter:title" content="สูตรกำลังการปั่นจักรยาน - รากฐานทางคณิตศาสตร์"><meta name="twitter:description" content="สูตรกำลังการปั่นจักรยานที่สมบูรณ์: การคำนวณ TSS, อัลกอริทึม NP, สูตร IF, สมการโมเดล CP และการติดตาม W&#39;bal"><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/formulas/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/formulas/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/formulas/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/formulas/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/formulas/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/formulas/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/formulas/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/formulas/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/formulas/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/formulas/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/formulas/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/formulas/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/formulas/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/formulas/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/formulas/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/formulas/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/formulas/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/formulas/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/formulas/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/formulas/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/formulas/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/formulas/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/formulas/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/formulas/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/formulas/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/formulas/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/formulas/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/formulas/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/formulas/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/formulas/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/formulas/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/formulas/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/formulas/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/formulas/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/formulas/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/formulas/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/formulas/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/formulas/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/formulas/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/formulas/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/formulas/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/formulas/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/formulas/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/formulas/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/formulas/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/formulas/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/formulas/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/formulas/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/formulas/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/formulas/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/formulas/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/formulas/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/formulas/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/formulas/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/formulas/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/formulas/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "th"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "สูตรกำลังการปั่นจักรยานที่สมบูรณ์: การคำนวณ TSS, อัลกอริทึม NP, สูตร IF, สมการโมเดล CP และการติดตาม W&#39;bal",
   "url": "https://bike.analyticszone.app/th/formulas/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -647,23 +429,13 @@ img[width][height] {
     }
   },
   "datePublished": "2025-01-15",
-  "dateModified": "2026-01-14",
+  "dateModified": "2026-02-20",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://bike.analyticszone.app/th/formulas/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,657 +449,197 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหา</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/th/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/th/" 
+  </script></head><body><a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหา</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/th/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/th/" 
                                 aria-current="">
                                 หน้าแรก
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/th/getting-started/" class="nav-label">เรียนรู้</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/th/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/th/getting-started/" class="nav-label">เรียนรู้</a><ul class="submenu"><li><a href="/th/getting-started/" 
                                         aria-current="">
                                         เริ่มต้นใช้งาน
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/ftp/" 
+                                    </a></li><li><a href="/th/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/critical-power/" 
+                                    </a></li><li><a href="/th/critical-power/" 
                                         aria-current="">
                                         พลังงานวิกฤต
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/training-zones/" 
+                                    </a></li><li><a href="/th/training-zones/" 
                                         aria-current="">
                                         โซนการฝึก
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/training-load/" 
+                                    </a></li><li><a href="/th/training-load/" 
                                         aria-current="">
                                         ภาระการฝึก
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/tss-calculator/" 
+                                    </a></li><li><a href="/th/tss-calculator/" 
                                         aria-current="">
                                         เครื่องคำนวณ TSS
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/th/research/" class="nav-label">วิทยาศาสตร์</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/th/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/th/research/" class="nav-label">วิทยาศาสตร์</a><ul class="submenu"><li><a href="/th/research/" 
                                         aria-current="">
                                         การวิจัย
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/formulas/" class="active" 
+                                    </a></li><li><a href="/th/formulas/" class="active" 
                                         aria-current="page">
                                         สูตร
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/power-metrics/" 
+                                    </a></li><li><a href="/th/power-metrics/" 
                                         aria-current="">
                                         เมทริกซ์พลังงาน
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/efficiency/" 
+                                    </a></li><li><a href="/th/efficiency/" 
                                         aria-current="">
                                         ประสิทธิภาพ
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/pedaling-mechanics/" 
+                                    </a></li><li><a href="/th/pedaling-mechanics/" 
                                         aria-current="">
                                         กลไกการปั่น
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/aerodynamics/" 
+                                    </a></li><li><a href="/th/aerodynamics/" 
                                         aria-current="">
                                         อากาศพลศาสตร์
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/climbing-performance/" 
+                                    </a></li><li><a href="/th/climbing-performance/" 
                                         aria-current="">
                                         ประสิทธิภาพการขึ้นเขา
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/bibliography/" 
+                                    </a></li><li><a href="/th/bibliography/" 
                                         aria-current="">
                                         บรรณานุกรม
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/th/road-cycling/" class="nav-label">สาขาวิชา</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/th/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/th/road-cycling/" class="nav-label">สาขาวิชา</a><ul class="submenu"><li><a href="/th/road-cycling/" 
                                         aria-current="">
                                         การปั่นจักรยานเสือหมอบ
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/mountain-biking/" 
+                                    </a></li><li><a href="/th/mountain-biking/" 
                                         aria-current="">
                                         การปั่นจักรยานเสือภูเขา
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/road-vs-mtb/" 
+                                    </a></li><li><a href="/th/road-vs-mtb/" 
                                         aria-current="">
                                         ทางเรียบ vs เสือภูเขา
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/th/comparisons/" 
+                                    </a></li><li><a href="/th/comparisons/" 
                                         aria-current="">
                                         การเปรียบเทียบแพลตฟอร์ม
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/th/contact/" 
+                                    </a></li></ul></li><li><a href="/th/contact/" 
                                 aria-current="">
                                 ติดต่อ
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="เลือกภาษา">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="เลือกภาษา"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" selected>
+                        </option><option value="th" selected>
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="สลับเมนู"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/th/">หน้าแรก</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/th/research/">วิทยาศาสตร์</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">สูตร</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-    <section class="page-hero">
-    <div class="container">
-        <h1>สูตรคำนวณกำลังในการปั่นจักรยาน</h1>
-        <p class="lead">รากฐานทางคณิตศาสตร์ของตัวชี้วัดใน Bike Analytics</p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>คู่มือการนำไปใช้งาน</h2>
-        <p class="lead">หน้านี้รวบรวมสูตรคำนวณที่พร้อมนำไปใช้งานและวิธีการคำนวณทีละขั้นตอนสำหรับตัวชี้วัดทั้งหมดใน Bike
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="สลับเมนู"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/th/">หน้าแรก</a></li><li><a href="/th/research/">วิทยาศาสตร์</a></li><li><span aria-current="page">สูตร</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>สูตรคำนวณกำลังในการปั่นจักรยาน</h1><p class="lead">รากฐานทางคณิตศาสตร์ของตัวชี้วัดใน Bike Analytics</p></div></section><section class="section"><div class="container container-narrow"><h2>คู่มือการนำไปใช้งาน</h2><p class="lead">หน้านี้รวบรวมสูตรคำนวณที่พร้อมนำไปใช้งานและวิธีการคำนวณทีละขั้นตอนสำหรับตัวชี้วัดทั้งหมดใน Bike
             Analytics คุณสามารถนำไปใช้สำหรับการเขียนโปรแกรมของคุณเอง การตรวจสอบความถูกต้องของข้อมูล
-            หรือเพื่อทำความเข้าใจการซ้อมด้วยพลังงานอย่างลึกซึ้งยิ่งขึ้น</p>
-
-        <div class="callout callout-warning">
-            <h3>⚠️ หมายเหตุการนำไปใช้งาน</h3>
-            <ul>
-                <li>ค่าพลังงานทังหมดมีหน่วยเป็น วัตต์ (W), เวลาเป็น วินาที (s) นอกจากระบุไว้เป็นอย่างอื่น</li>
-                <li>ค่า FTP และ CP เป็นเกณฑ์เฉพาะบุคคล—ไม่มีค่ามาตรฐานสากล</li>
-                <li>ควรตรวจสอบข้อมูลนำเข้าให้อยู่ในระยะที่เหมาะสมเสมอ (ปกติคือ 0-2000W)</li>
-                <li>จัดการกับกรณีพิเศษ (Edge cases) เช่น การหารด้วยศูนย์ หรือค่าพลังงานติดลบ</li>
-                <li>ข้อมูลพลังงานต้องการความถี่ในการบันทึกทุกๆ 1 วินาทีเพื่อความแม่นยำ</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2>ตัวชี้วัดสมรรถภาพหลัก</h2>
-
-        <div class="formula-card">
-            <h3>1. คะแนนความเครียดจากการฝึกซ้อม (Training Stress Score - TSS)</h3>
-            <div class="formula-content">
-                <h4>สูตรคำนวณ:</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
+            หรือเพื่อทำความเข้าใจการซ้อมด้วยพลังงานอย่างลึกซึ้งยิ่งขึ้น</p><div class="callout callout-warning"><h3>⚠️ หมายเหตุการนำไปใช้งาน</h3><ul><li>ค่าพลังงานทังหมดมีหน่วยเป็น วัตต์ (W), เวลาเป็น วินาที (s) นอกจากระบุไว้เป็นอย่างอื่น</li><li>ค่า FTP และ CP เป็นเกณฑ์เฉพาะบุคคล—ไม่มีค่ามาตรฐานสากล</li><li>ควรตรวจสอบข้อมูลนำเข้าให้อยู่ในระยะที่เหมาะสมเสมอ (ปกติคือ 0-2000W)</li><li>จัดการกับกรณีพิเศษ (Edge cases) เช่น การหารด้วยศูนย์ หรือค่าพลังงานติดลบ</li><li>ข้อมูลพลังงานต้องการความถี่ในการบันทึกทุกๆ 1 วินาทีเพื่อความแม่นยำ</li></ul></div></div></section><section class="section section-alt"><div class="container"><h2>การปั่นจักรยาน ตัวชี้วัดสมรรถภาพหลัก</h2><div class="formula-card"><h3>1. คะแนนความเครียดจากการฝึกซ้อม (Training Stress Score - TSS)</h3><div class="formula-content"><h4>สูตรคำนวณ:</h4><div class="formula-box-large"><div class="formula">
                         TSS = (duration_seconds × NP × IF) / (FTP × 3600) × 100
-                    </div>
-                    <div class="formula">
+                    </div><div class="formula">
                         โดยที่ IF = NP / FTP
-                    </div>
-                </div>
-
-                <h4>ตัวอย่างการคำนวณ:</h4>
-                <div class="example-box">
-                    <p><strong>สถานการณ์:</strong> ปั่น 2 ชั่วโมง, NP = 235W, FTP = 250W</p>
-                    <ol>
-                        <li>คำนวณค่า IF: IF = 235 / 250 = 0.94</li>
-                        <li>เวลาในหน่วยวินาที: 2 ชั่วโมง × 3600 = 7200 วินาที</li>
-                        <li>TSS = (7200 × 235 × 0.94) / (250 × 3600) × 100</li>
-                        <li>TSS = 1,590,720 / 900,000 × 100 = <strong>176.7 TSS</strong></li>
-                    </ol>
-                    <p><em>การตีความ: เป็นการปั่นที่หนัก (>150 TSS) ควรพักฟื้น 2-3 วัน</em></p>
-                </div>
-
-                <h4>การเขียนโค้ดภาษา JavaScript:</h4>
-                <pre><code>function calculateTSS(durationSeconds, normalizedPower, ftp) {
+                    </div></div><h4>ตัวอย่างการคำนวณ:</h4><div class="example-box"><p><strong>สถานการณ์:</strong> ปั่น 2 ชั่วโมง, NP = 235W, FTP = 250W</p><ol><li>คำนวณค่า IF: IF = 235 / 250 = 0.94</li><li>เวลาในหน่วยวินาที: 2 ชั่วโมง × 3600 = 7200 วินาที</li><li>TSS = (7200 × 235 × 0.94) / (250 × 3600) × 100</li><li>TSS = 1,590,720 / 900,000 × 100 = <strong>176.7 TSS</strong></li></ol><p><em>การตีความ: เป็นการปั่นที่หนัก (&gt;150 TSS) ควรพักฟื้น 2-3 วัน</em></p></div><h4>การเขียนโค้ดภาษา JavaScript:</h4><pre><code>function calculateTSS(durationSeconds, normalizedPower, ftp) {
   const intensityFactor = normalizedPower / ftp;
   const tss = (durationSeconds * normalizedPower * intensityFactor) / (ftp * 3600) * 100;
   return Math.round(tss);
@@ -1335,65 +647,36 @@ img[width][height] {
 
 // ตัวอย่างการใช้งาน:
 const tss = calculateTSS(7200, 235, 250);
-// ผลลัพธ์: 177</code></pre>
-            </div>
-        </div>
-
-        <div class="formula-card">
-            <h3>2. พลังงานนอร์มัลไลซ์ (Normalized Power - NP)</h3>
-            <div class="formula-content">
-                <h4>อัลกอริทึม (ค่าเฉลี่ยเคลื่อนที่ 30 วินาที):</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
+// ผลลัพธ์: 177</code></pre></div></div><div class="formula-card"><h3>2. พลังงานนอร์มัลไลซ์ (Normalized Power - NP)</h3><div class="formula-content"><h4>อัลกอริทึม (ค่าเฉลี่ยเคลื่อนที่ 30 วินาที):</h4><div class="formula-box-large"><div class="formula">
                         1. คำนวณค่าเฉลี่ยเคลื่อนที่ 30 วินาที (30-second rolling average) ตลอดการปั่น
-                    </div>
-                    <div class="formula">
+                    </div><div class="formula">
                         2. ยกกำลังสี่ (4th power) ของค่าเฉลี่ย 30 วินาทีในแต่ละจุด
-                    </div>
-                    <div class="formula">
+                    </div><div class="formula">
                         3. หาค่าเฉลี่ยของค่าที่ยกกำลังสี่ทั้งหมดนั้น
-                    </div>
-                    <div class="formula">
+                    </div><div class="formula">
                         4. ถอดรากที่สี่ (4th root) ของค่าเฉลี่ยนั้น
-                    </div>
-                    <div class="formula">
+                    </div><div class="formula">
                         NP = ⁴√(average of [30s_avg^4])
-                    </div>
-                </div>
-
-                <h4>ทำไมต้องยกกำลังสี่?</h4>
-                <p>ความสัมพันธ์แบบยกกำลังสี่ (Quartic relationship) สะท้อนถึงภาระทางสรีรวิทยา (Physiological cost)
+                    </div></div><h4>ทำไมต้องยกกำลังสี่?</h4><p>ความสัมพันธ์แบบยกกำลังสี่ (Quartic relationship) สะท้อนถึงภาระทางสรีรวิทยา (Physiological cost)
                     ที่ไม่ได้เป็นเส้นตรงตามความพยายาม
                     การปั่นที่มีจังหวะเร่งและจังหวะพักจะใช้พลังงานในแง่ของความเหนื่อยล้ามากกว่าการปั่นด้วยพลังคงที่แม้จะมีค่าเฉลี่ยเท่ากัน
-                </p>
-
-                <div class="example-box">
-                    <p><strong>ตัวอย่าง:</strong></p>
-                    <ul>
-                        <li>การปั่นที่สม่ำเสมอ: 200W นาน 1 ชั่วโมง → NP = 200W, ค่าเฉลี่ย = 200W</li>
-                        <li>การปั่นที่ผันผวน: สลับ 300W/100W → ค่าเฉลี่ย = 200W, NP = 225W</li>
-                    </ul>
-                    <p><em>แม้ค่าเฉลี่ยจะเท่ากัน แต่การปั่นที่ผันผวนจะมีค่า NP สูงกว่า 12%
-                            เนื่องจากภาระทางร่างกายจากการเร่งเครื่อง</em></p>
-                </div>
-
-                <h4>การเขียนโค้ดภาษา JavaScript:</h4>
-                <pre><code>function calculateNormalizedPower(powerData) {
+                </p><div class="example-box"><p><strong>ตัวอย่าง:</strong></p><ul><li>การปั่นที่สม่ำเสมอ: 200W นาน 1 ชั่วโมง → NP = 200W, ค่าเฉลี่ย = 200W</li><li>การปั่นที่ผันผวน: สลับ 300W/100W → ค่าเฉลี่ย = 200W, NP = 225W</li></ul><p><em>แม้ค่าเฉลี่ยจะเท่ากัน แต่การปั่นที่ผันผวนจะมีค่า NP สูงกว่า 12%
+                            เนื่องจากภาระทางร่างกายจากการเร่งเครื่อง</em></p></div><h4>การเขียนโค้ดภาษา JavaScript:</h4><pre><code>function calculateNormalizedPower(powerData) {
   // powerData คืออาร์เรย์ของค่าพลังงานในแต่ละวินาที (1-second power values)
 
   // ขั้นตอนที่ 1: คำนวณค่าเฉลี่ยเคลื่อนที่ 30 วินาที
   const rollingAvgs = [];
-  for (let i = 29; i < powerData.length; i++) {
+  for (let i = 29; i &lt; powerData.length; i++) {
     const window = powerData.slice(i - 29, i + 1);
-    const avg = window.reduce((sum, p) => sum + p, 0) / 30;
+    const avg = window.reduce((sum, p) =&gt; sum + p, 0) / 30;
     rollingAvgs.push(avg);
   }
 
   // ขั้นตอนที่ 2: ยกกำลังสี่
-  const powered = rollingAvgs.map(p => Math.pow(p, 4));
+  const powered = rollingAvgs.map(p =&gt; Math.pow(p, 4));
 
   // ขั้นตอนที่ 3: หาค่าเฉลี่ยของค่าที่ยกกำลังสี่
-  const avgPowered = powered.reduce((sum, p) => sum + p, 0) / powered.length;
+  const avgPowered = powered.reduce((sum, p) =&gt; sum + p, 0) / powered.length;
 
   // ขั้นตอนที่ 4: ถอดรากที่สี่
   const np = Math.pow(avgPowered, 0.25);
@@ -1404,207 +687,39 @@ const tss = calculateTSS(7200, 235, 250);
 // ตัวอย่างการใช้งาน:
 const powerData = [/* อาร์เรย์ของค่าพลังงาน */];
 const np = calculateNormalizedPower(powerData);
-// ผลลัพธ์: ค่า NP ในหน่วยวัตต์</code></pre>
-            </div>
-        </div>
-
-        <div class="formula-card">
-            <h3>3. ปัจจัยความเข้มข้น (Intensity Factor - IF)</h3>
-            <div class="formula-content">
-                <h4>สูตรคำนวณ:</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
+// ผลลัพธ์: ค่า NP ในหน่วยวัตต์</code></pre></div></div><div class="formula-card"><h3>3. ปัจจัยความเข้มข้น (Intensity Factor - IF)</h3><div class="formula-content"><h4>สูตรคำนวณ:</h4><div class="formula-box-large"><div class="formula">
                         IF = NP / FTP
-                    </div>
-                </div>
-
-                <h4>เกณฑ์ในการตีความ:</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>ช่วงค่า IF</th>
-                        <th>ระดับความพยายาม</th>
-                        <th>ตัวอย่างการซ้อม</th>
-                    </tr>
-                    <tr>
-                        <td>&lt; 0.75</td>
-                        <td>พักฟื้น / เบามาก (Recovery / Easy)</td>
-                        <td>การปั่นเพื่อฟื้นฟู (Active recovery), Zone 1-2</td>
-                    </tr>
-                    <tr>
-                        <td>0.75 - 0.85</td>
-                        <td>ความทนทาน (Endurance)</td>
-                        <td>การปั่นต่อเนื่องระยะยาว, การสร้างฐานแอโรบิก</td>
-                    </tr>
-                    <tr>
-                        <td>0.85 - 0.95</td>
-                        <td>เทมโป (Tempo)</td>
-                        <td>การซ้อมแบบ Sweet spot, เทมโปอินเทอร์วอล</td>
-                    </tr>
-                    <tr>
-                        <td>0.95 - 1.05</td>
-                        <td>เทรชโฮลด์ (Threshold)</td>
-                        <td>FTP อินเทอร์วอล, การปั่นแบบไทม์ไทรอัล</td>
-                    </tr>
-                    <tr>
-                        <td>1.05 - 1.15</td>
-                        <td>VO₂max</td>
-                        <td>อินเทอร์วอล 5 นาที, การแข่งไครทีเรียม</td>
-                    </tr>
-                    <tr>
-                        <td>&gt; 1.15</td>
-                        <td>แอนแอโรบิก (Anaerobic)</td>
-                        <td>การสปริ๊นท์สั้นๆ, การยิงหนี, การแข่ง MTB</td>
-                    </tr>
-                </table>
-
-                <h4>ตัวอย่างการคำนวณ:</h4>
-                <div class="example-box">
-                    <p><strong>สถานการณ์:</strong> NP = 235W, FTP = 250W</p>
-                    <p>IF = 235 / 250 = <strong>0.94</strong></p>
-                    <p><em>การตีความ: เป็นความพยายามระดับ High Tempo / Sub-threshold ที่สามารถทำต่อเนื่องได้ 2-3
-                            ชั่วโมง</em></p>
-                </div>
-
-                <pre><code>function calculateIF(normalizedPower, ftp) {
+                    </div></div><h4>เกณฑ์ในการตีความ:</h4><table class="data-table"><tr><th>ช่วงค่า IF</th><th>ระดับความพยายาม</th><th>ตัวอย่างการซ้อม</th></tr><tr><td>&lt; 0.75</td><td>พักฟื้น / เบามาก (Recovery / Easy)</td><td>การปั่นเพื่อฟื้นฟู (Active recovery), Zone 1-2</td></tr><tr><td>0.75 - 0.85</td><td>ความทนทาน (Endurance)</td><td>การปั่นต่อเนื่องระยะยาว, การสร้างฐานแอโรบิก</td></tr><tr><td>0.85 - 0.95</td><td>เทมโป (Tempo)</td><td>การซ้อมแบบ Sweet spot, เทมโปอินเทอร์วอล</td></tr><tr><td>0.95 - 1.05</td><td>เทรชโฮลด์ (Threshold)</td><td>FTP อินเทอร์วอล, การปั่นแบบไทม์ไทรอัล</td></tr><tr><td>1.05 - 1.15</td><td>VO₂max</td><td>อินเทอร์วอล 5 นาที, การแข่งไครทีเรียม</td></tr><tr><td>&gt; 1.15</td><td>แอนแอโรบิก (Anaerobic)</td><td>การสปริ๊นท์สั้นๆ, การยิงหนี, การแข่ง MTB</td></tr></table><h4>ตัวอย่างการคำนวณ:</h4><div class="example-box"><p><strong>สถานการณ์:</strong> NP = 235W, FTP = 250W</p><p>IF = 235 / 250 = <strong>0.94</strong></p><p><em>การตีความ: เป็นความพยายามระดับ High Tempo / Sub-threshold ที่สามารถทำต่อเนื่องได้ 2-3
+                            ชั่วโมง</em></p></div><pre><code>function calculateIF(normalizedPower, ftp) {
   return (normalizedPower / ftp).toFixed(2);
 }
 
 // ตัวอย่าง:
 const if_value = calculateIF(235, 250);
-// ผลลัพธ์: 0.94</code></pre>
-            </div>
-        </div>
-
-        <div class="formula-card">
-            <h3>4. ดัชนีความผันผวน (Variability Index - VI)</h3>
-            <div class="formula-content">
-                <h4>สูตรคำนวณ:</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
+// ผลลัพธ์: 0.94</code></pre></div></div><div class="formula-card"><h3>4. ดัชนีความผันผวน (Variability Index - VI)</h3><div class="formula-content"><h4>สูตรคำนวณ:</h4><div class="formula-box-large"><div class="formula">
                         VI = NP / Average Power
-                    </div>
-                </div>
-
-                <h4>การตีความตามประเภทของการปั่น:</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>ประเภทการปั่น</th>
-                        <th>ค่า VI ปกติ</th>
-                        <th>ความหมาย</th>
-                    </tr>
-                    <tr>
-                        <td>เสือหมอบทางราบ (TT) / ความพยายามสม่ำเสมอ</td>
-                        <td>1.00 - 1.05</td>
-                        <td>ให้พลังงานที่สม่ำเสมอมาก, การคุมจังหวะ (Pacing) ที่ดีที่สุด</td>
-                    </tr>
-                    <tr>
-                        <td>การแข่งขันเสือหมอบ (Road Racing)</td>
-                        <td>1.05 - 1.10</td>
-                        <td>มีจังหวะเร่งบ้าง แต่โดยรวมยังสม่ำเสมอ</td>
-                    </tr>
-                    <tr>
-                        <td>ไครทีเรียม (Criterium)</td>
-                        <td>1.10 - 1.20</td>
-                        <td>มีการเร่งเครื่องและความพยายามหนีกลุ่มบ่อยครั้ง</td>
-                    </tr>
-                    <tr>
-                        <td>เสือภูเขา XC</td>
-                        <td>1.15 - 1.30+</td>
-                        <td>มีความผันผวนสูงมาก, มีการระเบิดพลังตลอดเวลา</td>
-                    </tr>
-                </table>
-
-                <h4>ตัวอย่างการคำนวณ:</h4>
-                <div class="example-box">
-                    <p><strong>การแข่งเสือหมอบ:</strong> NP = 240W, พลังงานเฉลี่ย = 230W</p>
-                    <p>VI = 240 / 230 = <strong>1.04</strong> (การคุมจังหวะสม่ำเสมอ)</p>
-
-                    <p><strong>การแข่งเสือภูเขา:</strong> NP = 285W, พลังงานเฉลี่ย = 235W</p>
-                    <p>VI = 285 / 235 = <strong>1.21</strong> (มีความผันผวนสูง, เน้นการระเบิดพลัง)</p>
-                </div>
-
-                <pre><code>function calculateVI(normalizedPower, averagePower) {
+                    </div></div><h4>การตีความตามประเภทของการปั่น:</h4><table class="data-table"><tr><th>ประเภทการปั่น</th><th>ค่า VI ปกติ</th><th>ความหมาย</th></tr><tr><td>เสือหมอบทางราบ (TT) / ความพยายามสม่ำเสมอ</td><td>1.00 - 1.05</td><td>ให้พลังงานที่สม่ำเสมอมาก, การคุมจังหวะ (Pacing) ที่ดีที่สุด</td></tr><tr><td>การแข่งขันเสือหมอบ (Road Racing)</td><td>1.05 - 1.10</td><td>มีจังหวะเร่งบ้าง แต่โดยรวมยังสม่ำเสมอ</td></tr><tr><td>ไครทีเรียม (Criterium)</td><td>1.10 - 1.20</td><td>มีการเร่งเครื่องและความพยายามหนีกลุ่มบ่อยครั้ง</td></tr><tr><td>เสือภูเขา XC</td><td>1.15 - 1.30+</td><td>มีความผันผวนสูงมาก, มีการระเบิดพลังตลอดเวลา</td></tr></table><h4>ตัวอย่างการคำนวณ:</h4><div class="example-box"><p><strong>การแข่งเสือหมอบ:</strong> NP = 240W, พลังงานเฉลี่ย = 230W</p><p>VI = 240 / 230 = <strong>1.04</strong> (การคุมจังหวะสม่ำเสมอ)</p><p><strong>การแข่งเสือภูเขา:</strong> NP = 285W, พลังงานเฉลี่ย = 235W</p><p>VI = 285 / 235 = <strong>1.21</strong> (มีความผันผวนสูง, เน้นการระเบิดพลัง)</p></div><pre><code>function calculateVI(normalizedPower, averagePower) {
   return (normalizedPower / averagePower).toFixed(2);
 }
 
 // ตัวอย่าง:
 const vi_road = calculateVI(240, 230);  // ผลลัพธ์: 1.04
-const vi_mtb = calculateVI(285, 235);   // ผลลัพธ์: 1.21</code></pre>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2>พลังงานวิกฤต และ W' (ความสามารถแอนแอโรบิก)</h2>
-
-        <div class="formula-card">
-            <h3>5. พลังงานวิกฤต (Critical Power - CP) - แบบจำลองเชิงเส้น</h3>
-            <div class="formula-content">
-                <h4>สูตรคำนวณ:</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
+const vi_mtb = calculateVI(285, 235);   // ผลลัพธ์: 1.21</code></pre></div></div><div class="mt-xl text-center"><a class="btn btn-secondary" href="/th/ftp/">เรียนรู้เพิ่มเติมเกี่ยวกับกำลังเกณฑ์การทำงาน →</a></div></div></section><section class="section"><div class="container"><h2>พลังงานวิกฤต และ W' (ความสามารถแอนแอโรบิก)</h2><div class="formula-card"><h3>5. พลังงานวิกฤต (Critical Power - CP) - แบบจำลองเชิงเส้น</h3><div class="formula-content"><h4>สูตรคำนวณ:</h4><div class="formula-box-large"><div class="formula">
                         เวลา = W' / (พลังงาน - CP)
-                    </div>
-                    <div class="formula">
+                    </div><div class="formula">
                         จัดรูปใหม่: พลังงาน × เวลา = CP × เวลา + W'
-                    </div>
-                </div>
-
-                <h4>การคำนวณจากความพยายามหลายครั้ง:</h4>
-                <p>ต้องการความพยายามสูงสุด (Maximal efforts) 2-4 ครั้งที่ช่วงเวลาต่างกัน (เช่น 3, 5, 12, 20 นาที)</p>
-
-                <div class="example-box">
-                    <p><strong>ข้อมูลตัวอย่าง:</strong></p>
-                    <table class="data-table">
-                        <tr>
-                            <th>ระยะเวลา</th>
-                            <th>พลังงาน (W)</th>
-                            <th>งานทั้งหมด (kJ)</th>
-                        </tr>
-                        <tr>
-                            <td>3 นาที (180s)</td>
-                            <td>400W</td>
-                            <td>72 kJ</td>
-                        </tr>
-                        <tr>
-                            <td>5 นาที (300s)</td>
-                            <td>365W</td>
-                            <td>109.5 kJ</td>
-                        </tr>
-                        <tr>
-                            <td>12 นาที (720s)</td>
-                            <td>310W</td>
-                            <td>223.2 kJ</td>
-                        </tr>
-                        <tr>
-                            <td>20 นาที (1200s)</td>
-                            <td>285W</td>
-                            <td>342 kJ</td>
-                        </tr>
-                    </table>
-
-                    <p>ใช้การวิเคราะห์การถดถอยเชิงเส้น (งาน = CP × เวลา + W'):</p>
-                    <ul>
-                        <li><strong>CP = 270W</strong> (ความชันของเส้นถดถอย)</li>
-                        <li><strong>W' = 18.5 kJ</strong> (จุดตัดแกน Y)</li>
-                    </ul>
-                </div>
-
-                <h4>การเขียนโค้ดภาษา JavaScript:</h4>
-                <pre><code>function calculateCP_Linear(efforts) {
+                    </div></div><h4>การคำนวณจากความพยายามหลายครั้ง:</h4><p>ต้องการความพยายามสูงสุด (Maximal efforts) 2-4 ครั้งที่ช่วงเวลาต่างกัน (เช่น 3, 5, 12, 20 นาที)</p><div class="example-box"><p><strong>ข้อมูลตัวอย่าง:</strong></p><table class="data-table"><tr><th>ระยะเวลา</th><th>พลังงาน (W)</th><th>งานทั้งหมด (kJ)</th></tr><tr><td>3 นาที (180s)</td><td>400W</td><td>72 kJ</td></tr><tr><td>5 นาที (300s)</td><td>365W</td><td>109.5 kJ</td></tr><tr><td>12 นาที (720s)</td><td>310W</td><td>223.2 kJ</td></tr><tr><td>20 นาที (1200s)</td><td>285W</td><td>342 kJ</td></tr></table><p>ใช้การวิเคราะห์การถดถอยเชิงเส้น (งาน = CP × เวลา + W'):</p><ul><li><strong>CP = 270W</strong> (ความชันของเส้นถดถอย)</li><li><strong>W' = 18.5 kJ</strong> (จุดตัดแกน Y)</li></ul></div><h4>การเขียนโค้ดภาษา JavaScript:</h4><pre><code>function calculateCP_Linear(efforts) {
   // efforts = [{duration: seconds, power: watts}, ...]
 
-  const times = efforts.map(e => e.duration);
-  const work = efforts.map(e => e.power * e.duration / 1000); // kJ
+  const times = efforts.map(e =&gt; e.duration);
+  const work = efforts.map(e =&gt; e.power * e.duration / 1000); // kJ
 
   // วิเคราะห์การถดถอยเชิงเส้น: work = CP * time + W'
   const n = efforts.length;
-  const sumT = times.reduce((a, b) => a + b, 0);
-  const sumW = work.reduce((a, b) => a + b, 0);
-  const sumTW = times.reduce((sum, t, i) => sum + t * work[i], 0);
-  const sumTT = times.reduce((sum, t) => sum + t * t, 0);
+  const sumT = times.reduce((a, b) =&gt; a + b, 0);
+  const sumW = work.reduce((a, b) =&gt; a + b, 0);
+  const sumTW = times.reduce((sum, t, i) =&gt; sum + t * work[i], 0);
+  const sumTT = times.reduce((sum, t) =&gt; sum + t * t, 0);
 
   const CP = (n * sumTW - sumT * sumW) / (n * sumTT - sumT * sumT);
   const Wprime = (sumW - CP * sumT) / n;
@@ -1624,62 +739,23 @@ const efforts = [
 ];
 
 const result = calculateCP_Linear(efforts);
-// ผลลัพธ์: { CP: 270.0, Wprime: 18.5 }</code></pre>
-            </div>
-        </div>
-
-        <div class="formula-card">
-            <h3>6. สมดุลของ W' (W' Balance - W'bal) - แบบจำลองสมการอนุพันธ์</h3>
-            <div class="formula-content">
-                <h4>สูตรคำนวณ:</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
-                        <strong>การใช้พลังงาน (เมื่อ P > CP):</strong><br>
+// ผลลัพธ์: { CP: 270.0, Wprime: 18.5 }</code></pre></div></div><div class="formula-card"><h3>6. สมดุลของ W' (W' Balance - W'bal) - แบบจำลองสมการอนุพันธ์</h3><div class="formula-content"><h4>สูตรคำนวณ:</h4><div class="formula-box-large"><div class="formula"><strong>การใช้พลังงาน (เมื่อ P &gt; CP):</strong><br/>
                         W'exp(t) = ∫(P(t) - CP) dt
-                    </div>
-                    <div class="formula">
-                        <strong>การพักฟื้น (เมื่อ P < CP):</strong><br>
+                    </div><div class="formula"><strong>การพักฟื้น (เมื่อ P &lt; CP):</strong><br/>
                                 W'rec(t) = W' × (1 - e^(-t/τ))
-                    </div>
-                    <div class="formula">
-                        โดยที่ τ = 546 × e^(-0.01 × ΔCP) + 316<br>
+                    </div><div class="formula">
+                        โดยที่ τ = 546 × e^(-0.01 × ΔCP) + 316<br/>
                         และ ΔCP = (CP - P(t))
-                    </div>
-                </div>
-
-                <h4>ตัวอย่างการใช้งานจริง:</h4>
-                <div class="example-box">
-                    <p><strong>ข้อมูลนักปั่น:</strong> CP = 270W, W' = 18.5 kJ</p>
-
-                    <p><strong>สถานการณ์ 1 - การเร่งเครื่องอย่างหนัก:</strong></p>
-                    <ul>
-                        <li>นักปั่นเร่งเครื่องที่ 400W นาน 30 วินาที</li>
-                        <li>การใช้พลังงาน W': (400 - 270) × 30 = 3,900 J = 3.9 kJ</li>
-                        <li>W'bal ที่เหลืออยู่: 18.5 - 3.9 = <strong>14.6 kJ</strong></li>
-                    </ul>
-
-                    <p><strong>สถานการณ์ 2 - การพักฟื้น:</strong></p>
-                    <ul>
-                        <li>หลังจากการเร่งเครื่อง ลดระดับลงมาที่ 200W (ต่ำกว่า CP อยู่ 70W) นาน 2 นาที</li>
-                        <li>ΔCP = 270 - 200 = 70W</li>
-                        <li>τ = 546 × e^(-0.01 × 70) + 316 = 588 วินาที</li>
-                        <li>พลังงานที่ฟื้นมาใน 120 วินาที: 18.5 × (1 - e^(-120/588)) = <strong>ฟื้นมา 3.5 kJ</strong>
-                        </li>
-                        <li>ค่า W'bal ใหม่: 14.6 + 3.5 = <strong>18.1 kJ</strong></li>
-                    </ul>
-                </div>
-
-                <h4>การเขียนโค้ดภาษา JavaScript:</h4>
-                <pre><code>function calculateWbalance(powerData, CP, Wprime) {
+                    </div></div><h4>ตัวอย่างการใช้งานจริง:</h4><div class="example-box"><p><strong>ข้อมูลนักปั่น:</strong> CP = 270W, W' = 18.5 kJ</p><p><strong>สถานการณ์ 1 - การเร่งเครื่องอย่างหนัก:</strong></p><ul><li>นักปั่นเร่งเครื่องที่ 400W นาน 30 วินาที</li><li>การใช้พลังงาน W': (400 - 270) × 30 = 3,900 J = 3.9 kJ</li><li>W'bal ที่เหลืออยู่: 18.5 - 3.9 = <strong>14.6 kJ</strong></li></ul><p><strong>สถานการณ์ 2 - การพักฟื้น:</strong></p><ul><li>หลังจากการเร่งเครื่อง ลดระดับลงมาที่ 200W (ต่ำกว่า CP อยู่ 70W) นาน 2 นาที</li><li>ΔCP = 270 - 200 = 70W</li><li>τ = 546 × e^(-0.01 × 70) + 316 = 588 วินาที</li><li>พลังงานที่ฟื้นมาใน 120 วินาที: 18.5 × (1 - e^(-120/588)) = <strong>ฟื้นมา 3.5 kJ</strong></li><li>ค่า W'bal ใหม่: 14.6 + 3.5 = <strong>18.1 kJ</strong></li></ul></div><h4>การเขียนโค้ดภาษา JavaScript:</h4><pre><code>function calculateWbalance(powerData, CP, Wprime) {
   // powerData = อาร์เรย์ของ {time: วินาที, power: วัตต์}
   let wbal = Wprime * 1000; // แปลงเป็นจูล
   const wbalHistory = [];
 
-  for (let i = 1; i < powerData.length; i++) {
+  for (let i = 1; i &lt; powerData.length; i++) {
     const dt = powerData[i].time - powerData[i-1].time;
     const power = powerData[i].power;
 
-    if (power > CP) {
+    if (power &gt; CP) {
       // การใช้พลังงานเหนือค่า CP
       const expenditure = (power - CP) * dt;
       wbal -= expenditure;
@@ -1712,153 +788,21 @@ const powerData = [
 ];
 
 const wbalHistory = calculateWbalance(powerData, 270, 18.5);
-// คืนค่าอาร์เรย์ของค่า W'bal ตลอดช่วงเวลา</code></pre>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2>แผนภูมิการจัดการประสิทธิภาพ (Performance Management Chart - PMC)</h2>
-
-        <div class="formula-card">
-            <h3>7. การคำนวณ CTL, ATL และ TSB</h3>
-            <div class="formula-content">
-                <h4>สูตรคำนวณ (ค่าเฉลี่ยเคลื่อนที่แบบถ่วงน้ำหนักเอ็กซ์โพเนนเชียล):</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
+// คืนค่าอาร์เรย์ของค่า W'bal ตลอดช่วงเวลา</code></pre></div></div></div></section><section class="section section-alt"><div class="container"><h2>แผนภูมิการจัดการประสิทธิภาพ (Performance Management Chart - PMC) สำหรับการปั่นจักรยาน</h2><div class="formula-card"><h3>7. การคำนวณ CTL, ATL และ TSB</h3><div class="formula-content"><h4>สูตรคำนวณ (ค่าเฉลี่ยเคลื่อนที่แบบถ่วงน้ำหนักเอ็กซ์โพเนนเชียล):</h4><div class="formula-box-large"><div class="formula">
                         CTL_today = CTL_yesterday + (TSS_today - CTL_yesterday) / 42
-                    </div>
-                    <div class="formula">
+                    </div><div class="formula">
                         ATL_today = ATL_yesterday + (TSS_today - ATL_yesterday) / 7
-                    </div>
-                    <div class="formula">
+                    </div><div class="formula">
                         TSB_today = CTL_yesterday - ATL_yesterday
-                    </div>
-                </div>
-
-                <h4>นิยามของตัวชี้วัด:</h4>
-                <ul>
-                    <li><strong>CTL (Chronic Training Load):</strong> ค่าเฉลี่ยถ่วงน้ำหนักย้อนหลัง 42 วัน - ตัวแทนของ
-                        "ความฟิต" (Fitness)</li>
-                    <li><strong>ATL (Acute Training Load):</strong> ค่าเฉลี่ยถ่วงน้ำหนักย้อนหลัง 7 วัน - ตัวแทนของ
-                        "ความเหนื่อยล้า" (Fatigue)</li>
-                    <li><strong>TSB (Training Stress Balance):</strong> ความสมบูรณ์ของร่างกาย (Form) = Fitness - Fatigue
-                    </li>
-                </ul>
-
-                <h4>ตัวอย่างการคำนวณ (บล็อกการซ้อม 7 วัน):</h4>
-                <div class="example-box">
-                    <table class="data-table">
-                        <tr>
-                            <th>วัน</th>
-                            <th>TSS</th>
-                            <th>CTL</th>
-                            <th>ATL</th>
-                            <th>TSB</th>
-                            <th>สถานะ</th>
-                        </tr>
-                        <tr>
-                            <td>จันทร์</td>
-                            <td>100</td>
-                            <td>75.0</td>
-                            <td>80.0</td>
-                            <td>-5.0</td>
-                            <td>กำลังซ้อม</td>
-                        </tr>
-                        <tr>
-                            <td>อังคาร</td>
-                            <td>50</td>
-                            <td>74.4</td>
-                            <td>75.7</td>
-                            <td>-1.3</td>
-                            <td>พักฟื้น</td>
-                        </tr>
-                        <tr>
-                            <td>พุธ</td>
-                            <td>120</td>
-                            <td>75.5</td>
-                            <td>82.0</td>
-                            <td>-6.5</td>
-                            <td>ซ้อมหนัก</td>
-                        </tr>
-                        <tr>
-                            <td>พฤหัสบดี</td>
-                            <td>0</td>
-                            <td>73.7</td>
-                            <td>70.3</td>
-                            <td>+3.4</td>
-                            <td>วันพัก</td>
-                        </tr>
-                        <tr>
-                            <td>ศุกร์</td>
-                            <td>80</td>
-                            <td>73.8</td>
-                            <td>71.7</td>
-                            <td>+2.1</td>
-                            <td>ปานกลาง</td>
-                        </tr>
-                        <tr>
-                            <td>เสาร์</td>
-                            <td>150</td>
-                            <td>75.6</td>
-                            <td>82.9</td>
-                            <td>-7.3</td>
-                            <td>ปั่นระยะไกล</td>
-                        </tr>
-                        <tr>
-                            <td>อาทิตย์</td>
-                            <td>40</td>
-                            <td>74.8</td>
-                            <td>76.8</td>
-                            <td>-2.0</td>
-                            <td>พักฟื้น</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <h4>การตีความค่า TSB:</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>ช่วงค่า TSB</th>
-                        <th>สถานะ</th>
-                        <th>สิ่งที่ควรทำ</th>
-                    </tr>
-                    <tr>
-                        <td>&lt; -30</td>
-                        <td>ความเสี่ยงสูง (High Risk)</td>
-                        <td>สัญญาณการซ้อมเกิน (Overtraining) - ควรลดภาระงานลง</td>
-                    </tr>
-                    <tr>
-                        <td>-30 ถึง -10</td>
-                        <td>ซ้อมหนัก (Training Hard)</td>
-                        <td>กำลังสร้างความฟิต, ควรติดตามการพักฟื้นอย่างใกล้ชิด</td>
-                    </tr>
-                    <tr>
-                        <td>-10 ถึง +5</td>
-                        <td>เหมาะสม (Optimal)</td>
-                        <td>โซนการซ้อมปกติ</td>
-                    </tr>
-                    <tr>
-                        <td>+5 ถึง +15</td>
-                        <td>พร้อมแข่งขัน (Race Ready)</td>
-                        <td>ร่างกายอยู่ในจุดสูงสุด - เหมาะสำหรับลงแข่งในสุดสัปดาห์</td>
-                    </tr>
-                    <tr>
-                        <td>&gt; +25</td>
-                        <td>สูญเสียความฟิต (Detraining)</td>
-                        <td>เริ่มสูญเสียความฟิต - ควรเพิ่มภาระงาน</td>
-                    </tr>
-                </table>
-
-                <h4>การเขียนโค้ดภาษา JavaScript:</h4>
-                <pre><code>function calculatePMC(workouts) {
+                    </div></div><h4>นิยามของตัวชี้วัด:</h4><ul><li><strong>CTL (Chronic Training Load):</strong> ค่าเฉลี่ยถ่วงน้ำหนักย้อนหลัง 42 วัน - ตัวแทนของ
+                        "ความฟิต" (Fitness)</li><li><strong>ATL (Acute Training Load):</strong> ค่าเฉลี่ยถ่วงน้ำหนักย้อนหลัง 7 วัน - ตัวแทนของ
+                        "ความเหนื่อยล้า" (Fatigue)</li><li><strong>TSB (Training Stress Balance):</strong> ความสมบูรณ์ของร่างกาย (Form) = Fitness - Fatigue
+                    </li></ul><h4>ตัวอย่างการคำนวณ (บล็อกการซ้อม 7 วัน):</h4><div class="example-box"><table class="data-table"><tr><th>วัน</th><th>TSS</th><th>CTL</th><th>ATL</th><th>TSB</th><th>สถานะ</th></tr><tr><td>จันทร์</td><td>100</td><td>75.0</td><td>80.0</td><td>-5.0</td><td>กำลังซ้อม</td></tr><tr><td>อังคาร</td><td>50</td><td>74.4</td><td>75.7</td><td>-1.3</td><td>พักฟื้น</td></tr><tr><td>พุธ</td><td>120</td><td>75.5</td><td>82.0</td><td>-6.5</td><td>ซ้อมหนัก</td></tr><tr><td>พฤหัสบดี</td><td>0</td><td>73.7</td><td>70.3</td><td>+3.4</td><td>วันพัก</td></tr><tr><td>ศุกร์</td><td>80</td><td>73.8</td><td>71.7</td><td>+2.1</td><td>ปานกลาง</td></tr><tr><td>เสาร์</td><td>150</td><td>75.6</td><td>82.9</td><td>-7.3</td><td>ปั่นระยะไกล</td></tr><tr><td>อาทิตย์</td><td>40</td><td>74.8</td><td>76.8</td><td>-2.0</td><td>พักฟื้น</td></tr></table></div><h4>การตีความค่า TSB:</h4><table class="data-table"><tr><th>ช่วงค่า TSB</th><th>สถานะ</th><th>สิ่งที่ควรทำ</th></tr><tr><td>&lt; -30</td><td>ความเสี่ยงสูง (High Risk)</td><td>สัญญาณการซ้อมเกิน (Overtraining) - ควรลดภาระงานลง</td></tr><tr><td>-30 ถึง -10</td><td>ซ้อมหนัก (Training Hard)</td><td>กำลังสร้างความฟิต, ควรติดตามการพักฟื้นอย่างใกล้ชิด</td></tr><tr><td>-10 ถึง +5</td><td>เหมาะสม (Optimal)</td><td>โซนการซ้อมปกติ</td></tr><tr><td>+5 ถึง +15</td><td>พร้อมแข่งขัน (Race Ready)</td><td>ร่างกายอยู่ในจุดสูงสุด - เหมาะสำหรับลงแข่งในสุดสัปดาห์</td></tr><tr><td>&gt; +25</td><td>สูญเสียความฟิต (Detraining)</td><td>เริ่มสูญเสียความฟิต - ควรเพิ่มภาระงาน</td></tr></table><h4>การเขียนโค้ดภาษา JavaScript:</h4><pre><code>function calculatePMC(workouts) {
   // workouts = [{date: "YYYY-MM-DD", tss: number}, ...]
   let ctl = 0, atl = 0;
   const results = [];
 
-  workouts.forEach(workout => {
+  workouts.forEach(workout =&gt; {
     // อัปเดต CTL (ค่าคงที่เวลา 42 วัน)
     ctl = ctl + (workout.tss - ctl) / 42;
 
@@ -1883,10 +827,10 @@ const wbalHistory = calculateWbalance(powerData, 270, 18.5);
 }
 
 function getTSBStatus(tsb) {
-  if (tsb < -30) return "High Risk";
-  if (tsb < -10) return "Training Hard";
-  if (tsb < 5) return "Optimal";
-  if (tsb < 15) return "Race Ready";
+  if (tsb &lt; -30) return "High Risk";
+  if (tsb &lt; -10) return "Training Hard";
+  if (tsb &lt; 5) return "Optimal";
+  if (tsb &lt; 15) return "Race Ready";
   return "Detraining";
 }
 
@@ -1899,259 +843,45 @@ const workouts = [
 ];
 
 const pmc = calculatePMC(workouts);
-// คืนค่าอาร์เรย์พร้อมค่า CTL, ATL, TSB ในแต่ละวัน</code></pre>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2>ตัวชี้วัดกำลังต่อน้ำหนักและการขึ้นเขา</h2>
-
-        <div class="formula-card">
-            <h3>8. อัตราส่วนกำลังต่อน้ำหนัก (Power-to-Weight Ratio)</h3>
-            <div class="formula-content">
-                <h4>สูตรคำนวณ:</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
+// คืนค่าอาร์เรย์พร้อมค่า CTL, ATL, TSB ในแต่ละวัน</code></pre></div></div><div class="mt-xl text-center"><a class="btn btn-primary" href="/th/training-load/">อ่านคู่มือโหลดการฝึกอบรมฉบับสมบูรณ์ของเรา →</a></div></div></section><section class="section"><div class="container"><h2>ตัวชี้วัดกำลังต่อน้ำหนักและการขึ้นเขา</h2><div class="formula-card"><h3>8. อัตราส่วนกำลังต่อน้ำหนัก (Power-to-Weight Ratio)</h3><div class="formula-content"><h4>สูตรคำนวณ:</h4><div class="formula-box-large"><div class="formula">
                         W/kg = พลังงาน (วัตต์) / มวลร่างกาย (กก.)
-                    </div>
-                </div>
-
-                <h4>เกณฑ์มาตรฐาน FTP W/kg:</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>ระดับ</th>
-                        <th>ชาย (W/kg)</th>
-                        <th>หญิง (W/kg)</th>
-                        <th>ประเภทนักปั่น</th>
-                    </tr>
-                    <tr>
-                        <td>ปั่นเพื่อสันทนาการ</td>
-                        <td>2.5 - 3.5</td>
-                        <td>2.0 - 3.0</td>
-                        <td>เน้นออกกำลังกาย</td>
-                    </tr>
-                    <tr>
-                        <td>นักปั่นสายแข่งขัน</td>
-                        <td>3.5 - 4.5</td>
-                        <td>3.0 - 4.0</td>
-                        <td>กลุ่ม Cat 3-4, นักแข่งรุ่นอายุ</td>
-                    </tr>
-                    <tr>
-                        <td>นักปั่นระดับสูง</td>
-                        <td>4.5 - 5.5</td>
-                        <td>4.0 - 5.0</td>
-                        <td>กลุ่ม Cat 1-2, สมัครเล่นขาแรง</td>
-                    </tr>
-                    <tr>
-                        <td>สมัครเล่นระดับอีลีท</td>
-                        <td>5.5 - 6.0</td>
-                        <td>5.0 - 5.5</td>
-                        <td>ระดับชาติ</td>
-                    </tr>
-                    <tr>
-                        <td>นักปั่นอาชีพ</td>
-                        <td>6.0 - 7.0+</td>
-                        <td>5.5 - 6.5+</td>
-                        <td>ระดับ World Tour, ลุ้นแชมป์ Grand Tour</td>
-                    </tr>
-                </table>
-
-                <h4>ตัวอย่างการคำนวณ:</h4>
-                <div class="example-box">
-                    <p><strong>สถานการณ์:</strong> นักปั่นที่มีค่า FTP = 275W, มวลร่างกาย = 70กก.</p>
-                    <p>W/kg = 275 / 70 = <strong>3.93 W/kg</strong></p>
-                    <p><em>การตีความ: ระดับนักปั่นสายแข่งขัน สามารถทำผลงานได้ดีในการแข่งทางเขา</em></p>
-                </div>
-
-                <pre><code>function calculateWattsPerKg(power, bodyMassKg) {
+                    </div></div><h4>เกณฑ์มาตรฐาน FTP W/kg:</h4><table class="data-table"><tr><th>ระดับ</th><th>ชาย (W/kg)</th><th>หญิง (W/kg)</th><th>ประเภทนักปั่น</th></tr><tr><td>ปั่นเพื่อสันทนาการ</td><td>2.5 - 3.5</td><td>2.0 - 3.0</td><td>เน้นออกกำลังกาย</td></tr><tr><td>นักปั่นสายแข่งขัน</td><td>3.5 - 4.5</td><td>3.0 - 4.0</td><td>กลุ่ม Cat 3-4, นักแข่งรุ่นอายุ</td></tr><tr><td>นักปั่นระดับสูง</td><td>4.5 - 5.5</td><td>4.0 - 5.0</td><td>กลุ่ม Cat 1-2, สมัครเล่นขาแรง</td></tr><tr><td>สมัครเล่นระดับอีลีท</td><td>5.5 - 6.0</td><td>5.0 - 5.5</td><td>ระดับชาติ</td></tr><tr><td>นักปั่นอาชีพ</td><td>6.0 - 7.0+</td><td>5.5 - 6.5+</td><td>ระดับ World Tour, ลุ้นแชมป์ Grand Tour</td></tr></table><h4>ตัวอย่างการคำนวณ:</h4><div class="example-box"><p><strong>สถานการณ์:</strong> นักปั่นที่มีค่า FTP = 275W, มวลร่างกาย = 70กก.</p><p>W/kg = 275 / 70 = <strong>3.93 W/kg</strong></p><p><em>การตีความ: ระดับนักปั่นสายแข่งขัน สามารถทำผลงานได้ดีในการแข่งทางเขา</em></p></div><pre><code>function calculateWattsPerKg(power, bodyMassKg) {
   return (power / bodyMassKg).toFixed(2);
 }
 
 // ตัวอย่าง:
 const wpkg = calculateWattsPerKg(275, 70);
-// ผลลัพธ์: 3.93</code></pre>
-            </div>
-        </div>
-
-        <div class="formula-card">
-            <h3>9. VAM (อัตราการไต่ความเร็วเฉลี่ย)</h3>
-            <div class="formula-content">
-                <h4>สูตรคำนวณ:</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
+// ผลลัพธ์: 3.93</code></pre></div></div><div class="formula-card"><h3>9. VAM (อัตราการไต่ความเร็วเฉลี่ย)</h3><div class="formula-content"><h4>สูตรคำนวณ:</h4><div class="formula-box-large"><div class="formula">
                         VAM (ม./ชม.) = ระยะไต่ความสูง (เมตร) / ระยะเวลา (ชั่วโมง)
-                    </div>
-                </div>
-
-                <h4>เกณฑ์มาตรฐาน VAM:</h4>
-                <table class="data-table">
-                    <tr>
-                        <th>VAM (ม./ชม.)</th>
-                        <th>ระดับ</th>
-                        <th>ตัวอย่าง</th>
-                    </tr>
-                    <tr>
-                        <td>600 - 900</td>
-                        <td>ปั่นเพื่อสันทนาการ</td>
-                        <td>นักปั่นชมรมบนเนินแถวบ้าน</td>
-                    </tr>
-                    <tr>
-                        <td>900 - 1200</td>
-                        <td>นักปั่นสายแข่งขัน</td>
-                        <td>สมัครเล่นขาแรงที่ Alpe d'Huez</td>
-                    </tr>
-                    <tr>
-                        <td>1200 - 1500</td>
-                        <td>สมัครเล่นระดับอีลีท</td>
-                        <td>นักไต่เขาฟอร์มระดับชาติ</td>
-                    </tr>
-                    <tr>
-                        <td>1500 - 1800</td>
-                        <td>นักปั่นอาชีพ</td>
-                        <td>นักปั่นอาชีพระดับ World Tour (Domestique)</td>
-                    </tr>
-                    <tr>
-                        <td>&gt; 1800</td>
-                        <td>ผู้ชนะรายการ Grand Tour</td>
-                        <td>Pogačar, Vingegaard บนเขาลูกสำคัญ</td>
-                    </tr>
-                </table>
-
-                <h4>ตัวอย่างการคำนวณ:</h4>
-                <div class="example-box">
-                    <p><strong>สถานการณ์:</strong> การปั่นขึ้นเขา Alpe d'Huez</p>
-                    <ul>
-                        <li>ระยะไต่ความสูง: 1100 เมตร</li>
-                        <li>ระยะเวลา: 55 นาที = 0.917 ชั่วโมง</li>
-                        <li>VAM = 1100 / 0.917 = <strong>1200 ม./ชม.</strong></li>
-                    </ul>
-                    <p><em>การตีความ: สมรรถภาพการขึ้นเขาระดับนักปั่นสายแข่งขัน</em></p>
-                </div>
-
-                <pre><code>function calculateVAM(elevationGainMeters, timeMinutes) {
+                    </div></div><h4>เกณฑ์มาตรฐาน VAM:</h4><table class="data-table"><tr><th>VAM (ม./ชม.)</th><th>ระดับ</th><th>ตัวอย่าง</th></tr><tr><td>600 - 900</td><td>ปั่นเพื่อสันทนาการ</td><td>นักปั่นชมรมบนเนินแถวบ้าน</td></tr><tr><td>900 - 1200</td><td>นักปั่นสายแข่งขัน</td><td>สมัครเล่นขาแรงที่ Alpe d'Huez</td></tr><tr><td>1200 - 1500</td><td>สมัครเล่นระดับอีลีท</td><td>นักไต่เขาฟอร์มระดับชาติ</td></tr><tr><td>1500 - 1800</td><td>นักปั่นอาชีพ</td><td>นักปั่นอาชีพระดับ World Tour (Domestique)</td></tr><tr><td>&gt; 1800</td><td>ผู้ชนะรายการ Grand Tour</td><td>Pogačar, Vingegaard บนเขาลูกสำคัญ</td></tr></table><h4>ตัวอย่างการคำนวณ:</h4><div class="example-box"><p><strong>สถานการณ์:</strong> การปั่นขึ้นเขา Alpe d'Huez</p><ul><li>ระยะไต่ความสูง: 1100 เมตร</li><li>ระยะเวลา: 55 นาที = 0.917 ชั่วโมง</li><li>VAM = 1100 / 0.917 = <strong>1200 ม./ชม.</strong></li></ul><p><em>การตีความ: สมรรถภาพการขึ้นเขาระดับนักปั่นสายแข่งขัน</em></p></div><pre><code>function calculateVAM(elevationGainMeters, timeMinutes) {
   const hours = timeMinutes / 60;
   return Math.round(elevationGainMeters / hours);
 }
 
 // ตัวอย่าง:
 const vam = calculateVAM(1100, 55);
-// ผลลัพธ์: 1200 ม./ชม.</code></pre>
-            </div>
-        </div>
-
-        <div class="formula-card">
-            <h3>10. การประมาณค่า W/kg จากค่า VAM</h3>
-            <div class="formula-content">
-                <h4>สูตรคำนวณ:</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
+// ผลลัพธ์: 1200 ม./ชม.</code></pre></div></div><div class="formula-card"><h3>10. การประมาณค่า W/kg จากค่า VAM</h3><div class="formula-content"><h4>สูตรคำนวณ:</h4><div class="formula-box-large"><div class="formula">
                         W/kg ≈ VAM (ม./ชม.) / 100 / (ความลาดชัน% + 3)
-                    </div>
-                </div>
-
-                <h4>ตัวอย่างการคำนวณ:</h4>
-                <div class="example-box">
-                    <p><strong>สถานการณ์:</strong> การขึ้นเขาที่มีความลาดชันเฉลี่ย 8%, VAM = 1200 ม./ชม.</p>
-                    <p>W/kg = 1200 / 100 / (8 + 3)</p>
-                    <p>W/kg = 12 / 11 = <strong>4.36 W/kg</strong></p>
-                    <p><em>การตรวจสอบความถูกต้อง: สำหรับนักปั่นหนัก 70กก. → จะได้พลังงานคงที่ 305W ระหว่างขึ้นเขา</em>
-                    </p>
-                </div>
-
-                <pre><code>function estimateWkgFromVAM(vam, gradientPercent) {
+                    </div></div><h4>ตัวอย่างการคำนวณ:</h4><div class="example-box"><p><strong>สถานการณ์:</strong> การขึ้นเขาที่มีความลาดชันเฉลี่ย 8%, VAM = 1200 ม./ชม.</p><p>W/kg = 1200 / 100 / (8 + 3)</p><p>W/kg = 12 / 11 = <strong>4.36 W/kg</strong></p><p><em>การตรวจสอบความถูกต้อง: สำหรับนักปั่นหนัก 70กก. → จะได้พลังงานคงที่ 305W ระหว่างขึ้นเขา</em></p></div><pre><code>function estimateWkgFromVAM(vam, gradientPercent) {
   return (vam / 100 / (gradientPercent + 3)).toFixed(2);
 }
 
 // ตัวอย่าง:
 const wkg = estimateWkgFromVAM(1200, 8);
-// ผลลัพธ์: 4.36</code></pre>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2>สมการพลังงานทางอากาศพลศาสตร์</h2>
-
-        <div class="formula-card">
-            <h3>11. ความต้องการพลังงานรวม</h3>
-            <div class="formula-content">
-                <h4>สูตรแบบเต็มประสิทธิภาพ:</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
+// ผลลัพธ์: 4.36</code></pre></div></div></div></section><section class="section section-alt"><div class="container"><h2>สมการพลังงานทางอากาศพลศาสตร์</h2><div class="formula-card"><h3>11. ความต้องการพลังงานรวม</h3><div class="formula-content"><h4>สูตรแบบเต็มประสิทธิภาพ:</h4><div class="formula-box-large"><div class="formula">
                         P_total = P_aero + P_gravity + P_rolling + P_kinetic
-                    </div>
-                </div>
-
-                <h4>สูตรคำนวณแยกตามส่วนประกอบ:</h4>
-                <div class="formula-box-large">
-                    <div class="formula">
-                        <strong>แรงต้านอากาศ (Aerodynamic Drag):</strong><br>
+                    </div></div><h4>สูตรคำนวณแยกตามส่วนประกอบ:</h4><div class="formula-box-large"><div class="formula"><strong>แรงต้านอากาศ (Aerodynamic Drag):</strong><br/>
                         P_aero = CdA × 0.5 × ρ × V³
-                    </div>
-                    <div class="formula">
-                        <strong>แรงโน้มถ่วง (ขณะขึ้นเขา) (Gravitational):</strong><br>
+                    </div><div class="formula"><strong>แรงโน้มถ่วง (ขณะขึ้นเขา) (Gravitational):</strong><br/>
                         P_gravity = m × g × sin(θ) × V
-                    </div>
-                    <div class="formula">
-                        <strong>ความเสียดทานจากการหมุน (Rolling Resistance):</strong><br>
+                    </div><div class="formula"><strong>ความเสียดทานจากการหมุน (Rolling Resistance):</strong><br/>
                         P_rolling = Crr × m × g × cos(θ) × V
-                    </div>
-                    <div class="formula">
-                        <strong>พลังงานจลน์ (ขณะเร่งความเร็ว) (Kinetic Acceleration):</strong><br>
+                    </div><div class="formula"><strong>พลังงานจลน์ (ขณะเร่งความเร็ว) (Kinetic Acceleration):</strong><br/>
                         P_kinetic = m × a × V
-                    </div>
-                </div>
-
-                <h4>ค่าคงที่และตัวแปร:</h4>
-                <ul>
-                    <li><strong>CdA</strong> = สัมประสิทธิ์แรงต้านอากาศ × พื้นที่หน้าตัด (m²)
-                        <ul>
-                            <li>ตำแหน่งบนชิฟเตอร์ (Hoods) ปกติ: 0.35-0.40 m²</li>
-                            <li>ตำแหน่งดรอป (Drops): 0.32-0.37 m²</li>
-                            <li>ตำแหน่งแอโร (TT position): 0.20-0.25 m²</li>
-                        </ul>
-                    </li>
-                    <li><strong>ρ</strong> = ความหนาแน่นของอากาศ (1.225 kg/m³ ที่ระดับน้ำทะเล, อุณหภูมิ 15°C)</li>
-                    <li><strong>V</strong> = ความเร็ว (m/s)</li>
-                    <li><strong>m</strong> = มวลรวม (นักปั่น + จักรยาน, kg)</li>
-                    <li><strong>g</strong> = แรงโน้มถ่วง (9.81 m/s²)</li>
-                    <li><strong>θ</strong> = มุมความชัน (เรเดียนหรือองศาที่แปลงแล้ว)</li>
-                    <li><strong>Crr</strong> = สัมประสิทธิ์ความเสียดทานจากการหมุน (~0.004 สำหรับยางเสือหมอบคุณภาพสูง)
-                    </li>
-                    <li><strong>a</strong> = อัตราเร่ง (m/s²)</li>
-                </ul>
-
-                <h4>ตัวอย่างการคำนวณ (การปั่นไทม์ไทรอัลทางราบ):</h4>
-                <div class="example-box">
-                    <p><strong>สถานการณ์:</strong></p>
-                    <ul>
-                        <li>ความเร็ว: 40 กม./ชม. = 11.11 ม./วินาที</li>
-                        <li>CdA: 0.22 m² (ตำแหน่งแอโรที่ดี)</li>
-                        <li>มวลรวม: 75กก. (นักปั่น) + 8กก. (จักรยาน) = 83กก.</li>
-                        <li>ถนนราบ (ความชัน = 0°)</li>
-                        <li>ความเร็วคงที่ (อัตราเร่ง = 0)</li>
-                    </ul>
-
-                    <p><strong>ขั้นตอนการคำนวณ:</strong></p>
-                    <ol>
-                        <li><strong>P_aero</strong> = 0.22 × 0.5 × 1.225 × 11.11³ = <strong>185W</strong></li>
-                        <li><strong>P_gravity</strong> = 0W (ทางราบ)</li>
-                        <li><strong>P_rolling</strong> = 0.004 × 83 × 9.81 × 11.11 = <strong>36W</strong></li>
-                        <li><strong>P_kinetic</strong> = 0W (ความเร็วคงที่)</li>
-                        <li><strong>P_total</strong> = 185 + 0 + 36 + 0 = <strong>221W</strong></li>
-                    </ol>
-
-                    <p><em>การตีความ: ต้องใช้พละกำลังที่ 221W เพื่อรักษาความเร็ว 40 กม./ชม.
-                            ในท่าปั่นแบบแอโรบนทางราบ</em></p>
-                </div>
-
-                <h4>การเขียนโค้ดภาษา JavaScript:</h4>
-                <pre><code>function calculatePowerRequired(params) {
+                    </div></div><h4>ค่าคงที่และตัวแปร:</h4><ul><li><strong>CdA</strong> = สัมประสิทธิ์แรงต้านอากาศ × พื้นที่หน้าตัด (m²)
+                        <ul><li>ตำแหน่งบนชิฟเตอร์ (Hoods) ปกติ: 0.35-0.40 m²</li><li>ตำแหน่งดรอป (Drops): 0.32-0.37 m²</li><li>ตำแหน่งแอโร (TT position): 0.20-0.25 m²</li></ul></li><li><strong>ρ</strong> = ความหนาแน่นของอากาศ (1.225 kg/m³ ที่ระดับน้ำทะเล, อุณหภูมิ 15°C)</li><li><strong>V</strong> = ความเร็ว (m/s)</li><li><strong>m</strong> = มวลรวม (นักปั่น + จักรยาน, kg)</li><li><strong>g</strong> = แรงโน้มถ่วง (9.81 m/s²)</li><li><strong>θ</strong> = มุมความชัน (เรเดียนหรือองศาที่แปลงแล้ว)</li><li><strong>Crr</strong> = สัมประสิทธิ์ความเสียดทานจากการหมุน (~0.004 สำหรับยางเสือหมอบคุณภาพสูง)
+                    </li><li><strong>a</strong> = อัตราเร่ง (m/s²)</li></ul><h4>ตัวอย่างการคำนวณ (การปั่นไทม์ไทรอัลทางราบ):</h4><div class="example-box"><p><strong>สถานการณ์:</strong></p><ul><li>ความเร็ว: 40 กม./ชม. = 11.11 ม./วินาที</li><li>CdA: 0.22 m² (ตำแหน่งแอโรที่ดี)</li><li>มวลรวม: 75กก. (นักปั่น) + 8กก. (จักรยาน) = 83กก.</li><li>ถนนราบ (ความชัน = 0°)</li><li>ความเร็วคงที่ (อัตราเร่ง = 0)</li></ul><p><strong>ขั้นตอนการคำนวณ:</strong></p><ol><li><strong>P_aero</strong> = 0.22 × 0.5 × 1.225 × 11.11³ = <strong>185W</strong></li><li><strong>P_gravity</strong> = 0W (ทางราบ)</li><li><strong>P_rolling</strong> = 0.004 × 83 × 9.81 × 11.11 = <strong>36W</strong></li><li><strong>P_kinetic</strong> = 0W (ความเร็วคงที่)</li><li><strong>P_total</strong> = 185 + 0 + 36 + 0 = <strong>221W</strong></li></ol><p><em>การตีความ: ต้องใช้พละกำลังที่ 221W เพื่อรักษาความเร็ว 40 กม./ชม.
+                            ในท่าปั่นแบบแอโรบนทางราบ</em></p></div><h4>การเขียนโค้ดภาษา JavaScript:</h4><pre><code>function calculatePowerRequired(params) {
   const {
     velocityKph,
     CdA = 0.32,              // m²
@@ -2199,21 +929,7 @@ const power_climb = calculatePowerRequired({
   mass: 75,
   gradientPercent: 8
 });
-// ผลลัพธ์: { total: 265, aero: 27, gravity: 244, rolling: 11, kinetic: 0 }</code></pre>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>ฟังก์ชันเสริม (Helper Functions)</h2>
-
-        <div class="formula-card">
-            <h3>เครื่องมือจัดการหน่วยการวัด</h3>
-            <div class="formula-content">
-                <h4>การเขียนโค้ดภาษา JavaScript:</h4>
-                <pre><code>// การแปลงเวลา
+// ผลลัพธ์: { total: 265, aero: 27, gravity: 244, rolling: 11, kinetic: 0 }</code></pre></div></div></div></section><section class="section"><div class="container container-narrow"><h2>ฟังก์ชันเสริม (Helper Functions)</h2><div class="formula-card"><h3>เครื่องมือจัดการหน่วยการวัด</h3><div class="formula-content"><h4>การเขียนโค้ดภาษา JavaScript:</h4><pre><code>// การแปลงเวลา
 function hoursToSeconds(hours) {
   return hours * 3600;
 }
@@ -2258,413 +974,188 @@ function wattsToKJ(watts, durationSeconds) {
 // ตัวอย่าง:
 formatDuration(7265);        // ผลลัพธ์: "2:01:05"
 kphToMps(40);                // ผลลัพธ์: 11.11 m/s
-wattsToKJ(250, 3600);        // ผลลัพธ์: 900 kJ (1 ชั่วโมงที่ 250W)</code></pre>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow text-center">
-        <h2>ทรัพยากรสำหรับการนำไปใช้งาน</h2>
-        <p class="lead">สูตรคำนวณทั้งหมดในหน้านี้พร้อมสำหรับการนำไปใช้งานจริง
+wattsToKJ(250, 3600);        // ผลลัพธ์: 900 kJ (1 ชั่วโมงที่ 250W)</code></pre></div></div></div></section><section class="section section-alt"><div class="container container-narrow text-center"><h2>ทรัพยากรสำหรับการนำไปใช้งาน</h2><p class="lead">สูตรคำนวณทั้งหมดในหน้านี้พร้อมสำหรับการนำไปใช้งานจริง
             และได้รับการตรวจสอบความถูกต้องตามเอกสารทางวิชาการและข้อมูลจริงจากอุปกรณ์วัดพลังงาน
             คุณสามารถนำไปใช้เพื่อสร้างเครื่องมือวิเคราะห์ข้อมูลของคุณเอง การตรวจสอบความถูกต้อง
-            หรือเพื่อทำความเข้าใจการคำนวณเบื้องหลังการซ้อมด้วยพลังงานอย่างลึกซึ้งยิ่งขึ้น</p>
-
-        <div class="callout callout-tip">
-            <h3>💡 แนวทางปฏิบัติที่ดีที่สุด (Best Practices)</h3>
-            <ul class="text-left">
-                <li><strong>ตรวจสอบความถูกต้องของข้อมูลนำเข้า:</strong> ตรวจสอบช่วงค่าพลังงานที่เหมาะสม (0-2000W)
-                    และระยะเวลาต้องเป็นค่าบวก</li>
-                <li><strong>จัดการกับกรณีพิเศษ (Edge cases):</strong> การหารด้วยศูนย์,
-                    ข้อมูลที่เป็นค่าว่างหรือไม่ระบุค่า, หรือข้อมูล FTP ที่หายไป</li>
-                <li><strong>การปัดเศษทศนิยมอย่างเหมาะสม:</strong> ปัดค่า CTL/ATL/TSB เป็นทศนิยม 1 ตำแหน่ง, ค่า TSS
-                    เป็นจำนวนเต็ม, และค่า W/kg เป็นทศนิยม 2 ตำแหน่ง</li>
-                <li><strong>เก็บค่าความละเอียดสูง:</strong> ควรเก็บค่าความละเอียดเต็มไว้ในฐานข้อมูล
-                    และปัดเศษเฉพาะเมื่อต้องการแสดงผลเท่านั้น</li>
-                <li><strong>เขตเวลา (Time zones):</strong> จัดการเวลาแบบ UTC
-                    และเวลาท้องถิ่นให้สอดคล้องกันสำหรับการวิเคราะห์ข้อมูลแบบหลายวัน</li>
-                <li><strong>การปรับเทียบอุปกรณ์วัดพลังงาน:</strong> แนะนำให้ผู้ใช้งานทำการ zero-offset
-                    ก่อนเริ่มการปั่นเสมอ</li>
-                <li><strong>การตรวจสอบความถูกต้องของค่า FTP:</strong> ตรวจหากค่า FTP ที่น่าสงสัย (เช่น >500W หรือ <100W
-                        สำหรับผู้ใหญ่)</li>
-                <li><strong>ทดสอบอย่างละเอียด:</strong>
-                    ใช้ไฟล์การปั่นที่ทราบค่าความถูกต้องแน่นอนแล้วเพื่อนำมาตรวจสอบผลการคำนวณของระบบ</li>
-            </ul>
-        </div>
-
-        <div class="mt-xl">
-            <a href="/th/" class="btn btn-primary btn-large">กลับสู่หน้าหลัก</a>
-            <a href="/th/research/" class="btn btn-secondary">รากฐานทางวิทยาศาสตร์</a>
-            <a href="/th/bibliography/" class="btn btn-secondary">บรรณานุกรมฉบับสมบูรณ์</a>
-        </div>
-    </div>
-</section>
-    
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+            หรือเพื่อทำความเข้าใจการคำนวณเบื้องหลังการซ้อมด้วยพลังงานอย่างลึกซึ้งยิ่งขึ้น</p><div class="callout callout-tip"><h3>💡 แนวทางปฏิบัติที่ดีที่สุด (Best Practices)</h3><ul class="text-left"><li><strong>ตรวจสอบความถูกต้องของข้อมูลนำเข้า:</strong> ตรวจสอบช่วงค่าพลังงานที่เหมาะสม (0-2000W)
+                    และระยะเวลาต้องเป็นค่าบวก</li><li><strong>จัดการกับกรณีพิเศษ (Edge cases):</strong> การหารด้วยศูนย์,
+                    ข้อมูลที่เป็นค่าว่างหรือไม่ระบุค่า, หรือข้อมูล FTP ที่หายไป</li><li><strong>การปัดเศษทศนิยมอย่างเหมาะสม:</strong> ปัดค่า CTL/ATL/TSB เป็นทศนิยม 1 ตำแหน่ง, ค่า TSS
+                    เป็นจำนวนเต็ม, และค่า W/kg เป็นทศนิยม 2 ตำแหน่ง</li><li><strong>เก็บค่าความละเอียดสูง:</strong> ควรเก็บค่าความละเอียดเต็มไว้ในฐานข้อมูล
+                    และปัดเศษเฉพาะเมื่อต้องการแสดงผลเท่านั้น</li><li><strong>เขตเวลา (Time zones):</strong> จัดการเวลาแบบ UTC
+                    และเวลาท้องถิ่นให้สอดคล้องกันสำหรับการวิเคราะห์ข้อมูลแบบหลายวัน</li><li><strong>การปรับเทียบอุปกรณ์วัดพลังงาน:</strong> แนะนำให้ผู้ใช้งานทำการ zero-offset
+                    ก่อนเริ่มการปั่นเสมอ</li><li><strong>การตรวจสอบความถูกต้องของค่า FTP:</strong> ตรวจหากค่า FTP ที่น่าสงสัย (เช่น &gt;500W หรือ &lt;100W
+                        สำหรับผู้ใหญ่)</li><li><strong>ทดสอบอย่างละเอียด:</strong>
+                    ใช้ไฟล์การปั่นที่ทราบค่าความถูกต้องแน่นอนแล้วเพื่อนำมาตรวจสอบผลการคำนวณของระบบ</li></ul></div><div class="mt-xl"><a class="btn btn-primary btn-large" href="/th/">กลับสู่หน้าหลัก</a><a class="btn btn-secondary" href="/th/research/">รากฐานทางวิทยาศาสตร์</a><a class="btn btn-secondary" href="/th/bibliography/">บรรณานุกรมฉบับสมบูรณ์</a></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link active"
+                </a><a href="/th/" class="lang-link active"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. สงวนลิขสิทธิ์ทั้งหมด
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/th/privacy/">ความเป็นส่วนตัว</a></li>
-                <li><a href="/th/terms/">ข้อกำหนด</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>เว็บไซต์นี้ใช้คุกกี้เพื่อปรับปรุงประสบการณ์ของคุณ</p>
-            <a href="/th/privacy/" class="text-sm">เรียนรู้เพิ่มเติม</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">ปฏิเสธ</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">ยอมรับ</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/th/privacy/">ความเป็นส่วนตัว</a></li><li><a href="/th/terms/">ข้อกำหนด</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>เว็บไซต์นี้ใช้คุกกี้เพื่อปรับปรุงประสบการณ์ของคุณ</p><a href="/th/privacy/" class="text-sm">เรียนรู้เพิ่มเติม</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">ปฏิเสธ</button><button id="cookie-accept" class="btn btn-primary btn-small">ยอมรับ</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

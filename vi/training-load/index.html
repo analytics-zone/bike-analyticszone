@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="vi" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>Máy Tính TSS Bơi lội: Tải Luyện tập và PMC (CTL/ATL/TSB)</title>
-  <meta name="description" content="Học cách tính Training Stress Score bơi lội (sTSS) và các chỉ số Performance Management Chart (CTL, ATL, TSB). Theo dõi thể lực và mệt mỏi một cách khoa học. Bao gồm ví">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="TSS bơi lội, máy tính sTSS, training stress score, CTL ATL TSB, PMC bơi lội">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/vi/training-load/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-13T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/vi/training-load/">
-  <meta property="og:title" content="Máy Tính TSS Bơi lội: Tải Luyện tập và PMC (CTL/ATL/TSB)">
-  <meta property="og:description" content="Học cách tính Training Stress Score bơi lội (sTSS) và các chỉ số Performance Management Chart (CTL, ATL, TSB). Theo dõi thể lực và mệt mỏi một cách khoa học. Bao gồm ví">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="vi_VN">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/vi/training-load/">
-  <meta name="twitter:title" content="Máy Tính TSS Bơi lội: Tải Luyện tập và PMC (CTL/ATL/TSB)">
-  <meta name="twitter:description" content="Học cách tính Training Stress Score bơi lội (sTSS) và các chỉ số Performance Management Chart (CTL, ATL, TSB). Theo dõi thể lực và mệt mỏi một cách khoa học. Bao gồm ví">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/training-load/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/training-load/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/training-load/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/training-load/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/training-load/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/training-load/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/training-load/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/training-load/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/training-load/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/training-load/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/training-load/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/training-load/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/training-load/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/training-load/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/training-load/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/training-load/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/training-load/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/training-load/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/training-load/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/training-load/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/training-load/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/training-load/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/training-load/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/training-load/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/training-load/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/training-load/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/training-load/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/training-load/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/training-load/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/training-load/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/training-load/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/training-load/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/training-load/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/training-load/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/training-load/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/training-load/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/training-load/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/training-load/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/training-load/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/training-load/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/training-load/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/training-load/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/training-load/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/training-load/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/training-load/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/training-load/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/training-load/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/training-load/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/training-load/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/training-load/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/training-load/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/training-load/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/training-load/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/training-load/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/training-load/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/training-load/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="vi" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>Máy Tính TSS Bơi lội: Tải Luyện tập và PMC (CTL/ATL/TSB)</title><meta name="description" content="Học cách tính Training Stress Score bơi lội (sTSS) và các chỉ số Performance Management Chart (CTL, ATL, TSB). Theo dõi thể lực và mệt mỏi một cách khoa học. Bao gồm ví"><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="TSS bơi lội, máy tính sTSS, training stress score, CTL ATL TSB, PMC bơi lội"><link rel="canonical" href="https://bike.analyticszone.app/vi/training-load/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-01-13T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/vi/training-load/"><meta property="og:title" content="Máy Tính TSS Bơi lội: Tải Luyện tập và PMC (CTL/ATL/TSB)"><meta property="og:description" content="Học cách tính Training Stress Score bơi lội (sTSS) và các chỉ số Performance Management Chart (CTL, ATL, TSB). Theo dõi thể lực và mệt mỏi một cách khoa học. Bao gồm ví"><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/vi/training-load/"><meta name="twitter:title" content="Máy Tính TSS Bơi lội: Tải Luyện tập và PMC (CTL/ATL/TSB)"><meta name="twitter:description" content="Học cách tính Training Stress Score bơi lội (sTSS) và các chỉ số Performance Management Chart (CTL, ATL, TSB). Theo dõi thể lực và mệt mỏi một cách khoa học. Bao gồm ví"><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/training-load/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/training-load/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/training-load/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/training-load/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/training-load/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/training-load/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/training-load/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/training-load/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/training-load/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/training-load/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/training-load/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/training-load/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/training-load/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/training-load/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/training-load/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/training-load/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/training-load/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/training-load/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/training-load/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/training-load/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/training-load/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/training-load/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/training-load/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/training-load/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/training-load/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/training-load/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/training-load/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/training-load/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/training-load/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/training-load/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/training-load/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/training-load/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/training-load/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/training-load/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/training-load/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/training-load/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/training-load/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/training-load/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/training-load/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/training-load/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/training-load/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/training-load/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/training-load/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/training-load/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/training-load/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/training-load/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/training-load/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/training-load/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/training-load/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/training-load/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/training-load/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/training-load/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/training-load/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/training-load/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/training-load/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/training-load/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "vi"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "Học cách tính Training Stress Score bơi lội (sTSS) và các chỉ số Performance Management Chart (CTL, ATL, TSB). Theo dõi thể lực và mệt mỏi một cách khoa học. Bao gồm ví",
   "url": "https://bike.analyticszone.app/vi/training-load/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -653,17 +435,7 @@ img[width][height] {
     "@id": "https://bike.analyticszone.app/vi/training-load/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1510 +449,428 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">Chuyển đến nội dung</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/vi/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/vi/" 
+  </script></head><body><a href="#main-content" class="skip-link">Chuyển đến nội dung</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/vi/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/vi/" 
                                 aria-current="">
                                 Trang chủ
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/vi/getting-started/" class="nav-label">Học tập</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/vi/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/vi/getting-started/" class="nav-label">Học tập</a><ul class="submenu"><li><a href="/vi/getting-started/" 
                                         aria-current="">
                                         Bắt đầu
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/ftp/" 
+                                    </a></li><li><a href="/vi/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/critical-power/" 
+                                    </a></li><li><a href="/vi/critical-power/" 
                                         aria-current="">
                                         Công suất tới hạn
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/training-zones/" 
+                                    </a></li><li><a href="/vi/training-zones/" 
                                         aria-current="">
                                         Vùng luyện tập
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/training-load/" class="active" 
+                                    </a></li><li><a href="/vi/training-load/" class="active" 
                                         aria-current="page">
                                         Khối lượng luyện tập
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/tss-calculator/" 
+                                    </a></li><li><a href="/vi/tss-calculator/" 
                                         aria-current="">
                                         Máy tính TSS
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/vi/research/" class="nav-label">Khoa học</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/vi/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/vi/research/" class="nav-label">Khoa học</a><ul class="submenu"><li><a href="/vi/research/" 
                                         aria-current="">
                                         Nghiên cứu
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/formulas/" 
+                                    </a></li><li><a href="/vi/formulas/" 
                                         aria-current="">
                                         Công thức
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/power-metrics/" 
+                                    </a></li><li><a href="/vi/power-metrics/" 
                                         aria-current="">
                                         Chỉ số công suất
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/efficiency/" 
+                                    </a></li><li><a href="/vi/efficiency/" 
                                         aria-current="">
                                         Hiệu quả
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/pedaling-mechanics/" 
+                                    </a></li><li><a href="/vi/pedaling-mechanics/" 
                                         aria-current="">
                                         Cơ chế đạp xe
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/aerodynamics/" 
+                                    </a></li><li><a href="/vi/aerodynamics/" 
                                         aria-current="">
                                         Khí động học
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/climbing-performance/" 
+                                    </a></li><li><a href="/vi/climbing-performance/" 
                                         aria-current="">
                                         Hiệu suất leo dốc
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/bibliography/" 
+                                    </a></li><li><a href="/vi/bibliography/" 
                                         aria-current="">
                                         Thư mục tài liệu
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/vi/road-cycling/" class="nav-label">Bộ môn</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/vi/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/vi/road-cycling/" class="nav-label">Bộ môn</a><ul class="submenu"><li><a href="/vi/road-cycling/" 
                                         aria-current="">
                                         Đua xe đạp đường trường
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/mountain-biking/" 
+                                    </a></li><li><a href="/vi/mountain-biking/" 
                                         aria-current="">
                                         Xe đạp leo núi
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/road-vs-mtb/" 
+                                    </a></li><li><a href="/vi/road-vs-mtb/" 
                                         aria-current="">
                                         Đường trường vs MTB
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/vi/comparisons/" 
+                                    </a></li><li><a href="/vi/comparisons/" 
                                         aria-current="">
                                         So sánh nền tảng
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/vi/contact/" 
+                                    </a></li></ul></li><li><a href="/vi/contact/" 
                                 aria-current="">
                                 Liên hệ
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="Chọn ngôn ngữ">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="Chọn ngôn ngữ"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" selected>
+                        </option><option value="vi" selected>
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="Bật/tắt menu"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/vi/">Trang chủ</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/vi/getting-started/">Học tập</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">Khối lượng luyện tập</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-    <section class="page-hero">
-    <div class="container">
-        <h1>Quản lý Tải trọng Tập luyện: TSS, CTL, ATL & TSB trong Đạp xe</h1>
-        <p class="lead">Làm chủ Biểu đồ Quản lý Hiệu suất để tối ưu hóa việc tập luyện, ngăn ngừa quá tải và đạt đỉnh
-            phong độ cho các mục tiêu đạp xe của bạn</p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <div class="callout callout-success">
-            <h2>🎯 Các Thông tin Chính: Tải trọng Tập luyện trong Đạp xe</h2>
-            <ul>
-                <li><strong>Điểm Căng thẳng Tập luyện (TSS)</strong> định lượng mức độ ảnh hưởng của mỗi chuyến đạp xe
-                    lên cơ thể bạn, kết hợp giữa công suất, cường độ và thời gian</li>
-                <li><strong>CTL (Tải trọng Tập luyện Dài hạn)</strong> đo lường thể lực dài hạn của bạn được xây dựng
-                    qua 42 ngày tập luyện nhất quán</li>
-                <li><strong>ATL (Tải trọng Tập luyện Ngắn hạn)</strong> theo dõi sự mệt mỏi gần đây từ 7 ngày đạp xe vừa
-                    qua</li>
-                <li><strong>TSB (Cân bằng Căng thẳng Tập luyện)</strong> cho thấy sự cân bằng giữa thể lực và mệt mỏi,
-                    và mức độ sẵn sàng để thi đấu hoặc phục hồi của bạn</li>
-                <li>Hiểu về tải trọng tập luyện giúp ngăn ngừa quá tải và tối ưu hóa thời điểm đạt hiệu suất cao nhất
-                    thông qua việc lập chu kỳ tập luyện dựa trên dữ liệu</li>
-            </ul>
-            <p><em>Nền tảng: Việc tính toán TSS yêu cầu <a href="/vi/ftp/">Công suất Ngưỡng Chức năng (FTP)</a>
-                    của bạn làm điểm tham chiếu ngưỡng.</em></p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>Điểm Căng thẳng Tập luyện (TSS) là gì?</h2>
-        <p class="lead">Điểm Căng thẳng Tập luyện trả lời cho câu hỏi quan trọng: <strong>Chuyến đạp đó nặng đến mức
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="Bật/tắt menu"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/vi/">Trang chủ</a></li><li><a href="/vi/getting-started/">Học tập</a></li><li><span aria-current="page">Khối lượng luyện tập</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>Quản lý Tải trọng Tập luyện: TSS, CTL, ATL & TSB trong Đạp xe</h1><p class="lead">Làm chủ Biểu đồ Quản lý Hiệu suất để tối ưu hóa việc tập luyện, ngăn ngừa quá tải và đạt đỉnh
+            phong độ cho các mục tiêu đạp xe của bạn</p></div></section><section class="section"><div class="container container-narrow"><div class="callout callout-success"><h2>🎯 Các Thông tin Chính: Tải trọng Tập luyện trong Đạp xe</h2><ul><li><strong>Điểm Căng thẳng Tập luyện (TSS)</strong> định lượng mức độ ảnh hưởng của mỗi chuyến đạp xe
+                    lên cơ thể bạn, kết hợp giữa công suất, cường độ và thời gian</li><li><strong>CTL (Tải trọng Tập luyện Dài hạn)</strong> đo lường thể lực dài hạn của bạn được xây dựng
+                    qua 42 ngày tập luyện nhất quán</li><li><strong>ATL (Tải trọng Tập luyện Ngắn hạn)</strong> theo dõi sự mệt mỏi gần đây từ 7 ngày đạp xe vừa
+                    qua</li><li><strong>TSB (Cân bằng Căng thẳng Tập luyện)</strong> cho thấy sự cân bằng giữa thể lực và mệt mỏi,
+                    và mức độ sẵn sàng để thi đấu hoặc phục hồi của bạn</li><li>Hiểu về tải trọng tập luyện giúp ngăn ngừa quá tải và tối ưu hóa thời điểm đạt hiệu suất cao nhất
+                    thông qua việc lập chu kỳ tập luyện dựa trên dữ liệu</li></ul><p><em>Nền tảng: Việc tính toán TSS yêu cầu <a href="/vi/ftp/">Công suất Ngưỡng Chức năng (FTP)</a>
+                    của bạn làm điểm tham chiếu ngưỡng.</em></p></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Điểm Căng thẳng Tập luyện (TSS) là gì?</h2><p class="lead">Điểm Căng thẳng Tập luyện trả lời cho câu hỏi quan trọng: <strong>Chuyến đạp đó nặng đến mức
                 nào?</strong> Không chỉ là khoảng cách hay thời gian, mà là căng thẳng sinh lý thực sự tác động lên cơ
-            thể bạn sau mỗi buổi đạp xe.</p>
-
-        <p>Điểm Căng thẳng Tập luyện (TSS), được phát triển bởi Tiến sĩ Andrew Coggan, cung cấp một phương pháp tiêu
+            thể bạn sau mỗi buổi đạp xe.</p><p>Điểm Căng thẳng Tập luyện (TSS), được phát triển bởi Tiến sĩ Andrew Coggan, cung cấp một phương pháp tiêu
             chuẩn hóa để định lượng cường độ và thời gian của buổi tập thành một con số duy nhất. TSS đã cách mạng hóa
             việc tập luyện đạp xe bằng cách làm cho việc tập luyện dựa trên công suất trở nên dễ tiếp cận và có thể hành
-            động được.</p>
-
-        <div class="callout callout-info">
-            <h3>Tiêu chuẩn TSS cho Đạp xe</h3>
-            <p>Một giờ đạp tại mức <a href="/vi/ftp/">Công suất Ngưỡng Chức năng (FTP)</a> của bạn = <strong>100
-                    TSS</strong></p>
-            <p>Sự tiêu chuẩn hóa này cho phép so sánh giữa các buổi tập, các tuần và các chu kỳ tập luyện khác nhau. Một
-                nỗ lực ngưỡng trong 30 phút = ~50 TSS. Một chuyến đạp ngưỡng trong 2 giờ = ~200 TSS.</p>
-        </div>
-
-        <h3>Cách tính TSS</h3>
-        <div class="formula-box">
-            <div class="formula">
+            động được.</p><div class="callout callout-info"><h3>Tiêu chuẩn TSS cho Đạp xe</h3><p>Một giờ đạp tại mức <a href="/vi/ftp/">Công suất Ngưỡng Chức năng (FTP)</a> của bạn = <strong>100
+                    TSS</strong></p><p>Sự tiêu chuẩn hóa này cho phép so sánh giữa các buổi tập, các tuần và các chu kỳ tập luyện khác nhau. Một
+                nỗ lực ngưỡng trong 30 phút = ~50 TSS. Một chuyến đạp ngưỡng trong 2 giờ = ~200 TSS.</p></div><h3>Cách tính TSS</h3><div class="formula-box"><div class="formula">
                 TSS = (giây × NP × IF) / (FTP × 3600) × 100
-            </div>
-            <div class="formula-explanation">
-                <p>Trong đó:</p>
-                <ul>
-                    <li><strong>NP (Normalized Power)</strong> = Công suất Chuẩn hóa - "cái giá" sinh lý của chuyến đạp
-                    </li>
-                    <li><strong>IF (Intensity Factor)</strong> = Hệ số Cường độ = NP / FTP (cường độ tương đối so với
-                        ngưỡng)</li>
-                    <li><strong>Duration</strong> = Tổng thời gian đạp tính bằng giây</li>
-                    <li><strong>FTP</strong> = Công suất ngưỡng chức năng của bạn tính bằng watt</li>
-                </ul>
-            </div>
-        </div>
-
-        <h3>Ví dụ Thực tế: Chuyến Đạp Sức bền 2 Giờ</h3>
-        <div class="example-box">
-            <h4>Hồ sơ Người đạp:</h4>
-            <ul>
-                <li>FTP: <strong>250W</strong></li>
-            </ul>
-
-            <h4>Dữ liệu Chuyến đạp:</h4>
-            <ul>
-                <li>Thời gian: <strong>2 giờ (7200 giây)</strong></li>
-                <li>Công suất Chuẩn hóa (NP): <strong>200W</strong></li>
-            </ul>
-
-            <h4>Bước 1: Tính Hệ số Cường độ (IF)</h4>
-            <div class="calculation">
+            </div><div class="formula-explanation"><p>Trong đó:</p><ul><li><strong>NP (Normalized Power)</strong> = Công suất Chuẩn hóa - "cái giá" sinh lý của chuyến đạp
+                    </li><li><strong>IF (Intensity Factor)</strong> = Hệ số Cường độ = NP / FTP (cường độ tương đối so với
+                        ngưỡng)</li><li><strong>Duration</strong> = Tổng thời gian đạp tính bằng giây</li><li><strong>FTP</strong> = Công suất ngưỡng chức năng của bạn tính bằng watt</li></ul></div></div><h3>Ví dụ Thực tế: Chuyến Đạp Sức bền 2 Giờ</h3><div class="example-box"><h4>Hồ sơ Người đạp:</h4><ul><li>FTP: <strong>250W</strong></li></ul><h4>Dữ liệu Chuyến đạp:</h4><ul><li>Thời gian: <strong>2 giờ (7200 giây)</strong></li><li>Công suất Chuẩn hóa (NP): <strong>200W</strong></li></ul><h4>Bước 1: Tính Hệ số Cường độ (IF)</h4><div class="calculation">
                 IF = NP / FTP<br>
                 IF = 200W / 250W<br>
-                IF = <strong>0,80</strong>
-            </div>
-
-            <h4>Bước 2: Tính TSS</h4>
-            <div class="calculation">
+                IF = <strong>0,80</strong></div><h4>Bước 2: Tính TSS</h4><div class="calculation">
                 TSS = (7200s × 200W × 0,80) / (250W × 3600) × 100<br>
                 TSS = (1.152.000) / (900.000) × 100<br>
-                TSS = <strong>128 TSS</strong>
-            </div>
-
-            <p class="mt-md"><strong>Giải mã:</strong> Chuyến đạp sức bền 2 giờ này ở mức 80% FTP đã tạo ra 128 TSS—một
-                kích thích tập luyện hiếu khí ổn định điển hình của các chuyến đạp xây dựng nền tảng.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2 class="text-center mb-xl">Hướng dẫn TSS theo Loại hình Buổi tập</h2>
-
-        <div class="intensity-guide">
-            <table class="intensity-table">
-                <thead>
-                    <tr>
-                        <th>Loại hình Buổi tập</th>
-                        <th>Khoảng TSS</th>
-                        <th>Hệ số Cường độ (IF)</th>
-                        <th>Mô tả</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Đạp Phục hồi</strong></td>
-                        <td>20-50 TSS</td>
-                        <td>IF &lt; 0,65</td>
-                        <td>Đạp nhẹ nhàng, phục hồi tích cực, 30-60 phút</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sức bền nhẹ</strong></td>
-                        <td>50-100 TSS</td>
-                        <td>IF 0,65-0,75</td>
-                        <td>Tốc độ có thể trò chuyện, xây dựng nền tảng hiếu khí, 1-2 giờ</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sức bền vừa phải</strong></td>
-                        <td>100-150 TSS</td>
-                        <td>IF 0,75-0,85</td>
-                        <td>Đạp trạng thái ổn định, đạp nhóm, 2-3 giờ</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Đạp Tempo</strong></td>
-                        <td>150-200 TSS</td>
-                        <td>IF 0,85-0,95</td>
-                        <td>Tập luyện Sweet spot, nỗ lực tempo duy trì, 2-3 giờ</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Bài tập Ngưỡng (Threshold)</strong></td>
-                        <td>200-300 TSS</td>
-                        <td>IF 0,95-1,05</td>
-                        <td>Các quãng tập FTP, mô phỏng đua, 2-4 giờ chất lượng</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Quãng tập VO₂max</strong></td>
-                        <td>150-250 TSS</td>
-                        <td>IF 1,05-1,15</td>
-                        <td>Các quãng tập nặng ở 120% FTP, 1-2 giờ cường độ cao</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Mô phỏng Đua</strong></td>
-                        <td>200-400 TSS</td>
-                        <td>IF 0,90-1,05</td>
-                        <td>Các nỗ lực đặc thù cho sự kiện, criterium, đua đường trường, 2-5 giờ</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="callout callout-tip mt-lg">
-            <h3>📊 Mục tiêu TSS hàng tuần theo trình độ</h3>
-            <ul>
-                <li><strong>Người mới bắt đầu:</strong> 200-400 TSS/tuần (3-4 buổi/tuần)</li>
-                <li><strong>Người đạp phong trào:</strong> 400-600 TSS/tuần (4-5 buổi/tuần)</li>
-                <li><strong>VĐV phong trào thi đấu:</strong> 600-900 TSS/tuần (5-7 buổi/tuần)</li>
-                <li><strong>Elite/Chuyên nghiệp:</strong> 900-1500+ TSS/tuần (8-12+ buổi/tuần)</li>
-            </ul>
-            <p>Những chỉ số này tích lũy dần tạo thành Tải trọng Tập luyện Dài hạn (CTL) - chỉ số thể lực sẽ được giải
-                thích bên dưới.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="text-center mb-xl">Biểu đồ Quản lý Hiệu suất (PMC)</h2>
-        <p class="text-center lead">PMC trực quan hóa ba chỉ số đan xen giúp kể lại câu chuyện hoàn chỉnh về quá trình
-            tập luyện của bạn: thể lực, mệt mỏi và phong độ.</p>
-
-        <div class="pmc-overview">
-            <div class="grid grid-3">
-                <div class="pmc-metric">
-                    <div class="metric-icon">📈</div>
-                    <h3>CTL - Tải trọng Tập luyện Dài hạn</h3>
-                    <div class="metric-value-label">THỂ LỰC của bạn</div>
-                    <p>Trung bình trượt có trọng số hàm mũ trong 42 ngày của TSS hàng ngày. Đại diện cho thể lực hiếu
-                        khí dài hạn và sự thích nghi tập luyện từ việc đạp xe nhất quán.</p>
-                    <div class="formula-small">
+                TSS = <strong>128 TSS</strong></div><p class="mt-md"><strong>Giải mã:</strong> Chuyến đạp sức bền 2 giờ này ở mức 80% FTP đã tạo ra 128 TSS—một
+                kích thích tập luyện hiếu khí ổn định điển hình của các chuyến đạp xây dựng nền tảng.</p></div></div></section><section class="section"><div class="container"><h2 class="text-center mb-xl">Hướng dẫn TSS theo Loại hình Buổi tập</h2><div class="intensity-guide"><table class="intensity-table"><thead><tr><th>Loại hình Buổi tập</th><th>Khoảng TSS</th><th>Hệ số Cường độ (IF)</th><th>Mô tả</th></tr></thead><tbody><tr><td><strong>Đạp Phục hồi</strong></td><td>20-50 TSS</td><td>IF &lt; 0,65</td><td>Đạp nhẹ nhàng, phục hồi tích cực, 30-60 phút</td></tr><tr><td><strong>Sức bền nhẹ</strong></td><td>50-100 TSS</td><td>IF 0,65-0,75</td><td>Tốc độ có thể trò chuyện, xây dựng nền tảng hiếu khí, 1-2 giờ</td></tr><tr><td><strong>Sức bền vừa phải</strong></td><td>100-150 TSS</td><td>IF 0,75-0,85</td><td>Đạp trạng thái ổn định, đạp nhóm, 2-3 giờ</td></tr><tr><td><strong>Đạp Tempo</strong></td><td>150-200 TSS</td><td>IF 0,85-0,95</td><td>Tập luyện Sweet spot, nỗ lực tempo duy trì, 2-3 giờ</td></tr><tr><td><strong>Bài tập Ngưỡng (Threshold)</strong></td><td>200-300 TSS</td><td>IF 0,95-1,05</td><td>Các quãng tập FTP, mô phỏng đua, 2-4 giờ chất lượng</td></tr><tr><td><strong>Quãng tập VO₂max</strong></td><td>150-250 TSS</td><td>IF 1,05-1,15</td><td>Các quãng tập nặng ở 120% FTP, 1-2 giờ cường độ cao</td></tr><tr><td><strong>Mô phỏng Đua</strong></td><td>200-400 TSS</td><td>IF 0,90-1,05</td><td>Các nỗ lực đặc thù cho sự kiện, criterium, đua đường trường, 2-5 giờ</td></tr></tbody></table></div><div class="callout callout-tip mt-lg"><h3>📊 Mục tiêu TSS hàng tuần theo trình độ</h3><ul><li><strong>Người mới bắt đầu:</strong> 200-400 TSS/tuần (3-4 buổi/tuần)</li><li><strong>Người đạp phong trào:</strong> 400-600 TSS/tuần (4-5 buổi/tuần)</li><li><strong>VĐV phong trào thi đấu:</strong> 600-900 TSS/tuần (5-7 buổi/tuần)</li><li><strong>Elite/Chuyên nghiệp:</strong> 900-1500+ TSS/tuần (8-12+ buổi/tuần)</li></ul><p>Những chỉ số này tích lũy dần tạo thành Tải trọng Tập luyện Dài hạn (CTL) - chỉ số thể lực sẽ được giải
+                thích bên dưới.</p></div></div></section><section class="section section-alt"><div class="container"><h2 class="text-center mb-xl">Biểu đồ Quản lý Hiệu suất (PMC)</h2><p class="text-center lead">PMC trực quan hóa ba chỉ số đan xen giúp kể lại câu chuyện hoàn chỉnh về quá trình
+            tập luyện của bạn: thể lực, mệt mỏi và phong độ.</p><div class="pmc-overview"><div class="grid grid-3"><div class="pmc-metric"><div class="metric-icon">📈</div><h3>CTL - Tải trọng Tập luyện Dài hạn</h3><div class="metric-value-label">THỂ LỰC của bạn</div><p>Trung bình trượt có trọng số hàm mũ trong 42 ngày của TSS hàng ngày. Đại diện cho thể lực hiếu
+                        khí dài hạn và sự thích nghi tập luyện từ việc đạp xe nhất quán.</p><div class="formula-small">
                         CTL hôm nay = CTL hôm qua + (TSS hôm nay - CTL hôm qua) / 42
-                    </div>
-                </div>
-
-                <div class="pmc-metric">
-                    <div class="metric-icon">⚡</div>
-                    <h3>ATL - Tải trọng Tập luyện Ngắn hạn</h3>
-                    <div class="metric-value-label">SỰ MỆT MỎI của bạn</div>
-                    <p>Trung bình trượt có trọng số hàm mũ trong 7 ngày của TSS hàng ngày. Nắm bắt căng thẳng tập luyện
-                        gần đây và sự mệt mỏi tích lũy từ tuần đạp xe vừa qua.</p>
-                    <div class="formula-small">
+                    </div></div><div class="pmc-metric"><div class="metric-icon">⚡</div><h3>ATL - Tải trọng Tập luyện Ngắn hạn</h3><div class="metric-value-label">SỰ MỆT MỎI của bạn</div><p>Trung bình trượt có trọng số hàm mũ trong 7 ngày của TSS hàng ngày. Nắm bắt căng thẳng tập luyện
+                        gần đây và sự mệt mỏi tích lũy từ tuần đạp xe vừa qua.</p><div class="formula-small">
                         ATL hôm nay = ATL hôm qua + (TSS hôm nay - ATL hôm qua) / 7
-                    </div>
-                </div>
-
-                <div class="pmc-metric">
-                    <div class="metric-icon">🎯</div>
-                    <h3>TSB - Cân bằng Căng thẳng Tập luyện</h3>
-                    <div class="metric-value-label">PHONG ĐỘ của bạn</div>
-                    <p>Sự chênh lệch giữa thể lực của ngày hôm qua và sự mệt mỏi của ngày hôm nay. Cho biết mức độ sẵn
-                        sàng để thi đấu hoặc nhu cầu nghỉ ngơi trước buổi tập chất lượng hoặc cuộc đua tiếp theo.</p>
-                    <div class="formula-small">
+                    </div></div><div class="pmc-metric"><div class="metric-icon">🎯</div><h3>TSB - Cân bằng Căng thẳng Tập luyện</h3><div class="metric-value-label">PHONG ĐỘ của bạn</div><p>Sự chênh lệch giữa thể lực của ngày hôm qua và sự mệt mỏi của ngày hôm nay. Cho biết mức độ sẵn
+                        sàng để thi đấu hoặc nhu cầu nghỉ ngơi trước buổi tập chất lượng hoặc cuộc đua tiếp theo.</p><div class="formula-small">
                         TSB = CTL (hôm qua) - ATL (hôm nay)
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2>CTL: Chỉ số Thể lực Đạp xe của bạn</h2>
-
-        <div class="grid grid-2">
-            <div>
-                <h3>CTL đại diện cho điều gì</h3>
-                <p>CTL định lượng tải trọng tập luyện mà cơ thể bạn đã <em>thích nghi</em> trong 6 tuần qua. Chỉ số CTL
-                    cao hơn trong đạp xe có nghĩa là:</p>
-                <ul>
-                    <li>Khả năng hiếu khí và sức bền lớn hơn</li>
-                    <li>Khả năng xử lý khối lượng và cường độ tập luyện nhiều hơn</li>
-                    <li>Cải thiện hiệu quả trao đổi chất và oxy hóa chất béo</li>
-                    <li>Công suất đầu ra bền vững cao hơn</li>
-                    <li>Phục hồi tốt hơn giữa các nỗ lực nặng</li>
-                </ul>
-
-                <div class="callout callout-info">
-                    <h4>Hằng số Thời gian: 42 Ngày</h4>
-                    <p>CTL có chu kỳ bán rã khoảng 14-15 ngày. Sau 42 ngày, khoảng 36,8% (1/e) tác động của một buổi tập
-                        duy nhất vẫn còn lại trong tính toán thể lực của bạn.</p>
-                    <p>Sự suy giảm chậm này có nghĩa là thể lực được xây dựng dần dần nhưng cũng mất đi từ từ—bạn có thể
-                        nghỉ một tuần mà không làm mất đi quá nhiều thể lực.</p>
-                </div>
-            </div>
-
-            <div>
-                <h3>Các giá trị CTL điển hình theo trình độ</h3>
-                <div class="levels-comparison">
-                    <div class="level-card-compact">
-                        <strong>Người mới bắt đầu:</strong>
-                        <div class="value">20-40 CTL</div>
-                        <p>Xây dựng thể lực nền tảng, 3-4 buổi/tuần</p>
-                    </div>
-
-                    <div class="level-card-compact">
-                        <strong>Người đạp phong trào:</strong>
-                        <div class="value">40-80 CTL</div>
-                        <p>Tập luyện đều đặn, 4-5 buổi/tuần</p>
-                    </div>
-
-                    <div class="level-card-compact">
-                        <strong>VĐV phong trào thi đấu:</strong>
-                        <div class="value">80-120 CTL</div>
-                        <p>Thi đấu khối lượng cao, 6-8 buổi/tuần</p>
-                    </div>
-
-                    <div class="level-card-compact">
-                        <strong>Elite/Chuyên nghiệp:</strong>
-                        <div class="value">120-200+ CTL</div>
-                        <p>Tải trọng tập luyện chuyên nghiệp, 10-15+ giờ/tuần</p>
-                    </div>
-                </div>
-
-                <div class="warning-box mt-md">
-                    <strong>⚠️ Giới hạn Tốc độ tăng CTL (Ramp Rate)</strong>
-                    <ul>
-                        <li><strong>An toàn:</strong> +3-8 CTL mỗi tuần</li>
-                        <li><strong>Mạnh mẽ nhưng bền vững:</strong> +8-12 CTL mỗi tuần</li>
-                        <li><strong>Nguy cơ cao:</strong> >12 CTL mỗi tuần</li>
-                    </ul>
-                    <p>Vượt quá các tốc độ này làm tăng đáng kể nguy cơ chấn thương và bệnh tật. Hãy xây dựng dần dần để
-                        có sự tăng trưởng thể lực bền vững.</p>
-                </div>
-            </div>
-        </div>
-
-        <h3 class="mt-xl">Xây dựng CTL An toàn: Tốc độ Tăng trưởng</h3>
-        <div class="example-box">
-            <h4>Ví dụ Tiến trình CTL (Giai đoạn nền tảng 12 tuần)</h4>
-            <ul>
-                <li><strong>Tuần 1:</strong> CTL 60 → 65 (+5)</li>
-                <li><strong>Tuần 2:</strong> CTL 65 → 70 (+5)</li>
-                <li><strong>Tuần 3:</strong> CTL 70 → 75 (+5)</li>
-                <li><strong>Tuần 4:</strong> CTL 75 → 78 (+3, tuần phục hồi)</li>
-                <li>...</li>
-                <li><strong>Tuần 12:</strong> CTL 114 → 116 (+2, phục hồi trước giai đoạn mới)</li>
-            </ul>
-            <p><strong>Kết quả:</strong> Tăng 56 điểm CTL trong 12 tuần (trung bình 4,7/tuần) - tiến trình bền vững từ
-                trình độ phong trào lên cấp độ thi đấu.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2>ATL: Chỉ số Mệt mỏi Đạp xe của bạn</h2>
-
-        <div class="content-split">
-            <div>
-                <p>ATL theo dõi căng thẳng tập luyện ngắn hạn—sự mệt mỏi tích lũy trong tuần đạp xe vừa qua. Nó tăng
+                    </div></div></div></div></div></section><section class="section"><div class="container"><h2>CTL: Chỉ số Thể lực Đạp xe của bạn</h2><div class="grid grid-2"><div><h3>CTL đại diện cho điều gì</h3><p>CTL định lượng tải trọng tập luyện mà cơ thể bạn đã <em>thích nghi</em> trong 6 tuần qua. Chỉ số CTL
+                    cao hơn trong đạp xe có nghĩa là:</p><ul><li>Khả năng hiếu khí và sức bền lớn hơn</li><li>Khả năng xử lý khối lượng và cường độ tập luyện nhiều hơn</li><li>Cải thiện hiệu quả trao đổi chất và oxy hóa chất béo</li><li>Công suất đầu ra bền vững cao hơn</li><li>Phục hồi tốt hơn giữa các nỗ lực nặng</li></ul><div class="callout callout-info"><h4>Hằng số Thời gian: 42 Ngày</h4><p>CTL có chu kỳ bán rã khoảng 14-15 ngày. Sau 42 ngày, khoảng 36,8% (1/e) tác động của một buổi tập
+                        duy nhất vẫn còn lại trong tính toán thể lực của bạn.</p><p>Sự suy giảm chậm này có nghĩa là thể lực được xây dựng dần dần nhưng cũng mất đi từ từ—bạn có thể
+                        nghỉ một tuần mà không làm mất đi quá nhiều thể lực.</p></div></div><div><h3>Các giá trị CTL điển hình theo trình độ</h3><div class="levels-comparison"><div class="level-card-compact"><strong>Người mới bắt đầu:</strong><div class="value">20-40 CTL</div><p>Xây dựng thể lực nền tảng, 3-4 buổi/tuần</p></div><div class="level-card-compact"><strong>Người đạp phong trào:</strong><div class="value">40-80 CTL</div><p>Tập luyện đều đặn, 4-5 buổi/tuần</p></div><div class="level-card-compact"><strong>VĐV phong trào thi đấu:</strong><div class="value">80-120 CTL</div><p>Thi đấu khối lượng cao, 6-8 buổi/tuần</p></div><div class="level-card-compact"><strong>Elite/Chuyên nghiệp:</strong><div class="value">120-200+ CTL</div><p>Tải trọng tập luyện chuyên nghiệp, 10-15+ giờ/tuần</p></div></div><div class="warning-box mt-md"><strong>⚠️ Giới hạn Tốc độ tăng CTL (Ramp Rate)</strong><ul><li><strong>An toàn:</strong> +3-8 CTL mỗi tuần</li><li><strong>Mạnh mẽ nhưng bền vững:</strong> +8-12 CTL mỗi tuần</li><li><strong>Nguy cơ cao:</strong> >12 CTL mỗi tuần</li></ul><p>Vượt quá các tốc độ này làm tăng đáng kể nguy cơ chấn thương và bệnh tật. Hãy xây dựng dần dần để
+                        có sự tăng trưởng thể lực bền vững.</p></div></div></div><h3 class="mt-xl">Xây dựng CTL An toàn: Tốc độ Tăng trưởng</h3><div class="example-box"><h4>Ví dụ Tiến trình CTL (Giai đoạn nền tảng 12 tuần)</h4><ul><li><strong>Tuần 1:</strong> CTL 60 → 65 (+5)</li><li><strong>Tuần 2:</strong> CTL 65 → 70 (+5)</li><li><strong>Tuần 3:</strong> CTL 70 → 75 (+5)</li><li><strong>Tuần 4:</strong> CTL 75 → 78 (+3, tuần phục hồi)</li><li>...</li><li><strong>Tuần 12:</strong> CTL 114 → 116 (+2, phục hồi trước giai đoạn mới)</li></ul><p><strong>Kết quả:</strong> Tăng 56 điểm CTL trong 12 tuần (trung bình 4,7/tuần) - tiến trình bền vững từ
+                trình độ phong trào lên cấp độ thi đấu.</p></div></div></section><section class="section section-alt"><div class="container"><h2>ATL: Chỉ số Mệt mỏi Đạp xe của bạn</h2><div class="content-split"><div><p>ATL theo dõi căng thẳng tập luyện ngắn hạn—sự mệt mỏi tích lũy trong tuần đạp xe vừa qua. Nó tăng
                     nhanh sau khi tập nặng và giảm nhanh khi nghỉ ngơi, làm cho nó trở nên thiết yếu để quản lý sự phục
-                    hồi giữa các buổi tập chất lượng.</p>
-
-                <h3>Động lực của ATL trong Tập luyện Đạp xe</h3>
-                <ul>
-                    <li><strong>Phản ứng nhanh:</strong> Hằng số thời gian 7 ngày (chu kỳ bán rã ~2,4 ngày)</li>
-                    <li><strong>Mô hình hình răng cưa:</strong> Nhảy vọt sau các chuyến đạp nặng, giảm mạnh trong những
-                        ngày phục hồi</li>
-                    <li><strong>Chỉ báo phục hồi:</strong> ATL giảm = sự mệt mỏi đang tan biến giữa các buổi tập</li>
-                    <li><strong>Cảnh báo quá tải:</strong> ATL duy trì ở mức cao liên tục cho thấy sự phục hồi không đầy
-                        đủ</li>
-                    <li><strong>Cân bằng tập luyện:</strong> ATL nên bám theo CTL nhưng dao động mạnh hơn</li>
-                </ul>
-
-                <div class="callout callout-science">
-                    <h4>🔬 Mô hình Thể lực - Mệt mỏi</h4>
-                    <p>Mỗi chuyến đạp xe tập luyện tạo ra hai hiệu ứng:</p>
-                    <ol>
-                        <li><strong>Kích thích thể lực</strong> (xây dựng chậm, kéo dài lâu)</li>
-                        <li><strong>Sự mệt mỏi</strong> (tích tụ nhanh, tan biến nhanh)</li>
-                    </ol>
-                    <p>Hiệu suất = Thể lực - Mệt mỏi. Biểu đồ PMC trực quan hóa mô hình này, cho phép lập chu kỳ tập
-                        luyện một cách khoa học và chọn điểm rơi phong độ tối ưu.</p>
-                </div>
-            </div>
-
-            <div>
-                <h3>Ở Trạng thái Ổn định</h3>
-                <p>Khi tải trọng tập luyện ổn định giữa các tuần, CTL và ATL sẽ hội tụ:</p>
-                <div class="example-box">
-                    <h4>Ví dụ: 500 TSS/tuần nhất quán</h4>
-                    <div class="calculation">
+                    hồi giữa các buổi tập chất lượng.</p><h3>Động lực của ATL trong Tập luyện Đạp xe</h3><ul><li><strong>Phản ứng nhanh:</strong> Hằng số thời gian 7 ngày (chu kỳ bán rã ~2,4 ngày)</li><li><strong>Mô hình hình răng cưa:</strong> Nhảy vọt sau các chuyến đạp nặng, giảm mạnh trong những
+                        ngày phục hồi</li><li><strong>Chỉ báo phục hồi:</strong> ATL giảm = sự mệt mỏi đang tan biến giữa các buổi tập</li><li><strong>Cảnh báo quá tải:</strong> ATL duy trì ở mức cao liên tục cho thấy sự phục hồi không đầy
+                        đủ</li><li><strong>Cân bằng tập luyện:</strong> ATL nên bám theo CTL nhưng dao động mạnh hơn</li></ul><div class="callout callout-science"><h4>🔬 Mô hình Thể lực - Mệt mỏi</h4><p>Mỗi chuyến đạp xe tập luyện tạo ra hai hiệu ứng:</p><ol><li><strong>Kích thích thể lực</strong> (xây dựng chậm, kéo dài lâu)</li><li><strong>Sự mệt mỏi</strong> (tích tụ nhanh, tan biến nhanh)</li></ol><p>Hiệu suất = Thể lực - Mệt mỏi. Biểu đồ PMC trực quan hóa mô hình này, cho phép lập chu kỳ tập
+                        luyện một cách khoa học và chọn điểm rơi phong độ tối ưu.</p></div></div><div><h3>Ở Trạng thái Ổn định</h3><p>Khi tải trọng tập luyện ổn định giữa các tuần, CTL và ATL sẽ hội tụ:</p><div class="example-box"><h4>Ví dụ: 500 TSS/tuần nhất quán</h4><div class="calculation">
                         TSS hàng ngày ≈ 71<br>
                         CTL tiến gần mức ~71<br>
                         ATL tiến gần mức ~71<br>
                         TSB tiến gần mức 0
-                    </div>
-                    <p><strong>Giải mã:</strong> Thể lực và mệt mỏi được cân bằng. Duy trì tập luyện bền vững—không tích
-                        lũy thêm thâm hụt hay dư thừa.</p>
-                </div>
-
-                <h3>Trong các Giai đoạn Tăng cường (Build)</h3>
-                <p>Khi tăng khối lượng hoặc cường độ:</p>
-                <div class="example-box">
-                    <p>ATL tăng <em>nhanh hơn</em> so với CTL do hằng số thời gian ngắn hơn. TSB trở nên âm (mệt mỏi >
+                    </div><p><strong>Giải mã:</strong> Thể lực và mệt mỏi được cân bằng. Duy trì tập luyện bền vững—không tích
+                        lũy thêm thâm hụt hay dư thừa.</p></div><h3>Trong các Giai đoạn Tăng cường (Build)</h3><p>Khi tăng khối lượng hoặc cường độ:</p><div class="example-box"><p>ATL tăng <em>nhanh hơn</em> so với CTL do hằng số thời gian ngắn hơn. TSB trở nên âm (mệt mỏi >
                         thể lực). Điều này là bình thường và hiệu quả—bạn đang áp dụng mức tải quá mức để kích thích sự
-                        thích nghi.</p>
-                    <p><strong>TSB mục tiêu:</strong> -10 đến -30 trong các khối tập luyện hiệu quả</p>
-                </div>
-
-                <h3>Trong giai đoạn Taper (Chuẩn bị Đua)</h3>
-                <p>Khi giảm tải trọng tập luyện trước kỳ thi đấu:</p>
-                <div class="example-box">
-                    <p>ATL giảm <em>nhanh hơn</em> so với CTL. TSB trở nên dương (thể lực > mệt mỏi). Đây là mục
-                        tiêu—đến ngày đua với đôi chân tươi mới, sẵn sàng thi đấu trong khi vẫn giữ vững thể lực.</p>
-                    <p><strong>TSB mục tiêu:</strong> +10 đến +25 vào ngày đua tùy thuộc vào sự kiện</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2>TSB: Cân bằng Thể lực - Mệt mỏi và Sự sẵn sàng Đua</h2>
-
-        <p class="lead">TSB (Cân bằng Căng thẳng Tập luyện) là sự chênh lệch giữa thể lực của ngày hôm qua (CTL) và sự
+                        thích nghi.</p><p><strong>TSB mục tiêu:</strong> -10 đến -30 trong các khối tập luyện hiệu quả</p></div><h3>Trong giai đoạn Taper (Chuẩn bị Đua)</h3><p>Khi giảm tải trọng tập luyện trước kỳ thi đấu:</p><div class="example-box"><p>ATL giảm <em>nhanh hơn</em> so với CTL. TSB trở nên dương (thể lực > mệt mỏi). Đây là mục
+                        tiêu—đến ngày đua với đôi chân tươi mới, sẵn sàng thi đấu trong khi vẫn giữ vững thể lực.</p><p><strong>TSB mục tiêu:</strong> +10 đến +25 vào ngày đua tùy thuộc vào sự kiện</p></div></div></div></div></section><section class="section"><div class="container"><h2>TSB: Cân bằng Thể lực - Mệt mỏi và Sự sẵn sàng Đua</h2><p class="lead">TSB (Cân bằng Căng thẳng Tập luyện) là sự chênh lệch giữa thể lực của ngày hôm qua (CTL) và sự
             mệt mỏi của ngày hôm nay (ATL). Nó cho biết bạn đang tươi mới hay mệt mỏi, sẵn sàng để đua hay cần những
-            ngày phục hồi.</p>
-
-        <div class="tsb-zones-container">
-            <h3>Hướng dẫn Giải mã TSB cho Người đạp xe</h3>
-            <table class="tsb-zones-table">
-                <thead>
-                    <tr>
-                        <th>Khoảng TSB</th>
-                        <th>Trạng thái</th>
-                        <th>Giải mã</th>
-                        <th>Hành động Khuyến nghị</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="tsb-critical">
-                        <td>&lt; -30</td>
-                        <td><strong>Nguy cơ Quá tải</strong></td>
-                        <td>Mệt mỏi cực độ. Nguy cơ bệnh tật/chấn thương cao.</td>
-                        <td>Cần phục hồi ngay lập tức. Giảm 50%+ khối lượng. Cân nhắc nghỉ hoàn toàn.</td>
-                    </tr>
-                    <tr class="tsb-training">
-                        <td>-20 đến -30</td>
-                        <td><strong>Khối Tập tối ưu</strong></td>
-                        <td>Quá tải hiệu quả. Đang xây dựng thể lực.</td>
-                        <td>Tiếp tục kế hoạch. Theo dõi sự mệt mỏi quá mức hoặc suy giảm công suất.</td>
-                    </tr>
-                    <tr class="tsb-moderate">
-                        <td>-10 đến -20</td>
-                        <td><strong>Tải trọng Vừa phải</strong></td>
-                        <td>Tích lũy tập luyện tiêu chuẩn.</td>
-                        <td>Tập luyện bình thường. Có thể thực hiện các buổi interval chất lượng hoặc bài tập ngưỡng.
-                        </td>
-                    </tr>
-                    <tr class="tsb-neutral">
-                        <td>-10 đến +10</td>
-                        <td><strong>Trung tính/Duy trì</strong></td>
-                        <td>Trạng thái cân bằng. Mệt mỏi hoặc tươi mới nhẹ.</td>
-                        <td>Tốt cho các cuộc đua phụ (B/C), kiểm tra FTP, hoặc các tuần phục hồi.</td>
-                    </tr>
-                    <tr class="tsb-fresh">
-                        <td>+10 đến +25</td>
-                        <td><strong>Đỉnh cao Phong độ</strong></td>
-                        <td>Tươi mới và sung sức. Cửa sổ hiệu suất tối ưu.</td>
-                        <td>Các cuộc đua ưu tiên hàng đầu (A). Kỳ vọng hiệu suất đạp xe đạt đỉnh.</td>
-                    </tr>
-                    <tr class="tsb-very-fresh">
-                        <td>&gt; +25</td>
-                        <td><strong>Rất tươi mới/Giảm thể lực</strong></td>
-                        <td>Được nghỉ ngơi quá nhiều. Có thể đang mất dần thể lực.</td>
-                        <td>Phù hợp cho các sự kiện bùng nổ ngắn. Cần tiếp tục tập luyện nếu nghỉ quá lâu.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="callout callout-tip mt-xl">
-            <h3>🎯 TSB Mục tiêu theo Loại hình Sự kiện</h3>
-            <ul>
-                <li><strong>Criterium/Nước rút:</strong> TSB +5 đến +15 (giảm tải ngắn, giữ sự sắc bén)</li>
-                <li><strong>Đua Đường trường:</strong> TSB +10 đến +20 (giảm tải 10-14 ngày)</li>
-                <li><strong>Đua Tính giờ (TT):</strong> TSB +15 đến +25 (giảm tải 14-21 ngày để đạt công suất đỉnh)</li>
-                <li><strong>Gran Fondo/Thế kỷ:</strong> TSB +5 đến +15 (giảm tải 7-10 ngày, duy trì sức bền)</li>
-                <li><strong>Đua nhiều chặng:</strong> TSB -5 đến +10 (đến giải với chút mệt mỏi, cần sức bền hơn là sự
-                    tươi mới)</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>Lập Chu kỳ với Biểu đồ Quản lý Hiệu suất</h2>
-
-        <div class="example-box">
-            <h3>Ví dụ Chu kỳ Tập luyện 16 Tuần</h3>
-
-            <h4>Tuần 1-4: Giai đoạn Nền tảng (Base)</h4>
-            <ul>
-                <li><strong>Mục tiêu:</strong> Xây dựng CTL đều đặn ở mức 3-5 điểm/tuần</li>
-                <li><strong>CTL tiến triển:</strong> 60 → 73</li>
-                <li><strong>Khoảng TSB:</strong> -5 đến -15 (mệt mỏi trong tầm kiểm soát)</li>
-                <li><strong>Trọng tâm:</strong> Các chuyến đạp ổn định dài, sức bền Vùng 2, xây dựng nền tảng hiếu khí
-                </li>
-            </ul>
-
-            <h4>Tuần 5-8: Giai đoạn Tăng cường (Build)</h4>
-            <ul>
-                <li><strong>Mục tiêu:</strong> Tiếp tục tăng CTL 5-8 điểm/tuần với các bài tập nặng hơn</li>
-                <li><strong>CTL tiến triển:</strong> 73 → 93</li>
-                <li><strong>Khoảng TSB:</strong> -15 đến -25 (quá tải hiệu quả)</li>
-                <li><strong>Trọng tâm:</strong> Các quãng tập Sweet spot, bài tập ngưỡng, đạp tempo dài hơn</li>
-            </ul>
+            ngày phục hồi.</p><div class="tsb-zones-container"><h3>Hướng dẫn Giải mã TSB cho Người đạp xe</h3><table class="tsb-zones-table"><thead><tr><th>Khoảng TSB</th><th>Trạng thái</th><th>Giải mã</th><th>Hành động Khuyến nghị</th></tr></thead><tbody><tr class="tsb-critical"><td>&lt; -30</td><td><strong>Nguy cơ Quá tải</strong></td><td>Mệt mỏi cực độ. Nguy cơ bệnh tật/chấn thương cao.</td><td>Cần phục hồi ngay lập tức. Giảm 50%+ khối lượng. Cân nhắc nghỉ hoàn toàn.</td></tr><tr class="tsb-training"><td>-20 đến -30</td><td><strong>Khối Tập tối ưu</strong></td><td>Quá tải hiệu quả. Đang xây dựng thể lực.</td><td>Tiếp tục kế hoạch. Theo dõi sự mệt mỏi quá mức hoặc suy giảm công suất.</td></tr><tr class="tsb-moderate"><td>-10 đến -20</td><td><strong>Tải trọng Vừa phải</strong></td><td>Tích lũy tập luyện tiêu chuẩn.</td><td>Tập luyện bình thường. Có thể thực hiện các buổi interval chất lượng hoặc bài tập ngưỡng.
+                        </td></tr><tr class="tsb-neutral"><td>-10 đến +10</td><td><strong>Trung tính/Duy trì</strong></td><td>Trạng thái cân bằng. Mệt mỏi hoặc tươi mới nhẹ.</td><td>Tốt cho các cuộc đua phụ (B/C), kiểm tra FTP, hoặc các tuần phục hồi.</td></tr><tr class="tsb-fresh"><td>+10 đến +25</td><td><strong>Đỉnh cao Phong độ</strong></td><td>Tươi mới và sung sức. Cửa sổ hiệu suất tối ưu.</td><td>Các cuộc đua ưu tiên hàng đầu (A). Kỳ vọng hiệu suất đạp xe đạt đỉnh.</td></tr><tr class="tsb-very-fresh"><td>&gt; +25</td><td><strong>Rất tươi mới/Giảm thể lực</strong></td><td>Được nghỉ ngơi quá nhiều. Có thể đang mất dần thể lực.</td><td>Phù hợp cho các sự kiện bùng nổ ngắn. Cần tiếp tục tập luyện nếu nghỉ quá lâu.</td></tr></tbody></table></div><div class="callout callout-tip mt-xl"><h3>🎯 TSB Mục tiêu theo Loại hình Sự kiện</h3><ul><li><strong>Criterium/Nước rút:</strong> TSB +5 đến +15 (giảm tải ngắn, giữ sự sắc bén)</li><li><strong>Đua Đường trường:</strong> TSB +10 đến +20 (giảm tải 10-14 ngày)</li><li><strong>Đua Tính giờ (TT):</strong> TSB +15 đến +25 (giảm tải 14-21 ngày để đạt công suất đỉnh)</li><li><strong>Gran Fondo/Thế kỷ:</strong> TSB +5 đến +15 (giảm tải 7-10 ngày, duy trì sức bền)</li><li><strong>Đua nhiều chặng:</strong> TSB -5 đến +10 (đến giải với chút mệt mỏi, cần sức bền hơn là sự
+                    tươi mới)</li></ul></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Lập Chu kỳ với Biểu đồ Quản lý Hiệu suất</h2><div class="example-box"><h3>Ví dụ Chu kỳ Tập luyện 16 Tuần</h3><h4>Tuần 1-4: Giai đoạn Nền tảng (Base)</h4><ul><li><strong>Mục tiêu:</strong> Xây dựng CTL đều đặn ở mức 3-5 điểm/tuần</li><li><strong>CTL tiến triển:</strong> 60 → 73</li><li><strong>Khoảng TSB:</strong> -5 đến -15 (mệt mỏi trong tầm kiểm soát)</li><li><strong>Trọng tâm:</strong> Các chuyến đạp ổn định dài, sức bền Vùng 2, xây dựng nền tảng hiếu khí
+                </li></ul><h4>Tuần 5-8: Giai đoạn Tăng cường (Build)</h4><ul><li><strong>Mục tiêu:</strong> Tiếp tục tăng CTL 5-8 điểm/tuần với các bài tập nặng hơn</li><li><strong>CTL tiến triển:</strong> 73 → 93</li><li><strong>Khoảng TSB:</strong> -15 đến -25 (quá tải hiệu quả)</li><li><strong>Trọng tâm:</strong> Các quãng tập Sweet spot, bài tập ngưỡng, đạp tempo dài hơn</li></ul>
 
             ...
 
-            <h4>Tuần 15-16: Taper (Giảm tải) + Tuần Đua</h4>
-            <ul>
-                <li><strong>Mục tiêu:</strong> Đạt đỉnh vào ngày đua với TSB +15-20</li>
-                <li><strong>TSB vào ngày đua:</strong> <strong>+18 đến +22</strong></li>
-                <li><strong>Kết quả:</strong> Đôi chân tươi mới, duy trì được thể lực, sẵn sàng cho hiệu suất đỉnh cao
-                </li>
-            </ul>
-        </div>
-
-        <div class="callout callout-success">
-            <h3>✅ Tại sao Taper lại hiệu quả</h3>
-            <p>Các hằng số thời gian khác nhau (42 ngày cho CTL, 7 ngày cho ATL) tạo ra hiệu ứng taper:</p>
-            <ul>
-                <li>ATL phản ứng nhanh → Sự mệt mỏi biến mất trong vòng 7-10 ngày</li>
-                <li>CTL phản ứng chậm → Thể lực tồn tại trong nhiều tuần</li>
-                <li>Kết quả: Thể lực vẫn còn trong khi mệt mỏi tan biến = đôi chân cực khỏe cho ngày thi đấu</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>Tải trọng Tập luyện Đường trường vs Địa hình (MTB)</h2>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Khía cạnh</th>
-                    <th>Đạp xe Đường trường</th>
-                    <th>Đạp xe Địa hình (MTB)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Hồ sơ Công suất</strong></td>
-                    <td>Ổn định, nỗ lực duy trì với biến động tối thiểu</td>
-                    <td>Công suất "bùng nổ" biến động mạnh với các đợt bứt tốc thường xuyên</td>
-                </tr>
-                <tr>
-                    <td><strong>Chỉ số Biến thiên (VI)</strong></td>
-                    <td>1,02-1,05 (rất ổn định)</td>
-                    <td>1,10-1,20+ (biến động rất mạnh)</td>
-                </tr>
-                <tr>
-                    <td><strong>Tích lũy TSS</strong></td>
-                    <td>Có thể dự đoán, lập kế hoạch chính xác</td>
-                    <td>Biến động, độ khó của cung đường ảnh hưởng lớn đến TSS</td>
-                </tr>
-                <tr>
-                    <td><strong>Giải mã CTL</strong></td>
-                    <td>Chỉ báo thể lực trực tiếp</td>
-                    <td>Chỉ báo thể lực nhưng kỹ năng kỹ thuật chiếm 50% hiệu suất</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow text-center">
-        <h2>Làm chủ Tải trọng Tập luyện của Bạn</h2>
-        <p class="lead">Hiểu về Điểm Căng thẳng Tập luyện và Biểu đồ Quản lý Hiệu suất giúp chuyển đổi việc tập luyện
+            <h4>Tuần 15-16: Taper (Giảm tải) + Tuần Đua</h4><ul><li><strong>Mục tiêu:</strong> Đạt đỉnh vào ngày đua với TSB +15-20</li><li><strong>TSB vào ngày đua:</strong><strong>+18 đến +22</strong></li><li><strong>Kết quả:</strong> Đôi chân tươi mới, duy trì được thể lực, sẵn sàng cho hiệu suất đỉnh cao
+                </li></ul></div><div class="callout callout-success"><h3>✅ Tại sao Taper lại hiệu quả</h3><p>Các hằng số thời gian khác nhau (42 ngày cho CTL, 7 ngày cho ATL) tạo ra hiệu ứng taper:</p><ul><li>ATL phản ứng nhanh → Sự mệt mỏi biến mất trong vòng 7-10 ngày</li><li>CTL phản ứng chậm → Thể lực tồn tại trong nhiều tuần</li><li>Kết quả: Thể lực vẫn còn trong khi mệt mỏi tan biến = đôi chân cực khỏe cho ngày thi đấu</li></ul></div></div></section><section class="section"><div class="container container-narrow"><h2>Tải trọng Tập luyện Đường trường vs Địa hình (MTB)</h2><table class="comparison-table"><thead><tr><th>Khía cạnh</th><th>Đạp xe Đường trường</th><th>Đạp xe Địa hình (MTB)</th></tr></thead><tbody><tr><td><strong>Hồ sơ Công suất</strong></td><td>Ổn định, nỗ lực duy trì với biến động tối thiểu</td><td>Công suất "bùng nổ" biến động mạnh với các đợt bứt tốc thường xuyên</td></tr><tr><td><strong>Chỉ số Biến thiên (VI)</strong></td><td>1,02-1,05 (rất ổn định)</td><td>1,10-1,20+ (biến động rất mạnh)</td></tr><tr><td><strong>Tích lũy TSS</strong></td><td>Có thể dự đoán, lập kế hoạch chính xác</td><td>Biến động, độ khó của cung đường ảnh hưởng lớn đến TSS</td></tr><tr><td><strong>Giải mã CTL</strong></td><td>Chỉ báo thể lực trực tiếp</td><td>Chỉ báo thể lực nhưng kỹ năng kỹ thuật chiếm 50% hiệu suất</td></tr></tbody></table></div></section><section class="section section-alt"><div class="container container-narrow text-center"><h2>Làm chủ Tải trọng Tập luyện của Bạn</h2><p class="lead">Hiểu về Điểm Căng thẳng Tập luyện và Biểu đồ Quản lý Hiệu suất giúp chuyển đổi việc tập luyện
             cảm tính thành sự tối ưu hóa hiệu suất dựa trên dữ liệu khách quan. Bằng cách theo dõi TSS, CTL, ATL và TSB,
-            bạn nắm quyền kiểm soát chính xác tiến trình thể lực, quản lý mệt mỏi và thời điểm đạt đỉnh phong độ.</p>
-
-        <div class="mt-xl">
-            <a href="/vi/ftp/" class="btn btn-secondary">← Công suất Ngưỡng Chức năng (FTP)</a>
-            <a href="/vi/tss-calculator/" class="btn btn-primary">Công cụ tính TSS →</a>
-        </div>
-    </div>
-</section>
-    
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+            bạn nắm quyền kiểm soát chính xác tiến trình thể lực, quản lý mệt mỏi và thời điểm đạt đỉnh phong độ.</p><div class="mt-xl"><a href="/vi/ftp/" class="btn btn-secondary">← Công suất Ngưỡng Chức năng (FTP)</a><a href="/vi/tss-calculator/" class="btn btn-primary">Công cụ tính TSS →</a></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link active"
+                </a><a href="/vi/" class="lang-link active"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. Bản quyền đã được bảo hộ
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/vi/privacy/">Quyền riêng tư</a></li>
-                <li><a href="/vi/terms/">Điều khoản</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>Trang web này sử dụng cookie để cải thiện trải nghiệm của bạn.</p>
-            <a href="/vi/privacy/" class="text-sm">Tìm hiểu thêm</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">Từ chối</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">Chấp nhận</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/vi/privacy/">Quyền riêng tư</a></li><li><a href="/vi/terms/">Điều khoản</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>Trang web này sử dụng cookie để cải thiện trải nghiệm của bạn.</p><a href="/vi/privacy/" class="text-sm">Tìm hiểu thêm</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">Từ chối</button><button id="cookie-accept" class="btn btn-primary btn-small">Chấp nhận</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="my" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>เครื่องคำนวณ TSS ว่ายน้ำ: ภาระการฝึกและ PMC (CTL/ATL/TSB)</title>
-  <meta name="description" content="เรียนรู้การคำนวณ Training Stress Score ว่ายน้ำ (sTSS) และเมตริก Performance Management Chart (CTL, ATL, TSB) ติดตามสมรรถภาพและความเหนื่อยล้าอย่างเป็นวิทยาศาสตร์">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="TSS ว่ายน้ำ, เครื่องคำนวณ sTSS, training stress score, CTL ATL TSB, PMC ว่ายน้ำ">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/my/training-load/">
-
-  
-  
-  <meta property="article:published_time" content="2025-10-12T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-14T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/my/training-load/">
-  <meta property="og:title" content="เครื่องคำนวณ TSS ว่ายน้ำ: ภาระการฝึกและ PMC (CTL/ATL/TSB)">
-  <meta property="og:description" content="เรียนรู้การคำนวณ Training Stress Score ว่ายน้ำ (sTSS) และเมตริก Performance Management Chart (CTL, ATL, TSB) ติดตามสมรรถภาพและความเหนื่อยล้าอย่างเป็นวิทยาศาสตร์">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="my_MM">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/my/training-load/">
-  <meta name="twitter:title" content="เครื่องคำนวณ TSS ว่ายน้ำ: ภาระการฝึกและ PMC (CTL/ATL/TSB)">
-  <meta name="twitter:description" content="เรียนรู้การคำนวณ Training Stress Score ว่ายน้ำ (sTSS) และเมตริก Performance Management Chart (CTL, ATL, TSB) ติดตามสมรรถภาพและความเหนื่อยล้าอย่างเป็นวิทยาศาสตร์">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/training-load/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/training-load/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/training-load/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/training-load/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/training-load/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/training-load/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/training-load/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/training-load/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/training-load/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/training-load/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/training-load/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/training-load/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/training-load/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/training-load/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/training-load/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/training-load/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/training-load/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/training-load/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/training-load/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/training-load/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/training-load/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/training-load/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/training-load/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/training-load/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/training-load/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/training-load/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/training-load/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/training-load/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/training-load/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/training-load/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/training-load/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/training-load/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/training-load/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/training-load/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/training-load/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/training-load/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/training-load/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/training-load/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/training-load/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/training-load/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/training-load/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/training-load/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/training-load/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/training-load/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/training-load/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/training-load/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/training-load/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/training-load/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/training-load/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/training-load/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/training-load/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/training-load/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/training-load/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/training-load/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/training-load/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/training-load/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="my" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>เครื่องคำนวณ TSS ว่ายน้ำ: ภาระการฝึกและ PMC (CTL/ATL/TSB)</title><meta name="description" content="เรียนรู้การคำนวณ Training Stress Score ว่ายน้ำ (sTSS) และเมตริก Performance Management Chart (CTL, ATL, TSB) ติดตามสมรรถภาพและความเหนื่อยล้าอย่างเป็นวิทยาศาสตร์"><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="TSS ว่ายน้ำ, เครื่องคำนวณ sTSS, training stress score, CTL ATL TSB, PMC ว่ายน้ำ"><link rel="canonical" href="https://bike.analyticszone.app/my/training-load/"><meta property="article:published_time" content="2025-10-12T10:00:00Z"><meta property="article:modified_time" content="2026-01-14T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/my/training-load/"><meta property="og:title" content="เครื่องคำนวณ TSS ว่ายน้ำ: ภาระการฝึกและ PMC (CTL/ATL/TSB)"><meta property="og:description" content="เรียนรู้การคำนวณ Training Stress Score ว่ายน้ำ (sTSS) และเมตริก Performance Management Chart (CTL, ATL, TSB) ติดตามสมรรถภาพและความเหนื่อยล้าอย่างเป็นวิทยาศาสตร์"><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="my_MM"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/my/training-load/"><meta name="twitter:title" content="เครื่องคำนวณ TSS ว่ายน้ำ: ภาระการฝึกและ PMC (CTL/ATL/TSB)"><meta name="twitter:description" content="เรียนรู้การคำนวณ Training Stress Score ว่ายน้ำ (sTSS) และเมตริก Performance Management Chart (CTL, ATL, TSB) ติดตามสมรรถภาพและความเหนื่อยล้าอย่างเป็นวิทยาศาสตร์"><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/training-load/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/training-load/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/training-load/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/training-load/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/training-load/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/training-load/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/training-load/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/training-load/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/training-load/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/training-load/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/training-load/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/training-load/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/training-load/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/training-load/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/training-load/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/training-load/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/training-load/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/training-load/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/training-load/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/training-load/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/training-load/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/training-load/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/training-load/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/training-load/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/training-load/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/training-load/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/training-load/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/training-load/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/training-load/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/training-load/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/training-load/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/training-load/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/training-load/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/training-load/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/training-load/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/training-load/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/training-load/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/training-load/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/training-load/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/training-load/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/training-load/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/training-load/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/training-load/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/training-load/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/training-load/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/training-load/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/training-load/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/training-load/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/training-load/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/training-load/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/training-load/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/training-load/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/training-load/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/training-load/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/training-load/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/training-load/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "my"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "เรียนรู้การคำนวณ Training Stress Score ว่ายน้ำ (sTSS) และเมตริก Performance Management Chart (CTL, ATL, TSB) ติดตามสมรรถภาพและความเหนื่อยล้าอย่างเป็นวิทยาศาสตร์",
   "url": "https://bike.analyticszone.app/my/training-load/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -653,17 +435,7 @@ img[width][height] {
     "@id": "https://bike.analyticszone.app/my/training-load/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1798 +449,513 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">အဓိကအကြောင်းအရာသို့ သွားရန်</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/my/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/my/" 
+  </script></head><body><a href="#main-content" class="skip-link">အဓိကအကြောင်းအရာသို့ သွားရန်</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/my/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/my/" 
                                 aria-current="">
                                 ပင်မစာမျက်နှာ
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/my/getting-started/" class="nav-label">လေ့လာရန်</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/my/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/my/getting-started/" class="nav-label">လေ့လာရန်</a><ul class="submenu"><li><a href="/my/getting-started/" 
                                         aria-current="">
                                         စတင်အသုံးပြုခြင်း
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/ftp/" 
+                                    </a></li><li><a href="/my/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/critical-power/" 
+                                    </a></li><li><a href="/my/critical-power/" 
                                         aria-current="">
                                         အရေးပါသော စွမ်းအား
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/training-zones/" 
+                                    </a></li><li><a href="/my/training-zones/" 
                                         aria-current="">
                                         လေ့ကျင့်ရေးဇုန်များ
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/training-load/" class="active" 
+                                    </a></li><li><a href="/my/training-load/" class="active" 
                                         aria-current="page">
                                         လေ့ကျင့်ရေးဝန်
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/tss-calculator/" 
+                                    </a></li><li><a href="/my/tss-calculator/" 
                                         aria-current="">
                                         TSS တွက်ချက်စက်
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/my/research/" class="nav-label">သိပ္ပံ</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/my/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/my/research/" class="nav-label">သိပ္ပံ</a><ul class="submenu"><li><a href="/my/research/" 
                                         aria-current="">
                                         သုတေသန
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/formulas/" 
+                                    </a></li><li><a href="/my/formulas/" 
                                         aria-current="">
                                         ပုံသေနည်းများ
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/power-metrics/" 
+                                    </a></li><li><a href="/my/power-metrics/" 
                                         aria-current="">
                                         စွမ်းအားတိုင်းတာမှုများ
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/efficiency/" 
+                                    </a></li><li><a href="/my/efficiency/" 
                                         aria-current="">
                                         ထိရောက်မှု
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/pedaling-mechanics/" 
+                                    </a></li><li><a href="/my/pedaling-mechanics/" 
                                         aria-current="">
                                         နင်းခြေစနစ်
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/aerodynamics/" 
+                                    </a></li><li><a href="/my/aerodynamics/" 
                                         aria-current="">
                                         လေခွင်းအား
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/climbing-performance/" 
+                                    </a></li><li><a href="/my/climbing-performance/" 
                                         aria-current="">
                                         တောင်တက်စွမ်းဆောင်ရည်
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/bibliography/" 
+                                    </a></li><li><a href="/my/bibliography/" 
                                         aria-current="">
                                         ကျမ်းကိုးစာရင်း
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/my/road-cycling/" class="nav-label">ဘာသာရပ်များ</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/my/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/my/road-cycling/" class="nav-label">ဘာသာရပ်များ</a><ul class="submenu"><li><a href="/my/road-cycling/" 
                                         aria-current="">
                                         လမ်းပေါ်စက်ဘီးစီးခြင်း
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/mountain-biking/" 
+                                    </a></li><li><a href="/my/mountain-biking/" 
                                         aria-current="">
                                         တောင်တက်စက်ဘီးစီးခြင်း
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/road-vs-mtb/" 
+                                    </a></li><li><a href="/my/road-vs-mtb/" 
                                         aria-current="">
                                         လမ်းပေါ် vs တောင်တက်
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/my/comparisons/" 
+                                    </a></li><li><a href="/my/comparisons/" 
                                         aria-current="">
                                         ပလက်ဖောင်းများ နှိုင်းယှဉ်ချက်
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/my/contact/" 
+                                    </a></li></ul></li><li><a href="/my/contact/" 
                                 aria-current="">
                                 ဆက်သွယ်ရန်
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="ဘာသာစကား ရွေးချယ်ပါ">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="ဘာသာစကား ရွေးချယ်ပါ"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" selected>
+                        </option><option value="my" selected>
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="မီနူးကို ဖွင့်/ပိတ်ပါ"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/my/">ပင်မစာမျက်နှာ</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/my/getting-started/">လေ့လာရန်</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">လေ့ကျင့်ရေးဝန်</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-    <section class="page-hero">
-    <div class="container">
-        <h1>လေ့ကျင့်မှု ဝန်တင်မှုကို စီမံခန့်ခွဲခြင်း: စက်ဘီးစီးခြင်းအတွက် TSS, CTL, ATL နှင့် TSB</h1>
-        <p class="lead">လေ့ကျင့်မှုကို အကောင်းဆုံးဖြစ်အောင် ချိန်ညှိရန်၊ အလွန်အကျွံ လေ့ကျင့်မိခြင်းကို ကာကွယ်ရန်နှင့်
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="မီနူးကို ဖွင့်/ပိတ်ပါ"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/my/">ပင်မစာမျက်နှာ</a></li><li><a href="/my/getting-started/">လေ့လာရန်</a></li><li><span aria-current="page">လေ့ကျင့်ရေးဝန်</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>လေ့ကျင့်မှု ဝန်တင်မှုကို စီမံခန့်ခွဲခြင်း: စက်ဘီးစီးခြင်းအတွက် TSS, CTL, ATL နှင့် TSB</h1><p class="lead">လေ့ကျင့်မှုကို အကောင်းဆုံးဖြစ်အောင် ချိန်ညှိရန်၊ အလွန်အကျွံ လေ့ကျင့်မိခြင်းကို ကာကွယ်ရန်နှင့်
             သင့်စက်ဘီးစီး ပန်းတိုင်များအတွက် အထူးကောင်းမွန်သော အခြေအနေ (peak) ရောက်ရှိစေရန် Performance Management Chart
-            ကို ကျွမ်းကျင်စွာ အသုံးပြုပါ</p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <div class="callout callout-success">
-            <h2>🎯 အဓိက အချက်အလက်များ: စက်ဘီးစီးခြင်းအတွက် လေ့ကျင့်မှု ဝန်တင်မှု (Training Load)</h2>
-            <ul>
-                <li><strong>Training Stress Score (TSS)</strong> သည် စွမ်းအား (power)၊ ပြင်းအား (intensity) နှင့်
+            ကို ကျွမ်းကျင်စွာ အသုံးပြုပါ</p></div></section><section class="section"><div class="container container-narrow"><div class="callout callout-success"><h2>🎯 အဓိက အချက်အလက်များ: စက်ဘီးစီးခြင်းအတွက် လေ့ကျင့်မှု ဝန်တင်မှု (Training Load)</h2><ul><li><strong>Training Stress Score (TSS)</strong> သည် စွမ်းအား (power)၊ ပြင်းအား (intensity) နှင့်
                     ကြာချိန်တို့ကို ပေါင်းစပ်ပြီး အကြိမ်တိုင်းတွင် သင့်ခန္ဓာကိုယ်အပေါ် မည်မျှ သက်ရောက်မှုရှိသည်ကို
-                    တိုင်းတာပေးခြင်း ဖြစ်သည်</li>
-                <li><strong>CTL (Chronic Training Load)</strong> သည် ရက်ပေါင်း ၄၂ ရက်ကြာ တသမတ်တည်း လေ့ကျင့်မှုမှတစ်ဆင့်
-                    ရရှိလာသော သင်၏ ရေရှည် ကြံ့ခိုင်မှုကို တိုင်းတာပေးသည်</li>
-                <li><strong>ATL (Acute Training Load)</strong> သည် လွန်ခဲ့သော ၇ ရက်အတွင်း စက်ဘီးစီးခြင်းမှ ရရှိလာသော
-                    မောပန်းနွမ်းနယ်မှုကို ခြေရာခံပေးသည်</li>
-                <li><strong>TSB (Training Stress Balance)</strong> သည် သင်၏ ကြံ့ခိုင်မှုနှင့် မောပန်းမှု မျှခြေကို
-                    ပြသပေးပြီး ပြိုင်ပွဲဝင်ရန် အသင့်ဖြစ်မှု သို့မဟုတ် အနားယူရန် လိုအပ်မှုကို ဖော်ပြပေးသည်</li>
-                <li>စက်ဘီးစီး လေ့ကျင့်မှု ဝန်တင်မှုကို နားလည်ခြင်းဖြင့် အလွန်အကျွံ လေ့ကျင့်မိခြင်းမှ ကာကွယ်ပေးပြီး
+                    တိုင်းတာပေးခြင်း ဖြစ်သည်</li><li><strong>CTL (Chronic Training Load)</strong> သည် ရက်ပေါင်း ၄၂ ရက်ကြာ တသမတ်တည်း လေ့ကျင့်မှုမှတစ်ဆင့်
+                    ရရှိလာသော သင်၏ ရေရှည် ကြံ့ခိုင်မှုကို တိုင်းတာပေးသည်</li><li><strong>ATL (Acute Training Load)</strong> သည် လွန်ခဲ့သော ၇ ရက်အတွင်း စက်ဘီးစီးခြင်းမှ ရရှိလာသော
+                    မောပန်းနွမ်းနယ်မှုကို ခြေရာခံပေးသည်</li><li><strong>TSB (Training Stress Balance)</strong> သည် သင်၏ ကြံ့ခိုင်မှုနှင့် မောပန်းမှု မျှခြေကို
+                    ပြသပေးပြီး ပြိုင်ပွဲဝင်ရန် အသင့်ဖြစ်မှု သို့မဟုတ် အနားယူရန် လိုအပ်မှုကို ဖော်ပြပေးသည်</li><li>စက်ဘီးစီး လေ့ကျင့်မှု ဝန်တင်မှုကို နားလည်ခြင်းဖြင့် အလွန်အကျွံ လေ့ကျင့်မိခြင်းမှ ကာကွယ်ပေးပြီး
                     ဒေတာကို အခြေခံ၍ လေ့ကျင့်ရေးကာလများကို စနစ်တကျ ခွဲခြားကာ အကောင်းဆုံး စွမ်းဆောင်ရည်ကို ရယူနိုင်သည်
-                </li>
-            </ul>
-            <p><em>အခြေခံအချက်: TSS တွက်ချက်မှုများအတွက် သင်၏ <a href="/my/ftp/">Functional Threshold Power
-                        (FTP)</a> ကို ရည်ညွှန်းချက်အဖြစ် လိုအပ်ပါသည်။</em></p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>Training Stress Score (TSS) ဆိုသည်မှာ အဘယ်နည်း?</h2>
-        <p class="lead">Training Stress Score သည် အလွန်အရေးကြီးသော မေးခွန်းကို ဖြေကြားပေးပါသည်: <strong>ထိုအကြိမ်
+                </li></ul><p><em>အခြေခံအချက်: TSS တွက်ချက်မှုများအတွက် သင်၏ <a href="/my/ftp/">Functional Threshold Power
+                        (FTP)</a> ကို ရည်ညွှန်းချက်အဖြစ် လိုအပ်ပါသည်။</em></p></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Training Stress Score (TSS) ဆိုသည်မှာ အဘယ်နည်း?</h2><p class="lead">Training Stress Score သည် အလွန်အရေးကြီးသော မေးခွန်းကို ဖြေကြားပေးပါသည်: <strong>ထိုအကြိမ်
                 စက်ဘီးစီးရသည်မှာ မည်မျှ ပင်ပန်းသနည်း?</strong> အကွာအဝေး သို့မဟုတ် ကြာချိန်သာမကဘဲ စက်ဘီးစီး လေ့ကျင့်မှု
             တစ်ခုချင်းစီကြောင့် သင့်ခန္ဓာကိုယ်အပေါ် သက်ရောက်ခဲ့သော စစ်မှန်သော ဇီဝကမ္မဆိုင်ရာ ဖိစီးမှုကို ဖော်ပြပေးခြင်း
-            ဖြစ်သည်။</p>
-
-        <p>ဒေါက်တာ Andrew Coggan က ဖန်တီးခဲ့သော Training Stress Score (TSS) သည် လေ့ကျင့်မှု၏ ပြင်းအားနှင့် ကြာချိန်ကို
+            ဖြစ်သည်။</p><p>ဒေါက်တာ Andrew Coggan က ဖန်တီးခဲ့သော Training Stress Score (TSS) သည် လေ့ကျင့်မှု၏ ပြင်းအားနှင့် ကြာချိန်ကို
             ကိန်းဂဏန်းတစ်ခုတည်းအဖြစ် စံနှုန်းသတ်မှတ်ပြီး တိုင်းတာရန် နည်းလမ်းတစ်ခုဖြစ်သည်။ TSS သည် စွမ်းအား (power) ကို
-            အခြေခံသည့် လေ့ကျင့်မှုကို ပိုမို နားလည်လွယ်စေပြီး လက်တွေ့ အသုံးချနိုင်စေရန် ပြောင်းလဲပေးခဲ့သည်။</p>
-
-        <div class="callout callout-info">
-            <h3>စက်ဘီးစီးခြင်းအတွက် TSS စံနှုန်း</h3>
-            <p>သင်၏ <a href="/my/ftp/">Functional Threshold Power (FTP)</a> ဖြင့် တစ်နာရီကြာ စီးခြင်း =
-                <strong>100 TSS</strong></p>
-            <p>ဤစံနှုန်း သတ်မှတ်ချက်ကြောင့် လေ့ကျင့်မှုများ၊ ရက်သတ္တပတ်များနှင့် လေ့ကျင့်ရေး ကာလများအကြား
+            အခြေခံသည့် လေ့ကျင့်မှုကို ပိုမို နားလည်လွယ်စေပြီး လက်တွေ့ အသုံးချနိုင်စေရန် ပြောင်းလဲပေးခဲ့သည်။</p><div class="callout callout-info"><h3>စက်ဘီးစီးခြင်းအတွက် TSS စံနှုန်း</h3><p>သင်၏ <a href="/my/ftp/">Functional Threshold Power (FTP)</a> ဖြင့် တစ်နာရီကြာ စီးခြင်း =
+                <strong>100 TSS</strong></p><p>ဤစံနှုန်း သတ်မှတ်ချက်ကြောင့် လေ့ကျင့်မှုများ၊ ရက်သတ္တပတ်များနှင့် လေ့ကျင့်ရေး ကာလများအကြား
                 နှိုင်းယှဉ်မှုများ ပြုလုပ်နိုင်သည်။ ဥပမာ- ၃၀ မိနစ်ကြာ threshold အဆင့် လေ့ကျင့်ခြင်း = ~50 TSS ဖြစ်ပြီး၊
-                ၂ နာရီကြာ စီးခြင်း = ~200 TSS ဖြစ်သည်။</p>
-        </div>
-
-        <h3>TSS ကို မည်သို့ တွက်ချက်သနည်း?</h3>
-        <div class="formula-box">
-            <div class="formula">
+                ၂ နာရီကြာ စီးခြင်း = ~200 TSS ဖြစ်သည်။</p></div><h3>TSS ကို မည်သို့ တွက်ချက်သနည်း?</h3><div class="formula-box"><div class="formula">
                 TSS = (seconds × NP × IF) / (FTP × 3600) × 100
-            </div>
-            <div class="formula-explanation">
-                <p>၎င်းတွင်:</p>
-                <ul>
-                    <li><strong>NP (Normalized Power)</strong> = စက်ဘီးစီးခြင်း၏ ဇီဝကမ္မဆိုင်ရာ "ပေးဆပ်မှု"</li>
-                    <li><strong>IF (Intensity Factor)</strong> = NP / FTP (threshold နှင့် နှိုင်းယှဉ်လျှင် ပြင်းအား
-                        မည်မျှရှိသည်ကို ပြသခြင်း)</li>
-                    <li><strong>Duration</strong> = စုစုပေါင်း စီးနင်းချိန် မိနစ်/စက္ကန့်</li>
-                    <li><strong>FTP</strong> = ဝပ် (watts) ဖြင့် တိုင်းတာထားသော သင်၏ Functional Threshold Power</li>
-                </ul>
-            </div>
-        </div>
-
-        <h3>လက်တွေ့ နမူနာ- ၂ နာရီကြာ Endurance စီးနင်းခြင်း</h3>
-        <div class="example-box">
-            <h4>စက်ဘီးစီးသူ၏ အချက်အလက်:</h4>
-            <ul>
-                <li>FTP: <strong>250W</strong></li>
-            </ul>
-
-            <h4>စီးနင်းမှု အချက်အလက်:</h4>
-            <ul>
-                <li>ကြာချိန်: <strong>၂ နာရီ (၇၂၀၀ စက္ကန့်)</strong></li>
-                <li>Normalized Power: <strong>200W</strong></li>
-            </ul>
-
-            <h4>အဆင့် ၁: Intensity Factor (IF) ကို တွက်ချက်ခြင်း</h4>
-            <div class="calculation">
+            </div><div class="formula-explanation"><p>၎င်းတွင်:</p><ul><li><strong>NP (Normalized Power)</strong> = စက်ဘီးစီးခြင်း၏ ဇီဝကမ္မဆိုင်ရာ "ပေးဆပ်မှု"</li><li><strong>IF (Intensity Factor)</strong> = NP / FTP (threshold နှင့် နှိုင်းယှဉ်လျှင် ပြင်းအား
+                        မည်မျှရှိသည်ကို ပြသခြင်း)</li><li><strong>Duration</strong> = စုစုပေါင်း စီးနင်းချိန် မိနစ်/စက္ကန့်</li><li><strong>FTP</strong> = ဝပ် (watts) ဖြင့် တိုင်းတာထားသော သင်၏ Functional Threshold Power</li></ul></div></div><h3>လက်တွေ့ နမူနာ- ၂ နာရီကြာ Endurance စီးနင်းခြင်း</h3><div class="example-box"><h4>စက်ဘီးစီးသူ၏ အချက်အလက်:</h4><ul><li>FTP: <strong>250W</strong></li></ul><h4>စီးနင်းမှု အချက်အလက်:</h4><ul><li>ကြာချိန်: <strong>၂ နာရီ (၇၂၀၀ စက္ကန့်)</strong></li><li>Normalized Power: <strong>200W</strong></li></ul><h4>အဆင့် ၁: Intensity Factor (IF) ကို တွက်ချက်ခြင်း</h4><div class="calculation">
                 IF = NP / FTP<br>
                 IF = 200W / 250W<br>
-                IF = <strong>0.80</strong>
-            </div>
-
-            <h4>အဆင့် ၂: TSS ကို တွက်ချက်ခြင်း</h4>
-            <div class="calculation">
+                IF = <strong>0.80</strong></div><h4>အဆင့် ၂: TSS ကို တွက်ချက်ခြင်း</h4><div class="calculation">
                 TSS = (7200s × 200W × 0.80) / (250W × 3600) × 100<br>
                 TSS = (1,152,000) / (900,000) × 100<br>
-                TSS = <strong>128 TSS</strong>
-            </div>
-
-            <p class="mt-md"><strong>သုံးသပ်ချက်:</strong> FTP ၏ ၈၀% ဖြင့် ၂ နာရီကြာ endurance စီးနင်းခြင်းသည် ၁၂၈ TSS
+                TSS = <strong>128 TSS</strong></div><p class="mt-md"><strong>သုံးသပ်ချက်:</strong> FTP ၏ ၈၀% ဖြင့် ၂ နာရီကြာ endurance စီးနင်းခြင်းသည် ၁၂၈ TSS
                 ကို ရရှိစေသည်။ ၎င်းသည် အခြေခံကြံ့ခိုင်မှု တည်ဆောက်ချိန်တွင် ပြုလုပ်လေ့ရှိသော ကောင်းမွန်သည့်
-                လေ့ကျင့်မှုတစ်ခု ဖြစ်သည်။</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2 class="text-center mb-xl">လေ့ကျင့်မှု အမျိုးအစားအလိုက် TSS လမ်းညွှန်ချက်များ</h2>
-
-        <div class="intensity-guide">
-            <table class="intensity-table">
-                <thead>
-                    <tr>
-                        <th>လေ့ကျင့်မှု အမျိုးအစား</th>
-                        <th>TSS အတိုင်းအတာ</th>
-                        <th>Intensity Factor (IF)</th>
-                        <th>ဖော်ပြချက်</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>နာလန်ထူ စီးနင်းခြင်း (Recovery Ride)</strong></td>
-                        <td>20-50 TSS</td>
-                        <td>IF < 0.65</td>
-                        <td>ပေါ့ပေါ့ပါးပါး စီးနင်းခြင်း၊ မိနစ် ၃၀-၆၀ ကြာ တက်ကြွစွာ အနားယူခြင်း</td>
-                    </tr>
-                    <tr>
-                        <td><strong>ပေါ့ပါးသော Endurance</strong></td>
-                        <td>50-100 TSS</td>
-                        <td>IF 0.65-0.75</td>
-                        <td>စကားပြောနိုင်သော အရှိန်ဖြင့် စီးနင်းခြင်း၊ ၁-၂ နာရီကြာ အခြေခံ ကြံ့ခိုင်မှု တည်ဆောက်ခြင်း
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>အသင့်အတင့် Endurance</strong></td>
-                        <td>100-150 TSS</td>
-                        <td>IF 0.75-0.85</td>
-                        <td>ပုံမှန် အရှိန်ဖြင့် စီးနင်းခြင်း၊ ၂-၃ နာရီကြာ အဖွဲ့လိုက် စီးနင်းခြင်း</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tempo စီးနင်းခြင်း</strong></td>
-                        <td>150-200 TSS</td>
-                        <td>IF 0.85-0.95</td>
-                        <td>Sweet spot လေ့ကျင့်ခြင်း၊ ၂-၃ နာရီကြာ စဉ်ဆက်မပြတ် tempo စီးနင်းခြင်း</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Threshold လေ့ကျင့်ခန်း</strong></td>
-                        <td>200-300 TSS</td>
-                        <td>IF 0.95-1.05</td>
-                        <td>FTP အလိုက် interval များ ပြုလုပ်ခြင်း၊ ၂-၄ နာရီကြာ ပြိုင်ပွဲ ကဲ့သို့ စမ်းသပ်စီးနင်းခြင်း
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>VO₂max Intervals</strong></td>
-                        <td>150-250 TSS</td>
-                        <td>IF 1.05-1.15</td>
-                        <td>FTP ၏ ၁၂၀% ဖြင့် ပြင်းထန်သော interval များ၊ ၁-၂ နာရီကြာ ပြင်းထန်စွာ လေ့ကျင့်ခြင်း</td>
-                    </tr>
-                    <tr>
-                        <td><strong>ပြိုင်ပွဲများ</strong></td>
-                        <td>200-400 TSS</td>
-                        <td>IF 0.90-1.05</td>
-                        <td>ပြိုင်ပွဲအလိုက် အစွမ်းကုန် စီးနင်းခြင်း၊ ၂-၅ နာရီကြာ လမ်းမပေါ် ပြိုင်ပွဲများ</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="callout callout-tip mt-lg">
-            <h3>📊 အဆင့်အလိုက် အပတ်စဉ် TSS ပန်းတိုင်များ</h3>
-            <ul>
-                <li><strong>စတင်သူများ:</strong> တစ်ပတ်လျှင် 200-400 TSS (တစ်ပတ် ၃-၄ ကြိမ် စီးခြင်း)</li>
-                <li><strong>ဝါသနာရှင်များ:</strong> တစ်ပတ်လျှင် 400-600 TSS (တစ်ပတ် ၄-၅ ကြိမ် စီးခြင်း)</li>
-                <li><strong>ပြိုင်ပွဲဝင် အပျော်တမ်းများ:</strong> တစ်ပတ်လျှင် 600-900 TSS (တစ်ပတ် ၅-၇ ကြိမ် စီးခြင်း)
-                </li>
-                <li><strong>ကျွမ်းကျင်/ပရော်ဖက်ရှင်နယ်:</strong> တစ်ပတ်လျှင် 900-1500+ TSS (တစ်ပတ် ၈-၁၂ ကြိမ်+
-                    လေ့ကျင့်ခြင်း)</li>
-            </ul>
-            <p>ဤအချက်များသည် သင့်ကြံ့ခိုင်မှု metric ဖြစ်သော အောက်ဖော်ပြပါ Chronic Training Load (CTL) သို့ စုပေါင်း
-                ရောက်ရှိသွားမည် ဖြစ်သည်။</p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="text-center mb-xl">Performance Management Chart (PMC)</h2>
-        <p class="text-center lead">PMC သည် သင့်စက်ဘီးစီး လေ့ကျင့်မှုအကြောင်းကို ဖော်ပြပေးသည့် ဆက်စပ်နေသော metric သုံးခု
-            (ကြံ့ခိုင်မှု၊ မောပန်းမှုနှင့် အသင့်ဖြစ်မှု) ကို ပုံဖော်ပေးသည်။</p>
-
-        <div class="pmc-overview">
-            <div class="grid grid-3">
-                <div class="pmc-metric">
-                    <div class="metric-icon">📈</div>
-                    <h3>CTL - Chronic Training Load</h3>
-                    <div class="metric-value-label">သင့် ကြံ့ခိုင်မှု (FITNESS)</div>
-                    <p>နေ့စဉ် TSS ၏ ၄၂ ရက်စာ ပျမ်းမျှ ပြကွက်ဖြစ်သည်။ ရေရှည် အောက်စီဂျင်သုံး ကြံ့ခိုင်မှုနှင့်
+                လေ့ကျင့်မှုတစ်ခု ဖြစ်သည်။</p></div></div></section><section class="section"><div class="container"><h2 class="text-center mb-xl">လေ့ကျင့်မှု အမျိုးအစားအလိုက် TSS လမ်းညွှန်ချက်များ</h2><div class="intensity-guide"><table class="intensity-table"><thead><tr><th>လေ့ကျင့်မှု အမျိုးအစား</th><th>TSS အတိုင်းအတာ</th><th>Intensity Factor (IF)</th><th>ဖော်ပြချက်</th></tr></thead><tbody><tr><td><strong>နာလန်ထူ စီးနင်းခြင်း (Recovery Ride)</strong></td><td>20-50 TSS</td><td>IF < 0.65</td><td>ပေါ့ပေါ့ပါးပါး စီးနင်းခြင်း၊ မိနစ် ၃၀-၆၀ ကြာ တက်ကြွစွာ အနားယူခြင်း</td></tr><tr><td><strong>ပေါ့ပါးသော Endurance</strong></td><td>50-100 TSS</td><td>IF 0.65-0.75</td><td>စကားပြောနိုင်သော အရှိန်ဖြင့် စီးနင်းခြင်း၊ ၁-၂ နာရီကြာ အခြေခံ ကြံ့ခိုင်မှု တည်ဆောက်ခြင်း
+                        </td></tr><tr><td><strong>အသင့်အတင့် Endurance</strong></td><td>100-150 TSS</td><td>IF 0.75-0.85</td><td>ပုံမှန် အရှိန်ဖြင့် စီးနင်းခြင်း၊ ၂-၃ နာရီကြာ အဖွဲ့လိုက် စီးနင်းခြင်း</td></tr><tr><td><strong>Tempo စီးနင်းခြင်း</strong></td><td>150-200 TSS</td><td>IF 0.85-0.95</td><td>Sweet spot လေ့ကျင့်ခြင်း၊ ၂-၃ နာရီကြာ စဉ်ဆက်မပြတ် tempo စီးနင်းခြင်း</td></tr><tr><td><strong>Threshold လေ့ကျင့်ခန်း</strong></td><td>200-300 TSS</td><td>IF 0.95-1.05</td><td>FTP အလိုက် interval များ ပြုလုပ်ခြင်း၊ ၂-၄ နာရီကြာ ပြိုင်ပွဲ ကဲ့သို့ စမ်းသပ်စီးနင်းခြင်း
+                        </td></tr><tr><td><strong>VO₂max Intervals</strong></td><td>150-250 TSS</td><td>IF 1.05-1.15</td><td>FTP ၏ ၁၂၀% ဖြင့် ပြင်းထန်သော interval များ၊ ၁-၂ နာရီကြာ ပြင်းထန်စွာ လေ့ကျင့်ခြင်း</td></tr><tr><td><strong>ပြိုင်ပွဲများ</strong></td><td>200-400 TSS</td><td>IF 0.90-1.05</td><td>ပြိုင်ပွဲအလိုက် အစွမ်းကုန် စီးနင်းခြင်း၊ ၂-၅ နာရီကြာ လမ်းမပေါ် ပြိုင်ပွဲများ</td></tr></tbody></table></div><div class="callout callout-tip mt-lg"><h3>📊 အဆင့်အလိုက် အပတ်စဉ် TSS ပန်းတိုင်များ</h3><ul><li><strong>စတင်သူများ:</strong> တစ်ပတ်လျှင် 200-400 TSS (တစ်ပတ် ၃-၄ ကြိမ် စီးခြင်း)</li><li><strong>ဝါသနာရှင်များ:</strong> တစ်ပတ်လျှင် 400-600 TSS (တစ်ပတ် ၄-၅ ကြိမ် စီးခြင်း)</li><li><strong>ပြိုင်ပွဲဝင် အပျော်တမ်းများ:</strong> တစ်ပတ်လျှင် 600-900 TSS (တစ်ပတ် ၅-၇ ကြိမ် စီးခြင်း)
+                </li><li><strong>ကျွမ်းကျင်/ပရော်ဖက်ရှင်နယ်:</strong> တစ်ပတ်လျှင် 900-1500+ TSS (တစ်ပတ် ၈-၁၂ ကြိမ်+
+                    လေ့ကျင့်ခြင်း)</li></ul><p>ဤအချက်များသည် သင့်ကြံ့ခိုင်မှု metric ဖြစ်သော အောက်ဖော်ပြပါ Chronic Training Load (CTL) သို့ စုပေါင်း
+                ရောက်ရှိသွားမည် ဖြစ်သည်။</p></div></div></section><section class="section section-alt"><div class="container"><h2 class="text-center mb-xl">Performance Management Chart (PMC)</h2><p class="text-center lead">PMC သည် သင့်စက်ဘီးစီး လေ့ကျင့်မှုအကြောင်းကို ဖော်ပြပေးသည့် ဆက်စပ်နေသော metric သုံးခု
+            (ကြံ့ခိုင်မှု၊ မောပန်းမှုနှင့် အသင့်ဖြစ်မှု) ကို ပုံဖော်ပေးသည်။</p><div class="pmc-overview"><div class="grid grid-3"><div class="pmc-metric"><div class="metric-icon">📈</div><h3>CTL - Chronic Training Load</h3><div class="metric-value-label">သင့် ကြံ့ခိုင်မှု (FITNESS)</div><p>နေ့စဉ် TSS ၏ ၄၂ ရက်စာ ပျမ်းမျှ ပြကွက်ဖြစ်သည်။ ရေရှည် အောက်စီဂျင်သုံး ကြံ့ခိုင်မှုနှင့်
                         စဉ်ဆက်မပြတ် လေ့ကျင့်မှုမှ ရရှိလာသော ခန္ဓာကိုယ်၏ အလိုက်သင့် ပြောင်းလဲမှုများကို ကိုယ်စားပြုသည်။
-                    </p>
-                    <div class="formula-small">
+                    </p><div class="formula-small">
                         ယနေ့ CTL = မနေ့က CTL + (ယနေ့ TSS - မနေ့က CTL) / ၄၂
-                    </div>
-                </div>
-
-                <div class="pmc-metric">
-                    <div class="metric-icon">⚡</div>
-                    <h3>ATL - Acute Training Load</h3>
-                    <div class="metric-value-label">သင့် မောပန်းမှု (FATIGUE)</div>
-                    <p>နေ့စဉ် TSS ၏ ၇ ရက်စာ ပျမ်းမျှ ပြကွက်ဖြစ်သည်။ လွန်ခဲ့သော တစ်ပတ်အတွင်း စီးနင်းခဲ့မှုများကြောင့်
-                        စုဆောင်းမိလာသော မောပန်းနွမ်းနယ်မှုကို ပြသသည်။</p>
-                    <div class="formula-small">
+                    </div></div><div class="pmc-metric"><div class="metric-icon">⚡</div><h3>ATL - Acute Training Load</h3><div class="metric-value-label">သင့် မောပန်းမှု (FATIGUE)</div><p>နေ့စဉ် TSS ၏ ၇ ရက်စာ ပျမ်းမျှ ပြကွက်ဖြစ်သည်။ လွန်ခဲ့သော တစ်ပတ်အတွင်း စီးနင်းခဲ့မှုများကြောင့်
+                        စုဆောင်းမိလာသော မောပန်းနွမ်းနယ်မှုကို ပြသသည်။</p><div class="formula-small">
                         ယနေ့ ATL = မနေ့က ATL + (ယနေ့ TSS - မနေ့က ATL) / ၇
-                    </div>
-                </div>
-
-                <div class="pmc-metric">
-                    <div class="metric-icon">🎯</div>
-                    <h3>TSB - Training Stress Balance</h3>
-                    <div class="metric-value-label">သင့် အသင့်ဖြစ်မှု (FORM)</div>
-                    <p>မနေ့က ကြံ့ခိုင်မှုနှင့် ယနေ့ မောပန်းမှုတို့၏ ခြားနားချက်ဖြစ်သည်။ နောက်လာမည့် လေ့ကျင့်ခန်း
+                    </div></div><div class="pmc-metric"><div class="metric-icon">🎯</div><h3>TSB - Training Stress Balance</h3><div class="metric-value-label">သင့် အသင့်ဖြစ်မှု (FORM)</div><p>မနေ့က ကြံ့ခိုင်မှုနှင့် ယနေ့ မောပန်းမှုတို့၏ ခြားနားချက်ဖြစ်သည်။ နောက်လာမည့် လေ့ကျင့်ခန်း
                         (သို့မဟုတ်) ပြိုင်ပွဲအတွက် အစွမ်းကုန် ကြိုးစားရန် အသင့်ဖြစ်မဖြစ် သို့မဟုတ် အနားယူရန် လိုမလိုကို
-                        ဖော်ပြပေးသည်။</p>
-                    <div class="formula-small">
+                        ဖော်ပြပေးသည်။</p><div class="formula-small">
                         TSB = CTL (မနေ့က) - ATL (ယနေ့)
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2>CTL: သင့်စက်ဘီးစီး ကြံ့ခိုင်မှု Metric</h2>
-
-        <div class="grid grid-2">
-            <div>
-                <h3>စက်ဘီးစီးသူများအတွက် CTL ၏ အဓိပ္ပာယ်</h3>
-                <p>CTL သည် လွန်ခဲ့သော ၆ ပတ်အတွင်း သင့်ခန္ဓာကိုယ်က <em>လိုက်လျောညီထွေဖြစ်အောင် ပြောင်းလဲခဲ့သော</em>
-                    လေ့ကျင့်မှု ဝန်တင်မှုကို တိုင်းတာပြခြင်း ဖြစ်သည်။ CTL မြင့်မားခြင်း၏ ဆိုလိုရင်းမှာ:</p>
-                <ul>
-                    <li>အောက်စီဂျင် အသုံးပြုနိုင်စွမ်း (aerobic capacity) နှင့် ခံနိုင်ရည် ပိုမိုမြင့်မားခြင်း</li>
-                    <li>လေ့ကျင့်မှု ပမာဏနှင့် ပြင်းအား ပိုမို များပြားစွာ လုပ်ဆောင်နိုင်ခြင်း</li>
-                    <li>ဇီဝဖြစ်ပျက်မှု စွမ်းဆောင်ရည်နှင့် အဆီလောင်ကျွမ်းမှု ပိုမို ကောင်းမွန်ခြင်း</li>
-                    <li>ရေရှည် လုပ်ဆောင်နိုင်သော စွမ်းအား (sustainable power) ပိုမို မြင့်မားခြင်း</li>
-                    <li>ပြင်းထန်သော လေ့ကျင့်မှုများအကြားတွင် ပြန်လည် နာလန်ထူမှု ပိုမို မြန်ဆန်ခြင်း</li>
-                </ul>
-
-                <div class="callout callout-info">
-                    <h4>အချိန်ကာလ: ၄၂ ရက်</h4>
-                    <p>CTL ၏ အကျိုးသက်ရောက်မှုသည် ၁၄-၁၅ ရက်ခန့်တွင် တစ်ဝက်ခန့် လျော့ကျသွားသည်။ ၄၂ ရက် ကြာပြီးနောက်တွင်
+                    </div></div></div></div></div></section><section class="section"><div class="container"><h2>CTL: သင့်စက်ဘီးစီး ကြံ့ခိုင်မှု Metric</h2><div class="grid grid-2"><div><h3>စက်ဘီးစီးသူများအတွက် CTL ၏ အဓိပ္ပာယ်</h3><p>CTL သည် လွန်ခဲ့သော ၆ ပတ်အတွင်း သင့်ခန္ဓာကိုယ်က <em>လိုက်လျောညီထွေဖြစ်အောင် ပြောင်းလဲခဲ့သော</em>
+                    လေ့ကျင့်မှု ဝန်တင်မှုကို တိုင်းတာပြခြင်း ဖြစ်သည်။ CTL မြင့်မားခြင်း၏ ဆိုလိုရင်းမှာ:</p><ul><li>အောက်စီဂျင် အသုံးပြုနိုင်စွမ်း (aerobic capacity) နှင့် ခံနိုင်ရည် ပိုမိုမြင့်မားခြင်း</li><li>လေ့ကျင့်မှု ပမာဏနှင့် ပြင်းအား ပိုမို များပြားစွာ လုပ်ဆောင်နိုင်ခြင်း</li><li>ဇီဝဖြစ်ပျက်မှု စွမ်းဆောင်ရည်နှင့် အဆီလောင်ကျွမ်းမှု ပိုမို ကောင်းမွန်ခြင်း</li><li>ရေရှည် လုပ်ဆောင်နိုင်သော စွမ်းအား (sustainable power) ပိုမို မြင့်မားခြင်း</li><li>ပြင်းထန်သော လေ့ကျင့်မှုများအကြားတွင် ပြန်လည် နာလန်ထူမှု ပိုမို မြန်ဆန်ခြင်း</li></ul><div class="callout callout-info"><h4>အချိန်ကာလ: ၄၂ ရက်</h4><p>CTL ၏ အကျိုးသက်ရောက်မှုသည် ၁၄-၁၅ ရက်ခန့်တွင် တစ်ဝက်ခန့် လျော့ကျသွားသည်။ ၄၂ ရက် ကြာပြီးနောက်တွင်
                         တစ်ကြိမ်ပြုလုပ်ခဲ့သော လေ့ကျင့်ခန်း၏ အကျိုးသက်ရောက်မှု ၃၆.၈% (1/e) ခန့်သာ ကျန်ရှိတော့မည် ဖြစ်သည်။
-                    </p>
-                    <p>ဤသို့ ဖြည်းဖြည်းချင်း လျော့ကျခြင်း၏ အဓိပ္ပာယ်မှာ ကြံ့ခိုင်မှုသည် ဖြည်းဖြည်းချင်း
+                    </p><p>ဤသို့ ဖြည်းဖြည်းချင်း လျော့ကျခြင်း၏ အဓိပ္ပာယ်မှာ ကြံ့ခိုင်မှုသည် ဖြည်းဖြည်းချင်း
                         တည်ဆောက်ရသော်လည်း ဆုံးရှုံးသွားလျှင်လည်း ဖြည်းဖြည်းချင်းသာ ဆုံးရှုံးခြင်း ဖြစ်သည်။ ထို့ကြောင့်
-                        တစ်ပတ်ခန့် အနားယူခြင်းသည် ကြံ့ခိုင်မှုကို သိသိသာသာ လျော့ကျမသွားစေပါ။</p>
-                </div>
-            </div>
-
-            <div>
-                <h3>စက်ဘီးစီးသူ အဆင့်အလိုက် ပုံမှန် CTL တန်ဖိုးများ</h3>
-                <div class="levels-comparison">
-                    <div class="level-card-compact">
-                        <strong>စတင်သူများ:</strong>
-                        <div class="value">20-40 CTL</div>
-                        <p>အခြေခံ ကြံ့ခိုင်မှု တည်ဆောက်ခြင်း၊ တစ်ပတ် ၃-၄ ကြိမ် စီးခြင်း</p>
-                    </div>
-
-                    <div class="level-card-compact">
-                        <strong>ဝါသနာရှင်များ:</strong>
-                        <div class="value">40-80 CTL</div>
-                        <p>ပုံမှန် လေ့ကျင့်မှု၊ တစ်ပတ် ၄-၅ ကြိမ် စီးခြင်း</p>
-                    </div>
-
-                    <div class="level-card-compact">
-                        <strong>ပြိုင်ပွဲဝင် အပျော်တမ်းများ:</strong>
-                        <div class="value">80-120 CTL</div>
-                        <p>လေ့ကျင့်မှု ပမာဏ များပြားခြင်း၊ တစ်ပတ် ၆-၈ ကြိမ် လေ့ကျင့်ခြင်း</p>
-                    </div>
-
-                    <div class="level-card-compact">
-                        <strong>ကျွမ်းကျင်/ပရော်ဖက်ရှင်နယ်:</strong>
-                        <div class="value">120-200+ CTL</div>
-                        <p>ပရော်ဖက်ရှင်နယ် အဆင့် လေ့ကျင့်မှု၊ တစ်ပတ် ၁၀-၁၅ နာရီ+ လေ့ကျင့်ခြင်း</p>
-                    </div>
-                </div>
-
-                <div class="warning-box mt-md">
-                    <strong>⚠️ CTL Ramp Rate (တိုးမြှင့်နှုန်း) ကန့်သတ်ချက်များ</strong>
-                    <ul>
-                        <li><strong>ဘေးကင်းသောနှုန်း:</strong> တစ်ပတ်လျှင် +၃-၈ CTL</li>
-                        <li><strong>မြန်ဆန်သော်လည်း ဆက်လက်ထိန်းသိမ်းနိုင်သောနှုန်း:</strong> တစ်ပတ်လျှင် +၈-၁၂ CTL</li>
-                        <li><strong>အန္တရာယ်ရှိသောနှုန်း:</strong> တစ်ပတ်လျှင် >၁၂ CTL</li>
-                    </ul>
-                    <p>ဤနှုန်းထားများထက် ကျော်လွန်ပါက ဒဏ်ရာရခြင်းနှင့် ဖျားနာခြင်း ဖြစ်နိုင်ခြေ သိသိသာသာ မြင့်တက်လာသည်။
-                        ရေရှည် ကြံ့ခိုင်မှုအတွက် ဖြည်းဖြည်းချင်း တည်ဆောက်ပါ။</p>
-                </div>
-            </div>
-        </div>
-
-        <h3 class="mt-xl">CTL ကို ဘေးကင်းစွာ တည်ဆောက်ခြင်း: Ramp Rate</h3>
-        <div class="example-box">
-            <h4>CTL တိုးတက်မှု နမူနာ (၁၂ ပတ် ကြာ အခြေခံ လေ့ကျင့်ရေးကာလ)</h4>
-            <ul>
-                <li><strong>ပတ် ၁:</strong> CTL 60 → 65 (+5)</li>
-                <li><strong>ပတ် ၂:</strong> CTL 65 → 70 (+5)</li>
-                <li><strong>ပတ် ၃:</strong> CTL 70 → 75 (+5)</li>
-                <li><strong>ပတ် ၄:</strong> CTL 75 → 78 (+3, အနားယူသော စာတိုပတ်)</li>
-                <li><strong>ပတ် ၅:</strong> CTL 78 → 83 (+5)</li>
-                <li><strong>ပတ် ၆:</strong> CTL 83 → 88 (+5)</li>
-                <li><strong>ပတ် ၇:</strong> CTL 88 → 93 (+5)</li>
-                <li><strong>ပတ် ၈:</strong> CTL 93 → 96 (+3, အနားယူသော စာတိုပတ်)</li>
-                <li><strong>ပတ် ၉:</strong> CTL 96 → 102 (+6)</li>
-                <li><strong>ပတ် ၁၀:</strong> CTL 102 → 108 (+6)</li>
-                <li><strong>ပတ် ၁၁:</strong> CTL 108 → 114 (+6)</li>
-                <li><strong>ပတ် ၁၂:</strong> CTL 114 → 116 (+2, ခွန်အားမတည်ဆောက်မီ အနားယူခြင်း)</li>
-            </ul>
-            <p><strong>ရလဒ်:</strong> ၁၂ ပတ်အတွင်း CTL +၅၆ တိုးတက်လာခဲ့သည် (တစ်ပတ်လျှင် ၄.၇ ပျမ်းမျှ) - ဝါသနာရှင်အဆင့်မှ
-                ပြိုင်ပွဲဝင်အဆင့် ကြံ့ခိုင်မှုသို့ ဘေးကင်းစွာ ရောက်ရှိခြင်း ဖြစ်သည်။</p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2>ATL: သင့်စက်ဘီးစီး မောပန်းမှု Metric</h2>
-
-        <div class="content-split">
-            <div>
-                <p>ATL သည် ကာလတိုအတွင်း ရရှိလာသော လေ့ကျင့်မှုဒဏ် သို့မဟုတ် လွန်ခဲ့သော တစ်ပတ်အတွင်း
+                        တစ်ပတ်ခန့် အနားယူခြင်းသည် ကြံ့ခိုင်မှုကို သိသိသာသာ လျော့ကျမသွားစေပါ။</p></div></div><div><h3>စက်ဘီးစီးသူ အဆင့်အလိုက် ပုံမှန် CTL တန်ဖိုးများ</h3><div class="levels-comparison"><div class="level-card-compact"><strong>စတင်သူများ:</strong><div class="value">20-40 CTL</div><p>အခြေခံ ကြံ့ခိုင်မှု တည်ဆောက်ခြင်း၊ တစ်ပတ် ၃-၄ ကြိမ် စီးခြင်း</p></div><div class="level-card-compact"><strong>ဝါသနာရှင်များ:</strong><div class="value">40-80 CTL</div><p>ပုံမှန် လေ့ကျင့်မှု၊ တစ်ပတ် ၄-၅ ကြိမ် စီးခြင်း</p></div><div class="level-card-compact"><strong>ပြိုင်ပွဲဝင် အပျော်တမ်းများ:</strong><div class="value">80-120 CTL</div><p>လေ့ကျင့်မှု ပမာဏ များပြားခြင်း၊ တစ်ပတ် ၆-၈ ကြိမ် လေ့ကျင့်ခြင်း</p></div><div class="level-card-compact"><strong>ကျွမ်းကျင်/ပရော်ဖက်ရှင်နယ်:</strong><div class="value">120-200+ CTL</div><p>ပရော်ဖက်ရှင်နယ် အဆင့် လေ့ကျင့်မှု၊ တစ်ပတ် ၁၀-၁၅ နာရီ+ လေ့ကျင့်ခြင်း</p></div></div><div class="warning-box mt-md"><strong>⚠️ CTL Ramp Rate (တိုးမြှင့်နှုန်း) ကန့်သတ်ချက်များ</strong><ul><li><strong>ဘေးကင်းသောနှုန်း:</strong> တစ်ပတ်လျှင် +၃-၈ CTL</li><li><strong>မြန်ဆန်သော်လည်း ဆက်လက်ထိန်းသိမ်းနိုင်သောနှုန်း:</strong> တစ်ပတ်လျှင် +၈-၁၂ CTL</li><li><strong>အန္တရာယ်ရှိသောနှုန်း:</strong> တစ်ပတ်လျှင် >၁၂ CTL</li></ul><p>ဤနှုန်းထားများထက် ကျော်လွန်ပါက ဒဏ်ရာရခြင်းနှင့် ဖျားနာခြင်း ဖြစ်နိုင်ခြေ သိသိသာသာ မြင့်တက်လာသည်။
+                        ရေရှည် ကြံ့ခိုင်မှုအတွက် ဖြည်းဖြည်းချင်း တည်ဆောက်ပါ။</p></div></div></div><h3 class="mt-xl">CTL ကို ဘေးကင်းစွာ တည်ဆောက်ခြင်း: Ramp Rate</h3><div class="example-box"><h4>CTL တိုးတက်မှု နမူနာ (၁၂ ပတ် ကြာ အခြေခံ လေ့ကျင့်ရေးကာလ)</h4><ul><li><strong>ပတ် ၁:</strong> CTL 60 → 65 (+5)</li><li><strong>ပတ် ၂:</strong> CTL 65 → 70 (+5)</li><li><strong>ပတ် ၃:</strong> CTL 70 → 75 (+5)</li><li><strong>ပတ် ၄:</strong> CTL 75 → 78 (+3, အနားယူသော စာတိုပတ်)</li><li><strong>ပတ် ၅:</strong> CTL 78 → 83 (+5)</li><li><strong>ပတ် ၆:</strong> CTL 83 → 88 (+5)</li><li><strong>ပတ် ၇:</strong> CTL 88 → 93 (+5)</li><li><strong>ပတ် ၈:</strong> CTL 93 → 96 (+3, အနားယူသော စာတိုပတ်)</li><li><strong>ပတ် ၉:</strong> CTL 96 → 102 (+6)</li><li><strong>ပတ် ၁၀:</strong> CTL 102 → 108 (+6)</li><li><strong>ပတ် ၁၁:</strong> CTL 108 → 114 (+6)</li><li><strong>ပတ် ၁၂:</strong> CTL 114 → 116 (+2, ခွန်အားမတည်ဆောက်မီ အနားယူခြင်း)</li></ul><p><strong>ရလဒ်:</strong> ၁၂ ပတ်အတွင်း CTL +၅၆ တိုးတက်လာခဲ့သည် (တစ်ပတ်လျှင် ၄.၇ ပျမ်းမျှ) - ဝါသနာရှင်အဆင့်မှ
+                ပြိုင်ပွဲဝင်အဆင့် ကြံ့ခိုင်မှုသို့ ဘေးကင်းစွာ ရောက်ရှိခြင်း ဖြစ်သည်။</p></div></div></section><section class="section section-alt"><div class="container"><h2>ATL: သင့်စက်ဘီးစီး မောပန်းမှု Metric</h2><div class="content-split"><div><p>ATL သည် ကာလတိုအတွင်း ရရှိလာသော လေ့ကျင့်မှုဒဏ် သို့မဟုတ် လွန်ခဲ့သော တစ်ပတ်အတွင်း
                     စီးနင်းခဲ့မှုများကြောင့် စုဆောင်းမိလာသော မောပန်းမှုကို ခြေရာခံခြင်းဖြစ်သည်။ ၎င်းသည် ပြင်းထန်စွာ
                     လေ့ကျင့်ပြီးနောက် လျင်မြန်စွာ မြင့်တက်လာပြီး အနားယူချိန်တွင် လျင်မြန်စွာ ပြန်လည်
                     ကျဆင်းသွားသောကြောင့် လေ့ကျင့်မှုများအကြား ပြန်လည် နာလန်ထူမှုကို စီမံခန့်ခွဲရာတွင် မရှိမဖြစ်
-                    လိုအပ်သည်။</p>
-
-                <h3>စက်ဘီးစီး လေ့ကျင့်မှုတွင် ATL ၏ သဘောသဘာဝ</h3>
-                <ul>
-                    <li><strong>လျင်မြန်သော တုံ့ပြန်မှု:</strong> ၇ ရက်စာ အတိုင်းအတာ (တစ်ဝက်ခန့် လျော့ကျရန် ~၂.၄ ရက်
-                        ကြာသည်)</li>
-                    <li><strong>မတည်ငြိမ်သော ပုံစံ:</strong> ပြင်းထန်စွာ စီးပြီးလျှင် မြင့်တက်လာပြီး၊ အနားယူသည့်
-                        ရက်များတွင် ကျဆင်းသွားသည်</li>
-                    <li><strong>ပြန်လည် နာလန်ထူမှု အချက်ပြချက်:</strong> ATL ကျဆင်းခြင်း = လေ့ကျင့်မှုများအကြား
-                        မောပန်းမှု လျော့ကျသွားခြင်း</li>
-                    <li><strong>အလွန်အကျွံ လေ့ကျင့်မိခြင်း သတိပေးချက်:</strong> ATL အချိန်ကြာမြင့်စွာ မြင့်တက်နေခြင်းသည်
-                        အနားယူမှု မလုံလောက်ခြင်းကို ပြသသည်</li>
-                    <li><strong>လေ့ကျင့်မှု ဟန်ချက်:</strong> ATL သည် CTL နှင့်အတူ လိုက်ပါနေသင့်သော်လည်း ပိုမို အတက်အကျ
-                        ရှိတတ်သည်</li>
-                </ul>
-
-                <div class="callout callout-science">
-                    <h4>🔬 ကြံ့ခိုင်မှု-မောပန်းမှု ပုံစံငယ် (Fitness-Fatigue Model)</h4>
-                    <p>လေ့ကျင့်မှု တစ်ကြိမ်စီတိုင်းသည် အကျိုးသက်ရောက်မှု နှစ်ခုကို ဖြစ်ပေါ်စေသည်:</p>
-                    <ol>
-                        <li><strong>ကြံ့ခိုင်မှု လှုံ့ဆော်ချက်</strong> (ဖြည်းဖြည်းချင်း တည်ဆောက်ပြီး ရေရှည် ခံသည်)</li>
-                        <li><strong>မောပန်းမှု</strong> (လျင်မြန်စွာ ဖြစ်ပေါ်ပြီး လျင်မြန်စွာ ကုန်ဆုံးသည်)</li>
-                    </ol>
-                    <p>စွမ်းဆောင်ရည် = ကြံ့ခိုင်မှု - မောပန်းမှု။ PMC သည် ဤပုံစံငယ်ကို လက်တွေ့ မြင်သာအောင်
+                    လိုအပ်သည်။</p><h3>စက်ဘီးစီး လေ့ကျင့်မှုတွင် ATL ၏ သဘောသဘာဝ</h3><ul><li><strong>လျင်မြန်သော တုံ့ပြန်မှု:</strong> ၇ ရက်စာ အတိုင်းအတာ (တစ်ဝက်ခန့် လျော့ကျရန် ~၂.၄ ရက်
+                        ကြာသည်)</li><li><strong>မတည်ငြိမ်သော ပုံစံ:</strong> ပြင်းထန်စွာ စီးပြီးလျှင် မြင့်တက်လာပြီး၊ အနားယူသည့်
+                        ရက်များတွင် ကျဆင်းသွားသည်</li><li><strong>ပြန်လည် နာလန်ထူမှု အချက်ပြချက်:</strong> ATL ကျဆင်းခြင်း = လေ့ကျင့်မှုများအကြား
+                        မောပန်းမှု လျော့ကျသွားခြင်း</li><li><strong>အလွန်အကျွံ လေ့ကျင့်မိခြင်း သတိပေးချက်:</strong> ATL အချိန်ကြာမြင့်စွာ မြင့်တက်နေခြင်းသည်
+                        အနားယူမှု မလုံလောက်ခြင်းကို ပြသသည်</li><li><strong>လေ့ကျင့်မှု ဟန်ချက်:</strong> ATL သည် CTL နှင့်အတူ လိုက်ပါနေသင့်သော်လည်း ပိုမို အတက်အကျ
+                        ရှိတတ်သည်</li></ul><div class="callout callout-science"><h4>🔬 ကြံ့ခိုင်မှု-မောပန်းမှု ပုံစံငယ် (Fitness-Fatigue Model)</h4><p>လေ့ကျင့်မှု တစ်ကြိမ်စီတိုင်းသည် အကျိုးသက်ရောက်မှု နှစ်ခုကို ဖြစ်ပေါ်စေသည်:</p><ol><li><strong>ကြံ့ခိုင်မှု လှုံ့ဆော်ချက်</strong> (ဖြည်းဖြည်းချင်း တည်ဆောက်ပြီး ရေရှည် ခံသည်)</li><li><strong>မောပန်းမှု</strong> (လျင်မြန်စွာ ဖြစ်ပေါ်ပြီး လျင်မြန်စွာ ကုန်ဆုံးသည်)</li></ol><p>စွမ်းဆောင်ရည် = ကြံ့ခိုင်မှု - မောပန်းမှု။ PMC သည် ဤပုံစံငယ်ကို လက်တွေ့ မြင်သာအောင်
                         ပြပေးခြင်းဖြင့် သိပ္ပံနည်းကျ လေ့ကျင့်ရေးကာလများ ခွဲခြားခြင်းနှင့် ပြိုင်ပွဲအတွက်
-                        အကောင်းဆုံးအချိန်ကို ရွေးချယ်နိုင်စေသည်။</p>
-                </div>
-            </div>
-
-            <div>
-                <h3>တသမတ်တည်း လေ့ကျင့်နေချိန်တွင်</h3>
-                <p>အပတ်စဉ် လေ့ကျင့်မှု ပမာဏ တူညီနေပါက CTL နှင့် ATL တို့သည် တူညီသွားတတ်သည်:</p>
-                <div class="example-box">
-                    <h4>နမူနာ: တစ်ပတ်လျှင် ၅၀၀ TSS တသမတ်တည်း လုပ်ဆောင်လျှင်</h4>
-                    <div class="calculation">
+                        အကောင်းဆုံးအချိန်ကို ရွေးချယ်နိုင်စေသည်။</p></div></div><div><h3>တသမတ်တည်း လေ့ကျင့်နေချိန်တွင်</h3><p>အပတ်စဉ် လေ့ကျင့်မှု ပမာဏ တူညီနေပါက CTL နှင့် ATL တို့သည် တူညီသွားတတ်သည်:</p><div class="example-box"><h4>နမူနာ: တစ်ပတ်လျှင် ၅၀၀ TSS တသမတ်တည်း လုပ်ဆောင်လျှင်</h4><div class="calculation">
                         နေ့စဉ် TSS ≈ ၇၁<br>
                         CTL သည် ~၇၁ သို့ ချဉ်းကပ်သွားမည်<br>
                         ATL သည် ~၇၁ သို့ ချဉ်းကပ်သွားမည်<br>
                         TSB သည် ၀ (သုည) သို့ ချဉ်းကပ်သွားမည်
-                    </div>
-                    <p><strong>သုံးသပ်ချက်:</strong> ကြံ့ခိုင်မှုနှင့် မောပန်းမှုမှာ မျှခြေတွင် ရှိနေသည်။ လေ့ကျင့်မှုကို
+                    </div><p><strong>သုံးသပ်ချက်:</strong> ကြံ့ခိုင်မှုနှင့် မောပန်းမှုမှာ မျှခြေတွင် ရှိနေသည်။ လေ့ကျင့်မှုကို
                         ဆက်လက် ထိန်းသိမ်းထားခြင်းသာ ဖြစ်ပြီး၊ မောပန်းမှု အပို သို့မဟုတ် ကြံ့ခိုင်မှု အပို ဖြစ်ပေါ်ခြင်း
-                        မရှိပါ။</p>
-                </div>
-
-                <h3>ခွန်အား တည်ဆောက်နေချိန်တွင်</h3>
-                <p>လေ့ကျင့်မှု ပမာဏ သို့မဟုတ် ပြင်းအားကို တိုးမြှင့်နေချိန်တွင်:</p>
-                <div class="example-box">
-                    <p>ATL သည် အချိန်ကာလ တိုတောင်းသောကြောင့် CTL ထက် <em>ပိုမို လျင်မြန်စွာ</em> မြင့်တက်လာသည်။ TSB သည်
+                        မရှိပါ။</p></div><h3>ခွန်အား တည်ဆောက်နေချိန်တွင်</h3><p>လေ့ကျင့်မှု ပမာဏ သို့မဟုတ် ပြင်းအားကို တိုးမြှင့်နေချိန်တွင်:</p><div class="example-box"><p>ATL သည် အချိန်ကာလ တိုတောင်းသောကြောင့် CTL ထက် <em>ပိုမို လျင်မြန်စွာ</em> မြင့်တက်လာသည်။ TSB သည်
                         အနုတ်လက္ခဏာ ဖြစ်လာသည် (မောပန်းမှု > ကြံ့ခိုင်မှု)။ ၎င်းသည် ပုံမှန်ဖြစ်ပြီး ဖြစ်သင့်သောအရာ
-                        ဖြစ်သည်—ကြံ့ခိုင်မှု တိုးတက်စေရန် ခန္ဓာကိုယ်ကို ဖိစီးမှု ပေးနေခြင်း ဖြစ်သည်။</p>
-                    <p><strong>ရည်မှန်းချက် TSB:</strong> လေ့ကျင့်မှု အကောင်းဆုံး ဖြစ်နေချိန်တွင် -၁၀ မှ -၃၀ ကြား</p>
-                </div>
-
-                <h3>ပြိုင်ပွဲအတွက် ပြင်ဆင်နေချိန် (Taper)</h3>
-                <p>ပြိုင်ပွဲ မတိုင်မီ လေ့ကျင့်မှု ပမာဏကို လျှော့ချနေချိန်တွင်:</p>
-                <div class="example-box">
-                    <p>ATL သည် CTL ထက် <em>ပိုမို လျင်မြန်စွာ</em> ကျဆင်းသွားသည်။ TSB သည် အပေါင်းလက္ခဏာ ဖြစ်လာသည်
+                        ဖြစ်သည်—ကြံ့ခိုင်မှု တိုးတက်စေရန် ခန္ဓာကိုယ်ကို ဖိစီးမှု ပေးနေခြင်း ဖြစ်သည်။</p><p><strong>ရည်မှန်းချက် TSB:</strong> လေ့ကျင့်မှု အကောင်းဆုံး ဖြစ်နေချိန်တွင် -၁၀ မှ -၃၀ ကြား</p></div><h3>ပြိုင်ပွဲအတွက် ပြင်ဆင်နေချိန် (Taper)</h3><p>ပြိုင်ပွဲ မတိုင်မီ လေ့ကျင့်မှု ပမာဏကို လျှော့ချနေချိန်တွင်:</p><div class="example-box"><p>ATL သည် CTL ထက် <em>ပိုမို လျင်မြန်စွာ</em> ကျဆင်းသွားသည်။ TSB သည် အပေါင်းလက္ခဏာ ဖြစ်လာသည်
                         (ကြံ့ခိုင်မှု > မောပန်းမှု)။ ဤသည်မှာ ပြိုင်ပွဲနေ့တွင် ကြံ့ခိုင်မှုများကို ထိန်းသိမ်းထားရင်း
-                        ပေါ့ပေါ့ပါးပါးနှင့် အစွမ်းကုန် စွမ်းဆောင်နိုင်စေရန် ရည်မှန်းချက် ဖြစ်သည်။</p>
-                    <p><strong>ရည်မှန်းချက် TSB:</strong> ပြိုင်ပွဲ အမျိုးအစားအပေါ် မူတည်၍ ပြိုင်ပွဲနေ့တွင် +၁၀ မှ +၂၅
-                        ကြား</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2>TSB: သင်၏ ကြံ့ခိုင်မှု-မောပန်းမှု မျှခြေနှင့် ပြိုင်ပွဲဝင်ရန် အသင့်ဖြစ်မှု</h2>
-
-        <p class="lead">TSB (Training Stress Balance) သည် မနေ့က ကြံ့ခိုင်မှု (CTL) နှင့် ယနေ့ မောပန်းမှု (ATL) တို့၏
+                        ပေါ့ပေါ့ပါးပါးနှင့် အစွမ်းကုန် စွမ်းဆောင်နိုင်စေရန် ရည်မှန်းချက် ဖြစ်သည်။</p><p><strong>ရည်မှန်းချက် TSB:</strong> ပြိုင်ပွဲ အမျိုးအစားအပေါ် မူတည်၍ ပြိုင်ပွဲနေ့တွင် +၁၀ မှ +၂၅
+                        ကြား</p></div></div></div></div></section><section class="section"><div class="container"><h2>TSB: သင်၏ ကြံ့ခိုင်မှု-မောပန်းမှု မျှခြေနှင့် ပြိုင်ပွဲဝင်ရန် အသင့်ဖြစ်မှု</h2><p class="lead">TSB (Training Stress Balance) သည် မနေ့က ကြံ့ခိုင်မှု (CTL) နှင့် ယနေ့ မောပန်းမှု (ATL) တို့၏
             ခြားနားချက် ဖြစ်သည်။ ၎င်းသည် သင် ပေါ့ပါး လန်းဆန်းနေသလား သို့မဟုတ် မောပန်းနေသလား၊ ပြိုင်ပွဲဝင်ရန်
-            အသင့်ဖြစ်ပြီလား သို့မဟုတ် အနားယူရန် လိုနေသလားကို ဖော်ပြပေးသည်။</p>
-
-        <div class="tsb-zones-container">
-            <h3>စက်ဘီးစီးသူများအတွက် TSB လမ်းညွှန်ချက်</h3>
-            <table class="tsb-zones-table">
-                <thead>
-                    <tr>
-                        <th>TSB အတိုင်းအတာ</th>
-                        <th>အခြေအနေ</th>
-                        <th>အဓိပ္ပာယ် ဖွင့်ဆိုချက်</th>
-                        <th>အကြံပြုချက်</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="tsb-critical">
-                        <td>
-                            < -30</td>
-                        <td><strong>အလွန်အကျွံ လေ့ကျင့်မှု အန္တရာယ်</strong></td>
-                        <td>အလွန်အမင်း မောပန်းနေသည်။ ဖျားနာခြင်း/ဒဏ်ရာရခြင်း အန္တရာယ် မြင့်မားသည်။</td>
-                        <td>ချက်ချင်း အနားယူရန် လိုအပ်သည်။ လေ့ကျင့်မှု ပမာဏ ၅၀% ထက်မက လျှော့ချပါ။ လုံးဝ အနားယူရန်
-                            စဉ်းစားပါ။</td>
-                    </tr>
-                    <tr class="tsb-training">
-                        <td>-20 to -30</td>
-                        <td><strong>အကောင်းဆုံး လေ့ကျင့်ရေး ကာလ</strong></td>
-                        <td>ထိရောက်သော ဖိစီးမှု ပေးနေသည်။ ကြံ့ခိုင်မှု တည်ဆောက်နေသည်။</td>
-                        <td>အစီအစဉ်အတိုင်း ဆက်လက် လုပ်ဆောင်ပါ။ အလွန်အမင်း ပင်ပန်းလာခြင်း သို့မဟုတ် စွမ်းအား
-                            ကျဆင်းလာခြင်း ရှိမရှိ စောင့်ကြည့်ပါ။</td>
-                    </tr>
-                    <tr class="tsb-moderate">
-                        <td>-10 to -20</td>
-                        <td><strong>အသင့်အတင့် လေ့ကျင့်မှု</strong></td>
-                        <td>ပုံမှန် လေ့ကျင့်မှုများ စုဆောင်းနေသည်။</td>
-                        <td>ပုံမှန်အတိုင်း လေ့ကျင့်ပါ။ Interval သို့မဟုတ် threshold လေ့ကျင့်ခန်းများကို ကောင်းစွာ
-                            လုပ်ဆောင်နိုင်သည်။</td>
-                    </tr>
-                    <tr class="tsb-neutral">
-                        <td>-10 to +10</td>
-                        <td><strong>မျှခြေ/ထိန်းသိမ်းမှု</strong></td>
-                        <td>မျှခြေ အခြေအနေ။ အနည်းငယ် မောပန်းခြင်း သို့မဟုတ် လန်းဆန်းခြင်း ရှိနိုင်သည်။</td>
-                        <td>ယှဉ်ပြိုင်မှု အသေးစားများ၊ FTP စမ်းသပ်ခြင်း သို့မဟုတ် အနားယူသော ပတ်များအတွက် ကောင်းမွန်သည်။
-                        </td>
-                    </tr>
-                    <tr class="tsb-fresh">
-                        <td>+10 to +25</td>
-                        <td><strong>ပြိုင်ပွဲဝင်ရန် အကောင်းဆုံး</strong></td>
-                        <td>ပေါ့ပါးလန်းဆန်းပြီး ကြံ့ခိုင်နေသည်။ အကောင်းဆုံး စွမ်းဆောင်ရည် ရနိုင်သော အချိန် ဖြစ်သည်။</td>
-                        <td>အဓိက ပြိုင်ပွဲများအတွက် ဖြစ်သည်။ အကောင်းဆုံး စက်ဘီးစီး စွမ်းဆောင်ရည်ကို မျှော်လင့်နိုင်သည်။
-                        </td>
-                    </tr>
-                    <tr class="tsb-very-fresh">
-                        <td>> +25</td>
-                        <td><strong>အလွန် လန်းဆန်း/ကြံ့ခိုင်မှု လျော့ကျခြင်း</strong></td>
-                        <td>အလွန်အမင်း အနားယူထားသည်။ ကြံ့ခိုင်မှု စတင် လျော့ကျနိုင်ပါသည်။</td>
-                        <td>ပေါက်ကွဲအား သုံးရသော ပြိုင်ပွဲ တိုတိုများအတွက် အဆင်ပြေသည်။ အနားယူမှု ကြာသွားပါက လေ့ကျင့်မှု
-                            ပြန်စပါ။</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="callout callout-tip mt-xl">
-            <h3>🎯 ပြိုင်ပွဲ အမျိုးအစားအလိုက် TSB ပန်းတိုင်များ</h3>
-            <ul>
-                <li><strong>Criterium/Sprints:</strong> TSB +5 မှ +15 (ခေတ္တမျှသာ အနားယူပြီး အရှိန်ကို ထိန်းသိမ်းရန်)
-                </li>
-                <li><strong>လမ်းမပေါ် ပြိုင်ပွဲများ (Road Races):</strong> TSB +10 မှ +20 (၁၀-၁၄ ရက်ခန့် တဖြည်းဖြည်း
-                    လျှော့ချ အနားယူရန်)</li>
-                <li><strong>Time Trials:</strong> TSB +15 မှ +25 (၁၄-၂၁ ရက်ခန့် အနားယူပြီး အမြင့်ဆုံး စွမ်းအား ရရှိရန်)
-                </li>
-                <li><strong>Gran Fondos:</strong> TSB +5 မှ +15 (၇-၁၀ ရက်ခန့် အနားယူပြီး ခံနိုင်ရည်ကို ထိန်းသိမ်းရန်)
-                </li>
-                <li><strong>Stage Races:</strong> TSB -5 မှ +10 (ခံနိုင်ရည် ပိုလိုသောကြောင့် အနည်းငယ် မောပန်းမှု
-                    ရှိနေလျှင်လည်း ရသည်)</li>
-            </ul>
-            <p><em>ပေါက်ကွဲအား ပိုသုံးရသော ပြိုင်ပွဲ တိုတိုများအတွက် TSB ပိုမြင့်ရန် လိုအပ်ပြီး၊ ခံနိုင်ရည် သုံးရသော
-                    ပြိုင်ပွဲ ရှည်ရှည်များအတွက် ခံနိုင်ရည် မကျစေရန် TSB ကို အသင့်အတင့်သာ ထားသင့်သည်။</em></p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>Performance Management Chart ဖြင့် ကာလအပိုင်းအခြားအလိုက် လေ့ကျင့်ခြင်း</h2>
-
-        <div class="example-box">
-            <h3>၁၆ ပတ်ကြာ လေ့ကျင့်ရေးကာလ နမူနာ</h3>
-
-            <h4>ပတ် ၁-၄: အခြေခံကာလ (Base Phase)</h4>
-            <ul>
-                <li><strong>ရည်မှန်းချက်:</strong> CTL ကို တစ်ပတ်လျှင် ၃-၅ မှတ်နှုန်းဖြင့် တည်ငြိမ်စွာ တည်ဆောက်ရန်</li>
-                <li><strong>အပတ်စဉ် TSS:</strong> 400 → 450 → 500 → 450 (အနားယူသော ပတ်)</li>
-                <li><strong>CTL တိုးတက်မှု:</strong> 60 → 73</li>
-                <li><strong>TSB အတိုင်းအတာ:</strong> -5 မှ -15 (စီမံနိုင်သော မောပန်းမှု)</li>
-                <li><strong>အဓိကလုပ်ဆောင်ချက်:</strong> ခရီးဝေး ပုံမှန်စီးခြင်း၊ Zone 2 ခံနိုင်ရည် လေ့ကျင့်ခြင်း၊ အခြေခံ
-                    ကြံ့ခိုင်မှု တည်ဆောက်ခြင်း</li>
-            </ul>
-
-            <h4>ပတ် ၅-၈: တည်ဆောက်ရေးကာလ (Build Phase)</h4>
-            <ul>
-                <li><strong>ရည်မှန်းချက်:</strong> ပြင်းထန်သော လေ့ကျင့်မှုများဖြင့် CTL ကို တစ်ပတ် ၅-၈ မှတ်နှုန်း ဆက်လက်
-                    တိုးမြှင့်ရန်</li>
-                <li><strong>အပတ်စဉ် TSS:</strong> 500 → 550 → 600 → 500 (အနားယူသော ပတ်)</li>
-                <li><strong>CTL တိုးတက်မှု:</strong> 73 → 93</li>
-                <li><strong>TSB အတိုင်းအတာ:</strong> -15 မှ -25 (ထိရောက်သော ဖိစီးမှု)</li>
-                <li><strong>အဓိကလုပ်ဆောင်ချက်:</strong> Sweet spot intervals, threshold လေ့ကျင့်မှုများ၊ Tempo
-                    စီးခြင်းများ</li>
-            </ul>
-
-            <h4>ပတ် ၉-၁၂: အထူး ကာလ (Peak Phase)</h4>
-            <ul>
-                <li><strong>ရည်မှန်းချက်:</strong> CTL ကို အမြင့်ဆုံး ရောက်အောင် လုပ်ဆောင်ရန်</li>
-                <li><strong>အပတ်စဉ် TSS:</strong> 600 → 650 → 650 → 550 (အနားယူသော ပတ်)</li>
-                <li><strong>CTL တိုးတက်မှု:</strong> 93 → 108</li>
-                <li><strong>TSB အတိုင်းအတာ:</strong> -20 မှ -30 (အမြင့်ဆုံး လှုံ့ဆော်မှု)</li>
-                <li><strong>အဓိကလုပ်ဆောင်ချက်:</strong> ပြိုင်ပွဲအလိုက် interval များ၊ VO₂max လေ့ကျင့်မှုများ၊ ပြိုင်ပွဲ
-                    စမ်းသပ်ခြင်း</li>
-            </ul>
-
-            <h4>ပတ် ၁၃-၁၄: ပြန်လည် နာလန်ထူရေး ကာလ</h4>
-            <ul>
-                <li><strong>ရည်မှန်းချက်:</strong> ခန္ဓာကိုယ်က လေ့ကျင့်မှုများကို လက်ခံရရှိစေရန်နှင့် ပြိုင်ပွဲအတွက်
-                    ပြင်ဆင်ရန်</li>
-                <li><strong>အပတ်စဉ် TSS:</strong> 400 → 400</li>
-                <li><strong>CTL ပြောင်းလဲမှု:</strong> 108 → 103 (အနည်းငယ် ကျသော်လည်း ကြံ့ခိုင်မှု ကျန်ရှိနေသည်)</li>
-                <li><strong>TSB အတိုင်းအတာ:</strong> -5 မှ +5 (မျှခြေ)</li>
-                <li><strong>အဓိကလုပ်ဆောင်ချက်:</strong> ပေါ့ပါးသော ခံနိုင်ရည် စီးနင်းခြင်း၊ ပျော်ရွှင်စွာ စီးနင်းခြင်း၊
-                    ပြင်းအား လျှော့ချခြင်း</li>
-            </ul>
-
-            <h4>ပတ် ၁၅-၁၆: အနားယူခြင်း (Taper) နှင့် ပြိုင်ပွဲပတ်</h4>
-            <ul>
-                <li><strong>ရည်မှန်းချက်:</strong> ပြိုင်ပွဲနေ့တွင် TSB +၁၅-၂၀ ဖြင့် အကောင်းဆုံး စွမ်းဆောင်ရန်</li>
-                <li><strong>အပတ်စဉ် TSS:</strong> 350 → 250 + ပြိုင်ပွဲ</li>
-                <li><strong>CTL ပြောင်းလဲမှု:</strong> 103 → 98 (ကြံ့ခိုင်မှု အနည်းငယ်သာ လျော့ကျသည်)</li>
-                <li><strong>ATL ပြောင်းလဲမှု:</strong> ~၈၅ မှ ~၅၀ သို့ လျင်မြန်စွာ ကျဆင်းသွားသည်</li>
-                <li><strong>ပြိုင်ပွဲနေ့ TSB:</strong> <strong>+18 မှ +22</strong></li>
-                <li><strong>ရလဒ်:</strong> ကြံ့ခိုင်မှုကို ထိန်းထားရင်း ပေါ့ပါးမှု အပြည့်ဖြင့် အကောင်းဆုံး
-                    စွမ်းဆောင်နိုင်ခြင်း</li>
-            </ul>
-        </div>
-
-        <div class="callout callout-success">
-            <h3>✅ အနားယူခြင်း (Taper) က ဘာကြောင့် ထိရောက်သနည်း</h3>
-            <p>အချိန်ကာလ ကွာခြားမှု (CTL အတွက် ၄၂ ရက်၊ ATL အတွက် ၇ ရက်) ကြောင့် အနားယူခြင်းမှာ ထိရောက်မှု ရှိခြင်း
-                ဖြစ်ပါသည်:</p>
-            <ul>
-                <li>ATL သည် လျင်မြန်စွာ တုံ့ပြန်သည် → မောပန်းမှုသည် ၇-၁၀ ရက်အတွင်း ပျောက်ကွယ်သွားသည်</li>
-                <li>CTL သည် ဖြည်းဖြည်းချင်း တုံ့ပြန်သည် → ကြံ့ခိုင်မှုသည် ရက်သတ္တပတ်ပေါင်းများစွာ တည်ရှိနေသည်</li>
-                <li>ရလဒ်: ကြံ့ခိုင်မှုကို ဆက်လက် ထိန်းသိမ်းထားရင်း မောပန်းမှုများ ကုန်ဆုံးသွားသောကြောင့် အကောင်းဆုံး
-                    စွမ်းဆောင်ရည် ရရှိစေခြင်း ဖြစ်သည်</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>လမ်းမပေါ် စက်ဘီးစီးခြင်း (Road) နှင့် တောင်တက် စက်ဘီးစီးခြင်း (MTB) လေ့ကျင့်မှု ဝန်တင်မှု နှိုင်းယှဉ်ချက်
-        </h2>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>ကဏ္ဍ</th>
-                    <th>Road Cycling</th>
-                    <th>Mountain Biking</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>စွမ်းအား ပုံစံ</strong></td>
-                    <td>အတက်အကျ နည်းပြီး တသမတ်တည်း လုပ်ဆောင်ရသည်</td>
-                    <td>အလွန် ပြောင်းလဲမှု များပြီး ရုတ်တရက် အားစိုက်ရမှု များသည်</td>
-                </tr>
-                <tr>
-                    <td><strong>Variability Index (VI)</strong></td>
-                    <td>1.02-1.05 (အလွန် တသမတ်တည်း ဖြစ်သည်)</td>
-                    <td>1.10-1.20+ (အတက်အကျ အလွန်များသူ)</td>
-                </tr>
-                <tr>
-                    <td><strong>TSS စုဆောင်းမှု</strong></td>
-                    <td>ခန့်မှန်းရ လွယ်ကူပြီး အတိအကျ စီစဉ်နိုင်သည်</td>
-                    <td>ခန့်မှန်းရ ခက်ခဲပြီး လမ်းအခြေအနေအပေါ် များစွာ မူတည်သည်</td>
-                </tr>
-                <tr>
-                    <td><strong>Normalized Power</strong></td>
-                    <td>ပျမ်းမျှ စွမ်းအား (Average Power) နှင့် နီးစပ်သည်</td>
-                    <td>ပျမ်းမျှ စွမ်းအားထက် သိသိသာသာ ပိုမြင့်တတ်သည်</td>
-                </tr>
-                <tr>
-                    <td><strong>အဓိက လေ့ကျင့်မှု</strong></td>
-                    <td>Sustained threshold, tempo လေ့ကျင့်မှုများ</td>
-                    <td>ရုတ်တရက် interval များ၊ W' စီမံခန့်ခွဲမှု၊ နည်းစနစ်ပိုင်း ကျွမ်းကျင်မှု</td>
-                </tr>
-                <tr>
-                    <td><strong>CTL အဓိပ္ပာယ်</strong></td>
-                    <td>ကြံ့ခိုင်မှု၏ တိုက်ရိုက် အချက်ပြချက်</td>
-                    <td>ကြံ့ခိုင်မှု အချက်ပြချက် ဖြစ်သော်လည်း နည်းစနစ်ပိုင်းက စွမ်းဆောင်ရည်၏ ၅၀% ဖြစ်သည်</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="callout callout-info mt-lg">
-            <h3>MTB အတွက် သီးသန့် ထည့်သွင်းစဉ်းစားရန် အချက်များ</h3>
-            <p>MTB အတွက် PMC ကို အဓိပ္ပာယ် ဖွင့်ဆိုရာတွင် မတူညီသော အချက်များ ရှိသည်:</p>
-            <ul>
-                <li><strong>လမ်းကြောင်းတူသော်လည်း TSS မတူနိုင်:</strong> လမ်း၏ ခက်ခဲမှုသည် လမ်းကြောင်း တစ်ခုတည်း
-                    ဖြစ်သော်လည်း TSS ကို များစွာ ပြောင်းလဲစေသည်</li>
-                <li><strong>ရုတ်တရက် အားစိုက်မှုများ (Bursts):</strong> Threshold ထက် ကျော်လွန်သော အားစိုက်မှုများကို
-                    ထည့်တွက်ရန် လိုသည်—XC ပြိုင်ပွဲများတွင် ၂ နာရီအတွင်း အားစိုက်မှု ၈၈ ကြိမ်ထက်မက ရှိနိုင်သည်</li>
-                <li><strong>နည်းစနစ်ပိုင်းက ပိုအရေးကြီးသည်:</strong> MTB စွမ်းဆောင်ရည်၏ ~၅၀% မှာ နည်းစနစ်ပိုင်း ဖြစ်ပြီး
-                    Road တွင်မူ ~၂၀% ခန့်သာ ရှိသည်</li>
-                <li><strong>စွမ်းအား တိုင်းတာမှု ကာလတိုခြင်း:</strong> MTB အတွက် ၃-၅ စက္ကန့် ပျမ်းမျှက ပိုအရေးကြီးပြီး
-                    Road အတွက် ၃၀ စက္ကန့် ပျမ်းမျှက ပိုအရေးကြီးသည်</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>လေ့ကျင့်မှု ဝန်တင်မှု စီမံခန့်ခွဲရာတွင် အမှားများ</h2>
-
-        <div class="guidelines-grid">
-            <div class="guideline-item">
-                <h3>၁။ CTL ကို မြန်မြန် တည်ဆောက်မိခြင်း</h3>
-                <p><strong>အမှား:</strong> ပစ်မှတ်ထားသော ကြံ့ခိုင်မှု ရောက်ရှိစေရန် တစ်ပတ်လျှင် ၁၅-၂၀ CTL မှတ်ခန့်
-                    ရုတ်တရက် တိုးမြှင့်ခြင်း။</p>
-                <p><strong>ဖြေရှင်းချက်:</strong> တိုးမြှင့်မှုကို တစ်ပတ် ၃-၈ CTL မှတ်အတွင်းသာ ကန့်သတ်ပါ။
-                    ကြံ့ခိုင်မှုဆိုသည်မှာ ဘေးကင်းစွာ တည်ဆောက်ရန် အချိန်ယူရသည်ကို စိတ်ရှည်ပါ။</p>
-            </div>
-
-            <div class="guideline-item">
-                <h3>၂။ လုံးဝ အနားယူခြင်း (Taper) မရှိခြင်း</h3>
-                <p><strong>အမှား:</strong> ပြတ်တောက်မှု မရှိဘဲ ပြင်းထန်စွာ ဆက်တိုက် လေ့ကျင့်ပြီး ပြိုင်ပွဲနေ့တွင် TSB
-                    -၂၀ မှ -၃၀ ကြားဖြင့် ရောက်ရှိခြင်း။</p>
-                <p><strong>ဖြေရှင်းချက်:</strong> အဓိက ပြိုင်ပွဲများ မတိုင်မီ ၇-၁၄ ရက်အလိုတွင် လေ့ကျင့်မှု ပမာဏကို
-                    လျှော့ချပါ။ အကောင်းဆုံး စွမ်းဆောင်ရန် TSB ကို +၁၀-၂၅ သို့ မြင့်တက်စေပါ။</p>
-            </div>
-
-            <div class="guideline-item">
-                <h3>၃။ TSB သတိပေးချက်များကို လစ်လျူရှုခြင်း</h3>
-                <p><strong>အမှား:</strong> TSB သည် -၃၀ အောက်သို့ အချိန်ကြာမြင့်စွာ ရောက်ရှိနေသော်လည်း ဆက်လက် ဖိအားပေး
-                    လေ့ကျင့်ခြင်း။</p>
-                <p><strong>ဖြေရှင်းချက်:</strong> TSB < -30 ဖြစ်ပါက မဖြစ်မနေ အနားယူရပါမည်။ သင့်ခန္ဓာကိုယ်က အနားယူရန်
-                        လိုအပ်နေကြောင်း ပြောနေခြင်း ဖြစ်သည်။</p>
-            </div>
-
-            <div class="guideline-item">
-                <h3>၄။ စနစ်တကျ မဟုတ်ဘဲ စီးနင်းခြင်း</h3>
-                <p><strong>အမှား:</strong> စနစ်တကျ တိုးမြှင့်ခြင်း မရှိဘဲ မိမိ စိတ်ထဲ ရှိရာအတိုင်း စီးနင်းခြင်း။</p>
-                <p><strong>ဖြေရှင်းချက်:</strong> CTL တိုးတက်မှုနှင့် အနားယူသော ပတ်များ ပါဝင်သည့် စနစ်တကျ လေ့ကျင့်ရေး
-                    အစီအစဉ်ကို လိုက်နာပါ။</p>
-            </div>
-
-            <div class="guideline-item">
-                <h3>၅။ အခြားသူများနှင့် နှိုင်းယှဉ်ခြင်း</h3>
-                <p><strong>အမှား:</strong> "ကျွန်တော့် သူငယ်ချင်းက CTL ၁၂၀ ရှိတယ်၊ ကျွန်တော်လည်း အဲဒီလောက် ရှိရမယ်!"</p>
-                <p><strong>ဖြေရှင်းချက်:</strong> CTL သည် တစ်ဦးချင်းအပေါ် မူတည်သည်။ သင့်အတွက် သင့်တော်သော CTL မှာ
-                    သင့်လေ့ကျင့်မှု သမိုင်းကြောင်းနှင့် မျိုးရိုးဗီဇအပေါ် မူတည်ပါသည်။</p>
-            </div>
-
-            <div class="guideline-item">
-                <h3>၆။ အနားယူသော ပတ်များကို ကျော်ခြင်း</h3>
-                <p><strong>အမှား:</strong> အနားယူသော ပတ်များ မပါဘဲ CTL ကို ဆက်တိုက် တည်ဆောက်ခြင်း။</p>
-                <p><strong>ဖြေရှင်းချက်:</strong> ၃-၄ ပတ် တစ်ကြိမ် လေ့ကျင့်မှု ပမာဏကို ၃၀-၄၀% ခန့် လျှော့ချပြီး
-                    ကြံ့ခိုင်မှုများကို ခန္ဓာကိုယ်က လက်ခံကျင့်သားရစေရန် လုပ်ဆောင်ပါ။</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>သုတေသနနှင့် သိပ္ပံနည်းကျ အထောက်အထားများ</h2>
-
-        <p>Performance Management Chart နှင့် TSS နည်းစနစ်များသည် ဆယ်စုနှစ်ပေါင်းများစွာ ကြာမြင့်ခဲ့သော အားကစား သိပ္ပံ
-            သုတေသနများအပေါ် အခြေခံထားပါသည်:</p>
-
-        <div class="research-references">
-            <h3>အဓိက သုတေသန စာတမ်းများ</h3>
-            <ul>
-                <li><strong>Allen, H., & Coggan, A.R. (2019).</strong> <em>Training and Racing with a Power Meter</em>
+            အသင့်ဖြစ်ပြီလား သို့မဟုတ် အနားယူရန် လိုနေသလားကို ဖော်ပြပေးသည်။</p><div class="tsb-zones-container"><h3>စက်ဘီးစီးသူများအတွက် TSB လမ်းညွှန်ချက်</h3><table class="tsb-zones-table"><thead><tr><th>TSB အတိုင်းအတာ</th><th>အခြေအနေ</th><th>အဓိပ္ပာယ် ဖွင့်ဆိုချက်</th><th>အကြံပြုချက်</th></tr></thead><tbody><tr class="tsb-critical"><td>< -30</td><td><strong>အလွန်အကျွံ လေ့ကျင့်မှု အန္တရာယ်</strong></td><td>အလွန်အမင်း မောပန်းနေသည်။ ဖျားနာခြင်း/ဒဏ်ရာရခြင်း အန္တရာယ် မြင့်မားသည်။</td><td>ချက်ချင်း အနားယူရန် လိုအပ်သည်။ လေ့ကျင့်မှု ပမာဏ ၅၀% ထက်မက လျှော့ချပါ။ လုံးဝ အနားယူရန်
+                            စဉ်းစားပါ။</td></tr><tr class="tsb-training"><td>-20 to -30</td><td><strong>အကောင်းဆုံး လေ့ကျင့်ရေး ကာလ</strong></td><td>ထိရောက်သော ဖိစီးမှု ပေးနေသည်။ ကြံ့ခိုင်မှု တည်ဆောက်နေသည်။</td><td>အစီအစဉ်အတိုင်း ဆက်လက် လုပ်ဆောင်ပါ။ အလွန်အမင်း ပင်ပန်းလာခြင်း သို့မဟုတ် စွမ်းအား
+                            ကျဆင်းလာခြင်း ရှိမရှိ စောင့်ကြည့်ပါ။</td></tr><tr class="tsb-moderate"><td>-10 to -20</td><td><strong>အသင့်အတင့် လေ့ကျင့်မှု</strong></td><td>ပုံမှန် လေ့ကျင့်မှုများ စုဆောင်းနေသည်။</td><td>ပုံမှန်အတိုင်း လေ့ကျင့်ပါ။ Interval သို့မဟုတ် threshold လေ့ကျင့်ခန်းများကို ကောင်းစွာ
+                            လုပ်ဆောင်နိုင်သည်။</td></tr><tr class="tsb-neutral"><td>-10 to +10</td><td><strong>မျှခြေ/ထိန်းသိမ်းမှု</strong></td><td>မျှခြေ အခြေအနေ။ အနည်းငယ် မောပန်းခြင်း သို့မဟုတ် လန်းဆန်းခြင်း ရှိနိုင်သည်။</td><td>ယှဉ်ပြိုင်မှု အသေးစားများ၊ FTP စမ်းသပ်ခြင်း သို့မဟုတ် အနားယူသော ပတ်များအတွက် ကောင်းမွန်သည်။
+                        </td></tr><tr class="tsb-fresh"><td>+10 to +25</td><td><strong>ပြိုင်ပွဲဝင်ရန် အကောင်းဆုံး</strong></td><td>ပေါ့ပါးလန်းဆန်းပြီး ကြံ့ခိုင်နေသည်။ အကောင်းဆုံး စွမ်းဆောင်ရည် ရနိုင်သော အချိန် ဖြစ်သည်။</td><td>အဓိက ပြိုင်ပွဲများအတွက် ဖြစ်သည်။ အကောင်းဆုံး စက်ဘီးစီး စွမ်းဆောင်ရည်ကို မျှော်လင့်နိုင်သည်။
+                        </td></tr><tr class="tsb-very-fresh"><td>> +25</td><td><strong>အလွန် လန်းဆန်း/ကြံ့ခိုင်မှု လျော့ကျခြင်း</strong></td><td>အလွန်အမင်း အနားယူထားသည်။ ကြံ့ခိုင်မှု စတင် လျော့ကျနိုင်ပါသည်။</td><td>ပေါက်ကွဲအား သုံးရသော ပြိုင်ပွဲ တိုတိုများအတွက် အဆင်ပြေသည်။ အနားယူမှု ကြာသွားပါက လေ့ကျင့်မှု
+                            ပြန်စပါ။</td></tr></tbody></table></div><div class="callout callout-tip mt-xl"><h3>🎯 ပြိုင်ပွဲ အမျိုးအစားအလိုက် TSB ပန်းတိုင်များ</h3><ul><li><strong>Criterium/Sprints:</strong> TSB +5 မှ +15 (ခေတ္တမျှသာ အနားယူပြီး အရှိန်ကို ထိန်းသိမ်းရန်)
+                </li><li><strong>လမ်းမပေါ် ပြိုင်ပွဲများ (Road Races):</strong> TSB +10 မှ +20 (၁၀-၁၄ ရက်ခန့် တဖြည်းဖြည်း
+                    လျှော့ချ အနားယူရန်)</li><li><strong>Time Trials:</strong> TSB +15 မှ +25 (၁၄-၂၁ ရက်ခန့် အနားယူပြီး အမြင့်ဆုံး စွမ်းအား ရရှိရန်)
+                </li><li><strong>Gran Fondos:</strong> TSB +5 မှ +15 (၇-၁၀ ရက်ခန့် အနားယူပြီး ခံနိုင်ရည်ကို ထိန်းသိမ်းရန်)
+                </li><li><strong>Stage Races:</strong> TSB -5 မှ +10 (ခံနိုင်ရည် ပိုလိုသောကြောင့် အနည်းငယ် မောပန်းမှု
+                    ရှိနေလျှင်လည်း ရသည်)</li></ul><p><em>ပေါက်ကွဲအား ပိုသုံးရသော ပြိုင်ပွဲ တိုတိုများအတွက် TSB ပိုမြင့်ရန် လိုအပ်ပြီး၊ ခံနိုင်ရည် သုံးရသော
+                    ပြိုင်ပွဲ ရှည်ရှည်များအတွက် ခံနိုင်ရည် မကျစေရန် TSB ကို အသင့်အတင့်သာ ထားသင့်သည်။</em></p></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Performance Management Chart ဖြင့် ကာလအပိုင်းအခြားအလိုက် လေ့ကျင့်ခြင်း</h2><div class="example-box"><h3>၁၆ ပတ်ကြာ လေ့ကျင့်ရေးကာလ နမူနာ</h3><h4>ပတ် ၁-၄: အခြေခံကာလ (Base Phase)</h4><ul><li><strong>ရည်မှန်းချက်:</strong> CTL ကို တစ်ပတ်လျှင် ၃-၅ မှတ်နှုန်းဖြင့် တည်ငြိမ်စွာ တည်ဆောက်ရန်</li><li><strong>အပတ်စဉ် TSS:</strong> 400 → 450 → 500 → 450 (အနားယူသော ပတ်)</li><li><strong>CTL တိုးတက်မှု:</strong> 60 → 73</li><li><strong>TSB အတိုင်းအတာ:</strong> -5 မှ -15 (စီမံနိုင်သော မောပန်းမှု)</li><li><strong>အဓိကလုပ်ဆောင်ချက်:</strong> ခရီးဝေး ပုံမှန်စီးခြင်း၊ Zone 2 ခံနိုင်ရည် လေ့ကျင့်ခြင်း၊ အခြေခံ
+                    ကြံ့ခိုင်မှု တည်ဆောက်ခြင်း</li></ul><h4>ပတ် ၅-၈: တည်ဆောက်ရေးကာလ (Build Phase)</h4><ul><li><strong>ရည်မှန်းချက်:</strong> ပြင်းထန်သော လေ့ကျင့်မှုများဖြင့် CTL ကို တစ်ပတ် ၅-၈ မှတ်နှုန်း ဆက်လက်
+                    တိုးမြှင့်ရန်</li><li><strong>အပတ်စဉ် TSS:</strong> 500 → 550 → 600 → 500 (အနားယူသော ပတ်)</li><li><strong>CTL တိုးတက်မှု:</strong> 73 → 93</li><li><strong>TSB အတိုင်းအတာ:</strong> -15 မှ -25 (ထိရောက်သော ဖိစီးမှု)</li><li><strong>အဓိကလုပ်ဆောင်ချက်:</strong> Sweet spot intervals, threshold လေ့ကျင့်မှုများ၊ Tempo
+                    စီးခြင်းများ</li></ul><h4>ပတ် ၉-၁၂: အထူး ကာလ (Peak Phase)</h4><ul><li><strong>ရည်မှန်းချက်:</strong> CTL ကို အမြင့်ဆုံး ရောက်အောင် လုပ်ဆောင်ရန်</li><li><strong>အပတ်စဉ် TSS:</strong> 600 → 650 → 650 → 550 (အနားယူသော ပတ်)</li><li><strong>CTL တိုးတက်မှု:</strong> 93 → 108</li><li><strong>TSB အတိုင်းအတာ:</strong> -20 မှ -30 (အမြင့်ဆုံး လှုံ့ဆော်မှု)</li><li><strong>အဓိကလုပ်ဆောင်ချက်:</strong> ပြိုင်ပွဲအလိုက် interval များ၊ VO₂max လေ့ကျင့်မှုများ၊ ပြိုင်ပွဲ
+                    စမ်းသပ်ခြင်း</li></ul><h4>ပတ် ၁၃-၁၄: ပြန်လည် နာလန်ထူရေး ကာလ</h4><ul><li><strong>ရည်မှန်းချက်:</strong> ခန္ဓာကိုယ်က လေ့ကျင့်မှုများကို လက်ခံရရှိစေရန်နှင့် ပြိုင်ပွဲအတွက်
+                    ပြင်ဆင်ရန်</li><li><strong>အပတ်စဉ် TSS:</strong> 400 → 400</li><li><strong>CTL ပြောင်းလဲမှု:</strong> 108 → 103 (အနည်းငယ် ကျသော်လည်း ကြံ့ခိုင်မှု ကျန်ရှိနေသည်)</li><li><strong>TSB အတိုင်းအတာ:</strong> -5 မှ +5 (မျှခြေ)</li><li><strong>အဓိကလုပ်ဆောင်ချက်:</strong> ပေါ့ပါးသော ခံနိုင်ရည် စီးနင်းခြင်း၊ ပျော်ရွှင်စွာ စီးနင်းခြင်း၊
+                    ပြင်းအား လျှော့ချခြင်း</li></ul><h4>ပတ် ၁၅-၁၆: အနားယူခြင်း (Taper) နှင့် ပြိုင်ပွဲပတ်</h4><ul><li><strong>ရည်မှန်းချက်:</strong> ပြိုင်ပွဲနေ့တွင် TSB +၁၅-၂၀ ဖြင့် အကောင်းဆုံး စွမ်းဆောင်ရန်</li><li><strong>အပတ်စဉ် TSS:</strong> 350 → 250 + ပြိုင်ပွဲ</li><li><strong>CTL ပြောင်းလဲမှု:</strong> 103 → 98 (ကြံ့ခိုင်မှု အနည်းငယ်သာ လျော့ကျသည်)</li><li><strong>ATL ပြောင်းလဲမှု:</strong> ~၈၅ မှ ~၅၀ သို့ လျင်မြန်စွာ ကျဆင်းသွားသည်</li><li><strong>ပြိုင်ပွဲနေ့ TSB:</strong><strong>+18 မှ +22</strong></li><li><strong>ရလဒ်:</strong> ကြံ့ခိုင်မှုကို ထိန်းထားရင်း ပေါ့ပါးမှု အပြည့်ဖြင့် အကောင်းဆုံး
+                    စွမ်းဆောင်နိုင်ခြင်း</li></ul></div><div class="callout callout-success"><h3>✅ အနားယူခြင်း (Taper) က ဘာကြောင့် ထိရောက်သနည်း</h3><p>အချိန်ကာလ ကွာခြားမှု (CTL အတွက် ၄၂ ရက်၊ ATL အတွက် ၇ ရက်) ကြောင့် အနားယူခြင်းမှာ ထိရောက်မှု ရှိခြင်း
+                ဖြစ်ပါသည်:</p><ul><li>ATL သည် လျင်မြန်စွာ တုံ့ပြန်သည် → မောပန်းမှုသည် ၇-၁၀ ရက်အတွင်း ပျောက်ကွယ်သွားသည်</li><li>CTL သည် ဖြည်းဖြည်းချင်း တုံ့ပြန်သည် → ကြံ့ခိုင်မှုသည် ရက်သတ္တပတ်ပေါင်းများစွာ တည်ရှိနေသည်</li><li>ရလဒ်: ကြံ့ခိုင်မှုကို ဆက်လက် ထိန်းသိမ်းထားရင်း မောပန်းမှုများ ကုန်ဆုံးသွားသောကြောင့် အကောင်းဆုံး
+                    စွမ်းဆောင်ရည် ရရှိစေခြင်း ဖြစ်သည်</li></ul></div></div></section><section class="section"><div class="container container-narrow"><h2>လမ်းမပေါ် စက်ဘီးစီးခြင်း (Road) နှင့် တောင်တက် စက်ဘီးစီးခြင်း (MTB) လေ့ကျင့်မှု ဝန်တင်မှု နှိုင်းယှဉ်ချက်
+        </h2><table class="comparison-table"><thead><tr><th>ကဏ္ဍ</th><th>Road Cycling</th><th>Mountain Biking</th></tr></thead><tbody><tr><td><strong>စွမ်းအား ပုံစံ</strong></td><td>အတက်အကျ နည်းပြီး တသမတ်တည်း လုပ်ဆောင်ရသည်</td><td>အလွန် ပြောင်းလဲမှု များပြီး ရုတ်တရက် အားစိုက်ရမှု များသည်</td></tr><tr><td><strong>Variability Index (VI)</strong></td><td>1.02-1.05 (အလွန် တသမတ်တည်း ဖြစ်သည်)</td><td>1.10-1.20+ (အတက်အကျ အလွန်များသူ)</td></tr><tr><td><strong>TSS စုဆောင်းမှု</strong></td><td>ခန့်မှန်းရ လွယ်ကူပြီး အတိအကျ စီစဉ်နိုင်သည်</td><td>ခန့်မှန်းရ ခက်ခဲပြီး လမ်းအခြေအနေအပေါ် များစွာ မူတည်သည်</td></tr><tr><td><strong>Normalized Power</strong></td><td>ပျမ်းမျှ စွမ်းအား (Average Power) နှင့် နီးစပ်သည်</td><td>ပျမ်းမျှ စွမ်းအားထက် သိသိသာသာ ပိုမြင့်တတ်သည်</td></tr><tr><td><strong>အဓိက လေ့ကျင့်မှု</strong></td><td>Sustained threshold, tempo လေ့ကျင့်မှုများ</td><td>ရုတ်တရက် interval များ၊ W' စီမံခန့်ခွဲမှု၊ နည်းစနစ်ပိုင်း ကျွမ်းကျင်မှု</td></tr><tr><td><strong>CTL အဓိပ္ပာယ်</strong></td><td>ကြံ့ခိုင်မှု၏ တိုက်ရိုက် အချက်ပြချက်</td><td>ကြံ့ခိုင်မှု အချက်ပြချက် ဖြစ်သော်လည်း နည်းစနစ်ပိုင်းက စွမ်းဆောင်ရည်၏ ၅၀% ဖြစ်သည်</td></tr></tbody></table><div class="callout callout-info mt-lg"><h3>MTB အတွက် သီးသန့် ထည့်သွင်းစဉ်းစားရန် အချက်များ</h3><p>MTB အတွက် PMC ကို အဓိပ္ပာယ် ဖွင့်ဆိုရာတွင် မတူညီသော အချက်များ ရှိသည်:</p><ul><li><strong>လမ်းကြောင်းတူသော်လည်း TSS မတူနိုင်:</strong> လမ်း၏ ခက်ခဲမှုသည် လမ်းကြောင်း တစ်ခုတည်း
+                    ဖြစ်သော်လည်း TSS ကို များစွာ ပြောင်းလဲစေသည်</li><li><strong>ရုတ်တရက် အားစိုက်မှုများ (Bursts):</strong> Threshold ထက် ကျော်လွန်သော အားစိုက်မှုများကို
+                    ထည့်တွက်ရန် လိုသည်—XC ပြိုင်ပွဲများတွင် ၂ နာရီအတွင်း အားစိုက်မှု ၈၈ ကြိမ်ထက်မက ရှိနိုင်သည်</li><li><strong>နည်းစနစ်ပိုင်းက ပိုအရေးကြီးသည်:</strong> MTB စွမ်းဆောင်ရည်၏ ~၅၀% မှာ နည်းစနစ်ပိုင်း ဖြစ်ပြီး
+                    Road တွင်မူ ~၂၀% ခန့်သာ ရှိသည်</li><li><strong>စွမ်းအား တိုင်းတာမှု ကာလတိုခြင်း:</strong> MTB အတွက် ၃-၅ စက္ကန့် ပျမ်းမျှက ပိုအရေးကြီးပြီး
+                    Road အတွက် ၃၀ စက္ကန့် ပျမ်းမျှက ပိုအရေးကြီးသည်</li></ul></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>လေ့ကျင့်မှု ဝန်တင်မှု စီမံခန့်ခွဲရာတွင် အမှားများ</h2><div class="guidelines-grid"><div class="guideline-item"><h3>၁။ CTL ကို မြန်မြန် တည်ဆောက်မိခြင်း</h3><p><strong>အမှား:</strong> ပစ်မှတ်ထားသော ကြံ့ခိုင်မှု ရောက်ရှိစေရန် တစ်ပတ်လျှင် ၁၅-၂၀ CTL မှတ်ခန့်
+                    ရုတ်တရက် တိုးမြှင့်ခြင်း။</p><p><strong>ဖြေရှင်းချက်:</strong> တိုးမြှင့်မှုကို တစ်ပတ် ၃-၈ CTL မှတ်အတွင်းသာ ကန့်သတ်ပါ။
+                    ကြံ့ခိုင်မှုဆိုသည်မှာ ဘေးကင်းစွာ တည်ဆောက်ရန် အချိန်ယူရသည်ကို စိတ်ရှည်ပါ။</p></div><div class="guideline-item"><h3>၂။ လုံးဝ အနားယူခြင်း (Taper) မရှိခြင်း</h3><p><strong>အမှား:</strong> ပြတ်တောက်မှု မရှိဘဲ ပြင်းထန်စွာ ဆက်တိုက် လေ့ကျင့်ပြီး ပြိုင်ပွဲနေ့တွင် TSB
+                    -၂၀ မှ -၃၀ ကြားဖြင့် ရောက်ရှိခြင်း။</p><p><strong>ဖြေရှင်းချက်:</strong> အဓိက ပြိုင်ပွဲများ မတိုင်မီ ၇-၁၄ ရက်အလိုတွင် လေ့ကျင့်မှု ပမာဏကို
+                    လျှော့ချပါ။ အကောင်းဆုံး စွမ်းဆောင်ရန် TSB ကို +၁၀-၂၅ သို့ မြင့်တက်စေပါ။</p></div><div class="guideline-item"><h3>၃။ TSB သတိပေးချက်များကို လစ်လျူရှုခြင်း</h3><p><strong>အမှား:</strong> TSB သည် -၃၀ အောက်သို့ အချိန်ကြာမြင့်စွာ ရောက်ရှိနေသော်လည်း ဆက်လက် ဖိအားပေး
+                    လေ့ကျင့်ခြင်း။</p><p><strong>ဖြေရှင်းချက်:</strong> TSB < -30 ဖြစ်ပါက မဖြစ်မနေ အနားယူရပါမည်။ သင့်ခန္ဓာကိုယ်က အနားယူရန်
+                        လိုအပ်နေကြောင်း ပြောနေခြင်း ဖြစ်သည်။</p></div><div class="guideline-item"><h3>၄။ စနစ်တကျ မဟုတ်ဘဲ စီးနင်းခြင်း</h3><p><strong>အမှား:</strong> စနစ်တကျ တိုးမြှင့်ခြင်း မရှိဘဲ မိမိ စိတ်ထဲ ရှိရာအတိုင်း စီးနင်းခြင်း။</p><p><strong>ဖြေရှင်းချက်:</strong> CTL တိုးတက်မှုနှင့် အနားယူသော ပတ်များ ပါဝင်သည့် စနစ်တကျ လေ့ကျင့်ရေး
+                    အစီအစဉ်ကို လိုက်နာပါ။</p></div><div class="guideline-item"><h3>၅။ အခြားသူများနှင့် နှိုင်းယှဉ်ခြင်း</h3><p><strong>အမှား:</strong> "ကျွန်တော့် သူငယ်ချင်းက CTL ၁၂၀ ရှိတယ်၊ ကျွန်တော်လည်း အဲဒီလောက် ရှိရမယ်!"</p><p><strong>ဖြေရှင်းချက်:</strong> CTL သည် တစ်ဦးချင်းအပေါ် မူတည်သည်။ သင့်အတွက် သင့်တော်သော CTL မှာ
+                    သင့်လေ့ကျင့်မှု သမိုင်းကြောင်းနှင့် မျိုးရိုးဗီဇအပေါ် မူတည်ပါသည်။</p></div><div class="guideline-item"><h3>၆။ အနားယူသော ပတ်များကို ကျော်ခြင်း</h3><p><strong>အမှား:</strong> အနားယူသော ပတ်များ မပါဘဲ CTL ကို ဆက်တိုက် တည်ဆောက်ခြင်း။</p><p><strong>ဖြေရှင်းချက်:</strong> ၃-၄ ပတ် တစ်ကြိမ် လေ့ကျင့်မှု ပမာဏကို ၃၀-၄၀% ခန့် လျှော့ချပြီး
+                    ကြံ့ခိုင်မှုများကို ခန္ဓာကိုယ်က လက်ခံကျင့်သားရစေရန် လုပ်ဆောင်ပါ။</p></div></div></div></section><section class="section"><div class="container container-narrow"><h2>သုတေသနနှင့် သိပ္ပံနည်းကျ အထောက်အထားများ</h2><p>Performance Management Chart နှင့် TSS နည်းစနစ်များသည် ဆယ်စုနှစ်ပေါင်းများစွာ ကြာမြင့်ခဲ့သော အားကစား သိပ္ပံ
+            သုတေသနများအပေါ် အခြေခံထားပါသည်:</p><div class="research-references"><h3>အဓိက သုတေသန စာတမ်းများ</h3><ul><li><strong>Allen, H., & Coggan, A.R. (2019).</strong><em>Training and Racing with a Power Meter</em>
                     (၃ ကြိမ်မြောက် ထုတ်ဝေမှု). VeloPress. — TSS, NP, IF, CTL, ATL, TSB တို့ကို စတင် မိတ်ဆက်ခဲ့သော အခြေခံ
-                    စာအုပ်။</li>
-                <li><strong>Banister, E.W., Calvert, T.W., Savage, M.V., & Bach, T. (1975).</strong> A Systems Model of
+                    စာအုပ်။</li><li><strong>Banister, E.W., Calvert, T.W., Savage, M.V., & Bach, T. (1975).</strong> A Systems Model of
                     Training for Athletic Performance. <em>Australian Journal of Sports Medicine</em>, 7, 57-61. — မူလ
-                    ကြံ့ခိုင်မှု-မောပန်းမှု ပုံစံငယ်။</li>
-                <li><strong>Murray, N.B., et al. (2017).</strong> Training Load Monitoring Using Exponentially Weighted
-                    Moving Averages. — Acute/Chronic load စောင့်ကြည့်ခြင်းအတွက် EWMA ကို အတည်ပြုပေးခဲ့ခြင်း။</li>
-                <li><strong>Jones, A.M., et al. (2019).</strong> Critical Power: Theory and Applications. <em>Journal of
+                    ကြံ့ခိုင်မှု-မောပန်းမှု ပုံစံငယ်။</li><li><strong>Murray, N.B., et al. (2017).</strong> Training Load Monitoring Using Exponentially Weighted
+                    Moving Averages. — Acute/Chronic load စောင့်ကြည့်ခြင်းအတွက် EWMA ကို အတည်ပြုပေးခဲ့ခြင်း။</li><li><strong>Jones, A.M., et al. (2019).</strong> Critical Power: Theory and Applications. <em>Journal of
                         Applied Physiology</em>, 126(6), 1905-1915. — FTP အယူအဆများ၏ အခြေခံ Critical Power ပုံစံငယ်။
-                </li>
-            </ul>
-        </div>
-
-        <div class="callout callout-tip mt-lg">
-            <h3>💡 TrainingPeaks နှင့် WKO5</h3>
-            <p>TSS, CTL, ATL နှင့် TSB တို့သည် ဒေါက်တာ Andrew Coggan က ဖန်တီးခဲ့ပြီး TrainingPeaks အား လိုင်စင်
+                </li></ul></div><div class="callout callout-tip mt-lg"><h3>💡 TrainingPeaks နှင့် WKO5</h3><p>TSS, CTL, ATL နှင့် TSB တို့သည် ဒေါက်တာ Andrew Coggan က ဖန်တီးခဲ့ပြီး TrainingPeaks အား လိုင်စင်
                 ပေးထားသော metrics များ ဖြစ်သည်။ ၎င်းတို့ကို စက်ဘီးစီး လေ့ကျင့်မှု စီမံခန့်ခွဲရာတွင် ကမ္ဘာတစ်ဝန်း
-                စံနှုန်းအဖြစ် သတ်မှတ်ထားသည်။</p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>အမေးများသော မေးခွန်းများ: စက်ဘီးစီး လေ့ကျင့်မှု ဝန်တင်မှု</h2>
-
-        <div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">တစ်ပတ်လျှင် TSS မည်မျှ ပြုလုပ်သင့်ပါသနည်း?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>သင်၏ အဆင့်အပေါ် မူတည်ပါသည်: စတင်သူများ: 200-400 TSS/week၊ ဝါသနာရှင်များ: 400-600 TSS/week၊
+                စံနှုန်းအဖြစ် သတ်မှတ်ထားသည်။</p></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>အမေးများသော မေးခွန်းများ: စက်ဘီးစီး လေ့ကျင့်မှု ဝန်တင်မှု</h2><div class="faq-container" itemscope itemtype="https://schema.org/FAQPage"><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">တစ်ပတ်လျှင် TSS မည်မျှ ပြုလုပ်သင့်ပါသနည်း?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>သင်၏ အဆင့်အပေါ် မူတည်ပါသည်: စတင်သူများ: 200-400 TSS/week၊ ဝါသနာရှင်များ: 400-600 TSS/week၊
                             ပြိုင်ပွဲဝင် အပျော်တမ်းများ: 600-900 TSS/week၊ ကျွမ်းကျင်/ပရို: 900-1500+ TSS/week
                             ဖြစ်ပါသည်။ အနည်းငယ်မှ စတင်ပြီး တစ်ပတ်လျှင် ၃-၈ CTL မှတ်နှုန်းဖြင့် ဖြည်းဖြည်းချင်း
-                            တိုးမြှင့်ပါ။</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">ကျွန်ုပ်၏ အဆင့်အတွက် CTL မည်မျှရှိလျှင် ကောင်းသနည်း?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>ပုံမှန် CTL တန်ဖိုးများ: စတင်သူ 20-40၊ ဝါသနာရှင် 40-80၊ ပြိုင်ပွဲဝင် အပျော်တမ်း 80-120၊
+                            တိုးမြှင့်ပါ။</p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">ကျွန်ုပ်၏ အဆင့်အတွက် CTL မည်မျှရှိလျှင် ကောင်းသနည်း?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>ပုံမှန် CTL တန်ဖိုးများ: စတင်သူ 20-40၊ ဝါသနာရှင် 40-80၊ ပြိုင်ပွဲဝင် အပျော်တမ်း 80-120၊
                             ကျွမ်းကျင်/ပရို 120-200+ ဖြစ်ပါသည်။ သင် ဆက်လက် ထိန်းသိမ်းနိုင်သော CTL မှာ သင့်လေ့ကျင့်မှု
                             သမိုင်း၊ ရရှိနိုင်သော အချိန်နှင့် ပြန်လည် နာလန်ထူနိုင်စွမ်းအပေါ် မူတည်ပါသည်။ ကိန်းဂဏန်းထက်
-                            တဖြည်းဖြည်း တိုးတက်မှုအပေါ် ပိုအလေးထားပါ။</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">ပြိုင်ပွဲ မတိုင်မီ မည်မျှကြာအောင် အနားယူ (taper) သင့်သနည်း?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>ပြိုင်ပွဲ အမျိုးအစားပေါ် မူတည်ပါသည်: ပြိုင်ပွဲ တိုများ: ၇-၁၀ ရက်၊ လမ်းမပေါ် ပြိုင်ပွဲများ:
+                            တဖြည်းဖြည်း တိုးတက်မှုအပေါ် ပိုအလေးထားပါ။</p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">ပြိုင်ပွဲ မတိုင်မီ မည်မျှကြာအောင် အနားယူ (taper) သင့်သနည်း?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>ပြိုင်ပွဲ အမျိုးအစားပေါ် မူတည်ပါသည်: ပြိုင်ပွဲ တိုများ: ၇-၁၀ ရက်၊ လမ်းမပေါ် ပြိုင်ပွဲများ:
                             ၁၀-၁၄ ရက်၊ Time trials: ၁၄-၂၁ ရက် (အမြင့်ဆုံး လန်းဆန်းမှု လိုအပ်သောကြောင့်)၊ Stage races:
-                            ၇-၁၀ ရက် ဖြစ်ပါသည်။ ပြိုင်ပွဲနေ့တွင် TSB +၁၀ မှ +၂၅ ကြား ရှိရန် ရည်မှန်းပါ။</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">TSB -၃၀ သို့မဟုတ် ထိုထက် နည်းနေချိန်တွင် ဆက်လက် လေ့ကျင့်နိုင်ပါသလား?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>TSB -၃၀ အောက် ရောက်ခြင်းသည် အလွန်အမင်း မောပန်းနေပြီး အလွန်အကျွံ လေ့ကျင့်မိခြင်း
+                            ၇-၁၀ ရက် ဖြစ်ပါသည်။ ပြိုင်ပွဲနေ့တွင် TSB +၁၀ မှ +၂၅ ကြား ရှိရန် ရည်မှန်းပါ။</p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">TSB -၃၀ သို့မဟုတ် ထိုထက် နည်းနေချိန်တွင် ဆက်လက် လေ့ကျင့်နိုင်ပါသလား?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>TSB -၃၀ အောက် ရောက်ခြင်းသည် အလွန်အမင်း မောပန်းနေပြီး အလွန်အကျွံ လေ့ကျင့်မိခြင်း
                             (overtraining) အန္တရာယ် ရှိကြောင်း ပြသသည်။ ဤအဆင့်တွင် ပြင်းထန်သော လေ့ကျင့်မှုများ
                             မပြုလုပ်သင့်ပါ။ လေ့ကျင့်မှု ပမာဏကို ၅၀% ထက်မက လျှော့ချပြီး TSB -၂၀ သို့မဟုတ် ထိုထက်
                             မြင့်တက်လာသည်အထိ ပေါ့ပေါ့ပါးပါးသာ လုပ်ဆောင်ပါ။ သင့်ခန္ဓာကိုယ်၏ အချက်ပြချက်များကို
-                            နားထောင်ပါ။</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">MTB ပြိုင်ပွဲအတွက် PMC ကို မည်သို့ အသုံးပြုရမည်နည်း?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>MTB အတွက် PMC ကို အဓိပ္ပာယ် ဖွင့်ဆိုရာတွင် ပြုပြင်ရန် လိုအပ်ပါသည်: Threshold ထက် ကျော်လွန်သော
+                            နားထောင်ပါ။</p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">MTB ပြိုင်ပွဲအတွက် PMC ကို မည်သို့ အသုံးပြုရမည်နည်း?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>MTB အတွက် PMC ကို အဓိပ္ပာယ် ဖွင့်ဆိုရာတွင် ပြုပြင်ရန် လိုအပ်ပါသည်: Threshold ထက် ကျော်လွန်သော
                             ရုတ်တရက် အားစိုက်မှုများကို စောင့်ကြည့်ပါ၊ စွမ်းအား တိုင်းတာမှု ကာလတိုခြင်း (၃-၅ စက္ကန့်)
                             ကို သုံးပါ၊ နည်းစနစ်ပိုင်း၏ အခန်းကဏ္ဍ (၅၀%) ကို အသိအမှတ်ပြုပါ၊ လမ်းကြောင်း ခက်ခဲမှုက TSS
-                            အပေါ် သက်ရောက်မှုကို နားလည်ပါ။</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">အနားယူ (taper) နေချိန်တွင် ဘာကြောင့် CTL ကျသွားသနည်း?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>အနားယူချိန်တွင် CTL အနည်းငယ် ကျခြင်းသည် ပုံမှန်ဖြစ်ပြီး ဖြစ်သင့်သောအရာ ဖြစ်သည်။ ၂ ပတ်ကြာ
+                            အပေါ် သက်ရောက်မှုကို နားလည်ပါ။</p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">အနားယူ (taper) နေချိန်တွင် ဘာကြောင့် CTL ကျသွားသနည်း?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>အနားယူချိန်တွင် CTL အနည်းငယ် ကျခြင်းသည် ပုံမှန်ဖြစ်ပြီး ဖြစ်သင့်သောအရာ ဖြစ်သည်။ ၂ ပတ်ကြာ
                             အနားယူချိန်တွင် ၅-၁၀ မှတ်ခန့် ကျခြင်းသည် ကြံ့ခိုင်မှု သိသိသာသာ ဆုံးရှုံးသွားခြင်း မဟုတ်ပါ။
                             သို့သော် ATL သည် လျင်မြန်စွာ ကျဆင်းသွားသောကြောင့် မောပန်းမှုများ ကုန်ဆုံးသွားပြီး
-                            ပြိုင်ပွဲအတွက် ပေါ့ပါး လန်းဆန်းသော ခြေထောက်များကို ရရှိစေမည် ဖြစ်သည်။</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">TSS နှင့် Kilojoules ကွာခြားချက်မှာ အဘယ်နည်း?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>Kilojoules သည် လုပ်ဆောင်ခဲ့သော စုစုပေါင်း အလုပ် (စွမ်းအင် သုံးစွဲမှု) ကို တိုင်းတာပြီး၊ TSS
+                            ပြိုင်ပွဲအတွက် ပေါ့ပါး လန်းဆန်းသော ခြေထောက်များကို ရရှိစေမည် ဖြစ်သည်။</p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">TSS နှင့် Kilojoules ကွာခြားချက်မှာ အဘယ်နည်း?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>Kilojoules သည် လုပ်ဆောင်ခဲ့သော စုစုပေါင်း အလုပ် (စွမ်းအင် သုံးစွဲမှု) ကို တိုင်းတာပြီး၊ TSS
                             သည် သင့် FTP နှင့် နှိုင်းယှဉ်၍ ရရှိသော လေ့ကျင့်မှု ဖိစီးမှုကို တိုင်းတာခြင်း ဖြစ်သည်။ ၂၀၀
                             ဝပ် (Watt) ဖြင့် တစ်နာရီကြာ စီးခြင်းသည် လူတိုင်းအတွက် ၇၂၀ kJ ခန့် ဖြစ်သော်လည်း TSS မှာမူ FTP
                             အပေါ် မူတည်သည်။ သင့် FTP က ၂၀၀ ဝပ် ဖြစ်ပါက TSS = ၁၀၀ ဖြစ်ပြီး၊ FTP ၃၀၀ ဝပ် ဖြစ်ပါက TSS = ၄၄
                             သာ ဖြစ်မည်။ TSS သည် တစ်ဦးချင်းစီ၏ ကြံ့ခိုင်မှုနှင့် နှိုင်းယှဉ် တိုင်းတာပေးခြင်း ဖြစ်သည်။
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">အိမ်တွင်း လေ့ကျင့်မှု (Indoor Training) အတွက် TSS ကို ခြေရာခံသင့်ပါသလား?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>မဖြစ်မနေ ခြေရာခံသင့်ပါသည်။ ပတ်ဝန်းကျင် အခြေအနေများကို ထိန်းချုပ်ထားနိုင်သောကြောင့် အိမ်တွင်း
+                        </p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">အိမ်တွင်း လေ့ကျင့်မှု (Indoor Training) အတွက် TSS ကို ခြေရာခံသင့်ပါသလား?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>မဖြစ်မနေ ခြေရာခံသင့်ပါသည်။ ပတ်ဝန်းကျင် အခြေအနေများကို ထိန်းချုပ်ထားနိုင်သောကြောင့် အိမ်တွင်း
                             လေ့ကျင့်မှုမှ ရရှိသော စွမ်းအား ဒေတာသည် တိကျပြီး TSS ကို ကောင်းစွာ ဖော်ပြပေးနိုင်သည်။
-                            အိမ်တွင်း TSS သည်လည်း သင့် CTL/ATL/TSB တွက်ချက်မှုများတွင် တိုက်ရိုက် ပါဝင်ပါသည်။</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow text-center">
-        <h2>သင့်စက်ဘီးစီး လေ့ကျင့်မှု ဝန်တင်မှုကို ကျွမ်းကျင်စွာ စီမံပါ</h2>
-        <p class="lead">Training Stress Score နှင့် Performance Management Chart ကို နားလည်ခြင်းဖြင့် မိမိ
+                            အိမ်တွင်း TSS သည်လည်း သင့် CTL/ATL/TSB တွက်ချက်မှုများတွင် တိုက်ရိုက် ပါဝင်ပါသည်။</p></div></div></div></div></div></section><section class="section"><div class="container container-narrow text-center"><h2>သင့်စက်ဘီးစီး လေ့ကျင့်မှု ဝန်တင်မှုကို ကျွမ်းကျင်စွာ စီမံပါ</h2><p class="lead">Training Stress Score နှင့် Performance Management Chart ကို နားလည်ခြင်းဖြင့် မိမိ
             ခံစားချက်ကိုသာ အခြေခံသည့် လေ့ကျင့်မှုမှ ဒေတာကို အခြေခံသည့် စနစ်တကျ လေ့ကျင့်မှုသို့ ပြောင်းလဲနိုင်မည်
             ဖြစ်သည်။ TSS, CTL, ATL နှင့် TSB တို့ကို စောင့်ကြည့်ခြင်းအားဖြင့် ကြံ့ခိုင်မှု၊ မောပန်းမှုနှင့်
-            ပြိုင်ပွဲဝင်ရန် အသင့်ဖြစ်မှုတို့ကို အတိအကျ ထိန်းချုပ်နိုင်မည် ဖြစ်သည်။</p>
-
-        <p>CTL-ATL-TSB စနစ်သည် အလွန်အကျွံ လေ့ကျင့်မိခြင်းကို ကာကွယ်ပေးပြီး ပြန်လည် နာလန်ထူမှုကို အကောင်းဆုံး
-            ချိန်ညှိပေးကာ ပြိုင်ပွဲနေ့တွင် အကောင်းဆုံး စွမ်းဆောင်ရည် ရရှိစေရန် အာမခံချက် ပေးပါသည်။</p>
-
-        <div class="mt-xl">
-            <a href="/my/ftp/" class="btn btn-secondary">← Functional Threshold Power (FTP)</a>
-            <a href="/my/tss-calculator/" class="btn btn-primary">TSS Calculator →</a>
-        </div>
-    </div>
-</section>
-    
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+            ပြိုင်ပွဲဝင်ရန် အသင့်ဖြစ်မှုတို့ကို အတိအကျ ထိန်းချုပ်နိုင်မည် ဖြစ်သည်။</p><p>CTL-ATL-TSB စနစ်သည် အလွန်အကျွံ လေ့ကျင့်မိခြင်းကို ကာကွယ်ပေးပြီး ပြန်လည် နာလန်ထူမှုကို အကောင်းဆုံး
+            ချိန်ညှိပေးကာ ပြိုင်ပွဲနေ့တွင် အကောင်းဆုံး စွမ်းဆောင်ရည် ရရှိစေရန် အာမခံချက် ပေးပါသည်။</p><div class="mt-xl"><a href="/my/ftp/" class="btn btn-secondary">← Functional Threshold Power (FTP)</a><a href="/my/tss-calculator/" class="btn btn-primary">TSS Calculator →</a></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link active"
+                </a><a href="/my/" class="lang-link active"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. မူပိုင်ခွင့်အားလုံးရှိသည်
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/my/privacy/">ကိုယ်ရေးကိုယ်တာ</a></li>
-                <li><a href="/my/terms/">စည်းကမ်းချက်များ</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>ဤဝဘ်ဆိုဒ်သည် သင့်အတွေ့အကြုံကို မြှင့်တင်ရန် ကွက်ကီးများကို အသုံးပြုပါသည်။</p>
-            <a href="/my/privacy/" class="text-sm">ပိုမိုလေ့လာရန်</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">ငြင်းပယ်သည်</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">လက်ခံသည်</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/my/privacy/">ကိုယ်ရေးကိုယ်တာ</a></li><li><a href="/my/terms/">စည်းကမ်းချက်များ</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>ဤဝဘ်ဆိုဒ်သည် သင့်အတွေ့အကြုံကို မြှင့်တင်ရန် ကွက်ကီးများကို အသုံးပြုပါသည်။</p><a href="/my/privacy/" class="text-sm">ပိုမိုလေ့လာရန်</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">ငြင်းပယ်သည်</button><button id="cookie-accept" class="btn btn-primary btn-small">လက်ခံသည်</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

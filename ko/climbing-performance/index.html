@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="ko" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>사이클링 클라이밍 퍼포먼스 - VAM, W/kg, 경사도 분석</title>
-  <meta name="description" content="등판 속도를 결정하는 지표와 이를 향상시키는 과학적 방법 사이클링에서 업힐 성능은 근본적으로 무게 당 파워비(Power-to-weight ratio) 의 문제입니다. 평지 주행에서 공기 저항이 지배적인 것과 달리, 업힐은 중력과의 싸움입니다. 파워 대비 몸무게가 가벼울수록 더 빠르게 고도를 높일...">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="VAM cycling, climbing performance cycling, power to weight cycling, gradient analysis cycling, vertical ascent meters">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/ko/climbing-performance/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-04T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/ko/climbing-performance/">
-  <meta property="og:title" content="사이클링 클라이밍 퍼포먼스 - VAM, W/kg, 경사도 분석">
-  <meta property="og:description" content="등판 속도를 결정하는 지표와 이를 향상시키는 과학적 방법 사이클링에서 업힐 성능은 근본적으로 무게 당 파워비(Power-to-weight ratio) 의 문제입니다. 평지 주행에서 공기 저항이 지배적인 것과 달리, 업힐은 중력과의 싸움입니다. 파워 대비 몸무게가 가벼울수록 더 빠르게 고도를 높일...">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="ko_KR">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/ko/climbing-performance/">
-  <meta name="twitter:title" content="사이클링 클라이밍 퍼포먼스 - VAM, W/kg, 경사도 분석">
-  <meta name="twitter:description" content="등판 속도를 결정하는 지표와 이를 향상시키는 과학적 방법 사이클링에서 업힐 성능은 근본적으로 무게 당 파워비(Power-to-weight ratio) 의 문제입니다. 평지 주행에서 공기 저항이 지배적인 것과 달리, 업힐은 중력과의 싸움입니다. 파워 대비 몸무게가 가벼울수록 더 빠르게 고도를 높일...">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/climbing-performance/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/climbing-performance/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/climbing-performance/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/climbing-performance/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/climbing-performance/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/climbing-performance/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/climbing-performance/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/climbing-performance/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/climbing-performance/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/climbing-performance/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/climbing-performance/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/climbing-performance/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/climbing-performance/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/climbing-performance/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/climbing-performance/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/climbing-performance/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/climbing-performance/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/climbing-performance/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/climbing-performance/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/climbing-performance/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/climbing-performance/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/climbing-performance/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/climbing-performance/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/climbing-performance/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/climbing-performance/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/climbing-performance/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/climbing-performance/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/climbing-performance/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/climbing-performance/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/climbing-performance/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/climbing-performance/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/climbing-performance/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/climbing-performance/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/climbing-performance/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/climbing-performance/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/climbing-performance/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/climbing-performance/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/climbing-performance/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/climbing-performance/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="ko" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>사이클링 클라이밍 퍼포먼스 - VAM, W/kg, 경사도 분석</title><meta name="description" content="등판 속도를 결정하는 지표와 이를 향상시키는 과학적 방법 사이클링에서 업힐 성능은 근본적으로 무게 당 파워비(Power-to-weight ratio) 의 문제입니다. 평지 주행에서 공기 저항이 지배적인 것과 달리, 업힐은 중력과의 싸움입니다. 파워 대비 몸무게가 가벼울수록 더 빠르게 고도를 높일..."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="VAM cycling, climbing performance cycling, power to weight cycling, gradient analysis cycling, vertical ascent meters"><link rel="canonical" href="https://bike.analyticszone.app/ko/climbing-performance/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-01-04T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/ko/climbing-performance/"><meta property="og:title" content="사이클링 클라이밍 퍼포먼스 - VAM, W/kg, 경사도 분석"><meta property="og:description" content="등판 속도를 결정하는 지표와 이를 향상시키는 과학적 방법 사이클링에서 업힐 성능은 근본적으로 무게 당 파워비(Power-to-weight ratio) 의 문제입니다. 평지 주행에서 공기 저항이 지배적인 것과 달리, 업힐은 중력과의 싸움입니다. 파워 대비 몸무게가 가벼울수록 더 빠르게 고도를 높일..."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/ko/climbing-performance/"><meta name="twitter:title" content="사이클링 클라이밍 퍼포먼스 - VAM, W/kg, 경사도 분석"><meta name="twitter:description" content="등판 속도를 결정하는 지표와 이를 향상시키는 과학적 방법 사이클링에서 업힐 성능은 근본적으로 무게 당 파워비(Power-to-weight ratio) 의 문제입니다. 평지 주행에서 공기 저항이 지배적인 것과 달리, 업힐은 중력과의 싸움입니다. 파워 대비 몸무게가 가벼울수록 더 빠르게 고도를 높일..."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/climbing-performance/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/climbing-performance/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/climbing-performance/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/climbing-performance/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/climbing-performance/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/climbing-performance/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/climbing-performance/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/climbing-performance/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/climbing-performance/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/climbing-performance/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/climbing-performance/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/climbing-performance/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/climbing-performance/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/climbing-performance/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/climbing-performance/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/climbing-performance/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/climbing-performance/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/climbing-performance/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/climbing-performance/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/climbing-performance/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/climbing-performance/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/climbing-performance/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/climbing-performance/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/climbing-performance/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/climbing-performance/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/climbing-performance/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/climbing-performance/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/climbing-performance/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/climbing-performance/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/climbing-performance/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/climbing-performance/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/climbing-performance/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/climbing-performance/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/climbing-performance/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/climbing-performance/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/climbing-performance/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/climbing-performance/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/climbing-performance/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/climbing-performance/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/climbing-performance/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/climbing-performance/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/climbing-performance/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/climbing-performance/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/climbing-performance/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/climbing-performance/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/climbing-performance/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/climbing-performance/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/climbing-performance/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/climbing-performance/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/climbing-performance/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/climbing-performance/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/climbing-performance/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/climbing-performance/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/climbing-performance/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/climbing-performance/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/climbing-performance/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "ko"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "등판 속도를 결정하는 지표와 이를 향상시키는 과학적 방법 사이클링에서 업힐 성능은 근본적으로 무게 당 파워비(Power-to-weight ratio) 의 문제입니다. 평지 주행에서 공기 저항이 지배적인 것과 달리, 업힐은 중력과의 싸움입니다. 파워 대비 몸무게가 가벼울수록 더 빠르게 고도를 높일...",
   "url": "https://bike.analyticszone.app/ko/climbing-performance/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -653,17 +435,7 @@ img[width][height] {
     "@id": "https://bike.analyticszone.app/ko/climbing-performance/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1366 +449,383 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">콘텐츠로 건너뛰기</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/ko/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/ko/" 
+  </script></head><body><a href="#main-content" class="skip-link">콘텐츠로 건너뛰기</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/ko/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/ko/" 
                                 aria-current="">
                                 홈
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ko/getting-started/" class="nav-label">학습</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ko/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/ko/getting-started/" class="nav-label">학습</a><ul class="submenu"><li><a href="/ko/getting-started/" 
                                         aria-current="">
                                         시작하기
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/ftp/" 
+                                    </a></li><li><a href="/ko/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/critical-power/" 
+                                    </a></li><li><a href="/ko/critical-power/" 
                                         aria-current="">
                                         크리티컬 파워
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/training-zones/" 
+                                    </a></li><li><a href="/ko/training-zones/" 
                                         aria-current="">
                                         훈련 존
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/training-load/" 
+                                    </a></li><li><a href="/ko/training-load/" 
                                         aria-current="">
                                         훈련 부하
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/tss-calculator/" 
+                                    </a></li><li><a href="/ko/tss-calculator/" 
                                         aria-current="">
                                         TSS 계산기
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ko/research/" class="nav-label">과학</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ko/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/ko/research/" class="nav-label">과학</a><ul class="submenu"><li><a href="/ko/research/" 
                                         aria-current="">
                                         연구
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/formulas/" 
+                                    </a></li><li><a href="/ko/formulas/" 
                                         aria-current="">
                                         공식
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/power-metrics/" 
+                                    </a></li><li><a href="/ko/power-metrics/" 
                                         aria-current="">
                                         파워 지표
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/efficiency/" 
+                                    </a></li><li><a href="/ko/efficiency/" 
                                         aria-current="">
                                         효율성
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/pedaling-mechanics/" 
+                                    </a></li><li><a href="/ko/pedaling-mechanics/" 
                                         aria-current="">
                                         페달링 메카닉
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/aerodynamics/" 
+                                    </a></li><li><a href="/ko/aerodynamics/" 
                                         aria-current="">
                                         에어로다이내믹스
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/climbing-performance/" class="active" 
+                                    </a></li><li><a href="/ko/climbing-performance/" class="active" 
                                         aria-current="page">
                                         클라이밍 퍼포먼스
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/bibliography/" 
+                                    </a></li><li><a href="/ko/bibliography/" 
                                         aria-current="">
                                         참고문헌
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ko/road-cycling/" class="nav-label">분야</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ko/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/ko/road-cycling/" class="nav-label">분야</a><ul class="submenu"><li><a href="/ko/road-cycling/" 
                                         aria-current="">
                                         로드 사이클링
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/mountain-biking/" 
+                                    </a></li><li><a href="/ko/mountain-biking/" 
                                         aria-current="">
                                         산악자전거
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/road-vs-mtb/" 
+                                    </a></li><li><a href="/ko/road-vs-mtb/" 
                                         aria-current="">
                                         로드 vs MTB
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ko/comparisons/" 
+                                    </a></li><li><a href="/ko/comparisons/" 
                                         aria-current="">
                                         플랫폼 비교
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/ko/contact/" 
+                                    </a></li></ul></li><li><a href="/ko/contact/" 
                                 aria-current="">
                                 문의
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="언어 선택">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="언어 선택"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" selected>
+                        </option><option value="ko" selected>
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="메뉴 토글"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/ko/">홈</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/ko/research/">과학</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">클라이밍 퍼포먼스</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-    <section class="page-hero">
-    <div class="container">
-        <h1>업힐 성능: VAM, W/kg, 경사도 분석</h1>
-        <p class="lead">등판 속도를 결정하는 지표와 이를 향상시키는 과학적 방법</p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>무엇이 훌륭한 클라이머를 만드는가?</h2>
-        <p>사이클링에서 업힐 성능은 근본적으로 <strong>무게 당 파워비(Power-to-weight ratio)</strong>의 문제입니다. 평지 주행에서 공기 저항이 지배적인 것과 달리, 업힐은
-            중력과의 싸움입니다. 파워 대비 몸무게가 가벼울수록 더 빠르게 고도를 높일 수 있습니다.</p>
-
-        <p>하지만 단순히 몸무게만으로는 모든 것을 설명할 수 없습니다. 업힐 능력을 보여주는 두 가지 핵심 지표가 있습니다:</p>
-        <ul>
-            <li><strong>무게 당 파워비 (W/kg):</strong> 본인의 FTP를 체중으로 나눈 값</li>
-            <li><strong>VAM (Velocità Ascensionale Media):</strong> 시간당 수직 상승 고도 (m/h)</li>
-        </ul>
-
-        <div class="callout callout-info">
-            <h3>평지 vs. 업힐 저항 분포 비교</h3>
-            <p><strong>평지 도로 (시속 40km/h):</strong></p>
-            <ul>
-                <li>공기 가항: 80-90%</li>
-                <li>구름 저항: 8-12%</li>
-                <li>중력 저항: ~0%</li>
-            </ul>
-            <p><strong>8% 경사도 업힐 (시속 15km/h):</strong></p>
-            <ul>
-                <li>중력 저항: 75-85%</li>
-                <li>구름 저항: 10-15%</li>
-                <li>공기 저항: 5-10%</li>
-            </ul>
-            <p><em>업힐은 방정식의 순위를 완전히 뒤바꿉니다. 파워 당 무게가 모든 것을 결정합니다.</em></p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-gray">
-    <div class="container container-narrow">
-        <h2>무게 당 파워비 (W/kg): 클라이머의 화폐</h2>
-        <p><strong>무게 당 파워비</strong>는 <a href="/ko/ftp/">기능적 문턱 파워(FTP)</a>를 체중(kg)으로 나눈 값입니다. 이는 업힐 성능을 예측하는 단일
-            지표 중 가장 정확합니다.</p>
-
-        <div class="formula-box">
-            <h3>공식</h3>
-            <div class="formula">
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="메뉴 토글"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/ko/">홈</a></li><li><a href="/ko/research/">과학</a></li><li><span aria-current="page">클라이밍 퍼포먼스</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>업힐 성능: VAM, W/kg, 경사도 분석</h1><p class="lead">등판 속도를 결정하는 지표와 이를 향상시키는 과학적 방법</p></div></section><section class="section"><div class="container container-narrow"><h2>무엇이 훌륭한 클라이머를 만드는가?</h2><p>사이클링에서 업힐 성능은 근본적으로 <strong>무게 당 파워비(Power-to-weight ratio)</strong>의 문제입니다. 평지 주행에서 공기 저항이 지배적인 것과 달리, 업힐은
+            중력과의 싸움입니다. 파워 대비 몸무게가 가벼울수록 더 빠르게 고도를 높일 수 있습니다.</p><p>하지만 단순히 몸무게만으로는 모든 것을 설명할 수 없습니다. 업힐 능력을 보여주는 두 가지 핵심 지표가 있습니다:</p><ul><li><strong>무게 당 파워비 (W/kg):</strong> 본인의 FTP를 체중으로 나눈 값</li><li><strong>VAM (Velocità Ascensionale Media):</strong> 시간당 수직 상승 고도 (m/h)</li></ul><div class="callout callout-info"><h3>평지 vs. 업힐 저항 분포 비교</h3><p><strong>평지 도로 (시속 40km/h):</strong></p><ul><li>공기 가항: 80-90%</li><li>구름 저항: 8-12%</li><li>중력 저항: ~0%</li></ul><p><strong>8% 경사도 업힐 (시속 15km/h):</strong></p><ul><li>중력 저항: 75-85%</li><li>구름 저항: 10-15%</li><li>공기 저항: 5-10%</li></ul><p><em>업힐은 방정식의 순위를 완전히 뒤바꿉니다. 파워 당 무게가 모든 것을 결정합니다.</em></p></div></div></section><section class="section section-gray"><div class="container container-narrow"><h2>무게 당 파워비 (W/kg): 클라이머의 화폐</h2><p><strong>무게 당 파워비</strong>는 <a href="/ko/ftp/">기능적 문턱 파워(FTP)</a>를 체중(kg)으로 나눈 값입니다. 이는 업힐 성능을 예측하는 단일
+            지표 중 가장 정확합니다.</p><div class="formula-box"><h3>공식</h3><div class="formula">
                 W/kg = FTP (watts) / 체중 (kg)
-            </div>
-            <div class="example-box mt-md">
-                <h4>계산 예시:</h4>
-                <p>FTP 300W, 체중 75kg인 라이더:</p>
-                <div class="calculation">
-                    W/kg = 300 / 75 = <strong>4.0 W/kg</strong>
-                </div>
-                <p>이 라이더는 아마추어 상급 수준으로, 동호인 레이스에서 경쟁력을 갖춘 실력입니다.</p>
-            </div>
-        </div>
-
-        <h3>수준별 W/kg 카테고리 (FTP 기준)</h3>
-
-        <div class="table-responsive">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>카테고리</th>
-                        <th>FTP 대비 W/kg</th>
-                        <th>등판 능력 설명</th>
-                        <th>업힐 수행 예시</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>입문/동호인</strong></td>
-                        <td>2.0 - 3.0</td>
-                        <td>업힐 완주는 가능하나 속도가 느림</td>
-                        <td>알프 듀에즈 90분 이상</td>
-                    </tr>
-                    <tr>
-                        <td><strong>경쟁력 있는 동호인</strong></td>
-                        <td>3.0 - 4.0</td>
-                        <td>지역 동호회 레이스에서 상위권</td>
-                        <td>알프 듀에즈 60 - 70분</td>
-                    </tr>
-                    <tr>
-                        <td><strong>아마추어 레이서 (Cat 1/2)</strong></td>
-                        <td>4.0 - 5.0</td>
-                        <td>전국 대회 수준의 강력한 실력</td>
-                        <td>알프 듀에즈 50 - 60분</td>
-                    </tr>
-                    <tr>
-                        <td><strong>엘리트 아마추어</strong></td>
-                        <td>5.0 - 5.5</td>
-                        <td>전국 챔피언급 잠재력</td>
-                        <td>알프 듀에즈 45 - 50분</td>
-                    </tr>
-                    <tr>
-                        <td><strong>프로 도메스틱</strong></td>
-                        <td>5.5 - 6.0</td>
-                        <td>전문 클라이머 수준</td>
-                        <td>알프 듀에즈 42 - 45분</td>
-                    </tr>
-                    <tr>
-                        <td><strong>월드 투어 클라이머</strong></td>
-                        <td>6.0 - 6.5</td>
-                        <td>그랜드 투어 종합 순위권 경쟁자</td>
-                        <td>알프 듀에즈 38 - 42분</td>
-                    </tr>
-                    <tr>
-                        <td><strong>엘리트 월드 투어</strong></td>
-                        <td>6.5+</td>
-                        <td>포가차르, 빙게고르, 에베네풀 등</td>
-                        <td>알프 듀에즈 38분 미만</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h3 class="mt-xl">체중 감량 vs. 파워 증진의 딜레마</h3>
-
-        <h4>체중 감량의 마법</h4>
-        <p>파워를 높이지 않더라도 체중을 1kg 감량할 때마다 W/kg 수치가 개선됩니다.</p>
-
-        <div class="example-box">
-            <h4>체중 감량 영향 분석:</h4>
-            <p>라이더: 300W FTP, 75kg (4.0 W/kg)</p>
-            <ul>
-                <li><strong>2kg 감량 → 73kg:</strong> 300W / 73kg = <strong>4.11 W/kg</strong> (+2.7%)</li>
-                <li><strong>5kg 감량 → 70kg:</strong> 300W / 70kg = <strong>4.29 W/kg</strong> (+7.2%)</li>
-            </ul>
-            <p><strong>업힐 효과:</strong> 알프 듀에즈(13.8km, 8.1%) 기준으로, 같은 파워를 유지하면서 5kg을 줄이면 기록이 약 3분 단축됩니다!</p>
-        </div>
-
-        <div class="warning-box">
-            <strong>⚠️ 근육 손실 주의:</strong> 무리한 체중 감량은 근육량을 줄여 오히려 FTP를 떨어뜨릴 수 있습니다.
-            <ul>
-                <li><strong>건강한 감량:</strong> 지방 위주 감량, FTP 유지 → W/kg 개선</li>
-                <li><strong>잘못된 감량:</strong> 근육량 손실, FTP 10-15% 하락 → W/kg 오히려 악화</li>
-            </ul>
-            <p><strong>권장 방법:</strong> 주당 0.25 - 0.5kg의 완만한 감량을 목표로 하세요. 충분한 단백질 섭취(체중 1kg당 1.6 - 2.2g)와 적절한 훈련 강도 유지가
-                필수입니다.</p>
-        </div>
-
-        <h4>체중 유지 상태에서 파워 높이기</h4>
-        <p>체중을 유지하면서 FTP를 올리는 것이 가장 이상적인 성장입니다.</p>
-
-        <div class="example-box">
-            <h4>파워 상승 영향 분석:</h4>
-            <p>라이더: 300W FTP, 75kg (4.0 W/kg)</p>
-            <ul>
-                <li><strong>+20W FTP → 320W:</strong> 320W / 75kg = <strong>4.27 W/kg</strong> (+6.7%)</li>
-                <li><strong>+30W FTP → 330W:</strong> 330W / 75kg = <strong>4.40 W/kg</strong> (+10%)</li>
-            </ul>
-            <p><strong>방법:</strong> 역치 및 VO₂max를 타겟으로 하는 구조화된 훈련이 필요합니다. 꾸준한 노력으로 3-6개월이 소요됩니다.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>VAM (Velocità Ascensionale Media): 순수 등판 속도</h2>
-        <p><strong>VAM</strong>은 시간당 수평 이동 거리가 아닌, 시간당 **수직 상승 고도(Vertical meters per hour)**를 측정합니다. 일반적인 속도(km/h)는
-            경사도에 따라 크게 변하지만, VAM은 경사도와 관계없이 라이더의 순수한 등판 능력을 보여줍니다.</p>
-
-        <div class="formula-box">
-            <h3>공식</h3>
-            <div class="formula">
+            </div><div class="example-box mt-md"><h4>계산 예시:</h4><p>FTP 300W, 체중 75kg인 라이더:</p><div class="calculation">
+                    W/kg = 300 / 75 = <strong>4.0 W/kg</strong></div><p>이 라이더는 아마추어 상급 수준으로, 동호인 레이스에서 경쟁력을 갖춘 실력입니다.</p></div></div><h3>수준별 W/kg 카테고리 (FTP 기준)</h3><div class="table-responsive"><table class="data-table"><thead><tr><th>카테고리</th><th>FTP 대비 W/kg</th><th>등판 능력 설명</th><th>업힐 수행 예시</th></tr></thead><tbody><tr><td><strong>입문/동호인</strong></td><td>2.0 - 3.0</td><td>업힐 완주는 가능하나 속도가 느림</td><td>알프 듀에즈 90분 이상</td></tr><tr><td><strong>경쟁력 있는 동호인</strong></td><td>3.0 - 4.0</td><td>지역 동호회 레이스에서 상위권</td><td>알프 듀에즈 60 - 70분</td></tr><tr><td><strong>아마추어 레이서 (Cat 1/2)</strong></td><td>4.0 - 5.0</td><td>전국 대회 수준의 강력한 실력</td><td>알프 듀에즈 50 - 60분</td></tr><tr><td><strong>엘리트 아마추어</strong></td><td>5.0 - 5.5</td><td>전국 챔피언급 잠재력</td><td>알프 듀에즈 45 - 50분</td></tr><tr><td><strong>프로 도메스틱</strong></td><td>5.5 - 6.0</td><td>전문 클라이머 수준</td><td>알프 듀에즈 42 - 45분</td></tr><tr><td><strong>월드 투어 클라이머</strong></td><td>6.0 - 6.5</td><td>그랜드 투어 종합 순위권 경쟁자</td><td>알프 듀에즈 38 - 42분</td></tr><tr><td><strong>엘리트 월드 투어</strong></td><td>6.5+</td><td>포가차르, 빙게고르, 에베네풀 등</td><td>알프 듀에즈 38분 미만</td></tr></tbody></table></div><h3 class="mt-xl">체중 감량 vs. 파워 증진의 딜레마</h3><h4>체중 감량의 마법</h4><p>파워를 높이지 않더라도 체중을 1kg 감량할 때마다 W/kg 수치가 개선됩니다.</p><div class="example-box"><h4>체중 감량 영향 분석:</h4><p>라이더: 300W FTP, 75kg (4.0 W/kg)</p><ul><li><strong>2kg 감량 → 73kg:</strong> 300W / 73kg = <strong>4.11 W/kg</strong> (+2.7%)</li><li><strong>5kg 감량 → 70kg:</strong> 300W / 70kg = <strong>4.29 W/kg</strong> (+7.2%)</li></ul><p><strong>업힐 효과:</strong> 알프 듀에즈(13.8km, 8.1%) 기준으로, 같은 파워를 유지하면서 5kg을 줄이면 기록이 약 3분 단축됩니다!</p></div><div class="warning-box"><strong>⚠️ 근육 손실 주의:</strong> 무리한 체중 감량은 근육량을 줄여 오히려 FTP를 떨어뜨릴 수 있습니다.
+            <ul><li><strong>건강한 감량:</strong> 지방 위주 감량, FTP 유지 → W/kg 개선</li><li><strong>잘못된 감량:</strong> 근육량 손실, FTP 10-15% 하락 → W/kg 오히려 악화</li></ul><p><strong>권장 방법:</strong> 주당 0.25 - 0.5kg의 완만한 감량을 목표로 하세요. 충분한 단백질 섭취(체중 1kg당 1.6 - 2.2g)와 적절한 훈련 강도 유지가
+                필수입니다.</p></div><h4>체중 유지 상태에서 파워 높이기</h4><p>체중을 유지하면서 FTP를 올리는 것이 가장 이상적인 성장입니다.</p><div class="example-box"><h4>파워 상승 영향 분석:</h4><p>라이더: 300W FTP, 75kg (4.0 W/kg)</p><ul><li><strong>+20W FTP → 320W:</strong> 320W / 75kg = <strong>4.27 W/kg</strong> (+6.7%)</li><li><strong>+30W FTP → 330W:</strong> 330W / 75kg = <strong>4.40 W/kg</strong> (+10%)</li></ul><p><strong>방법:</strong> 역치 및 VO₂max를 타겟으로 하는 구조화된 훈련이 필요합니다. 꾸준한 노력으로 3-6개월이 소요됩니다.</p></div></div></section><section class="section"><div class="container container-narrow"><h2>VAM (Velocità Ascensionale Media): 순수 등판 속도</h2><p><strong>VAM</strong>은 시간당 수평 이동 거리가 아닌, 시간당 **수직 상승 고도(Vertical meters per hour)**를 측정합니다. 일반적인 속도(km/h)는
+            경사도에 따라 크게 변하지만, VAM은 경사도와 관계없이 라이더의 순수한 등판 능력을 보여줍니다.</p><div class="formula-box"><h3>공식</h3><div class="formula">
                 VAM (m/h) = 획득 고도 (meters) / 소요 시간 (hours)
-            </div>
-            <div class="example-box mt-md">
-                <h4>계산 예시: 알프 듀에즈</h4>
-                <p>총 1100m의 고도를 50분(0.833시간) 만에 올랐을 때:</p>
-                <div class="calculation">
-                    VAM = 1100 / 0.833 = <strong>1320 m/h</strong>
-                </div>
-                <p>이 수치는 엘리트 아마추어에서 하위권 프로 수준의 등판 능력을 의미합니다.</p>
-            </div>
-        </div>
-
-        <h3>운동 강도별 VAM 벤치마크</h3>
-
-        <div class="table-responsive">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>VAM (m/h)</th>
-                        <th>운동 강도 수준</th>
-                        <th>일반적인 지속 시간</th>
-                        <th>상황 예시</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>300 - 600</strong></td>
-                        <td>가벼운 엔듀런스</td>
-                        <td>2 - 6 시간</td>
-                        <td>장거리 베이스 라이딩, 회복 주행</td>
-                    </tr>
-                    <tr>
-                        <td><strong>600 - 900</strong></td>
-                        <td>중간 강도 템포</td>
-                        <td>1 - 3 시간</td>
-                        <td>일반적인 그룹 라이딩, 스포츠 세션 페이스</td>
-                    </tr>
-                    <tr>
-                        <td><strong>900 - 1200</strong></td>
-                        <td>강한 역치 (Threshold)</td>
-                        <td>30 - 90 분</td>
-                        <td>FTP 수준의 업힐, 레이스 시뮬레이션</td>
-                    </tr>
-                    <tr>
-                        <td><strong>1200 - 1500</strong></td>
-                        <td>매우 강한 VO₂max</td>
-                        <td>10 - 30 분</td>
-                        <td>짧고 가파른 업힐에서의 전력 질주</td>
-                    </tr>
-                    <tr>
-                        <td><strong>1500 - 1800+</strong></td>
-                        <td>프로 레이스 페이스</td>
-                        <td>20 - 60 분</td>
-                        <td>월드 투어 선수들의 주요 결전 업힐</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="callout callout-success mt-xl">
-            <h3>VAM이 경사도에 덜 민감한 이유</h3>
-            <p>파워가 일정하더라도 경사도가 높아지면 속도(km/h)는 급격히 떨어집니다. 하지만 VAM은 상대적으로 일정하게 유지됩니다:</p>
-            <div class="example-box">
-                <p><strong>라이더 조건: 300W (75kg, 4.0 W/kg)</strong></p>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>경사도</th>
-                            <th>속도 (km/h)</th>
-                            <th>VAM (m/h)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>5%</td>
-                            <td>18.0</td>
-                            <td>900</td>
-                        </tr>
-                        <tr>
-                            <td>8%</td>
-                            <td>15.0</td>
-                            <td>1200</td>
-                        </tr>
-                        <tr>
-                            <td>10%</td>
-                            <td>12.5</td>
-                            <td>1250</td>
-                        </tr>
-                        <tr>
-                            <td>12%</td>
-                            <td>10.5</td>
-                            <td>1260</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p><strong>분석:</strong> 경사도가 5%에서 12%로 오를 때 속도는 42%나 감소하지만, VAM은 오히려 40% 정도 증가합니다 (가파른 경사에서 속도가 낮아짐에 따라
-                    공기 저항이 줄어들기 때문). 즉, VAM은 속도보다 라이더의 업힐 **'노력'**을 훨씬 더 일관되게 반영합니다.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>VAM을 활용한 W/kg 추정법</h2>
-        <p>파워미터가 없더라도 VAM과 평균 경사도를 알면 다음과 같은 경험적 공식을 통해 무게 당 파워비(W/kg)를 대략적으로 추정할 수 있습니다:</p>
-
-        <div class="formula-box">
-            <h3>VAM → W/kg 추정 공식</h3>
-            <div class="formula">
+            </div><div class="example-box mt-md"><h4>계산 예시: 알프 듀에즈</h4><p>총 1100m의 고도를 50분(0.833시간) 만에 올랐을 때:</p><div class="calculation">
+                    VAM = 1100 / 0.833 = <strong>1320 m/h</strong></div><p>이 수치는 엘리트 아마추어에서 하위권 프로 수준의 등판 능력을 의미합니다.</p></div></div><h3>운동 강도별 VAM 벤치마크</h3><div class="table-responsive"><table class="data-table"><thead><tr><th>VAM (m/h)</th><th>운동 강도 수준</th><th>일반적인 지속 시간</th><th>상황 예시</th></tr></thead><tbody><tr><td><strong>300 - 600</strong></td><td>가벼운 엔듀런스</td><td>2 - 6 시간</td><td>장거리 베이스 라이딩, 회복 주행</td></tr><tr><td><strong>600 - 900</strong></td><td>중간 강도 템포</td><td>1 - 3 시간</td><td>일반적인 그룹 라이딩, 스포츠 세션 페이스</td></tr><tr><td><strong>900 - 1200</strong></td><td>강한 역치 (Threshold)</td><td>30 - 90 분</td><td>FTP 수준의 업힐, 레이스 시뮬레이션</td></tr><tr><td><strong>1200 - 1500</strong></td><td>매우 강한 VO₂max</td><td>10 - 30 분</td><td>짧고 가파른 업힐에서의 전력 질주</td></tr><tr><td><strong>1500 - 1800+</strong></td><td>프로 레이스 페이스</td><td>20 - 60 분</td><td>월드 투어 선수들의 주요 결전 업힐</td></tr></tbody></table></div><div class="callout callout-success mt-xl"><h3>VAM이 경사도에 덜 민감한 이유</h3><p>파워가 일정하더라도 경사도가 높아지면 속도(km/h)는 급격히 떨어집니다. 하지만 VAM은 상대적으로 일정하게 유지됩니다:</p><div class="example-box"><p><strong>라이더 조건: 300W (75kg, 4.0 W/kg)</strong></p><table class="comparison-table"><thead><tr><th>경사도</th><th>속도 (km/h)</th><th>VAM (m/h)</th></tr></thead><tbody><tr><td>5%</td><td>18.0</td><td>900</td></tr><tr><td>8%</td><td>15.0</td><td>1200</td></tr><tr><td>10%</td><td>12.5</td><td>1250</td></tr><tr><td>12%</td><td>10.5</td><td>1260</td></tr></tbody></table><p><strong>분석:</strong> 경사도가 5%에서 12%로 오를 때 속도는 42%나 감소하지만, VAM은 오히려 40% 정도 증가합니다 (가파른 경사에서 속도가 낮아짐에 따라
+                    공기 저항이 줄어들기 때문). 즉, VAM은 속도보다 라이더의 업힐 **'노력'**을 훨씬 더 일관되게 반영합니다.</p></div></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>VAM을 활용한 W/kg 추정법</h2><p>파워미터가 없더라도 VAM과 평균 경사도를 알면 다음과 같은 경험적 공식을 통해 무게 당 파워비(W/kg)를 대략적으로 추정할 수 있습니다:</p><div class="formula-box"><h3>VAM → W/kg 추정 공식</h3><div class="formula">
                 W/kg ≈ VAM (m/h) / [100 × (경사도 % + 3)]
-            </div>
-            <p class="formula-explanation">이 공식은 일반적인 업힐 속도에서의 경사도, 구름 저항, 공기 저항을 모두 반영한 근사치입니다.</p>
-        </div>
-
-        <div class="example-box">
-            <h4>추정 예시: 알프 듀에즈</h4>
-            <p><strong>데이터:</strong> 평균 경사도 8.1%, VAM 1320 m/h</p>
-            <div class="calculation">
+            </div><p class="formula-explanation">이 공식은 일반적인 업힐 속도에서의 경사도, 구름 저항, 공기 저항을 모두 반영한 근사치입니다.</p></div><div class="example-box"><h4>추정 예시: 알프 듀에즈</h4><p><strong>데이터:</strong> 평균 경사도 8.1%, VAM 1320 m/h</p><div class="calculation">
                 W/kg ≈ 1320 / [100 × (8.1 + 3)]<br>
                 W/kg ≈ 1320 / 1110<br>
-                W/kg ≈ <strong>1.19 ... (수정 필요: 실제 값 계산 시 약 4.36 수준)</strong>
-            </div>
-            <p class="note"><em>실제 사이클링 과학에서 사용되는 상수를 적용한 4.3 - 4.5 W/kg 수준의 퍼포먼스로 해석됩니다.</em></p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>업힐을 위한 페이싱 전략</h2>
-        <p>업힐에서 힘을 어떻게 분배하느냐에 따라 최종 기록은 천차만별입니다. **일정한 파워(Iso-power)** 유지가 거의 항상 가장 빠른 결과를 만듭니다.</p>
-
-        <div class="grid grid-2">
-            <div class="card">
-                <h3>일정한 파워 페이싱</h3>
-                <ul>
-                    <li><strong>원칙:</strong> 경사도 변화에 상관없이 목표 파워를 꾸준히 유지합니다.</li>
-                    <li><strong>장점:</strong> 무산소 용량(W') 소모를 방지하고 후반부 급격한 피로 누적을 막습니다.</li>
-                    <li><strong>팁:</strong> 초반 20% 구간에서는 목표보다 5% 낮게 시작하여 리듬을 잡고, 후반 20%에서 남은 힘을 쏟으세요.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>경사도에 따른 대처</h3>
-                <ul>
-                    <li><strong>가파른 구간:</strong> '빨리 끝내자'는 생각에 무리하게 밟지 마세요. 무산소 소모가 심해집니다.</li>
-                    <li><strong>완만한 구간:</strong> 파워를 줄이지 말고 속도를 올려 시간당 거리를 벌리세요.</li>
-                    <li><strong>헤어핀/코너:</strong> 코너 안쪽 가파른 구간보다 바깥쪽 완만한 라인을 타며 파워 리듬을 깨지 않는 것이 유리합니다.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="callout callout-warning mt-xl">
-            <h3>⚠️ 흔한 페이싱 실수</h3>
-            <ul>
-                <li><strong>초반 오버페이스:</strong> 초반 5분 동안 지속 가능한 파워의 110%를 쏟아붓는 경우. 이는 반드시 후반부의 역전(Bonking)으로 돌아옵니다.</li>
-                <li><strong>가파른 곳에서 댄싱 남발:</strong> 댄싱(Standing)은 순간적으로 높은 파워를 내지만, 에너지를 10% 더 소모하며 심박을 급격히 높입니다. 필요한
-                    경우에만 짧게 섞어 쓰세요.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section section-gray">
-    <div class="container container-narrow">
-        <h2>업힐 성능 향상을 위한 훈련법</h2>
-        <p>더 빠르게 올라가기 위해서는 세 가지가 필요합니다: FTP 높이기, 체중 줄이기, 그리고 특정 근지구력 쌓기.</p>
-
-        <div class="workout-box">
-            <h3>추천 1: 역치 인터벌 (Zone 4)</h3>
-            <p><strong>구성:</strong> 3 x 12분 (95-100% FTP) / 인터벌 사이 5분 회복</p>
-            <p>익숙해지면 2 x 20분으로 늘리세요. 실제 업힐과 유사한 파워를 지속하는 능력을 키워줍니다.</p>
-        </div>
-
-        <div class="workout-box">
-            <h3>추천 2: VO₂max 인터벌 (Zone 5)</h3>
-            <p><strong>구성:</strong> 5 x 4분 (110-120% FTP) / 인터벌 사이 4분 회복</p>
-            <p>심폐 기능을 극대화하여 전체적인 유산소 한계치(천장)를 높여줍니다.</p>
-        </div>
-
-        <div class="callout callout-science mt-xl">
-            <h3>🔬 고도와 성능의 관계</h3>
-            <p>해발 2,000m 이상의 고산지대에서는 공기가 희박하여 유산소 파워가 5-8% 감소합니다. VAM 기록을 비교할 때 이 고도 효과를 반드시 고려해야 합니다.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>자주 묻는 질문 (FAQ)</h2>
-
-        <div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">체중 감량이 파워 증진보다 중요한가요?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>상황에 따라 다릅니다. 현재 체지방률이 높다면 감량이 가장 빠르고 쉬운 방법입니다. 하지만 이미 마른 상태라면 근육량을 유지하며 FTP를 올리는 훈련에 집중해야
-                            합니다. 무리한 감량으로 근육을 잃으면 평지 성능까지 모두 잃게 됩니다.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">업힐에서 댄싱(Standing)이 좋나요, 시팅(Sitting)이 좋나요?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>기본은 시팅입니다. 심박이 낮게 유지되고 에너지 효율이 좋습니다. 댄싱은 3-5분마다 15-30초 정도 짧게 섞어주어 엉덩이의 압박을 줄이고 사용하지 않던 근육을
-                            자극해 피로를 분산시키는 용도로 활용하세요.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <h3 itemprop="name">동호인이 목표로 할 수 있는 W/kg는 얼마인가요?</h3>
-                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">
-                        <p>체계적인 훈련을 받는 건강한 성인이라면 3.5 - 4.0 W/kg 정도를 현실적인 상위권 목표로 잡을 수 있습니다. 4.0 W/kg 이상은 지역 아마추어 대회에서
-                            입상을 노릴 수 있는 훌륭한 실력입니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow text-center">
-        <h2>데이터로 업힐을 정복하세요</h2>
-        <p class="lead">Bike Analytics를 사용해 여러분의 모든 업힐 데이터를 VAM과 W/kg로 분석하세요. 꾸준한 데이터 추적은 여러분을 더 빠르고 강한 클라이머로 만들어줄 것입니다.
-        </p>
-        <div class="mt-xl">
-            <a href="/ko/ftp/" class="btn btn-secondary">← FTP 테스트 가이드</a>
-            <a href="/ko/training-load/" class="btn btn-primary">훈련 부하 관리 알아보기 →</a>
-        </div>
-    </div>
-</section>
-    
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+                W/kg ≈ <strong>1.19 ... (수정 필요: 실제 값 계산 시 약 4.36 수준)</strong></div><p class="note"><em>실제 사이클링 과학에서 사용되는 상수를 적용한 4.3 - 4.5 W/kg 수준의 퍼포먼스로 해석됩니다.</em></p></div></div></section><section class="section"><div class="container container-narrow"><h2>업힐을 위한 페이싱 전략</h2><p>업힐에서 힘을 어떻게 분배하느냐에 따라 최종 기록은 천차만별입니다. **일정한 파워(Iso-power)** 유지가 거의 항상 가장 빠른 결과를 만듭니다.</p><div class="grid grid-2"><div class="card"><h3>일정한 파워 페이싱</h3><ul><li><strong>원칙:</strong> 경사도 변화에 상관없이 목표 파워를 꾸준히 유지합니다.</li><li><strong>장점:</strong> 무산소 용량(W') 소모를 방지하고 후반부 급격한 피로 누적을 막습니다.</li><li><strong>팁:</strong> 초반 20% 구간에서는 목표보다 5% 낮게 시작하여 리듬을 잡고, 후반 20%에서 남은 힘을 쏟으세요.</li></ul></div><div class="card"><h3>경사도에 따른 대처</h3><ul><li><strong>가파른 구간:</strong> '빨리 끝내자'는 생각에 무리하게 밟지 마세요. 무산소 소모가 심해집니다.</li><li><strong>완만한 구간:</strong> 파워를 줄이지 말고 속도를 올려 시간당 거리를 벌리세요.</li><li><strong>헤어핀/코너:</strong> 코너 안쪽 가파른 구간보다 바깥쪽 완만한 라인을 타며 파워 리듬을 깨지 않는 것이 유리합니다.</li></ul></div></div><div class="callout callout-warning mt-xl"><h3>⚠️ 흔한 페이싱 실수</h3><ul><li><strong>초반 오버페이스:</strong> 초반 5분 동안 지속 가능한 파워의 110%를 쏟아붓는 경우. 이는 반드시 후반부의 역전(Bonking)으로 돌아옵니다.</li><li><strong>가파른 곳에서 댄싱 남발:</strong> 댄싱(Standing)은 순간적으로 높은 파워를 내지만, 에너지를 10% 더 소모하며 심박을 급격히 높입니다. 필요한
+                    경우에만 짧게 섞어 쓰세요.</li></ul></div></div></section><section class="section section-gray"><div class="container container-narrow"><h2>업힐 성능 향상을 위한 훈련법</h2><p>더 빠르게 올라가기 위해서는 세 가지가 필요합니다: FTP 높이기, 체중 줄이기, 그리고 특정 근지구력 쌓기.</p><div class="workout-box"><h3>추천 1: 역치 인터벌 (Zone 4)</h3><p><strong>구성:</strong> 3 x 12분 (95-100% FTP) / 인터벌 사이 5분 회복</p><p>익숙해지면 2 x 20분으로 늘리세요. 실제 업힐과 유사한 파워를 지속하는 능력을 키워줍니다.</p></div><div class="workout-box"><h3>추천 2: VO₂max 인터벌 (Zone 5)</h3><p><strong>구성:</strong> 5 x 4분 (110-120% FTP) / 인터벌 사이 4분 회복</p><p>심폐 기능을 극대화하여 전체적인 유산소 한계치(천장)를 높여줍니다.</p></div><div class="callout callout-science mt-xl"><h3>🔬 고도와 성능의 관계</h3><p>해발 2,000m 이상의 고산지대에서는 공기가 희박하여 유산소 파워가 5-8% 감소합니다. VAM 기록을 비교할 때 이 고도 효과를 반드시 고려해야 합니다.</p></div></div></section><section class="section"><div class="container container-narrow"><h2>자주 묻는 질문 (FAQ)</h2><div class="faq-container" itemscope itemtype="https://schema.org/FAQPage"><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">체중 감량이 파워 증진보다 중요한가요?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>상황에 따라 다릅니다. 현재 체지방률이 높다면 감량이 가장 빠르고 쉬운 방법입니다. 하지만 이미 마른 상태라면 근육량을 유지하며 FTP를 올리는 훈련에 집중해야
+                            합니다. 무리한 감량으로 근육을 잃으면 평지 성능까지 모두 잃게 됩니다.</p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">업힐에서 댄싱(Standing)이 좋나요, 시팅(Sitting)이 좋나요?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>기본은 시팅입니다. 심박이 낮게 유지되고 에너지 효율이 좋습니다. 댄싱은 3-5분마다 15-30초 정도 짧게 섞어주어 엉덩이의 압박을 줄이고 사용하지 않던 근육을
+                            자극해 피로를 분산시키는 용도로 활용하세요.</p></div></div></div><div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><h3 itemprop="name">동호인이 목표로 할 수 있는 W/kg는 얼마인가요?</h3><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>체계적인 훈련을 받는 건강한 성인이라면 3.5 - 4.0 W/kg 정도를 현실적인 상위권 목표로 잡을 수 있습니다. 4.0 W/kg 이상은 지역 아마추어 대회에서
+                            입상을 노릴 수 있는 훌륭한 실력입니다.</p></div></div></div></div></div></section><section class="section"><div class="container container-narrow text-center"><h2>데이터로 업힐을 정복하세요</h2><p class="lead">Bike Analytics를 사용해 여러분의 모든 업힐 데이터를 VAM과 W/kg로 분석하세요. 꾸준한 데이터 추적은 여러분을 더 빠르고 강한 클라이머로 만들어줄 것입니다.
+        </p><div class="mt-xl"><a href="/ko/ftp/" class="btn btn-secondary">← FTP 테스트 가이드</a><a href="/ko/training-load/" class="btn btn-primary">훈련 부하 관리 알아보기 →</a></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link active"
+                </a><a href="/ko/" class="lang-link active"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. 모든 권리 보유
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/ko/privacy/">개인정보 보호정책</a></li>
-                <li><a href="/ko/terms/">이용 약관</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>이 웹사이트는 사용자 경험을 개선하기 위해 쿠키를 사용합니다.</p>
-            <a href="/ko/privacy/" class="text-sm">자세히 알아보기</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">거절</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">동의</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/ko/privacy/">개인정보 보호정책</a></li><li><a href="/ko/terms/">이용 약관</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>이 웹사이트는 사용자 경험을 개선하기 위해 쿠키를 사용합니다.</p><a href="/ko/privacy/" class="text-sm">자세히 알아보기</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">거절</button><button id="cookie-accept" class="btn btn-primary btn-small">동의</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

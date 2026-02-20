@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="ro" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>Road Cycling vs Mountain Biking - Power Profile Differences</title>
-  <meta name="description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="road vs MTB, cycling power profiles, variability index, road MTB differences">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/ro/road-vs-mtb/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-04T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/ro/road-vs-mtb/">
-  <meta property="og:title" content="Road Cycling vs Mountain Biking - Power Profile Differences">
-  <meta property="og:description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="ro_RO">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/ro/road-vs-mtb/">
-  <meta name="twitter:title" content="Road Cycling vs Mountain Biking - Power Profile Differences">
-  <meta name="twitter:description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/road-vs-mtb/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/road-vs-mtb/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="ro" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>Road Cycling vs Mountain Biking - Power Profile Differences</title><meta name="description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="road vs MTB, cycling power profiles, variability index, road MTB differences"><link rel="canonical" href="https://bike.analyticszone.app/ro/road-vs-mtb/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-01-04T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/ro/road-vs-mtb/"><meta property="og:title" content="Road Cycling vs Mountain Biking - Power Profile Differences"><meta property="og:description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="ro_RO"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/ro/road-vs-mtb/"><meta name="twitter:title" content="Road Cycling vs Mountain Biking - Power Profile Differences"><meta name="twitter:description" content="Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/road-vs-mtb/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/road-vs-mtb/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/road-vs-mtb/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/road-vs-mtb/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/road-vs-mtb/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/road-vs-mtb/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/road-vs-mtb/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/road-vs-mtb/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/road-vs-mtb/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/road-vs-mtb/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/road-vs-mtb/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/road-vs-mtb/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/road-vs-mtb/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/road-vs-mtb/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/road-vs-mtb/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/road-vs-mtb/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/road-vs-mtb/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/road-vs-mtb/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/road-vs-mtb/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/road-vs-mtb/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/road-vs-mtb/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/road-vs-mtb/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/road-vs-mtb/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/road-vs-mtb/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/road-vs-mtb/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/road-vs-mtb/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/road-vs-mtb/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/road-vs-mtb/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/road-vs-mtb/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/road-vs-mtb/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/road-vs-mtb/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/road-vs-mtb/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/road-vs-mtb/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/road-vs-mtb/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/road-vs-mtb/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/road-vs-mtb/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/road-vs-mtb/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/road-vs-mtb/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/road-vs-mtb/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/road-vs-mtb/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/road-vs-mtb/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/road-vs-mtb/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/road-vs-mtb/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/road-vs-mtb/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/road-vs-mtb/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/road-vs-mtb/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/road-vs-mtb/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/road-vs-mtb/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/road-vs-mtb/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/road-vs-mtb/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/road-vs-mtb/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/road-vs-mtb/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/road-vs-mtb/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/road-vs-mtb/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/road-vs-mtb/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/road-vs-mtb/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "ro"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "Understanding power profile differences between road cycling and mountain biking: VI, smoothness, burst patterns, and training implications.",
   "url": "https://bike.analyticszone.app/ro/road-vs-mtb/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -653,17 +435,7 @@ img[width][height] {
     "@id": "https://bike.analyticszone.app/ro/road-vs-mtb/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1577 +449,434 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">Skip to content</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/ro/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/ro/" 
+  </script></head><body><a href="#main-content" class="skip-link">Skip to content</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/ro/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/ro/" 
                                 aria-current="">
                                 Home
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ro/getting-started/" class="nav-label">Learn</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ro/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/ro/getting-started/" class="nav-label">Learn</a><ul class="submenu"><li><a href="/ro/getting-started/" 
                                         aria-current="">
                                         Getting Started
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/ftp/" 
+                                    </a></li><li><a href="/ro/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/critical-power/" 
+                                    </a></li><li><a href="/ro/critical-power/" 
                                         aria-current="">
                                         Critical Power
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/training-zones/" 
+                                    </a></li><li><a href="/ro/training-zones/" 
                                         aria-current="">
                                         Training Zones
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/training-load/" 
+                                    </a></li><li><a href="/ro/training-load/" 
                                         aria-current="">
                                         Training Load
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/tss-calculator/" 
+                                    </a></li><li><a href="/ro/tss-calculator/" 
                                         aria-current="">
                                         TSS Calculator
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ro/research/" class="nav-label">Science</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ro/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/ro/research/" class="nav-label">Science</a><ul class="submenu"><li><a href="/ro/research/" 
                                         aria-current="">
                                         Research
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/formulas/" 
+                                    </a></li><li><a href="/ro/formulas/" 
                                         aria-current="">
                                         Formulas
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/power-metrics/" 
+                                    </a></li><li><a href="/ro/power-metrics/" 
                                         aria-current="">
                                         Power Metrics
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/efficiency/" 
+                                    </a></li><li><a href="/ro/efficiency/" 
                                         aria-current="">
                                         Efficiency
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/pedaling-mechanics/" 
+                                    </a></li><li><a href="/ro/pedaling-mechanics/" 
                                         aria-current="">
                                         Pedaling Mechanics
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/aerodynamics/" 
+                                    </a></li><li><a href="/ro/aerodynamics/" 
                                         aria-current="">
                                         Aerodynamics
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/climbing-performance/" 
+                                    </a></li><li><a href="/ro/climbing-performance/" 
                                         aria-current="">
                                         Climbing Performance
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/bibliography/" 
+                                    </a></li><li><a href="/ro/bibliography/" 
                                         aria-current="">
                                         Bibliography
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/ro/road-cycling/" class="nav-label">Disciplines</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/ro/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/ro/road-cycling/" class="nav-label">Disciplines</a><ul class="submenu"><li><a href="/ro/road-cycling/" 
                                         aria-current="">
                                         Road Cycling
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/mountain-biking/" 
+                                    </a></li><li><a href="/ro/mountain-biking/" 
                                         aria-current="">
                                         Mountain Biking
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/road-vs-mtb/" class="active" 
+                                    </a></li><li><a href="/ro/road-vs-mtb/" class="active" 
                                         aria-current="page">
                                         Road vs MTB
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/ro/comparisons/" 
+                                    </a></li><li><a href="/ro/comparisons/" 
                                         aria-current="">
                                         Platform Comparisons
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/ro/contact/" 
+                                    </a></li></ul></li><li><a href="/ro/contact/" 
                                 aria-current="">
                                 Contact
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="Select language">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="Select language"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" >
+                        </option><option value="id" >
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" selected>
+                        </option><option value="ro" selected>
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/ro/">Home</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/ro/road-cycling/">Disciplines</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">Road vs MTB</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-    <!-- Analiza Șosea vs MTB - Bike Analytics -->
-
-<section class="page-hero">
-    <div class="container">
-        <h1>Ciclism de Șosea vs MTB - De Ce Profiturile de Putere Sunt Complet Diferite</h1>
-        <p class="lead">Majoritatea platformelor de analiză tratează tot ciclismul la fel. Este greșit. Șoseaua și
-            MTB-ul necesită abordări analitice fundamental diferite.</p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <div class="callout callout-warning mb-xl">
-            <h2>🚨 Problema Critică a Analizelor de Ciclism Generice</h2>
-            <p>TrainingPeaks, Strava, WKO5 și altele aplică <strong>presupuneri din ciclismul de șosea</strong> datelor
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/ro/">Home</a></li><li><a href="/ro/road-cycling/">Disciplines</a></li><li><span aria-current="page">Road vs MTB</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>Ciclism de Șosea vs MTB - De Ce Profiturile de Putere Sunt Complet Diferite</h1><p class="lead">Majoritatea platformelor de analiză tratează tot ciclismul la fel. Este greșit. Șoseaua și
+            MTB-ul necesită abordări analitice fundamental diferite.</p></div></section><section class="section"><div class="container container-narrow"><div class="callout callout-warning mb-xl"><h2>🚨 Problema Critică a Analizelor de Ciclism Generice</h2><p>TrainingPeaks, Strava, WKO5 și altele aplică <strong>presupuneri din ciclismul de șosea</strong> datelor
                 de mountain biking. Ele se așteaptă la o putere uniformă, eforturi constante și variabilitate scăzută.
                 Când văd exploziile de putere și variabilitatea mare din MTB, le marchează ca "pacing prost" sau
-                "ineficientă".</p>
-            <p class="mt-md mb-0"><strong>Realitate:</strong> Variabilitatea ridicată este optimă pentru MTB.
+                "ineficientă".</p><p class="mt-md mb-0"><strong>Realitate:</strong> Variabilitatea ridicată este optimă pentru MTB.
                 Variabilitatea scăzută pe trail înseamnă că nu împingi destul de tare pe urcări sau că pedalezi pe
-                coborâri (risipind energie). <strong>Bike Analytics înțelege această diferență.</strong></p>
-        </div>
-
-        <h2>Comparație Directă: Șosea vs MTB</h2>
-
-        <div class="comparison-table-container">
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Metrică</th>
-                        <th>Ciclism de Șosea</th>
-                        <th>Mountain Biking</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Index de Variabilitate (VI)</strong></td>
-                        <td>1,02-1,05</td>
-                        <td class="highlight">1,10-1,20+</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Uniformitatea Puterii</strong></td>
-                        <td>Putere constantă, stabilă</td>
-                        <td class="highlight">Foarte variabilă, "explozivă"</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Diferența Medie vs NP</strong></td>
-                        <td>5-10W</td>
-                        <td class="highlight">30-50W</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sistem Energetic Primar</strong></td>
-                        <td>Aerob (Z2-Z4)</td>
-                        <td class="highlight">Mix Aerob/Anaerob</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Model de Utilizare W'</strong></td>
-                        <td>Epuizare minimă</td>
-                        <td class="highlight">Cicluri constante epuizare/recuperare</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Cel Mai Bun Model de Analiză</strong></td>
-                        <td>Zone bazate pe FTP</td>
-                        <td class="highlight">Balanța CP & W'</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Durata Tipică a Efortului</strong></td>
-                        <td>20-60+ min constant</td>
-                        <td class="highlight">30s-10min variabil</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Timp Rulare Liberă (%)</strong></td>
-                        <td>5-10%</td>
-                        <td class="highlight">20-40%</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Impactul Abilității Tehnice</strong></td>
-                        <td>Scăzut (10-20% din performanță)</td>
-                        <td class="highlight">Foarte Mare (40-50% din performanță)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Importanța Aerodinamicii</strong></td>
-                        <td class="highlight">Critică (80% din rezistență >25 km/h)</td>
-                        <td>Minimă (poziție verticală obligatorie)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Plasarea Senzorului de Putere</strong></td>
-                        <td>Oricare (poziție stabilă pe șosea)</td>
-                        <td class="highlight">Pedale sau spider preferat (protecție)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Cadență (rpm)</strong></td>
-                        <td>85-95 tipic</td>
-                        <td class="highlight">65-75 tipic</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Pulsul se Potrivește cu Puterea?</strong></td>
-                        <td class="highlight">Da (corelație stabilă)</td>
-                        <td>Nu (Pulsul rămâne mare la 0W pe coborâre)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h2>De Ce Aceste Diferențe Contează Pentru Analiză</h2>
-
-        <div class="feature-list">
-            <div class="feature-item">
-                <h3>1. Provocările Testării FTP</h3>
-                <div class="grid grid-2 mt-md">
-                    <div>
-                        <h4>Ciclism de Șosea</h4>
-                        <ul>
-                            <li>Testul FTP de 20 de minute funcționează perfect (starea stabilă este realizabilă)</li>
-                            <li>Găsește un drum plat sau un trainer indoor</li>
-                            <li>Pedalează la efortul maxim sustenabil timp de 20 de minute</li>
-                            <li>FTP = 95% din puterea medie pe 20 de minute</li>
-                            <li>Foarte repetabil (erori de ±3W la retestare)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Mountain Biking</h4>
-                        <ul>
-                            <li>Testul de 20 de minute <strong>supraestimează pragul</strong> (greu de menținut puterea
-                                constantă pe trail)</li>
-                            <li>Trail-ul întrerupe constant eforturile susținute</li>
-                            <li>FTP-ul la MTB este tipic <strong>cu 5-10% mai mic decât cel de șosea</strong></li>
-                            <li><strong>Soluția #1:</strong> Testează FTP pe șosea, redu cu 5-10% pentru zonele de MTB
-                            </li>
-                            <li><strong>Soluția #2:</strong> Folosește modelul Puterii Critice (CP) în schimb</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="callout mt-md">
-                    <p><strong>Exemplu real:</strong> Un ciclist are un FTP de șosea de 280W. La MTB, puterea
+                coborâri (risipind energie). <strong>Bike Analytics înțelege această diferență.</strong></p></div><h2>Comparație Directă: Șosea vs MTB</h2><div class="comparison-table-container"><table class="comparison-table"><thead><tr><th>Metrică</th><th>Ciclism de Șosea</th><th>Mountain Biking</th></tr></thead><tbody><tr><td><strong>Index de Variabilitate (VI)</strong></td><td>1,02-1,05</td><td class="highlight">1,10-1,20+</td></tr><tr><td><strong>Uniformitatea Puterii</strong></td><td>Putere constantă, stabilă</td><td class="highlight">Foarte variabilă, "explozivă"</td></tr><tr><td><strong>Diferența Medie vs NP</strong></td><td>5-10W</td><td class="highlight">30-50W</td></tr><tr><td><strong>Sistem Energetic Primar</strong></td><td>Aerob (Z2-Z4)</td><td class="highlight">Mix Aerob/Anaerob</td></tr><tr><td><strong>Model de Utilizare W'</strong></td><td>Epuizare minimă</td><td class="highlight">Cicluri constante epuizare/recuperare</td></tr><tr><td><strong>Cel Mai Bun Model de Analiză</strong></td><td>Zone bazate pe FTP</td><td class="highlight">Balanța CP & W'</td></tr><tr><td><strong>Durata Tipică a Efortului</strong></td><td>20-60+ min constant</td><td class="highlight">30s-10min variabil</td></tr><tr><td><strong>Timp Rulare Liberă (%)</strong></td><td>5-10%</td><td class="highlight">20-40%</td></tr><tr><td><strong>Impactul Abilității Tehnice</strong></td><td>Scăzut (10-20% din performanță)</td><td class="highlight">Foarte Mare (40-50% din performanță)</td></tr><tr><td><strong>Importanța Aerodinamicii</strong></td><td class="highlight">Critică (80% din rezistență >25 km/h)</td><td>Minimă (poziție verticală obligatorie)</td></tr><tr><td><strong>Plasarea Senzorului de Putere</strong></td><td>Oricare (poziție stabilă pe șosea)</td><td class="highlight">Pedale sau spider preferat (protecție)</td></tr><tr><td><strong>Cadență (rpm)</strong></td><td>85-95 tipic</td><td class="highlight">65-75 tipic</td></tr><tr><td><strong>Pulsul se Potrivește cu Puterea?</strong></td><td class="highlight">Da (corelație stabilă)</td><td>Nu (Pulsul rămâne mare la 0W pe coborâre)</td></tr></tbody></table></div><h2>De Ce Aceste Diferențe Contează Pentru Analiză</h2><div class="feature-list"><div class="feature-item"><h3>1. Provocările Testării FTP</h3><div class="grid grid-2 mt-md"><div><h4>Ciclism de Șosea</h4><ul><li>Testul FTP de 20 de minute funcționează perfect (starea stabilă este realizabilă)</li><li>Găsește un drum plat sau un trainer indoor</li><li>Pedalează la efortul maxim sustenabil timp de 20 de minute</li><li>FTP = 95% din puterea medie pe 20 de minute</li><li>Foarte repetabil (erori de ±3W la retestare)</li></ul></div><div><h4>Mountain Biking</h4><ul><li>Testul de 20 de minute <strong>supraestimează pragul</strong> (greu de menținut puterea
+                                constantă pe trail)</li><li>Trail-ul întrerupe constant eforturile susținute</li><li>FTP-ul la MTB este tipic <strong>cu 5-10% mai mic decât cel de șosea</strong></li><li><strong>Soluția #1:</strong> Testează FTP pe șosea, redu cu 5-10% pentru zonele de MTB
+                            </li><li><strong>Soluția #2:</strong> Folosește modelul Puterii Critice (CP) în schimb</li></ul></div></div><div class="callout mt-md"><p><strong>Exemplu real:</strong> Un ciclist are un FTP de șosea de 280W. La MTB, puterea
                         sustenabilă scade la 260W din cauza cadenței mai mici, a schimbărilor de poziție și a
                         eforturilor întrerupte. Folosirea unui FTP de 280W pentru zonele de antrenament MTB = toate
-                        antrenamentele sunt cu 7% prea grele.</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <h3>2. Aplicarea Zonelor de Antrenament</h3>
-                <div class="grid grid-2 mt-md">
-                    <div>
-                        <h4>Ciclism de Șosea</h4>
-                        <ul>
-                            <li>Delimitările clare ale zonelor funcționează perfect</li>
-                            <li>Țintă: "20 minute în Zona 4 (91-105% FTP)"</li>
-                            <li>Realizabil: Menține 95-100% FTP constant pe toate cele 20 de minute</li>
-                            <li>Rezultat: 19-20 minute în Z4, <1 minut în alte zone</li>
-                            <li>Disciplina zonelor este simplă</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Mountain Biking</h4>
-                        <ul>
-                            <li>Combinarea zonelor este <strong>inevitabilă și normală</strong></li>
-                            <li>Țintă: "Rulare la prag Z4"</li>
-                            <li>Realitate: 40% timp în Z4, 25% Z5-Z6 (secțiuni abrupte), 20% Z2-Z3 (recuperare), 15% Z1
-                                (coborâri)</li>
-                            <li>Rezultat: Realizat prin NP ridicat în ciuda puterii instantanee variabile</li>
-                            <li><strong>Acceptă varianța</strong> - judecă după NP și TSS-ul global</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="callout mt-md">
-                    <p><strong>Perspectivă cheie:</strong> Antrenamentul MTB vizează NP în zona dorită, nu puterea
+                        antrenamentele sunt cu 7% prea grele.</p></div></div><div class="feature-item"><h3>2. Aplicarea Zonelor de Antrenament</h3><div class="grid grid-2 mt-md"><div><h4>Ciclism de Șosea</h4><ul><li>Delimitările clare ale zonelor funcționează perfect</li><li>Țintă: "20 minute în Zona 4 (91-105% FTP)"</li><li>Realizabil: Menține 95-100% FTP constant pe toate cele 20 de minute</li><li>Rezultat: 19-20 minute în Z4, <1 minut în alte zone</li><li>Disciplina zonelor este simplă</li></ul></div><div><h4>Mountain Biking</h4><ul><li>Combinarea zonelor este <strong>inevitabilă și normală</strong></li><li>Țintă: "Rulare la prag Z4"</li><li>Realitate: 40% timp în Z4, 25% Z5-Z6 (secțiuni abrupte), 20% Z2-Z3 (recuperare), 15% Z1
+                                (coborâri)</li><li>Rezultat: Realizat prin NP ridicat în ciuda puterii instantanee variabile</li><li><strong>Acceptă varianța</strong> - judecă după NP și TSS-ul global</li></ul></div></div><div class="callout mt-md"><p><strong>Perspectivă cheie:</strong> Antrenamentul MTB vizează NP în zona dorită, nu puterea
                         instantanee. O rulare pe trail care arată un NP de 85% din FTP este un antrenament eficient la
-                        prag, chiar dacă puterea instantanee variază între 50-150% din FTP.</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <h3>3. Calculul și Interpretarea TSS</h3>
-                <div class="grid grid-2 mt-md">
-                    <div>
-                        <h4>Ciclism de Șosea</h4>
-                        <ul>
-                            <li>TSS se acumulează predictibil: 100 TSS = 1 oră la FTP</li>
-                            <li>Exemplu: 2 ore la 80% FTP = 128 TSS (foarte consistent)</li>
-                            <li>TSS reflectă fidel stresul fiziologic</li>
-                            <li>Compararea TSS între curse este fiabilă</li>
-                            <li>Nevoia de recuperare este proporțională cu TSS</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Mountain Biking</h4>
-                        <ul>
-                            <li>Aceeași potecă = TSS similar (bun pentru urmărirea progresului)</li>
-                            <li>Exemplu: Același trail de 2 ore = 105 TSS de fiecare dată</li>
-                            <li><strong>NP ridicat umflă TSS</strong> - 100 TSS se simte mai greu decât pe șosea</li>
-                            <li>Stresul tehnic nu este capturat doar de TSS</li>
-                            <li><strong>Soluție:</strong> Ajustează interpretarea TSS sau adaugă 10-20% pentru trail-uri
-                                tehnice</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="callout callout-warning mt-md">
-                    <p><strong>⚠️ Atenție:</strong> Nu compara TSS direct între discipline. O cursă de șosea de 150 TSS
+                        prag, chiar dacă puterea instantanee variază între 50-150% din FTP.</p></div></div><div class="feature-item"><h3>3. Calculul și Interpretarea TSS</h3><div class="grid grid-2 mt-md"><div><h4>Ciclism de Șosea</h4><ul><li>TSS se acumulează predictibil: 100 TSS = 1 oră la FTP</li><li>Exemplu: 2 ore la 80% FTP = 128 TSS (foarte consistent)</li><li>TSS reflectă fidel stresul fiziologic</li><li>Compararea TSS între curse este fiabilă</li><li>Nevoia de recuperare este proporțională cu TSS</li></ul></div><div><h4>Mountain Biking</h4><ul><li>Aceeași potecă = TSS similar (bun pentru urmărirea progresului)</li><li>Exemplu: Același trail de 2 ore = 105 TSS de fiecare dată</li><li><strong>NP ridicat umflă TSS</strong> - 100 TSS se simte mai greu decât pe șosea</li><li>Stresul tehnic nu este capturat doar de TSS</li><li><strong>Soluție:</strong> Ajustează interpretarea TSS sau adaugă 10-20% pentru trail-uri
+                                tehnice</li></ul></div></div><div class="callout callout-warning mt-md"><p><strong>⚠️ Atenție:</strong> Nu compara TSS direct între discipline. O cursă de șosea de 150 TSS
                         ≠ o cursă MTB tehnică de 150 TSS în ceea ce privește oboseala generată. Puterea variabilă și
                         cerințele tehnice ale MTB-ului creează un stres adițional care nu este reflectat în TSS-ul bazat
-                        pe putere.</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <h3>4. Strategia de Pacing</h3>
-                <div class="grid grid-2 mt-md">
-                    <div>
-                        <h4>Ciclism de Șosea</h4>
-                        <ul>
-                            <li><strong>Puterea constantă (iso-puterea) este optimă</strong></li>
-                            <li>Contratimpuri: Menține 95-100% FTP pe toată durata</li>
-                            <li>Minimizează epuizarea W' (păstrează pentru sprint/atac)</li>
-                            <li>Variabilitatea este ineficientă (risipește energie)</li>
-                            <li>Țintă: VI < 1,05 pentru contratimpuri</li>
-                            <li>Uniformitatea puterii = eficiența vitezei</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Mountain Biking</h4>
-                        <ul>
-                            <li><strong>Puterea variabilă este optimă</strong> - accelerează când este nevoie</li>
-                            <li>Pante abrupte: Împinge la 130-150% FTP timp de 10-30 secunde</li>
-                            <li>Folosește W' tactic, recuperează pe porțiunile plate/coborâri</li>
-                            <li>Gestionarea balanței W' este o strategie de cursă</li>
-                            <li>Așteptat: VI 1,10-1,20 (VI scăzut = nu împingi destul de tare)</li>
-                            <li>Terenul dictează puterea, nu planurile de pacing</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="callout mt-md">
-                    <p><strong>Exemplu practic:</strong> Urcare MTB cu pantă medie de 5%, dar cu secțiuni abrupte de
+                        pe putere.</p></div></div><div class="feature-item"><h3>4. Strategia de Pacing</h3><div class="grid grid-2 mt-md"><div><h4>Ciclism de Șosea</h4><ul><li><strong>Puterea constantă (iso-puterea) este optimă</strong></li><li>Contratimpuri: Menține 95-100% FTP pe toată durata</li><li>Minimizează epuizarea W' (păstrează pentru sprint/atac)</li><li>Variabilitatea este ineficientă (risipește energie)</li><li>Țintă: VI < 1,05 pentru contratimpuri</li><li>Uniformitatea puterii = eficiența vitezei</li></ul></div><div><h4>Mountain Biking</h4><ul><li><strong>Puterea variabilă este optimă</strong> - accelerează când este nevoie</li><li>Pante abrupte: Împinge la 130-150% FTP timp de 10-30 secunde</li><li>Folosește W' tactic, recuperează pe porțiunile plate/coborâri</li><li>Gestionarea balanței W' este o strategie de cursă</li><li>Așteptat: VI 1,10-1,20 (VI scăzut = nu împingi destul de tare)</li><li>Terenul dictează puterea, nu planurile de pacing</li></ul></div></div><div class="callout mt-md"><p><strong>Exemplu practic:</strong> Urcare MTB cu pantă medie de 5%, dar cu secțiuni abrupte de
                         8-12%. Pacing inteligent: Accelerează la 140% FTP pe secțiunile de 12% (20-30s), recuperează la
                         70% FTP pe secțiunile de 5%. Rezultat: Timp mai rapid decât la un 95% FTP constant pe toată
-                        urcarea.</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <h3>5. Optimizarea Echipamentului și a Setărilor</h3>
-                <div class="grid grid-2 mt-md">
-                    <div>
-                        <h4>Ciclism de Șosea</h4>
-                        <ul>
-                            <li><strong>Aero totul</strong> - roți, cască, poziție, îmbrăcăminte</li>
-                            <li>Poziția aero agresivă salvează 30-50W la 40 km/h</li>
-                            <li>Reducerea CdA este focusul principal la viteze mari</li>
-                            <li>Roți cu profil adânc (50-80mm)</li>
-                            <li>Optimizarea poziției > reducerea greutății</li>
-                            <li>Orice locație a senzorului de putere funcționează (poziție stabilă)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Mountain Biking</h4>
-                        <ul>
-                            <li><strong>Confort/control > aero</strong></li>
-                            <li>Poziție verticală obligatorie (vizibilitate, manevrabilitate)</li>
-                            <li>Câștigurile aero sunt neglijabile la vitezele MTB (urcări <25 km/h)</li>
-                            <li>Roți standard (durabilitate > aero)</li>
-                            <li>Reducerea greutății contează (focus pe urcare)</li>
-                            <li>Senzor de putere: Pedale sau spider (protejat de impacturi)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="callout mt-md">
-                    <p><strong>Analiză cost-beneficiu:</strong> Economisirea a 100g pe o cursieră = beneficiu minim.
+                        urcarea.</p></div></div><div class="feature-item"><h3>5. Optimizarea Echipamentului și a Setărilor</h3><div class="grid grid-2 mt-md"><div><h4>Ciclism de Șosea</h4><ul><li><strong>Aero totul</strong> - roți, cască, poziție, îmbrăcăminte</li><li>Poziția aero agresivă salvează 30-50W la 40 km/h</li><li>Reducerea CdA este focusul principal la viteze mari</li><li>Roți cu profil adânc (50-80mm)</li><li>Optimizarea poziției > reducerea greutății</li><li>Orice locație a senzorului de putere funcționează (poziție stabilă)</li></ul></div><div><h4>Mountain Biking</h4><ul><li><strong>Confort/control > aero</strong></li><li>Poziție verticală obligatorie (vizibilitate, manevrabilitate)</li><li>Câștigurile aero sunt neglijabile la vitezele MTB (urcări <25 km/h)</li><li>Roți standard (durabilitate > aero)</li><li>Reducerea greutății contează (focus pe urcare)</li><li>Senzor de putere: Pedale sau spider (protejat de impacturi)</li></ul></div></div><div class="callout mt-md"><p><strong>Analiză cost-beneficiu:</strong> Economisirea a 100g pe o cursieră = beneficiu minim.
                         Economisirea a 100g pe un MTB = sesizabil pe urcările tehnice. Invers, roțile aero de 1000 €
-                        salvează 15W pe șosea dar zero wați pe trail-urile de MTB.</p>
-                </div>
-            </div>
-        </div>
-
-        <h2>Date Reale: Șosea vs Fișiere de Putere MTB</h2>
-
-        <div class="grid grid-2 mb-xl">
-            <div class="card">
-                <h3 class="card-title">Exemplu Cursă Șosea</h3>
-                <div class="card-content">
-                    <p><strong>Durată:</strong> 2 ore 15 minute</p>
-                    <p><strong>Distanță:</strong> 85 km</p>
-                    <p><strong>Putere Medie:</strong> 205W</p>
-                    <p><strong>Putere Normalizată:</strong> 215W (NP)</p>
-                    <p><strong>Index de Variabilitate:</strong> 1,05 (foarte uniform)</p>
-                    <p><strong>Factor de Intensitate:</strong> 0,77 (moderat)</p>
-                    <p><strong>TSS:</strong> 145</p>
-                    <p><strong>Timp rulare liberă:</strong> 8% (doar coborâri)</p>
-                    <p><strong>Explozii >120% FTP:</strong> 12 (atacuri, sprint)</p>
-                    <hr class="my-md">
-                    <p class="text-sm"><strong>Interpretare:</strong> Efort constant de anduranță cu atacuri ocazionale.
+                        salvează 15W pe șosea dar zero wați pe trail-urile de MTB.</p></div></div></div><h2>Date Reale: Șosea vs Fișiere de Putere MTB</h2><div class="grid grid-2 mb-xl"><div class="card"><h3 class="card-title">Exemplu Cursă Șosea</h3><div class="card-content"><p><strong>Durată:</strong> 2 ore 15 minute</p><p><strong>Distanță:</strong> 85 km</p><p><strong>Putere Medie:</strong> 205W</p><p><strong>Putere Normalizată:</strong> 215W (NP)</p><p><strong>Index de Variabilitate:</strong> 1,05 (foarte uniform)</p><p><strong>Factor de Intensitate:</strong> 0,77 (moderat)</p><p><strong>TSS:</strong> 145</p><p><strong>Timp rulare liberă:</strong> 8% (doar coborâri)</p><p><strong>Explozii >120% FTP:</strong> 12 (atacuri, sprint)</p><hr class="my-md"><p class="text-sm"><strong>Interpretare:</strong> Efort constant de anduranță cu atacuri ocazionale.
                         VI mic indică o furnizare lină a puterii. Media și NP sunt foarte apropiate (doar 10W
-                        diferență). Tipic pentru cursele de șosea în pluton.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Exemplu Cursă XC MTB</h3>
-                <div class="card-content">
-                    <p><strong>Durată:</strong> 1 oră 45 minute</p>
-                    <p><strong>Distanță:</strong> 32 km</p>
-                    <p><strong>Putere Medie:</strong> 185W</p>
-                    <p><strong>Putere Normalizată:</strong> 235W (NP)</p>
-                    <p><strong>Index de Variabilitate:</strong> 1,27 (foarte variabil)</p>
-                    <p><strong>Factor de Intensitate:</strong> 0,90 (efort greu)</p>
-                    <p><strong>TSS:</strong> 165</p>
-                    <p><strong>Timp rulare liberă:</strong> 35% (coborâri, tehnic)</p>
-                    <p><strong>Explozii >120% FTP:</strong> 94 (explozii constante)</p>
-                    <hr class="my-md">
-                    <p class="text-sm"><strong>Interpretare:</strong> Putere medie mai mică, dar NP mult mai mare
+                        diferență). Tipic pentru cursele de șosea în pluton.</p></div></div><div class="card"><h3 class="card-title">Exemplu Cursă XC MTB</h3><div class="card-content"><p><strong>Durată:</strong> 1 oră 45 minute</p><p><strong>Distanță:</strong> 32 km</p><p><strong>Putere Medie:</strong> 185W</p><p><strong>Putere Normalizată:</strong> 235W (NP)</p><p><strong>Index de Variabilitate:</strong> 1,27 (foarte variabil)</p><p><strong>Factor de Intensitate:</strong> 0,90 (efort greu)</p><p><strong>TSS:</strong> 165</p><p><strong>Timp rulare liberă:</strong> 35% (coborâri, tehnic)</p><p><strong>Explozii >120% FTP:</strong> 94 (explozii constante)</p><hr class="my-md"><p class="text-sm"><strong>Interpretare:</strong> Putere medie mai mică, dar NP mult mai mare
                         (+50W!). VI-ul ridicat reflectă un model de efort exploziv. Distanță mai mică, dar TSS mai mare
-                        decât la cursa de șosea. Aproape 100 de explozii - normal pentru XC, nu un pacing prost.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="callout callout-info mb-xl">
-            <h3>🔍 Observație Critică</h3>
-            <p>Cursa de MTB are <strong>o putere medie mai mică dar un TSS mai mare</strong> decât cursa de șosea, deși
+                        decât la cursa de șosea. Aproape 100 de explozii - normal pentru XC, nu un pacing prost.</p></div></div></div><div class="callout callout-info mb-xl"><h3>🔍 Observație Critică</h3><p>Cursa de MTB are <strong>o putere medie mai mică dar un TSS mai mare</strong> decât cursa de șosea, deși
                 aceasta din urmă este mai lungă. De ce? Puterea Normalizată (235W vs 215W) ține cont de costul
                 fiziologic al eforturilor variabile. Cele 94 de explozii peste prag creează un stres metabolic pe care
-                puterea medie nu îl capturează.</p>
-            <p class="mt-md mb-0"><strong>Concluzie:</strong> Nu judeca niciodată efortul MTB după puterea medie.
+                puterea medie nu îl capturează.</p><p class="mt-md mb-0"><strong>Concluzie:</strong> Nu judeca niciodată efortul MTB după puterea medie.
                 Verifică întotdeauna NP și VI. Un ciclist de șosea care se uită la datele de MTB ar putea crede "doar
-                185W medie, tură ușoară" - dar 235W NP la IF 0,90 este de fapt un efort foarte greu la prag.</p>
-        </div>
-
-        <h2>Cum Rezolvă Bike Analytics Această Problemă</h2>
-
-        <div class="feature-list">
-            <div class="feature-item">
-                <h3>✅ Monitorizarea Separată a FTP-ului pe Discipline</h3>
-                <p>Bike Analytics menține <strong>valori separate de FTP pentru șosea și MTB</strong>. Setează
+                185W medie, tură ușoară" - dar 235W NP la IF 0,90 este de fapt un efort foarte greu la prag.</p></div><h2>Cum Rezolvă Bike Analytics Această Problemă</h2><div class="feature-list"><div class="feature-item"><h3>✅ Monitorizarea Separată a FTP-ului pe Discipline</h3><p>Bike Analytics menține <strong>valori separate de FTP pentru șosea și MTB</strong>. Setează
                     independent un FTP de 280W pentru șosea și 260W pentru MTB. Zonele de antrenament se calculează
-                    automat corect pentru fiecare disciplină.</p>
-                <p><strong>De ce contează:</strong> Aplicațiile generice folosesc un singur FTP, făcând intervalele de
+                    automat corect pentru fiecare disciplină.</p><p><strong>De ce contează:</strong> Aplicațiile generice folosesc un singur FTP, făcând intervalele de
                     MTB prea grele sau cele de șosea prea ușoare. Bike Analytics respectă realitatea faptului că puterea
-                    sustenabilă diferă între discipline.</p>
-            </div>
-
-            <div class="feature-item">
-                <h3>✅ Detectarea Automată a Disciplinei</h3>
-                <p>Bike Analytics analizează Indexul de Variabilitate (VI) pentru a detecta automat tipul de cursă:</p>
-                <ul>
-                    <li><strong>VI < 1,08:</strong> Clasificat ca Șosea (aplică netezirea puterii la 30s, FTP șosea)
-                    </li>
-                    <li><strong>VI ≥ 1,08:</strong> Clasificat ca MTB (aplică netezirea puterii la 3-5s, FTP MTB)</li>
-                </ul>
-                <p>Fără etichetare manuală. Aplicația recunoaște automat eforturile explozive de MTB vs eforturile line
-                    de șosea.</p>
-            </div>
-
-            <div class="feature-item">
-                <h3>✅ Balanța CP & W'bal Preferată pentru Analiza MTB</h3>
-                <p>Bike Analytics oferă modelare prin <strong>Putere Critică (CP) și Balanța W Prime</strong>, care sunt
-                    superioare FTP-ului pentru MTB:</p>
-                <ul>
-                    <li><strong>CP:</strong> Reprezintă mai precis puterea sustenabilă pentru eforturi variabile</li>
-                    <li><strong>Balanța W':</strong> Urmărește epuizarea/recuperarea capacității anaerobe în timp real
-                    </li>
-                    <li>Predice mai bine performanța în cursele MTB decât zonele bazate pe FTP</li>
-                </ul>
-                <a href="/ro/critical-power/" class="btn btn-secondary btn-small mt-sm">Învață despre CP/W'
-                    →</a>
-            </div>
-
-            <div class="feature-item">
-                <h3>✅ Interpretare Diferită a TSS pe Discipline</h3>
-                <p>Bike Analytics ajustează interpretarea TSS în funcție de tipul de cursă:</p>
-                <ul>
-                    <li><strong>TSS Șosea:</strong> Calcul standard, corelație directă cu oboseala</li>
-                    <li><strong>TSS MTB:</strong> Marcat cu o notă care specifică faptul că stresul tehnic adaugă 10-20%
-                        la sarcina efectivă</li>
-                    <li>Recomandările de recuperare țin cont de diferențele între discipline</li>
-                </ul>
-            </div>
-
-            <div class="feature-item">
-                <h3>✅ Urmărirea Performanței Specifice pe Trail</h3>
-                <p>Pentru cicliștii de MTB, Bike Analytics urmărește performanța pe trail-uri specifice de-a lungul
-                    timpului:</p>
-                <ul>
-                    <li>Compară același traseu de-a lungul mai multor curse</li>
-                    <li>Urmărește îmbunătățirea puterii pe rutele familiare</li>
-                    <li>Identifică cele mai rapide segmente cu distribuția optimă a puterii</li>
-                    <li>Monitorizează progresul tehnicii (eficiența puterii pe secțiunile tehnice)</li>
-                </ul>
-            </div>
-        </div>
-
-        <h2>Studii de Caz: Cicliști Reali, Diferențe Reale</h2>
-
-        <div class="card mb-lg">
-            <h3 class="card-title">Studiul de Caz 1: Ciclistul de Ambele Discipline</h3>
-            <div class="card-content">
-                <p><strong>Profil:</strong> Ciclist competitiv care participă atât la șosea cât și la XC MTB</p>
-                <p><strong>Rezultatele testării:</strong></p>
-                <ul>
-                    <li>FTP Șosea: 290W (testat pe drum plat, protocol 20 min)</li>
-                    <li>FTP MTB: 268W (testat pe trail cu pantă medie de 3-5%)</li>
-                    <li>Diferență: -22W (-7,6%) la MTB</li>
-                </ul>
-                <p><strong>Comparație date cursă:</strong></p>
-                <ul>
-                    <li><strong>Criteriu șosea (60 min):</strong> 225W medie, 268W NP, VI 1,19, IF 0,92</li>
-                    <li><strong>XC MTB (90 min):</strong> 195W medie, 260W NP, VI 1,33, IF 0,97</li>
-                </ul>
-                <p class="mt-md"><strong>Analiză:</strong> Putere medie mai mică la MTB dar IF mai mare (0,97 vs 0,92).
+                    sustenabilă diferă între discipline.</p></div><div class="feature-item"><h3>✅ Detectarea Automată a Disciplinei</h3><p>Bike Analytics analizează Indexul de Variabilitate (VI) pentru a detecta automat tipul de cursă:</p><ul><li><strong>VI < 1,08:</strong> Clasificat ca Șosea (aplică netezirea puterii la 30s, FTP șosea)
+                    </li><li><strong>VI ≥ 1,08:</strong> Clasificat ca MTB (aplică netezirea puterii la 3-5s, FTP MTB)</li></ul><p>Fără etichetare manuală. Aplicația recunoaște automat eforturile explozive de MTB vs eforturile line
+                    de șosea.</p></div><div class="feature-item"><h3>✅ Balanța CP & W'bal Preferată pentru Analiza MTB</h3><p>Bike Analytics oferă modelare prin <strong>Putere Critică (CP) și Balanța W Prime</strong>, care sunt
+                    superioare FTP-ului pentru MTB:</p><ul><li><strong>CP:</strong> Reprezintă mai precis puterea sustenabilă pentru eforturi variabile</li><li><strong>Balanța W':</strong> Urmărește epuizarea/recuperarea capacității anaerobe în timp real
+                    </li><li>Predice mai bine performanța în cursele MTB decât zonele bazate pe FTP</li></ul><a href="/ro/critical-power/" class="btn btn-secondary btn-small mt-sm">Învață despre CP/W'
+                    →</a></div><div class="feature-item"><h3>✅ Interpretare Diferită a TSS pe Discipline</h3><p>Bike Analytics ajustează interpretarea TSS în funcție de tipul de cursă:</p><ul><li><strong>TSS Șosea:</strong> Calcul standard, corelație directă cu oboseala</li><li><strong>TSS MTB:</strong> Marcat cu o notă care specifică faptul că stresul tehnic adaugă 10-20%
+                        la sarcina efectivă</li><li>Recomandările de recuperare țin cont de diferențele între discipline</li></ul></div><div class="feature-item"><h3>✅ Urmărirea Performanței Specifice pe Trail</h3><p>Pentru cicliștii de MTB, Bike Analytics urmărește performanța pe trail-uri specifice de-a lungul
+                    timpului:</p><ul><li>Compară același traseu de-a lungul mai multor curse</li><li>Urmărește îmbunătățirea puterii pe rutele familiare</li><li>Identifică cele mai rapide segmente cu distribuția optimă a puterii</li><li>Monitorizează progresul tehnicii (eficiența puterii pe secțiunile tehnice)</li></ul></div></div><h2>Studii de Caz: Cicliști Reali, Diferențe Reale</h2><div class="card mb-lg"><h3 class="card-title">Studiul de Caz 1: Ciclistul de Ambele Discipline</h3><div class="card-content"><p><strong>Profil:</strong> Ciclist competitiv care participă atât la șosea cât și la XC MTB</p><p><strong>Rezultatele testării:</strong></p><ul><li>FTP Șosea: 290W (testat pe drum plat, protocol 20 min)</li><li>FTP MTB: 268W (testat pe trail cu pantă medie de 3-5%)</li><li>Diferență: -22W (-7,6%) la MTB</li></ul><p><strong>Comparație date cursă:</strong></p><ul><li><strong>Criteriu șosea (60 min):</strong> 225W medie, 268W NP, VI 1,19, IF 0,92</li><li><strong>XC MTB (90 min):</strong> 195W medie, 260W NP, VI 1,33, IF 0,97</li></ul><p class="mt-md"><strong>Analiză:</strong> Putere medie mai mică la MTB dar IF mai mare (0,97 vs 0,92).
                     Cursa MTB a fost de fapt mai grea fiziologic în ciuda unei medii cu 30W mai mici. VI-ul ridicat
                     reflectă modelul exploziv. Folosirea FTP-ului de șosea (290W) pentru MTB ar arăta un IF de 0,90,
-                    subestimând efortul.</p>
-            </div>
-        </div>
-
-        <div class="card mb-lg">
-            <h3 class="card-title">Studiul de Caz 2: Comparație TSS</h3>
-            <div class="card-content">
-                <p><strong>Scenariu:</strong> Același ciclist, același scor de 100 TSS, discipline diferite</p>
-                <p><strong>Cursă șosea (100 TSS):</strong></p>
-                <ul>
-                    <li>2 ore la 72% FTP (tempo constant)</li>
-                    <li>VI: 1,03 (putere lină)</li>
-                    <li>Recuperare: Odihnit a doua zi, gata de intensitate</li>
-                    <li>Oboseală musculară: Moderată</li>
-                </ul>
-                <p><strong>Cursă MTB (100 TSS):</strong></p>
-                <ul>
-                    <li>2 ore pe trail-uri tehnice (efort variabil)</li>
-                    <li>VI: 1,18 (model exploziv)</li>
-                    <li>Recuperare: Obosit a doua zi, are nevoie de pauză</li>
-                    <li>Oboseală musculară: Ridicată (stres tehnic, trunchi/brațe)</li>
-                </ul>
-                <p class="mt-md"><strong>Concluzie:</strong> Același număr TSS nu este egal cu aceeași oboseală. Cele
+                    subestimând efortul.</p></div></div><div class="card mb-lg"><h3 class="card-title">Studiul de Caz 2: Comparație TSS</h3><div class="card-content"><p><strong>Scenariu:</strong> Același ciclist, același scor de 100 TSS, discipline diferite</p><p><strong>Cursă șosea (100 TSS):</strong></p><ul><li>2 ore la 72% FTP (tempo constant)</li><li>VI: 1,03 (putere lină)</li><li>Recuperare: Odihnit a doua zi, gata de intensitate</li><li>Oboseală musculară: Moderată</li></ul><p><strong>Cursă MTB (100 TSS):</strong></p><ul><li>2 ore pe trail-uri tehnice (efort variabil)</li><li>VI: 1,18 (model exploziv)</li><li>Recuperare: Obosit a doua zi, are nevoie de pauză</li><li>Oboseală musculară: Ridicată (stres tehnic, trunchi/brațe)</li></ul><p class="mt-md"><strong>Concluzie:</strong> Același număr TSS nu este egal cu aceeași oboseală. Cele
                     100 TSS la MTB au generat mai mult stres din cauza puterii variabile, a cerințelor tehnice și a
                     oboselii întregului corp. Ciclistul a avut nevoie de o zi de recuperare în plus față de cursa de
-                    șosea.</p>
-            </div>
-        </div>
-
-        <div class="card mb-lg">
-            <h3 class="card-title">Studiul de Caz 3: VI & Performanță</h3>
-            <div class="card-content">
-                <p><strong>Experiment:</strong> Un ciclist MTB încearcă să minimizeze VI pe un trail familiar</p>
-                <p><strong>Încercarea 1 (mers normal):</strong></p>
-                <ul>
-                    <li>Timp: 45:23</li>
-                    <li>Putere Medie: 210W, NP: 255W</li>
-                    <li>VI: 1,21 (explozii pe urcări, rulare liberă pe coborări)</li>
-                </ul>
-                <p><strong>Încercarea 2 (obiectiv putere lină):</strong></p>
-                <ul>
-                    <li>Timp: 47:51 (+2:28 mai lent!)</li>
-                    <li>Putere Medie: 235W, NP: 245W</li>
-                    <li>VI: 1,04 (putere constantă pe toată cursa)</li>
-                </ul>
-                <p class="mt-md"><strong>Analiză:</strong> Încercarea de a "netezi" puterea la MTB l-a făcut pe ciclist
+                    șosea.</p></div></div><div class="card mb-lg"><h3 class="card-title">Studiul de Caz 3: VI & Performanță</h3><div class="card-content"><p><strong>Experiment:</strong> Un ciclist MTB încearcă să minimizeze VI pe un trail familiar</p><p><strong>Încercarea 1 (mers normal):</strong></p><ul><li>Timp: 45:23</li><li>Putere Medie: 210W, NP: 255W</li><li>VI: 1,21 (explozii pe urcări, rulare liberă pe coborări)</li></ul><p><strong>Încercarea 2 (obiectiv putere lină):</strong></p><ul><li>Timp: 47:51 (+2:28 mai lent!)</li><li>Putere Medie: 235W, NP: 245W</li><li>VI: 1,04 (putere constantă pe toată cursa)</li></ul><p class="mt-md"><strong>Analiză:</strong> Încercarea de a "netezi" puterea la MTB l-a făcut pe ciclist
                     mai lent în ciuda unei puteri medii mai mari. De ce? Pedalatul pe coborâri risipește energie.
                     Neaccelerarea pe secțiunile abrupte duce la pierderea inerției. <strong>Concluzie: Un VI ridicat
-                        este optim pentru MTB, nu un defect de corectat.</strong></p>
-            </div>
-        </div>
-
-        <h2>FAQ: Analiza Șosea vs MTB</h2>
-
-        <div class="faq-item">
-            <h3>Ar trebui să testez FTP-ul separat pentru șosea și MTB?</h3>
-            <p><strong>Da, ideal ar fi așa.</strong> FTP-ul la MTB este tipic cu 5-10% mai mic decât cel de șosea din
+                        este optim pentru MTB, nu un defect de corectat.</strong></p></div></div><h2>FAQ: Analiza Șosea vs MTB</h2><div class="faq-item"><h3>Ar trebui să testez FTP-ul separat pentru șosea și MTB?</h3><p><strong>Da, ideal ar fi așa.</strong> FTP-ul la MTB este tipic cu 5-10% mai mic decât cel de șosea din
                 cauza cadenței mai mici, a schimbărilor de poziție și a cerințelor tehnice. Testarea ambelor oferă cele
-                mai precise zone de antrenament.</p>
-            <p><strong>Alternativă:</strong> Testează pe șosea și redu cu 7% pentru zonele de MTB. Exemplu: 280W FTP
-                șosea → 260W FTP MTB.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Pot folosi zonele de antrenament de șosea pentru antrenamentele de MTB?</h3>
-            <p><strong>Nu direct.</strong> Zonele de șosea presupun o furnizare lină a puterii. Zonele de MTB trebuie să
-                țină cont de variabilitate. Dacă folosești zonele de șosea la MTB:</p>
-            <ul>
-                <li>Redu FTP-ul cu 5-10% la început</li>
-                <li>Acceptă combinarea zonelor (țintește NP în zonă, nu puterea instantanee)</li>
-                <li>Folosește o fereastră de netezire mai scurtă (3-5s vs 30s)</li>
-            </ul>
-            <p><strong>Cea mai bună soluție:</strong> Folosește Bike Analytics cu urmărire separată a disciplinelor.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>De ce este puterea medie la MTB atât de mult mai mică decât NP?</h3>
-            <p><strong>Este normal!</strong> NP poate fi cu 30-50W mai mare decât puterea medie la MTB din cauza:</p>
-            <ul>
-                <li>Mult timp în rulare liberă (coborâri, secțiuni tehnice)</li>
-                <li>Explozii frecvente de mare putere peste prag</li>
-                <li>Teren variabil care creează vârfuri de putere</li>
-            </ul>
-            <p><strong>Judecă întotdeauna efortul MTB după NP, nu după puterea medie.</strong> O cursă care arată 185W
-                medie dar 235W NP este de fapt un efort greu la prag.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Este TSS-ul comparabil între mersul pe șosea și cel cu MTB-ul?</h3>
-            <p><strong>Nu direct.</strong> Cele 100 TSS la MTB se simt de obicei mai grele decât cele 100 TSS de pe
-                șosea deoarece:</p>
-            <ul>
-                <li>Stresul tehnic (oboseala mentală, manevrarea bicicletei) nu este capturat în TSS</li>
-                <li>Oboseala întregului corp (trunchi, brațe, stabilizatori) vs doar picioarele pe șosea</li>
-                <li>VI-ul ridicat creează mai mult stres metabolic decât puterea lină</li>
-            </ul>
-            <p><strong>Regulă generală:</strong> Adaugă 10-20% la TSS-ul MTB pentru un echivalent de oboseală. 100 TSS
-                MTB ≈ 110-120 TSS șosea în ceea ce privește recuperarea necesară.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>De ce pulsul meu rămâne mare pe coborârile cu MTB-ul, deși am putere zero?</h3>
-            <p><strong>Stres tehnic și psihologic.</strong> În timpul coborârilor:</p>
-            <ul>
-                <li>Focusul mental/concentrarea crește pulsul</li>
-                <li>Răspunsul la frică activează sistemul nervos simpatic</li>
-                <li>Stabilizarea trunchiului și a brațelor creează cerere metabolică</li>
-                <li>Contracțiile musculare izometrice (strângerea frânelor, ținerea ghidonului)</li>
-            </ul>
-            <p>De aceea pulsul nu se potrivește cu puterea la MTB așa cum o face pe șosea. <strong>Pulsul + puterea
-                    împreună</strong> oferă imaginea completă în MTB.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Ar trebui să încerc să reduc VI la turele de MTB?</h3>
-            <p><strong>Nu!</strong> Un VI ridicat (1,10-1,20+) este optim pentru MTB. Încercarea de a netezi puterea
-                duce la:</p>
-            <ul>
-                <li>Timpi mai lenți (neaccelerarea pe urcări, pedalatul pe coborâri)</li>
-                <li>Energie risipită (pedalatul când ar trebui să rulezi liber)</li>
-                <li>Pierderea inerției (neatacarea secțiunilor abrupte destul de tare)</li>
-            </ul>
-            <p><strong>Un VI mic la MTB înseamnă că lași viteză pe masă.</strong> Acceptă variabilitatea - este ceea ce
-                face MTB-ul rapid.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Am nevoie de senzori de putere diferiți pentru șosea vs MTB?</h3>
-            <p><strong>Nu, dar plasarea contează:</strong></p>
-            <ul>
-                <li><strong>Șosea:</strong> Orice senzor funcționează (pedale, brat, spider). Poziția este stabilă.</li>
-                <li><strong>MTB:</strong> Pedalele sau spider-ul sunt preferate. Brațele de pedalier sunt vulnerabile la
-                    impacturi și la flexare sub cuplu mare.</li>
-            </ul>
-            <p>Dacă folosești un singur senzor pentru ambele biciclete, cel bazat pe pedale (Garmin Rally, Favero
-                Assioma) este cel mai versatil - fiind ușor de mutat între biciclete.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>Avantajul Bike Analytics</h2>
-
-        <div class="callout callout-success mb-xl">
-            <h3>🎯 De Ce Bike Analytics Este Diferit</h3>
-            <p>Suntem <strong>singura platformă de analiză</strong> care înțelege cu adevărat că șoseaua și MTB-ul sunt
-                sporturi diferite care necesită analize diferite:</p>
-            <ul class="mt-md">
-                <li>✅ <strong>Detectarea automată a disciplinei</strong> bazată pe VI - fără etichetare manuală</li>
-                <li>✅ <strong>Monitorizarea separată a FTP-ului</strong> pentru șosea vs MTB</li>
-                <li>✅ <strong>Netezirea diferită a puterii</strong> (30s șosea, 3-5s MTB)</li>
-                <li>✅ <strong>CP & W'bal preferat pentru MTB</strong> (mai precis decât FTP)</li>
-                <li>✅ <strong>Interpretarea TSS ajustată</strong> pe discipline</li>
-                <li>✅ <strong>Urmărirea specifică pe trail</strong> pentru performanța MTB în timp</li>
-            </ul>
-            <p class="mt-md mb-0">TrainingPeaks, Strava, WKO5? Ei tratează tot ciclismul la fel. <strong>Bike Analytics
-                    știe mai bine.</strong></p>
-        </div>
-
-        <h2>Subiecte Conexe</h2>
-        <div class="grid grid-3">
-            <div class="card">
-                <h3 class="card-title">Analiza Ciclismului de Șosea</h3>
-                <div class="card-content">
-                    <p>Aprofundează profilurile de putere constante, optimizarea aerodinamică și antrenamentul bazat pe
-                        FTP pentru cicliștii de șosea.</p>
-                    <a href="/ro/road-cycling/" class="btn btn-secondary btn-small mt-md">Află Mai Multe →</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Analiza Mountain Bike</h3>
-                <div class="card-content">
-                    <p>Ghid complet pentru analiza puterii variabile, urmărirea balanței W' și antrenamentul focusat pe
-                        explozii pentru concurenții MTB.</p>
-                    <a href="/ro/mountain-biking/" class="btn btn-secondary btn-small mt-md">Explorează MTB
-                        →</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Modelul Puterii Critice</h3>
-                <div class="card-content">
-                    <p>De ce CP și W' sunt superioare FTP-ului pentru analizele MTB. Include urmărirea balanței W' și
-                        aplicațiile de strategie în cursă.</p>
-                    <a href="/ro/critical-power/" class="btn btn-secondary btn-small mt-md">Învață CP/W' →</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <div class="mt-xl text-center">
-            <h2>Obține Analize Care Îți Înțeleg Disciplina</h2>
-            <p class="lead mb-lg">Indiferent dacă mergi pe șosea, MTB sau ambele - Bike Analytics îți analizează datele
-                de putere corect, cu perspective specifice disciplinei.</p>
-            <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="btn btn-primary btn-large" target="_blank"
-                rel="noopener">Descarcă Bike Analytics</a>
-            <p class="mt-md text-secondary">Testare gratuită 7 zile • Detectare automată a disciplinei • Monitorizare
-                separată a FTP-ului</p>
-        </div>
-    </div>
-</section>
-    
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+                mai precise zone de antrenament.</p><p><strong>Alternativă:</strong> Testează pe șosea și redu cu 7% pentru zonele de MTB. Exemplu: 280W FTP
+                șosea → 260W FTP MTB.</p></div><div class="faq-item"><h3>Pot folosi zonele de antrenament de șosea pentru antrenamentele de MTB?</h3><p><strong>Nu direct.</strong> Zonele de șosea presupun o furnizare lină a puterii. Zonele de MTB trebuie să
+                țină cont de variabilitate. Dacă folosești zonele de șosea la MTB:</p><ul><li>Redu FTP-ul cu 5-10% la început</li><li>Acceptă combinarea zonelor (țintește NP în zonă, nu puterea instantanee)</li><li>Folosește o fereastră de netezire mai scurtă (3-5s vs 30s)</li></ul><p><strong>Cea mai bună soluție:</strong> Folosește Bike Analytics cu urmărire separată a disciplinelor.</p></div><div class="faq-item"><h3>De ce este puterea medie la MTB atât de mult mai mică decât NP?</h3><p><strong>Este normal!</strong> NP poate fi cu 30-50W mai mare decât puterea medie la MTB din cauza:</p><ul><li>Mult timp în rulare liberă (coborâri, secțiuni tehnice)</li><li>Explozii frecvente de mare putere peste prag</li><li>Teren variabil care creează vârfuri de putere</li></ul><p><strong>Judecă întotdeauna efortul MTB după NP, nu după puterea medie.</strong> O cursă care arată 185W
+                medie dar 235W NP este de fapt un efort greu la prag.</p></div><div class="faq-item"><h3>Este TSS-ul comparabil între mersul pe șosea și cel cu MTB-ul?</h3><p><strong>Nu direct.</strong> Cele 100 TSS la MTB se simt de obicei mai grele decât cele 100 TSS de pe
+                șosea deoarece:</p><ul><li>Stresul tehnic (oboseala mentală, manevrarea bicicletei) nu este capturat în TSS</li><li>Oboseala întregului corp (trunchi, brațe, stabilizatori) vs doar picioarele pe șosea</li><li>VI-ul ridicat creează mai mult stres metabolic decât puterea lină</li></ul><p><strong>Regulă generală:</strong> Adaugă 10-20% la TSS-ul MTB pentru un echivalent de oboseală. 100 TSS
+                MTB ≈ 110-120 TSS șosea în ceea ce privește recuperarea necesară.</p></div><div class="faq-item"><h3>De ce pulsul meu rămâne mare pe coborârile cu MTB-ul, deși am putere zero?</h3><p><strong>Stres tehnic și psihologic.</strong> În timpul coborârilor:</p><ul><li>Focusul mental/concentrarea crește pulsul</li><li>Răspunsul la frică activează sistemul nervos simpatic</li><li>Stabilizarea trunchiului și a brațelor creează cerere metabolică</li><li>Contracțiile musculare izometrice (strângerea frânelor, ținerea ghidonului)</li></ul><p>De aceea pulsul nu se potrivește cu puterea la MTB așa cum o face pe șosea. <strong>Pulsul + puterea
+                    împreună</strong> oferă imaginea completă în MTB.</p></div><div class="faq-item"><h3>Ar trebui să încerc să reduc VI la turele de MTB?</h3><p><strong>Nu!</strong> Un VI ridicat (1,10-1,20+) este optim pentru MTB. Încercarea de a netezi puterea
+                duce la:</p><ul><li>Timpi mai lenți (neaccelerarea pe urcări, pedalatul pe coborâri)</li><li>Energie risipită (pedalatul când ar trebui să rulezi liber)</li><li>Pierderea inerției (neatacarea secțiunilor abrupte destul de tare)</li></ul><p><strong>Un VI mic la MTB înseamnă că lași viteză pe masă.</strong> Acceptă variabilitatea - este ceea ce
+                face MTB-ul rapid.</p></div><div class="faq-item"><h3>Am nevoie de senzori de putere diferiți pentru șosea vs MTB?</h3><p><strong>Nu, dar plasarea contează:</strong></p><ul><li><strong>Șosea:</strong> Orice senzor funcționează (pedale, brat, spider). Poziția este stabilă.</li><li><strong>MTB:</strong> Pedalele sau spider-ul sunt preferate. Brațele de pedalier sunt vulnerabile la
+                    impacturi și la flexare sub cuplu mare.</li></ul><p>Dacă folosești un singur senzor pentru ambele biciclete, cel bazat pe pedale (Garmin Rally, Favero
+                Assioma) este cel mai versatil - fiind ușor de mutat între biciclete.</p></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Avantajul Bike Analytics</h2><div class="callout callout-success mb-xl"><h3>🎯 De Ce Bike Analytics Este Diferit</h3><p>Suntem <strong>singura platformă de analiză</strong> care înțelege cu adevărat că șoseaua și MTB-ul sunt
+                sporturi diferite care necesită analize diferite:</p><ul class="mt-md"><li>✅ <strong>Detectarea automată a disciplinei</strong> bazată pe VI - fără etichetare manuală</li><li>✅ <strong>Monitorizarea separată a FTP-ului</strong> pentru șosea vs MTB</li><li>✅ <strong>Netezirea diferită a puterii</strong> (30s șosea, 3-5s MTB)</li><li>✅ <strong>CP & W'bal preferat pentru MTB</strong> (mai precis decât FTP)</li><li>✅ <strong>Interpretarea TSS ajustată</strong> pe discipline</li><li>✅ <strong>Urmărirea specifică pe trail</strong> pentru performanța MTB în timp</li></ul><p class="mt-md mb-0">TrainingPeaks, Strava, WKO5? Ei tratează tot ciclismul la fel. <strong>Bike Analytics
+                    știe mai bine.</strong></p></div><h2>Subiecte Conexe</h2><div class="grid grid-3"><div class="card"><h3 class="card-title">Analiza Ciclismului de Șosea</h3><div class="card-content"><p>Aprofundează profilurile de putere constante, optimizarea aerodinamică și antrenamentul bazat pe
+                        FTP pentru cicliștii de șosea.</p><a href="/ro/road-cycling/" class="btn btn-secondary btn-small mt-md">Află Mai Multe →</a></div></div><div class="card"><h3 class="card-title">Analiza Mountain Bike</h3><div class="card-content"><p>Ghid complet pentru analiza puterii variabile, urmărirea balanței W' și antrenamentul focusat pe
+                        explozii pentru concurenții MTB.</p><a href="/ro/mountain-biking/" class="btn btn-secondary btn-small mt-md">Explorează MTB
+                        →</a></div></div><div class="card"><h3 class="card-title">Modelul Puterii Critice</h3><div class="card-content"><p>De ce CP și W' sunt superioare FTP-ului pentru analizele MTB. Include urmărirea balanței W' și
+                        aplicațiile de strategie în cursă.</p><a href="/ro/critical-power/" class="btn btn-secondary btn-small mt-md">Învață CP/W' →</a></div></div></div></div></section><section class="section"><div class="container container-narrow"><div class="mt-xl text-center"><h2>Obține Analize Care Îți Înțeleg Disciplina</h2><p class="lead mb-lg">Indiferent dacă mergi pe șosea, MTB sau ambele - Bike Analytics îți analizează datele
+                de putere corect, cu perspective specifice disciplinei.</p><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="btn btn-primary btn-large" target="_blank"
+                rel="noopener">Descarcă Bike Analytics</a><p class="mt-md text-secondary">Testare gratuită 7 zile • Detectare automată a disciplinei • Monitorizare
+                separată a FTP-ului</p></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link"
+                </a><a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link active"
+                </a><a href="/ro/" class="lang-link active"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. All rights reserved
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/ro/privacy/">Privacy</a></li>
-                <li><a href="/ro/terms/">Terms</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>This website uses cookies to improve your experience.</p>
-            <a href="/ro/privacy/" class="text-sm">Learn more</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">Accept</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/ro/privacy/">Privacy</a></li><li><a href="/ro/terms/">Terms</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>This website uses cookies to improve your experience.</p><a href="/ro/privacy/" class="text-sm">Learn more</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">Decline</button><button id="cookie-accept" class="btn btn-primary btn-small">Accept</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>

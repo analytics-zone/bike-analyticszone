@@ -1,246 +1,61 @@
-<!DOCTYPE html>
-<html lang="id" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  
-  <title>Model Critical Power &amp; W&#39; - Analitik Sepeda Lanjutan</title>
-  <meta name="description" content="Pahami Critical Power (CP) dan W&#39; (W Prime) untuk bersepeda. Pemodelan kelelahan tingkat lanjut, pelacakan W&#39;bal, dan optimasi performa.">
-  <meta name="author" content="AnalyticsZone Team">
-
-  
-  
-  <meta name="keywords" content="critical power sepeda, W prime sepeda, model CP, keseimbangan W prime, kapasitas anaerobik sepeda">
-  
-
-  
-  <link rel="canonical" href="https://bike.analyticszone.app/id/critical-power/">
-
-  
-  
-  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
-  <meta property="article:modified_time" content="2026-01-13T14:30:00Z">
-  <meta property="article:author" content="AnalyticsZone Team">
-  
-
-  
-  
-
-  
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://bike.analyticszone.app/id/critical-power/">
-  <meta property="og:title" content="Model Critical Power &amp; W&#39; - Analitik Sepeda Lanjutan">
-  <meta property="og:description" content="Pahami Critical Power (CP) dan W&#39; (W Prime) untuk bersepeda. Pemodelan kelelahan tingkat lanjut, pelacakan W&#39;bal, dan optimasi performa.">
-  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  <meta property="og:locale" content="id_ID">
-  <meta property="og:site_name" content="Bike Analytics">
-
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://bike.analyticszone.app/id/critical-power/">
-  <meta name="twitter:title" content="Model Critical Power &amp; W&#39; - Analitik Sepeda Lanjutan">
-  <meta name="twitter:description" content="Pahami Critical Power (CP) dan W&#39; (W Prime) untuk bersepeda. Pemodelan kelelahan tingkat lanjut, pelacakan W&#39;bal, dan optimasi performa.">
-  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
-  
-  <meta name="twitter:site" content="@bikeanalytics">
-  <meta name="twitter:creator" content="@bikeanalytics">
-  
-
-  
-  
-  <link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/critical-power/">
-  
-  <link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/critical-power/">
-  
-  <link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/critical-power/">
-  
-  <link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/critical-power/">
-  
-  <link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/critical-power/">
-  
-  <link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/critical-power/">
-  
-  <link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/critical-power/">
-  
-  <link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/critical-power/">
-  
-  <link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/critical-power/">
-  
-  <link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/critical-power/">
-  
-  <link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/critical-power/">
-  
-  <link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/critical-power/">
-  
-  <link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/critical-power/">
-  
-  <link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/critical-power/">
-  
-  <link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/critical-power/">
-  
-  <link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/critical-power/">
-  
-  <link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/critical-power/">
-  
-  <link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/critical-power/">
-  
-  <link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/critical-power/">
-  
-  <link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/critical-power/">
-  
-  <link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/critical-power/">
-  
-  <link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/critical-power/">
-  
-  <link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/critical-power/">
-  
-  <link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/critical-power/">
-  
-  <link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/critical-power/">
-  
-  <link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/critical-power/">
-  
-  <link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/critical-power/">
-  
-  <link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/critical-power/">
-  
-  <link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/critical-power/">
-  
-  <link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/critical-power/">
-  
-  <link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/critical-power/">
-  
-  <link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/critical-power/">
-  
-  <link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/critical-power/">
-  
-  <link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/critical-power/">
-  
-  <link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/critical-power/">
-  
-  <link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/critical-power/">
-  
-  <link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/critical-power/">
-  
-  <link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/critical-power/">
-  
-  <link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/critical-power/">
-  
-  <link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/critical-power/">
-  
-  <link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/critical-power/">
-  
-  <link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/critical-power/">
-  
-  <link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/critical-power/">
-  
-  <link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/critical-power/">
-  
-  <link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/critical-power/">
-  
-  <link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/critical-power/">
-  
-  <link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/critical-power/">
-  
-  <link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/critical-power/">
-  
-  <link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/critical-power/">
-  
-  <link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/critical-power/">
-  
-  <link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/critical-power/">
-  
-  <link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/critical-power/">
-  
-  <link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/critical-power/">
-  
-  <link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/critical-power/">
-  
-  <link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/critical-power/">
-  
-  <link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/critical-power/">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="../../manifest.json">
-  <meta name="theme-color" content="#2563EB">
-  <meta name="robots" content="index, follow">
-
-  
-  
-  
-  <meta name="apple-itunes-app" content="app-id=6755187319">
-  
-
-  
-  <style>
+<!DOCTYPE html><html lang="id" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"><title>Model Critical Power &amp; W&#39; - Analitik Sepeda Lanjutan</title><meta name="description" content="Pahami Critical Power (CP) dan W&#39; (W Prime) untuk bersepeda. Pemodelan kelelahan tingkat lanjut, pelacakan W&#39;bal, dan optimasi performa."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="critical power sepeda, W prime sepeda, model CP, keseimbangan W prime, kapasitas anaerobik sepeda"><link rel="canonical" href="https://bike.analyticszone.app/id/critical-power/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-01-13T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/id/critical-power/"><meta property="og:title" content="Model Critical Power &amp; W&#39; - Analitik Sepeda Lanjutan"><meta property="og:description" content="Pahami Critical Power (CP) dan W&#39; (W Prime) untuk bersepeda. Pemodelan kelelahan tingkat lanjut, pelacakan W&#39;bal, dan optimasi performa."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="id_ID"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/id/critical-power/"><meta name="twitter:title" content="Model Critical Power &amp; W&#39; - Analitik Sepeda Lanjutan"><meta name="twitter:description" content="Pahami Critical Power (CP) dan W&#39; (W Prime) untuk bersepeda. Pemodelan kelelahan tingkat lanjut, pelacakan W&#39;bal, dan optimasi performa."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/critical-power/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/critical-power/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/critical-power/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/critical-power/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/critical-power/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/critical-power/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/critical-power/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/critical-power/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/critical-power/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/critical-power/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/critical-power/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/critical-power/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/critical-power/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/critical-power/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/critical-power/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/critical-power/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/critical-power/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/critical-power/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/critical-power/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/critical-power/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/critical-power/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/critical-power/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/critical-power/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/critical-power/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/critical-power/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/critical-power/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/critical-power/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/critical-power/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/critical-power/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/critical-power/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/critical-power/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/critical-power/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/critical-power/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/critical-power/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/critical-power/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/critical-power/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/critical-power/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/critical-power/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/critical-power/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/critical-power/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/critical-power/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/critical-power/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/critical-power/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/critical-power/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/critical-power/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/critical-power/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/critical-power/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/critical-power/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/critical-power/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/critical-power/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/critical-power/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/critical-power/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/critical-power/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/critical-power/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/critical-power/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/critical-power/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -499,20 +314,7 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  
-  <link rel="stylesheet" href="../../assets/css/main.min.css?v=540c31aabebc">
-
-  
-  
-
-
-<script type="application/ld+json">
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=607a8874d9bc"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -547,10 +349,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -559,11 +358,7 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "id"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -578,12 +373,7 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script>
-
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -612,11 +402,7 @@ img[width][height] {
     
   ]
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -624,11 +410,7 @@ img[width][height] {
   "description": "Pahami Critical Power (CP) dan W&#39; (W Prime) untuk bersepeda. Pemodelan kelelahan tingkat lanjut, pelacakan W&#39;bal, dan optimasi performa.",
   "url": "https://bike.analyticszone.app/id/critical-power/"
 }
-</script>
-
-
-
-<script type="application/ld+json">
+</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -653,17 +435,7 @@ img[width][height] {
     "@id": "https://bike.analyticszone.app/id/critical-power/"
   }
 }
-</script>
-
-
-
-
-
-  
-  
-
-  
-  <script>
+</script><script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -677,1575 +449,453 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script>
-</head>
-
-<body>
-  
-  <a href="#main-content" class="skip-link">Lanjutkan ke konten</a>
-
-  
-  <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-            
-            <a href="/id/" class="site-logo">
-                <picture>
-                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)">
-                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
-                </picture>
-                <span class="logo-text">Bike Analytics</span>
-            </a>
-
-            
-            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
-                <div class="nav-group-left">
-                    <ul>
-                        
-                        <li>
-                            
-                            <a href="/id/" 
+  </script></head><body><a href="#main-content" class="skip-link">Lanjutkan ke konten</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/id/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/id/" 
                                 aria-current="">
                                 Beranda
-                            </a>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/id/getting-started/" class="nav-label">Pelajari</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/id/getting-started/" 
+                            </a></li><li class="has-submenu" ><a href="/id/getting-started/" class="nav-label">Pelajari</a><ul class="submenu"><li><a href="/id/getting-started/" 
                                         aria-current="">
                                         Memulai
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/ftp/" 
+                                    </a></li><li><a href="/id/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/critical-power/" class="active" 
+                                    </a></li><li><a href="/id/critical-power/" class="active" 
                                         aria-current="page">
                                         Tenaga Kritis
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/training-zones/" 
+                                    </a></li><li><a href="/id/training-zones/" 
                                         aria-current="">
                                         Zona Latihan
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/training-load/" 
+                                    </a></li><li><a href="/id/training-load/" 
                                         aria-current="">
                                         Beban Latihan
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/tss-calculator/" 
+                                    </a></li><li><a href="/id/tss-calculator/" 
                                         aria-current="">
                                         Kalkulator TSS
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/id/research/" class="nav-label">Sains</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/id/research/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/id/research/" class="nav-label">Sains</a><ul class="submenu"><li><a href="/id/research/" 
                                         aria-current="">
                                         Penelitian
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/formulas/" 
+                                    </a></li><li><a href="/id/formulas/" 
                                         aria-current="">
                                         Rumus
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/power-metrics/" 
+                                    </a></li><li><a href="/id/power-metrics/" 
                                         aria-current="">
                                         Metrik Tenaga
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/efficiency/" 
+                                    </a></li><li><a href="/id/efficiency/" 
                                         aria-current="">
                                         Efisiensi
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/pedaling-mechanics/" 
+                                    </a></li><li><a href="/id/pedaling-mechanics/" 
                                         aria-current="">
                                         Mekanika Mengayuh
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/aerodynamics/" 
+                                    </a></li><li><a href="/id/aerodynamics/" 
                                         aria-current="">
                                         Aerodinamika
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/climbing-performance/" 
+                                    </a></li><li><a href="/id/climbing-performance/" 
                                         aria-current="">
                                         Performa Mendaki
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/bibliography/" 
+                                    </a></li><li><a href="/id/bibliography/" 
                                         aria-current="">
                                         Bibliografi
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li class="has-submenu" >
-                            
-                            
-                            <a href="/id/road-cycling/" class="nav-label">Disiplin</a>
-                            
-                            <ul class="submenu">
-                                
-                                <li>
-                                    <a href="/id/road-cycling/" 
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/id/road-cycling/" class="nav-label">Disiplin</a><ul class="submenu"><li><a href="/id/road-cycling/" 
                                         aria-current="">
                                         Balap Sepeda Jalan Raya
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/mountain-biking/" 
+                                    </a></li><li><a href="/id/mountain-biking/" 
                                         aria-current="">
                                         Sepeda Gunung
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/road-vs-mtb/" 
+                                    </a></li><li><a href="/id/road-vs-mtb/" 
                                         aria-current="">
                                         Jalan Raya vs MTB
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="/id/comparisons/" 
+                                    </a></li><li><a href="/id/comparisons/" 
                                         aria-current="">
                                         Perbandingan Platform
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            
-                            </li>
-                            
-                        <li>
-                            
-                            <a href="/id/contact/" 
+                                    </a></li></ul></li><li><a href="/id/contact/" 
                                 aria-current="">
                                 Kontak
-                            </a>
-                            
-                            </li>
-                            
-                    </ul>
-
-                    
-                    <div class="search-container">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
-                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
-                    </div>
-
-                    
-                    <select class="language-selector" id="language-select" aria-label="Pilih bahasa">
-                        
-                        <option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="Pilih bahasa"><option value="af" >
                             Afrikaans
-                        </option>
-                        
-                        <option value="am" >
+                        </option><option value="am" >
                             አማርኛ
-                        </option>
-                        
-                        <option value="ar" >
+                        </option><option value="ar" >
                             العربية
-                        </option>
-                        
-                        <option value="bg" >
+                        </option><option value="bg" >
                             Български
-                        </option>
-                        
-                        <option value="bn" >
+                        </option><option value="bn" >
                             বাংলা
-                        </option>
-                        
-                        <option value="ca" >
+                        </option><option value="ca" >
                             Català
-                        </option>
-                        
-                        <option value="cs" >
+                        </option><option value="cs" >
                             Čeština
-                        </option>
-                        
-                        <option value="da" >
+                        </option><option value="da" >
                             Dansk
-                        </option>
-                        
-                        <option value="de" >
+                        </option><option value="de" >
                             Deutsch
-                        </option>
-                        
-                        <option value="el" >
+                        </option><option value="el" >
                             Ελληνικά
-                        </option>
-                        
-                        <option value="en" >
+                        </option><option value="en" >
                             English
-                        </option>
-                        
-                        <option value="es" >
+                        </option><option value="es" >
                             Español
-                        </option>
-                        
-                        <option value="et" >
+                        </option><option value="et" >
                             Eesti
-                        </option>
-                        
-                        <option value="fa" >
+                        </option><option value="fa" >
                             فارسی
-                        </option>
-                        
-                        <option value="fi" >
+                        </option><option value="fi" >
                             Suomi
-                        </option>
-                        
-                        <option value="fr" >
+                        </option><option value="fr" >
                             Français
-                        </option>
-                        
-                        <option value="gu" >
+                        </option><option value="gu" >
                             ગુજરાતી
-                        </option>
-                        
-                        <option value="ha" >
+                        </option><option value="ha" >
                             Hausa
-                        </option>
-                        
-                        <option value="he" >
+                        </option><option value="he" >
                             עברית
-                        </option>
-                        
-                        <option value="hi" >
+                        </option><option value="hi" >
                             हिन्दी
-                        </option>
-                        
-                        <option value="hr" >
+                        </option><option value="hr" >
                             Hrvatski
-                        </option>
-                        
-                        <option value="hu" >
+                        </option><option value="hu" >
                             Magyar
-                        </option>
-                        
-                        <option value="id" selected>
+                        </option><option value="id" selected>
                             Bahasa Indonesia
-                        </option>
-                        
-                        <option value="is" >
+                        </option><option value="is" >
                             Íslenska
-                        </option>
-                        
-                        <option value="it" >
+                        </option><option value="it" >
                             Italiano
-                        </option>
-                        
-                        <option value="ja" >
+                        </option><option value="ja" >
                             日本語
-                        </option>
-                        
-                        <option value="km" >
+                        </option><option value="km" >
                             ភាសាខ្មែរ
-                        </option>
-                        
-                        <option value="kn" >
+                        </option><option value="kn" >
                             ಕನ್ನಡ
-                        </option>
-                        
-                        <option value="ko" >
+                        </option><option value="ko" >
                             한국어
-                        </option>
-                        
-                        <option value="lt" >
+                        </option><option value="lt" >
                             Lietuvių
-                        </option>
-                        
-                        <option value="lv" >
+                        </option><option value="lv" >
                             Latviešu
-                        </option>
-                        
-                        <option value="ms" >
+                        </option><option value="ms" >
                             Bahasa Melayu
-                        </option>
-                        
-                        <option value="my" >
+                        </option><option value="my" >
                             မြန်မာဘာသာ
-                        </option>
-                        
-                        <option value="nb" >
+                        </option><option value="nb" >
                             Norsk Bokmål
-                        </option>
-                        
-                        <option value="nl" >
+                        </option><option value="nl" >
                             Nederlands
-                        </option>
-                        
-                        <option value="pl" >
+                        </option><option value="pl" >
                             Polski
-                        </option>
-                        
-                        <option value="pt" >
+                        </option><option value="pt" >
                             Português
-                        </option>
-                        
-                        <option value="pt-br" >
+                        </option><option value="pt-br" >
                             Português (Brasil)
-                        </option>
-                        
-                        <option value="ro" >
+                        </option><option value="ro" >
                             Română
-                        </option>
-                        
-                        <option value="ru" >
+                        </option><option value="ru" >
                             Русский
-                        </option>
-                        
-                        <option value="sk" >
+                        </option><option value="sk" >
                             Slovenčina
-                        </option>
-                        
-                        <option value="sl" >
+                        </option><option value="sl" >
                             Slovenščina
-                        </option>
-                        
-                        <option value="sr" >
+                        </option><option value="sr" >
                             Српски
-                        </option>
-                        
-                        <option value="sv" >
+                        </option><option value="sv" >
                             Svenska
-                        </option>
-                        
-                        <option value="sw" >
+                        </option><option value="sw" >
                             Kiswahili
-                        </option>
-                        
-                        <option value="ta" >
+                        </option><option value="ta" >
                             தமிழ்
-                        </option>
-                        
-                        <option value="te" >
+                        </option><option value="te" >
                             తెలుగు
-                        </option>
-                        
-                        <option value="th" >
+                        </option><option value="th" >
                             ไทย
-                        </option>
-                        
-                        <option value="tl" >
+                        </option><option value="tl" >
                             Tagalog
-                        </option>
-                        
-                        <option value="tr" >
+                        </option><option value="tr" >
                             Türkçe
-                        </option>
-                        
-                        <option value="uk" >
+                        </option><option value="uk" >
                             Українська
-                        </option>
-                        
-                        <option value="ur" >
+                        </option><option value="ur" >
                             اردو
-                        </option>
-                        
-                        <option value="vi" >
+                        </option><option value="vi" >
                             Tiếng Việt
-                        </option>
-                        
-                        <option value="yo" >
+                        </option><option value="yo" >
                             Yoruba
-                        </option>
-                        
-                        <option value="zh" >
+                        </option><option value="zh" >
                             中文
-                        </option>
-                        
-                    </select>
-                </div>
-
-                <div class="nav-group-right">
-                    
-
-
-                    
-                    <div class="header-app-buttons">
-                        
-                        
-                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                            </svg>
-                        </a>
-                        
-
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
-                            </svg>
-                        </a>
-                        
-                        
-                    </div>
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    <div class="suite-menu-container">
-                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </button>
-                        <div class="suite-dropdown hidden" id="suite-dropdown">
-                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
-                            <div class="suite-apps-grid">
-                                
-                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
-                                
-                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
-                                
-                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
-                                
-                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
-                                
-                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
-                                
-                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
-                                
-                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-
-            
-            <button class="menu-toggle" id="menu-toggle" aria-label="Alihkan menu"
-                aria-expanded="false" aria-controls="nav-primary">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </div>
-</header>
-
-  
-  
-
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container">
-        <ol>
-            
-            <li>
-                
-                <a href="/id/">Beranda</a>
-                
-            </li>
-            
-            <li>
-                
-                <a href="/id/getting-started/">Pelajari</a>
-                
-            </li>
-            
-            <li>
-                
-                <span aria-current="page">Tenaga Kritis</span>
-                
-            </li>
-            
-        </ol>
-    </div>
-</nav>
-
-
-  
-  <main id="main-content" class="main-content">
-    
-    <section class="page-hero">
-    <div class="container">
-        <h1>Critical Power & W' - Model Performa Bersepeda Lanjutan</h1>
-        <p class="lead">Kuasai Critical Power (CP) dan W Prime (W') untuk pacing superior, prediksi kelelahan, dan
-            strategi balapan. Model paling kuat secara ilmiah untuk performa bersepeda.</p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <div class="callout callout-success mb-xl">
-            <h2>🎯 Poin Utama</h2>
-            <ul class="mb-0">
-                <li><strong>Critical Power (CP)</strong> adalah daya berkelanjutan maksimum untuk durasi panjang—lebih
-                    kuat secara ilmiah daripada FTP</li>
-                <li><strong>W' (W Prime)</strong> adalah kapasitas kerja anaerobik Anda di atas CP, diukur dalam
-                    kilojoule</li>
-                <li><strong>W' Balance</strong> melacak penipisan dan pemulihan kapasitas anaerobik secara real-time
-                    selama perjalanan</li>
-                <li><strong>CP ≈ FTP + 5-10W</strong> dalam praktiknya, tetapi CP diturunkan secara matematis dari
-                    beberapa upaya</li>
-                <li><strong>Kritis untuk MTB dan upaya variabel</strong> di mana pacing dan manajemen lonjakan sangat
-                    penting</li>
-            </ul>
-        </div>
-
-        <div class="callout callout-info mb-xl">
-            <h2>Apa itu Critical Power?</h2>
-            <p><strong>Critical Power (CP) adalah tingkat metabolisme tertinggi yang dapat dipertahankan tanpa
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="Alihkan menu"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/id/">Beranda</a></li><li><a href="/id/getting-started/">Pelajari</a></li><li><span aria-current="page">Tenaga Kritis</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>Critical Power & W' - Model Performa Bersepeda Lanjutan</h1><p class="lead">Kuasai Critical Power (CP) dan W Prime (W') untuk pacing superior, prediksi kelelahan, dan
+            strategi balapan. Model paling kuat secara ilmiah untuk performa bersepeda.</p></div></section><section class="section"><div class="container container-narrow"><div class="callout callout-success mb-xl"><h2>🎯 Poin Utama</h2><ul class="mb-0"><li><strong>Critical Power (CP)</strong> adalah daya berkelanjutan maksimum untuk durasi panjang—lebih
+                    kuat secara ilmiah daripada FTP</li><li><strong>W' (W Prime)</strong> adalah kapasitas kerja anaerobik Anda di atas CP, diukur dalam
+                    kilojoule</li><li><strong>W' Balance</strong> melacak penipisan dan pemulihan kapasitas anaerobik secara real-time
+                    selama perjalanan</li><li><strong>CP ≈ FTP + 5-10W</strong> dalam praktiknya, tetapi CP diturunkan secara matematis dari
+                    beberapa upaya</li><li><strong>Kritis untuk MTB dan upaya variabel</strong> di mana pacing dan manajemen lonjakan sangat
+                    penting</li></ul></div><div class="callout callout-info mb-xl"><h2>Apa itu Critical Power?</h2><p><strong>Critical Power (CP) adalah tingkat metabolisme tertinggi yang dapat dipertahankan tanpa
                     kelelahan</strong> untuk periode yang diperpanjang. Ini mewakili batas antara metabolisme aerobik
                 berkelanjutan dan latihan tidak berkelanjutan yang membutuhkan kontribusi anaerobik. Tidak seperti FTP
                 (estimasi 1 jam tunggal), CP diturunkan secara matematis dari beberapa upaya maksimal pada durasi yang
-                berbeda, menjadikannya lebih kuat dan tervalidasi secara ilmiah.</p>
-        </div>
-
-        <h2 class="mt-2xl">Ilmu di Balik Critical Power</h2>
-
-        <p class="mb-md">Teori Critical Power muncul dari penelitian fisiologi olahraga pada 1960-an dan disempurnakan
+                berbeda, menjadikannya lebih kuat dan tervalidasi secara ilmiah.</p></div><h2 class="mt-2xl">Ilmu di Balik Critical Power</h2><p class="mb-md">Teori Critical Power muncul dari penelitian fisiologi olahraga pada 1960-an dan disempurnakan
             untuk bersepeda pada 1990-an. Model ini didasarkan pada <strong>hubungan hiperbolik daya-durasi</strong>:
-        </p>
-
-        <div class="formula-box mb-xl">
-            <h3>Hubungan Daya-Durasi</h3>
-            <p><strong>t = W' / (P - CP)</strong></p>
-            <p class="mt-sm">Dimana:</p>
-            <ul>
-                <li><strong>t</strong> = waktu hingga kelelahan</li>
-                <li><strong>P</strong> = output daya</li>
-                <li><strong>CP</strong> = critical power (watt)</li>
-                <li><strong>W'</strong> = kapasitas kerja anaerobik (kilojoule)</li>
-            </ul>
-        </div>
-
-        <p class="mb-xl"><strong>Apa artinya ini:</strong> Pada daya apa pun di atas CP, Anda memiliki jumlah kerja
+        </p><div class="formula-box mb-xl"><h3>Hubungan Daya-Durasi</h3><p><strong>t = W' / (P - CP)</strong></p><p class="mt-sm">Dimana:</p><ul><li><strong>t</strong> = waktu hingga kelelahan</li><li><strong>P</strong> = output daya</li><li><strong>CP</strong> = critical power (watt)</li><li><strong>W'</strong> = kapasitas kerja anaerobik (kilojoule)</li></ul></div><p class="mb-xl"><strong>Apa artinya ini:</strong> Pada daya apa pun di atas CP, Anda memiliki jumlah kerja
             terbatas (W') sebelum kelelahan. Pada CP itu sendiri, Anda secara teoritis dapat melanjutkan tanpa batas
             waktu. Di bawah CP, Anda tidak pernah memanfaatkan W' dan dapat mempertahankan upaya untuk durasi yang
-            sangat lama.</p>
-
-        <div class="callout callout-tip">
-            <h3>📚 Asosiasi Penelitian</h3>
-            <p>Critical Power didukung oleh penelitian peer-review selama beberapa dekade:</p>
-            <ul class="mb-0">
-                <li><strong>Jones et al. (2019):</strong> "Critical Power: Theory and Applications" - tinjauan
-                    komprehensif dalam Journal of Applied Physiology</li>
-                <li><strong>Poole et al. (2016):</strong> "Critical Power: An Important Fatigue Threshold" - memvalidasi
-                    CP sebagai ambang batas fisiologis</li>
-                <li><strong>Vanhatalo et al. (2011):</strong> Menunjukkan CP sejalan dengan kondisi stabil laktat
-                    maksimal</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="mb-xl text-center">Critical Power vs FTP: Perbedaan Utama</h2>
-
-        <div class="grid grid-2">
-            <div class="card">
-                <h3 class="card-title">Functional Threshold Power (FTP)</h3>
-                <div class="card-content">
-                    <p><strong>Definisi:</strong> Daya maksimum yang berkelanjutan selama kurang lebih 1 jam.</p>
-                    <p><strong>Pengujian:</strong> Upaya tunggal 20 menit atau 60 menit.</p>
-                    <p><strong>Perhitungan:</strong> FTP = 95% dari daya 20 menit (atau 100% dari daya 60 menit).</p>
-                    <p><strong>Kelebihan:</strong></p>
-                    <ul>
-                        <li>Sederhana untuk dites dan dimengerti</li>
-                        <li>Diperlukan upaya tunggal</li>
-                        <li>Standar industri yang digunakan secara luas</li>
-                        <li>Terintegrasi dalam TrainingPeaks, Zwift, dll.</li>
-                    </ul>
-                    <p><strong>Kekurangan:</strong></p>
-                    <ul>
-                        <li>Estimasi satu titik (kurang kuat)</li>
-                        <li>Upaya 20-60 menit yang menuntut secara mental</li>
-                        <li>Kesalahan pacing mempengaruhi akurasi</li>
-                        <li>Tidak ada ukuran kapasitas anaerobik</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Critical Power (CP)</h3>
-                <div class="card-content">
-                    <p><strong>Definisi:</strong> Daya maksimum yang berkelanjutan untuk durasi teoritis tak terbatas.
-                    </p>
-                    <p><strong>Pengujian:</strong> Beberapa upaya maksimal (khas 3-7 menit, 12 menit, 20 menit).</p>
-                    <p><strong>Perhitungan:</strong> Pemasangan kurva matematis dari beberapa titik data.</p>
-                    <p><strong>Kelebihan:</strong></p>
-                    <ul>
-                        <li>Kuat secara ilmiah (beberapa upaya)</li>
-                        <li>Termasuk W' (kapasitas anaerobik)</li>
-                        <li>Akurasi lebih baik daripada tes FTP tunggal</li>
-                        <li>Memungkinkan pelacakan W' Balance</li>
-                    </ul>
-                    <p><strong>Kekurangan:</strong></p>
-                    <ul>
-                        <li>Memerlukan 3-5 upaya maksimal terpisah</li>
-                        <li>Lebih kompleks untuk dihitung</li>
-                        <li>Kurang dipahami secara luas</li>
-                        <li>Protokol pengujian lebih menuntut</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="callout mt-xl">
-            <h3>🔍 Dalam Praktik: CP ≈ FTP + 5-10W</h3>
-            <p>Untuk pesepeda yang terlatih dengan baik, Critical Power biasanya <strong>5-10 watt lebih tinggi dari
-                    FTP</strong>. Contoh:</p>
-            <ul>
-                <li><strong>FTP:</strong> 250W (dari tes 20 menit)</li>
-                <li><strong>CP:</strong> 257W (dari tes 3 menit, 12 menit, 20 menit)</li>
-            </ul>
-            <p class="mb-0 mt-md">CP mewakili ambang batas durasi tak terbatas teoritis, sedangkan FTP adalah estimasi
-                daya 1 jam praktis. Keduanya berguna—FTP untuk kesederhanaan, CP untuk presisi dan pelacakan W'.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>Apa itu W' (W Prime)?</h2>
-
-        <p class="mb-md"><strong>W' (diucapkan "W Prime") adalah jumlah kerja terbatas yang dapat Anda lakukan di atas
+            sangat lama.</p><div class="callout callout-tip"><h3>📚 Asosiasi Penelitian</h3><p>Critical Power didukung oleh penelitian peer-review selama beberapa dekade:</p><ul class="mb-0"><li><strong>Jones et al. (2019):</strong> "Critical Power: Theory and Applications" - tinjauan
+                    komprehensif dalam Journal of Applied Physiology</li><li><strong>Poole et al. (2016):</strong> "Critical Power: An Important Fatigue Threshold" - memvalidasi
+                    CP sebagai ambang batas fisiologis</li><li><strong>Vanhatalo et al. (2011):</strong> Menunjukkan CP sejalan dengan kondisi stabil laktat
+                    maksimal</li></ul></div></div></section><section class="section section-alt"><div class="container"><h2 class="mb-xl text-center">Critical Power vs FTP: Perbedaan Utama</h2><div class="grid grid-2"><div class="card"><h3 class="card-title">Functional Threshold Power (FTP)</h3><div class="card-content"><p><strong>Definisi:</strong> Daya maksimum yang berkelanjutan selama kurang lebih 1 jam.</p><p><strong>Pengujian:</strong> Upaya tunggal 20 menit atau 60 menit.</p><p><strong>Perhitungan:</strong> FTP = 95% dari daya 20 menit (atau 100% dari daya 60 menit).</p><p><strong>Kelebihan:</strong></p><ul><li>Sederhana untuk dites dan dimengerti</li><li>Diperlukan upaya tunggal</li><li>Standar industri yang digunakan secara luas</li><li>Terintegrasi dalam TrainingPeaks, Zwift, dll.</li></ul><p><strong>Kekurangan:</strong></p><ul><li>Estimasi satu titik (kurang kuat)</li><li>Upaya 20-60 menit yang menuntut secara mental</li><li>Kesalahan pacing mempengaruhi akurasi</li><li>Tidak ada ukuran kapasitas anaerobik</li></ul></div></div><div class="card"><h3 class="card-title">Critical Power (CP)</h3><div class="card-content"><p><strong>Definisi:</strong> Daya maksimum yang berkelanjutan untuk durasi teoritis tak terbatas.
+                    </p><p><strong>Pengujian:</strong> Beberapa upaya maksimal (khas 3-7 menit, 12 menit, 20 menit).</p><p><strong>Perhitungan:</strong> Pemasangan kurva matematis dari beberapa titik data.</p><p><strong>Kelebihan:</strong></p><ul><li>Kuat secara ilmiah (beberapa upaya)</li><li>Termasuk W' (kapasitas anaerobik)</li><li>Akurasi lebih baik daripada tes FTP tunggal</li><li>Memungkinkan pelacakan W' Balance</li></ul><p><strong>Kekurangan:</strong></p><ul><li>Memerlukan 3-5 upaya maksimal terpisah</li><li>Lebih kompleks untuk dihitung</li><li>Kurang dipahami secara luas</li><li>Protokol pengujian lebih menuntut</li></ul></div></div></div><div class="callout mt-xl"><h3>🔍 Dalam Praktik: CP ≈ FTP + 5-10W</h3><p>Untuk pesepeda yang terlatih dengan baik, Critical Power biasanya <strong>5-10 watt lebih tinggi dari
+                    FTP</strong>. Contoh:</p><ul><li><strong>FTP:</strong> 250W (dari tes 20 menit)</li><li><strong>CP:</strong> 257W (dari tes 3 menit, 12 menit, 20 menit)</li></ul><p class="mb-0 mt-md">CP mewakili ambang batas durasi tak terbatas teoritis, sedangkan FTP adalah estimasi
+                daya 1 jam praktis. Keduanya berguna—FTP untuk kesederhanaan, CP untuk presisi dan pelacakan W'.</p></div></div></section><section class="section"><div class="container container-narrow"><h2>Apa itu W' (W Prime)?</h2><p class="mb-md"><strong>W' (diucapkan "W Prime") adalah jumlah kerja terbatas yang dapat Anda lakukan di atas
                 Critical Power.</strong> Anggap saja sebagai "baterai anaerobik" Anda—simpanan energi terbatas yang
-            menipis saat berkendara di atas CP dan pulih perlahan saat berkendara di bawah CP.</p>
-
-        <div class="formula-box mb-xl">
-            <h3>Definisi W'</h3>
-            <p><strong>W' = (P - CP) × t</strong></p>
-            <p class="mt-sm">Dimana:</p>
-            <ul>
-                <li><strong>W'</strong> = kapasitas kerja anaerobik (kilojoule)</li>
-                <li><strong>P</strong> = output daya (watt)</li>
-                <li><strong>CP</strong> = critical power (watt)</li>
-                <li><strong>t</strong> = waktu hingga kelelahan (detik)</li>
-            </ul>
-            <p class="mt-md"><strong>Contoh:</strong> Jika Anda dapat mempertahankan 350W selama 5 menit dan CP Anda
+            menipis saat berkendara di atas CP dan pulih perlahan saat berkendara di bawah CP.</p><div class="formula-box mb-xl"><h3>Definisi W'</h3><p><strong>W' = (P - CP) × t</strong></p><p class="mt-sm">Dimana:</p><ul><li><strong>W'</strong> = kapasitas kerja anaerobik (kilojoule)</li><li><strong>P</strong> = output daya (watt)</li><li><strong>CP</strong> = critical power (watt)</li><li><strong>t</strong> = waktu hingga kelelahan (detik)</li></ul><p class="mt-md"><strong>Contoh:</strong> Jika Anda dapat mempertahankan 350W selama 5 menit dan CP Anda
                 adalah 250W:<br>
-                W' = (350 - 250) × 300 = 30.000 joule = <strong>30 kJ</strong></p>
-        </div>
-
-        <h3>Nilai W' Khas</h3>
-
-        <div class="zones-table-container mb-xl">
-            <table class="zones-table">
-                <thead>
-                    <tr>
-                        <th>Level Pesepeda</th>
-                        <th>Rentang W' (kJ)</th>
-                        <th>Apa Artinya Ini</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Rekreasi</strong></td>
-                        <td>10-15 kJ</td>
-                        <td>Kapasitas lonjakan terbatas, serangan lebih pendek</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Amatir Kompetitif</strong></td>
-                        <td>15-20 kJ</td>
-                        <td>Kapasitas anaerobik sedang, rentang tipikal</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Jalan Raya Elit</strong></td>
-                        <td>20-25 kJ</td>
-                        <td>Kapasitas lonjakan tinggi untuk serangan dan sprint</td>
-                    </tr>
-                    <tr>
-                        <td><strong>MTB/CX Elit</strong></td>
-                        <td>18-23 kJ</td>
-                        <td>Dioptimalkan untuk lonjakan berulang</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="callout callout-success">
-            <h3>💡 Memahami W' dalam Perjalanan Nyata</h3>
-            <p><strong>Contoh W' = 20 kJ:</strong></p>
-            <ul class="mb-0">
-                <li>1 menit pada 350W (100W di atas CP = 250W) = 6 kJ terkuras → 14 kJ tersisa</li>
-                <li>2 menit pada 300W (50W di atas CP) = 6 kJ terkuras → 8 kJ tersisa</li>
-                <li>30 detik pada 450W (200W di atas CP) = 6 kJ terkuras → 2 kJ tersisa</li>
-                <li>Jika W' terkuras hingga nol → Anda habis, harus turun di bawah CP untuk memulihkan</li>
-            </ul>
-        </div>
-
-        <h2 class="mt-3xl">Cara Menghitung CP dan W' Anda</h2>
-
-        <p class="mb-md">Untuk menentukan Critical Power dan W' Anda, Anda memerlukan beberapa upaya maksimal pada
-            durasi yang berbeda. Protokol standar menggunakan <strong>3-5 time trial</strong>:</p>
-
-        <h3>Protokol Pengujian CP Standar</h3>
-
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-marker">Tes 1</div>
-                <div class="timeline-content">
-                    <h4>Upaya Maksimal 3 Menit</h4>
-                    <p>Setelah pemanasan menyeluruh, lakukan upaya 3 menit habis-habisan. Catat daya rata-rata
+                W' = (350 - 250) × 300 = 30.000 joule = <strong>30 kJ</strong></p></div><h3>Nilai W' Khas</h3><div class="zones-table-container mb-xl"><table class="zones-table"><thead><tr><th>Level Pesepeda</th><th>Rentang W' (kJ)</th><th>Apa Artinya Ini</th></tr></thead><tbody><tr><td><strong>Rekreasi</strong></td><td>10-15 kJ</td><td>Kapasitas lonjakan terbatas, serangan lebih pendek</td></tr><tr><td><strong>Amatir Kompetitif</strong></td><td>15-20 kJ</td><td>Kapasitas anaerobik sedang, rentang tipikal</td></tr><tr><td><strong>Jalan Raya Elit</strong></td><td>20-25 kJ</td><td>Kapasitas lonjakan tinggi untuk serangan dan sprint</td></tr><tr><td><strong>MTB/CX Elit</strong></td><td>18-23 kJ</td><td>Dioptimalkan untuk lonjakan berulang</td></tr></tbody></table></div><div class="callout callout-success"><h3>💡 Memahami W' dalam Perjalanan Nyata</h3><p><strong>Contoh W' = 20 kJ:</strong></p><ul class="mb-0"><li>1 menit pada 350W (100W di atas CP = 250W) = 6 kJ terkuras → 14 kJ tersisa</li><li>2 menit pada 300W (50W di atas CP) = 6 kJ terkuras → 8 kJ tersisa</li><li>30 detik pada 450W (200W di atas CP) = 6 kJ terkuras → 2 kJ tersisa</li><li>Jika W' terkuras hingga nol → Anda habis, harus turun di bawah CP untuk memulihkan</li></ul></div><h2 class="mt-3xl">Cara Menghitung CP dan W' Anda</h2><p class="mb-md">Untuk menentukan Critical Power dan W' Anda, Anda memerlukan beberapa upaya maksimal pada
+            durasi yang berbeda. Protokol standar menggunakan <strong>3-5 time trial</strong>:</p><h3>Protokol Pengujian CP Standar</h3><div class="timeline"><div class="timeline-item"><div class="timeline-marker">Tes 1</div><div class="timeline-content"><h4>Upaya Maksimal 3 Menit</h4><p>Setelah pemanasan menyeluruh, lakukan upaya 3 menit habis-habisan. Catat daya rata-rata
                         (misalnya, <strong>330W</strong>). Istirahat 30-60 menit sebelum tes berikutnya (atau tes pada
-                        hari terpisah).</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-marker">Tes 2</div>
-                <div class="timeline-content">
-                    <h4>Upaya Maksimal 12 Menit</h4>
-                    <p>Lakukan time trial 12 menit pada daya berkelanjutan maksimum. Catat daya rata-rata (misalnya,
-                        <strong>275W</strong>). Istirahat sepenuhnya sebelum tes akhir.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-marker">Tes 3</div>
-                <div class="timeline-content">
-                    <h4>Upaya Maksimal 20 Menit</h4>
-                    <p>Selesaikan upaya gaya FTP 20 menit. Catat daya rata-rata (misalnya, <strong>260W</strong>). Ini
-                        adalah tes durasi terpanjang Anda.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-marker">Hitung</div>
-                <div class="timeline-content">
-                    <h4>Pemasangan Kurva Matematis</h4>
-                    <p>Plot data daya vs waktu dan paskan ke kurva hiperbolik. Bike Analytics melakukan ini secara
-                        otomatis:</p>
-                    <ul>
-                        <li><strong>CP:</strong> Asimtot kurva daya-durasi (misalnya, 250W)</li>
-                        <li><strong>W':</strong> Konstanta kelengkungan (misalnya, 18 kJ)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="callout callout-warning mt-xl">
-            <h3>⚠️ Praktik Terbaik Pengujian</h3>
-            <ul class="mb-0">
-                <li><strong>Kondisi konsisten:</strong> Semua tes lokasi, gearing, peralatan yang sama</li>
-                <li><strong>Istirahat sepenuhnya:</strong> Tidak ada latihan keras 24-48 jam sebelum setiap tes</li>
-                <li><strong>Pacing yang tepat:</strong> Setiap upaya harus benar-benar maksimal untuk durasi tersebut
-                </li>
-                <li><strong>Jarak yang memadai:</strong> 24-48 jam antara tes jika bukan protokol hari yang sama</li>
-                <li><strong>Power meter terkalibrasi:</strong> Zero-offset sebelum setiap tes</li>
-            </ul>
-        </div>
-
-        <div class="callout callout-tip mt-xl">
-            <h3>💡 Alternatif: Gunakan Data Perjalanan yang Ada</h3>
-            <p>Jika Anda memiliki data daya dari balapan atau perjalanan keras baru-baru ini, Bike Analytics dapat
-                memperkirakan CP dan W' dari <strong>kurva durasi daya</strong> Anda:</p>
-            <ul class="mb-0">
-                <li>Daya 3 menit terbaik dari 90 hari terakhir</li>
-                <li>Daya 5 menit terbaik</li>
-                <li>Daya 12 menit terbaik</li>
-                <li>Daya 20 menit terbaik</li>
-            </ul>
-            <p class="mt-md">Metode "terbaik historis" ini kurang tepat dibandingkan tes khusus tetapi memberikan
-                perkiraan awal yang masuk akal.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="mb-xl text-center">W' Balance: Pelacakan Kelelahan Real-Time</h2>
-
-        <div class="container-narrow">
-            <p class="mb-xl text-center"><strong>W' Balance (W'bal) melacak penipisan dan pemulihan kapasitas anaerobik
+                        hari terpisah).</p></div></div><div class="timeline-item"><div class="timeline-marker">Tes 2</div><div class="timeline-content"><h4>Upaya Maksimal 12 Menit</h4><p>Lakukan time trial 12 menit pada daya berkelanjutan maksimum. Catat daya rata-rata (misalnya,
+                        <strong>275W</strong>). Istirahat sepenuhnya sebelum tes akhir.</p></div></div><div class="timeline-item"><div class="timeline-marker">Tes 3</div><div class="timeline-content"><h4>Upaya Maksimal 20 Menit</h4><p>Selesaikan upaya gaya FTP 20 menit. Catat daya rata-rata (misalnya, <strong>260W</strong>). Ini
+                        adalah tes durasi terpanjang Anda.</p></div></div><div class="timeline-item"><div class="timeline-marker">Hitung</div><div class="timeline-content"><h4>Pemasangan Kurva Matematis</h4><p>Plot data daya vs waktu dan paskan ke kurva hiperbolik. Bike Analytics melakukan ini secara
+                        otomatis:</p><ul><li><strong>CP:</strong> Asimtot kurva daya-durasi (misalnya, 250W)</li><li><strong>W':</strong> Konstanta kelengkungan (misalnya, 18 kJ)</li></ul></div></div></div><div class="callout callout-warning mt-xl"><h3>⚠️ Praktik Terbaik Pengujian</h3><ul class="mb-0"><li><strong>Kondisi konsisten:</strong> Semua tes lokasi, gearing, peralatan yang sama</li><li><strong>Istirahat sepenuhnya:</strong> Tidak ada latihan keras 24-48 jam sebelum setiap tes</li><li><strong>Pacing yang tepat:</strong> Setiap upaya harus benar-benar maksimal untuk durasi tersebut
+                </li><li><strong>Jarak yang memadai:</strong> 24-48 jam antara tes jika bukan protokol hari yang sama</li><li><strong>Power meter terkalibrasi:</strong> Zero-offset sebelum setiap tes</li></ul></div><div class="callout callout-tip mt-xl"><h3>💡 Alternatif: Gunakan Data Perjalanan yang Ada</h3><p>Jika Anda memiliki data daya dari balapan atau perjalanan keras baru-baru ini, Bike Analytics dapat
+                memperkirakan CP dan W' dari <strong>kurva durasi daya</strong> Anda:</p><ul class="mb-0"><li>Daya 3 menit terbaik dari 90 hari terakhir</li><li>Daya 5 menit terbaik</li><li>Daya 12 menit terbaik</li><li>Daya 20 menit terbaik</li></ul><p class="mt-md">Metode "terbaik historis" ini kurang tepat dibandingkan tes khusus tetapi memberikan
+                perkiraan awal yang masuk akal.</p></div></div></section><section class="section section-alt"><div class="container"><h2 class="mb-xl text-center">W' Balance: Pelacakan Kelelahan Real-Time</h2><div class="container-narrow"><p class="mb-xl text-center"><strong>W' Balance (W'bal) melacak penipisan dan pemulihan kapasitas anaerobik
                     Anda secara real-time selama perjalanan.</strong> Ini adalah aplikasi paling kuat dari model CP
-                untuk pacing dan strategi balapan.</p>
-        </div>
-
-        <div class="grid grid-2">
-            <div class="card">
-                <h3 class="card-title">Cara Kerja W'bal</h3>
-                <div class="card-content">
-                    <p><strong>Fase Penipisan (Di Atas CP):</strong></p>
-                    <ul>
-                        <li>Saat berkendara di atas CP, W' menipis secara linier</li>
-                        <li>Tingkat = (Daya Saat Ini - CP)</li>
-                        <li>Contoh: 50W di atas CP = penipisan 50 joule/detik</li>
-                    </ul>
-                    <p class="mt-md"><strong>Fase Pemulihan (Di Bawah CP):</strong></p>
-                    <ul>
-                        <li>Saat berkendara di bawah CP, W' pulih secara eksponensial</li>
-                        <li>Tingkat pemulihan tergantung pada seberapa jauh di bawah CP</li>
-                        <li>Daya lebih rendah = tingkat pemulihan lebih cepat</li>
-                        <li>Konstanta waktu τ ≈ 377 detik (model Skiba)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Interpretasi W'bal</h3>
-                <div class="card-content">
-                    <p><strong>W'bal = 100%:</strong> Pulih sepenuhnya, siap untuk lonjakan</p>
-                    <p><strong>W'bal = 75%:</strong> Masih kuat, bisa menyerang</p>
-                    <p><strong>W'bal = 50%:</strong> Kelelahan sedang, berhati-hatilah</p>
-                    <p><strong>W'bal = 25%:</strong> Kelelahan tinggi, kapasitas lonjakan terbatas</p>
-                    <p><strong>W'bal = 0%:</strong> Sepenuhnya habis, harus berkendara di bawah CP</p>
-                    <p class="mt-md"><strong>Wawasan utama:</strong> Bahkan pemulihan singkat di bawah CP memulihkan W'.
-                        Pemulihan 30 detik pada 150W (100W di bawah CP) dapat memulihkan 2-3 kJ W'.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="callout mt-xl">
-            <h3>🚴 Contoh: Manajemen W'bal Balap MTB</h3>
-            <p><strong>Skenario:</strong> Balapan cross-country 90 menit, CP = 250W, W' = 20 kJ</p>
-            <ul>
-                <li><strong>Lap 1 (0-15 menit):</strong> Kecepatan konservatif, W'bal tetap 80-100%</li>
-                <li><strong>Lap 2 (15-30 menit):</strong> Tanjakan keras (350W selama 90 detik) → W'bal turun ke 55%
-                </li>
-                <li><strong>Pemulihan (30-35 menit):</strong> Turunan mudah (150W) → W'bal pulih ke 70%</li>
-                <li><strong>Lap 3 (35-50 menit):</strong> Bagian teknis dengan lonjakan → W'bal berfluktuasi 60-75%</li>
-                <li><strong>Lap 4 (50-65 menit):</strong> Serangan pada tanjakan (380W selama 60 detik) → W'bal turun ke
-                    40%</li>
-                <li><strong>Lap terakhir (65-90 menit):</strong> Kelola W'bal dengan hati-hati, simpan untuk sprint
-                    finish</li>
-            </ul>
-            <p class="mb-0 mt-md"><strong>Hasil:</strong> Dengan memantau W'bal, pengendara tahu persis kapan lonjakan
-                mungkin dilakukan dan kapan pemulihan diperlukan. Tidak menebak berdasarkan "perasaan".</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>Aplikasi Praktis CP dan W'</h2>
-
-        <h3>1. Pacing Tanjakan Panjang</h3>
-        <p class="mb-md">Gunakan CP untuk menentukan daya pendakian yang berkelanjutan. Jika durasi pendakian 30+ menit,
+                untuk pacing dan strategi balapan.</p></div><div class="grid grid-2"><div class="card"><h3 class="card-title">Cara Kerja W'bal</h3><div class="card-content"><p><strong>Fase Penipisan (Di Atas CP):</strong></p><ul><li>Saat berkendara di atas CP, W' menipis secara linier</li><li>Tingkat = (Daya Saat Ini - CP)</li><li>Contoh: 50W di atas CP = penipisan 50 joule/detik</li></ul><p class="mt-md"><strong>Fase Pemulihan (Di Bawah CP):</strong></p><ul><li>Saat berkendara di bawah CP, W' pulih secara eksponensial</li><li>Tingkat pemulihan tergantung pada seberapa jauh di bawah CP</li><li>Daya lebih rendah = tingkat pemulihan lebih cepat</li><li>Konstanta waktu τ ≈ 377 detik (model Skiba)</li></ul></div></div><div class="card"><h3 class="card-title">Interpretasi W'bal</h3><div class="card-content"><p><strong>W'bal = 100%:</strong> Pulih sepenuhnya, siap untuk lonjakan</p><p><strong>W'bal = 75%:</strong> Masih kuat, bisa menyerang</p><p><strong>W'bal = 50%:</strong> Kelelahan sedang, berhati-hatilah</p><p><strong>W'bal = 25%:</strong> Kelelahan tinggi, kapasitas lonjakan terbatas</p><p><strong>W'bal = 0%:</strong> Sepenuhnya habis, harus berkendara di bawah CP</p><p class="mt-md"><strong>Wawasan utama:</strong> Bahkan pemulihan singkat di bawah CP memulihkan W'.
+                        Pemulihan 30 detik pada 150W (100W di bawah CP) dapat memulihkan 2-3 kJ W'.</p></div></div></div><div class="callout mt-xl"><h3>🚴 Contoh: Manajemen W'bal Balap MTB</h3><p><strong>Skenario:</strong> Balapan cross-country 90 menit, CP = 250W, W' = 20 kJ</p><ul><li><strong>Lap 1 (0-15 menit):</strong> Kecepatan konservatif, W'bal tetap 80-100%</li><li><strong>Lap 2 (15-30 menit):</strong> Tanjakan keras (350W selama 90 detik) → W'bal turun ke 55%
+                </li><li><strong>Pemulihan (30-35 menit):</strong> Turunan mudah (150W) → W'bal pulih ke 70%</li><li><strong>Lap 3 (35-50 menit):</strong> Bagian teknis dengan lonjakan → W'bal berfluktuasi 60-75%</li><li><strong>Lap 4 (50-65 menit):</strong> Serangan pada tanjakan (380W selama 60 detik) → W'bal turun ke
+                    40%</li><li><strong>Lap terakhir (65-90 menit):</strong> Kelola W'bal dengan hati-hati, simpan untuk sprint
+                    finish</li></ul><p class="mb-0 mt-md"><strong>Hasil:</strong> Dengan memantau W'bal, pengendara tahu persis kapan lonjakan
+                mungkin dilakukan dan kapan pemulihan diperlukan. Tidak menebak berdasarkan "perasaan".</p></div></div></section><section class="section"><div class="container container-narrow"><h2>Aplikasi Praktis CP dan W'</h2><h3>1. Pacing Tanjakan Panjang</h3><p class="mb-md">Gunakan CP untuk menentukan daya pendakian yang berkelanjutan. Jika durasi pendakian 30+ menit,
             target daya harus ≤ CP. Sedikit di atas CP tidak masalah, tetapi lacak W'bal untuk memastikan Anda tidak
-            "meledak" sebelum puncak.</p>
-        <div class="example-box mb-xl">
-            <p><strong>Contoh: Tanjakan 40 Menit</strong></p>
-            <ul class="mb-0">
-                <li><strong>CP = 250W:</strong> Target daya berkelanjutan</li>
-                <li><strong>260W (10W di atas CP):</strong> Sedikit masuk ke W', tetapi berkelanjutan selama 40 menit
-                </li>
-                <li><strong>280W (30W di atas CP):</strong> Terlalu tinggi, W' habis sepenuhnya dalam ~11 menit</li>
-            </ul>
-        </div>
-
-        <h3>2. Strategi Balap MTB dan Cyclocross</h3>
-        <p class="mb-md">Balap off-road melibatkan lonjakan daya konstan di atas CP. Gunakan W'bal untuk mengelola
+            "meledak" sebelum puncak.</p><div class="example-box mb-xl"><p><strong>Contoh: Tanjakan 40 Menit</strong></p><ul class="mb-0"><li><strong>CP = 250W:</strong> Target daya berkelanjutan</li><li><strong>260W (10W di atas CP):</strong> Sedikit masuk ke W', tetapi berkelanjutan selama 40 menit
+                </li><li><strong>280W (30W di atas CP):</strong> Terlalu tinggi, W' habis sepenuhnya dalam ~11 menit</li></ul></div><h3>2. Strategi Balap MTB dan Cyclocross</h3><p class="mb-md">Balap off-road melibatkan lonjakan daya konstan di atas CP. Gunakan W'bal untuk mengelola
             "korek api yang dibakar"—setiap lonjakan menghabiskan W', dan periode pemulihan harus cukup untuk memulihkan
-            kapasitas.</p>
-        <div class="example-box mb-xl">
-            <p><strong>Manajemen Lonjakan MTB:</strong></p>
-            <ul class="mb-0">
-                <li><strong>Sebelum serangan:</strong> Periksa W'bal ≥ 60% (cadangan cukup)</li>
-                <li><strong>Selama lonjakan:</strong> Terima penipisan W', tetapi ketahui biayanya</li>
-                <li><strong>Setelah lonjakan:</strong> Turun di bawah CP untuk memulihkan W' sebelum upaya berikutnya
-                </li>
-                <li><strong>Akhir balapan:</strong> Jika W'bal < 30%, hindari lonjakan besar—Anda akan meledak</li>
-            </ul>
-        </div>
-
-        <h3>3. Taktik Kriterium dan Balap Jalan Raya</h3>
-        <p class="mb-md">Kriterium membutuhkan akselerasi dan serangan berulang. W'bal membantu Anda mengetahui kapan
-            Anda bisa menanggapi serangan dan kapan Anda harus membiarkan jeda pergi.</p>
-        <div class="example-box mb-xl">
-            <p><strong>Keputusan Serangan Crit:</strong></p>
-            <ul class="mb-0">
-                <li><strong>W'bal = 85%:</strong> Ikuti jeda—Anda memiliki cadangan</li>
-                <li><strong>W'bal = 40%:</strong> Berisiko—mungkin meledak saat mengejar</li>
-                <li><strong>W'bal = 15%:</strong> Tetap di paket, pulihkan W' untuk sprint akhir</li>
-            </ul>
-        </div>
-
-        <h3>4. Desain Latihan Interval</h3>
-        <p class="mb-md">Gunakan CP dan W' untuk menyusun interval dengan tepat. Untuk interval VO₂max, daya harus CP +
-            (W' / durasi interval).</p>
-        <div class="example-box mb-xl">
-            <p><strong>Contoh: Interval VO₂max 5 Menit</strong></p>
-            <ul class="mb-0">
-                <li><strong>CP = 250W, W' = 20 kJ</strong></li>
-                <li><strong>Target daya:</strong> 250W + (20.000J / 300s) = 250W + 67W = <strong>317W</strong></li>
-                <li><strong>Ini menghabiskan W' sepenuhnya dalam 5 menit</strong></li>
-                <li><strong>Pemulihan:</strong> 5-10 menit di bawah CP untuk memulihkan W'</li>
-            </ul>
-        </div>
-
-        <h3>5. Pacing Time Trial</h3>
-        <p class="mb-md">Untuk time trial lebih dari 30 menit, berkendara sedikit di bawah CP untuk menghindari
-            penipisan W'. Simpan W' untuk lonjakan finis.</p>
-        <div class="example-box mb-xl">
-            <p><strong>Pacing TT 40K:</strong></p>
-            <ul class="mb-0">
-                <li><strong>35K Pertama:</strong> 95-98% dari CP (hemat W')</li>
-                <li><strong>5K Terakhir:</strong> Tingkatkan secara bertahap ke CP + 10-20W (gunakan W')</li>
-                <li><strong>1K Terakhir:</strong> Kosongkan W' sepenuhnya (sprint finish)</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>Critical Power & W': Pertanyaan yang Sering Diajukan</h2>
-
-        <div class="faq-item">
-            <h3>Apakah CP lebih baik dari FTP?</h3>
-            <p><strong>CP lebih kuat secara ilmiah</strong> karena diturunkan dari beberapa upaya, bukan satu tes
+            kapasitas.</p><div class="example-box mb-xl"><p><strong>Manajemen Lonjakan MTB:</strong></p><ul class="mb-0"><li><strong>Sebelum serangan:</strong> Periksa W'bal ≥ 60% (cadangan cukup)</li><li><strong>Selama lonjakan:</strong> Terima penipisan W', tetapi ketahui biayanya</li><li><strong>Setelah lonjakan:</strong> Turun di bawah CP untuk memulihkan W' sebelum upaya berikutnya
+                </li><li><strong>Akhir balapan:</strong> Jika W'bal < 30%, hindari lonjakan besar—Anda akan meledak</li></ul></div><h3>3. Taktik Kriterium dan Balap Jalan Raya</h3><p class="mb-md">Kriterium membutuhkan akselerasi dan serangan berulang. W'bal membantu Anda mengetahui kapan
+            Anda bisa menanggapi serangan dan kapan Anda harus membiarkan jeda pergi.</p><div class="example-box mb-xl"><p><strong>Keputusan Serangan Crit:</strong></p><ul class="mb-0"><li><strong>W'bal = 85%:</strong> Ikuti jeda—Anda memiliki cadangan</li><li><strong>W'bal = 40%:</strong> Berisiko—mungkin meledak saat mengejar</li><li><strong>W'bal = 15%:</strong> Tetap di paket, pulihkan W' untuk sprint akhir</li></ul></div><h3>4. Desain Latihan Interval</h3><p class="mb-md">Gunakan CP dan W' untuk menyusun interval dengan tepat. Untuk interval VO₂max, daya harus CP +
+            (W' / durasi interval).</p><div class="example-box mb-xl"><p><strong>Contoh: Interval VO₂max 5 Menit</strong></p><ul class="mb-0"><li><strong>CP = 250W, W' = 20 kJ</strong></li><li><strong>Target daya:</strong> 250W + (20.000J / 300s) = 250W + 67W = <strong>317W</strong></li><li><strong>Ini menghabiskan W' sepenuhnya dalam 5 menit</strong></li><li><strong>Pemulihan:</strong> 5-10 menit di bawah CP untuk memulihkan W'</li></ul></div><h3>5. Pacing Time Trial</h3><p class="mb-md">Untuk time trial lebih dari 30 menit, berkendara sedikit di bawah CP untuk menghindari
+            penipisan W'. Simpan W' untuk lonjakan finis.</p><div class="example-box mb-xl"><p><strong>Pacing TT 40K:</strong></p><ul class="mb-0"><li><strong>35K Pertama:</strong> 95-98% dari CP (hemat W')</li><li><strong>5K Terakhir:</strong> Tingkatkan secara bertahap ke CP + 10-20W (gunakan W')</li><li><strong>1K Terakhir:</strong> Kosongkan W' sepenuhnya (sprint finish)</li></ul></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Critical Power & W': Pertanyaan yang Sering Diajukan</h2><div class="faq-item"><h3>Apakah CP lebih baik dari FTP?</h3><p><strong>CP lebih kuat secara ilmiah</strong> karena diturunkan dari beberapa upaya, bukan satu tes
                 tunggal. Namun, FTP lebih sederhana dan dipahami secara luas. Untuk sebagian besar pesepeda, FTP sudah
                 cukup. Gunakan CP jika Anda menginginkan presisi, pelacakan W', atau model pacing balapan. Dalam
-                praktiknya, CP ≈ FTP + 5-10W.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Berapa lama W' pulih sepenuhnya?</h3>
-            <p><strong>Pemulihan bersifat eksponensial, bukan linier.</strong> Pada 100W di bawah CP, W' pulih ~50%
+                praktiknya, CP ≈ FTP + 5-10W.</p></div><div class="faq-item"><h3>Berapa lama W' pulih sepenuhnya?</h3><p><strong>Pemulihan bersifat eksponensial, bukan linier.</strong> Pada 100W di bawah CP, W' pulih ~50%
                 dalam 6 menit, 75% dalam 12 menit, 90% dalam 20 menit. Pemulihan penuh (99%+) memakan waktu 30-40 menit
                 pada daya yang sangat rendah. Semakin jauh di bawah CP Anda berkendara, semakin cepat W' pulih.
-                Istirahat total (0W) TIDAK optimal—putaran ringan (~100-150W) mempercepat pemulihan.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Bisakah saya berlatih untuk meningkatkan W'?</h3>
-            <p><strong>Ya—W' dapat dilatih melalui interval anaerobik.</strong> Interval VO₂max (3-8 menit pada 110-120%
+                Istirahat total (0W) TIDAK optimal—putaran ringan (~100-150W) mempercepat pemulihan.</p></div><div class="faq-item"><h3>Bisakah saya berlatih untuk meningkatkan W'?</h3><p><strong>Ya—W' dapat dilatih melalui interval anaerobik.</strong> Interval VO₂max (3-8 menit pada 110-120%
                 CP) dan lonjakan berulang (30-90s pada 150%+ CP) memperluas W'. Sprinter jalan raya dan pembalap MTB
                 biasanya memiliki W' lebih tinggi daripada pengendara ketahanan. Fokus latihan: 1-2 sesi/minggu interval
-                intensitas tinggi yang menghabiskan W' sepenuhnya, diikuti oleh pemulihan yang memadai.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Apakah W' berkurang seiring kemajuan perjalanan?</h3>
-            <p><strong>Ya—kapasitas W' berkurang dengan akumulasi kelelahan.</strong> Di awal perjalanan, Anda mungkin
+                intensitas tinggi yang menghabiskan W' sepenuhnya, diikuti oleh pemulihan yang memadai.</p></div><div class="faq-item"><h3>Apakah W' berkurang seiring kemajuan perjalanan?</h3><p><strong>Ya—kapasitas W' berkurang dengan akumulasi kelelahan.</strong> Di awal perjalanan, Anda mungkin
                 memiliki 20 kJ yang tersedia. Setelah 2-3 jam berkendara keras, W' efektif mungkin turun menjadi 12-15
                 kJ. Inilah sebabnya mengapa lonjakan akhir balapan terasa lebih keras—cadangan anaerobik Anda terganggu.
-                Bike Analytics dapat memodelkan penipisan W' ini menggunakan faktor kelelahan.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Seberapa sering saya harus menguji ulang CP dan W'?</h3>
-            <p><strong>Setiap 8-12 minggu</strong> selama progresi latihan. CP meningkat lebih lambat daripada FTP
+                Bike Analytics dapat memodelkan penipisan W' ini menggunakan faktor kelelahan.</p></div><div class="faq-item"><h3>Seberapa sering saya harus menguji ulang CP dan W'?</h3><p><strong>Setiap 8-12 minggu</strong> selama progresi latihan. CP meningkat lebih lambat daripada FTP
                 (lebih stabil). W' dapat berubah secara signifikan dengan latihan anaerobik yang ditargetkan. Tes ulang
                 setelah blok latihan utama, penyakit, atau cedera. CP/W' lebih tahan terhadap fluktuasi kebugaran jangka
-                pendek daripada FTP.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Bisakah saya menggunakan CP untuk latihan dalam ruangan?</h3>
-            <p><strong>Tentu saja—CP ideal untuk latihan dalam ruangan.</strong> Smart trainer memberikan daya yang
+                pendek daripada FTP.</p></div><div class="faq-item"><h3>Bisakah saya menggunakan CP untuk latihan dalam ruangan?</h3><p><strong>Tentu saja—CP ideal untuk latihan dalam ruangan.</strong> Smart trainer memberikan daya yang
                 stabil, membuat pengujian CP sangat akurat. Zwift, TrainerRoad, dan platform lainnya mendukung latihan
                 berbasis CP. Pelacakan W'bal bekerja dengan sempurna di dalam ruangan di mana daya konsisten. Banyak
-                pelatih lebih memilih CP untuk latihan dalam ruangan terstruktur.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Apa itu model Keseimbangan W' Skiba?</h3>
-            <p><strong>Model Dr. Philip Skiba tahun 2012 secara matematis melacak penipisan dan pemulihan W'.</strong>
+                pelatih lebih memilih CP untuk latihan dalam ruangan terstruktur.</p></div><div class="faq-item"><h3>Apa itu model Keseimbangan W' Skiba?</h3><p><strong>Model Dr. Philip Skiba tahun 2012 secara matematis melacak penipisan dan pemulihan W'.</strong>
                 Ini menggunakan persamaan diferensial dengan konstanta waktu τ ≈ 377 detik untuk kinetika pemulihan.
                 Model ini diterapkan di WKO5, Golden Cheetah, dan Bike Analytics. Ini adalah standar emas untuk
                 perhitungan W'bal real-time selama perjalanan. Penelitian: Skiba et al. (2012, 2014, 2021) dalam
-                Medicine & Science in Sports & Exercise.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Bisakah CP dan W' memprediksi performa balapan?</h3>
-            <p><strong>Ya—dengan akurasi tinggi untuk upaya 3-60 menit.</strong> Model CP dapat memprediksi waktu hingga
+                Medicine & Science in Sports & Exercise.</p></div><div class="faq-item"><h3>Bisakah CP dan W' memprediksi performa balapan?</h3><p><strong>Ya—dengan akurasi tinggi untuk upaya 3-60 menit.</strong> Model CP dapat memprediksi waktu hingga
                 kelelahan pada daya tertentu. Contoh: Jika CP = 250W dan W' = 20 kJ, Anda dapat mempertahankan 300W
                 selama tepat 6,67 menit (20.000J / 50W = 400s). Untuk upaya yang lebih lama (>60 menit), CP sedikit
-                melebih-lebihkan daya berkelanjutan karena faktor kelelahan tambahan.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Bagaimana ketinggian mempengaruhi CP dan W'?</h3>
-            <p><strong>CP menurun ~1% per 300m di atas ketinggian 1500m.</strong> W' kurang terpengaruh karena kapasitas
+                melebih-lebihkan daya berkelanjutan karena faktor kelelahan tambahan.</p></div><div class="faq-item"><h3>Bagaimana ketinggian mempengaruhi CP dan W'?</h3><p><strong>CP menurun ~1% per 300m di atas ketinggian 1500m.</strong> W' kurang terpengaruh karena kapasitas
                 anaerobik tidak bergantung pada oksigen. Pada 2500m, harapkan CP turun 3-4% tetapi W' tetap serupa. Ini
                 berarti di ketinggian, daya berkelanjutan Anda turun tetapi kapasitas lonjakan Anda (relatif terhadap CP
-                baru) dipertahankan. Tes ulang CP di ketinggian untuk zona latihan yang akurat.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Haruskah saya menggunakan CP untuk latihan ambang batas Zona 4?</h3>
-            <p><strong>Ya—CP mendefinisikan ambang batas Zona 4 dengan tepat.</strong> Interval ambang batas harus
+                baru) dipertahankan. Tes ulang CP di ketinggian untuk zona latihan yang akurat.</p></div><div class="faq-item"><h3>Haruskah saya menggunakan CP untuk latihan ambang batas Zona 4?</h3><p><strong>Ya—CP mendefinisikan ambang batas Zona 4 dengan tepat.</strong> Interval ambang batas harus
                 berada pada 95-105% dari CP. Tidak seperti FTP (diperkirakan dari satu tes), CP memberikan ambang batas
                 yang diturunkan secara matematis. Untuk upaya tempo berkelanjutan (2×20 menit), berkendara di CP. Untuk
                 interval yang lebih pendek (5×5 menit), berkendara di CP + 3-5%. Bike Analytics menghitung <a
-                    href="/id/training-zones/">zona latihan dari CP secara otomatis</a>.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container container-narrow">
-        <h2>Referensi Penelitian</h2>
-
-        <div class="reference-list">
-            <div class="reference-item">
-                <h3>Jones, A.M., Burnley, M., Black, M.I., Poole, D.C., & Vanhatalo, A. (2019)</h3>
-                <p><strong>Critical Power: Theory and Applications</strong></p>
-                <p class="text-secondary">Journal of Applied Physiology, 126(6), 1905-1915.</p>
-                <p>Tinjauan komprehensif teori critical power, dasar fisiologis, dan aplikasi praktis untuk atlet dan
-                    pelatih.</p>
-            </div>
-
-            <div class="reference-item">
-                <h4>Skiba, P.F., Chidnok, W., Vanhatalo, A., & Jones, A.M. (2012)</h4>
-                <p><strong>Modeling the Expenditure and Reconstitution of Work Capacity Above Critical Power</strong>
-                </p>
-                <p class="text-secondary">Medicine and Science in Sports and Exercise, 44(8), 1526-1532.</p>
-                <p>Memperkenalkan model W' Balance dengan kinetika pemulihan eksponensial. Fondasi untuk pelacakan W'bal
-                    real-time.</p>
-            </div>
-
-            <div class="reference-item">
-                <h4>Skiba, P.F., & Clarke, D.C. (2021)</h4>
-                <p><strong>The W′ Balance: Mathematical and Methodological Considerations</strong></p>
-                <p class="text-secondary">International Journal of Sports Physiology and Performance, 16(11), 1561-1572.
-                </p>
-                <p>Tinjauan terbaru metode perhitungan W' Balance, studi validasi, dan pertimbangan implementasi
-                    praktis.</p>
-            </div>
-
-            <div class="reference-item">
-                <h4>Poole, D.C., Burnley, M., Vanhatalo, A., Rossiter, H.B., & Jones, A.M. (2016)</h4>
-                <p><strong>Critical Power: An Important Fatigue Threshold in Exercise Physiology</strong></p>
-                <p class="text-secondary">Medicine and Science in Sports and Exercise, 48(11), 2320-2334.</p>
-                <p>Memvalidasi critical power sebagai ambang batas fisiologis yang memisahkan domain latihan berat dari
-                    parah.</p>
-            </div>
-
-            <div class="reference-item">
-                <h4>Clark, I.E., Vanhatalo, A., Thompson, C., et al. (2021)</h4>
-                <p><strong>A Comparative Analysis of Critical Power Models in Elite Road Cyclists</strong></p>
-                <p class="text-secondary">European Journal of Applied Physiology, 121, 3027-3037.</p>
-                <p>Membandingkan metode perhitungan CP yang berbeda pada pesepeda elit. Menunjukkan CP sejalan dengan
-                    titik kompensasi pernapasan.</p>
-            </div>
-        </div>
-
-        <div class="callout callout-tip mt-xl">
-            <h3>📚 Bacaan Lebih Lanjut</h3>
-            <ul class="mb-0">
-                <li><strong>Training and Racing with a Power Meter (Edisi ke-3)</strong> oleh Hunter Allen & Andrew
-                    Coggan - Bab tentang Critical Power dan W'</li>
-                <li><strong>Dokumentasi Perangkat Lunak WKO5</strong> - Panduan implementasi CP dan W'bal terperinci
-                </li>
-                <li><strong>Analisis CP Golden Cheetah</strong> - Alat open-source untuk pemasangan kurva CP</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container container-narrow">
-        <h2>Sumber Terkait</h2>
-
-        <div class="grid grid-3">
-            <div class="card">
-                <h3 class="card-title">Tes FTP</h3>
-                <div class="card-content">
-                    <p>Pelajari protokol tes FTP standar 20 menit dan bagaimana hubungan FTP dengan Critical Power.</p>
-                    <a href="/id/ftp/" class="btn btn-secondary btn-small mt-md">Panduan FTP →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Zona Latihan</h3>
-                <div class="card-content">
-                    <p>Pahami sistem latihan berbasis daya 7 zona yang diturunkan dari CP atau FTP.</p>
-                    <a href="/id/training-zones/" class="btn btn-secondary btn-small mt-md">Zona Latihan →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Beban Latihan</h3>
-                <div class="card-content">
-                    <p>Pelajari bagaimana CP mempengaruhi perhitungan TSS dan manajemen stres latihan secara
-                        keseluruhan.</p>
-                    <a href="/id/training-load/" class="btn btn-secondary btn-small mt-md">TSS & PMC →</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-xl text-center">
-            <p class="mb-md"><strong>Siap melacak CP dan W'bal?</strong></p>
-            <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="btn btn-primary btn-large" target="_blank"
-                rel="noopener">Unduh Bike Analytics Gratis</a>
-            <p class="mt-sm text-secondary">Pelacakan CP dan W' Balance lanjutan disertakan</p>
-        </div>
-    </div>
-</section>
-    
-  </main>
-
-  
-  <footer class="site-footer">
-    <div class="container">
-        
-        <div class="footer-top">
-            <div class="footer-brand-section">
-                
-                <h2>Bike Analytics</h2>
-                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
-                
-            </div>
-
-            
-            <div class="footer-download">
-                <h3 class="footer-heading">Download</h3>
-                <div class="footer-badges">
-                    
-                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Download on the App Store">
-                        <img src="../../assets/images/badge-app-store.svg"
+                    href="/id/training-zones/">zona latihan dari CP secara otomatis</a>.</p></div></div></section><section class="section"><div class="container container-narrow"><h2>Referensi Penelitian</h2><div class="reference-list"><div class="reference-item"><h3>Jones, A.M., Burnley, M., Black, M.I., Poole, D.C., & Vanhatalo, A. (2019)</h3><p><strong>Critical Power: Theory and Applications</strong></p><p class="text-secondary">Journal of Applied Physiology, 126(6), 1905-1915.</p><p>Tinjauan komprehensif teori critical power, dasar fisiologis, dan aplikasi praktis untuk atlet dan
+                    pelatih.</p></div><div class="reference-item"><h4>Skiba, P.F., Chidnok, W., Vanhatalo, A., & Jones, A.M. (2012)</h4><p><strong>Modeling the Expenditure and Reconstitution of Work Capacity Above Critical Power</strong></p><p class="text-secondary">Medicine and Science in Sports and Exercise, 44(8), 1526-1532.</p><p>Memperkenalkan model W' Balance dengan kinetika pemulihan eksponensial. Fondasi untuk pelacakan W'bal
+                    real-time.</p></div><div class="reference-item"><h4>Skiba, P.F., & Clarke, D.C. (2021)</h4><p><strong>The W′ Balance: Mathematical and Methodological Considerations</strong></p><p class="text-secondary">International Journal of Sports Physiology and Performance, 16(11), 1561-1572.
+                </p><p>Tinjauan terbaru metode perhitungan W' Balance, studi validasi, dan pertimbangan implementasi
+                    praktis.</p></div><div class="reference-item"><h4>Poole, D.C., Burnley, M., Vanhatalo, A., Rossiter, H.B., & Jones, A.M. (2016)</h4><p><strong>Critical Power: An Important Fatigue Threshold in Exercise Physiology</strong></p><p class="text-secondary">Medicine and Science in Sports and Exercise, 48(11), 2320-2334.</p><p>Memvalidasi critical power sebagai ambang batas fisiologis yang memisahkan domain latihan berat dari
+                    parah.</p></div><div class="reference-item"><h4>Clark, I.E., Vanhatalo, A., Thompson, C., et al. (2021)</h4><p><strong>A Comparative Analysis of Critical Power Models in Elite Road Cyclists</strong></p><p class="text-secondary">European Journal of Applied Physiology, 121, 3027-3037.</p><p>Membandingkan metode perhitungan CP yang berbeda pada pesepeda elit. Menunjukkan CP sejalan dengan
+                    titik kompensasi pernapasan.</p></div></div><div class="callout callout-tip mt-xl"><h3>📚 Bacaan Lebih Lanjut</h3><ul class="mb-0"><li><strong>Training and Racing with a Power Meter (Edisi ke-3)</strong> oleh Hunter Allen & Andrew
+                    Coggan - Bab tentang Critical Power dan W'</li><li><strong>Dokumentasi Perangkat Lunak WKO5</strong> - Panduan implementasi CP dan W'bal terperinci
+                </li><li><strong>Analisis CP Golden Cheetah</strong> - Alat open-source untuk pemasangan kurva CP</li></ul></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Sumber Terkait</h2><div class="grid grid-3"><div class="card"><h3 class="card-title">Tes FTP</h3><div class="card-content"><p>Pelajari protokol tes FTP standar 20 menit dan bagaimana hubungan FTP dengan Critical Power.</p><a href="/id/ftp/" class="btn btn-secondary btn-small mt-md">Panduan FTP →</a></div></div><div class="card"><h3 class="card-title">Zona Latihan</h3><div class="card-content"><p>Pahami sistem latihan berbasis daya 7 zona yang diturunkan dari CP atau FTP.</p><a href="/id/training-zones/" class="btn btn-secondary btn-small mt-md">Zona Latihan →</a></div></div><div class="card"><h3 class="card-title">Beban Latihan</h3><div class="card-content"><p>Pelajari bagaimana CP mempengaruhi perhitungan TSS dan manajemen stres latihan secara
+                        keseluruhan.</p><a href="/id/training-load/" class="btn btn-secondary btn-small mt-md">TSS & PMC →</a></div></div></div><div class="mt-xl text-center"><p class="mb-md"><strong>Siap melacak CP dan W'bal?</strong></p><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="btn btn-primary btn-large" target="_blank"
+                rel="noopener">Unduh Bike Analytics Gratis</a><p class="mt-sm text-secondary">Pelacakan CP dan W' Balance lanjutan disertakan</p></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Download</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Download on the App Store"><img src="../../assets/images/badge-app-store.svg"
                             alt="Download on the App Store" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                    
-                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Get it on Google Play">
-                        <img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Get it on Google Play"><img src="../../assets/images/badge-google-play.svg"
                             alt="Get it on Google Play" width="135"
-                            height="40" loading="lazy">
-                    </a>
-                    
-                </div>
-            </div>
-            
-        </div>
-
-        
-        <div class="footer-languages">
-            <h3 class="footer-heading">Available in</h3>
-            <div class="lang-grid">
-                
-                <a href="/af/" class="lang-link"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Available in</h3><div class="lang-grid"><a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a>
-                
-                <a href="/am/" class="lang-link"
+                </a><a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a>
-                
-                <a href="/ar/" class="lang-link"
+                </a><a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a>
-                
-                <a href="/bg/" class="lang-link"
+                </a><a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a>
-                
-                <a href="/bn/" class="lang-link"
+                </a><a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a>
-                
-                <a href="/ca/" class="lang-link"
+                </a><a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a>
-                
-                <a href="/cs/" class="lang-link"
+                </a><a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a>
-                
-                <a href="/da/" class="lang-link"
+                </a><a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a>
-                
-                <a href="/de/" class="lang-link"
+                </a><a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a>
-                
-                <a href="/el/" class="lang-link"
+                </a><a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a>
-                
-                <a href="/en/" class="lang-link"
+                </a><a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a>
-                
-                <a href="/es/" class="lang-link"
+                </a><a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a>
-                
-                <a href="/et/" class="lang-link"
+                </a><a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a>
-                
-                <a href="/fa/" class="lang-link"
+                </a><a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a>
-                
-                <a href="/fi/" class="lang-link"
+                </a><a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a>
-                
-                <a href="/fr/" class="lang-link"
+                </a><a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a>
-                
-                <a href="/gu/" class="lang-link"
+                </a><a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a>
-                
-                <a href="/ha/" class="lang-link"
+                </a><a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a>
-                
-                <a href="/he/" class="lang-link"
+                </a><a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a>
-                
-                <a href="/hi/" class="lang-link"
+                </a><a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a>
-                
-                <a href="/hr/" class="lang-link"
+                </a><a href="/hr/" class="lang-link"
                     hreflang="hr" >
                     Hrvatski
-                </a>
-                
-                <a href="/hu/" class="lang-link"
+                </a><a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a>
-                
-                <a href="/id/" class="lang-link active"
+                </a><a href="/id/" class="lang-link active"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a>
-                
-                <a href="/is/" class="lang-link"
+                </a><a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a>
-                
-                <a href="/it/" class="lang-link"
+                </a><a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a>
-                
-                <a href="/ja/" class="lang-link"
+                </a><a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a>
-                
-                <a href="/km/" class="lang-link"
+                </a><a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a>
-                
-                <a href="/kn/" class="lang-link"
+                </a><a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a>
-                
-                <a href="/ko/" class="lang-link"
+                </a><a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a>
-                
-                <a href="/lt/" class="lang-link"
+                </a><a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a>
-                
-                <a href="/lv/" class="lang-link"
+                </a><a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a>
-                
-                <a href="/ms/" class="lang-link"
+                </a><a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a>
-                
-                <a href="/my/" class="lang-link"
+                </a><a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a>
-                
-                <a href="/nb/" class="lang-link"
+                </a><a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a>
-                
-                <a href="/nl/" class="lang-link"
+                </a><a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a>
-                
-                <a href="/pl/" class="lang-link"
+                </a><a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a>
-                
-                <a href="/pt/" class="lang-link"
+                </a><a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a>
-                
-                <a href="/pt-br/" class="lang-link"
+                </a><a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a>
-                
-                <a href="/ro/" class="lang-link"
+                </a><a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a>
-                
-                <a href="/ru/" class="lang-link"
+                </a><a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a>
-                
-                <a href="/sk/" class="lang-link"
+                </a><a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a>
-                
-                <a href="/sl/" class="lang-link"
+                </a><a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a>
-                
-                <a href="/sr/" class="lang-link"
+                </a><a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a>
-                
-                <a href="/sv/" class="lang-link"
+                </a><a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a>
-                
-                <a href="/sw/" class="lang-link"
+                </a><a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a>
-                
-                <a href="/ta/" class="lang-link"
+                </a><a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a>
-                
-                <a href="/te/" class="lang-link"
+                </a><a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a>
-                
-                <a href="/th/" class="lang-link"
+                </a><a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a>
-                
-                <a href="/tl/" class="lang-link"
+                </a><a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a>
-                
-                <a href="/tr/" class="lang-link"
+                </a><a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a>
-                
-                <a href="/uk/" class="lang-link"
+                </a><a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a>
-                
-                <a href="/ur/" class="lang-link"
+                </a><a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a>
-                
-                <a href="/vi/" class="lang-link"
+                </a><a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a>
-                
-                <a href="/yo/" class="lang-link"
+                </a><a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a>
-                
-                <a href="/zh/" class="lang-link"
+                </a><a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a>
-                
-            </div>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        
-        <div class="footer-bottom">
-            <p class="copyright">
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
                 &copy; 2026 Bike Analytics. Seluruh hak cipta dilindungi
-            </p>
-            <ul class="footer-legal">
-                <li><a href="/id/privacy/">Privasi</a></li>
-                <li><a href="/id/terms/">Ketentuan</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-  
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-    <div class="cookie-banner-content">
-        <div>
-            <p>Situs web ini menggunakan cookie untuk meningkatkan pengalaman Anda.</p>
-            <a href="/id/privacy/" class="text-sm">Pelajari lebih lanjut</a>
-        </div>
-        <div class="cookie-banner-actions">
-            <button id="cookie-decline" class="btn btn-secondary btn-small">Tolak</button>
-            <button id="cookie-accept" class="btn btn-primary btn-small">Terima</button>
-        </div>
-    </div>
-</div>
-
-  
-  <script src="../../assets/js/core.min.js?v=540c31aabebc" defer></script>
-  <script src="../../assets/js/search.min.js?v=540c31aabebc" defer></script>
-  
-
-  
-  
-  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
-  
-
-  
-  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
-</body>
-
-</html>
+            </p><ul class="footer-legal"><li><a href="/id/privacy/">Privasi</a></li><li><a href="/id/terms/">Ketentuan</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>Situs web ini menggunakan cookie untuk meningkatkan pengalaman Anda.</p><a href="/id/privacy/" class="text-sm">Pelajari lebih lanjut</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">Tolak</button><button id="cookie-accept" class="btn btn-primary btn-small">Terima</button></div></div></div><script src="../../assets/js/core.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/search.min.js?v=607a8874d9bc" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>
