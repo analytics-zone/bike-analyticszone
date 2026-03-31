@@ -1,61 +1,251 @@
-<!DOCTYPE html><html lang="hr" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-    rel="stylesheet"><title>Vodič za mjerenje biciklističke snage - objašnjenje NP, IF, VI, W&#39;bal</title><meta name="description" content="Potpuni vodič za metriku snage biciklizma: objašnjenje normalizirane snage (NP), faktora intenziteta (IF), indeksa varijabilnosti (VI) i ravnoteže W&#39;."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="normalizirana snaga, faktor intenziteta, indeks varijabilnosti, W glavni saldo, metrika biciklističke snage"><link rel="canonical" href="https://bike.analyticszone.app/hr/power-metrics/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-02-05T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/hr/power-metrics/"><meta property="og:title" content="Vodič za mjerenje biciklističke snage - objašnjenje NP, IF, VI, W&#39;bal"><meta property="og:description" content="Potpuni vodič za metriku snage biciklizma: objašnjenje normalizirane snage (NP), faktora intenziteta (IF), indeksa varijabilnosti (VI) i ravnoteže W&#39;."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="hr_HR"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/hr/power-metrics/"><meta name="twitter:title" content="Vodič za mjerenje biciklističke snage - objašnjenje NP, IF, VI, W&#39;bal"><meta name="twitter:description" content="Potpuni vodič za metriku snage biciklizma: objašnjenje normalizirane snage (NP), faktora intenziteta (IF), indeksa varijabilnosti (VI) i ravnoteže W&#39;."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
-    href="https://bike.analyticszone.app/af/power-metrics/"><link rel="alternate" hreflang="am"
-    href="https://bike.analyticszone.app/am/power-metrics/"><link rel="alternate" hreflang="ar"
-    href="https://bike.analyticszone.app/ar/power-metrics/"><link rel="alternate" hreflang="bg"
-    href="https://bike.analyticszone.app/bg/power-metrics/"><link rel="alternate" hreflang="bn"
-    href="https://bike.analyticszone.app/bn/power-metrics/"><link rel="alternate" hreflang="ca"
-    href="https://bike.analyticszone.app/ca/power-metrics/"><link rel="alternate" hreflang="cs"
-    href="https://bike.analyticszone.app/cs/power-metrics/"><link rel="alternate" hreflang="da"
-    href="https://bike.analyticszone.app/da/power-metrics/"><link rel="alternate" hreflang="de"
-    href="https://bike.analyticszone.app/de/power-metrics/"><link rel="alternate" hreflang="el"
-    href="https://bike.analyticszone.app/el/power-metrics/"><link rel="alternate" hreflang="en"
-    href="https://bike.analyticszone.app/en/power-metrics/"><link rel="alternate" hreflang="es"
-    href="https://bike.analyticszone.app/es/power-metrics/"><link rel="alternate" hreflang="et"
-    href="https://bike.analyticszone.app/et/power-metrics/"><link rel="alternate" hreflang="fa"
-    href="https://bike.analyticszone.app/fa/power-metrics/"><link rel="alternate" hreflang="fi"
-    href="https://bike.analyticszone.app/fi/power-metrics/"><link rel="alternate" hreflang="fr"
-    href="https://bike.analyticszone.app/fr/power-metrics/"><link rel="alternate" hreflang="gu"
-    href="https://bike.analyticszone.app/gu/power-metrics/"><link rel="alternate" hreflang="ha"
-    href="https://bike.analyticszone.app/ha/power-metrics/"><link rel="alternate" hreflang="he"
-    href="https://bike.analyticszone.app/he/power-metrics/"><link rel="alternate" hreflang="hi"
-    href="https://bike.analyticszone.app/hi/power-metrics/"><link rel="alternate" hreflang="hr"
-    href="https://bike.analyticszone.app/hr/power-metrics/"><link rel="alternate" hreflang="hu"
-    href="https://bike.analyticszone.app/hu/power-metrics/"><link rel="alternate" hreflang="id"
-    href="https://bike.analyticszone.app/id/power-metrics/"><link rel="alternate" hreflang="is"
-    href="https://bike.analyticszone.app/is/power-metrics/"><link rel="alternate" hreflang="it"
-    href="https://bike.analyticszone.app/it/power-metrics/"><link rel="alternate" hreflang="ja"
-    href="https://bike.analyticszone.app/ja/power-metrics/"><link rel="alternate" hreflang="km"
-    href="https://bike.analyticszone.app/km/power-metrics/"><link rel="alternate" hreflang="kn"
-    href="https://bike.analyticszone.app/kn/power-metrics/"><link rel="alternate" hreflang="ko"
-    href="https://bike.analyticszone.app/ko/power-metrics/"><link rel="alternate" hreflang="lt"
-    href="https://bike.analyticszone.app/lt/power-metrics/"><link rel="alternate" hreflang="lv"
-    href="https://bike.analyticszone.app/lv/power-metrics/"><link rel="alternate" hreflang="ms"
-    href="https://bike.analyticszone.app/ms/power-metrics/"><link rel="alternate" hreflang="my"
-    href="https://bike.analyticszone.app/my/power-metrics/"><link rel="alternate" hreflang="nb"
-    href="https://bike.analyticszone.app/nb/power-metrics/"><link rel="alternate" hreflang="nl"
-    href="https://bike.analyticszone.app/nl/power-metrics/"><link rel="alternate" hreflang="pl"
-    href="https://bike.analyticszone.app/pl/power-metrics/"><link rel="alternate" hreflang="pt"
-    href="https://bike.analyticszone.app/pt/power-metrics/"><link rel="alternate" hreflang="pt-br"
-    href="https://bike.analyticszone.app/pt-br/power-metrics/"><link rel="alternate" hreflang="ro"
-    href="https://bike.analyticszone.app/ro/power-metrics/"><link rel="alternate" hreflang="ru"
-    href="https://bike.analyticszone.app/ru/power-metrics/"><link rel="alternate" hreflang="sk"
-    href="https://bike.analyticszone.app/sk/power-metrics/"><link rel="alternate" hreflang="sl"
-    href="https://bike.analyticszone.app/sl/power-metrics/"><link rel="alternate" hreflang="sr"
-    href="https://bike.analyticszone.app/sr/power-metrics/"><link rel="alternate" hreflang="sv"
-    href="https://bike.analyticszone.app/sv/power-metrics/"><link rel="alternate" hreflang="sw"
-    href="https://bike.analyticszone.app/sw/power-metrics/"><link rel="alternate" hreflang="ta"
-    href="https://bike.analyticszone.app/ta/power-metrics/"><link rel="alternate" hreflang="te"
-    href="https://bike.analyticszone.app/te/power-metrics/"><link rel="alternate" hreflang="th"
-    href="https://bike.analyticszone.app/th/power-metrics/"><link rel="alternate" hreflang="tl"
-    href="https://bike.analyticszone.app/tl/power-metrics/"><link rel="alternate" hreflang="tr"
-    href="https://bike.analyticszone.app/tr/power-metrics/"><link rel="alternate" hreflang="uk"
-    href="https://bike.analyticszone.app/uk/power-metrics/"><link rel="alternate" hreflang="ur"
-    href="https://bike.analyticszone.app/ur/power-metrics/"><link rel="alternate" hreflang="vi"
-    href="https://bike.analyticszone.app/vi/power-metrics/"><link rel="alternate" hreflang="yo"
-    href="https://bike.analyticszone.app/yo/power-metrics/"><link rel="alternate" hreflang="zh"
-    href="https://bike.analyticszone.app/zh/power-metrics/"><link rel="alternate" hreflang="x-default"
-    href="https://bike.analyticszone.app/en/power-metrics/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
+<!DOCTYPE html>
+<html lang="hr" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet">
+
+  
+  <title>Vodič za mjerenje biciklističke snage - objašnjenje NP, IF, VI, W&#39;bal</title>
+  <meta name="description" content="Potpuni vodič za metriku snage biciklizma: objašnjenje normalizirane snage (NP), faktora intenziteta (IF), indeksa varijabilnosti (VI) i ravnoteže W&#39;.">
+  <meta name="author" content="AnalyticsZone Team">
+
+  
+  
+  <meta name="keywords" content="normalizirana snaga, faktor intenziteta, indeks varijabilnosti, W glavni saldo, metrika biciklističke snage">
+  
+
+  
+  <link rel="canonical" href="https://bike.analyticszone.app/hr/power-metrics/">
+
+  
+  
+  <meta property="article:published_time" content="2025-01-15T10:00:00Z">
+  <meta property="article:modified_time" content="2026-03-24T14:30:00Z">
+  <meta property="article:author" content="AnalyticsZone Team">
+  
+
+  
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bike.analyticszone.app/hr/power-metrics/">
+  <meta property="og:title" content="Vodič za mjerenje biciklističke snage - objašnjenje NP, IF, VI, W&#39;bal">
+  <meta property="og:description" content="Potpuni vodič za metriku snage biciklizma: objašnjenje normalizirane snage (NP), faktora intenziteta (IF), indeksa varijabilnosti (VI) i ravnoteže W&#39;.">
+  <meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  <meta property="og:locale" content="hr_HR">
+  <meta property="og:site_name" content="Bike Analytics">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://bike.analyticszone.app/hr/power-metrics/">
+  <meta name="twitter:title" content="Vodič za mjerenje biciklističke snage - objašnjenje NP, IF, VI, W&#39;bal">
+  <meta name="twitter:description" content="Potpuni vodič za metriku snage biciklizma: objašnjenje normalizirane snage (NP), faktora intenziteta (IF), indeksa varijabilnosti (VI) i ravnoteže W&#39;.">
+  <meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg">
+  
+  <meta name="twitter:site" content="@bikeanalytics">
+  <meta name="twitter:creator" content="@bikeanalytics">
+  
+
+  
+  
+  <link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/power-metrics/">
+  
+  <link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/power-metrics/">
+  
+  <link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/power-metrics/">
+  
+  <link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/power-metrics/">
+  
+  <link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/power-metrics/">
+  
+  <link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/power-metrics/">
+  
+  <link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/power-metrics/">
+  
+  <link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/power-metrics/">
+  
+  <link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/power-metrics/">
+  
+  <link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/power-metrics/">
+  
+  <link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/power-metrics/">
+  
+  <link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/power-metrics/">
+  
+  <link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/power-metrics/">
+  
+  <link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/power-metrics/">
+  
+  <link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/power-metrics/">
+  
+  <link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/power-metrics/">
+  
+  <link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/power-metrics/">
+  
+  <link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/power-metrics/">
+  
+  <link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/power-metrics/">
+  
+  <link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/power-metrics/">
+  
+  <link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/power-metrics/">
+  
+  <link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/power-metrics/">
+  
+  <link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/power-metrics/">
+  
+  <link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/power-metrics/">
+  
+  <link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/power-metrics/">
+  
+  <link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/power-metrics/">
+  
+  <link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/power-metrics/">
+  
+  <link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/power-metrics/">
+  
+  <link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/power-metrics/">
+  
+  <link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/power-metrics/">
+  
+  <link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/power-metrics/">
+  
+  <link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/power-metrics/">
+  
+  <link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/power-metrics/">
+  
+  <link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/power-metrics/">
+  
+  <link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/power-metrics/">
+  
+  <link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/power-metrics/">
+  
+  <link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/power-metrics/">
+  
+  <link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/power-metrics/">
+  
+  <link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/power-metrics/">
+  
+  <link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/power-metrics/">
+  
+  <link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/power-metrics/">
+  
+  <link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/power-metrics/">
+  
+  <link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/power-metrics/">
+  
+  <link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/power-metrics/">
+  
+  <link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/power-metrics/">
+  
+  <link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/power-metrics/">
+  
+  <link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/power-metrics/">
+  
+  <link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/power-metrics/">
+  
+  <link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/power-metrics/">
+  
+  <link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/power-metrics/">
+  
+  <link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/power-metrics/">
+  
+  <link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/power-metrics/">
+  
+  <link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/power-metrics/">
+  
+  <link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/power-metrics/">
+  
+  <link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/power-metrics/">
+  
+  <link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/power-metrics/">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="../../manifest.json">
+  <meta name="theme-color" content="#2563EB">
+  
+  
+  
+  
+  <meta name="robots" content="index, follow">
+  
+
+  
+  
+  
+  <meta name="apple-itunes-app" content="app-id=6755187319">
+  
+
+  
+  <style>
 /* Critical CSS - Above the fold styles for fast LCP */
 :root {
   --color-primary: #0066CC;
@@ -314,7 +504,20 @@ img[width][height] {
     transition-duration: 0.01ms !important;
   }
 }
-</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=635348535bde"><script type="application/ld+json">
+</style>
+
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  
+  <link rel="stylesheet" href="../../assets/css/main.min.css?v=19fdca55b3da">
+
+  
+  
+
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -349,7 +552,10 @@ img[width][height] {
     
   ]
 }
-</script><script type="application/ld+json">
+</script>
+
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -358,7 +564,11 @@ img[width][height] {
   "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
   "inLanguage": "hr"
 }
-</script><script type="application/ld+json">
+</script>
+
+
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -373,7 +583,12 @@ img[width][height] {
   },
   "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
 }
-</script><script type="application/ld+json">
+</script>
+
+
+
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -402,7 +617,11 @@ img[width][height] {
     
   ]
 }
-</script><script type="application/ld+json">
+</script>
+
+
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -416,7 +635,7 @@ img[width][height] {
     "url": "https://bike.analyticszone.app"
   },
   "datePublished": "2025-01-15",
-  "dateModified": "2026-02-05",
+  "dateModified": "2026-03-24",
   "keywords": ["normalizirana snaga", "faktor intenziteta", "indeks varijabilnosti", "W glavni saldo", "metrika biciklističke snage"],
   "about": [
     {
@@ -445,7 +664,14 @@ img[width][height] {
     }
   ]
 }
-</script><script type="application/ld+json">
+</script>
+
+
+
+
+
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -464,13 +690,23 @@ img[width][height] {
     }
   },
   "datePublished": "2025-01-15",
-  "dateModified": "2026-02-05",
+  "dateModified": "2026-03-24",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://bike.analyticszone.app/hr/power-metrics/"
   }
 }
-</script><script>
+</script>
+
+
+
+
+
+  
+  
+
+  
+  <script>
     (function () {
       let theme = localStorage.getItem('theme');
       // Older builds could persist a per-subdomain `theme=light` value without a UI
@@ -484,191 +720,1088 @@ img[width][height] {
         document.documentElement.classList.add('dark-mode');
       }
     })();
-  </script></head><body><a href="#main-content" class="skip-link">Skoči na sadržaj</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/hr/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
-                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/hr/" 
+  </script>
+</head>
+
+<body>
+  
+  <a href="#main-content" class="skip-link">Skoči na sadržaj</a>
+
+  
+  <header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            
+            <a href="/hr/" class="site-logo">
+                <picture>
+                    <source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)">
+                    <img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56">
+                </picture>
+                <span class="logo-text">Bike Analytics</span>
+            </a>
+
+            
+            <nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation">
+                <div class="nav-group-left">
+                    <ul>
+                        
+                        <li>
+                            
+                            <a href="/hr/" 
                                 aria-current="">
                                 Početna
-                            </a></li><li class="has-submenu" ><a href="/hr/getting-started/" class="nav-label">Uči</a><ul class="submenu"><li><a href="/hr/getting-started/" 
+                            </a>
+                            
+                            </li>
+                            
+                        <li class="has-submenu" >
+                            
+                            
+                            <a href="/hr/getting-started/" class="nav-label">Uči</a>
+                            
+                            <ul class="submenu">
+                                
+                                <li>
+                                    <a href="/hr/getting-started/" 
                                         aria-current="">
                                         Početak
-                                    </a></li><li><a href="/hr/ftp/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/ftp/" 
                                         aria-current="">
                                         FTP
-                                    </a></li><li><a href="/hr/critical-power/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/critical-power/" 
                                         aria-current="">
                                         Kritična snaga
-                                    </a></li><li><a href="/hr/training-zones/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/training-zones/" 
                                         aria-current="">
                                         Zone treninga
-                                    </a></li><li><a href="/hr/training-load/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/training-load/" 
                                         aria-current="">
                                         Opterećenje
-                                    </a></li><li><a href="/hr/tss-calculator/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/tss-calculator/" 
                                         aria-current="">
                                         TSS kalkulator
-                                    </a></li></ul></li><li class="has-submenu" ><a href="/hr/research/" class="nav-label">Znanost</a><ul class="submenu"><li><a href="/hr/research/" 
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            
+                            </li>
+                            
+                        <li class="has-submenu" >
+                            
+                            
+                            <a href="/hr/research/" class="nav-label">Znanost</a>
+                            
+                            <ul class="submenu">
+                                
+                                <li>
+                                    <a href="/hr/research/" 
                                         aria-current="">
                                         Istraživanje
-                                    </a></li><li><a href="/hr/formulas/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/formulas/" 
                                         aria-current="">
                                         Formule
-                                    </a></li><li><a href="/hr/power-metrics/" class="active" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/power-metrics/" class="active" 
                                         aria-current="page">
                                         Metrike snage
-                                    </a></li><li><a href="/hr/efficiency/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/efficiency/" 
                                         aria-current="">
                                         Učinkovitost
-                                    </a></li><li><a href="/hr/pedaling-mechanics/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/pedaling-mechanics/" 
                                         aria-current="">
                                         Mehanika pedaliranja
-                                    </a></li><li><a href="/hr/aerodynamics/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/aerodynamics/" 
                                         aria-current="">
                                         Aerodinamika
-                                    </a></li><li><a href="/hr/climbing-performance/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/climbing-performance/" 
                                         aria-current="">
                                         Performanse na usponu
-                                    </a></li><li><a href="/hr/bibliography/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/bibliography/" 
                                         aria-current="">
                                         Bibliografija
-                                    </a></li></ul></li><li class="has-submenu" ><a href="/hr/road-cycling/" class="nav-label">Discipline</a><ul class="submenu"><li><a href="/hr/road-cycling/" 
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            
+                            </li>
+                            
+                        <li class="has-submenu" >
+                            
+                            
+                            <a href="/hr/road-cycling/" class="nav-label">Discipline</a>
+                            
+                            <ul class="submenu">
+                                
+                                <li>
+                                    <a href="/hr/road-cycling/" 
                                         aria-current="">
                                         Cestovni biciklizam
-                                    </a></li><li><a href="/hr/mountain-biking/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/mountain-biking/" 
                                         aria-current="">
                                         Brdski biciklizam
-                                    </a></li><li><a href="/hr/road-vs-mtb/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/road-vs-mtb/" 
                                         aria-current="">
                                         Cesta vs MTB
-                                    </a></li><li><a href="/hr/comparisons/" 
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/hr/comparisons/" 
                                         aria-current="">
                                         Usporedba platformi
-                                    </a></li></ul></li><li><a href="/hr/contact/" 
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            
+                            </li>
+                            
+                        <li>
+                            
+                            <a href="/hr/contact/" 
                                 aria-current="">
                                 Kontakt
-                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            </a>
+                            
+                            </li>
+                            
+                    </ul>
+
+                    
+                    <div class="search-container">
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
-                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="Odaberi jezik"><option value="af" >
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" />
+                        <div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div>
+                    </div>
+
+                    
+                    <select class="language-selector" id="language-select" aria-label="Odaberi jezik">
+                        
+                        <option value="af" >
                             Afrikaans
-                        </option><option value="am" >
+                        </option>
+                        
+                        <option value="am" >
                             አማርኛ
-                        </option><option value="ar" >
+                        </option>
+                        
+                        <option value="ar" >
                             العربية
-                        </option><option value="bg" >
+                        </option>
+                        
+                        <option value="bg" >
                             Български
-                        </option><option value="bn" >
+                        </option>
+                        
+                        <option value="bn" >
                             বাংলা
-                        </option><option value="ca" >
+                        </option>
+                        
+                        <option value="ca" >
                             Català
-                        </option><option value="cs" >
+                        </option>
+                        
+                        <option value="cs" >
                             Čeština
-                        </option><option value="da" >
+                        </option>
+                        
+                        <option value="da" >
                             Dansk
-                        </option><option value="de" >
+                        </option>
+                        
+                        <option value="de" >
                             Deutsch
-                        </option><option value="el" >
+                        </option>
+                        
+                        <option value="el" >
                             Ελληνικά
-                        </option><option value="en" >
+                        </option>
+                        
+                        <option value="en" >
                             English
-                        </option><option value="es" >
+                        </option>
+                        
+                        <option value="es" >
                             Español
-                        </option><option value="et" >
+                        </option>
+                        
+                        <option value="et" >
                             Eesti
-                        </option><option value="fa" >
+                        </option>
+                        
+                        <option value="fa" >
                             فارسی
-                        </option><option value="fi" >
+                        </option>
+                        
+                        <option value="fi" >
                             Suomi
-                        </option><option value="fr" >
+                        </option>
+                        
+                        <option value="fr" >
                             Français
-                        </option><option value="gu" >
+                        </option>
+                        
+                        <option value="gu" >
                             ગુજરાતી
-                        </option><option value="ha" >
+                        </option>
+                        
+                        <option value="ha" >
                             Hausa
-                        </option><option value="he" >
+                        </option>
+                        
+                        <option value="he" >
                             עברית
-                        </option><option value="hi" >
+                        </option>
+                        
+                        <option value="hi" >
                             हिन्दी
-                        </option><option value="hr" selected>
+                        </option>
+                        
+                        <option value="hr" selected>
                             Hrvatski
-                        </option><option value="hu" >
+                        </option>
+                        
+                        <option value="hu" >
                             Magyar
-                        </option><option value="id" >
+                        </option>
+                        
+                        <option value="id" >
                             Bahasa Indonesia
-                        </option><option value="is" >
+                        </option>
+                        
+                        <option value="is" >
                             Íslenska
-                        </option><option value="it" >
+                        </option>
+                        
+                        <option value="it" >
                             Italiano
-                        </option><option value="ja" >
+                        </option>
+                        
+                        <option value="ja" >
                             日本語
-                        </option><option value="km" >
+                        </option>
+                        
+                        <option value="km" >
                             ភាសាខ្មែរ
-                        </option><option value="kn" >
+                        </option>
+                        
+                        <option value="kn" >
                             ಕನ್ನಡ
-                        </option><option value="ko" >
+                        </option>
+                        
+                        <option value="ko" >
                             한국어
-                        </option><option value="lt" >
+                        </option>
+                        
+                        <option value="lt" >
                             Lietuvių
-                        </option><option value="lv" >
+                        </option>
+                        
+                        <option value="lv" >
                             Latviešu
-                        </option><option value="ms" >
+                        </option>
+                        
+                        <option value="ms" >
                             Bahasa Melayu
-                        </option><option value="my" >
+                        </option>
+                        
+                        <option value="my" >
                             မြန်မာဘာသာ
-                        </option><option value="nb" >
+                        </option>
+                        
+                        <option value="nb" >
                             Norsk Bokmål
-                        </option><option value="nl" >
+                        </option>
+                        
+                        <option value="nl" >
                             Nederlands
-                        </option><option value="pl" >
+                        </option>
+                        
+                        <option value="pl" >
                             Polski
-                        </option><option value="pt" >
+                        </option>
+                        
+                        <option value="pt" >
                             Português
-                        </option><option value="pt-br" >
+                        </option>
+                        
+                        <option value="pt-br" >
                             Português (Brasil)
-                        </option><option value="ro" >
+                        </option>
+                        
+                        <option value="ro" >
                             Română
-                        </option><option value="ru" >
+                        </option>
+                        
+                        <option value="ru" >
                             Русский
-                        </option><option value="sk" >
+                        </option>
+                        
+                        <option value="sk" >
                             Slovenčina
-                        </option><option value="sl" >
+                        </option>
+                        
+                        <option value="sl" >
                             Slovenščina
-                        </option><option value="sr" >
+                        </option>
+                        
+                        <option value="sr" >
                             Српски
-                        </option><option value="sv" >
+                        </option>
+                        
+                        <option value="sv" >
                             Svenska
-                        </option><option value="sw" >
+                        </option>
+                        
+                        <option value="sw" >
                             Kiswahili
-                        </option><option value="ta" >
+                        </option>
+                        
+                        <option value="ta" >
                             தமிழ்
-                        </option><option value="te" >
+                        </option>
+                        
+                        <option value="te" >
                             తెలుగు
-                        </option><option value="th" >
+                        </option>
+                        
+                        <option value="th" >
                             ไทย
-                        </option><option value="tl" >
+                        </option>
+                        
+                        <option value="tl" >
                             Tagalog
-                        </option><option value="tr" >
+                        </option>
+                        
+                        <option value="tr" >
                             Türkçe
-                        </option><option value="uk" >
+                        </option>
+                        
+                        <option value="uk" >
                             Українська
-                        </option><option value="ur" >
+                        </option>
+                        
+                        <option value="ur" >
                             اردو
-                        </option><option value="vi" >
+                        </option>
+                        
+                        <option value="vi" >
                             Tiếng Việt
-                        </option><option value="yo" >
+                        </option>
+                        
+                        <option value="yo" >
                             Yoruba
-                        </option><option value="zh" >
+                        </option>
+                        
+                        <option value="zh" >
                             中文
-                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor"><path
-                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
-                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor"><path
-                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
-                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        </option>
+                        
+                    </select>
+                </div>
+
+                <div class="nav-group-right">
+                    
+
+
+                    
+                    <div class="header-app-buttons">
+                        
+                        
+                        <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+                            </svg>
+                        </a>
+                        
+
+                        
+                        <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" />
+                            </svg>
+                        </a>
+                        
+                        
+                    </div>
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="suite-menu-container">
+                        <button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a><a href="https://hike.analyticszone.app" class="suite-app-link">Hike Analytics</a><a href="https://sleep.analyticszone.app" class="suite-app-link">Sleep Analytics</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="Uključi/isključi izbornik"
-                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/hr/">Početna</a></li><li><a href="/hr/research/">Znanost</a></li><li><span aria-current="page">Metrike snage</span></li></ol></div></nav><main id="main-content" class="main-content"><article class="article-content"><header class="article-header"><h1>Objašnjenje metrike snage biciklizma: NP, IF, VI, W'bal</h1><p class="article-meta">Razumijevanje naprednih metrika snage za pametnije treniranje i utrke</p></header><section id="why-power-metrics"><h2>Iznad prosječne snage: Zašto su napredne metrike važne</h2><p>Prosječna snaga je tupi instrument. Dvije vožnje s identičnom prosječnom snagom mogu imati izrazito različite fiziološke troškove ovisno o tome koliko je napor bio varijabilan. Stabilnih 250 W tijekom jednog sata čini se potpuno drugačijim od porasta između 150 W i 400 W na prosječnih 250 W.</p><p>Ovdje na scenu dolaze napredne metrike snage.<strong>Normalizirana snaga (NP)</strong>,<strong>Faktor intenziteta (IF)</strong>,<strong>Indeks varijabilnosti (VI)</strong>, i<strong>W' ravnoteža (W'bal)</strong>pružiti nijansirano razumijevanje koje vam je potrebno za učinkovit trening, ispravan tempo utrka i razumijevanje prave cijene vašeg truda.</p><div class="info-box"><h3>Brza usporedba: Cestovni vs MTB</h3><ul><li><strong>Penjanje po cesti (10 min):</strong>246W prosjek, 246W NP, VI = 1,00</li><li><strong>MTB penjanje (10 min):</strong>220W prosječno, 265W NP, VI = 1,20</li><li><strong>rezultat:</strong>MTB napor sa<em>niže</em>prosječna snaga je zapravo<em>teže</em>fiziološki</li></ul></div></section><section id="normalized-power"><h2>Normalizirana snaga (NP): stvarna cijena varijabilnih napora</h2><p><strong>Normalizirana snaga (NP)</strong>procjenjuje fiziološki "trošak" vožnje uzimajući u obzir nelinearni odnos između izlazne snage i umora. Napori visokog intenziteta iznad praga neproporcionalno povećavaju umor u usporedbi s vožnjom u stabilnom stanju.</p><h3>Algoritam iza NP</h3><p>NP koristi ponderirani izračun koji naglašava teške napore:</p><ol><li><strong>Tekući prosjek od 30 sekundi:</strong>Izgladite buku iz sekunde u sekundu</li><li><strong>Povećaj na 4. potenciju:</strong>Pojačajte napore visokog intenziteta (200W⁴ naspram 300W⁴ je masivno)</li><li><strong>Prosjek vrijednosti 4. potencije:</strong>Pronađite srednju vrijednost ponderiranih napora</li><li><strong>Uzmi 4. korijen:</strong>Pretvori natrag u vate</li></ol><div class="formula-box"><h4>Pojednostavljena formula</h4><div class="formula">NP = 4⁴√(prosjek [30-s pokretne prosječne snage]4)</div><p class="formula-explanation">Ponderiranje 4. snage znači da val od 10 sekundi do 400 W "košta" vaše tijelo mnogo više nego vožnja 200 W tijekom 20 sekundi.</p></div><h3>Kada je NP najvažniji</h3><h4>🚵 Brdski biciklizam</h4><p>MTB utrke definirane su promjenjivom snagom. Tipična XC utrka uključuje 80+ skokova iznad FTP koji traju 5-25 sekundi svaki. Prosječna snaga ozbiljno podcjenjuje pravi napor.</p><p><strong>Primjer XC utrke:</strong></p><ul><li>Prosječna snaga: 245W</li><li>Normalizirana snaga: 285 W</li><li>VI: 1,16 (vrlo varijabilan)</li><li><strong>Tumačenje:</strong>Utrka je bila kao da vozite 285W postojano - ne 245W</li></ul><h4>🏁 Kriteriji i kružne utrke</h4><p>Kriteriji uključuju stalna ubrzanja iz kutova, napade i napore u pozicioniranju. Uzorak prenapona i oporavka stvara visok NP u odnosu na prosječnu snagu.</p><p><strong>Primjer kriterija:</strong></p><ul><li>Prosječna snaga: 220W</li><li>Normalizirana snaga: 265 W</li><li>VI: 1.20</li><li>88 ubrzanja &gt;300W u 60 minuta</li></ul><h4>🚴 Grupne vožnje uz prenapone</h4><p>Agresivne grupne vožnje s napadima i naporima premošćivanja proizvode visok NP čak i kada se tempo krstarenja čini umjerenim.</p><h3>Kada NP ne pomaže</h3><p>Vremenska ispitivanja, stabilni usponi i solo tempo vožnje proizvode NP gotovo jednak prosječnoj snazi (VI = 1,00-1,03). U tim slučajevima dovoljna je prosječna snaga.</p><div class="callout callout-science"><h3>🔬 Istraživačka zaklada</h3><p>Dr. Andrew Coggan razvio je Normaliziranu snagu na temelju fizioloških istraživanja koja pokazuju da smanjenje ATP-a, korištenje glikogena, nakupljanje laktata i kardiovaskularni stres rastu eksponencijalno—ne linearno—s intenzitetom. Odnos 4. snage aproksimira ovaj nelinearni odgovor na zamor.</p><p><strong>Izvor:</strong>Allen, H. i Coggan, A.R. (2019).<em>Trening i utrka s mjeračem snage</em>(3. izdanje). VeloPress.</p></div></section><section id="intensity-factor"><h2>Faktor intenziteta (IF): kvantificiran relativni napor</h2><p><strong>Faktor intenziteta (IF)</strong>izražava koliko je teška bila vožnja u odnosu na vašu<a href="/hr/ftp/">Funkcionalni prag snage (FTP)</a>. To je omjer normalizirane snage i FTP.</p><div class="formula-box"><h3>Formula</h3><div class="formula">IF = Normalizirana snaga (NP) / FTP</div><div class="example-box mt-md"><h4>Primjer:</h4><p>Vozač s FTP od 300 W završava vožnju s NP od 255 W:</p><div class="calculation">ZAŠTITI15X = 255 / 300 =<strong>0,85</strong></div><p>Ovo predstavlja a<strong>umjereno-tvrdo</strong>napor.</p></div></div><h3>Tumačenje faktora intenziteta</h3><table class="comparison-table"><thead><tr><th>Raspon IF</th><th>Razina napora</th><th>Primjeri vježbi</th><th>Održivo trajanje</th></tr></thead><tbody><tr><td><strong>&lt; 0,65</strong></td><td>Jednostavno/oporavak</td><td>Okretanje za oporavak, lagana grupna vožnja</td><td>3-6+ sati</td></tr><tr><td><strong>0,65-0,75</strong></td><td>Izdržljivost/umjereno</td><td>Duga mirna vožnja, osnovni trening</td><td>2-5 sati</td></tr><tr><td><strong>0,75-0,85</strong></td><td>Tempo/umjereno-tvrdo</td><td>Intervali tempa, sportski tempo</td><td>1-3 sata</td></tr><tr><td><strong>0,85-0,95</strong></td><td>Prag/Teško</td><td>Sweet spot, intervali praga</td><td>40-90 minuta</td></tr><tr><td><strong>0,95-1,05</strong></td><td>FTP/Vrlo teško</td><td>FTP test, 40 km TT</td><td>30-60 minuta</td></tr><tr><td><strong>1,05-1,15</strong></td><td>VO2max/Iznimno teško</td><td>VO2max intervali, kriterij</td><td>10-30 minuta</td></tr><tr><td><strong>&gt; 1.15</strong></td><td>Anaerobno/Maksimalno</td><td>Kratki TT, staza gonjenja</td><td>&lt; 10 minuta</td></tr></tbody></table><h3>Korištenje IF za obuku</h3><h4>Dizajn sesije</h4><p>Target IF pomaže u određivanju intenziteta vježbanja:</p><ul><li><strong>lak dan:</strong>IF &lt; 0,65 osigurava oporavak</li><li><strong>Tempo sesije:</strong>IF 0,80-0,85 gradi aerobni kapacitet</li><li><strong>Rad na pragu:</strong>IF 0,90-1,00 poboljšava FTP</li></ul><h4>Analiza utrke</h4><p>IF nakon utrke otkriva je li tempo bio prikladan:</p><ul><li><strong>IF previsok:</strong>Počelo preteško, izblijedjelo na kraju</li><li><strong>IF odgovarajuće:</strong>Ujednačen napor, jak završetak</li><li><strong>IF prenizak:</strong>Previše suzdržavani, ostalo mi je energije</li></ul><h3>IF u TSS izračunu</h3><p>IF je ključna komponenta<a href="/hr/training-zones/">Rezultat stresa tijekom treninga (TSS)</a>, koji kvantificira ukupno opterećenje treninga kombinacijom intenziteta i trajanja.</p><div class="formula-box"><h4>TSS Formula</h4><div class="formula">TSS = (IF)² × Trajanje (sati) × 100</div><p class="formula-explanation">IF je na kvadrat, što znači da intenzitet ima eksponencijalni utjecaj na stres tijekom treninga.</p></div></section><section id="variability-index"><h2>Indeks varijabilnosti (VI): metrika postojanosti</h2><p><strong>Indeks varijabilnosti (VI)</strong>mjeri koliko je vaša izlazna snaga bila promjenjiva tijekom vožnje. To je omjer normalizirane snage i prosječne snage.</p><div class="formula-box"><h3>Formula</h3><div class="formula">VI = normalizirana snaga (NP) / prosječna snaga</div><div class="example-box mt-md"><h4>Primjer:</h4><p>Vožnja s NP od 270 W i prosječnom snagom od 250 W:</p><div class="calculation">VI = 270 / 250 =<strong>1.08</strong></div><p>Umjereno promjenjiv napor (tipično za grupnu vožnju s nekim valovima).</p></div></div><h3>VI Mjerila po disciplinama</h3><h4>🚴 Cestovni biciklizam</h4><table class="data-table"><thead><tr><th>Vrsta vožnje</th><th>Tipično VI</th><th>Karakteristike</th></tr></thead><tbody><tr><td><strong>Kronometar</strong></td><td>1.00-1.02</td><td>Savršeno stabilan, optimalan tempo</td></tr><tr><td><strong>Solo uspon</strong></td><td>1.02-1.05</td><td>Stalni napor, minimalne varijacije</td></tr><tr><td><strong>Cestovna utrka</strong></td><td>1.05-1.10</td><td>Neki napadi, pozicioniranje</td></tr><tr><td><strong>Kriterij</strong></td><td>1,15-1,25</td><td>Konstantna ubrzanja, vrlo promjenjiva</td></tr></tbody></table><h4>🚵 Brdski biciklizam</h4><table class="data-table"><thead><tr><th>Vrsta vožnje</th><th>Tipično VI</th><th>Karakteristike</th></tr></thead><tbody><tr><td><strong>XC utrka</strong></td><td>1,10-1,20+</td><td>88+ skokova po utrci, vrlo varijabilno</td></tr><tr><td><strong>Trail Ride</strong></td><td>1.08-1.15</td><td>Tehničke dionice, usponi, spustovi</td></tr><tr><td><strong>Enduro</strong></td><td>1,15-1,30+</td><td>Kratki eksplozivni napori, oporavak između</td></tr></tbody></table><h3>Zašto je važan visok VI</h3><h4>Povećan anaerobni stres</h4><p>Visoki VI ukazuje na česte napore iznad praga, uz stalno smanjenje W' (anaerobnog kapaciteta). Ovo je daleko više zamorno nego stabilna vožnja pri istoj prosječnoj snazi.</p><h4>Smanjenje glikogena</h4><p>Varijabilni napori sagorijevaju više glikogena nego stalni napori pri istoj prosječnoj snazi. Vožnje s visokim VI zahtijevaju češće punjenje gorivom.</p><h4>Neuromuskularni umor</h4><p>Ponovljena ubrzanja i teški napori stvaraju neuromuskularni umor veći od očekivanog kardiovaskularnog opterećenja.</p><h3>Korištenje VI za razlikovanje disciplina</h3><p>VI je primarna metrika koja razlikuje cestovni biciklizam od brdskog:</p><div class="comparison-box"><div class="comparison-item"><h4>🚴 Cestovni biciklist</h4><p><strong>VI: 1.02-1.05</strong></p><p>Stabilna snaga, minimalni udari. Usredotočite se na FTP i održivu snagu na pragu.</p></div><div class="comparison-item"><h4>🚵 Brdski biciklist</h4><p><strong>VI: 1,10-1,20+</strong></p><p>Eksplozivna snaga, česti skokovi. Usredotočite se na ponovljivost i W' upravljanje.</p></div></div><div class="callout callout-warning"><h3>⚠️ Implikacije tempa</h3><p>U utrkama gdje je tempo bitan (cestovne utrke, TT, maraton MTB), ciljajte na VI &lt; 1,05. Svaki val vas košta više nego stabilna vožnja, a visok VI na početku znači da ćete nestati na kraju.</p><p><strong>Iznimka:</strong>Kriteriji i tehničke MTB utrke zahtijevaju visok VI po prirodi. Trenirajte posebno za ovu potražnju.</p></div></section><section id="w-balance"><h2>W' Balance (W'bal): Vaša anaerobna baterija</h2><p><strong>W' ravnoteža (W'bal)</strong>prati vaš preostali anaerobni kapacitet u stvarnom vremenu tijekom vožnje. To je poput mjerača baterije koji pokazuje koliko energije imate na raspolaganju za gore navedene napore<a href="/hr/critical-power/">Kritična snaga (CP)</a>.</p><h3>Razumijevanje W' i CP</h3><p><strong>Kritična snaga (CP)</strong>je maksimalna snaga koju možete održavati tijekom duljeg razdoblja—granica između aerobnog i anaerobnog metabolizma. Sličan FTP, ali znanstveno robusniji.</p><p><strong>W' (W-prime)</strong>je vaš konačni kapacitet za rad iznad CP-a, mjeren u kilodžulima (kJ). Tipične vrijednosti kreću se od 15-25 kJ.</p><div class="info-box"><h3>CP i W' analogija</h3><p><strong>CP = održivi tempo</strong>(kao vožnja po ravnoj cesti unedogled)<br/><strong>W' = baterija za udare</strong>(poput gumba za pojačanje koji možete koristiti samo toliko dugo)</p><p>Kada vozite iznad CP, iscrpljujete W'. Kada vozite ispod CP-a, W' se oporavlja—ali oporavak je sporiji od iscrpljivanja.</p></div><h3>Kako W'bal djeluje</h3><h4>Iscrpljenost iznad CP</h4><p>Svake sekunde kada vozite iznad CP, "trošite" W' brzinom proporcionalnom tome koliko ste daleko iznad CP:</p><ul><li>300 W napora kada je CP 280 W → iscrpljivanje W' pri 20 J/s</li><li>350 W napora kada je CP 280 W → iscrpljivanje W' pri 70 J/s (mnogo brže!)</li></ul><h4>Oporavak ispod CP</h4><p>Kada vozite ispod CP, W' se oporavlja eksponencijalno, s vremenskom konstantom oko 300-500 sekundi (ovisi o razini umora).</p><div class="formula-box"><h4>Pojednostavljene W' jednadžbe ravnoteže</h4><div class="formula"><strong>Iscrpljenost:</strong>W'bal se smanjuje za (Snaga - CP) u sekundi<br/><strong>Oporavak:</strong>W'bal se eksponencijalno oporavlja prema W'max</div><p class="formula-explanation">Pravi modeli (Skiba, Bartram) su složeniji, uzimajući u obzir učinke zamora na stopu oporavka.</p></div><h3>Primjer iz stvarnog svijeta: MTB utrka</h3><div class="example-box"><h4>Scenarij: XC MTB utrka s tehničkim usponom</h4><p><strong>Profil vozača:</strong></p><ul><li>CP: 280W</li><li>W': 18 000 J (18 kJ)</li></ul><p><strong>Segment utrke:</strong></p><ol><li><strong>Početni udar (20 sekundi pri 400 W):</strong><ul><li>W' osiromašenje: (400-280) × 20 = 2400 J</li><li>W'bal: 18 000 → 15 600 J (87% preostalih)</li></ul></li><li><strong>Pedaliranje za oporavak (60 sekundi @ 220 W):</strong><ul><li>Djelomično iskorištenje W': ~1800 J</li><li>W'bal: 15,600 → 17,400 J (preostalo 97%)</li></ul></li><li><strong>Tehnički uspon (5 min @ 320 W prosječno, 6 skokova do 380 W):</strong><ul><li>Veliko smanjenje W' zbog trajnog napora iznad CP + valovi</li><li>W'bal: 17,400 → 4,200 J (preostalo 23%)</li></ul></li><li><strong>Oporavak pri spuštanju (3 min pri 150 W):</strong><ul><li>W' oporavak: ~6,000 J</li><li>W'bal: 4,200 → 10,200 J (preostalo 57%)</li></ul></li></ol><p><strong>Analiza:</strong>Jahač može podnijeti još jedan težak napor, ali bi trebao izbjegavati iscrpljivanje W'bala ispod 20% ili neće moći odgovoriti na napade.</p></div><h3>Korištenje W'bala za strategiju utrke</h3><h4>Strategija tempa</h4><ul><li><strong>Pratite W'bal na usponima:</strong>Nemojte ići toliko duboko da ne možete odgovoriti na napade na vrhu</li><li><strong>Maksimizirajte razdoblja oporavka:</strong>Lagana papučica na nizbrdicama i ravnim dionicama za ponovno punjenje W'</li><li><strong>Planirajte završne napore:</strong>Znajte koliko W' vam je ostalo za sprint ili završni uspon</li></ul><h4>Prijave za obuku</h4><ul><li><strong>Dizajn intervala:</strong>Strukturirajte intervale za opetovano iscrpljivanje/oporavak W' (izgrađuje ponovljivost)</li><li><strong>Simulacija utrke:</strong>Vježbajte upravljanje W'balom u scenarijima specifičnim za rasu</li><li><strong>Identifikacija slabosti:</strong>Nizak W' = potreban je veći rad anaerobnog kapaciteta</li></ul><div class="callout callout-tip"><h3>💡 W'bal trening specifičan za MTB</h3><p><strong>Intervali praska:</strong>2-minutni tempo (90% FTP) + 15 sekundi ubrzanja (150% FTP), ponovite 6-8x</p><p>Ovo simulira zahtjeve XC utrka: kontinuirani tempo s ponovljenim valovima. Trenira i CP i W' stopu oporavka.</p><p><strong>Povezano:</strong>Naučite kako izračunati svoj<a href="/hr/critical-power/">Kritična snaga i W'</a></p></div><div class="callout callout-science"><h3>🔬 Istraživačka zaklada</h3><p>W'bal modeliranje potječe iz koncepta kritične snage (Monod &amp; Scherrer, 1965.) i dorađeno je modelom Philipa Skibe iz 2012. za W' rekonstituciju. Nedavna istraživanja potvrđuju W'bal kao prediktor vremena do iscrpljenosti kod vježbanja promjenjivog intenziteta.</p><p><strong>Izvori:</strong></p><ul><li>Skiba, P.F., et al. (2012).<em>Modeliranje rashoda i rekonstitucija W'.</em>Medicina i znanost u sportu i tjelovježbi.</li><li>Jones, A.M., et al. (2019).<em>Kritična snaga: teorija i primjena.</em>Časopis za primijenjenu fiziologiju, 126(6), 1905-1915.</li></ul></div></section><section id="comparison-table"><h2>Usporedba metrike snage</h2><table class="comparison-table"><thead><tr><th>metrički</th><th>Što mjeri</th><th>Formula</th><th>Najbolji slučaj upotrebe</th></tr></thead><tbody><tr><td><strong>Prosječna snaga</strong></td><td>Srednja izlazna snaga</td><td>Zbroj vati/sekundi</td><td>Stalni napori (TT, solo usponi)</td></tr><tr><td><strong>Normalizirana snaga (NP)</strong></td><td>Fiziološki trošak (ponderirani)</td><td>⁴√ (prosjek [prosjek 30s]4)</td><td>Promjenjivi napori (kritike, MTB, grupne vožnje)</td></tr><tr><td><strong>Faktor intenziteta (IF)</strong></td><td>Relativni napor u odnosu na FTP</td><td>NP / FTP</td><td>Recept za intenzitet sesije</td></tr><tr><td><strong>Indeks varijabilnosti (VI)</strong></td><td>Postojanost snage</td><td>NP / prosječna snaga</td><td>Analiza tempa, usporedba disciplina</td></tr><tr><td><strong>W' ravnoteža (W'bal)</strong></td><td>Preostali anaerobni kapacitet</td><td>Kompleks (model Skiba)</td><td>Strategija utrke u stvarnom vremenu, dizajn intervala</td></tr></tbody></table></section><section id="practical-examples"><h2>Praktični primjeri po disciplinama</h2><div class="discipline-example"><h3>🚴 Cestovni kronometar (40 km)</h3><ul><li><strong>Prosječna snaga:</strong>320 W</li><li><strong>NP:</strong>325 W</li><li><strong>IF:</strong>0,98 (FTP = 332W)</li><li><strong>VI:</strong>1.02</li><li><strong>W'bal:</strong>Minimalno iscrpljivanje (ostalo blizu CP)</li></ul><p><strong>Analiza:</strong>TT savršenog tempa. VI blizu 1,0 = optimalna postojanost. IF 0,98 = maksimalni održivi napor.</p></div><div class="discipline-example"><h3>🏁 Kriterij (60 minuta)</h3><ul><li><strong>Prosječna snaga:</strong>225 W</li><li><strong>NP:</strong>275 W</li><li><strong>IF:</strong>0,83 (FTP = 332W)</li><li><strong>VI:</strong>1.22</li><li><strong>W'bal:</strong>Ponovljeno pražnjenje/oporavak (88 prenapona &gt;300 W)</li></ul><p><strong>Analiza:</strong>Visoki VI otkriva uzorak prenapona i oporavka. NP 50W veći od prosjeka pokazuje pravi trošak. W'bal menadžment je bio kritičan.</p></div><div class="discipline-example"><h3>🚵 XC MTB utrka (90 minuta)</h3><ul><li><strong>Prosječna snaga:</strong>245 W</li><li><strong>NP:</strong>285 W</li><li><strong>IF:</strong>0,86 (FTP = 332W)</li><li><strong>VI:</strong>1.16</li><li><strong>W'bal:</strong>Vrlo varijabilna, višestruka duboka pražnjenja</li></ul><p><strong>Analiza:</strong>Prosječna snaga smanjuje napor za 40 W. Visok VI tipičan za MTB. Slabljenje W'bal-a na tehničkim usponima zahtijevalo je pametan oporavak na spuštanjima.</p></div><div class="discipline-example"><h3>🏔️ Gran Fondo s usponima (5 sati)</h3><ul><li><strong>Prosječna snaga:</strong>195W</li><li><strong>NP:</strong>215 W</li><li><strong>IF:</strong>0,65 (FTP = 332W)</li><li><strong>VI:</strong>1.10</li><li><strong>W'bal:</strong>Iscrpljen na usponima, oporavljen na spustovima</li></ul><p><strong>Analiza:</strong>Umjereni IF postojan 5 sati. VI 1.10 od naleta na usponima. Pravilno punjenje gorivom kritično za ovo trajanje.</p></div></section><section id="faq"><h2>Često postavljana pitanja</h2><div class="faq-item"><h3>Zašto je NP uvijek veći od prosječne snage?</h3><p>NP teži naporima visokog intenziteta jer stvaraju nerazmjeran umor. Izračun 4. snage pojačava udare iznad prosjeka, čineći NP ≥ prosječne snage. Za savršeno stabilne napore, NP je jednak prosječnoj snazi ​​(VI = 1,0).</p></div><div class="faq-item"><h3>Koji je "dobar" faktor intenziteta za različite treninge?</h3><p><strong>Oporavak:</strong>IF &lt; 0,65 |<strong>Izdržljivost:</strong>IF 0,65-0,75 |<strong>Tempo:</strong>IF 0,75-0,85 |<strong>Prag:</strong>IF 0,85-0,95 |<strong>FTP test:</strong>IF 0,95-1,05. Viši IF = teža sesija, ali održivost ovisi o trajanju.</p></div><div class="faq-item"><h3>Trebam li ciljati niski VI u svim vožnjama?</h3><p>Ne. Vremenska ispitivanja i solo usponi imaju koristi od niskog VI (1,00-1,03) za optimalan tempo. Ali kriteriji, MTB utrke i grupne vožnje prirodno imaju visok VI (1,10-1,25). Trenirajte s VI profilom koji odgovara vašim ciljnim događajima.</p></div><div class="faq-item"><h3>Po čemu se W'bal razlikuje od FTP?</h3><p>FTP (ili CP) je a<em>stopa</em>—održiva snaga u vatima. W' je a<em>kapacitet</em>—ukupna energija dostupna za napore iznad FTP, mjereno u kilojoulima. Razmislite: FTP = koliko brzo možete kontinuirano voziti, W' = veličina vašeg spremnika dušika za eksplozije iznad te brzine.</p></div><div class="faq-item"><h3>Mogu li poboljšati svoj W' kroz trening?</h3><p>da Intervali visokog intenziteta (VO2max, anaerobni) povećavaju W' za 10-20% u 8-12 tjedana. Trening sprinta, brdsko ponavljanje i kratki intervali (30s-3min na 120-150% FTP) posebno ciljaju W' razvoj.</p></div><div class="faq-item"><h3>Trebam li Critical Power ili je FTP dovoljan?</h3><p>Za osnovnu obuku, FTP radi dobro. Ali ako se utrkujete MTB, kriterije ili bilo koji događaj promjenjivog intenziteta, modeliranje CP i W' pruža velike prednosti za strategiju tempa i razumijevanje kada možete napasti. CP je također znanstveno robusniji od FTP.</p></div><div class="faq-item"><h3>Zašto MTB ima viši VI od cestovnog bicikla?</h3><p>MTB teren zahtijeva promjenjivu snagu: ubrzanja preko prepreka, skokovi na tehničkim dionicama, oporavak na nizbrdicama. Cestovni biciklizam (osobito solo) omogućuje stabilnu snagu.Ova temeljna razlika znači da MTB vozači trebaju drugačiji trening—ponovljivost i W' upravljanje, a ne samo održivi prag snage.</p></div></section><section id="related-resources"><h2>Povezani resursi</h2><ul><li><a href="/hr/ftp/">Vodič za funkcionalni prag snage (FTP).</a></li><li><a href="/hr/critical-power/">Objašnjenje kritične snage i W'</a></li><li><a href="/hr/training-zones/">Zone treninga temeljene na snazi</a></li><li><a href="/hr/pedaling-mechanics/">Mehanika i učinkovitost pedaliranja</a></li><li><a href="/hr/getting-started/">Početak rada s treningom temeljenim na snazi</a></li></ul></section></article><script type="application/ld+json">{
+                                stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </button>
+                        <div class="suite-dropdown hidden" id="suite-dropdown">
+                            <div class="suite-dropdown-header">Other AnalyticsZone Apps</div>
+                            <div class="suite-apps-grid">
+                                
+                                <a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a>
+                                
+                                <a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a>
+                                
+                                <a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a>
+                                
+                                <a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a>
+                                
+                                <a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a>
+                                
+                                <a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a>
+                                
+                                <a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a>
+                                
+                                <a href="https://hike.analyticszone.app" class="suite-app-link">Hike Analytics</a>
+                                
+                                <a href="https://sleep.analyticszone.app" class="suite-app-link">Sleep Analytics</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </nav>
+
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Uključi/isključi izbornik"
+                aria-expanded="false" aria-controls="nav-primary">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+  
+  
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+        <ol>
+            
+            <li>
+                
+                <a href="/hr/">Početna</a>
+                
+            </li>
+            
+            <li>
+                
+                <a href="/hr/research/">Znanost</a>
+                
+            </li>
+            
+            <li>
+                
+                <span aria-current="page">Metrike snage</span>
+                
+            </li>
+            
+        </ol>
+    </div>
+</nav>
+
+
+  
+  <main id="main-content" class="main-content">
+    
+    <article class="article-content">
+<header class="article-header">
+<h1>Objašnjenje metrike snage biciklizma: NP, IF, VI, W'bal</h1>
+<p class="article-meta">Razumijevanje naprednih metrika snage za pametnije treniranje i utrke</p>
+</header>
+<section id="why-power-metrics">
+<h2>Iznad prosječne snage: Zašto su napredne metrike važne</h2>
+<p>Prosječna snaga je tupi instrument. Dvije vožnje s identičnom prosječnom snagom mogu imati izrazito različite fiziološke troškove ovisno o tome koliko je napor bio varijabilan. Stabilnih 250 W tijekom jednog sata čini se potpuno drugačijim od porasta između 150 W i 400 W na prosječnih 250 W.</p>
+<p>Ovdje na scenu dolaze napredne metrike snage.<strong>Normalizirana snaga (NP)</strong>,<strong>Faktor intenziteta (IF)</strong>,<strong>Indeks varijabilnosti (VI)</strong>, i<strong>W' ravnoteža (W'bal)</strong>pružiti nijansirano razumijevanje koje vam je potrebno za učinkovit trening, ispravan tempo utrka i razumijevanje prave cijene vašeg truda.</p>
+<div class="info-box">
+<h3>Brza usporedba: Cestovni vs MTB</h3>
+<ul>
+<li><strong>Penjanje po cesti (10 min):</strong>246W prosjek, 246W NP, VI = 1,00</li>
+<li><strong>MTB penjanje (10 min):</strong>220W prosječno, 265W NP, VI = 1,20</li>
+<li><strong>rezultat:</strong>MTB napor sa<em>niže</em>prosječna snaga je zapravo<em>teže</em>fiziološki</li>
+</ul>
+</div>
+</section>
+<section id="normalized-power">
+<h2>Normalizirana snaga (NP): stvarna cijena varijabilnih napora</h2>
+<p><strong>Normalizirana snaga (NP)</strong>procjenjuje fiziološki "trošak" vožnje uzimajući u obzir nelinearni odnos između izlazne snage i umora. Napori visokog intenziteta iznad praga neproporcionalno povećavaju umor u usporedbi s vožnjom u stabilnom stanju.</p>
+<h3>Algoritam iza NP</h3>
+<p>NP koristi ponderirani izračun koji naglašava teške napore:</p>
+<ol>
+<li><strong>Tekući prosjek od 30 sekundi:</strong>Izgladite buku iz sekunde u sekundu</li>
+<li><strong>Povećaj na 4. potenciju:</strong>Pojačajte napore visokog intenziteta (200W⁴ naspram 300W⁴ je masivno)</li>
+<li><strong>Prosjek vrijednosti 4. potencije:</strong>Pronađite srednju vrijednost ponderiranih napora</li>
+<li><strong>Uzmi 4. korijen:</strong>Pretvori natrag u vate</li>
+</ol>
+<div class="formula-box">
+<h4>Pojednostavljena formula</h4>
+<div class="formula">NP = 4⁴√(prosjek [30-s pokretne prosječne snage]4)</div>
+<p class="formula-explanation">Ponderiranje 4. snage znači da val od 10 sekundi do 400 W "košta" vaše tijelo mnogo više nego vožnja 200 W tijekom 20 sekundi.</p>
+</div>
+<h3>Kada je NP najvažniji</h3>
+<h4>🚵 Brdski biciklizam</h4>
+<p>MTB utrke definirane su promjenjivom snagom. Tipična XC utrka uključuje 80+ skokova iznad FTP koji traju 5-25 sekundi svaki. Prosječna snaga ozbiljno podcjenjuje pravi napor.</p>
+<p><strong>Primjer XC utrke:</strong></p>
+<ul>
+<li>Prosječna snaga: 245W</li>
+<li>Normalizirana snaga: 285 W</li>
+<li>VI: 1,16 (vrlo varijabilan)</li>
+<li><strong>Tumačenje:</strong>Utrka je bila kao da vozite 285W postojano - ne 245W</li>
+</ul>
+<h4>🏁 Kriteriji i kružne utrke</h4>
+<p>Kriteriji uključuju stalna ubrzanja iz kutova, napade i napore u pozicioniranju. Uzorak prenapona i oporavka stvara visok NP u odnosu na prosječnu snagu.</p>
+<p><strong>Primjer kriterija:</strong></p>
+<ul>
+<li>Prosječna snaga: 220W</li>
+<li>Normalizirana snaga: 265 W</li>
+<li>VI: 1.20</li>
+<li>88 ubrzanja &gt;300W u 60 minuta</li>
+</ul>
+<h4>🚴 Grupne vožnje uz prenapone</h4>
+<p>Agresivne grupne vožnje s napadima i naporima premošćivanja proizvode visok NP čak i kada se tempo krstarenja čini umjerenim.</p>
+<h3>Kada NP ne pomaže</h3>
+<p>Vremenska ispitivanja, stabilni usponi i solo tempo vožnje proizvode NP gotovo jednak prosječnoj snazi (VI = 1,00-1,03). U tim slučajevima dovoljna je prosječna snaga.</p>
+<div class="callout callout-science">
+<h3>🔬 Istraživačka zaklada</h3>
+<p>Dr. Andrew Coggan razvio je Normaliziranu snagu na temelju fizioloških istraživanja koja pokazuju da smanjenje ATP-a, korištenje glikogena, nakupljanje laktata i kardiovaskularni stres rastu eksponencijalno—ne linearno—s intenzitetom. Odnos 4. snage aproksimira ovaj nelinearni odgovor na zamor.</p>
+<p><strong>Izvor:</strong>Allen, H. i Coggan, A.R. (2019).<em>Trening i utrka s mjeračem snage</em>(3. izdanje). VeloPress.</p>
+</div>
+</section>
+<section id="intensity-factor">
+<h2>Faktor intenziteta (IF): kvantificiran relativni napor</h2>
+<p><strong>Faktor intenziteta (IF)</strong>izražava koliko je teška bila vožnja u odnosu na vašu<a href="/hr/ftp/">Funkcionalni prag snage (FTP)</a>. To je omjer normalizirane snage i FTP.</p>
+<div class="formula-box">
+<h3>Formula</h3>
+<div class="formula">IF = Normalizirana snaga (NP) / FTP</div>
+<div class="example-box mt-md">
+<h4>Primjer:</h4>
+<p>Vozač s FTP od 300 W završava vožnju s NP od 255 W:</p>
+<div class="calculation">ZAŠTITI15X = 255 / 300 =<strong>0,85</strong>
+</div>
+<p>Ovo predstavlja a<strong>umjereno-tvrdo</strong>napor.</p>
+</div>
+</div>
+<h3>Tumačenje faktora intenziteta</h3>
+<table class="comparison-table">
+<thead>
+<tr>
+<th>Raspon IF</th>
+<th>Razina napora</th>
+<th>Primjeri vježbi</th>
+<th>Održivo trajanje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>&lt; 0,65</strong></td>
+<td>Jednostavno/oporavak</td>
+<td>Okretanje za oporavak, lagana grupna vožnja</td>
+<td>3-6+ sati</td>
+</tr>
+<tr>
+<td><strong>0,65-0,75</strong></td>
+<td>Izdržljivost/umjereno</td>
+<td>Duga mirna vožnja, osnovni trening</td>
+<td>2-5 sati</td>
+</tr>
+<tr>
+<td><strong>0,75-0,85</strong></td>
+<td>Tempo/umjereno-tvrdo</td>
+<td>Intervali tempa, sportski tempo</td>
+<td>1-3 sata</td>
+</tr>
+<tr>
+<td><strong>0,85-0,95</strong></td>
+<td>Prag/Teško</td>
+<td>Sweet spot, intervali praga</td>
+<td>40-90 minuta</td>
+</tr>
+<tr>
+<td><strong>0,95-1,05</strong></td>
+<td>FTP/Vrlo teško</td>
+<td>FTP test, 40 km TT</td>
+<td>30-60 minuta</td>
+</tr>
+<tr>
+<td><strong>1,05-1,15</strong></td>
+<td>VO2max/Iznimno teško</td>
+<td>VO2max intervali, kriterij</td>
+<td>10-30 minuta</td>
+</tr>
+<tr>
+<td><strong>&gt; 1.15</strong></td>
+<td>Anaerobno/Maksimalno</td>
+<td>Kratki TT, staza gonjenja</td>
+<td>&lt; 10 minuta</td>
+</tr>
+</tbody>
+</table>
+<h3>Korištenje IF za obuku</h3>
+<h4>Dizajn sesije</h4>
+<p>Target IF pomaže u određivanju intenziteta vježbanja:</p>
+<ul>
+<li><strong>lak dan:</strong>IF &lt; 0,65 osigurava oporavak</li>
+<li><strong>Tempo sesije:</strong>IF 0,80-0,85 gradi aerobni kapacitet</li>
+<li><strong>Rad na pragu:</strong>IF 0,90-1,00 poboljšava FTP</li>
+</ul>
+<h4>Analiza utrke</h4>
+<p>IF nakon utrke otkriva je li tempo bio prikladan:</p>
+<ul>
+<li><strong>IF previsok:</strong>Počelo preteško, izblijedjelo na kraju</li>
+<li><strong>IF odgovarajuće:</strong>Ujednačen napor, jak završetak</li>
+<li><strong>IF prenizak:</strong>Previše suzdržavani, ostalo mi je energije</li>
+</ul>
+<h3>IF u TSS izračunu</h3>
+<p>IF je ključna komponenta<a href="/hr/training-zones/">Rezultat stresa tijekom treninga (TSS)</a>, koji kvantificira ukupno opterećenje treninga kombinacijom intenziteta i trajanja.</p>
+<div class="formula-box">
+<h4>TSS Formula</h4>
+<div class="formula">TSS = (IF)² × Trajanje (sati) × 100</div>
+<p class="formula-explanation">IF je na kvadrat, što znači da intenzitet ima eksponencijalni utjecaj na stres tijekom treninga.</p>
+</div>
+</section>
+<section id="variability-index">
+<h2>Indeks varijabilnosti (VI): metrika postojanosti</h2>
+<p><strong>Indeks varijabilnosti (VI)</strong>mjeri koliko je vaša izlazna snaga bila promjenjiva tijekom vožnje. To je omjer normalizirane snage i prosječne snage.</p>
+<div class="formula-box">
+<h3>Formula</h3>
+<div class="formula">VI = normalizirana snaga (NP) / prosječna snaga</div>
+<div class="example-box mt-md">
+<h4>Primjer:</h4>
+<p>Vožnja s NP od 270 W i prosječnom snagom od 250 W:</p>
+<div class="calculation">VI = 270 / 250 =<strong>1.08</strong>
+</div>
+<p>Umjereno promjenjiv napor (tipično za grupnu vožnju s nekim valovima).</p>
+</div>
+</div>
+<h3>VI Mjerila po disciplinama</h3>
+<h4>🚴 Cestovni biciklizam</h4>
+<table class="data-table">
+<thead>
+<tr>
+<th>Vrsta vožnje</th>
+<th>Tipično VI</th>
+<th>Karakteristike</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kronometar</strong></td>
+<td>1.00-1.02</td>
+<td>Savršeno stabilan, optimalan tempo</td>
+</tr>
+<tr>
+<td><strong>Solo uspon</strong></td>
+<td>1.02-1.05</td>
+<td>Stalni napor, minimalne varijacije</td>
+</tr>
+<tr>
+<td><strong>Cestovna utrka</strong></td>
+<td>1.05-1.10</td>
+<td>Neki napadi, pozicioniranje</td>
+</tr>
+<tr>
+<td><strong>Kriterij</strong></td>
+<td>1,15-1,25</td>
+<td>Konstantna ubrzanja, vrlo promjenjiva</td>
+</tr>
+</tbody>
+</table>
+<h4>🚵 Brdski biciklizam</h4>
+<table class="data-table">
+<thead>
+<tr>
+<th>Vrsta vožnje</th>
+<th>Tipično VI</th>
+<th>Karakteristike</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>XC utrka</strong></td>
+<td>1,10-1,20+</td>
+<td>88+ skokova po utrci, vrlo varijabilno</td>
+</tr>
+<tr>
+<td><strong>Trail Ride</strong></td>
+<td>1.08-1.15</td>
+<td>Tehničke dionice, usponi, spustovi</td>
+</tr>
+<tr>
+<td><strong>Enduro</strong></td>
+<td>1,15-1,30+</td>
+<td>Kratki eksplozivni napori, oporavak između</td>
+</tr>
+</tbody>
+</table>
+<h3>Zašto je važan visok VI</h3>
+<h4>Povećan anaerobni stres</h4>
+<p>Visoki VI ukazuje na česte napore iznad praga, uz stalno smanjenje W' (anaerobnog kapaciteta). Ovo je daleko više zamorno nego stabilna vožnja pri istoj prosječnoj snazi.</p>
+<h4>Smanjenje glikogena</h4>
+<p>Varijabilni napori sagorijevaju više glikogena nego stalni napori pri istoj prosječnoj snazi. Vožnje s visokim VI zahtijevaju češće punjenje gorivom.</p>
+<h4>Neuromuskularni umor</h4>
+<p>Ponovljena ubrzanja i teški napori stvaraju neuromuskularni umor veći od očekivanog kardiovaskularnog opterećenja.</p>
+<h3>Korištenje VI za razlikovanje disciplina</h3>
+<p>VI je primarna metrika koja razlikuje cestovni biciklizam od brdskog:</p>
+<div class="comparison-box">
+<div class="comparison-item">
+<h4>🚴 Cestovni biciklist</h4>
+<p><strong>VI: 1.02-1.05</strong></p>
+<p>Stabilna snaga, minimalni udari. Usredotočite se na FTP i održivu snagu na pragu.</p>
+</div>
+<div class="comparison-item">
+<h4>🚵 Brdski biciklist</h4>
+<p><strong>VI: 1,10-1,20+</strong></p>
+<p>Eksplozivna snaga, česti skokovi. Usredotočite se na ponovljivost i W' upravljanje.</p>
+</div>
+</div>
+<div class="callout callout-warning">
+<h3>⚠️ Implikacije tempa</h3>
+<p>U utrkama gdje je tempo bitan (cestovne utrke, TT, maraton MTB), ciljajte na VI &lt; 1,05. Svaki val vas košta više nego stabilna vožnja, a visok VI na početku znači da ćete nestati na kraju.</p>
+<p><strong>Iznimka:</strong>Kriteriji i tehničke MTB utrke zahtijevaju visok VI po prirodi. Trenirajte posebno za ovu potražnju.</p>
+</div>
+</section>
+<section id="w-balance">
+<h2>W' Balance (W'bal): Vaša anaerobna baterija</h2>
+<p><strong>W' ravnoteža (W'bal)</strong>prati vaš preostali anaerobni kapacitet u stvarnom vremenu tijekom vožnje. To je poput mjerača baterije koji pokazuje koliko energije imate na raspolaganju za gore navedene napore<a href="/hr/critical-power/">Kritična snaga (CP)</a>.</p>
+<h3>Razumijevanje W' i CP</h3>
+<p><strong>Kritična snaga (CP)</strong>je maksimalna snaga koju možete održavati tijekom duljeg razdoblja—granica između aerobnog i anaerobnog metabolizma. Sličan FTP, ali znanstveno robusniji.</p>
+<p><strong>W' (W-prime)</strong>je vaš konačni kapacitet za rad iznad CP-a, mjeren u kilodžulima (kJ). Tipične vrijednosti kreću se od 15-25 kJ.</p>
+<div class="info-box">
+<h3>CP i W' analogija</h3>
+<p><strong>CP = održivi tempo</strong>(kao vožnja po ravnoj cesti unedogled)<br/>
+<strong>W' = baterija za udare</strong>(poput gumba za pojačanje koji možete koristiti samo toliko dugo)</p>
+<p>Kada vozite iznad CP, iscrpljujete W'. Kada vozite ispod CP-a, W' se oporavlja—ali oporavak je sporiji od iscrpljivanja.</p>
+</div>
+<h3>Kako W'bal djeluje</h3>
+<h4>Iscrpljenost iznad CP</h4>
+<p>Svake sekunde kada vozite iznad CP, "trošite" W' brzinom proporcionalnom tome koliko ste daleko iznad CP:</p>
+<ul>
+<li>300 W napora kada je CP 280 W → iscrpljivanje W' pri 20 J/s</li>
+<li>350 W napora kada je CP 280 W → iscrpljivanje W' pri 70 J/s (mnogo brže!)</li>
+</ul>
+<h4>Oporavak ispod CP</h4>
+<p>Kada vozite ispod CP, W' se oporavlja eksponencijalno, s vremenskom konstantom oko 300-500 sekundi (ovisi o razini umora).</p>
+<div class="formula-box">
+<h4>Pojednostavljene W' jednadžbe ravnoteže</h4>
+<div class="formula">
+<strong>Iscrpljenost:</strong>W'bal se smanjuje za (Snaga - CP) u sekundi<br/>
+<strong>Oporavak:</strong>W'bal se eksponencijalno oporavlja prema W'max</div>
+<p class="formula-explanation">Pravi modeli (Skiba, Bartram) su složeniji, uzimajući u obzir učinke zamora na stopu oporavka.</p>
+</div>
+<h3>Primjer iz stvarnog svijeta: MTB utrka</h3>
+<div class="example-box">
+<h4>Scenarij: XC MTB utrka s tehničkim usponom</h4>
+<p><strong>Profil vozača:</strong></p>
+<ul>
+<li>CP: 280W</li>
+<li>W': 18 000 J (18 kJ)</li>
+</ul>
+<p><strong>Segment utrke:</strong></p>
+<ol>
+<li><strong>Početni udar (20 sekundi pri 400 W):</strong>
+<ul><li>W' osiromašenje: (400-280) × 20 = 2400 J</li>
+<li>W'bal: 18 000 → 15 600 J (87% preostalih)</li></ul>
+</li>
+<li><strong>Pedaliranje za oporavak (60 sekundi @ 220 W):</strong>
+<ul><li>Djelomično iskorištenje W': ~1800 J</li>
+<li>W'bal: 15,600 → 17,400 J (preostalo 97%)</li></ul>
+</li>
+<li><strong>Tehnički uspon (5 min @ 320 W prosječno, 6 skokova do 380 W):</strong>
+<ul><li>Veliko smanjenje W' zbog trajnog napora iznad CP + valovi</li>
+<li>W'bal: 17,400 → 4,200 J (preostalo 23%)</li></ul>
+</li>
+<li><strong>Oporavak pri spuštanju (3 min pri 150 W):</strong>
+<ul><li>W' oporavak: ~6,000 J</li>
+<li>W'bal: 4,200 → 10,200 J (preostalo 57%)</li></ul>
+</li>
+</ol>
+<p><strong>Analiza:</strong>Jahač može podnijeti još jedan težak napor, ali bi trebao izbjegavati iscrpljivanje W'bala ispod 20% ili neće moći odgovoriti na napade.</p>
+</div>
+<h3>Korištenje W'bala za strategiju utrke</h3>
+<h4>Strategija tempa</h4>
+<ul>
+<li><strong>Pratite W'bal na usponima:</strong>Nemojte ići toliko duboko da ne možete odgovoriti na napade na vrhu</li>
+<li><strong>Maksimizirajte razdoblja oporavka:</strong>Lagana papučica na nizbrdicama i ravnim dionicama za ponovno punjenje W'</li>
+<li><strong>Planirajte završne napore:</strong>Znajte koliko W' vam je ostalo za sprint ili završni uspon</li>
+</ul>
+<h4>Prijave za obuku</h4>
+<ul>
+<li><strong>Dizajn intervala:</strong>Strukturirajte intervale za opetovano iscrpljivanje/oporavak W' (izgrađuje ponovljivost)</li>
+<li><strong>Simulacija utrke:</strong>Vježbajte upravljanje W'balom u scenarijima specifičnim za rasu</li>
+<li><strong>Identifikacija slabosti:</strong>Nizak W' = potreban je veći rad anaerobnog kapaciteta</li>
+</ul>
+<div class="callout callout-tip">
+<h3>💡 W'bal trening specifičan za MTB</h3>
+<p><strong>Intervali praska:</strong>2-minutni tempo (90% FTP) + 15 sekundi ubrzanja (150% FTP), ponovite 6-8x</p>
+<p>Ovo simulira zahtjeve XC utrka: kontinuirani tempo s ponovljenim valovima. Trenira i CP i W' stopu oporavka.</p>
+<p><strong>Povezano:</strong>Naučite kako izračunati svoj<a href="/hr/critical-power/">Kritična snaga i W'</a></p>
+</div>
+<div class="callout callout-science">
+<h3>🔬 Istraživačka zaklada</h3>
+<p>W'bal modeliranje potječe iz koncepta kritične snage (Monod &amp; Scherrer, 1965.) i dorađeno je modelom Philipa Skibe iz 2012. za W' rekonstituciju. Nedavna istraživanja potvrđuju W'bal kao prediktor vremena do iscrpljenosti kod vježbanja promjenjivog intenziteta.</p>
+<p><strong>Izvori:</strong></p>
+<ul>
+<li>Skiba, P.F., et al. (2012).<em>Modeliranje rashoda i rekonstitucija W'.</em>Medicina i znanost u sportu i tjelovježbi.</li>
+<li>Jones, A.M., et al. (2019).<em>Kritična snaga: teorija i primjena.</em>Časopis za primijenjenu fiziologiju, 126(6), 1905-1915.</li>
+</ul>
+</div>
+</section>
+<section id="comparison-table">
+<h2>Usporedba metrike snage</h2>
+<table class="comparison-table">
+<thead>
+<tr>
+<th>metrički</th>
+<th>Što mjeri</th>
+<th>Formula</th>
+<th>Najbolji slučaj upotrebe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prosječna snaga</strong></td>
+<td>Srednja izlazna snaga</td>
+<td>Zbroj vati/sekundi</td>
+<td>Stalni napori (TT, solo usponi)</td>
+</tr>
+<tr>
+<td><strong>Normalizirana snaga (NP)</strong></td>
+<td>Fiziološki trošak (ponderirani)</td>
+<td>⁴√ (prosjek [prosjek 30s]4)</td>
+<td>Promjenjivi napori (kritike, MTB, grupne vožnje)</td>
+</tr>
+<tr>
+<td><strong>Faktor intenziteta (IF)</strong></td>
+<td>Relativni napor u odnosu na FTP</td>
+<td>NP / FTP</td>
+<td>Recept za intenzitet sesije</td>
+</tr>
+<tr>
+<td><strong>Indeks varijabilnosti (VI)</strong></td>
+<td>Postojanost snage</td>
+<td>NP / prosječna snaga</td>
+<td>Analiza tempa, usporedba disciplina</td>
+</tr>
+<tr>
+<td><strong>W' ravnoteža (W'bal)</strong></td>
+<td>Preostali anaerobni kapacitet</td>
+<td>Kompleks (model Skiba)</td>
+<td>Strategija utrke u stvarnom vremenu, dizajn intervala</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="practical-examples">
+<h2>Praktični primjeri po disciplinama</h2>
+<div class="discipline-example">
+<h3>🚴 Cestovni kronometar (40 km)</h3>
+<ul>
+<li><strong>Prosječna snaga:</strong>320 W</li>
+<li><strong>NP:</strong>325 W</li>
+<li><strong>IF:</strong>0,98 (FTP = 332W)</li>
+<li><strong>VI:</strong>1.02</li>
+<li><strong>W'bal:</strong>Minimalno iscrpljivanje (ostalo blizu CP)</li>
+</ul>
+<p><strong>Analiza:</strong>TT savršenog tempa. VI blizu 1,0 = optimalna postojanost. IF 0,98 = maksimalni održivi napor.</p>
+</div>
+<div class="discipline-example">
+<h3>🏁 Kriterij (60 minuta)</h3>
+<ul>
+<li><strong>Prosječna snaga:</strong>225 W</li>
+<li><strong>NP:</strong>275 W</li>
+<li><strong>IF:</strong>0,83 (FTP = 332W)</li>
+<li><strong>VI:</strong>1.22</li>
+<li><strong>W'bal:</strong>Ponovljeno pražnjenje/oporavak (88 prenapona &gt;300 W)</li>
+</ul>
+<p><strong>Analiza:</strong>Visoki VI otkriva uzorak prenapona i oporavka. NP 50W veći od prosjeka pokazuje pravi trošak. W'bal menadžment je bio kritičan.</p>
+</div>
+<div class="discipline-example">
+<h3>🚵 XC MTB utrka (90 minuta)</h3>
+<ul>
+<li><strong>Prosječna snaga:</strong>245 W</li>
+<li><strong>NP:</strong>285 W</li>
+<li><strong>IF:</strong>0,86 (FTP = 332W)</li>
+<li><strong>VI:</strong>1.16</li>
+<li><strong>W'bal:</strong>Vrlo varijabilna, višestruka duboka pražnjenja</li>
+</ul>
+<p><strong>Analiza:</strong>Prosječna snaga smanjuje napor za 40 W. Visok VI tipičan za MTB. Slabljenje W'bal-a na tehničkim usponima zahtijevalo je pametan oporavak na spuštanjima.</p>
+</div>
+<div class="discipline-example">
+<h3>🏔️ Gran Fondo s usponima (5 sati)</h3>
+<ul>
+<li><strong>Prosječna snaga:</strong>195W</li>
+<li><strong>NP:</strong>215 W</li>
+<li><strong>IF:</strong>0,65 (FTP = 332W)</li>
+<li><strong>VI:</strong>1.10</li>
+<li><strong>W'bal:</strong>Iscrpljen na usponima, oporavljen na spustovima</li>
+</ul>
+<p><strong>Analiza:</strong>Umjereni IF postojan 5 sati. VI 1.10 od naleta na usponima. Pravilno punjenje gorivom kritično za ovo trajanje.</p>
+</div>
+</section>
+<section id="faq">
+<h2>Često postavljana pitanja</h2>
+<div class="faq-item">
+<h3>Zašto je NP uvijek veći od prosječne snage?</h3>
+<p>NP teži naporima visokog intenziteta jer stvaraju nerazmjeran umor. Izračun 4. snage pojačava udare iznad prosjeka, čineći NP ≥ prosječne snage. Za savršeno stabilne napore, NP je jednak prosječnoj snazi ​​(VI = 1,0).</p>
+</div>
+<div class="faq-item">
+<h3>Koji je "dobar" faktor intenziteta za različite treninge?</h3>
+<p><strong>Oporavak:</strong>IF &lt; 0,65 |<strong>Izdržljivost:</strong>IF 0,65-0,75 |<strong>Tempo:</strong>IF 0,75-0,85 |<strong>Prag:</strong>IF 0,85-0,95 |<strong>FTP test:</strong>IF 0,95-1,05. Viši IF = teža sesija, ali održivost ovisi o trajanju.</p>
+</div>
+<div class="faq-item">
+<h3>Trebam li ciljati niski VI u svim vožnjama?</h3>
+<p>Ne. Vremenska ispitivanja i solo usponi imaju koristi od niskog VI (1,00-1,03) za optimalan tempo. Ali kriteriji, MTB utrke i grupne vožnje prirodno imaju visok VI (1,10-1,25). Trenirajte s VI profilom koji odgovara vašim ciljnim događajima.</p>
+</div>
+<div class="faq-item">
+<h3>Po čemu se W'bal razlikuje od FTP?</h3>
+<p>FTP (ili CP) je a<em>stopa</em>—održiva snaga u vatima. W' je a<em>kapacitet</em>—ukupna energija dostupna za napore iznad FTP, mjereno u kilojoulima. Razmislite: FTP = koliko brzo možete kontinuirano voziti, W' = veličina vašeg spremnika dušika za eksplozije iznad te brzine.</p>
+</div>
+<div class="faq-item">
+<h3>Mogu li poboljšati svoj W' kroz trening?</h3>
+<p>da Intervali visokog intenziteta (VO2max, anaerobni) povećavaju W' za 10-20% u 8-12 tjedana. Trening sprinta, brdsko ponavljanje i kratki intervali (30s-3min na 120-150% FTP) posebno ciljaju W' razvoj.</p>
+</div>
+<div class="faq-item">
+<h3>Trebam li Critical Power ili je FTP dovoljan?</h3>
+<p>Za osnovnu obuku, FTP radi dobro. Ali ako se utrkujete MTB, kriterije ili bilo koji događaj promjenjivog intenziteta, modeliranje CP i W' pruža velike prednosti za strategiju tempa i razumijevanje kada možete napasti. CP je također znanstveno robusniji od FTP.</p>
+</div>
+<div class="faq-item">
+<h3>Zašto MTB ima viši VI od cestovnog bicikla?</h3>
+<p>MTB teren zahtijeva promjenjivu snagu: ubrzanja preko prepreka, skokovi na tehničkim dionicama, oporavak na nizbrdicama. Cestovni biciklizam (osobito solo) omogućuje stabilnu snagu.Ova temeljna razlika znači da MTB vozači trebaju drugačiji trening—ponovljivost i W' upravljanje, a ne samo održivi prag snage.</p>
+</div>
+</section>
+<section id="related-resources">
+<h2>Povezani resursi</h2>
+<ul>
+<li><a href="/hr/ftp/">Vodič za funkcionalni prag snage (FTP).</a></li>
+<li><a href="/hr/critical-power/">Objašnjenje kritične snage i W'</a></li>
+<li><a href="/hr/training-zones/">Zone treninga temeljene na snazi</a></li>
+<li><a href="/hr/pedaling-mechanics/">Mehanika i učinkovitost pedaliranja</a></li>
+<li><a href="/hr/getting-started/">Početak rada s treningom temeljenim na snazi</a></li>
+</ul>
+</section>
+</article>
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Objašnjenje metrike biciklističke snage: NP, IF, VI, W'bal",
@@ -687,7 +1820,8 @@ img[width][height] {
   },
   "datePublished": "2025-01-27",
   "dateModified": "2025-01-27"
-}</script><script type="application/ld+json">{
+}</script>
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
@@ -724,177 +1858,434 @@ img[width][height] {
       }
     }
   ]
-}</script></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">preuzimanje</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
-                        aria-label="Preuzmite na App Store"><img src="../../assets/images/badge-app-store.svg"
+}</script>
+    
+
+    
+    
+<section class="eeat-author bg-light divider-top-lg divider-bottom-lg" aria-label="Author and Reviewer Information">
+  <div class="container container-narrow">
+    <div class="eeat-card" style="display: flex; gap: 1.5rem; align-items: center; padding: 1.5rem; background: var(--color-bg-alt, #f8f9fa); border-radius: 8px; border: 1px solid var(--color-border, #e9ecef); margin-top: 3rem; margin-bottom: 2rem;">
+      <div class="eeat-avatar" style="font-size: 2.5rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">👨‍🔬</div>
+      <div class="eeat-details">
+        
+        
+        <h3 style="margin: 0 0 0.5rem 0; font-size: 1.125rem; font-weight: 600;">
+          Expertly Reviewed by 
+          <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">AnalyticsZone Team</span>
+          </span>
+        </h3>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--color-body-text, #4a5568); line-height: 1.5;">
+          This content has been written and reviewed by a sports data metrics expert to ensure technical accuracy and adherence to the latest sports science methodologies.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    
+    
+<section class="ai-citation-block divider-top-xl" data-ai-ready="true" data-ai-page="power-metrics">
+  <div class="container ai-citation-shell">
+    <h2 class="ai-citation-title">Vodič za mjerenje biciklističke snage - objašnjenje NP, IF, VI, W&#39;bal</h2>
+    <p class="ai-citation-answer">Potpuni vodič za metriku snage biciklizma: objašnjenje normalizirane snage (NP), faktora intenziteta (IF), indeksa varijabilnosti (VI) i ravnoteže W&#39;.</p>
+
+    <ul class="ai-citation-facts" role="list">
+      
+      <li class="ai-citation-fact">
+        <span class="ai-citation-icon" aria-hidden="true">📅</span>
+        <span>2026-03-24</span>
+      </li>
+      
+
+      
+      <li class="ai-citation-fact ai-citation-keywords">
+        <span class="ai-citation-icon" aria-hidden="true">🏷️</span>
+        <span>normalizirana snaga · faktor intenziteta · indeks varijabilnosti · W glavni saldo · metrika biciklističke snage</span>
+      </li>
+      
+
+      
+      <li class="ai-citation-fact">
+        <span class="ai-citation-icon" aria-hidden="true">🔬</span>
+        <a href="../../hr/bibliography/">
+          
+          Bibliografija
+          
+        </a>
+      </li>
+      
+    </ul>
+
+    
+  </div>
+</section>
+
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+        
+        <div class="footer-top">
+            <div class="footer-brand-section">
+                
+                <h2>Bike Analytics</h2>
+                <p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p>
+                
+            </div>
+
+            
+            <div class="footer-download">
+                <h3 class="footer-heading">preuzimanje</h3>
+                <div class="footer-badges">
+                    
+                    <a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Preuzmite na App Store">
+                        <img src="../../assets/images/badge-app-store.svg"
                             alt="Preuzmite na App Store" width="135"
-                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
-                        aria-label="Nabavite ga na Google Playu"><img src="../../assets/images/badge-google-play.svg"
+                            height="40" loading="lazy">
+                    </a>
+                    
+                    
+                    <a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Nabavite ga na Google Playu">
+                        <img src="../../assets/images/badge-google-play.svg"
                             alt="Nabavite ga na Google Playu" width="135"
-                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Dostupno u</h3><div class="lang-grid"><a href="/af/" class="lang-link"
+                            height="40" loading="lazy">
+                    </a>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        
+        <div class="footer-languages">
+            <h3 class="footer-heading">Dostupno u</h3>
+            <div class="lang-grid">
+                
+                <a href="/af/" class="lang-link"
                     hreflang="af" >
                     Afrikaans
-                </a><a href="/am/" class="lang-link"
+                </a>
+                
+                <a href="/am/" class="lang-link"
                     hreflang="am" >
                     አማርኛ
-                </a><a href="/ar/" class="lang-link"
+                </a>
+                
+                <a href="/ar/" class="lang-link"
                     hreflang="ar" dir="rtl" >
                     العربية
-                </a><a href="/bg/" class="lang-link"
+                </a>
+                
+                <a href="/bg/" class="lang-link"
                     hreflang="bg" >
                     Български
-                </a><a href="/bn/" class="lang-link"
+                </a>
+                
+                <a href="/bn/" class="lang-link"
                     hreflang="bn" >
                     বাংলা
-                </a><a href="/ca/" class="lang-link"
+                </a>
+                
+                <a href="/ca/" class="lang-link"
                     hreflang="ca" >
                     Català
-                </a><a href="/cs/" class="lang-link"
+                </a>
+                
+                <a href="/cs/" class="lang-link"
                     hreflang="cs" >
                     Čeština
-                </a><a href="/da/" class="lang-link"
+                </a>
+                
+                <a href="/da/" class="lang-link"
                     hreflang="da" >
                     Dansk
-                </a><a href="/de/" class="lang-link"
+                </a>
+                
+                <a href="/de/" class="lang-link"
                     hreflang="de" >
                     Deutsch
-                </a><a href="/el/" class="lang-link"
+                </a>
+                
+                <a href="/el/" class="lang-link"
                     hreflang="el" >
                     Ελληνικά
-                </a><a href="/en/" class="lang-link"
+                </a>
+                
+                <a href="/en/" class="lang-link"
                     hreflang="en" >
                     English
-                </a><a href="/es/" class="lang-link"
+                </a>
+                
+                <a href="/es/" class="lang-link"
                     hreflang="es" >
                     Español
-                </a><a href="/et/" class="lang-link"
+                </a>
+                
+                <a href="/et/" class="lang-link"
                     hreflang="et" >
                     Eesti
-                </a><a href="/fa/" class="lang-link"
+                </a>
+                
+                <a href="/fa/" class="lang-link"
                     hreflang="fa" dir="rtl" >
                     فارسی
-                </a><a href="/fi/" class="lang-link"
+                </a>
+                
+                <a href="/fi/" class="lang-link"
                     hreflang="fi" >
                     Suomi
-                </a><a href="/fr/" class="lang-link"
+                </a>
+                
+                <a href="/fr/" class="lang-link"
                     hreflang="fr" >
                     Français
-                </a><a href="/gu/" class="lang-link"
+                </a>
+                
+                <a href="/gu/" class="lang-link"
                     hreflang="gu" >
                     ગુજરાતી
-                </a><a href="/ha/" class="lang-link"
+                </a>
+                
+                <a href="/ha/" class="lang-link"
                     hreflang="ha" >
                     Hausa
-                </a><a href="/he/" class="lang-link"
+                </a>
+                
+                <a href="/he/" class="lang-link"
                     hreflang="he" dir="rtl" >
                     עברית
-                </a><a href="/hi/" class="lang-link"
+                </a>
+                
+                <a href="/hi/" class="lang-link"
                     hreflang="hi" >
                     हिन्दी
-                </a><a href="/hr/" class="lang-link active"
+                </a>
+                
+                <a href="/hr/" class="lang-link active"
                     hreflang="hr" >
                     Hrvatski
-                </a><a href="/hu/" class="lang-link"
+                </a>
+                
+                <a href="/hu/" class="lang-link"
                     hreflang="hu" >
                     Magyar
-                </a><a href="/id/" class="lang-link"
+                </a>
+                
+                <a href="/id/" class="lang-link"
                     hreflang="id" >
                     Bahasa Indonesia
-                </a><a href="/is/" class="lang-link"
+                </a>
+                
+                <a href="/is/" class="lang-link"
                     hreflang="is" >
                     Íslenska
-                </a><a href="/it/" class="lang-link"
+                </a>
+                
+                <a href="/it/" class="lang-link"
                     hreflang="it" >
                     Italiano
-                </a><a href="/ja/" class="lang-link"
+                </a>
+                
+                <a href="/ja/" class="lang-link"
                     hreflang="ja" >
                     日本語
-                </a><a href="/km/" class="lang-link"
+                </a>
+                
+                <a href="/km/" class="lang-link"
                     hreflang="km" >
                     ភាសាខ្មែរ
-                </a><a href="/kn/" class="lang-link"
+                </a>
+                
+                <a href="/kn/" class="lang-link"
                     hreflang="kn" >
                     ಕನ್ನಡ
-                </a><a href="/ko/" class="lang-link"
+                </a>
+                
+                <a href="/ko/" class="lang-link"
                     hreflang="ko" >
                     한국어
-                </a><a href="/lt/" class="lang-link"
+                </a>
+                
+                <a href="/lt/" class="lang-link"
                     hreflang="lt" >
                     Lietuvių
-                </a><a href="/lv/" class="lang-link"
+                </a>
+                
+                <a href="/lv/" class="lang-link"
                     hreflang="lv" >
                     Latviešu
-                </a><a href="/ms/" class="lang-link"
+                </a>
+                
+                <a href="/ms/" class="lang-link"
                     hreflang="ms" >
                     Bahasa Melayu
-                </a><a href="/my/" class="lang-link"
+                </a>
+                
+                <a href="/my/" class="lang-link"
                     hreflang="my" >
                     မြန်မာဘာသာ
-                </a><a href="/nb/" class="lang-link"
+                </a>
+                
+                <a href="/nb/" class="lang-link"
                     hreflang="nb" >
                     Norsk Bokmål
-                </a><a href="/nl/" class="lang-link"
+                </a>
+                
+                <a href="/nl/" class="lang-link"
                     hreflang="nl" >
                     Nederlands
-                </a><a href="/pl/" class="lang-link"
+                </a>
+                
+                <a href="/pl/" class="lang-link"
                     hreflang="pl" >
                     Polski
-                </a><a href="/pt/" class="lang-link"
+                </a>
+                
+                <a href="/pt/" class="lang-link"
                     hreflang="pt" >
                     Português
-                </a><a href="/pt-br/" class="lang-link"
+                </a>
+                
+                <a href="/pt-br/" class="lang-link"
                     hreflang="pt-br" >
                     Português (Brasil)
-                </a><a href="/ro/" class="lang-link"
+                </a>
+                
+                <a href="/ro/" class="lang-link"
                     hreflang="ro" >
                     Română
-                </a><a href="/ru/" class="lang-link"
+                </a>
+                
+                <a href="/ru/" class="lang-link"
                     hreflang="ru" >
                     Русский
-                </a><a href="/sk/" class="lang-link"
+                </a>
+                
+                <a href="/sk/" class="lang-link"
                     hreflang="sk" >
                     Slovenčina
-                </a><a href="/sl/" class="lang-link"
+                </a>
+                
+                <a href="/sl/" class="lang-link"
                     hreflang="sl" >
                     Slovenščina
-                </a><a href="/sr/" class="lang-link"
+                </a>
+                
+                <a href="/sr/" class="lang-link"
                     hreflang="sr" >
                     Српски
-                </a><a href="/sv/" class="lang-link"
+                </a>
+                
+                <a href="/sv/" class="lang-link"
                     hreflang="sv" >
                     Svenska
-                </a><a href="/sw/" class="lang-link"
+                </a>
+                
+                <a href="/sw/" class="lang-link"
                     hreflang="sw" >
                     Kiswahili
-                </a><a href="/ta/" class="lang-link"
+                </a>
+                
+                <a href="/ta/" class="lang-link"
                     hreflang="ta" >
                     தமிழ்
-                </a><a href="/te/" class="lang-link"
+                </a>
+                
+                <a href="/te/" class="lang-link"
                     hreflang="te" >
                     తెలుగు
-                </a><a href="/th/" class="lang-link"
+                </a>
+                
+                <a href="/th/" class="lang-link"
                     hreflang="th" >
                     ไทย
-                </a><a href="/tl/" class="lang-link"
+                </a>
+                
+                <a href="/tl/" class="lang-link"
                     hreflang="tl" >
                     Tagalog
-                </a><a href="/tr/" class="lang-link"
+                </a>
+                
+                <a href="/tr/" class="lang-link"
                     hreflang="tr" >
                     Türkçe
-                </a><a href="/uk/" class="lang-link"
+                </a>
+                
+                <a href="/uk/" class="lang-link"
                     hreflang="uk" >
                     Українська
-                </a><a href="/ur/" class="lang-link"
+                </a>
+                
+                <a href="/ur/" class="lang-link"
                     hreflang="ur" dir="rtl" >
                     اردو
-                </a><a href="/vi/" class="lang-link"
+                </a>
+                
+                <a href="/vi/" class="lang-link"
                     hreflang="vi" >
                     Tiếng Việt
-                </a><a href="/yo/" class="lang-link"
+                </a>
+                
+                <a href="/yo/" class="lang-link"
                     hreflang="yo" >
                     Yoruba
-                </a><a href="/zh/" class="lang-link"
+                </a>
+                
+                <a href="/zh/" class="lang-link"
                     hreflang="zh" >
                     中文
-                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
+                </a>
+                
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        
+        <div class="footer-bottom">
+            <p class="copyright">
                 &copy; 2026 Bike Analytics. Sva prava pridržana
-            </p><ul class="footer-legal"><li><a href="/hr/privacy/">Privatnost</a></li><li><a href="/hr/terms/">Uvjeti</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>Ova web stranica koristi kolačiće kako bi poboljšala vaše iskustvo.</p><a href="/hr/privacy/" class="text-sm">Saznaj više</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">Odbij</button><button id="cookie-accept" class="btn btn-primary btn-small">Prihvati</button></div></div></div><script src="../../assets/js/core.min.js?v=635348535bde" defer></script><script src="../../assets/js/search.min.js?v=635348535bde" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>
+            </p>
+            <ul class="footer-legal">
+                <li><a href="/hr/privacy/">Privatnost</a></li>
+                <li><a href="/hr/terms/">Uvjeti</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div>
+            <p>Ova web stranica koristi kolačiće kako bi poboljšala vaše iskustvo.</p>
+            <a href="/hr/privacy/" class="text-sm">Saznaj više</a>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-decline" class="btn btn-secondary btn-small">Odbij</button>
+            <button id="cookie-accept" class="btn btn-primary btn-small">Prihvati</button>
+        </div>
+    </div>
+</div>
+
+  
+  <script src="../../assets/js/core.min.js?v=19fdca55b3da" defer></script>
+  <script src="../../assets/js/search.min.js?v=19fdca55b3da" defer></script>
+  
+
+  
+  
+  <script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script>
+  
+
+  
+  <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script>
+</body>
+
+</html>
