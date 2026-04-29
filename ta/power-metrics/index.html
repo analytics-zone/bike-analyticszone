@@ -1,0 +1,909 @@
+<!DOCTYPE html><html lang="ta" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=optional"
+    rel="stylesheet"><title>சைக்கிள் ஓட்டுதல் சக்தி அளவீடுகள்: NP, IF, VI, W&#39;bal</title><meta name="description" content="NP, IF, VI மற்றும் W&#39;bal என்ன அர்த்தம், மேலும் அவை FTP, வேகக்கட்டுப்பாடு, மண்டலங்கள் மற்றும் TSS உடன் எப்படி இணைகின்றன என்பதை அறியுங்கள்."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="சாதாரண ஆற்றல், தீவிர காரணி, மாறுபாடு குறியீடு, W prime சமநிலை, சைக்கிள் ஓட்டுதல் ஆற்றல் அளவீடுகள்"><link rel="canonical" href="https://bike.analyticszone.app/ta/power-metrics/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-04-07T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/ta/power-metrics/"><meta property="og:title" content="சைக்கிள் ஓட்டுதல் சக்தி அளவீடுகள்: NP, IF, VI, W&#39;bal"><meta property="og:description" content="NP, IF, VI மற்றும் W&#39;bal என்ன அர்த்தம், மேலும் அவை FTP, வேகக்கட்டுப்பாடு, மண்டலங்கள் மற்றும் TSS உடன் எப்படி இணைகின்றன என்பதை அறியுங்கள்."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="ta_IN"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/ta/power-metrics/"><meta name="twitter:title" content="சைக்கிள் ஓட்டுதல் சக்தி அளவீடுகள்: NP, IF, VI, W&#39;bal"><meta name="twitter:description" content="NP, IF, VI மற்றும் W&#39;bal என்ன அர்த்தம், மேலும் அவை FTP, வேகக்கட்டுப்பாடு, மண்டலங்கள் மற்றும் TSS உடன் எப்படி இணைகின்றன என்பதை அறியுங்கள்."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/power-metrics/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/power-metrics/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/power-metrics/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/power-metrics/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/power-metrics/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/power-metrics/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/power-metrics/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/power-metrics/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/power-metrics/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/power-metrics/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/power-metrics/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/power-metrics/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/power-metrics/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/power-metrics/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/power-metrics/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/power-metrics/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/power-metrics/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/power-metrics/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/power-metrics/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/power-metrics/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/power-metrics/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/power-metrics/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/power-metrics/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/power-metrics/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/power-metrics/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/power-metrics/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/power-metrics/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/power-metrics/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/power-metrics/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/power-metrics/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/power-metrics/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/power-metrics/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/power-metrics/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/power-metrics/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/power-metrics/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/power-metrics/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/power-metrics/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/power-metrics/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/power-metrics/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/power-metrics/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/power-metrics/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/power-metrics/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/power-metrics/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/power-metrics/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/power-metrics/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/power-metrics/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/power-metrics/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/power-metrics/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/power-metrics/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/power-metrics/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/power-metrics/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/power-metrics/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/power-metrics/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/power-metrics/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/power-metrics/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/power-metrics/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+main.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=8ddce8bb"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Bike Analytics",
+  "url": "https://bike.analyticszone.app",
+  "logo": "https://bike.analyticszone.app/assets/images/logo.png",
+  "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+  
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "email": "analyticszone+bike@onmedic.org"
+  },
+  
+  "sameAs": [
+    
+    
+      
+    
+    
+      
+    
+    
+      
+    
+    
+    "https://twitter.com/bikeanalytics",
+    
+    "https://apps.apple.com/us/app/bike-analytics/id6755187319",
+    
+    "https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics"
+    
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Bike Analytics",
+  "url": "https://bike.analyticszone.app",
+  "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+  "inLanguage": "ta"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Bike Analytics",
+  "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+  "url": "https://bike.analyticszone.app",
+  "applicationCategory": ["HealthApplication", "FitnessApplication"],
+  "operatingSystem": "iOS, Android",
+  "author": {
+    "@type": "Organization",
+    "name": "AnalyticsZone Team"
+  },
+  "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "முகப்பு",
+      "item": "https://bike.analyticszone.app/ta/"
+    },
+    
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "அறிவியல்",
+      "item": "https://bike.analyticszone.app/ta/research/"
+    },
+    
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "சக்தி அளவீடுகள்",
+      "item": "https://bike.analyticszone.app/ta/power-metrics/"
+    }
+    
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "சைக்கிள் ஓட்டுதல் சக்தி அளவீடுகள்: NP, IF, VI, W&#39;bal",
+  "description": "NP, IF, VI மற்றும் W&#39;bal என்ன அர்த்தம், மேலும் அவை FTP, வேகக்கட்டுப்பாடு, மண்டலங்கள் மற்றும் TSS உடன் எப்படி இணைகின்றன என்பதை அறியுங்கள்.",
+  "url": "https://bike.analyticszone.app/ta/power-metrics/",
+  "inLanguage": "ta",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Bike Analytics",
+    "url": "https://bike.analyticszone.app"
+  },
+  "datePublished": "2025-01-15",
+  "dateModified": "2026-04-07",
+  "keywords": ["சாதாரண ஆற்றல்", "தீவிர காரணி", "மாறுபாடு குறியீடு", "W prime சமநிலை", "சைக்கிள் ஓட்டுதல் ஆற்றல் அளவீடுகள்"],
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "சாதாரண ஆற்றல்"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "தீவிர காரணி"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "மாறுபாடு குறியீடு"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "W prime சமநிலை"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "சைக்கிள் ஓட்டுதல் ஆற்றல் அளவீடுகள்"
+    }
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "சைக்கிள் ஓட்டுதல் சக்தி அளவீடுகள்: NP, IF, VI, W&#39;bal",
+  "description": "NP, IF, VI மற்றும் W&#39;bal என்ன அர்த்தம், மேலும் அவை FTP, வேகக்கட்டுப்பாடு, மண்டலங்கள் மற்றும் TSS உடன் எப்படி இணைகின்றன என்பதை அறியுங்கள்.",
+  "author": {
+    "@type": "Person",
+    "name": "AnalyticsZone Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bike Analytics",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bike.analyticszone.app/assets/images/logo.png"
+    }
+  },
+  "datePublished": "2025-01-15",
+  "dateModified": "2026-04-07",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bike.analyticszone.app/ta/power-metrics/"
+  }
+}
+</script><script>
+    (function () {
+      let theme = localStorage.getItem('theme');
+      // Older builds could persist a per-subdomain `theme=light` value without a UI
+      // to keep it consistent across apps. Treat it as stale and fall back to the OS.
+      if (theme === 'light') {
+        try { localStorage.removeItem('theme'); } catch (e) { /* ignore */ }
+        theme = null;
+      }
+
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark-mode');
+      }
+    })();
+  </script></head><body><a href="#main-content" class="skip-link">உள்ளடக்கத்திற்குச் செல்லவும்</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/ta/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/ta/" 
+                                aria-current="">
+                                முகப்பு
+                            </a></li><li class="has-submenu" ><a href="/ta/getting-started/" class="nav-label">கற்க</a><ul class="submenu"><li><a href="/ta/getting-started/" 
+                                        aria-current="">
+                                        தொடங்குதல்
+                                    </a></li><li><a href="/ta/ftp/" 
+                                        aria-current="">
+                                        FTP
+                                    </a></li><li><a href="/ta/critical-power/" 
+                                        aria-current="">
+                                        விமர்சன சக்தி
+                                    </a></li><li><a href="/ta/training-zones/" 
+                                        aria-current="">
+                                        பயிற்சி மண்டலங்கள்
+                                    </a></li><li><a href="/ta/training-load/" 
+                                        aria-current="">
+                                        பயிற்சிச் சுமை
+                                    </a></li><li><a href="/ta/tss-calculator/" 
+                                        aria-current="">
+                                        TSS கால்குலேட்டர்
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/ta/research/" class="nav-label">அறிவியல்</a><ul class="submenu"><li><a href="/ta/research/" 
+                                        aria-current="">
+                                        ஆராய்ச்சி
+                                    </a></li><li><a href="/ta/formulas/" 
+                                        aria-current="">
+                                        சூத்திரங்கள்
+                                    </a></li><li><a href="/ta/power-metrics/" class="active" 
+                                        aria-current="page">
+                                        சக்தி அளவீடுகள்
+                                    </a></li><li><a href="/ta/efficiency/" 
+                                        aria-current="">
+                                        செயல்திறன்
+                                    </a></li><li><a href="/ta/pedaling-mechanics/" 
+                                        aria-current="">
+                                        பெடலிங் மெக்கானிக்ஸ்
+                                    </a></li><li><a href="/ta/aerodynamics/" 
+                                        aria-current="">
+                                        ஏரோடைனமிக்ஸ்
+                                    </a></li><li><a href="/ta/climbing-performance/" 
+                                        aria-current="">
+                                        ஏறும் செயல்திறன்
+                                    </a></li><li><a href="/ta/bibliography/" 
+                                        aria-current="">
+                                        ஆதார நூற்பட்டியல்
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/ta/road-cycling/" class="nav-label">ஒழுக்கங்கள்</a><ul class="submenu"><li><a href="/ta/road-cycling/" 
+                                        aria-current="">
+                                        சாலை சைக்கிள் ஓட்டுதல்
+                                    </a></li><li><a href="/ta/mountain-biking/" 
+                                        aria-current="">
+                                        மவுண்டன் பைக்கிங்
+                                    </a></li><li><a href="/ta/road-vs-mtb/" 
+                                        aria-current="">
+                                        சாலை vs MTB
+                                    </a></li><li><a href="/ta/comparisons/" 
+                                        aria-current="">
+                                        மேடை ஒப்பீடுகள்
+                                    </a></li></ul></li><li><a href="/ta/contact/" 
+                                aria-current="">
+                                தொடர்பு
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="மொழியைத் தேர்ந்தெடுக்கவும்"><option value="af" >
+                            Afrikaans
+                        </option><option value="am" >
+                            አማርኛ
+                        </option><option value="ar" >
+                            العربية
+                        </option><option value="bg" >
+                            Български
+                        </option><option value="bn" >
+                            বাংলা
+                        </option><option value="ca" >
+                            Català
+                        </option><option value="cs" >
+                            Čeština
+                        </option><option value="da" >
+                            Dansk
+                        </option><option value="de" >
+                            Deutsch
+                        </option><option value="el" >
+                            Ελληνικά
+                        </option><option value="en" >
+                            English
+                        </option><option value="es" >
+                            Español
+                        </option><option value="et" >
+                            Eesti
+                        </option><option value="fa" >
+                            فارسی
+                        </option><option value="fi" >
+                            Suomi
+                        </option><option value="fr" >
+                            Français
+                        </option><option value="gu" >
+                            ગુજરાતી
+                        </option><option value="ha" >
+                            Hausa
+                        </option><option value="he" >
+                            עברית
+                        </option><option value="hi" >
+                            हिन्दी
+                        </option><option value="hr" >
+                            Hrvatski
+                        </option><option value="hu" >
+                            Magyar
+                        </option><option value="id" >
+                            Bahasa Indonesia
+                        </option><option value="is" >
+                            Íslenska
+                        </option><option value="it" >
+                            Italiano
+                        </option><option value="ja" >
+                            日本語
+                        </option><option value="km" >
+                            ភាសាខ្មែរ
+                        </option><option value="kn" >
+                            ಕನ್ನಡ
+                        </option><option value="ko" >
+                            한국어
+                        </option><option value="lt" >
+                            Lietuvių
+                        </option><option value="lv" >
+                            Latviešu
+                        </option><option value="ms" >
+                            Bahasa Melayu
+                        </option><option value="my" >
+                            မြန်မာဘာသာ
+                        </option><option value="nb" >
+                            Norsk Bokmål
+                        </option><option value="nl" >
+                            Nederlands
+                        </option><option value="pl" >
+                            Polski
+                        </option><option value="pt" >
+                            Português
+                        </option><option value="pt-br" >
+                            Português (Brasil)
+                        </option><option value="ro" >
+                            Română
+                        </option><option value="ru" >
+                            Русский
+                        </option><option value="sk" >
+                            Slovenčina
+                        </option><option value="sl" >
+                            Slovenščina
+                        </option><option value="sr" >
+                            Српски
+                        </option><option value="sv" >
+                            Svenska
+                        </option><option value="sw" >
+                            Kiswahili
+                        </option><option value="ta" selected>
+                            தமிழ்
+                        </option><option value="te" >
+                            తెలుగు
+                        </option><option value="th" >
+                            ไทย
+                        </option><option value="tl" >
+                            Tagalog
+                        </option><option value="tr" >
+                            Türkçe
+                        </option><option value="uk" >
+                            Українська
+                        </option><option value="ur" >
+                            اردو
+                        </option><option value="vi" >
+                            Tiếng Việt
+                        </option><option value="yo" >
+                            Yoruba
+                        </option><option value="zh" >
+                            中文
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a><a href="https://hike.analyticszone.app" class="suite-app-link">Hike Analytics</a><a href="https://sleep.analyticszone.app" class="suite-app-link">Sleep Analytics</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="மெனுவை மாற்றவும்"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/ta/">முகப்பு</a></li><li><a href="/ta/research/">அறிவியல்</a></li><li><span aria-current="page">சக்தி அளவீடுகள்</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>சைக்கிள் ஓட்டுதல் ஆற்றல் அளவீடுகள்: NP, IF, VI மற்றும் W'bal விளக்கப்பட்டது</h1><p class="lead">சவாரி கோப்புகளை இணைப்பதற்கான நடைமுறை மையம் <a href="/ta/ftp/">FTP</a>, <a href="/ta/critical-power/">விமர்சன சக்தி</a>, <a href="/ta/training-zones/">பயிற்சி மண்டலங்கள்</a>, வேகக்கட்டுப்பாடு முடிவுகள், மற்றும் <a href="/ta/tss-calculator/">TSS</a></p></div></section><section class="section"><div class="container container-narrow"><div class="quick-answer" itemscope="" itemtype="https://schema.org/Answer"><h2>விரைவான பதில்</h2><div itemprop="text"><p><strong>சைக்கிள் ஓட்டுதல் சக்தி அளவீடுகள்</strong> மூல வாட்களை முடிவுகளாக மாற்றவும். <strong>இயல்பாக்கப்பட்ட சக்தி (NP)</strong> மாறி சவாரி செய்வதற்கான உண்மையான விலையை மதிப்பிடுகிறது, <strong>தீவிர காரணி (IF)</strong> சவாரி எவ்வளவு கடினமாக இருந்தது என்பதைக் காட்டுகிறது <a href="/ta/ftp/">FTP</a>, <strong>மாறுபாடு குறியீடு (VI)</strong> முயற்சி எவ்வளவு சீராக அல்லது குழப்பமாக இருந்தது என்பதைக் காட்டுகிறது, மற்றும் <strong>வபால்</strong> நீங்கள் எவ்வளவு வரம்புக்கு மேல் செலவழித்தீர்கள் என்பதை விளக்க உதவுகிறது.</p><ul><li><strong>சிறந்த பயன்பாடு:</strong> பயிற்சி மருந்து, பந்தய வேகம் மற்றும் சவாரிக்குப் பிந்தைய பகுப்பாய்வு</li><li><strong>மிகவும் பயனுள்ள நங்கூரம்:</strong> ஒரு அப்-டு-டேட் <a href="/ta/ftp/">FTP</a> அல்லது <a href="/ta/critical-power/">விமர்சன சக்தி</a> மதிப்பு</li><li><strong>மிகப்பெரிய தவறு:</strong> NP, IF அல்லது W'bal ஆகியவற்றை நிலப்பரப்பு, கால அளவு மற்றும் நிகழ்வு வகை ஆகியவற்றிலிருந்து சூழல் இல்லாமல் ஒப்பிடுதல்</li><li><strong>சிறந்த அடுத்த படி:</strong> அளவீடுகளை இணைக்கவும் <a href="/ta/training-zones/">பயிற்சி மண்டலங்கள்</a> மற்றும் <a href="/ta/tss-calculator/">TSS</a> அவற்றை தனிமையில் வாசிப்பதற்குப் பதிலாக</li></ul></div></div><div class="callout callout-success mb-xl"><h2>முக்கிய எடுக்கப்பட்டவை</h2><ul class="key-points"><li><strong>NP</strong> ஒரே சராசரி சக்தி கொண்ட இரண்டு சவாரிகள் ஏன் முற்றிலும் வித்தியாசமாக உணர முடியும் என்பதை உங்களுக்கு சொல்கிறது</li><li><strong>IF</strong> உறவுகள் தீவிரத்தை மீண்டும் கொண்டு செல்கின்றன <a href="/ta/ftp/">FTP</a> எனவே ஒரு எண் பயிற்சி முடிவாக முடியும்</li><li><strong>VI</strong> எழுச்சி-கனமான அளவுகோல்கள் மற்றும் MTB பந்தயத்திலிருந்து நிலையான சாலை முயற்சிகளை பிரிக்கிறது</li><li><strong>வபால்</strong> மீண்டும் மீண்டும் மேலே உள்ள முயற்சிகள் மற்றும் அவற்றுக்கிடையே மீட்டெடுப்பு பற்றி நீங்கள் கவலைப்படும்போது மிகவும் பயனுள்ளதாக இருக்கும்</li><li><strong>உண்மையான கொத்து:</strong><a href="/ta/ftp/">FTP</a>, <a href="/ta/critical-power/">விமர்சன சக்தி</a>, <a href="/ta/ftp-vs-critical-power/">FTP vs கிரிட்டிகல் பவர்</a>, <a href="/ta/training-zones/">பயிற்சி மண்டலங்கள்</a>, <a href="/ta/aerodynamics/">காற்றியக்கவியல்</a>, மற்றும் <a href="/ta/tss-calculator/">TSS</a></li></ul></div><p class="lead">பெரும்பாலான சைக்கிள் ஓட்டுபவர்களுக்கு அதிக அளவீடுகள் தேவையில்லை. ரைடு கோப்பில் ஏற்கனவே உள்ளவற்றை விளக்குவதற்கு அவர்களுக்கு சிறந்த வழி தேவை. இந்தப் பக்கம் அந்த அமைப்பின் நடைமுறை மையமாகும்: முக்கிய சக்தி அளவீடுகள் எதைக் குறிக்கின்றன, அவை எப்போது உதவுகின்றன, அவை எங்கு தோல்வியடைகின்றன, மேலும் எந்த தொடர்புடைய பக்கங்களை நீங்கள் பயன்படுத்த வேண்டும்.</p><p>பயனுள்ள கேள்விகள் எளிமையானவை:</p><ul><li>இந்த சவாரி உண்மையில் கடினமாக இருந்ததா அல்லது சத்தமாக இருந்ததா?</li><li>நிகழ்வுக்கான முயற்சியை நான் சிறப்பாகச் செய்தேனா?</li><li>இந்த வொர்க்அவுட்டிற்கு எந்த மெட்ரிக் முக்கியமானது: நிலையான சக்தி, மாறுபாடு, அல்லது மேலே மீண்டும் மீண்டும் செய்யக்கூடிய தன்மை?</li><li>அடுத்து நான் செய்வதை இந்த எண்கள் எப்படி மாற்ற வேண்டும்?</li></ul><h2>இந்த அளவீடுகள் உண்மையில் என்ன அளவிடுகின்றன</h2><p><strong>சராசரி சக்தி</strong> சராசரியாக என்ன நடந்தது என்று சொல்கிறது. முக்கிய சைக்கிள் ஓட்டுதல் சக்தி அளவீடுகள் உங்களுக்குச் சொல்கின்றன <strong>முயற்சி எவ்வாறு விநியோகிக்கப்பட்டது</strong>, <strong>வாசலைப் பொறுத்தவரை எவ்வளவு அழுத்தமாக இருந்தது</strong>, மற்றும் <strong>வரம்புக்கு மேல் உள்ள திறனை நீங்கள் புத்திசாலித்தனமாக செலவு செய்கிறீர்களா</strong>.</p><div class="comparison-table-container"><table class="comparison-table"><thead><tr><th>மெட்ரிக்</th><th>அது என்ன அளவிடுகிறது</th><th>சிறந்தது</th><th>பொதுவான தவறான பயன்பாடு</th></tr></thead><tbody><tr class="highlight-row"><td><strong>இயல்பாக்கப்பட்ட சக்தி (NP)</strong></td><td>மாறி மின் உற்பத்தியின் உடலியல் செலவு</td><td>கடினமான குழு சவாரிகள், MTB, கிரிட்ஸ், உருளும் நிலப்பரப்பு மற்றும் வேகக்கட்டுப்பாடு பிழைகளை விளக்குதல்</td><td>நிகழ்வின் கால அளவு அல்லது நிலப்பரப்பு சூழல் இல்லாமல் தானாகவே ஒரு வேகமான இலக்காகக் கருதுதல்</td></tr><tr><td><strong>தீவிர காரணி (IF)</strong></td><td>சவாரி தீவிரம் தொடர்புடையது <a href="/ta/ftp/">FTP</a></td><td>மருந்து, உடற்பயிற்சி மதிப்பாய்வு மற்றும் அமர்வு வகைப்பாடு</td><td>காலாவதியான FTP ஐப் பயன்படுத்துவதால், ஒவ்வொரு சவாரியும் உண்மையில் இருந்ததை விட கடினமாகவோ அல்லது எளிதாகவோ தெரிகிறது</td></tr><tr><td><strong>மாறுபாடு குறியீடு (VI)</strong></td><td>முயற்சி எவ்வளவு நிலையானது அல்லது எழுச்சியுடன் இருந்தது</td><td>வேகக்கட்டுப்பாடு பகுப்பாய்வு மற்றும் ஒழுங்குமுறை ஒப்பீடு</td><td>அனைத்து உயர் VI ரைடுகளையும் "மோசமான வேகக்கட்டுப்பாடு" என்று அழைப்பது, நிகழ்வே எழுச்சியைக் கோரும் போது</td></tr><tr><td><strong>வபால்</strong></td><td>மேலே மதிப்பிடப்பட்ட மீதமுள்ள வேலை திறன் <a href="/ta/critical-power/">விமர்சன சக்தி</a></td><td>பந்தய உத்தி, மீண்டும் மீண்டும் தாக்குதல்கள், தொழில்நுட்ப ஏற்றங்கள் மற்றும் இடைவெளி வடிவமைப்பு</td><td>CP அல்லது W' மதிப்பீடுகள் பலவீனமாக இருக்கும்போது மாதிரியை கண்மூடித்தனமாக நம்புதல்</td></tr></tbody></table></div><div class="callout callout-info"><h3>பயனுள்ள மன மாதிரி</h3><p>யோசியுங்கள் <strong>செலவாக NP</strong>, <strong>IF சூழல் மற்றும் வரம்பு</strong>, <strong>வேகமான வடிவமாக VI</strong>, மற்றும் <strong>W'bal உங்கள் வரையறுக்கப்பட்ட எழுச்சி பட்ஜெட்டாக</strong>. அவர்கள் ஒன்றாக சராசரி சக்தியை விட அதிகமாக விளக்குகிறார்கள்.</p></div><h2>ஒவ்வொரு அளவீடும் பயனுள்ளதாக இருக்கும் போது</h2><div class="application-grid"><div class="application-item"><h3>📋 பயிற்சி மருந்துச்சீட்டு</h3><p>பயன்படுத்தவும் <a href="/ta/ftp/">FTP</a> அல்லது <a href="/ta/critical-power/">விமர்சன சக்தி</a> கட்ட வேண்டும் <a href="/ta/training-zones/">பயிற்சி மண்டலங்கள்</a>, பிறகு IF மற்றும் NP ஐப் பயன்படுத்தி அமர்வு நீங்கள் விரும்பிய இடத்தில் வந்ததா என்பதைச் சரிபார்க்கவும்.</p></div><div class="application-item"><h3>🏁 ரேஸ் பேசிங்</h3><p>VI மற்றும் NP ஐப் பயன்படுத்தி, நீங்கள் ஒரு நிலையான சாலை முயற்சியை சிறப்பாகச் செய்தீர்களா அல்லது பூச்சு மங்கச் செய்யும் ஆரம்ப அலைகளுக்கு அதிக செலவு செய்தீர்களா என்பதைத் தீர்மானிக்கவும்.</p></div><div class="application-item"><h3>📊 சவாரிக்குப் பிந்தைய பகுப்பாய்வு</h3><p>NP, IF, மற்றும் <a href="/ta/tss-calculator/">TSS</a> ஒவ்வொரு சராசரி வாட்டும் ஒரே கதையைச் சொல்கிறது என்று பாசாங்கு செய்யாமல் வெவ்வேறு காலங்கள் மற்றும் நிலப்பரப்பில் உள்ள அமர்வுகளை ஒப்பிட உதவுங்கள்.</p></div><div class="application-item"><h3>⚡ மீண்டும் நிகழும் தன்மை</h3><p>XC MTB, பஞ்ச் ரோட் ரேசிங் அல்லது க்ரிடீரியம் ஆக்சிலரேஷன்கள் போன்ற வாசலுக்கு மேல் தொடர்ச்சியான முயற்சிகளைச் சார்ந்திருக்கும் போது W'bal மிகவும் முக்கியமானது.</p></div></div><div class="warning-box"><strong>⚠️ முக்கியமான சார்பு:</strong> உங்கள் என்றால் <a href="/ta/ftp/">FTP</a> அல்லது <a href="/ta/critical-power/">விமர்சன சக்தி</a> மதிப்பீடு தவறானது, IF, பயிற்சி மண்டலங்கள், TSS மற்றும் W'bal விளக்கம் அனைத்தும் அதனுடன் நகர்கின்றன.
+        </div><h2>சைக்கிள் ஓட்டுபவர்கள் இந்த அளவீடுகளை தவறாகப் பயன்படுத்தினால்</h2><div class="grid grid-2"><div class="protocol-card"><h3>பொதுவான தவறுகள்</h3><ul><li>ஒரு நிலையான ஏறுதலில் இருந்து NP க்கு சராசரி சக்தியை ஒரு அளவுகோலில் இருந்து ஒப்பிடுவது, அவை ஒரே பொருளைக் குறிக்கிறது</li><li>பல மாதங்களாக மறுபரிசீலனை செய்யப்படாத FTP உடன் IF ஐப் பயன்படுத்துதல்</li><li>மாறுபாடு தவிர்க்க முடியாத பந்தய வடிவங்களில் குறைந்த VI ஐ துரத்தல்</li><li>ஊகங்களோடு பிணைக்கப்பட்ட மாதிரிக்குப் பதிலாக ஒரு நேரடி எரிபொருள் அளவுகோல் போன்ற W'bal ஐப் படித்தல்</li><li>ட்ரெண்ட் டேட்டா இல்லாமல் ஃபிட்னஸை மறுவரையறை செய்ய ஒரு ஈர்க்கக்கூடிய சவாரி கோப்பைப் பயன்படுத்துதல்</li></ul></div><div class="protocol-card"><h3>சிறந்த விளக்க விதிகள்</h3><ul><li>நிகழ்வு வகையுடன் தொடங்கவும்: TT, சாலை பந்தயம், கிரான் ஃபோண்டோ, XC, எண்டூரோ அல்லது கிரிட்</li><li>எண்ணைத் தீர்மானிப்பதற்கு முன் வேகக்கட்டுப்பாடு வடிவம் இலக்குடன் பொருந்துகிறதா என்பதைச் சரிபார்க்கவும்</li><li>பயன்படுத்தவும் <a href="/ta/training-zones/">மண்டலங்கள்</a> மற்றும் <a href="/ta/tss-calculator/">TSS</a> பயிற்சிக்கான சவாரி என்றால் என்ன என்பதை தீர்மானிக்க</li><li>W'bal உடன் இணைக்கவும் <a href="/ta/critical-power/">விமர்சன சக்தி</a> மற்றும் மீண்டும் மீண்டும் முயற்சி கோரிக்கைகள்</li><li>அமர்வுகள் முழுவதும் போக்குகளைப் பயன்படுத்தவும், ஒரு தனித்தனி தலைப்பு மெட்ரிக் அல்ல</li></ul></div></div><h2>FTP, CP மற்றும் மண்டலங்களுடன் பவர் அளவீடுகள் எவ்வாறு இணைக்கப்படுகின்றன</h2><p>பக்கங்கள் ஒன்றையொன்று ஆதரிக்கும் போது மட்டுமே இந்த கிளஸ்டர் பயனுள்ளதாக இருக்கும்:</p><ul><li><strong><a href="/ta/ftp/">FTP</a></strong> பயிற்சி மண்டலங்களை நங்கூரமிட்டு IF ஐ விளக்குகிறது</li><li><strong><a href="/ta/critical-power/">விமர்சன சக்தி</a></strong> மேலே உள்ள வேலை மற்றும் W'bal க்கான சிறந்த மாதிரியை வழங்குகிறது</li><li><strong><a href="/ta/training-zones/">பயிற்சி மண்டலங்கள்</a></strong> வாசல் அளவுகோல்களை தினசரி மருந்துகளாக மாற்றவும்</li><li><strong><a href="/ta/aerodynamics/">ஏரோடைனமிக்ஸ்</a></strong> ஒரே வேகத்தை வைத்திருக்க ஒரே சவாரிக்கு ஏன் வெவ்வேறு சக்தி தேவைப்படலாம் என்பதை விளக்குகிறது</li><li><strong><a href="/ta/tss-calculator/">TSS</a></strong> தீவிரம் மற்றும் கால அளவை நீங்கள் காலப்போக்கில் ஒப்பிடக்கூடிய சுமை மதிப்பெண்ணாக மாற்றுகிறது</li></ul><div class="comparison-box"><div class="comparison-item"><h3>நிலையான நிகழ்வுகள்</h3><p><strong>முன்னுரிமை அளவீடுகள்:</strong> FTP, IF, VI, மற்றும் வேகக்கட்டுப்பாடு ஒழுக்கம்</p><p><strong>எடுத்துக்காட்டுகள்:</strong> நேர சோதனைகள், நீண்ட ஏறுதல்கள், நிலையான தனி முயற்சிகள்</p></div><div class="comparison-item"><h3>மாறக்கூடிய நிகழ்வுகள்</h3><p><strong>முன்னுரிமை அளவீடுகள்:</strong> NP, VI, W'bal மற்றும் எழுச்சிகளுக்கு இடையில் மீட்பு</p><p><strong>எடுத்துக்காட்டுகள்:</strong> அளவுகோல்கள், MTB, பஞ்ச் சாலை பந்தயங்கள், தொழில்நுட்ப ஏற்றங்கள்</p></div></div></div></section><section class="section section-alt"><div class="container"><h2 class="text-center mb-xl">செயல்பட்ட எடுத்துக்காட்டுகள்</h2><div class="grid grid-2"><div class="example-box"><h3>நிலையான சாலை ஏறும் உதாரணம்</h3><p><strong>ரைடர் சுயவிவரம்:</strong> FTP 300W</p><ul><li><strong>காலம்:</strong> 20 நிமிடங்கள்</li><li><strong>சராசரி சக்தி:</strong> 282W</li><li><strong>NP:</strong> 286W</li><li><strong>IF:</strong> 0.95</li><li><strong>VI:</strong> 1.01</li></ul><p><strong>விளக்கம்:</strong> இது கிட்டத்தட்ட சிறந்த நிலையான முயற்சி. NP சராசரி சக்திக்கு அருகில் அமர்ந்திருக்கிறது, VI சுத்தமான வேகத்தை உறுதிப்படுத்துகிறது, மேலும் IF ரைடர் வாசலில் இருந்ததைக் காட்டுகிறது. இந்த வகையான முயற்சிக்கு, சராசரி சக்தி மற்றும் வாசலில் உள்ள சூழல் பெரும்பாலான கதையைச் சொல்கிறது.</p></div><div class="example-box"><h3>மாறி MTB / அளவுகோல் எடுத்துக்காட்டு</h3><p><strong>ரைடர் சுயவிவரம்:</strong> FTP 300W, CP 305W, W' 18 kJ</p><ul><li><strong>காலம்:</strong> 60 நிமிடங்கள்</li><li><strong>சராசரி சக்தி:</strong> 228W</li><li><strong>NP:</strong> 276W</li><li><strong>IF:</strong> 0.92</li><li><strong>VI:</strong> 1.21</li></ul><p><strong>விளக்கம்:</strong> நீங்கள் சராசரி சக்தியைப் படித்தால் மட்டுமே சவாரி மிதமானதாகத் தெரிகிறது, ஆனால் NP மற்றும் VI ஆகியவை மீண்டும் மீண்டும் த்ரெஷோல்ட் உயர்வைக் காட்டுகின்றன. இங்குதான் W'bal மற்றும் <a href="/ta/critical-power/">விமர்சன சக்தி</a> முக்கியமானது, ஏனெனில் சவாரி செய்பவர் மீண்டும் மீண்டும் செலவழிக்கிறார் மற்றும் வரையறுக்கப்பட்ட காற்றில்லா வேலை திறனை ஓரளவு மீட்டெடுக்கிறார்.</p></div></div><div class="callout callout-science mt-xl"><h3>இந்த எடுத்துக்காட்டுகள் ஏன் முக்கியம்</h3><p>ஒரே ரைடர் ஒரே மாதிரியான சராசரி சக்தி மற்றும் முற்றிலும் மாறுபட்ட உடலியல் செலவில் இரண்டு அமர்வுகளை முடிக்க முடியும். அதனால்தான் NP, IF, VI மற்றும் W'bal ஆகியவை மேற்கோள்-நட்பு அளவீடுகள்: அவை நிகழ்த்தப்பட்ட வேலைக்கும் அனுபவித்த மன அழுத்தத்திற்கும் இடையிலான வேறுபாட்டை விளக்குகின்றன.</p></div></div></section><section class="section"><div class="container container-narrow"><h2>மெட்ரிக்-பை-மெட்ரிக் சுருக்கம்</h2><h3>இயல்பாக்கப்பட்ட சக்தி (NP)</h3><p><strong>NP</strong> நிலையான சவாரி செய்வதை விட எடை அதிகரிப்புக்குப் பிறகு சவாரிக்கான விலை அதிகமாக இருக்கும் என்று மதிப்பிடுகிறது. கடினமான குழு சவாரிகள், ரோலிங் ரேஸ்கள் மற்றும் தொழில்நுட்ப MTB கோப்புகளை விளக்குவதற்கு இது அவசியம், அங்கு சராசரி சக்தி உண்மையான விகாரத்தை மறைக்கிறது.</p><h3>தீவிர காரணி (IF)</h3><p><strong>IF</strong> வாசலில் சவாரி செய்வதற்கான எளிய வழி. உங்கள் போது மட்டுமே இது பயனுள்ளதாக இருக்கும் <a href="/ta/ftp/">FTP</a> நம்பும்படியாக உள்ளது. FTP பழையதாக இருந்தால், IF தவறான துல்லியமாக மாறும்.</p><h3>மாறுபாடு குறியீடு (VI)</h3><p><strong>VI</strong> முயற்சி நிலையானதா அல்லது குழப்பமானதா என்பதை உங்களுக்குச் சொல்கிறது. நேர சோதனையில், குறைந்த VI என்பது பொதுவாக நல்ல வேகம். ஒரு XC இனம் அல்லது அளவுகோலில், ஒரு உயர் VI நிகழ்வின் கோரிக்கைகளை வெறுமனே பிரதிபலிக்கலாம்.</p><h3>வபால்</h3><p><strong>வபால்</strong> தீவிர ரைடர்களுக்கு மேலே மீண்டும் மீண்டும் வேலைகளை விளக்க உதவுகிறது <a href="/ta/critical-power/">விமர்சன சக்தி</a>. ஒவ்வொரு சவாரிக்கும் உலகளாவிய டாஷ்போர்டு எண்ணாக இல்லாமல், பந்தய சூழலுடன் இணைக்கப்படும் போது இது மிகவும் பயனுள்ளதாக இருக்கும்.</p><h2>கிளஸ்டருடன் தொடரவும்</h2><div class="grid grid-2"><div class="protocol-card"><h3><a href="/ta/ftp/">FTP</a></h3><p>IF மற்றும் பயிற்சி மண்டலங்களைப் பயன்படுத்தக்கூடியதாக மாற்றும் த்ரெஷோல்ட் ஆங்கர் உங்களுக்குத் தேவைப்பட்டால் இங்கே தொடங்கவும்.</p></div><div class="protocol-card"><h3><a href="/ta/critical-power/">விமர்சன சக்தி</a></h3><p>உங்கள் சவாரியானது த்ரெஷோல்ட் மற்றும் டபிள்யூ' விளக்கத்திற்கு மேல் திரும்பத் திரும்பச் செய்யும் முயற்சியைப் பொறுத்து இருந்தால், இங்கே ஆழமாகச் செல்லவும்.</p></div><div class="protocol-card"><h3><a href="/ta/training-zones/">பயிற்சி மண்டலங்கள்</a></h3><p>தொடக்க எண்களை அமர்வு அமைப்பு மற்றும் வாராந்திர விநியோகமாக மாற்ற இந்தப் பக்கத்தைப் பயன்படுத்தவும்.</p></div><div class="protocol-card"><h3><a href="/ta/aerodynamics/">ஏரோடைனமிக்ஸ்</a></h3><p>மின் வெளியீட்டை வேகம், இழுத்தல் மற்றும் நிஜ உலக வேகத்துடன் இணைக்க விரும்பினால் இதை அடுத்து படிக்கவும்.</p></div></div><div class="callout callout-primary mt-xl"><h3><a href="/ta/tss-calculator/">TSS கால்குலேட்டர்</a></h3><p>நீங்கள் ஏற்கனவே த்ரெஷோல்ட் மற்றும் ரைடு தீவிரத்தை புரிந்து கொண்டால், அடுத்த நடைமுறை படியானது TSS உடன் பயிற்சி சுமைகளை ஸ்கோரிங் செய்வதாகும், எனவே தனிப்பட்ட சவாரிகள் வாராந்திர மற்றும் தொகுதி-நிலை முடிவுகளை தெரிவிக்க முடியும்.</p></div></div></section><section class="section section-gray"><div class="container container-narrow"><h2>அடிக்கடி கேட்கப்படும் கேள்விகள்</h2><div class="faq-item"><h3>NP ஏன் சராசரி சக்தியை விட அதிகமாக உள்ளது?</h3><p>ஏனெனில் கடினமான அலைகள் சமமற்ற உடலியல் செலவை உருவாக்குகின்றன. NP அந்த எழுச்சிகளை அதிக அளவில் எடைபோடுகிறது, எனவே ஒரு மாறி சவாரி பொதுவாக சராசரி சக்தியை விட NP வழியாக கடினமாக இருக்கும்.</p></div><div class="faq-item"><h3>சைக்கிள் ஓட்டுவதற்கு நல்ல VI எது?</h3><p>உலகளாவிய நல்ல VI இல்லை. ஒரு நேர சோதனையானது தோராயமாக 1.00-1.03 இலக்கை அடையலாம், அதே சமயம் ஒரு அளவுகோல் அல்லது XC ரேஸ் இயற்கையாகவே மிக அதிகமாக இருக்க முடியும். நிகழ்வுக்கு எதிராக நீதிபதி VI, ஒரு உலகளாவிய அளவுகோல் இல்லை.</p></div><div class="faq-item"><h3>நான் ஏற்கனவே FTP ஐப் பயன்படுத்தினால், எனக்கு முக்கியமான சக்தி தேவையா?</h3><p>எப்போதும் இல்லை. பல ரைடர்களுக்கு FTP போதுமானது. க்ரிட்டிகல் பவர் மீண்டும் மீண்டும் த்ரெஷோல்ட் வேலைகள், W'bal மற்றும் கடுமையான தீவிர முயற்சிகளின் மிகவும் வலுவான மாதிரியைப் பற்றி நீங்கள் கவலைப்படும்போது மிகவும் பயனுள்ளதாக இருக்கும்.</p></div><div class="faq-item"><h3>இந்த அளவீடுகளை நான் எவ்வளவு அடிக்கடி புதுப்பிக்க வேண்டும்?</h3><p>ஒவ்வொரு 6-8 வாரங்களுக்கு ஒருமுறை அல்லது ஒரு அர்த்தமுள்ள பயிற்சிக்குப் பிறகு உங்கள் த்ரெஷோல்ட் நங்கூரத்தை மறுபரிசீலனை செய்யவும் அல்லது மறுமதிப்பீடு செய்யவும். அளவீடுகள் அவற்றின் பின்னால் உள்ள வாசல் மதிப்பைப் போலவே பயனுள்ளதாக இருக்கும்.</p></div></div></section><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "சைக்கிள் ஓட்டுதல் ஆற்றல் அளவீடுகள்: NP, IF, VI மற்றும் W'bal விளக்கப்பட்டது",
+  "description": "FTP, Critical Power, பயிற்சி மண்டலங்கள், ஏரோடைனமிக்ஸ் மற்றும் TSS ஆகியவற்றுக்கான இணைப்புகளுடன் இயல்பாக்கப்பட்ட ஆற்றல், தீவிரம் காரணி, மாறுபாடு குறியீடு மற்றும் W'bal உள்ளிட்ட சைக்கிள் ஓட்டுதல் சக்தி அளவீடுகளுக்கான நடைமுறை வழிகாட்டி.",
+  "author": {
+    "@type": "Person",
+    "name": "AnalyticsZone Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "பைக் அனலிட்டிக்ஸ்",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bike.analyticszone.app/assets/images/logo_bikeanalytics.png"
+    }
+  },
+  "datePublished": "2025-01-27",
+  "dateModified": "2026-04-03"
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "NP ஏன் சராசரி சக்தியை விட அதிகமாக உள்ளது?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "கடினமான அலைகள் விகிதாச்சாரமற்ற உடலியல் செலவை உருவாக்குகின்றன, எனவே இயல்பாக்கப்பட்ட சக்தி சராசரி சக்தியை விட அதிக எடையைக் கொண்டுள்ளது."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "சைக்கிள் ஓட்டுவதற்கு நல்ல VI எது?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ஒரு நல்ல மாறுபாடு குறியீடானது நிகழ்வைப் பொறுத்தது. நேர சோதனைகள் பொதுவாக குறைந்த VIக்கு வெகுமதி அளிக்கின்றன, அதே சமயம் அளவுகோல்கள் மற்றும் XC MTB பந்தயங்கள் இயற்கையாகவே அதிக VIஐ உருவாக்குகின்றன."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "நான் ஏற்கனவே FTP ஐப் பயன்படுத்தினால், எனக்கு முக்கியமான சக்தி தேவையா?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "பல ரைடர்களுக்கு FTP போதுமானது, ஆனால் கிரிட்டிகல் பவர் மீண்டும் மீண்டும் மேலே உள்ள முயற்சிகள், W'bal மற்றும் ஆழமான தீவிர-தீவிர மாடலிங் ஆகியவற்றில் கவனம் செலுத்தும்போது மிகவும் பயனுள்ளதாக இருக்கும்."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "இந்த அளவீடுகளை நான் எவ்வளவு அடிக்கடி புதுப்பிக்க வேண்டும்?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ஒவ்வொரு 6-8 வாரங்களுக்கு ஒருமுறை அல்லது ஒரு அர்த்தமுள்ள பயிற்சித் தொகுதிக்குப் பிறகு உங்கள் த்ரெஷோல்ட் நங்கூரத்தைப் புதுப்பிக்கவும், இதனால் IF, பயிற்சி மண்டலங்கள் மற்றும் சுமை விளக்கம் நம்பத்தகுந்ததாக இருக்கும்."
+      }
+    }
+  ]
+}</script><section class="eeat-author bg-light divider-top-lg divider-bottom-lg" aria-label="Author and Reviewer Information"><div class="container container-narrow"><div class="eeat-card" style="display: flex; gap: 1.5rem; align-items: center; padding: 1.5rem; background: var(--color-bg-alt, #f8f9fa); border-radius: 8px; border: 1px solid var(--color-border, #e9ecef); margin-top: 3rem; margin-bottom: 2rem;"><div class="eeat-avatar" style="font-size: 2.5rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">👨‍🔬</div><div class="eeat-details"><h3 style="margin: 0 0 0.5rem 0; font-size: 1.125rem; font-weight: 600;">
+          Expertly Reviewed by 
+          <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">AnalyticsZone Team</span></span></h3><p style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: var(--color-body-text, #4a5568); line-height: 1.5;">
+          This content has been written and reviewed by a sports data metrics expert to ensure technical accuracy and adherence to the latest sports science methodologies.
+        </p></div></div></div></section><section class="ai-citation-block divider-top-xl" data-ai-ready="true" data-ai-page="power-metrics"><div class="container ai-citation-shell"><h2 class="ai-citation-title">சைக்கிள் ஓட்டுதல் சக்தி அளவீடுகள்: NP, IF, VI, W&#39;bal</h2><p class="ai-citation-answer">சைக்கிள் ஓட்டுதல் சக்தி அளவீடுகள் மூல வாட்களை முடிவுகளாக மாற்றுகின்றன. மாறி ரைடிங்கின் உண்மையான விலையை NP மதிப்பிடுகிறது, FTP உடன் ஒப்பிடும்போது சவாரி எவ்வளவு கடினமாக இருந்தது என்பதை IF காட்டுகிறது, VI முயற்சி எவ்வளவு நிலையானது அல்லது எழுச்சியுடன் இருந்தது என்பதைக் காட்டுகிறது, மேலும் நீங்கள் எவ்வளவு அதிகமாகச் செலவழித்தீர்கள் என்பதை W&#39;bal விளக்க உதவுகிறது.</p><ul class="ai-citation-facts" role="list"><li class="ai-citation-fact"><span class="ai-citation-icon" aria-hidden="true">📅</span><span>2026-04-07</span></li><li class="ai-citation-fact ai-citation-keywords"><span class="ai-citation-icon" aria-hidden="true">🏷️</span><span>சாதாரண ஆற்றல் · தீவிர காரணி · மாறுபாடு குறியீடு · W prime சமநிலை · சைக்கிள் ஓட்டுதல் ஆற்றல் அளவீடுகள்</span></li><li class="ai-citation-fact"><span class="ai-citation-icon" aria-hidden="true">🔬</span><a href="../../ta/bibliography/">
+          
+          ஆதார நூற்பட்டியல்
+          
+        </a></li></ul></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">பதிவிறக்கவும்</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="App Store இல் பதிவிறக்கவும்"><img src="../../assets/images/badge-app-store.svg"
+                            alt="App Store இல் பதிவிறக்கவும்" width="135"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="அதை Google Play இல் பெறவும்"><img src="../../assets/images/badge-google-play.svg"
+                            alt="அதை Google Play இல் பெறவும்" width="135"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">இல் கிடைக்கும்</h3><div class="lang-grid"><a href="/af/" class="lang-link"
+                    hreflang="af" >
+                    Afrikaans
+                </a><a href="/am/" class="lang-link"
+                    hreflang="am" >
+                    አማርኛ
+                </a><a href="/ar/" class="lang-link"
+                    hreflang="ar" dir="rtl" >
+                    العربية
+                </a><a href="/bg/" class="lang-link"
+                    hreflang="bg" >
+                    Български
+                </a><a href="/bn/" class="lang-link"
+                    hreflang="bn" >
+                    বাংলা
+                </a><a href="/ca/" class="lang-link"
+                    hreflang="ca" >
+                    Català
+                </a><a href="/cs/" class="lang-link"
+                    hreflang="cs" >
+                    Čeština
+                </a><a href="/da/" class="lang-link"
+                    hreflang="da" >
+                    Dansk
+                </a><a href="/de/" class="lang-link"
+                    hreflang="de" >
+                    Deutsch
+                </a><a href="/el/" class="lang-link"
+                    hreflang="el" >
+                    Ελληνικά
+                </a><a href="/en/" class="lang-link"
+                    hreflang="en" >
+                    English
+                </a><a href="/es/" class="lang-link"
+                    hreflang="es" >
+                    Español
+                </a><a href="/et/" class="lang-link"
+                    hreflang="et" >
+                    Eesti
+                </a><a href="/fa/" class="lang-link"
+                    hreflang="fa" dir="rtl" >
+                    فارسی
+                </a><a href="/fi/" class="lang-link"
+                    hreflang="fi" >
+                    Suomi
+                </a><a href="/fr/" class="lang-link"
+                    hreflang="fr" >
+                    Français
+                </a><a href="/gu/" class="lang-link"
+                    hreflang="gu" >
+                    ગુજરાતી
+                </a><a href="/ha/" class="lang-link"
+                    hreflang="ha" >
+                    Hausa
+                </a><a href="/he/" class="lang-link"
+                    hreflang="he" dir="rtl" >
+                    עברית
+                </a><a href="/hi/" class="lang-link"
+                    hreflang="hi" >
+                    हिन्दी
+                </a><a href="/hr/" class="lang-link"
+                    hreflang="hr" >
+                    Hrvatski
+                </a><a href="/hu/" class="lang-link"
+                    hreflang="hu" >
+                    Magyar
+                </a><a href="/id/" class="lang-link"
+                    hreflang="id" >
+                    Bahasa Indonesia
+                </a><a href="/is/" class="lang-link"
+                    hreflang="is" >
+                    Íslenska
+                </a><a href="/it/" class="lang-link"
+                    hreflang="it" >
+                    Italiano
+                </a><a href="/ja/" class="lang-link"
+                    hreflang="ja" >
+                    日本語
+                </a><a href="/km/" class="lang-link"
+                    hreflang="km" >
+                    ភាសាខ្មែរ
+                </a><a href="/kn/" class="lang-link"
+                    hreflang="kn" >
+                    ಕನ್ನಡ
+                </a><a href="/ko/" class="lang-link"
+                    hreflang="ko" >
+                    한국어
+                </a><a href="/lt/" class="lang-link"
+                    hreflang="lt" >
+                    Lietuvių
+                </a><a href="/lv/" class="lang-link"
+                    hreflang="lv" >
+                    Latviešu
+                </a><a href="/ms/" class="lang-link"
+                    hreflang="ms" >
+                    Bahasa Melayu
+                </a><a href="/my/" class="lang-link"
+                    hreflang="my" >
+                    မြန်မာဘာသာ
+                </a><a href="/nb/" class="lang-link"
+                    hreflang="nb" >
+                    Norsk Bokmål
+                </a><a href="/nl/" class="lang-link"
+                    hreflang="nl" >
+                    Nederlands
+                </a><a href="/pl/" class="lang-link"
+                    hreflang="pl" >
+                    Polski
+                </a><a href="/pt/" class="lang-link"
+                    hreflang="pt" >
+                    Português
+                </a><a href="/pt-br/" class="lang-link"
+                    hreflang="pt-br" >
+                    Português (Brasil)
+                </a><a href="/ro/" class="lang-link"
+                    hreflang="ro" >
+                    Română
+                </a><a href="/ru/" class="lang-link"
+                    hreflang="ru" >
+                    Русский
+                </a><a href="/sk/" class="lang-link"
+                    hreflang="sk" >
+                    Slovenčina
+                </a><a href="/sl/" class="lang-link"
+                    hreflang="sl" >
+                    Slovenščina
+                </a><a href="/sr/" class="lang-link"
+                    hreflang="sr" >
+                    Српски
+                </a><a href="/sv/" class="lang-link"
+                    hreflang="sv" >
+                    Svenska
+                </a><a href="/sw/" class="lang-link"
+                    hreflang="sw" >
+                    Kiswahili
+                </a><a href="/ta/" class="lang-link active"
+                    hreflang="ta" >
+                    தமிழ்
+                </a><a href="/te/" class="lang-link"
+                    hreflang="te" >
+                    తెలుగు
+                </a><a href="/th/" class="lang-link"
+                    hreflang="th" >
+                    ไทย
+                </a><a href="/tl/" class="lang-link"
+                    hreflang="tl" >
+                    Tagalog
+                </a><a href="/tr/" class="lang-link"
+                    hreflang="tr" >
+                    Türkçe
+                </a><a href="/uk/" class="lang-link"
+                    hreflang="uk" >
+                    Українська
+                </a><a href="/ur/" class="lang-link"
+                    hreflang="ur" dir="rtl" >
+                    اردو
+                </a><a href="/vi/" class="lang-link"
+                    hreflang="vi" >
+                    Tiếng Việt
+                </a><a href="/yo/" class="lang-link"
+                    hreflang="yo" >
+                    Yoruba
+                </a><a href="/zh/" class="lang-link"
+                    hreflang="zh" >
+                    中文
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
+                &copy; 2026 Bike Analytics. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை
+            </p><ul class="footer-legal"><li><a href="/ta/privacy/">தனியுரிமை</a></li><li><a href="/ta/terms/">விதிமுறைகள்</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>உங்கள் அனுபவத்தை மேம்படுத்த இந்த இணையதளம் குக்கீகளைப் பயன்படுத்துகிறது.</p><a href="/ta/privacy/" class="text-sm">மேலும் அறிய</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">நிராகரி</button><button id="cookie-accept" class="btn btn-primary btn-small">ஏற்றுக்கொள்</button></div></div></div><script src="../../assets/js/core.min.js?v=8ddce8bb" defer></script><script src="../../assets/js/search.min.js?v=8ddce8bb" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>
