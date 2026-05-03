@@ -1,0 +1,852 @@
+<!DOCTYPE html><html lang="sr" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=optional"
+    rel="stylesheet"><title>Модел Цритицал Повер &amp; В&#39; – напредна анализа бициклизма</title><meta name="description" content="Разумети критичну снагу (ЦП) и В&#39; (В Приме) за бициклизам. Напредно моделирање замора, В&#39;бал праћење и оптимизација перформанси."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="критични циклус снаге, В приме бициклизам, ЦП модел, В главни баланс, анаеробни капацитет бициклизма"><link rel="canonical" href="https://bike.analyticszone.app/sr/critical-power/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-03-24T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/sr/critical-power/"><meta property="og:title" content="Модел Цритицал Повер &amp; В&#39; – напредна анализа бициклизма"><meta property="og:description" content="Разумети критичну снагу (ЦП) и В&#39; (В Приме) за бициклизам. Напредно моделирање замора, В&#39;бал праћење и оптимизација перформанси."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="sr_RS"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/sr/critical-power/"><meta name="twitter:title" content="Модел Цритицал Повер &amp; В&#39; – напредна анализа бициклизма"><meta name="twitter:description" content="Разумети критичну снагу (ЦП) и В&#39; (В Приме) за бициклизам. Напредно моделирање замора, В&#39;бал праћење и оптимизација перформанси."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/critical-power/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/critical-power/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/critical-power/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/critical-power/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/critical-power/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/critical-power/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/critical-power/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/critical-power/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/critical-power/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/critical-power/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/critical-power/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/critical-power/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/critical-power/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/critical-power/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/critical-power/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/critical-power/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/critical-power/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/critical-power/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/critical-power/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/critical-power/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/critical-power/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/critical-power/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/critical-power/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/critical-power/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/critical-power/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/critical-power/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/critical-power/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/critical-power/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/critical-power/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/critical-power/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/critical-power/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/critical-power/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/critical-power/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/critical-power/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/critical-power/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/critical-power/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/critical-power/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/critical-power/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/critical-power/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/critical-power/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/critical-power/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/critical-power/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/critical-power/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/critical-power/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/critical-power/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/critical-power/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/critical-power/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/critical-power/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/critical-power/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/critical-power/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/critical-power/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/critical-power/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/critical-power/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/critical-power/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/critical-power/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/critical-power/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+main.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=26b71a7b"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Bike Analytics",
+  "url": "https://bike.analyticszone.app",
+  "logo": "https://bike.analyticszone.app/assets/images/logo.png",
+  "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+  
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "email": "analyticszone+bike@onmedic.org"
+  },
+  
+  "sameAs": [
+    
+    
+      
+    
+    
+      
+    
+    
+      
+    
+    
+    "https://twitter.com/bikeanalytics",
+    
+    "https://apps.apple.com/us/app/bike-analytics/id6755187319",
+    
+    "https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics"
+    
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Bike Analytics",
+  "url": "https://bike.analyticszone.app",
+  "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+  "inLanguage": "sr"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Bike Analytics",
+  "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+  "url": "https://bike.analyticszone.app",
+  "applicationCategory": ["HealthApplication", "FitnessApplication"],
+  "operatingSystem": "iOS, Android",
+  "author": {
+    "@type": "Organization",
+    "name": "AnalyticsZone Team"
+  },
+  "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Početna",
+      "item": "https://bike.analyticszone.app/sr/"
+    },
+    
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Uči",
+      "item": "https://bike.analyticszone.app/sr/getting-started/"
+    },
+    
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Kritična snaga",
+      "item": "https://bike.analyticszone.app/sr/critical-power/"
+    }
+    
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Модел Цритицал Повер &amp; В&#39; – напредна анализа бициклизма",
+  "description": "Разумети критичну снагу (ЦП) и В&#39; (В Приме) за бициклизам. Напредно моделирање замора, В&#39;бал праћење и оптимизација перформанси.",
+  "url": "https://bike.analyticszone.app/sr/critical-power/",
+  "inLanguage": "sr",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Bike Analytics",
+    "url": "https://bike.analyticszone.app"
+  },
+  "datePublished": "2025-01-15",
+  "dateModified": "2026-03-24",
+  "keywords": ["критични циклус снаге", "В приме бициклизам", "ЦП модел", "В главни баланс", "анаеробни капацитет бициклизма"],
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "критични циклус снаге"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "В приме бициклизам"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "ЦП модел"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "В главни баланс"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "анаеробни капацитет бициклизма"
+    }
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Модел Цритицал Повер &amp; В&#39; – напредна анализа бициклизма",
+  "description": "Разумети критичну снагу (ЦП) и В&#39; (В Приме) за бициклизам. Напредно моделирање замора, В&#39;бал праћење и оптимизација перформанси.",
+  "author": {
+    "@type": "Person",
+    "name": "AnalyticsZone Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bike Analytics",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bike.analyticszone.app/assets/images/logo.png"
+    }
+  },
+  "datePublished": "2025-01-15",
+  "dateModified": "2026-03-24",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bike.analyticszone.app/sr/critical-power/"
+  }
+}
+</script><script>
+    (function () {
+      let theme = localStorage.getItem('theme');
+      // Older builds could persist a per-subdomain `theme=light` value without a UI
+      // to keep it consistent across apps. Treat it as stale and fall back to the OS.
+      if (theme === 'light') {
+        try { localStorage.removeItem('theme'); } catch (e) { /* ignore */ }
+        theme = null;
+      }
+
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark-mode');
+      }
+    })();
+  </script></head><body><a href="#main-content" class="skip-link">Skoči na sadržaj</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/sr/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/sr/" 
+                                aria-current="">
+                                Početna
+                            </a></li><li class="has-submenu" ><a href="/sr/getting-started/" class="nav-label">Uči</a><ul class="submenu"><li><a href="/sr/getting-started/" 
+                                        aria-current="">
+                                        Početak
+                                    </a></li><li><a href="/sr/ftp/" 
+                                        aria-current="">
+                                        §§Т10§§
+                                    </a></li><li><a href="/sr/critical-power/" class="active" 
+                                        aria-current="page">
+                                        Kritična snaga
+                                    </a></li><li><a href="/sr/training-zones/" 
+                                        aria-current="">
+                                        Zone treninga
+                                    </a></li><li><a href="/sr/training-load/" 
+                                        aria-current="">
+                                        Opterećenje
+                                    </a></li><li><a href="/sr/tss-calculator/" 
+                                        aria-current="">
+                                        TSS kalkulator
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/sr/research/" class="nav-label">Nauka</a><ul class="submenu"><li><a href="/sr/research/" 
+                                        aria-current="">
+                                        Istraživanje
+                                    </a></li><li><a href="/sr/formulas/" 
+                                        aria-current="">
+                                        Formule
+                                    </a></li><li><a href="/sr/power-metrics/" 
+                                        aria-current="">
+                                        Metrike snage
+                                    </a></li><li><a href="/sr/efficiency/" 
+                                        aria-current="">
+                                        Efikasnost
+                                    </a></li><li><a href="/sr/pedaling-mechanics/" 
+                                        aria-current="">
+                                        Mehanika pedaliranja
+                                    </a></li><li><a href="/sr/aerodynamics/" 
+                                        aria-current="">
+                                        Aerodinamika
+                                    </a></li><li><a href="/sr/climbing-performance/" 
+                                        aria-current="">
+                                        Performanse na usponu
+                                    </a></li><li><a href="/sr/bibliography/" 
+                                        aria-current="">
+                                        Bibliografija
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/sr/road-cycling/" class="nav-label">Discipline</a><ul class="submenu"><li><a href="/sr/road-cycling/" 
+                                        aria-current="">
+                                        Drumski biciklizam
+                                    </a></li><li><a href="/sr/mountain-biking/" 
+                                        aria-current="">
+                                        Planinski biciklizam
+                                    </a></li><li><a href="/sr/road-vs-mtb/" 
+                                        aria-current="">
+                                        Drum vs MTB
+                                    </a></li><li><a href="/sr/comparisons/" 
+                                        aria-current="">
+                                        Usporedba platformi
+                                    </a></li></ul></li><li><a href="/sr/contact/" 
+                                aria-current="">
+                                Kontakt
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="Izaberi jezik"><option value="af" >
+                            Afrikaans
+                        </option><option value="am" >
+                            አማርኛ
+                        </option><option value="ar" >
+                            العربية
+                        </option><option value="bg" >
+                            Български
+                        </option><option value="bn" >
+                            বাংলা
+                        </option><option value="ca" >
+                            Català
+                        </option><option value="cs" >
+                            Čeština
+                        </option><option value="da" >
+                            Dansk
+                        </option><option value="de" >
+                            Deutsch
+                        </option><option value="el" >
+                            Ελληνικά
+                        </option><option value="en" >
+                            English
+                        </option><option value="es" >
+                            Español
+                        </option><option value="et" >
+                            Eesti
+                        </option><option value="fa" >
+                            فارسی
+                        </option><option value="fi" >
+                            Suomi
+                        </option><option value="fr" >
+                            Français
+                        </option><option value="gu" >
+                            ગુજરાતી
+                        </option><option value="ha" >
+                            Hausa
+                        </option><option value="he" >
+                            עברית
+                        </option><option value="hi" >
+                            हिन्दी
+                        </option><option value="hr" >
+                            Hrvatski
+                        </option><option value="hu" >
+                            Magyar
+                        </option><option value="id" >
+                            Bahasa Indonesia
+                        </option><option value="is" >
+                            Íslenska
+                        </option><option value="it" >
+                            Italiano
+                        </option><option value="ja" >
+                            日本語
+                        </option><option value="km" >
+                            ភាសាខ្មែរ
+                        </option><option value="kn" >
+                            ಕನ್ನಡ
+                        </option><option value="ko" >
+                            한국어
+                        </option><option value="lt" >
+                            Lietuvių
+                        </option><option value="lv" >
+                            Latviešu
+                        </option><option value="ms" >
+                            Bahasa Melayu
+                        </option><option value="my" >
+                            မြန်မာဘာသာ
+                        </option><option value="nb" >
+                            Norsk Bokmål
+                        </option><option value="nl" >
+                            Nederlands
+                        </option><option value="pl" >
+                            Polski
+                        </option><option value="pt" >
+                            Português
+                        </option><option value="pt-br" >
+                            Português (Brasil)
+                        </option><option value="ro" >
+                            Română
+                        </option><option value="ru" >
+                            Русский
+                        </option><option value="sk" >
+                            Slovenčina
+                        </option><option value="sl" >
+                            Slovenščina
+                        </option><option value="sr" selected>
+                            Српски
+                        </option><option value="sv" >
+                            Svenska
+                        </option><option value="sw" >
+                            Kiswahili
+                        </option><option value="ta" >
+                            தமிழ்
+                        </option><option value="te" >
+                            తెలుగు
+                        </option><option value="th" >
+                            ไทย
+                        </option><option value="tl" >
+                            Tagalog
+                        </option><option value="tr" >
+                            Türkçe
+                        </option><option value="uk" >
+                            Українська
+                        </option><option value="ur" >
+                            اردو
+                        </option><option value="vi" >
+                            Tiếng Việt
+                        </option><option value="yo" >
+                            Yoruba
+                        </option><option value="zh" >
+                            中文
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a><a href="https://hike.analyticszone.app" class="suite-app-link">Hike Analytics</a><a href="https://sleep.analyticszone.app" class="suite-app-link">Sleep Analytics</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="Uključi/isključi meni"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/sr/">Početna</a></li><li><a href="/sr/getting-started/">Uči</a></li><li><span aria-current="page">Kritična snaga</span></li></ol></div></nav><main id="main-content" class="main-content"><section class="page-hero"><div class="container"><h1>Критична снага &amp; В' - Напредни модел перформанси бициклизма</h1><p class="lead">Мастер Цритицал Повер (ЦП) и В Приме (В') за врхунски пејсинг, предвиђање умора и стратегију трке. Научно најснажнији модел за перформансе бициклизма.</p></div></section><section class="section"><div class="container container-narrow"><div class="callout callout-success mb-xl"><h2>🎯 Кључни за понети</h2><ul class="mb-0"><li><strong>критична снага (ЦП)</strong>је максимална одржива снага за продужено трајање—научно робуснија од ПРОТЕЦТ10Кс</li><li><strong>В' (В Приме)</strong>је ваш анаеробни радни капацитет изнад ЦП, мерен у килоџулима</li><li><strong>В' Баланце</strong>прати исцрпљивање у реалном времену и опоравак анаеробног капацитета током вожњи</li><li><strong>ЦП ≈ ПРОТЕЦТ10Кс + 5-10В</strong>у пракси, али ЦП се изводи математички из вишеструких напора</li><li><strong>Критично за МТБ и променљиве напоре</strong>где је управљање пејсингом и пренапоном од суштинског значаја</li></ul></div><div class="callout callout-info mb-xl"><h2>Шта је критична моћ?</h2><p><strong>Критична снага (ЦП) је највећа метаболичка стопа која се може одржати без умора</strong>на дужи период. Представља границу између одрживог аеробног метаболизма и неодрживог вежбања које захтева анаеробни допринос. За разлику од ПРОТЕЦТ10Кс (једна процена од 1 сата), ЦП је математички изведен из вишеструких максималних напора у различитим временима трајања, што га чини робуснијим и научно потврђеним.</p></div><h2 class="mt-2xl">Наука иза критичне моћи</h2><p class="mb-md">Теорија критичне моћи произашла је из истраживања физиологије вежбања 1960-их и прерађена за вожњу бициклом 1990-их. Модел је заснован на<strong>хиперболички однос снага-трајање</strong>:</p><div class="formula-box mb-xl"><h3>Однос снага-трајање</h3><p><strong>т = В' / (П - ЦП)</strong></p><p class="mt-sm">где:</p><ul><li><strong>т</strong>= време до исцрпљености</li><li><strong>П</strong>= излазна снага</li><li><strong>ЦП</strong>= критична снага (вати)</li><li><strong>В'</strong>= анаеробни радни капацитет (килоџули)</li></ul></div><p class="mb-xl"><strong>Шта ово значи:</strong>На било којој снази изнад ЦП, имате коначну количину рада (В') пре исцрпљивања. На самом ЦП-у, теоретски, можете наставити на неодређено време. Испод ЦП никада не додирнете В' и можете издржати напор веома дуго.</p><div class="callout callout-tip"><h3>📚 Фондација за истраживање</h3><p>Критична моћ је подржана деценијама рецензираних истраживања:</p><ul class="mb-0"><li><strong>Јонес ет ал. (2019):</strong>„Критичка моћ: теорија и примене“ – свеобухватан преглед у часопису Јоурнал оф Апплиед Пхисиологи</li><li><strong>Пооле ет ал. (2016):</strong>„Критичка снага: важан праг замора“ – потврђује ЦП као физиолошки праг</li><li><strong>Ванхатало и др. (2011):</strong>Показује да је ЦП усклађен са максималним стабилним стањем лактата</li></ul></div></div></section><section class="section section-alt"><div class="container"><h2 class="mb-xl text-center">Критична снага у односу на ПРОТЕЦТ10Кс: кључне разлике</h2><div class="grid grid-2"><div class="card"><h3 class="card-title">Функционална гранична снага (ПРОТЕЦТ10Кс)</h3><div class="card-content"><p><strong>дефиниција:</strong>Максимална снага одржива око 1 сат.</p><p><strong>тестирање:</strong>Појединачни напор од 20 или 60 минута.</p><p><strong>Обрачун:</strong>ПРОТЕЦТ10Кс = 95% снаге од 20 минута (или 100% снаге од 60 минута).</p><p><strong>Предности:</strong></p><ul><li>Једноставан за тестирање и разумевање</li><li>Потребан је један напор</li><li>Широко коришћен индустријски стандард</li><li>Интегрисан у ТраинингПеакс, Звифт, итд.</li></ul><p><strong>Против:</strong></p><ul><li>Процена у једној тачки (мање робусна)</li><li>Ментално захтеван напор од 20-60 минута</li><li>Грешке при пејсингу утичу на прецизност</li><li>Без мерења анаеробног капацитета</li></ul></div></div><div class="card"><h3 class="card-title">критична снага (ЦП)</h3><div class="card-content"><p><strong>дефиниција:</strong>Максимална одржива снага за теоретски бесконачно трајање.</p><p><strong>тестирање:</strong>Вишеструки максимални напори (3-7 мин, 12 мин, типично 20 мин).</p><p><strong>Обрачун:</strong>Подешавање математичке криве из више тачака података.</p><p><strong>Предности:</strong></p><ul><li>Научно робустан (вишеструки напори)</li><li>Укључује В' (анаеробни капацитет)</li><li>Боља тачност од једног теста ПРОТЕЦТ10Кс</li><li>Омогућава праћење стања В'</li></ul><p><strong>Против:</strong></p><ul><li>Захтева 3-5 одвојених максималних напора</li><li>Сложеније за израчунавање</li><li>Мање схваћено</li><li>Протокол тестирања је захтевнији</li></ul></div></div></div><div class="callout mt-xl"><h3>🔍 У пракси: ЦП ≈ ПРОТЕЦТ10Кс + 5-10В</h3><p>За добро обучене бициклисте, критична снага је типична<strong>5-10 вати више од ПРОТЕЦТ10Кс</strong>. Пример:</p><ul><li><strong>ПРОТЕЦТ10Кс:</strong>250В (од 20-минутног теста)</li><li><strong>ЦП:</strong>257 В (од 3 мин, 12 мин, 20 мин тестова)</li></ul><p class="mb-0 mt-md">ЦП представља теоретски праг бесконачног трајања, док ПРОТЕЦТ10Кс представља практичну процену снаге од 1 сата. Оба су корисна—ПРОТЕЦТ10Кс за једноставност, ЦП за прецизност и В' праћење.</p></div></div></section><section class="section"><div class="container container-narrow"><h2>Шта је В' (В Приме)?</h2><p class="mb-md"><strong>В' (изговара се "В Приме") је коначна количина посла који можете обавити изнад критичне снаге.</strong>Замислите то као своју „анаеробну батерију“—ограничену залиху енергије која се троши када се вози изнад ЦП и полако се опоравља када се вози испод ЦП.</p><div class="formula-box mb-xl"><h3>В' Дефиниција</h3><p><strong>В' = (П - ЦП) × т</strong></p><p class="mt-sm">где:</p><ul><li><strong>В'</strong>= анаеробни радни капацитет (килоџули)</li><li><strong>П</strong>= излазна снага (вати)</li><li><strong>ЦП</strong>= критична снага (вати)</li><li><strong>т</strong>= време до исцрпљености (секунде)</li></ul><p class="mt-md"><strong>Пример:</strong>Ако можете да издржите 350В 5 минута, а ваша ЦП је 250В:<br/>В' = (350 - 250) × 300 = 30.000 џула =<strong>30 кЈ</strong></p></div><h3>Типичне В' вредности</h3><div class="zones-table-container mb-xl"><table class="zones-table"><thead><tr><th>Ниво бициклиста</th><th>В' опсег (кЈ)</th><th>Шта ово значи</th></tr></thead><tbody><tr><td><strong>Рецреатионал</strong></td><td>10-15 кЈ</td><td>Ограничени капацитет пренапона, краћи напади</td></tr><tr><td><strong>Цомпетитиве Аматеур</strong></td><td>15-20 кЈ</td><td>Умерен анаеробни капацитет, типичан домет</td></tr><tr><td><strong>Елите Роад</strong></td><td>20-25 кЈ</td><td>Висок капацитет за нападе и спринтове</td></tr><tr><td><strong>Елитни МТБ/ЦКС</strong></td><td>18-23 кЈ</td><td>Оптимизовано за поновљене пренапоне</td></tr></tbody></table></div><div class="callout callout-success"><h3>💡 Разумевање В' у стварном јахању</h3><p><strong>В' = 20 кЈ пример:</strong></p><ul class="mb-0"><li>1 минут при 350В (100В изнад ЦП = 250В) = 6 кЈ потрошено → преостало 14 кЈ</li><li>2 минута при 300В (50В изнад ЦП) = 6 кЈ потрошено → преостало 8 кЈ</li><li>30 секунди при 450В (200В изнад ЦП) = исцрпљено 6 кЈ → преостало 2 кЈ</li><li>Ако се В' смањи на нулу → готови сте, морате пасти испод ЦП да бисте се опоравили</li></ul></div><h2 class="mt-3xl">Како израчунати свој ЦП и В'</h2><p class="mb-md">Да бисте одредили своју критичну снагу и В', потребни су вам вишеструки максимални напори у различитом трајању. Стандардни протокол користи<strong>3-5 хронометара</strong>:</p><h3>Стандардни протокол ЦП тестирања</h3><div class="timeline"><div class="timeline-item"><div class="timeline-marker">Тест 1</div><div class="timeline-content"><h4>Максимални напор од 3 минута</h4><p>Након темељног загревања, урадите свеобухватан 3-минутни напор. Забележите просечну снагу (нпр.<strong>330В</strong>). Одморите се 30-60 минута пре следећег теста (или тест другог дана).</p></div></div><div class="timeline-item"><div class="timeline-marker">Тест 2</div><div class="timeline-content"><h4>12-минутни максимални напор</h4><p>Извршите 12-минутну пробу на хронометар при максималној одрживој снази. Забележите просечну снагу (нпр.<strong>275В</strong>). Потпуно се одморите пре последњег теста.</p></div></div><div class="timeline-item"><div class="timeline-marker">Тест 3</div><div class="timeline-content"><h4>20-минутни максимални напор</h4><p>Завршите 20-минутни напор у стилу ПРОТЕЦТ10Кс. Забележите просечну снагу (нпр.<strong>260В</strong>). Ово је ваш најдужи тест.</p></div></div><div class="timeline-item"><div class="timeline-marker">Израчунај</div><div class="timeline-content"><h4>Матхематицал Цурве Фиттинг</h4><p>Графикон података о снази и времену и уклапање у хиперболичку криву. Бике Аналитицс ради ово аутоматски:</p><ul><li><strong>ЦП:</strong>Асимптота криве снага-трајање (нпр. 250В)</li><li><strong>В':</strong>Константа закривљености (нпр. 18 кЈ)</li></ul></div></div></div><div class="callout callout-warning mt-xl"><h3>⚠ Тестирање најбољих пракси</h3><ul class="mb-0"><li><strong>Доследни услови:</strong>Сви тестови иста локација, опрема, опрема</li><li><strong>Потпуно одморни:</strong>Без напорног тренинга 24-48х пре сваког теста</li><li><strong>Правилан пејсинг:</strong>Сваки напор мора бити заиста максималан за то трајање</li><li><strong>Адекватан размак:</strong>24-48 сати између тестова ако није протокол истог дана</li><li><strong>Калибрисани мерач снаге:</strong>Зеро-оффсет пре сваког теста</li></ul></div><div class="callout callout-tip mt-xl"><h3>💡 Алтернатива: Користите постојеће податке о вожњи</h3><p>Ако имате податке о снази са недавних трка или напорних вожњи, Бике Аналитицс може да процени ЦП и В' из вашег<strong>крива трајања снаге</strong>:</p><ul class="mb-0"><li>Најбоља 3-минутна снага у последњих 90 дана</li><li>Најбоља 5-минутна снага</li><li>Најбоља 12-минутна снага</li><li>Најбоља 20-минутна снага</li></ul><p class="mt-md">Овај „најбољи историјски” метод је мање прецизан од наменских тестова, али пружа разумну почетну процену.</p></div></div></section><section class="section section-alt"><div class="container"><h2 class="mb-xl text-center">В' Баланце: Праћење умора у реалном времену</h2><div class="container-narrow"><p class="mb-xl text-center"><strong>В' Баланце (В'бал) прати исцрпљивање вашег анаеробног капацитета и опоравак у реалном времену током вожњи.</strong>Ово је најмоћнија примена ЦП модела за пејсинг и стратегију трке.</p></div><div class="grid grid-2"><div class="card"><h3 class="card-title">Како В'бал ради</h3><div class="card-content"><p><strong>Фаза исцрпљивања (изнад ЦП):</strong></p><ul><li>Када се вози изнад ЦП, В' се линеарно исцрпљује</li><li>Стопа = (тренутна снага - ЦП)</li><li>Пример: 50В изнад ЦП = 50 џула/секунди исцрпљивања</li></ul><p class="mt-md"><strong>Фаза опоравка (испод ЦП):</strong></p><ul><li>Када се вози испод ЦП, В' се експоненцијално опоравља</li><li>Стопа опоравка зависи од тога колико је испод ЦП</li><li>Мања снага = бржа стопа опоравка</li><li>Временска константа τ ≈ 377 секунди (Скиба модел)</li></ul></div></div><div class="card"><h3 class="card-title">В'бал Интерпретатион</h3><div class="card-content"><p><strong>В'бал = 100%:</strong>Потпуно опорављен, спреман за пренапоне</p><p><strong>В'бал = 75%:</strong>Још увек јак, може да нападне</p><p><strong>В'бал = 50%:</strong>Умерени умор, будите опрезни</p><p><strong>В'бал = 25%:</strong>Висок замор, ограничен капацитет пренапона</p><p><strong>В'бал = 0%:</strong>Потпуно исцрпљен, мора да вози испод ЦП</p><p class="mt-md"><strong>Кључни увид:</strong>Чак и кратки опоравак испод ЦП враћа В'. Опоравак од 30 секунди при 150В (100В испод ЦП) може вратити 2-3 кЈ В'.</p></div></div></div><div class="callout mt-xl"><h3>🚴 Пример: МТБ Раце В'бал Манагемент</h3><p><strong>Сценарио:</strong>90-минутна крос трка, ЦП = 250В, В' = 20 кЈ</p><ul><li><strong>1. круг (0-15 мин):</strong>Конзервативни темпо, В'бал остаје 80-100%</li><li><strong>2. круг (15-30 мин):</strong>Тешко пењање (350В за 90с) → В'бал пада на 55%</li><li><strong>Опоравак (30-35 мин):</strong>Лако спуштање (150В) → В'бал се опоравља на 70%</li><li><strong>3. круг (35-50 мин):</strong>Технички део са рафалима → В'бал флуктуира 60-75%</li><li><strong>4. круг (50-65 мин):</strong>Напад при успону (380В за 60с) → В'бал пада на 40%</li><li><strong>Последњи круг (65-90 мин):</strong>Пажљиво управљајте В'балом, осим за завршетак спринта</li></ul><p class="mb-0 mt-md"><strong>резултат:</strong>Праћењем В'бала, јахач тачно зна када су пренапони могући и када је опоравак потребан. Без нагађања на основу "осећаја".</p></div></div></section><section class="section"><div class="container container-narrow"><h2>Практичне примене ЦП и В'</h2><h3>1. Дуги успон</h3><p class="mb-md">Користите ЦП да одредите одрживу снагу пењања. Ако је трајање пењања 30+ минута, циљна снага треба да буде ≤ ЦП. Спуштање мало изнад ЦП је у реду, али пратите В'бал-а да бисте били сигурни да не "разнесете" пре врха.</p><div class="example-box mb-xl"><p><strong>Пример: 40-минутни успон</strong></p><ul class="mb-0"><li><strong>ЦП = 250В:</strong>Одржива циљна снага</li><li><strong>260В (10В преко ЦП):</strong>Благо спуштање у В', али одрживо 40 мин</li><li><strong>280В (30В преко ЦП):</strong>Превисок, В' се потпуно исцрпљује за ~11 минута</li></ul></div><h3>2. Стратегија МТБ и циклокроса</h3><p class="mb-md">Офф-роад трке укључују сталне скокове струје изнад ЦП. Користите В'бал да управљате „спаљеним шибицама“—сваки напон исцрпљује В', а периоди опоравка морају бити довољни да се капацитет обнови.</p><div class="example-box mb-xl"><p><strong>МТБ управљање пренапоном:</strong></p><ul class="mb-0"><li><strong>Пре напада:</strong>Цхецк В'бал ≥ 60% (довољно резерви)</li><li><strong>Током пренапона:</strong>Прихватите В' исцрпљивање, али знајте цену</li><li><strong>Након пренапона:</strong>Спустите испод ЦП да бисте повратили В' пре следећег покушаја</li><li><strong>Касна трка:</strong>Ако је В'бал &lt; 30%, избегавајте велике пренапоне — експлодићете</li></ul></div><h3>3. Критеријум и тактика друмске трке</h3><p class="mb-md">Критеријуми захтевају поновљена убрзања и нападе. В'бал вам помаже да знате када можете да одговорите на нападе и када треба да пустите паузу.</p><div class="example-box mb-xl"><p><strong>Одлука о критичном нападу:</strong></p><ul class="mb-0"><li><strong>В'бал = 85%:</strong>Иди са паузом - имаш резерве</li><li><strong>В'бал = 40%:</strong>Ризично—могло би да експлодира у јурњави</li><li><strong>В'бал = 15%:</strong>Останите у групи, опоравите В' за завршни спринт</li></ul></div><h3>4. Дизајн интервалног тренинга</h3><p class="mb-md">Користите ЦП и В' да бисте прецизно структурирали интервале. За ПРОТЕЦТ5Кс интервале, снага треба да буде ЦП + (В' / трајање интервала).</p><div class="example-box mb-xl"><p><strong>Пример: 5-минутни ПРОТЕЦТ5Кс интервали</strong></p><ul class="mb-0"><li><strong>ЦП = 250В, В' = 20 кЈ</strong></li><li><strong>Циљна снага:</strong>250В + (20.000Ј / 300с) = 250В + 67В =<strong>317В</strong></li><li><strong>Ово потпуно исцрпљује В' за 5 минута</strong></li><li><strong>Опоравак:</strong>5-10 минута испод ЦП да бисте вратили В'</li></ul></div><h3>5. Темпо у вожњи на хронометар</h3><p class="mb-md">За временске пробе дуже од 30 минута, возите мало испод ЦП да бисте избегли исцрпљивање В'. Сачувајте В' за завршетак пренапона.</p><div class="example-box mb-xl"><p><strong>40К ТТ Пејсинг:</strong></p><ul class="mb-0"><li><strong>Првих 35 хиљада:</strong>95-98% ЦП (очувати В')</li><li><strong>Финал 5К:</strong>Постепено повећавајте на ЦП + 10-20В (користите В')</li><li><strong>Финал 1К:</strong>Потпуно испразните В' (финиш спринта)</li></ul></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Критична снага &amp; В': Често постављана питања</h2><div class="faq-item"><h3>Да ли је ЦП бољи од ПРОТЕЦТ10Кс?</h3><p><strong>ЦП је научно робуснији</strong>јер је изведен из вишеструких напора, а не из једног теста. Међутим, ПРОТЕЦТ10Кс је једноставнији и широко разумљив. За већину бициклиста, ПРОТЕЦТ10Кс је довољан. Користите ЦП ако желите моделе прецизности, В' праћења или тркачког пејсинга. У пракси, ЦП ≈ ПРОТЕЦТ10Кс + 5-10В.</p></div><div class="faq-item"><h3>Колико времена В' треба да се потпуно опорави?</h3><p><strong>Опоравак је експоненцијалан, а не линеаран.</strong>При 100В испод ЦП, В' се опоравља ~50% за 6 минута, 75% за 12 минута, 90% за 20 минута. Потпуни опоравак (99%+) траје 30-40 минута при веома малој снази. Што даље испод ЦП возите, В' се брже опоравља. Потпуни одмор (0В) НИЈЕ оптималан — лагано окретање (~100-150В) убрзава опоравак.</p></div><div class="faq-item"><h3>Могу ли да тренирам да повећам В'?</h3><p><strong>Да—В' се може тренирати кроз анаеробне интервале.</strong>ПРОТЕЦТ5Кс интервали (3-8 мин при 110-120% ЦП) и поновљени скокови (30-90 с при 150%+ ЦП) проширују В'. Друмски спринтери и МТБ тркачи обично имају већи В' од возача издржљивости. Фокус тренинга: 1-2 сесије/недељно интервала високог интензитета који потпуно исцрпљују В', након чега следи адекватан опоравак.</p></div><div class="faq-item"><h3>Да ли се В' смањује како вожња напредује?</h3><p><strong>Да—В' капацитет се смањује са акумулираним умором.</strong>На почетку вожње, можда имате 20 кЈ на располагању. После 2-3 сата тешке вожње, ефективни В' може пасти на 12-15 кЈ. Због тога су скокови у касним тркама тежи – ваша анаеробна резерва је угрожена. Бике Аналитицс може да моделира ово смањење В' користећи факторе замора.</p></div><div class="faq-item"><h3>Колико често треба да поново тестирам ЦП и В'?</h3><p><strong>Сваких 8-12 недеља</strong>током напредовања тренинга. ЦП расте спорије од ПРОТЕЦТ10Кс (стабилнији је). В' може значајно да се промени са циљаним анаеробним тренингом. Поново тестирајте након великих тренинга, болести или повреде. ЦП/В' су отпорнији на краткорочне флуктуације фитнеса од ПРОТЕЦТ10Кс.</p></div><div class="faq-item"><h3>Могу ли да користим ЦП за тренинг у затвореном?</h3><p><strong>Апсолутно—ЦП је идеалан за тренинг у затвореном.</strong>Паметни тренажери обезбеђују стабилну снагу, чинећи ЦП тестирање веома прецизним. Звифт, ТраинерРоад и друге платформе подржавају тренинге засноване на ЦП. В'бал праћење савршено функционише у затвореном простору где је снага конзистентна. Многи тренери преферирају ЦП за структурирани тренинг у затвореном.</p></div><div class="faq-item"><h3>Шта је Скиба В' Баланце модел?</h3><p><strong>Модел др Филипа Скибе из 2012. математички прати исцрпљивање и опоравак В'.</strong>Користи диференцијалне једначине са временском константом τ ≈ 377 секунди за кинетику опоравка. Овај модел је имплементиран у ВКО5, Голден Цхеетах и ​​Бике Аналитицс. То је златни стандард за В'бал израчунавање у реалном времену током вожњи. Истраживања: Скиба и сар. (2012, 2014, 2021) у Медицина и наука у спорту и вежбању.</p></div><div class="faq-item"><h3>Могу ли ЦП и В' предвидети перформансе у трци?</h3><p><strong>Да—са великом прецизношћу за напоре 3-60 минута.</strong>ЦП модел може предвидети време до исцрпљивања при било којој снази. Пример: Ако је ЦП = 250В и В' = 20 кЈ, можете издржати 300В тачно 6,67 минута (20,000Ј / 50В = 400с). За дуже напоре (&gt;60 мин), ЦП мало прецењује одрживу снагу због додатних фактора замора.</p></div><div class="faq-item"><h3>Како висина утиче на ЦП и В'?</h3><p><strong>ЦП се смањује за ~1% на 300м изнад 1500м надморске висине.</strong>В' је мање погођен јер анаеробни капацитет не зависи од кисеоника. На 2500м, очекујте да ће ЦП пасти 3-4%, али В' остаје сличан. То значи да на надморској висини ваша одржива снага опада, али се ваш капацитет пренапона (у односу на нови ЦП) одржава. Поново тестирајте ЦП на висини за прецизне зоне тренинга.</p></div><div class="faq-item"><h3>Да ли треба да користим ЦП за тренинг прага Зоне 4?</h3><p><strong>Да—ЦП прецизно дефинише праг зоне 4.</strong>Интервали прага треба да буду на 95-105% ЦП. За разлику од ПРОТЕЦТ10Кс (процењено на основу једног теста), ЦП обезбеђује математички изведен праг. За трајни темпо (2×20 мин), возите се на ЦП. За краће интервале (5×5 мин), возите на ЦП + 3-5%. Бике Аналитицс израчунава<a href="/sr/training-zones/">зоне за обуку из ЦП аутоматски</a>.</p></div></div></section><section class="section"><div class="container container-narrow"><h2>Референце за истраживање</h2><div class="reference-list"><div class="reference-item"><h3>Џонс, А.М., Барнли, М., Блек, М.И., Пул, Д.Ц., и Ванхатало, А. (2019)</h3><p><strong>Критична снага: теорија и примене</strong></p><p class="text-secondary">Часопис за примењену физиологију, 126(6), 1905-1915.</p><p>Свеобухватан преглед критичне теорије моћи, физиолошке основе и практичне примене за спортисте и тренере.</p></div><div class="reference-item"><h4>Скиба, П.Ф., Цхиднок, В., Ванхатало, А., &amp; Јонес, А.М. (2012)</h4><p><strong>Моделирање потрошње и реконституција радног капацитета изнад критичне снаге</strong></p><p class="text-secondary">Медицина и наука у спорту и вежбању, 44(8), 1526-1532.</p><p>Уводи модел В' Баланце са експоненцијалном кинетиком опоравка. Основа за В'бал праћење у реалном времену.</p></div><div class="reference-item"><h4>Скиба, П.Ф., и Цларке, Д.Ц. (2021)</h4><p><strong>В′ равнотежа: математичка и методолошка разматрања</strong></p><p class="text-secondary">Интернатионал Јоурнал оф Спортс Пхисиологи анд Перформанце, 16(11), 1561-1572.</p><p>Ажурирани преглед метода израчунавања В' Баланса, студија валидације и разматрања практичне имплементације.</p></div><div class="reference-item"><h4>Пооле, Д.Ц., Бурнлеи, М., Ванхатало, А., Росситер, Х.Б., &amp; Јонес, А.М. (2016)</h4><p><strong>Критична снага: важан праг замора у физиологији вежбања</strong></p><p class="text-secondary">Медицина и наука у спорту и вежбању, 48(11), 2320-2334.</p><p>Потврђује критичну снагу као физиолошки праг који одваја домене тешке од тешке вежбе.</p></div><div class="reference-item"><h4>Цларк, И.Е., Ванхатало, А., Тхомпсон, Ц., ет ал. (2021)</h4><p><strong>Компаративна анализа модела критичне снаге код елитних друмских бициклиста</strong></p><p class="text-secondary">Еуропеан Јоурнал оф Апплиед Пхисиологи, 121, 3027-3037.</p><p>Упоређује различите методе израчунавања ЦП код елитних бициклиста. Приказује ЦП у равни са тачком респираторне компензације.</p></div></div><div class="callout callout-tip mt-xl"><h3>📚 Даље читање</h3><ul class="mb-0"><li><strong>Тренинг и трке са мерачем снаге (3. издање)</strong>од Хунтер Аллен &amp; Андрев Цогган - Поглавље о критичној снази и В'</li><li><strong>ВКО5 софтверска документација</strong>- Детаљни водичи за имплементацију ЦП и В'бал</li><li><strong>Голден Цхеетах ЦП анализа</strong>- Отворени алати за подешавање ЦП криве</li></ul></div></div></section><section class="section section-alt"><div class="container container-narrow"><h2>Повезани ресурси</h2><div class="grid grid-3"><div class="card"><h3 class="card-title">ПРОТЕЦТ10Кс Тестирање</h3><div class="card-content"><p>Научите стандардни 20-минутни протокол тестирања ПРОТЕЦТ10Кс и како се ПРОТЕЦТ10Кс односи на критичну снагу.</p><a class="btn btn-secondary btn-small mt-md" href="/sr/ftp/">ПРОТЕЦТ10Кс Водич →</a></div></div><div class="card"><h3 class="card-title">Зоне за обуку</h3><div class="card-content"><p>Схватите 7-зонски систем обуке заснован на снази који је изведен из ЦП или ПРОТЕЦТ10Кс.</p><a class="btn btn-secondary btn-small mt-md" href="/sr/training-zones/">Тренинг зоне →</a></div></div><div class="card"><h3 class="card-title">Траининг Лоад</h3><div class="card-content"><p>Сазнајте како ЦП утиче на ПРОТЕЦТ1Кс прорачун и опште управљање стресом током тренинга.</p><a class="btn btn-secondary btn-small mt-md" href="/sr/training-load/">ПРОТЕЦТ1Кс &amp; ПРОТЕЦТ16Кс →</a></div></div></div><div class="mt-xl text-center"><p class="mb-md"><strong>Спремни да пратите ЦП и В'бал?</strong></p><a class="btn btn-primary btn-large" href="https://apps.apple.com/us/app/bike-analytics/id6755187319" rel="noopener" target="_blank">Преузмите бесплатно Бике Аналитицс</a><p class="mt-sm text-secondary">Укључено је напредно праћење ЦП и В' баланса</p></div></div></section><section class="eeat-author bg-light divider-top-lg divider-bottom-lg" aria-label="Author and Reviewer Information"><div class="container container-narrow"><div class="eeat-card" style="display: flex; gap: 1.5rem; align-items: center; padding: 1.5rem; background: var(--color-bg-alt, #f8f9fa); border-radius: 8px; border: 1px solid var(--color-border, #e9ecef); margin-top: 3rem; margin-bottom: 2rem;"><div class="eeat-avatar" style="font-size: 2.5rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">👨‍🔬</div><div class="eeat-details"><h3 style="margin: 0 0 0.5rem 0; font-size: 1.125rem; font-weight: 600;">
+          Expertly Reviewed by 
+          <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">AnalyticsZone Team</span></span></h3><p style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: var(--color-body-text, #4a5568); line-height: 1.5;">
+          This content has been written and reviewed by a sports data metrics expert to ensure technical accuracy and adherence to the latest sports science methodologies.
+        </p></div></div></div></section><section class="ai-citation-block divider-top-xl" data-ai-ready="true" data-ai-page="critical-power"><div class="container ai-citation-shell"><h2 class="ai-citation-title">Модел Цритицал Повер &amp; В&#39; – напредна анализа бициклизма</h2><p class="ai-citation-answer">Разумети критичну снагу (ЦП) и В&#39; (В Приме) за бициклизам. Напредно моделирање замора, В&#39;бал праћење и оптимизација перформанси.</p><ul class="ai-citation-facts" role="list"><li class="ai-citation-fact"><span class="ai-citation-icon" aria-hidden="true">📅</span><span>2026-03-24</span></li><li class="ai-citation-fact ai-citation-keywords"><span class="ai-citation-icon" aria-hidden="true">🏷️</span><span>критични циклус снаге · В приме бициклизам · ЦП модел · В главни баланс · анаеробни капацитет бициклизма</span></li><li class="ai-citation-fact"><span class="ai-citation-icon" aria-hidden="true">🔬</span><a href="../../sr/bibliography/">
+          
+          Bibliografija
+          
+        </a></li></ul></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Преузми</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Преузмите на ПРОТЕЦТ23Кс"><img src="../../assets/images/badge-app-store.svg"
+                            alt="Преузмите на ПРОТЕЦТ23Кс" width="135"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Набавите га на Гоогле Плаи-у"><img src="../../assets/images/badge-google-play.svg"
+                            alt="Набавите га на Гоогле Плаи-у" width="135"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Доступно у</h3><div class="lang-grid"><a href="/af/" class="lang-link"
+                    hreflang="af" >
+                    Afrikaans
+                </a><a href="/am/" class="lang-link"
+                    hreflang="am" >
+                    አማርኛ
+                </a><a href="/ar/" class="lang-link"
+                    hreflang="ar" dir="rtl" >
+                    العربية
+                </a><a href="/bg/" class="lang-link"
+                    hreflang="bg" >
+                    Български
+                </a><a href="/bn/" class="lang-link"
+                    hreflang="bn" >
+                    বাংলা
+                </a><a href="/ca/" class="lang-link"
+                    hreflang="ca" >
+                    Català
+                </a><a href="/cs/" class="lang-link"
+                    hreflang="cs" >
+                    Čeština
+                </a><a href="/da/" class="lang-link"
+                    hreflang="da" >
+                    Dansk
+                </a><a href="/de/" class="lang-link"
+                    hreflang="de" >
+                    Deutsch
+                </a><a href="/el/" class="lang-link"
+                    hreflang="el" >
+                    Ελληνικά
+                </a><a href="/en/" class="lang-link"
+                    hreflang="en" >
+                    English
+                </a><a href="/es/" class="lang-link"
+                    hreflang="es" >
+                    Español
+                </a><a href="/et/" class="lang-link"
+                    hreflang="et" >
+                    Eesti
+                </a><a href="/fa/" class="lang-link"
+                    hreflang="fa" dir="rtl" >
+                    فارسی
+                </a><a href="/fi/" class="lang-link"
+                    hreflang="fi" >
+                    Suomi
+                </a><a href="/fr/" class="lang-link"
+                    hreflang="fr" >
+                    Français
+                </a><a href="/gu/" class="lang-link"
+                    hreflang="gu" >
+                    ગુજરાતી
+                </a><a href="/ha/" class="lang-link"
+                    hreflang="ha" >
+                    Hausa
+                </a><a href="/he/" class="lang-link"
+                    hreflang="he" dir="rtl" >
+                    עברית
+                </a><a href="/hi/" class="lang-link"
+                    hreflang="hi" >
+                    हिन्दी
+                </a><a href="/hr/" class="lang-link"
+                    hreflang="hr" >
+                    Hrvatski
+                </a><a href="/hu/" class="lang-link"
+                    hreflang="hu" >
+                    Magyar
+                </a><a href="/id/" class="lang-link"
+                    hreflang="id" >
+                    Bahasa Indonesia
+                </a><a href="/is/" class="lang-link"
+                    hreflang="is" >
+                    Íslenska
+                </a><a href="/it/" class="lang-link"
+                    hreflang="it" >
+                    Italiano
+                </a><a href="/ja/" class="lang-link"
+                    hreflang="ja" >
+                    日本語
+                </a><a href="/km/" class="lang-link"
+                    hreflang="km" >
+                    ភាសាខ្មែរ
+                </a><a href="/kn/" class="lang-link"
+                    hreflang="kn" >
+                    ಕನ್ನಡ
+                </a><a href="/ko/" class="lang-link"
+                    hreflang="ko" >
+                    한국어
+                </a><a href="/lt/" class="lang-link"
+                    hreflang="lt" >
+                    Lietuvių
+                </a><a href="/lv/" class="lang-link"
+                    hreflang="lv" >
+                    Latviešu
+                </a><a href="/ms/" class="lang-link"
+                    hreflang="ms" >
+                    Bahasa Melayu
+                </a><a href="/my/" class="lang-link"
+                    hreflang="my" >
+                    မြန်မာဘာသာ
+                </a><a href="/nb/" class="lang-link"
+                    hreflang="nb" >
+                    Norsk Bokmål
+                </a><a href="/nl/" class="lang-link"
+                    hreflang="nl" >
+                    Nederlands
+                </a><a href="/pl/" class="lang-link"
+                    hreflang="pl" >
+                    Polski
+                </a><a href="/pt/" class="lang-link"
+                    hreflang="pt" >
+                    Português
+                </a><a href="/pt-br/" class="lang-link"
+                    hreflang="pt-br" >
+                    Português (Brasil)
+                </a><a href="/ro/" class="lang-link"
+                    hreflang="ro" >
+                    Română
+                </a><a href="/ru/" class="lang-link"
+                    hreflang="ru" >
+                    Русский
+                </a><a href="/sk/" class="lang-link"
+                    hreflang="sk" >
+                    Slovenčina
+                </a><a href="/sl/" class="lang-link"
+                    hreflang="sl" >
+                    Slovenščina
+                </a><a href="/sr/" class="lang-link active"
+                    hreflang="sr" >
+                    Српски
+                </a><a href="/sv/" class="lang-link"
+                    hreflang="sv" >
+                    Svenska
+                </a><a href="/sw/" class="lang-link"
+                    hreflang="sw" >
+                    Kiswahili
+                </a><a href="/ta/" class="lang-link"
+                    hreflang="ta" >
+                    தமிழ்
+                </a><a href="/te/" class="lang-link"
+                    hreflang="te" >
+                    తెలుగు
+                </a><a href="/th/" class="lang-link"
+                    hreflang="th" >
+                    ไทย
+                </a><a href="/tl/" class="lang-link"
+                    hreflang="tl" >
+                    Tagalog
+                </a><a href="/tr/" class="lang-link"
+                    hreflang="tr" >
+                    Türkçe
+                </a><a href="/uk/" class="lang-link"
+                    hreflang="uk" >
+                    Українська
+                </a><a href="/ur/" class="lang-link"
+                    hreflang="ur" dir="rtl" >
+                    اردو
+                </a><a href="/vi/" class="lang-link"
+                    hreflang="vi" >
+                    Tiếng Việt
+                </a><a href="/yo/" class="lang-link"
+                    hreflang="yo" >
+                    Yoruba
+                </a><a href="/zh/" class="lang-link"
+                    hreflang="zh" >
+                    中文
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
+                &copy; 2026 Bike Analytics. Sva prava zadržana
+            </p><ul class="footer-legal"><li><a href="/sr/privacy/">Privatnost</a></li><li><a href="/sr/terms/">Uslovi</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>Ovaj veb-sajt koristi kolačiće kako bi poboljšao vaše iskustvo.</p><a href="/sr/privacy/" class="text-sm">Saznaj više</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">Odbij</button><button id="cookie-accept" class="btn btn-primary btn-small">Prihvati</button></div></div></div><script src="../../assets/js/core.min.js?v=26b71a7b" defer></script><script src="../../assets/js/search.min.js?v=26b71a7b" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>
