@@ -1,0 +1,900 @@
+<!DOCTYPE html><html lang="lt" dir="ltr"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=optional"
+    rel="stylesheet"><title>Laipiojimo dviračiu efektyvumas – VAM, W/kg, gradiento</title><meta name="description" content="Pagrindiniai laipiojimo našumo rodikliai: VAM (vertikalaus pakilimo metrai), galios ir svorio santykis (W/kg) ir nuolydžiu pakoreguotas našumas."><meta name="author" content="AnalyticsZone Team"><meta name="keywords" content="Važiavimas dviračiu VAM, kopimas dviračiu, galia ir svoris dviračiu, gradiento analizės ciklas, vertikalaus pakilimo metrai"><link rel="canonical" href="https://bike.analyticszone.app/lt/climbing-performance/"><meta property="article:published_time" content="2025-01-15T10:00:00Z"><meta property="article:modified_time" content="2026-03-24T14:30:00Z"><meta property="article:author" content="AnalyticsZone Team"><meta property="og:type" content="article"><meta property="og:url" content="https://bike.analyticszone.app/lt/climbing-performance/"><meta property="og:title" content="Laipiojimo dviračiu efektyvumas – VAM, W/kg, gradiento"><meta property="og:description" content="Pagrindiniai laipiojimo našumo rodikliai: VAM (vertikalaus pakilimo metrai), galios ir svorio santykis (W/kg) ir nuolydžiu pakoreguotas našumas."><meta property="og:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta property="og:locale" content="lt_LT"><meta property="og:site_name" content="Bike Analytics"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://bike.analyticszone.app/lt/climbing-performance/"><meta name="twitter:title" content="Laipiojimo dviračiu efektyvumas – VAM, W/kg, gradiento"><meta name="twitter:description" content="Pagrindiniai laipiojimo našumo rodikliai: VAM (vertikalaus pakilimo metrai), galios ir svorio santykis (W/kg) ir nuolydžiu pakoreguotas našumas."><meta name="twitter:image" content="https://bike.analyticszone.app/assets/images/og-image.svg"><meta name="twitter:site" content="@bikeanalytics"><meta name="twitter:creator" content="@bikeanalytics"><link rel="alternate" hreflang="af"
+    href="https://bike.analyticszone.app/af/climbing-performance/"><link rel="alternate" hreflang="am"
+    href="https://bike.analyticszone.app/am/climbing-performance/"><link rel="alternate" hreflang="ar"
+    href="https://bike.analyticszone.app/ar/climbing-performance/"><link rel="alternate" hreflang="bg"
+    href="https://bike.analyticszone.app/bg/climbing-performance/"><link rel="alternate" hreflang="bn"
+    href="https://bike.analyticszone.app/bn/climbing-performance/"><link rel="alternate" hreflang="ca"
+    href="https://bike.analyticszone.app/ca/climbing-performance/"><link rel="alternate" hreflang="cs"
+    href="https://bike.analyticszone.app/cs/climbing-performance/"><link rel="alternate" hreflang="da"
+    href="https://bike.analyticszone.app/da/climbing-performance/"><link rel="alternate" hreflang="de"
+    href="https://bike.analyticszone.app/de/climbing-performance/"><link rel="alternate" hreflang="el"
+    href="https://bike.analyticszone.app/el/climbing-performance/"><link rel="alternate" hreflang="en"
+    href="https://bike.analyticszone.app/en/climbing-performance/"><link rel="alternate" hreflang="es"
+    href="https://bike.analyticszone.app/es/climbing-performance/"><link rel="alternate" hreflang="et"
+    href="https://bike.analyticszone.app/et/climbing-performance/"><link rel="alternate" hreflang="fa"
+    href="https://bike.analyticszone.app/fa/climbing-performance/"><link rel="alternate" hreflang="fi"
+    href="https://bike.analyticszone.app/fi/climbing-performance/"><link rel="alternate" hreflang="fr"
+    href="https://bike.analyticszone.app/fr/climbing-performance/"><link rel="alternate" hreflang="gu"
+    href="https://bike.analyticszone.app/gu/climbing-performance/"><link rel="alternate" hreflang="ha"
+    href="https://bike.analyticszone.app/ha/climbing-performance/"><link rel="alternate" hreflang="he"
+    href="https://bike.analyticszone.app/he/climbing-performance/"><link rel="alternate" hreflang="hi"
+    href="https://bike.analyticszone.app/hi/climbing-performance/"><link rel="alternate" hreflang="hr"
+    href="https://bike.analyticszone.app/hr/climbing-performance/"><link rel="alternate" hreflang="hu"
+    href="https://bike.analyticszone.app/hu/climbing-performance/"><link rel="alternate" hreflang="id"
+    href="https://bike.analyticszone.app/id/climbing-performance/"><link rel="alternate" hreflang="is"
+    href="https://bike.analyticszone.app/is/climbing-performance/"><link rel="alternate" hreflang="it"
+    href="https://bike.analyticszone.app/it/climbing-performance/"><link rel="alternate" hreflang="ja"
+    href="https://bike.analyticszone.app/ja/climbing-performance/"><link rel="alternate" hreflang="km"
+    href="https://bike.analyticszone.app/km/climbing-performance/"><link rel="alternate" hreflang="kn"
+    href="https://bike.analyticszone.app/kn/climbing-performance/"><link rel="alternate" hreflang="ko"
+    href="https://bike.analyticszone.app/ko/climbing-performance/"><link rel="alternate" hreflang="lt"
+    href="https://bike.analyticszone.app/lt/climbing-performance/"><link rel="alternate" hreflang="lv"
+    href="https://bike.analyticszone.app/lv/climbing-performance/"><link rel="alternate" hreflang="ms"
+    href="https://bike.analyticszone.app/ms/climbing-performance/"><link rel="alternate" hreflang="my"
+    href="https://bike.analyticszone.app/my/climbing-performance/"><link rel="alternate" hreflang="nb"
+    href="https://bike.analyticszone.app/nb/climbing-performance/"><link rel="alternate" hreflang="nl"
+    href="https://bike.analyticszone.app/nl/climbing-performance/"><link rel="alternate" hreflang="pl"
+    href="https://bike.analyticszone.app/pl/climbing-performance/"><link rel="alternate" hreflang="pt"
+    href="https://bike.analyticszone.app/pt/climbing-performance/"><link rel="alternate" hreflang="pt-br"
+    href="https://bike.analyticszone.app/pt-br/climbing-performance/"><link rel="alternate" hreflang="ro"
+    href="https://bike.analyticszone.app/ro/climbing-performance/"><link rel="alternate" hreflang="ru"
+    href="https://bike.analyticszone.app/ru/climbing-performance/"><link rel="alternate" hreflang="sk"
+    href="https://bike.analyticszone.app/sk/climbing-performance/"><link rel="alternate" hreflang="sl"
+    href="https://bike.analyticszone.app/sl/climbing-performance/"><link rel="alternate" hreflang="sr"
+    href="https://bike.analyticszone.app/sr/climbing-performance/"><link rel="alternate" hreflang="sv"
+    href="https://bike.analyticszone.app/sv/climbing-performance/"><link rel="alternate" hreflang="sw"
+    href="https://bike.analyticszone.app/sw/climbing-performance/"><link rel="alternate" hreflang="ta"
+    href="https://bike.analyticszone.app/ta/climbing-performance/"><link rel="alternate" hreflang="te"
+    href="https://bike.analyticszone.app/te/climbing-performance/"><link rel="alternate" hreflang="th"
+    href="https://bike.analyticszone.app/th/climbing-performance/"><link rel="alternate" hreflang="tl"
+    href="https://bike.analyticszone.app/tl/climbing-performance/"><link rel="alternate" hreflang="tr"
+    href="https://bike.analyticszone.app/tr/climbing-performance/"><link rel="alternate" hreflang="uk"
+    href="https://bike.analyticszone.app/uk/climbing-performance/"><link rel="alternate" hreflang="ur"
+    href="https://bike.analyticszone.app/ur/climbing-performance/"><link rel="alternate" hreflang="vi"
+    href="https://bike.analyticszone.app/vi/climbing-performance/"><link rel="alternate" hreflang="yo"
+    href="https://bike.analyticszone.app/yo/climbing-performance/"><link rel="alternate" hreflang="zh"
+    href="https://bike.analyticszone.app/zh/climbing-performance/"><link rel="alternate" hreflang="x-default"
+    href="https://bike.analyticszone.app/en/climbing-performance/"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/apple-touch-icon.png"><link rel="manifest" href="../../manifest.json"><meta name="theme-color" content="#2563EB"><meta name="robots" content="index, follow"><meta name="apple-itunes-app" content="app-id=6755187319"><style>
+/* Critical CSS - Above the fold styles for fast LCP */
+:root {
+  --color-primary: #0066CC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header - Critical for LCP */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.site-logo img, .site-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navigation */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* Mobile menu button */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Main content */
+main.main-content {
+  flex: 1;
+}
+
+/* Hero section - Critical for LCP */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero .lead, .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Buttons - Critical for CTA */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Utility classes */
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Images - prevent CLS with aspect-ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.lazy-image {
+  background: var(--color-bg-alt);
+  transition: opacity 0.3s;
+}
+
+.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* App badges - fixed dimensions to prevent CLS */
+.app-badge img {
+  width: 140px;
+  height: 42px;
+}
+
+/* Logo - fixed dimensions */
+.site-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="../../assets/css/main.min.css?v=3c6d85d6"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Bike Analytics",
+  "url": "https://bike.analyticszone.app",
+  "logo": "https://bike.analyticszone.app/assets/images/logo.png",
+  "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+  
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "email": "analyticszone+bike@onmedic.org"
+  },
+  
+  "sameAs": [
+    
+    
+      
+    
+    
+      
+    
+    
+      
+    
+    
+    "https://twitter.com/bikeanalytics",
+    
+    "https://apps.apple.com/us/app/bike-analytics/id6755187319",
+    
+    "https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics"
+    
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Bike Analytics",
+  "url": "https://bike.analyticszone.app",
+  "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+  "inLanguage": "lt"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Bike Analytics",
+  "description": "Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.",
+  "url": "https://bike.analyticszone.app",
+  "applicationCategory": ["HealthApplication", "FitnessApplication"],
+  "operatingSystem": "iOS, Android",
+  "author": {
+    "@type": "Organization",
+    "name": "AnalyticsZone Team"
+  },
+  "downloadUrl": "https://apps.apple.com/us/app/bike-analytics/id6755187319"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Pradžia",
+      "item": "https://bike.analyticszone.app/lt/"
+    },
+    
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Mokslas",
+      "item": "https://bike.analyticszone.app/lt/research/"
+    },
+    
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Kopimo rezultatai",
+      "item": "https://bike.analyticszone.app/lt/climbing-performance/"
+    }
+    
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Laipiojimo dviračiu efektyvumas – VAM, W/kg, gradiento",
+  "description": "Pagrindiniai laipiojimo našumo rodikliai: VAM (vertikalaus pakilimo metrai), galios ir svorio santykis (W/kg) ir nuolydžiu pakoreguotas našumas.",
+  "url": "https://bike.analyticszone.app/lt/climbing-performance/",
+  "inLanguage": "lt",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Bike Analytics",
+    "url": "https://bike.analyticszone.app"
+  },
+  "datePublished": "2025-01-15",
+  "dateModified": "2026-03-24",
+  "keywords": ["Važiavimas dviračiu VAM", "kopimas dviračiu", "galia ir svoris dviračiu", "gradiento analizės ciklas", "vertikalaus pakilimo metrai"],
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Važiavimas dviračiu VAM"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "kopimas dviračiu"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "galia ir svoris dviračiu"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "gradiento analizės ciklas"
+    }, 
+  
+    {
+      "@type": "Thing",
+      "name": "vertikalaus pakilimo metrai"
+    }
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Laipiojimo dviračiu efektyvumas – VAM, W/kg, gradiento",
+  "description": "Pagrindiniai laipiojimo našumo rodikliai: VAM (vertikalaus pakilimo metrai), galios ir svorio santykis (W/kg) ir nuolydžiu pakoreguotas našumas.",
+  "author": {
+    "@type": "Person",
+    "name": "AnalyticsZone Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bike Analytics",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bike.analyticszone.app/assets/images/logo.png"
+    }
+  },
+  "datePublished": "2025-01-15",
+  "dateModified": "2026-03-24",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bike.analyticszone.app/lt/climbing-performance/"
+  }
+}
+</script><script>
+    (function () {
+      let theme = localStorage.getItem('theme');
+      // Older builds could persist a per-subdomain `theme=light` value without a UI
+      // to keep it consistent across apps. Treat it as stale and fall back to the OS.
+      if (theme === 'light') {
+        try { localStorage.removeItem('theme'); } catch (e) { /* ignore */ }
+        theme = null;
+      }
+
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark-mode');
+      }
+    })();
+  </script></head><body><a href="#main-content" class="skip-link">Eiti į turinį</a><header class="site-header"><div class="container"><div class="header-inner"><a href="/lt/" class="site-logo"><picture><source srcset="../../assets/images/logo-dark.png" type="image/png"
+                        media="(prefers-color-scheme: dark)"><img src="../../assets/images/logo.png" alt="Bike Analytics - Cycling Analytics App | FTP, TSS, Power Metrics for iOS" width="56" height="56"></picture><span class="logo-text">Bike Analytics</span></a><nav class="nav-primary" id="nav-primary" role="navigation" aria-label="Main navigation"><div class="nav-group-left"><ul><li><a href="/lt/" 
+                                aria-current="">
+                                Pradžia
+                            </a></li><li class="has-submenu" ><a href="/lt/getting-started/" class="nav-label">Mokytis</a><ul class="submenu"><li><a href="/lt/getting-started/" 
+                                        aria-current="">
+                                        Pradžia
+                                    </a></li><li><a href="/lt/ftp/" 
+                                        aria-current="">
+                                        FTP
+                                    </a></li><li><a href="/lt/critical-power/" 
+                                        aria-current="">
+                                        Kritinė galia
+                                    </a></li><li><a href="/lt/training-zones/" 
+                                        aria-current="">
+                                        Treniruočių zonos
+                                    </a></li><li><a href="/lt/training-load/" 
+                                        aria-current="">
+                                        Treniruočių krūvis
+                                    </a></li><li><a href="/lt/tss-calculator/" 
+                                        aria-current="">
+                                        TSS skaičiuoklė
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/lt/research/" class="nav-label">Mokslas</a><ul class="submenu"><li><a href="/lt/research/" 
+                                        aria-current="">
+                                        Tyrimai
+                                    </a></li><li><a href="/lt/formulas/" 
+                                        aria-current="">
+                                        Formulės
+                                    </a></li><li><a href="/lt/power-metrics/" 
+                                        aria-current="">
+                                        Galios metrikos
+                                    </a></li><li><a href="/lt/efficiency/" 
+                                        aria-current="">
+                                        Efektyvumas
+                                    </a></li><li><a href="/lt/pedaling-mechanics/" 
+                                        aria-current="">
+                                        Pedalų mynimo mechanika
+                                    </a></li><li><a href="/lt/aerodynamics/" 
+                                        aria-current="">
+                                        Aerodinamika
+                                    </a></li><li><a href="/lt/climbing-performance/" class="active" 
+                                        aria-current="page">
+                                        Kopimo rezultatai
+                                    </a></li><li><a href="/lt/bibliography/" 
+                                        aria-current="">
+                                        Bibliografija
+                                    </a></li></ul></li><li class="has-submenu" ><a href="/lt/road-cycling/" class="nav-label">Disciplinos</a><ul class="submenu"><li><a href="/lt/road-cycling/" 
+                                        aria-current="">
+                                        Plento dviračių sportas
+                                    </a></li><li><a href="/lt/mountain-biking/" 
+                                        aria-current="">
+                                        Kalnų dviračių sportas
+                                    </a></li><li><a href="/lt/road-vs-mtb/" 
+                                        aria-current="">
+                                        Plentas vs MTB
+                                    </a></li><li><a href="/lt/comparisons/" 
+                                        aria-current="">
+                                        Platformų palyginimas
+                                    </a></li></ul></li><li><a href="/lt/contact/" 
+                                aria-current="">
+                                Kontaktai
+                            </a></li></ul><div class="search-container"><svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="search" id="site-search" class="search-input" aria-expanded="false"
+                            aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" /><div id="search-results" class="search-results hidden" role="region" aria-live="polite"></div></div><select class="language-selector" id="language-select" aria-label="Pasirinkti kalbą"><option value="af" >
+                            Afrikaans
+                        </option><option value="am" >
+                            አማርኛ
+                        </option><option value="ar" >
+                            العربية
+                        </option><option value="bg" >
+                            Български
+                        </option><option value="bn" >
+                            বাংলা
+                        </option><option value="ca" >
+                            Català
+                        </option><option value="cs" >
+                            Čeština
+                        </option><option value="da" >
+                            Dansk
+                        </option><option value="de" >
+                            Deutsch
+                        </option><option value="el" >
+                            Ελληνικά
+                        </option><option value="en" >
+                            English
+                        </option><option value="es" >
+                            Español
+                        </option><option value="et" >
+                            Eesti
+                        </option><option value="fa" >
+                            فارسی
+                        </option><option value="fi" >
+                            Suomi
+                        </option><option value="fr" >
+                            Français
+                        </option><option value="gu" >
+                            ગુજરાતી
+                        </option><option value="ha" >
+                            Hausa
+                        </option><option value="he" >
+                            עברית
+                        </option><option value="hi" >
+                            हिन्दी
+                        </option><option value="hr" >
+                            Hrvatski
+                        </option><option value="hu" >
+                            Magyar
+                        </option><option value="id" >
+                            Bahasa Indonesia
+                        </option><option value="is" >
+                            Íslenska
+                        </option><option value="it" >
+                            Italiano
+                        </option><option value="ja" >
+                            日本語
+                        </option><option value="km" >
+                            ភាសាខ្មែរ
+                        </option><option value="kn" >
+                            ಕನ್ನಡ
+                        </option><option value="ko" >
+                            한국어
+                        </option><option value="lt" selected>
+                            Lietuvių
+                        </option><option value="lv" >
+                            Latviešu
+                        </option><option value="ms" >
+                            Bahasa Melayu
+                        </option><option value="my" >
+                            မြန်မာဘာသာ
+                        </option><option value="nb" >
+                            Norsk Bokmål
+                        </option><option value="nl" >
+                            Nederlands
+                        </option><option value="pl" >
+                            Polski
+                        </option><option value="pt" >
+                            Português
+                        </option><option value="pt-br" >
+                            Português (Brasil)
+                        </option><option value="ro" >
+                            Română
+                        </option><option value="ru" >
+                            Русский
+                        </option><option value="sk" >
+                            Slovenčina
+                        </option><option value="sl" >
+                            Slovenščina
+                        </option><option value="sr" >
+                            Српски
+                        </option><option value="sv" >
+                            Svenska
+                        </option><option value="sw" >
+                            Kiswahili
+                        </option><option value="ta" >
+                            தமிழ்
+                        </option><option value="te" >
+                            తెలుగు
+                        </option><option value="th" >
+                            ไทย
+                        </option><option value="tl" >
+                            Tagalog
+                        </option><option value="tr" >
+                            Türkçe
+                        </option><option value="uk" >
+                            Українська
+                        </option><option value="ur" >
+                            اردو
+                        </option><option value="vi" >
+                            Tiếng Việt
+                        </option><option value="yo" >
+                            Yoruba
+                        </option><option value="zh" >
+                            中文
+                        </option></select></div><div class="nav-group-right"><div class="header-app-buttons"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Download on App Store" title="Download on App Store"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" /></svg></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" class="header-download-btn" target="_blank"
+                            rel="noopener" aria-label="Get it on Google Play" title="Get it on Google Play"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg></a></div><div class="suite-menu-container"><button class="suite-menu-toggle" id="suite-menu-toggle" aria-label="See other apps"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button><div class="suite-dropdown hidden" id="suite-dropdown"><div class="suite-dropdown-header">Other AnalyticsZone Apps</div><div class="suite-apps-grid"><a href="https://analyticszone.app" class="suite-app-link">AnalyticsZone</a><a href="https://run.analyticszone.app" class="suite-app-link">Run Analytics</a><a href="https://swim.analyticszone.app" class="suite-app-link">Swim Analytics</a><a href="https://walk.analyticszone.app" class="suite-app-link">Walk Analytics</a><a href="https://cardio.analyticszone.app" class="suite-app-link">Cardio Analytics</a><a href="https://health.analyticszone.app" class="suite-app-link">Health Analytics</a><a href="https://swimtrainer.analyticszone.app" class="suite-app-link">Swim Trainer</a><a href="https://hike.analyticszone.app" class="suite-app-link">Hike Analytics</a><a href="https://sleep.analyticszone.app" class="suite-app-link">Sleep Analytics</a></div></div></div></div></nav><button class="menu-toggle" id="menu-toggle" aria-label="Perjungti meniu"
+                aria-expanded="false" aria-controls="nav-primary"><span></span><span></span><span></span></button></div></div></header><nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/lt/">Pradžia</a></li><li><a href="/lt/research/">Mokslas</a></li><li><span aria-current="page">Kopimo rezultatai</span></li></ol></div></nav><main id="main-content" class="main-content"><article class="article-content"><header class="article-header"><h1>Laipiojimo našumas: VAM, W/kg, gradiento analizė</h1><p class="article-meta">Suprasti kopimo greitį lemiančius rodiklius ir kaip juos pagerinti</p></header><section id="climbing-fundamentals"><h2>Kas yra geras alpinistas?</h2><p>Laipiojimo našumas važiuojant dviračiu iš esmės yra susijęs su<strong>galios ir svorio santykis</strong>. Skirtingai nuo važiavimo plokščiu važiavimu, kur dominuoja aerodinamika, kopimas yra kova su gravitacija. Kuo lengvesnis būsite, palyginti su galia, tuo greičiau pakilsite.</p><p>Tačiau vien svoris nepasako visos istorijos. Du pagrindiniai rodikliai atskleidžia laipiojimo gebėjimą:</p><ul><li><strong>Galios ir svorio santykis (W/kg):</strong>Jūsų FTP padalintas iš kūno svorio</li><li><strong>VAM (Velocità Ascensionale Media):</strong>Vertikalus pakilimo greitis metrais per valandą</li></ul><div class="info-box"><h3>Laipiojimo ir plokščiojo jojimo jėgos paskirstymas</h3><p><strong>Lygus kelias 40 km/h greičiu:</strong></p><ul><li>Aerodinaminis pasipriešinimas: 80-90 %</li><li>Pasipriešinimas riedėjimui: 8-12 %</li><li>Gravitacija: ~0 %</li></ul><p><strong>8 % pakilimas 15 km/h greičiu:</strong></p><ul><li>Gravitacija: 75-85 %</li><li>Pasipriešinimas riedėjimui: 10-15 %</li><li>Aerodinaminis pasipriešinimas: 5-10 %</li></ul><p><em>Laipiojimas apverčia lygtį – galios ir svorio santykis tampa viskuo.</em></p></div></section><section id="power-to-weight"><h2>Galios ir svorio santykis (W/kg): alpinisto valiuta</h2><p><strong>Galios ir svorio santykis</strong>yra jūsų funkcinė slenksčio galia (FTP), padalyta iš jūsų kūno svorio kilogramais. Tai vienintelis geriausias laipiojimo rodiklis.</p><div class="formula-box"><h3>Formulė</h3><div class="formula">W/kg = FTP (vatai) / kūno svoris (kg)</div><div class="example-box mt-md"><h4>Pavyzdys:</h4><p>Raideris su 300 W FTP ir 75 kg kūno svoriu:</p><div class="calculation">W/kg = 300 / 75 =<strong>4,0 W/kg</strong></div><p>Šis motociklininkas būtų konkurencingas mėgėjų lygiu, stiprus vietinėse lenktynėse.</p></div></div><h3>W/kg Kategorijos pagal lygį</h3><table class="data-table"><thead><tr><th>Kategorija</th><th>W/kg esant FTP</th><th>Laipiojimo gebėjimas</th><th>Veiklos pavyzdys</th></tr></thead><tbody><tr><td><strong>Poilsio</strong></td><td>2,0-3,0</td><td>Gali užbaigti kopimą, bet lėtai</td><td>Alpe d'Huez per 90+ minučių</td></tr><tr><td><strong>Konkurencingas mėgėjas</strong></td><td>3,0-4,0</td><td>Konkurencingas vietinėse lenktynėse</td><td>Alpe d'Huez per 60-70 minučių</td></tr><tr><td><strong>Katės 1/2 lenktynininkas</strong></td><td>4,0-5,0</td><td>Stiprus regioninis/nacionalinis lygis</td><td>Alpe d'Huez per 50-60 minučių</td></tr><tr><td><strong>Elitinis mėgėjas</strong></td><td>5,0-5,5</td><td>Nacionalinio čempiono potencialas</td><td>Alpe d'Huez per 45-50 minučių</td></tr><tr><td><strong>Pro vidaus</strong></td><td>5,5-6,0</td><td>Profesionalus alpinistas</td><td>Alpe d'Huez per 42-45 min</td></tr><tr><td><strong>Pasaulio turo alpinistas</strong></td><td>6,0-6,5</td><td>Grand Tour GC pretendentas</td><td>Alpe d'Huez per 38-42 min</td></tr><tr><td><strong>Elitinis pasaulinis turas</strong></td><td>6,5+</td><td>Pogačaras, Vingegaardas, Evenepoelis</td><td>Alpe d'Huez per &lt;38 minutes</td></tr></tbody></table><h3>Svorio metimo ir galios padidėjimo kompromisas</h3><h4>Galia numesti svorio</h4><p>Kiekvienas numestas 1 kg pagerina W/kg santykį<em>be</em>didinant galią:</p><div class="example-box"><h4>Svorio netekimo poveikis:</h4><p>Rider: 300 W FTP, 75 kg (4,0 W/kg)</p><ul><li><strong>Numesti 2 kg → 73 kg:</strong>300W / 73kg =<strong>4,11 W/kg</strong>(+2,7 %)</li><li><strong>Numesti 5 kg → 70 kg:</strong>300W / 70kg =<strong>4,29 W/kg</strong>(+7,2 %)</li></ul><p><strong>Laipiojimo poveikis:</strong>Alpe d'Huez (13,8 km, 8,1 %) numetus 5 kg sutaupo ~3 minutes esant tokiai pat galiai!</p></div><h4>⚠️ Nepraraskite raumenų</h4><p>Agresyvus svorio metimas gali sumažinti FTP, jei netenkate raumenų masės:</p><ul><li><strong>Sveikas svorio metimas:</strong>Numesti riebalų, palaikyti FTP → W/kg gerėja</li><li><strong>Nesveikas svorio kritimas:</strong>Prarasti raumenis, FTP lašai 10-15 % → W/kg gali pablogėti</li></ul><p><strong>Saugus požiūris:</strong>Numeskite 0,25–0,5 kg per savaitę dėl vidutinio kalorijų trūkumo, išlaikydami baltymų suvartojimą (1,6–2,2 g vienam kg kūno svorio) ir treniruotės apimtis.</p><h4>Konstravimo galia nepriaugant svorio</h4><p>FTP padidinimas išlaikant svorį yra idealus:</p><div class="example-box"><h4>Galios padidėjimo poveikis:</h4><p>Rider: 300 W FTP, 75 kg (4,0 W/kg)</p><ul><li><strong>+20W FTP → 320W:</strong>320W / 75kg =<strong>4,27 W/kg</strong>(+6,7 %)</li><li><strong>+30W FTP → 330W:</strong>330W / 75kg =<strong>4,40 W/kg</strong>(+10 %)</li></ul><p><strong>Kaip?</strong>Struktūrinis treniruočių taikymo slenkstis ir VO2max. Reikia 3-6 mėnesių nuoseklaus darbo.</p></div><h3>Optimalus svoris laipiojimui</h3><p>Yra taškas mažinti grąžą. Itin lengvi motociklininkai (&lt;60 kg) dažnai turi:</p><ul><li>Mažesnė absoliuti galia (sunkiau išstumti didelius vatus)</li><li>Trūkumas ant plokščių ir į priešpriešinį vėją</li><li>Silpnesnė sprinto galia</li><li>Pažeidžiamesnis (linkęs susižaloti, jautrus ligoms)</li></ul><p><strong>Puiki vieta daugeliui motociklininkų:</strong>10-15% kūno riebalų vyrams, 15-20% moterims.Mažesnis kūno riebalų kiekis padidina W/kg, bet dėl ​​sveikatos ir veiklos problemų tampa neproduktyvus žemiau ~8 % (vyrams) arba 12 % (moterims).</p></section><section id="vam"><h2>VAM (Velocità Ascensionale Media): grynas laipiojimo greitis</h2><p><strong>VAM</strong>matuoja, kiek vertikalių metrų pakylate per valandą. Skirtingai nuo greičio (km/h), kuris labai skiriasi priklausomai nuo nuolydžio, VAM pateikia nuo gradiento nepriklausomą kopimo efektyvumo metriką.</p><div class="formula-box"><h3>Formulė</h3><div class="formula">VAM (m/h) = aukščio padidėjimas (metrais) / laikas (valandomis)</div><div class="example-box mt-md"><h4>Pavyzdys: Alpe d'Huez</h4><p>Pakilimas: 1100 m pakilimas per 50 minučių (0,833 valandos)</p><div class="calculation">VAM = 1100 / 0,833 =<strong>1320 m/val</strong></div><p>Šis VAM rodo elitinį mėgėjų / žemos klasės profesionalų pasirodymą.</p></div></div><h3>VAM gairės pagal pastangų lygį</h3><table class="data-table"><thead><tr><th>VAM (m/h)</th><th>Pastangų lygis</th><th>Tipinė trukmė</th><th>Pavyzdys</th></tr></thead><tbody><tr><td><strong>300-600</strong></td><td>Lengva ištvermė</td><td>2-6 valandas</td><td>Ilgi kopimai į bazę, atsigavimas</td></tr><tr><td><strong>600–900</strong></td><td>Vidutinis tempas</td><td>1-3 valandas</td><td>Sportinis tempas, vidutinio sunkumo grupiniai pasivažinėjimai</td></tr><tr><td><strong>900–1200</strong></td><td>Sunkus slenkstis</td><td>30-90 minučių</td><td>FTP laipiojimas, lenktynių simuliacija</td></tr><tr><td><strong>1200-1500</strong></td><td>Labai kietas VO2max</td><td>10-30 minučių</td><td>Trumpi, staigūs kopimai beveik maksimaliai pastangų</td></tr><tr><td><strong>1500–1800 ir daugiau</strong></td><td>Pro lenktynių tempas</td><td>20-60 minučių</td><td>„World Tour GC“ lenktynininkai dideliuose įkopimuose</td></tr></tbody></table><h3>Kodėl VAM yra nepriklausomas nuo gradiento</h3><p>Greitis (km/h) smarkiai sumažėja didėjant nuolydžiui, net ir esant pastoviai galiai. VAM išlieka gana nuoseklus:</p><div class="example-box"><h4>Rider esant 300 W (75 kg, 4,0 W/kg)</h4><table class="comparison-table"><thead><tr><th>Gradientas</th><th>Greitis (km/h)</th><th>VAM (m/h)</th></tr></thead><tbody><tr><td>5 %</td><td>18.0</td><td>900</td></tr><tr><td>8 %</td><td>15.0</td><td>1200</td></tr><tr><td>10 %</td><td>12.5</td><td>1250 m</td></tr><tr><td>12 %</td><td>10.5</td><td>1260 m</td></tr></tbody></table><p><strong>Analizė:</strong>Greitis sumažėja 42% nuo 5% iki 12%, bet VAM padidėja tik 40% (dėl sumažėjusio oro pasipriešinimo mažesniu greičiu staigesniuose kalnuose). VAM atspindi kopimą<em>pastangų</em>nuosekliau nei greitis.</p></div><h3>Veiksniai, turintys įtakos VAM</h3><h4>1. Galia ir svoris (pagrindinis)</h4><p>Didesnis W/kg tiesiogiai reiškia didesnį VAM. Tai yra pagrindinis variklis.</p><h4>2. Gradientas (antrinis)</h4><p>VAM natūraliai didėja esant statesniems nuolydžiams, nes:</p><ul><li>Aerodinaminis pasipriešinimas yra mažesnis važiuojant lėčiau</li><li>Daugiau galios tenka kėlimui (gravitacijai), o ne oro stumimui</li></ul><p>Tačiau labai statūs nuolydžiai (12%+) gali sumažinti VAM, jei motociklininkas negali išlaikyti jėgos dėl raumenų nuovargio.</p><h4>3. Aukštis</h4><p>Aukštyje:</p><ul><li><strong>Mažesnis oro tankis:</strong>Mažesnis oro pasipriešinimas → šiek tiek didesnis VAM (1–2 %)</li><li><strong>Mažesnis deguonies kiekis:</strong>Sumažinta tvari galia → mažesnis VAM (5–10 % 2000 m)</li></ul><p>Grynasis poveikis: VAM paprastai mažėja aukštyje, nepaisant aerodinaminės naudos.</p><h4>4. Vėjas</h4><p>Priešinis vėjas sumažina VAM, o galinis – padidina. Stiprus priešinis vėjas staigiame aukštyje gali sumažinti VAM 10-20%.</p></section><section id="vam-to-watts"><h2>Apskaičiuota W/kg pagal VAM</h2><p>Galite apytiksliai apskaičiuoti galią ir svorį pagal VAM ir gradientą naudodami šią empirinę formulę:</p><div class="formula-box"><h3>VAM iki W/kg įvertinimas</h3><div class="formula">W/kg ≈ VAM (m/h) / [100 × (gradientas % + 3)]</div><p class="formula-explanation">Tai lemia nuolydį, pasipriešinimą riedėjimui ir aerodinaminį pasipriešinimą esant įprastam aukštėjimo greičiui.</p></div><div class="example-box"><h4>1 pavyzdys: Alpe d'Huez</h4><p><strong>Kopimo duomenys:</strong>1320 VAM 8 % vidutiniu gradientu</p><div class="calculation">W/kg ≈ 1320 / [100 × (8 + 3)]<br/>W/kg ≈ 1320/1100<br/>W/kg ≈<strong>4.36</strong></div><p>Elitinis mėgėjų / Cat 1 veikimo lygis.</p></div><div class="example-box"><h4>2 pavyzdys: Col du Tourmalet</h4><p><strong>Profesionalus našumas:</strong>1650 VAM 7,5% vidutiniu gradientu</p><div class="calculation">W/kg ≈ 1650 / [100 × (7,5 + 3)]<br/>W/kg ≈ 1650/1050<br/>W/kg ≈<strong>5.71</strong></div><p>Pasaulio turo profesionalaus alpinisto lygis.</p></div><h3>Pastabos apie tikslumą</h3><ul><li><strong>Geriausias tikslumas:</strong>5-10% nuolydžiai, 15-25 km/h greitis</li><li><strong>Mažiau tikslūs:</strong>Labai statūs (&gt;12 %) arba negilūs (&lt;3 %) nuolydžiai</li><li><strong>Paveikta:</strong>Vėjas, griovimas (sumažina faktinį reikalingą W/kg), dviračio svoris</li></ul><p>Naudokite šią formulę kaip apytikslį įvertinimą, o ne absoliutų matavimą. Tiesioginio galios skaitiklio duomenys visada yra tikslesni.</p></section><section id="gradient-effects"><h2>Kaip gradientas veikia galios reikalavimus</h2><p>Gradientas turi eksponentinį poveikį galiai, reikalingai greičiui palaikyti. Suprasdami tai, galėsite teisingai važiuoti aukštyn.</p><h3>Galia, reikalinga gradientui</h3><table class="data-table"><thead><tr><th>Gradientas</th><th>Greitis @ 3,5 W/kg</th><th>Greitis @ 4,5 W/kg</th><th>Greitis @ 5,5 W/kg</th></tr></thead><tbody><tr><td><strong>5 %</strong></td><td>18,5 km/val</td><td>21,5 km/val</td><td>24,0 km/val</td></tr><tr><td><strong>7 %</strong></td><td>16,0 km/val</td><td>18,5 km/val</td><td>21,0 km/val</td></tr><tr><td><strong>10 %</strong></td><td>12,5 km/val</td><td>14,5 km/val</td><td>16,5 km/val</td></tr><tr><td><strong>15 %</strong></td><td>8,5 km/val</td><td>10,0 km/val</td><td>11,5 km/val</td></tr></tbody></table><p><em>Manoma, kad 75 kg motociklininkas + 8 kg dviratis, jūros lygis, be vėjo, lygus kelias</em></p><h3>Kodėl aerodinamika mažiau svarbi staigiems įkopimams?</h3><p>Kylant greičiu (&lt;20 km/h), aerodinaminis pasipriešinimas tampa nereikšminga viso pasipriešinimo sudedamąja dalimi:</p><ul><li><strong>5 % nuolydis važiuojant 20 km/val.:</strong>~15% aero, ~10% riedėjimo, ~75% gravitacijos</li><li><strong>10 % nuolydis važiuojant 12 km/val.:</strong>~8% aero, ~12% riedėjimo, ~80% gravitacijos</li><li><strong>15 % nuolydis važiuojant 9 km/val.:</strong>~5% aero, ~10% riedėjimo, ~85% gravitacijos</li></ul><p><strong>Praktinė reikšmė:</strong>Staigiuose įkopimuose sėdėti vertikaliai, kad būtų lengviau kvėpuoti ir geriau kvėpuoti, yra greičiau, nei išlikti aerobiškai. Komfortas ir galia &gt; aerodinamika.</p><div class="callout callout-tip"><h3>💡 Staigūs kopimai</h3><p>Jei nuolydis &gt;10%, atsispirkite norui pakilti pradžioje. Energijos poreikis didėja eksponentiškai – pradėjus 5 % per stipriai, jūs smarkiai išblėsite.</p><p><strong>Geresnė strategija:</strong>Pradėkite nuo 95% tikslinės galios, nusiteikite ritme, tada padidinkite pastangas paskutiniais 20–25%, jei jaučiatės stiprūs.</p></div></section><section id="pacing-strategies"><h2>Optimalaus laipiojimo tempo strategijos</h2><p>Tai, kaip paskirstote galią lipant, labai paveikia bendrą laiką. Netgi galia beveik visada yra greičiausia.</p><h3>Tolygus galios (Iso-Power) tempas</h3><p><strong>Tikslas:</strong>Palaikykite pastovią galią kilimo metu, nepaisant nuolydžio pokyčių.</p><p><strong>Kodėl tai veikia:</strong></p><ul><li>Vengia W' (anaerobinio pajėgumo) išeikvojimo dėl viršįtampių</li><li>Maksimaliai padidina tvarias pastangas</li><li>Apsaugo nuo ankstyvo nuovargio, kuris vėliau atsiranda</li></ul><div class="example-box"><h4>Pavyzdys: 20 minučių kopimas</h4><p><strong>Strategija A (kintamoji galia):</strong></p><ul><li>Pirmos 5 min.: 320 W (stiprus jausmas, antplūdis stačioje atkarpoje)</li><li>Vidurinės 10 min.: 270 W (pavargęs nuo viršįtampio)</li><li>Paskutinės 5 min.: 260 W (sunku)</li><li><strong>Vidutinė: 283W</strong></li></ul><p><strong>B strategija (lygi galia):</strong></p><ul><li>Visos 20 min.: 290 W (pastovi, valdoma)</li><li><strong>Vidutinė: 290W</strong></li></ul><p><strong>Rezultatas:</strong>Strategija B yra 2,5 % greitesnė, nepaisant to, kad anksti jaučiasi „lengviau“. Net galia = greitesnis lipimas.</p></div><h3>Protingai naudokite gradiento pakeitimus</h3><h4>Seklių sekcijų strategija</h4><p>Kai gradientas mažėja (pvz., 9 % → 5 %), turite dvi parinktis:</p><ol><li><strong>Išlaikyti galią:</strong>Greitis didėja, jūs lenkiatės nuo grafiko (rekomenduojama ilgiems kopimams)</li><li><strong>Šiek tiek sumažinkite galią:</strong>Leidžia trumpam atsigauti, tačiau vis tiek daroma pažanga</li></ol><h4>Stačių atkarpų strategija</h4><p>Kai gradientas didėja (pvz., 5 % → 10 %), venkite:</p><ul><li>❌ Drąsiai „susitvarkyti“ → išeikvoja W, išnyksta</li><li>✅ Išlaikykite tikslinę galią → Greitis krenta natūraliai, tačiau pastangos išlieka tvarios</li></ul><h3>Stovint prieš sėdėjimą</h3><h4>Sėdi (numatytasis)</h4><p><strong>Privalumai:</strong></p><ul><li>Daugiau aerodinaminių</li><li>Žemesnis širdies susitraukimų dažnis (~5-10 k./min.)</li><li>Tvarus ilgą laiką</li></ul><p><strong>Minusai:</strong></p><ul><li>Gali jaustis „užrakintas“ labai stačiose atkarpose</li><li>Šlaunies raumenys / sėdmenys gali pavargti ilgai kopiant</li></ul><h4>Stovintis (strateginis)</h4><p><strong>Privalumai:</strong></p><ul><li>Įtraukia įvairias raumenų grupes (keturračiai, blauzdos, šerdis)</li><li>Leidžia kūnui pasitempti, atsigauti kraujotakai</li><li>Gali generuoti didesnę momentinę galią (atakos, staigūs smūgiai)</li></ul><p><strong>Minusai:</strong></p><ul><li>5-10 W didesnis galios poreikis tuo pačiu greičiu (mažiau aero)</li><li>Didesnis širdies ritmas</li><li>Netvarus ilgą laiką</li></ul><p><strong>Geriausia praktika:</strong>Sėdėkite didžiąją kopimo dalį. Trumpai (15–30 sekundžių) stovėkite kas 3–5 minutes, kad:</p><ul><li>Sumažinkite spaudimą sėdintiems kaulams</li><li>Ištempkite klubų lenkiamuosius ir apatinę nugaros dalį</li><li>Įtraukite šviežias raumenų grupes</li></ul><div class="callout callout-warning"><h3>⚠️ Dažnos tempo klaidos</h3><ul><li><strong>Per sunku pradėti:</strong>Pirmieji 20 % pakilimo esant 110 % tvarios galios → garantuotas išblukimas</li><li><strong>Virpėjimas stačiose atkarpose:</strong>Jaučiasi reikalingas, bet išeikvoja W' greičiau nei gaunama nauda</li><li><strong>Per daug stovi:</strong>5–10 W bauda padidina 30–60 minučių pakilimą</li><li><strong>Gradiento pakeitimų nepaisymas:</strong>Išlaikykite tikslinę galią, o ne greitį</li></ul></div></section><section id="training-for-climbing"><h2>Mokymai, skirti pagerinti laipiojimo rezultatus</h2><p>Laipiojimo tobulinimas pasiekiamas iš trijų sričių: FTP padidinimo, svorio mažinimo ir specifinės raumenų ištvermės ugdymo.</p><h3>1. Sukurkite aerobinę bazę (2 zona)</h3><p>Ilgi, stabilūs važiavimai su 60–70% FTP sukuria:</p><ul><li>Mitochondrijų tankis</li><li>Kapiliarinis tinklas</li><li>Riebalų oksidacija (taupo glikogeno ilgų kopimų metu)</li></ul><p><strong>Tikslinė apimtis:</strong>70–80% savaitės treniruočių laiko 2 zonoje, skirta į ištvermę orientuotiems motociklininkams.Žr<a href="/lt/training-zones/">Treniruočių zonų vadovas</a>.</p><h3>2. Slenkstiniai intervalai (4 zona)</h3><p>Sukurkite FTP su nuolatinėmis slenksčio pastangomis:</p><div class="workout-box"><h4>Slenksčio treniruotės pavyzdys</h4><p><strong>3 × 12 minučių @ 95-100% FTP (5 min. atsigavimas)</strong></p><p>Jei įmanoma, atlikite kopimą, kad imituotumėte lenktynių sąlygas. Per visą intervalą sutelkite dėmesį į vienodą galią.</p><p><strong>Dažnis:</strong>1-2 kartus per savaitę statybos etape</p></div><h3>3. VO2max pasikartoja (5 zona)</h3><p>Trumpi, kieti intervalai padidina aerobikos lubas:</p><div class="workout-box"><h4>VO2max treniruotės pavyzdys</h4><p><strong>5 × 4 minutės @ 110-120% FTP (4 min. atsigavimas)</strong></p><p>Tai skauda - tai yra esmė. VO2max darbas yra labai svarbus norint padidinti FTP laikui bėgant.</p><p><strong>Dažnis:</strong>1× per savaitę statybos/piko fazės metu</p></div><h3>4. Ilgi kopimai (lenktynių modeliavimas)</h3><p>Treniruokitės žingsniu nuolat kylant:</p><div class="workout-box"><h4>Ilgo laipiojimo treniruotės pavyzdys</h4><p><strong>2 × 30–40 minučių @ FTP ant vidutinio pakilimo (15 min. atsigavimas)</strong></p><p>Tikslas: Išmokite tolygiai judėti, valdyti mitybą, ilgą laiką išlikti patogiai lipant.</p><p><strong>Dažnis:</strong>1x per savaitę tam tikroje pasiruošimo fazėje</p></div><h3>5. Svorio valdymas</h3><p>Strategiškai sumažinkite kūno riebalų perteklių:</p><ul><li><strong>Tikslas:</strong>Maksimalus svoris 0,25-0,5 kg per savaitę</li><li><strong>Metodas:</strong>300-500 kalorijų per dieną deficitas</li><li><strong>Baltymai:</strong>Išlaikykite 1,6–2,2 g/kg kūno svorio, kad išsaugotumėte raumenis</li><li><strong>Laikas:</strong>Numeskite svorį bazinės / kūrimo fazės, o ne piko / lenktynių fazės metu</li></ul><p><strong>Įspėjimas:</strong>Nesivaikykite ypatingo liesumo. Veikimo lygis pakilo arba sumažėja žemiau ~8% kūno riebalų (vyrų) arba ~12% (moterų).</p><div class="callout callout-science"><h3>🔬 Treniruočių prisitaikymo laiko juosta</h3><ul><li><strong>4-8 savaites:</strong>Neuroraumenų patobulinimai, geresnis ritmas</li><li><strong>8-12 savaičių:</strong>Laktato slenkstis padidėja, FTP pakyla 5-10%</li><li><strong>12-16 savaičių:</strong>Pagerėja aerobinis pajėgumas (VO2max).</li><li><strong>16-24 savaitės:</strong>Didelės mitochondrijų adaptacijos, laipiojimo ekonomika pagerėja</li></ul><p>Nuolatinis mokymas daugiau nei 6 mėnesius = didžiausias pelnas. Nuorodų nėra.</p></div></section><section id="famous-climbs"><h2>Įžymūs kopimai: našumo analizė</h2><p>Analizuojant profesionalų pasirodymus ikoniškuose laipiuose, paaiškėja, kaip W/kg atrodo praktiškai.</p><h3>Alpe d'Huez</h3><ul><li><strong>Atstumas:</strong>13,8 km</li><li><strong>Aukščio padidėjimas:</strong>1100 m</li><li><strong>Vidutinis gradientas:</strong>8,1 %</li><li><strong>21 plaukų segtuko posūkis</strong></li></ul><table class="data-table"><thead><tr><th>Raideris / lygis</th><th>Laikas</th><th>Numatomas W/kg</th><th>VAM</th></tr></thead><tbody><tr><td><strong>Marco Pantani (1997 m. rekordas)</strong></td><td>37:35</td><td>~6.7</td><td>~1750 m</td></tr><tr><td><strong>Pasaulio turo nugalėtojas</strong></td><td>39-42 min</td><td>6,0-6,3</td><td>1570–1690 m</td></tr><tr><td><strong>Pasaulio turo GC varžovas</strong></td><td>42-45 min</td><td>5,5-6,0</td><td>1470–1570 m</td></tr><tr><td><strong>Elitinis mėgėjas</strong></td><td>50-55 min</td><td>4,5-5,0</td><td>1200-1320</td></tr><tr><td><strong>Stiprus mėgėjas</strong></td><td>60-70 min</td><td>3,5-4,0</td><td>940-1100</td></tr></tbody></table><h3>Mont Ventoux</h3><ul><li><strong>Atstumas:</strong>21,5 km (nuo Bedoino)</li><li><strong>Aukščio padidėjimas:</strong>1600 m</li><li><strong>Vidutinis gradientas:</strong>7,5 %</li><li><strong>Finaliniai 6 km:</strong>Atidengta, dažnai vėjuota</li></ul><table class="data-table"><thead><tr><th>Raideris / lygis</th><th>Laikas</th><th>Numatomas W/kg</th><th>VAM</th></tr></thead><tbody><tr><td><strong>Iban Mayo (2004 m. rekordas)</strong></td><td>55:51</td><td>~6.6</td><td>~1720 m</td></tr><tr><td><strong>Pasaulio turo GC motociklininkas</strong></td><td>58-62 min</td><td>6,0-6,2</td><td>1550–1655 m</td></tr><tr><td><strong>Elitinis mėgėjas</strong></td><td>70-80 min</td><td>4,8-5,2</td><td>1200-1370</td></tr><tr><td><strong>Stiprus mėgėjas</strong></td><td>90-100 min</td><td>3,8-4,2</td><td>960-1065</td></tr></tbody></table><h3>Col du Tourmalet</h3><ul><li><strong>Atstumas:</strong>18,8 km (nuo Luz-Saint-Sauveur)</li><li><strong>Aukščio padidėjimas:</strong>1400 m</li><li><strong>Vidutinis gradientas:</strong>7,5 %</li><li><strong>Aukščiausia asfaltuota perėja Pirėnų kalnuose</strong>(2115 m aukštis)</li></ul><p><strong>Profesionalūs pasirodymai:</strong>50-55 minutes (~6,0-6,3 W/kg, 1530-1680 VAM). Aukštis turi įtakos šiems laikams – plonesnis oras sumažina galią ~5-8%.</p><div class="callout callout-tip"><h3>💡 Kopimo etalonų naudojimas</h3><p>Raskite savo tikslą kopti (vietinis ar garsus). Išbandykite save maksimaliai tvariomis pastangomis. Palyginkite savo laiką su etalonais, kad įvertintumėte dabartinį W/kg lygį:</p><ol><li>Rekordinis pakilimo laikas, aukščio padidėjimas, gradientas</li><li>Apskaičiuokite VAM: (aukščio padidėjimas / laikas valandomis)</li><li>Apskaičiuotas W/kg: VAM / [100 × (gradientas % + 3)]</li><li>Palyginkite su aukščiau pateiktais etalonais</li></ol><p>Pakartokite testą kas 8–12 savaičių, kad galėtumėte stebėti pažangą!</p></div></section><section id="faq"><h2>Dažnai užduodami klausimai</h2><div class="faq-item"><h3>Kas svarbiau kopiant: numesti svorio ar įgyti jėgos?</h3><p>Abu pagerina W/kg, bet kontekstas yra svarbus. Jei nešiojate kūno riebalų perteklių (&gt;15% vyrų, &gt;22% moterų), greičiausias būdas tobulėti yra numesti 2–5 kg riebalų išlaikant jėgą. Jei jau esate liesas, sutelkite dėmesį į FTP kūrimą per struktūrinius mokymus. Raumenų praradimas siekiant svorio yra neproduktyvus.</p></div><div class="faq-item"><h3>Kaip aukštis veikia laipiojimo našumą?</h3><p>2000 m aukštyje tikimasi, kad dėl mažesnio deguonies kiekio sumažės tvari galia ~5–8%. Tačiau plonesnis oras šiek tiek sumažina aerodinaminį pasipriešinimą (~2%). Grynasis efektas: lėtesnis kopimas aukštyje. Aklimatizacija (7-14 dienų) iš dalies atkuria darbingumą.</p></div><div class="faq-item"><h3>Ar turėčiau stovėti ar sėdėti lipant?</h3><p>Sėdėkite didžiąją kopimo dalį (efektyvesnis, mažesnis energijos poreikis). Trumpai stovėkite kas 3–5 minutes (15–30 sekundžių), kad ištemptumėte, sumažintumėte spaudimą ir įtrauktumėte skirtingus raumenis. Nuolatinis stovėjimas kainuoja 5–10 W papildomos galios ir nėra ilgalaikis.</p></div><div class="faq-item"><h3>Kas yra geras W/kg mėgėjų lenktynėms?</h3><p>3,5–4,0 W/kg yra konkurencingas vietos lygiu. 4,0–4,5 W/kg gali laimėti vietines lenktynes ​​ir užimti gerą vietą regione. 4,5–5,0 W/kg yra 1/2 katės lygis. Virš 5,0 W/kg patenka į elitinę mėgėjų / pusiau profesionalų teritoriją. Kontekstas: tai FTP reikšmės, išlaikomos 20–60 minučių.</p></div><div class="faq-item"><h3>Kaip teisingai tempti ilgą kopimą?</h3><p>Net galia (iso-power) yra greičiausia. Pradėkite nuo 95% tikslo, nusiteikite ritmu, palaikykite pastovius vatus, nepaisant gradiento pokyčių. Venkite bangavimo stačiose atkarpose – išeikvoja W' ir sukelia blukimą. Padidinkite pastangas tik paskutiniais 20–25%, jei jaučiatės stiprūs.</p></div><div class="faq-item"><h3>Ar piešimas padeda lipant?</h3><p>Taip, ypač vidutinio nuolydžio (5-8%) važiuojant didesniu greičiu (18+ km/h). Tyrimai rodo, kad važiuojant 21 km/h greičiu ir 7,5 % nuolydžiu sutaupote 7 % energijos. Labai staigiai pakilus (10%+) esant lėtam greičiui (&lt;15 km/h), traukimo nauda yra minimali (~2%).</p></div><div class="faq-item"><h3>Kiek laiko reikia, kad W/kg žymiai pagerėtų?</h3><p>Su struktūrizuotomis treniruotėmis: 5–10% FTP pagerėjimas per 12–16 savaičių yra realus daugumai motociklininkų. Kartu su strateginiu svorio netekimu 2–4 kg = 10–20 % W/kg pagerėjimas per 4–6 mėnesius. Galimas nuolatinis pelnas (dar 5–10 %) 2 metais, tada lėtesnė pažanga artėjant prie genetinio potencialo.</p></div></section><section id="related-resources"><h2>Susiję ištekliai</h2><ul><li><a href="/lt/ftp/">Funkcinės slenkstinės galios (FTP) bandymas</a></li><li><a href="/lt/power-metrics/">Išplėstinė galios metrika (NP, IF, VI, W'bal)</a></li><li><a href="/lt/training-zones/">Laipiojimo tobulinimo treniruočių zonos</a></li><li><a href="/lt/aerodynamics/">Aerodinamika: kai tai svarbu, palyginti su laipiojimais</a></li><li><a href="/lt/getting-started/">Darbo su galia pagrįsto mokymo pradžia</a></li></ul></section></article><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Laipiojimo našumas: VAM, W/kg, gradiento analizė",
+  "description": "Išsamus laipiojimo dviračiu vadovas: galios ir svorio santykis, VAM skaičiavimas, gradiento efektai, tempo strategijos ir treniruočių metodai, leidžiantys greičiau kopti.",
+  "author": {
+    "@type": "Person",
+    "name": "AnalyticsZone Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dviračių analizė",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bike.analyticszone.app/assets/images/logo_bikeanalytics.png"
+    }
+  },
+  "datePublished": "2025-01-27",
+  "dateModified": "2025-01-27"
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kas svarbiau kopiant: numesti svorio ar įgyti jėgos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Abu pagerina W/kg. Jei nešiojate kūno riebalų perteklių, greičiausias pagerėjimas yra numesti 2–5 kg išlaikant jėgą. Jei jau esate liesas, sutelkite dėmesį į FTP kūrimą treniruodamiesi. Raumenų praradimas yra neproduktyvus."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ar turėčiau stovėti ar sėdėti lipant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sėdėkite didžiąją kopimo dalį (efektyviau). Trumpai stovėkite kas 3-5 minutes (15-30 sekundžių), kad ištemptumėte ir įtrauktumėte skirtingus raumenis. Nuolat stovint papildomai kainuoja 5-10W."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ar piešimas padeda lipant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Taip, ypač esant vidutiniam nuolydžiui (5-8%) važiuojant didesniu greičiu. Tyrimai rodo, kad važiuojant 21 km/val. sutaupoma 7 % energijos. Ant stačių pakilimų lėtu greičiu nauda yra minimali."
+      }
+    }
+  ]
+}</script><section class="eeat-author bg-light divider-top-lg divider-bottom-lg" aria-label="Author and Reviewer Information"><div class="container container-narrow"><div class="eeat-card" style="display: flex; gap: 1.5rem; align-items: center; padding: 1.5rem; background: var(--color-bg-alt, #f8f9fa); border-radius: 8px; border: 1px solid var(--color-border, #e9ecef); margin-top: 3rem; margin-bottom: 2rem;"><div class="eeat-avatar" style="font-size: 2.5rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">👨‍🔬</div><div class="eeat-details"><h3 style="margin: 0 0 0.5rem 0; font-size: 1.125rem; font-weight: 600;">
+          Expertly Reviewed by 
+          <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">AnalyticsZone Team</span></span></h3><p style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: var(--color-body-text, #4a5568); line-height: 1.5;">
+          This content has been written and reviewed by a sports data metrics expert to ensure technical accuracy and adherence to the latest sports science methodologies.
+        </p></div></div></div></section><section class="ai-citation-block divider-top-xl" data-ai-ready="true" data-ai-page="climbing-performance"><div class="container ai-citation-shell"><h2 class="ai-citation-title">Laipiojimo dviračiu efektyvumas – VAM, W/kg, gradiento</h2><p class="ai-citation-answer">Pagrindiniai laipiojimo našumo rodikliai: VAM (vertikalaus pakilimo metrai), galios ir svorio santykis (W/kg) ir nuolydžiu pakoreguotas našumas.</p><ul class="ai-citation-facts" role="list"><li class="ai-citation-fact"><span class="ai-citation-icon" aria-hidden="true">📅</span><span>2026-03-24</span></li><li class="ai-citation-fact ai-citation-keywords"><span class="ai-citation-icon" aria-hidden="true">🏷️</span><span>Važiavimas dviračiu VAM · kopimas dviračiu · galia ir svoris dviračiu · gradiento analizės ciklas · vertikalaus pakilimo metrai</span></li><li class="ai-citation-fact"><span class="ai-citation-icon" aria-hidden="true">🔬</span><a href="../../lt/bibliography/">
+          
+          Bibliografija
+          
+        </a></li></ul></div></section></main><footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand-section"><h2>Bike Analytics</h2><p>Track FTP, TSS, Critical Power with Bike Analytics. Science-based iOS app for road cyclists, mountain bikers &amp; coaches. 7-day free trial.</p></div><div class="footer-download"><h3 class="footer-heading">Atsisiųsti</h3><div class="footer-badges"><a href="https://apps.apple.com/us/app/bike-analytics/id6755187319" target="_blank" rel="noopener"
+                        aria-label="Atsisiųskite App Store"><img src="../../assets/images/badge-app-store.svg"
+                            alt="Atsisiųskite App Store" width="135"
+                            height="40" loading="lazy"></a><a href="https://play.google.com/store/apps/details?id=com.arnohealth.bikeanalytics" target="_blank" rel="noopener"
+                        aria-label="Gaukite jį iš „Google Play“."><img src="../../assets/images/badge-google-play.svg"
+                            alt="Gaukite jį iš „Google Play“." width="135"
+                            height="40" loading="lazy"></a></div></div></div><div class="footer-languages"><h3 class="footer-heading">Galima įsigyti</h3><div class="lang-grid"><a href="/af/" class="lang-link"
+                    hreflang="af" >
+                    Afrikaans
+                </a><a href="/am/" class="lang-link"
+                    hreflang="am" >
+                    አማርኛ
+                </a><a href="/ar/" class="lang-link"
+                    hreflang="ar" dir="rtl" >
+                    العربية
+                </a><a href="/bg/" class="lang-link"
+                    hreflang="bg" >
+                    Български
+                </a><a href="/bn/" class="lang-link"
+                    hreflang="bn" >
+                    বাংলা
+                </a><a href="/ca/" class="lang-link"
+                    hreflang="ca" >
+                    Català
+                </a><a href="/cs/" class="lang-link"
+                    hreflang="cs" >
+                    Čeština
+                </a><a href="/da/" class="lang-link"
+                    hreflang="da" >
+                    Dansk
+                </a><a href="/de/" class="lang-link"
+                    hreflang="de" >
+                    Deutsch
+                </a><a href="/el/" class="lang-link"
+                    hreflang="el" >
+                    Ελληνικά
+                </a><a href="/en/" class="lang-link"
+                    hreflang="en" >
+                    English
+                </a><a href="/es/" class="lang-link"
+                    hreflang="es" >
+                    Español
+                </a><a href="/et/" class="lang-link"
+                    hreflang="et" >
+                    Eesti
+                </a><a href="/fa/" class="lang-link"
+                    hreflang="fa" dir="rtl" >
+                    فارسی
+                </a><a href="/fi/" class="lang-link"
+                    hreflang="fi" >
+                    Suomi
+                </a><a href="/fr/" class="lang-link"
+                    hreflang="fr" >
+                    Français
+                </a><a href="/gu/" class="lang-link"
+                    hreflang="gu" >
+                    ગુજરાતી
+                </a><a href="/ha/" class="lang-link"
+                    hreflang="ha" >
+                    Hausa
+                </a><a href="/he/" class="lang-link"
+                    hreflang="he" dir="rtl" >
+                    עברית
+                </a><a href="/hi/" class="lang-link"
+                    hreflang="hi" >
+                    हिन्दी
+                </a><a href="/hr/" class="lang-link"
+                    hreflang="hr" >
+                    Hrvatski
+                </a><a href="/hu/" class="lang-link"
+                    hreflang="hu" >
+                    Magyar
+                </a><a href="/id/" class="lang-link"
+                    hreflang="id" >
+                    Bahasa Indonesia
+                </a><a href="/is/" class="lang-link"
+                    hreflang="is" >
+                    Íslenska
+                </a><a href="/it/" class="lang-link"
+                    hreflang="it" >
+                    Italiano
+                </a><a href="/ja/" class="lang-link"
+                    hreflang="ja" >
+                    日本語
+                </a><a href="/km/" class="lang-link"
+                    hreflang="km" >
+                    ភាសាខ្មែរ
+                </a><a href="/kn/" class="lang-link"
+                    hreflang="kn" >
+                    ಕನ್ನಡ
+                </a><a href="/ko/" class="lang-link"
+                    hreflang="ko" >
+                    한국어
+                </a><a href="/lt/" class="lang-link active"
+                    hreflang="lt" >
+                    Lietuvių
+                </a><a href="/lv/" class="lang-link"
+                    hreflang="lv" >
+                    Latviešu
+                </a><a href="/ms/" class="lang-link"
+                    hreflang="ms" >
+                    Bahasa Melayu
+                </a><a href="/my/" class="lang-link"
+                    hreflang="my" >
+                    မြန်မာဘာသာ
+                </a><a href="/nb/" class="lang-link"
+                    hreflang="nb" >
+                    Norsk Bokmål
+                </a><a href="/nl/" class="lang-link"
+                    hreflang="nl" >
+                    Nederlands
+                </a><a href="/pl/" class="lang-link"
+                    hreflang="pl" >
+                    Polski
+                </a><a href="/pt/" class="lang-link"
+                    hreflang="pt" >
+                    Português
+                </a><a href="/pt-br/" class="lang-link"
+                    hreflang="pt-br" >
+                    Português (Brasil)
+                </a><a href="/ro/" class="lang-link"
+                    hreflang="ro" >
+                    Română
+                </a><a href="/ru/" class="lang-link"
+                    hreflang="ru" >
+                    Русский
+                </a><a href="/sk/" class="lang-link"
+                    hreflang="sk" >
+                    Slovenčina
+                </a><a href="/sl/" class="lang-link"
+                    hreflang="sl" >
+                    Slovenščina
+                </a><a href="/sr/" class="lang-link"
+                    hreflang="sr" >
+                    Српски
+                </a><a href="/sv/" class="lang-link"
+                    hreflang="sv" >
+                    Svenska
+                </a><a href="/sw/" class="lang-link"
+                    hreflang="sw" >
+                    Kiswahili
+                </a><a href="/ta/" class="lang-link"
+                    hreflang="ta" >
+                    தமிழ்
+                </a><a href="/te/" class="lang-link"
+                    hreflang="te" >
+                    తెలుగు
+                </a><a href="/th/" class="lang-link"
+                    hreflang="th" >
+                    ไทย
+                </a><a href="/tl/" class="lang-link"
+                    hreflang="tl" >
+                    Tagalog
+                </a><a href="/tr/" class="lang-link"
+                    hreflang="tr" >
+                    Türkçe
+                </a><a href="/uk/" class="lang-link"
+                    hreflang="uk" >
+                    Українська
+                </a><a href="/ur/" class="lang-link"
+                    hreflang="ur" dir="rtl" >
+                    اردو
+                </a><a href="/vi/" class="lang-link"
+                    hreflang="vi" >
+                    Tiếng Việt
+                </a><a href="/yo/" class="lang-link"
+                    hreflang="yo" >
+                    Yoruba
+                </a><a href="/zh/" class="lang-link"
+                    hreflang="zh" >
+                    中文
+                </a></div></div><div class="footer-divider"></div><div class="footer-bottom"><p class="copyright">
+                &copy; 2026 Bike Analytics. Visos teisės saugomos
+            </p><ul class="footer-legal"><li><a href="/lt/privacy/">Privatumas</a></li><li><a href="/lt/terms/">Sąlygos</a></li></ul></div></div></footer><div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite"><div class="cookie-banner-content"><div><p>Ši svetainė naudoja slapukus, kad pagerintų jūsų naršymo patirtį.</p><a href="/lt/privacy/" class="text-sm">Sužinoti daugiau</a></div><div class="cookie-banner-actions"><button id="cookie-decline" class="btn btn-secondary btn-small">Nesutinku</button><button id="cookie-accept" class="btn btn-primary btn-small">Sutinku</button></div></div></div><script src="../../assets/js/core.min.js?v=3c6d85d6" defer></script><script src="../../assets/js/search.min.js?v=3c6d85d6" defer></script><script src="../../assets/js/analytics.min.js" data-ga-id="G-EWDMHPM5MG" defer></script><script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../../sw.js') }</script></body></html>
